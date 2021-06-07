@@ -10,7 +10,7 @@
       
       
       <link rel="icon" href="../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.0">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.7">
     
     
       
@@ -18,10 +18,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.33e2939f.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ca7ac06f.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ef6f36e2.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.f1a3b89f.min.css">
         
           
           
@@ -317,6 +317,7 @@
       
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
+      
         
       
       
@@ -331,6 +332,7 @@
       
         
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
   
   
     
@@ -1003,6 +1005,7 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
+  
     
   
   
@@ -1062,7 +1065,7 @@ synthesized output when the abstraction they use does not &ldquo;hold water&rdqu
 synthesized into a Kubernetes manifest offers an API for patching the
 synthesized output at the wire level using JSON Patch
 (<a href="http://tools.ietf.org/html/rfc6902">RFC-6902</a>):</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">JsonPatch</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">JsonPatch</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span>
 <span class="nx">apiObject</span><span class="p">.</span><span class="nx">addJsonPatch</span><span class="p">(</span><span class="nx">JsonPatch</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s1">&#39;/foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">));</span>
 <span class="nx">apiObject</span><span class="p">.</span><span class="nx">addJsonPatch</span><span class="p">(</span><span class="nx">JsonPatch</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;/foo/bar/0&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">bar</span>: <span class="kt">123</span> <span class="p">}));</span>
 </code></pre></div>
@@ -1080,8 +1083,8 @@ the CDK8s+ <code>Pod</code> API, so you&rsquo;ll want to patch the underlying <c
 this value.</p>
 <p>To do that, you will need to &ldquo;peak&rdquo; into the construct tree and find the underlying
 API object, so you can apply the patch to it:</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Pod</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;cdk8s-plus-17&#39;</span><span class="p">;</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">ApiObject</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Pod</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">&#39;cdk8s-plus-17&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">ApiObject</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span>
 
 <span class="kd">const</span> <span class="nx">pod</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Pod</span><span class="p">(...);</span>
 <span class="kd">const</span> <span class="nx">kubePod</span> <span class="o">=</span> <span class="nx">ApiObject</span><span class="p">.</span><span class="k">of</span><span class="p">(</span><span class="nx">pod</span><span class="p">);</span>
@@ -1123,7 +1126,8 @@ retrieve any child by its ID.</p>
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../deps/" class="md-footer__link md-footer__link--prev" rel="prev">
+        
+        <a href="../deps/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Dependencies" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1138,7 +1142,8 @@ retrieve any child by its ID.</p>
         </a>
       
       
-        <a href="../helm/" class="md-footer__link md-footer__link--next" rel="next">
+        
+        <a href="../helm/" class="md-footer__link md-footer__link--next" aria-label="Next: Helm Support" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
@@ -1199,10 +1204,10 @@ retrieve any child by its ID.</p>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "header.autohide"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fe42c31b.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "header.autohide"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.b0710199.min.js", "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d892486b.min.js"></script>
+      <script src="../../assets/javascripts/bundle.76f349be.min.js"></script>
       
     
   </body>

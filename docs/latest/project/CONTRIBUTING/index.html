@@ -10,7 +10,7 @@
       
       
       <link rel="icon" href="../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.0">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.7">
     
     
       
@@ -18,10 +18,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.33e2939f.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ca7ac06f.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ef6f36e2.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.f1a3b89f.min.css">
         
           
           
@@ -854,6 +854,7 @@
       
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
+      
         
       
       
@@ -868,6 +869,7 @@
       
         
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
   
   
     
@@ -922,15 +924,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#development-environment" class="md-nav__link">
-    Development environment
+  <a href="#repositories" class="md-nav__link">
+    Repositories
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#linking-against-this-repository" class="md-nav__link">
-    Linking against this repository
+  <a href="#development-environment" class="md-nav__link">
+    Development environment
   </a>
   
 </li>
@@ -1160,6 +1162,7 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
+  
     
   
   
@@ -1212,15 +1215,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#development-environment" class="md-nav__link">
-    Development environment
+  <a href="#repositories" class="md-nav__link">
+    Repositories
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#linking-against-this-repository" class="md-nav__link">
-    Linking against this repository
+  <a href="#development-environment" class="md-nav__link">
+    Development environment
   </a>
   
 </li>
@@ -1413,8 +1416,8 @@ issue.</p>
 <h2 id="code-contributions">Code Contributions<a class="headerlink" href="#code-contributions" title="Permanent link">&para;</a></h2>
 <p>The general workflow for code contributions:</p>
 <ol>
-<li>Submit/find an issue</li>
-<li>Clone this repo</li>
+<li>Submit/find an issue in <strong>this repository</strong></li>
+<li>Clone <a href="#repositories">the relevant repo</a></li>
 <li>Make your code change</li>
 <li>Write tests &amp; update docs</li>
 <li>Build &amp; test locally</li>
@@ -1431,6 +1434,13 @@ bug or suggestion</a>.</p>
 else is currently working on it.</p>
 <p>If this is a major contribution, consider submitting an <a href="#rfcs">RFC</a> to obtain
 feedback from the community and maintainers.</p>
+<h3 id="repositories">Repositories<a class="headerlink" href="#repositories" title="Permanent link">&para;</a></h3>
+<p>This project consists of multiple modules, maintained and released via the following repositories:</p>
+<ul>
+<li><a href="https://github.com/cdk8s-team/cdk8s-cli">cdk8s-cli</a>: command-line interface</li>
+<li><a href="https://github.com/cdk8s-team/cdk8s-core">cdk8s-core</a>: core library</li>
+<li><a href="https://github.com/cdk8s-team/cdk8s-plus-17">cdk8s-plus-17</a>: high-level constructs for Kubernetes core 1.17 and above.</li>
+</ul>
 <h3 id="development-environment">Development environment<a class="headerlink" href="#development-environment" title="Permanent link">&para;</a></h3>
 <p>Prerequisites:</p>
 <ul>
@@ -1439,22 +1449,10 @@ feedback from the community and maintainers.</p>
 </ul>
 <p>Prepare your environment:</p>
 <ol>
-<li>Fork this repo and obtain a local clone.</li>
+<li>Fork <a href="#repositories">the relevant repo</a> and obtain a local clone.</li>
 <li>Install all dependencies: <code>yarn install</code></li>
 <li>Run <code>yarn build</code> to build all modules.</li>
 </ol>
-<h3 id="linking-against-this-repository">Linking against this repository<a class="headerlink" href="#linking-against-this-repository" title="Permanent link">&para;</a></h3>
-<p>The script <code>./tools/link-all.sh</code> can be used to generate symlinks to all modules in this repository under some <code>node_module</code>
-directory. This can be used to develop against this repo as a local dependency.</p>
-<p>One can use the <code>postinstall</code> script to symlink this repo:</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-  <span class="nt">&quot;scripts&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;postinstall&quot;</span><span class="p">:</span> <span class="s2">&quot;../cdk8s/tools/link-all.sh&quot;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>This assumes this repo is a sibling of the target repo and will install the CDK as a linked dependency during
-<strong>yarn install</strong>.</p>
 <h3 id="unit-tests">Unit tests<a class="headerlink" href="#unit-tests" title="Permanent link">&para;</a></h3>
 <p>Unit tests are located under the <code>test/</code> directory within each module and use the <a href="https://jestjs.io/">jest</a> framework.</p>
 <p>To run unit tests, execute <code>yarn test</code> either from the root of the repo (to unit test all modules) or from individual module directories:</p>
@@ -1464,12 +1462,14 @@ directory. This can be used to develop against this repo as a local dependency.<
 <div class="highlight"><pre><span></span><code>yarn test -u
 </code></pre></div>
 <h3 id="integration-tests">Integration Tests<a class="headerlink" href="#integration-tests" title="Permanent link">&para;</a></h3>
-<p>Integration tests are executed <em>after</em> we bundle the release. This means that in
-order to execute integration tests you&rsquo;ll need to create a bundle by running the
-following command from the root of the repo:</p>
-<div class="highlight"><pre><span></span><code>yarn run package
+<p>Integration tests are executed <em>against the latest published modules</em>. 
+This means that in order to execute integration tests against a development version, you&rsquo;lol need to <code>yarn link</code>
+your local version to this repository (all deps are at the root):</p>
+<div class="highlight"><pre><span></span><code>$ <span class="nb">cd</span> cdk8s-core
+$ yarn link
+$ <span class="nb">cd</span> ../cdk8s
+$ yarn link cdk8s
 </code></pre></div>
-<p>This will result in <code>./dist</code> that contains all the ready-to-publish artifacts.</p>
 <p>Now, you can run integration tests via:</p>
 <div class="highlight"><pre><span></span><code>yarn integ
 </code></pre></div>
@@ -1483,17 +1483,6 @@ Tests are written as simple shell scripts and can simulate user activity.</p>
 <p>You can either run individual tests by executing their entrypoint directly (e.g.
 <code>test-python-app/test.sh</code>) or run all tests by executing the script
 <code>./test-all.sh</code>.</p>
-<p>Tests assume the <code>cdk8s</code> CLI is installed and in the PATH, and will use the same
-version of the <code>cdk8s</code> module (this is the behavior of <code>cdk8s init</code>).</p>
-<p>You can also execute a test (or all of them) against the <code>dist</code> build artifact:</p>
-<div class="highlight"><pre><span></span><code>$ yarn install
-$ yarn build
-$ yarn run package <span class="c1"># creates &quot;dist/&quot;</span>
-$ <span class="nb">cd</span> <span class="nb">test</span>
-$ ./run-against-dist ./test-all.sh
-<span class="c1"># or</span>
-$ ./run-against-dist ./test-typescript-app/test.sh
-</code></pre></div>
 <h4 id="writing-integration-tests">Writing Integration Tests<a class="headerlink" href="#writing-integration-tests" title="Permanent link">&para;</a></h4>
 <ol>
 <li>Create a new subdirectory with a <code>test-</code> prefix.</li>
@@ -1648,7 +1637,8 @@ CDK</a> and <a href="https://github.com/etcd-io/etcd">etcd</a>.</p>
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../CHANGELOG/" class="md-footer__link md-footer__link--prev" rel="prev">
+        
+        <a href="../CHANGELOG/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Changelog" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1663,7 +1653,8 @@ CDK</a> and <a href="https://github.com/etcd-io/etcd">etcd</a>.</p>
         </a>
       
       
-        <a href="../ROADMAP/" class="md-footer__link md-footer__link--next" rel="next">
+        
+        <a href="../ROADMAP/" class="md-footer__link md-footer__link--next" aria-label="Next: Roadmap" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
@@ -1724,10 +1715,10 @@ CDK</a> and <a href="https://github.com/etcd-io/etcd">etcd</a>.</p>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "header.autohide"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fe42c31b.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "header.autohide"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.b0710199.min.js", "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d892486b.min.js"></script>
+      <script src="../../assets/javascripts/bundle.76f349be.min.js"></script>
       
     
   </body>

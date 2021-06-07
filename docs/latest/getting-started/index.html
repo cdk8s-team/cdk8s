@@ -10,7 +10,7 @@
       
       
       <link rel="icon" href="../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.0">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.7">
     
     
       
@@ -18,10 +18,10 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.33e2939f.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.ca7ac06f.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ef6f36e2.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.f1a3b89f.min.css">
         
           
           
@@ -219,6 +219,7 @@
       
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
+      
         
       
       
@@ -233,6 +234,7 @@
       
         
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
   
   
     
@@ -1029,6 +1031,7 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
+  
     
   
   
@@ -1179,8 +1182,8 @@ background like this:</p>
 <p>At this point, if you will see something like this:</p>
 <div class="tabbed-set" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">TypeScript</label><div class="tabbed-content">
 <p><code>main.ts</code></p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Construct</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;constructs&#39;</span><span class="p">;</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">App</span><span class="p">,</span> <span class="nx">Chart</span><span class="p">,</span> <span class="nx">ChartProps</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Construct</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">&#39;constructs&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">App</span><span class="p">,</span> <span class="nx">Chart</span><span class="p">,</span> <span class="nx">ChartProps</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span>
 
 <span class="k">export</span> <span class="kd">class</span> <span class="nx">MyChart</span> <span class="k">extends</span> <span class="nx">Chart</span> <span class="p">{</span>
   <span class="kr">constructor</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">id</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">props</span>: <span class="kt">ChartProps</span> <span class="o">=</span> <span class="p">{</span> <span class="p">})</span> <span class="p">{</span>
@@ -1282,11 +1285,11 @@ contains
 resources inspired by <a href="https://github.com/paulbouwer">paulbouwer</a>&lsquo;s
 <a href="https://github.com/paulbouwer/hello-kubernetes">hello-kubernetes</a> project.</p>
 <div class="tabbed-set" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><label for="__tabbed_5_1">TypeScript</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Construct</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;constructs&#39;</span><span class="p">;</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">App</span><span class="p">,</span> <span class="nx">Chart</span><span class="p">,</span> <span class="nx">ChartProps</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Construct</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">&#39;constructs&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">App</span><span class="p">,</span> <span class="nx">Chart</span><span class="p">,</span> <span class="nx">ChartProps</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span>
 
 <span class="c1">// imported constructs</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">KubeDeployment</span><span class="p">,</span> <span class="nx">KubeService</span><span class="p">,</span> <span class="nx">IntOrString</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./imports/k8s&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">KubeDeployment</span><span class="p">,</span> <span class="nx">KubeService</span><span class="p">,</span> <span class="nx">IntOrString</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">&#39;./imports/k8s&#39;</span><span class="p">;</span>
 
 
 <span class="k">export</span> <span class="kd">class</span> <span class="nx">MyChart</span> <span class="k">extends</span> <span class="nx">Chart</span> <span class="p">{</span>
@@ -1582,9 +1585,9 @@ actually quite useful.</p>
 <p>Here&rsquo;s how to implement <code>WebService</code>:</p>
 <div class="tabbed-set" data-tabs="7:3"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><label for="__tabbed_7_1">TypeScript</label><div class="tabbed-content">
 <p>Create a file <code>lib/web-service.ts</code> (the convention is to use <code>lib</code> for reusable components):</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Construct</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;constructs&#39;</span><span class="p">;</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">Names</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">KubeDeployment</span><span class="p">,</span> <span class="nx">KubeService</span><span class="p">,</span> <span class="nx">IntOrString</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;../imports/k8s&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Construct</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">&#39;constructs&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">Names</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">KubeDeployment</span><span class="p">,</span> <span class="nx">KubeService</span><span class="p">,</span> <span class="nx">IntOrString</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">&#39;../imports/k8s&#39;</span><span class="p">;</span>
 
 <span class="k">export</span> <span class="kd">interface</span> <span class="nx">WebServiceProps</span> <span class="p">{</span>
   <span class="cm">/**</span>
@@ -1655,9 +1658,9 @@ actually quite useful.</p>
 <span class="p">}</span>
 </code></pre></div>
 <p>Now, let&rsquo;s edit <code>main.ts</code> and use our new construct:</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Construct</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;constructs&#39;</span><span class="p">;</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">App</span><span class="p">,</span> <span class="nx">Chart</span><span class="p">,</span> <span class="nx">ChartProps</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">WebService</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./lib/web-service&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Construct</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">&#39;constructs&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">App</span><span class="p">,</span> <span class="nx">Chart</span><span class="p">,</span> <span class="nx">ChartProps</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">WebService</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">&#39;./lib/web-service&#39;</span><span class="p">;</span>
 
 
 <span class="k">export</span> <span class="kd">class</span> <span class="nx">MyChart</span> <span class="k">extends</span> <span class="nx">Chart</span> <span class="p">{</span>
@@ -1955,7 +1958,8 @@ of <a href="https://hub.docker.com/_/ghost/">ghost</a>.</p>
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href=".." class="md-footer__link md-footer__link--prev" rel="prev">
+        
+        <a href=".." class="md-footer__link md-footer__link--prev" aria-label="Previous: Overview" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1970,7 +1974,8 @@ of <a href="https://hub.docker.com/_/ghost/">ghost</a>.</p>
         </a>
       
       
-        <a href="../concepts/" class="md-footer__link md-footer__link--next" rel="next">
+        
+        <a href="../concepts/" class="md-footer__link md-footer__link--next" aria-label="Next: Overview" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
@@ -2031,10 +2036,10 @@ of <a href="https://hub.docker.com/_/ghost/">ghost</a>.</p>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "header.autohide"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../assets/javascripts/workers/search.fe42c31b.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "header.autohide"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.b0710199.min.js", "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.d892486b.min.js"></script>
+      <script src="../assets/javascripts/bundle.76f349be.min.js"></script>
       
     
   </body>
