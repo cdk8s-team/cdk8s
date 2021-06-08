@@ -120,11 +120,18 @@
 }
 
 .h2.white {
-  font-family: Montserrat, sans-serif;
   color: #fff;
+  margin-top: 0px;
+  margin-bottom: 32px;
+  font-family: Montserrat, sans-serif;
   font-size: 40px;
   text-align: center;
 }
+
+#cncf_text a:link {color: #f4bda3; text-decoration: none;}
+#cncf_text a:visited {color: #f4bda3; text-decoration: none;}
+#cncf_text a:hover {color: #f4bda3; text-decoration: none;}
+#cncf_text a:active {color: #f4bda3; text-decoration: none;}
 
 .intro-wrapper {
   width: 800px;
@@ -593,8 +600,8 @@
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  width: 100%;
-  padding-top: 69px;
+  width: 45%;
+  padding-top: 0px;
   padding-bottom: 23px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
