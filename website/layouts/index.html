@@ -18,6 +18,7 @@
 {{- $link_slack := "https://cdk.dev" }}
 {{- $link_license := "https://github.com/aws/aws-cdk/blob/master/LICENSE" }}
 {{- $link_coc := "https://github.com/cncf/foundation/blob/master/code-of-conduct.md" }}
+{{- $link_CNCF:= "https://www.cncf.io/" }}
 {{- $link_privacy := "https://aws.amazon.com/privacy/?nc1=f_pr" }}
 {{- $link_terms := "https://aws.amazon.com/terms/?nc1=f_pr" }}
 
@@ -214,6 +215,10 @@
             <div>Get started</div>
         </a>
     </div>
+    <div class="div-block">
+        <div class="text-20">CDK8s is a <a href="{{ $link-CNCF}}">Cloud Native Computing Foundation</a> Sandbox Project<br></div>
+        <div class="cncf-logo"></div>
+    </div>
     <div class="footer">
         <div class="wrappe _1">
             <div class="footer-col">
@@ -253,13 +258,15 @@
                 </div>
             </div>
         </div>
-        <div class="div-block">
+        <div class="footer-div-block">
             <div class="credits">
-                Made with 💙 by Amazon Web Services and distributed under the <a href="{{ $link_license }}" class="link">the Apache 2.0 License‍</a>
-                <br> Contributors and maintainers are governed by the <a href="{{ $link_coc }}" class="link">CNCF Code of Conduct</a>
+              Made with ❤️ at AWS
+              <br></br>
+              <br>Copyright © 2021 CDK8s Project Authors. All rights reserved.</br>
+              <br>The Linux Foundation has registered trademarks and uses trademarks. For a list of trademarks of The Linux Foundation, please see our Trademark Usage page: https://www.linuxfoundation.org/trademark-usage</br>
             </div>
             <div class="text-block-3">
-              <a class="footer-link" href="{{ $link_privacy }}">Privacy</a> | <a class="footer-link" href="{{ $link_terms }}">Site Terms</a> | © 2020, Amazon Web Services, Inc. or its affiliates. © cdk8s project authors. All rights reserved.
+              <a class="footer-link" href="{{ $link_privacy }}">Privacy</a> | <a class="footer-link" href="{{ $link_terms }}">Site Terms</a>
             </div>
         </div>
     </div>
