@@ -15,7 +15,7 @@ applications and reusable abstractions using familiar programming languages and
 rich object-oriented APIs. cdk8s generates pure Kubernetes YAML - you can use
 cdk8s to define applications for any Kubernetes cluster running anywhere.
 
-This is an early-stage, experimental project built with ❤️ by AWS. We encourage you to [try it out](#getting-started), [leave feedback](#help--feedback), and [jump in to help](#contributing)!
+CDK8s is a [Cloud Native Computing Foundation](https://www.cncf.io) Sandbox Project, built with ❤️ at AWS. We encourage you to [try it out](#getting-started), [leave feedback](#help--feedback), and [jump in to help](#contributing)!
 
 Contents:
 
