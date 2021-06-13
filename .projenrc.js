@@ -49,7 +49,7 @@ project.tasks.removeTask('test:update');
 project.tasks.removeTask('test:compile');
 
 // integ tests
-const integ = project.addTask('integ', { 
+const integ = project.addTask('integ', {
   exec: 'test/test-all.sh',
   env: { UPDATE_SNAPSHOTS: '1' }
 });
@@ -72,18 +72,12 @@ workflow.addJobs({
     },
     runsOn: 'ubuntu-18.04',
     steps: [
-      { 
+      {
         name: 'Checkout sources',
-        uses: 'actions/checkout@v2' 
+        uses: 'actions/checkout@v2'
       },
       {
         name: 'Setup Node.js',
-        uses: 'actions/setup-node@v2',
-        with: {
-          'node-version': '14',
-        },
-      },
-      {
         uses: 'actions/setup-node@v2',
         with: {
           'node-version': '14',
