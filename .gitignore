@@ -30,9 +30,9 @@ yarn-debug.log*
 yarn-error.log*
 !/.gitattributes
 !/.github/pull_request_template.md
+!/.github/workflows/auto-approve.yml
 !/.github/workflows/build.yml
 !/.github/workflows/upgrade-dependencies.yml
-!/.github/workflows/upgrade-projen.yml
 !/.github/workflows/website.yml
 !/.mergify.yml
 !/.npmignore

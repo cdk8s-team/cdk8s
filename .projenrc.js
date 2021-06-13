@@ -30,6 +30,11 @@ const project = new NodeProject({
     'typescript',
     'projen',
   ],
+  autoApproveOptions: {
+    allowedUsernames: ['cdk8s-automation'],
+    secret: 'GITHUB_TOKEN'
+  },
+  autoApproveUpgrades: true,
 });
 
 project.gitignore.addPatterns('*.js');
