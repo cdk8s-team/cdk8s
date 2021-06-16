@@ -15,7 +15,7 @@
     "@types/node": "^14.17.3",
     "cdk8s": "1.0.0-beta.24",
     "cdk8s-cli": "1.0.0-beta.24",
-    "cdk8s-plus-17": "1.0.0-beta.27",
+    "cdk8s-plus-17": "1.0.0-beta.28",
     "constructs": "^3",
     "jest": "^27.0.4",
     "jest-junit": "^12",

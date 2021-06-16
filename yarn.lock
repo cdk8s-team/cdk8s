@@ -2374,10 +2374,10 @@ cdk8s-plus-17@1.0.0-beta.24:
   dependencies:
     minimatch "^3.0.4"
 
-cdk8s-plus-17@1.0.0-beta.27:
-  version "1.0.0-beta.27"
-  resolved "https://registry.yarnpkg.com/cdk8s-plus-17/-/cdk8s-plus-17-1.0.0-beta.27.tgz#40a3b7197f2b4b407ab3e9f4230abd5bc1d18c73"
-  integrity sha512-VdG0ACxUPje+6K+i1e5R1wMMpQRPMG+5I5DmQ6sB8TyGZf7jse8NY+oHeyYKUF+Jq7k7fWvrw4KaYoJhvLg9cA==
+cdk8s-plus-17@1.0.0-beta.28:
+  version "1.0.0-beta.28"
+  resolved "https://registry.yarnpkg.com/cdk8s-plus-17/-/cdk8s-plus-17-1.0.0-beta.28.tgz#573257e666c4d203537aadf0b8614302861446a7"
+  integrity sha512-NwKp+VQ+1O3Brn91zfVOlxQMWJwRIZb8/LCjQ4itukdycQeaJC4Uk6YCIJX5LVw/9y66bgvbePu9ANor0ldh4Q==
   dependencies:
     minimatch "^3.0.4"
 
@@ -2713,9 +2713,9 @@ console-control-strings@^1.0.0, console-control-strings@~1.1.0:
   integrity sha1-PXz0Rk22RG6mRL9LOVB/mFEAjo4=
 
 constructs@^3, constructs@^3.3.77:
-  version "3.3.80"
-  resolved "https://registry.yarnpkg.com/constructs/-/constructs-3.3.80.tgz#13fe66724d14cfd914b01b50bddfe6d318ed277b"
-  integrity sha512-mfVOD1CuuyAVtf8oaa0LzSSqsP0dsWokH9Wq+R2h0RI2zPwIAUHNwyDYGu16oRpJfMZNutmntALwDJlXg4aIfw==
+  version "3.3.81"
+  resolved "https://registry.yarnpkg.com/constructs/-/constructs-3.3.81.tgz#c7a83e384ce77d504fb18f247001c33666ff0a00"
+  integrity sha512-ZRzJYcSgjWgR1Uz7Kx2lB3r7KJ1Opx/Wb/KNcmGBGvQZ+UARjGivGmPiQgstmNyt7rnJ0m0DYkZY8ffJ6REe8w==
 
 conventional-changelog-angular@^5.0.3:
   version "5.0.12"
@@ -5318,9 +5318,9 @@ jsii-rosetta@^1.30.0:
     yargs "^16.2.0"
 
 jsii-srcmak@^0.1.280:
-  version "0.1.283"
-  resolved "https://registry.yarnpkg.com/jsii-srcmak/-/jsii-srcmak-0.1.283.tgz#b5122b0e2b25d7bb01c0f2a5ccf34e2c6bc268bb"
-  integrity sha512-bevqtFoE4gQ1TN3dIJsOVgYR0ps42kDbM/9NiXTd5gYbPcmhniKnOrYxwvgS9cQM2/NtgtX/woqt/4TvvwZ8kQ==
+  version "0.1.284"
+  resolved "https://registry.yarnpkg.com/jsii-srcmak/-/jsii-srcmak-0.1.284.tgz#3762eb8362377b7ab651ff20ac4e2473d9ae4219"
+  integrity sha512-xPLAxFomIMXLIWk4pqZonPd5IsuTypFsryGZxnLjymyBmBRVqwT+SUKlzbWqs27By3wD0DSQ29i3cb71QVAe2g==
   dependencies:
     fs-extra "^9.1.0"
     jsii "^1.30.0"
@@ -5389,9 +5389,9 @@ json-stringify-safe@^5.0.1, json-stringify-safe@~5.0.1:
   integrity sha1-Epai1Y/UXxmg9s4B1lcB4sc1tus=
 
 json2jsii@^0.1.248:
-  version "0.1.250"
-  resolved "https://registry.yarnpkg.com/json2jsii/-/json2jsii-0.1.250.tgz#21d30c7969866183c7180d4a0d20080fd938a5e4"
-  integrity sha512-NToWFoTAkkLlXKd8A/PrUJjWl7nnV3vWbTV+qywKau/P8qVBGhYIHTKbDPGNs12QIRbzZrFFRxSypdn9KaVNwQ==
+  version "0.1.251"
+  resolved "https://registry.yarnpkg.com/json2jsii/-/json2jsii-0.1.251.tgz#011712c01716e63995347be776ff114e062d825f"
+  integrity sha512-oc5pDBQGlLd3s30uqakJCLhjbol/KYpqO6BOMSfedrfNp5qBnFUsyzSkfFutp52WTEZEtq63lFc4zDJVS9MHIA==
   dependencies:
     camelcase "^6.2.0"
     json-schema "^0.3.0"
@@ -6402,9 +6402,9 @@ npm-normalize-package-bin@^1.0.0, npm-normalize-package-bin@^1.0.1:
     validate-npm-package-name "^3.0.0"
 
 npm-package-arg@^8.0.0, npm-package-arg@^8.0.1, npm-package-arg@^8.1.2:
-  version "8.1.4"
-  resolved "https://registry.yarnpkg.com/npm-package-arg/-/npm-package-arg-8.1.4.tgz#8001cdbc4363997b8ef6c6cf7aaf543c5805879d"
-  integrity sha512-xLokoCFqj/rPdr3LvcdDL6Kj6ipXGEDHD/QGpzwU6/pibYUOXmp5DBmg76yukFyx4ZDbrXNOTn+BPyd8TD4Jlw==
+  version "8.1.5"
+  resolved "https://registry.yarnpkg.com/npm-package-arg/-/npm-package-arg-8.1.5.tgz#3369b2d5fe8fdc674baa7f1786514ddc15466e44"
+  integrity sha512-LhgZrg0n0VgvzVdSm1oiZworPbTxYHUJCgtsJW8mGvlDpxTM1vSJc3m5QZeUkhAHIzbz3VCHd/R4osi1L1Tg/Q==
   dependencies:
     hosted-git-info "^4.0.1"
     semver "^7.3.4"
@@ -7949,9 +7949,9 @@ sprintf-js@~1.0.2:
   integrity sha1-BOaSb2YolTVPPdAVIDYzuFcpfiw=
 
 sscaff@^1.2.0:
-  version "1.2.3"
-  resolved "https://registry.yarnpkg.com/sscaff/-/sscaff-1.2.3.tgz#442c655e5043a078af1a37304e5164b2e712db97"
-  integrity sha512-SdGnggMdQgRqRjtDX3CVg//oumG5S/nlOLS+p7NmyPrMACzkRsnhwsR1hO2+1ipVYOIUUR2IfjCPkuNh9iNLDA==
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/sscaff/-/sscaff-1.2.4.tgz#390c568e20f822f44cfa89af6b6374b3d96c400e"
+  integrity sha512-3TVG+8sy+YpSi/xZD9NXzDgwyJy19FDvRA5lvdIZ6LcxNVm2PZ4lemwN0IhAnP8d8/4B/CrSmheJTUVHt/2Z5A==
 
 sshpk@^1.7.0:
   version "1.16.1"
