@@ -11,7 +11,7 @@
     ]
   },
   "scripts": {
-    "import": "cdk8s import",
+    "import": "cdk8s import k8s --language typescript",
     "build": "yarn run import && tsc",
     "watch": "tsc -w",
     "synth": "cdk8s synth",
