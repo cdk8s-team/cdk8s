@@ -11,7 +11,7 @@ You may need to use an escape hatch in the following cases:
 1. You are using an imported API object (e.g. `KubeDeployment`) and there is an
    issue with the schema or a bug in "import" which results in an invalid
    manifest or missing fields (as an example see
-   [issue #140](https://github.com/awslabs/cdk8s/issues/140)).
+   [issue #140](https://github.com/cdk8s-team/cdk8s/issues/140)).
 2. You are using a high-level API (e.g. CDK8s+) which does not expose some
    functionality which exists in the lower-level resources.
 

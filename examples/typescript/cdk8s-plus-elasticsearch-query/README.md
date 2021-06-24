@@ -6,15 +6,15 @@ This directory contains an a small query service that hits an elasticsearch endp
 
 The Elasticsearch cluster is created using the [ElasticCloud CRD](https://download.elastic.co/downloads/eck/1.1.2/all-in-one.yaml). The code has been pre-imported and [included](./imports/elasticsearch.k8s.elastic.co/elasticsearch.ts) in this application.
 
-> To learn mode about using CRD's with `cdk8s`, see [Custom Resource Definitions](https://github.com/awslabs/cdk8s/tree/master/packages/cdk8s-cli#custom-resource-definitions-crds) and [CRD Example](https://github.com/awslabs/cdk8s/tree/master/examples/typescript/crd)
+> To learn mode about using CRD's with `cdk8s`, see [Custom Resource Definitions](https://github.com/cdk8s-team/cdk8s/tree/master/packages/cdk8s-cli#custom-resource-definitions-crds) and [CRD Example](https://github.com/cdk8s-team/cdk8s/tree/master/examples/typescript/crd)
 
 #### Query Deployment
 
-A kubernetes deployment is created using the `cdk8s-plus` [`Deployment`](https://github.com/awslabs/cdk8s/tree/master/packages/cdk8s-plus#deployment) construct.
+A kubernetes deployment is created using the `cdk8s-plus` [`Deployment`](https://github.com/cdk8s-team/cdk8s/tree/master/packages/cdk8s-plus#deployment) construct.
 
 #### Query Service
 
-A kubecrnetes service that serves the deployment is created using the `cdk8s-plus` [`Service`](https://github.com/awslabs/cdk8s/tree/master/packages/cdk8s-plus#service) construct.
+A kubecrnetes service that serves the deployment is created using the `cdk8s-plus` [`Service`](https://github.com/cdk8s-team/cdk8s/tree/master/packages/cdk8s-plus#service) construct.
 
 ## Build
 
@@ -49,4 +49,3 @@ To apply the manifest to your Kubernetes cluster, run:
 This example has a [`data.txt`](./data.txt) file that contains some mock documents that can be indexed to the Elasticsearch cluster, for quick development iterations.
 
 `npm run index-mock-data`
-
