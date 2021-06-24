@@ -1,6 +1,6 @@
 site_name: CDK8s Documentation
-repo_url: https://github.com/awslabs/cdk8s
-repo_name: awslabs/cdk8s
+repo_url: https://github.com/cdk8s-team/cdk8s
+repo_name: cdk8s-team/cdk8s
 edit_uri: blob/master/docs
 theme:
   name: material
@@ -39,6 +39,6 @@ extra:
     - icon: fontawesome/brands/slack
       link: https://cdk.dev
     - icon: fontawesome/brands/github
-      link: https://github.com/awslabs/cdk8s
+      link: https://github.com/cdk8s-team/cdk8s
 
 copyright: © 2020, Amazon Web Services, Inc. or its affiliates. © cdk8s project authors. All rights reserved.

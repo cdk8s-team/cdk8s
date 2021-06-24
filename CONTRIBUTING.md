@@ -84,7 +84,7 @@ The general workflow for code contributions:
 All pull requests should be tracked with a GitHub issue.
 
 You should search for an [existing
-issue](https://github.com/awslabs/cdk8s/issues) or raise a [new
+issue](https://github.com/cdk8s-team/cdk8s/issues) or raise a [new
 bug or suggestion](#reporting-issues).
 
 
@@ -129,7 +129,7 @@ Out tests utilize [jest snapshot testing](https://jestjs.io/docs/en/snapshot-tes
 
 ### Integration Tests
 
-Integration tests are executed *against the latest published modules*. 
+Integration tests are executed *against the latest published modules*.
 This means that in order to execute integration tests against a development version, you'lol need to `yarn link`
 your local version to this repository (all deps are at the root):
 
@@ -189,11 +189,11 @@ Or, run this from the root of the repo:
 
 #### Docker environment for integration tests
 
-Due to the polyglot nature of the [jsii](https://github.com/aws/jsii) tools used by cdk8s, 
-the toolchain requirements are somewhat more complicated than for most projects.  To 
+Due to the polyglot nature of the [jsii](https://github.com/aws/jsii) tools used by cdk8s,
+the toolchain requirements are somewhat more complicated than for most projects.  To
 help with this, you can use the `jsii/superchain` docker image that includes all the required tools.
 
-In order to get an interactive shell within a superchain container you can use the 
+In order to get an interactive shell within a superchain container you can use the
 following command.
 
 ```console
@@ -209,7 +209,7 @@ $ yarn run package
 $ yarn integ:update
 ```
 
-> Note: this may leave some files owned as the docker root user id.  These will need to 
+> Note: this may leave some files owned as the docker root user id.  These will need to
   be cleaned up manually.
 
 ### Pull Requests
@@ -236,7 +236,7 @@ release. Therefore please following these guidelines to the letter:
 
 Documentation is rendered from markdown using
 [mkdocs-material](https://squidfunk.github.io/mkdocs-material/) and sourced from
-the [`docs`](https://github.com/awslabs/cdk8s/tree/master/docs) directory.
+the [`docs`](https://github.com/cdk8s-team/cdk8s/tree/master/docs) directory.
 
 API documentation for `cdk8s` and all `cdk8s-plus-*` packages is auto-generated from inline
 docstrings during build.
@@ -260,11 +260,11 @@ This will serve a local web server with the website.
 ## Examples
 
 Examples are stored under
-[`examples`](https://github.com/awslabs/cdk8s/tree/master/examples) and
+[`examples`](https://github.com/cdk8s-team/cdk8s/tree/master/examples) and
 organized according to programming language.
 
 Every example also has an entry under
-[`docs/examples/xxx`](https://github.com/awslabs/cdk8s/tree/master/docs/examples)
+[`docs/examples/xxx`](https://github.com/cdk8s-team/cdk8s/tree/master/docs/examples)
 which describes the example and includes links to the source code (on the main
 branch).
 
@@ -282,7 +282,7 @@ To create an RFC follow this process:
    - Title should represent the title of the RFC.
    - Description should provide the motivation for the RFC.
 2. Create a markdown file based off of
-   [rfc/0000-template.md](https://github.com/awslabs/cdk8s/blob/master/rfc/0000-template.md) under the
+   [rfc/0000-template.md](https://github.com/cdk8s-team/cdk8s/blob/master/rfc/0000-template.md) under the
    `rfc/<nnnn>-<title-of-rfc>` where `<nnnn>` is the tracking issue number and
    `<title-of-rfc>` is a symbolic name for the title. For example:
    `rfc/0030-construct-operators.md`.
@@ -328,7 +328,7 @@ $ git push origin master
 ```
 
 This will trigger the [release
-workflow](https://github.com/awslabs/cdk8s/blob/master/.github/workflows/release.yml)
+workflow](https://github.com/cdk8s-team/cdk8s/blob/master/.github/workflows/release.yml)
 which will release to all package managers and will also create a GitHub release
 with a tag.
 
