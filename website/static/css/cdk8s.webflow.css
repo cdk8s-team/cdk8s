@@ -120,11 +120,18 @@
 }
 
 .h2.white {
-  font-family: Montserrat, sans-serif;
   color: #fff;
+  margin-top: 0px;
+  margin-bottom: 32px;
+  font-family: Montserrat, sans-serif;
   font-size: 40px;
   text-align: center;
 }
+
+#cncf_text a:link {color: #f4bda3; text-decoration: none;}
+#cncf_text a:visited {color: #f4bda3; text-decoration: none;}
+#cncf_text a:hover {color: #f4bda3; text-decoration: none;}
+#cncf_text a:active {color: #f4bda3; text-decoration: none;}
 
 .intro-wrapper {
   width: 800px;
@@ -473,6 +480,14 @@
   padding-left: 0px;
 }
 
+.cncf-logo {
+  background: 50% no-repeat url(../images/cncf-white.svg);
+  width: 100%;
+  height: 100px;
+  margin-bottom: 40px;
+  margin-top: 20px;
+}
+
 .nav-menu {
   display: -webkit-box;
   display: -webkit-flex;
@@ -576,6 +591,32 @@
   -ms-flex-align: center;
   align-items: center;
   background-color: #14354f;
+  color: #fff;
+  text-align: center;
+}
+
+.footer-div-block {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 45%;
+  padding-top: 0px;
+  padding-bottom: 23px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #215276;
   color: #fff;
   text-align: center;
 }
@@ -817,6 +858,10 @@
     padding-right: 48px;
     padding-left: 48px;
   }
+  .footer-div-block {
+    padding-right: 48px;
+    padding-left: 48px;
+  }
 }
 
 @media screen and (max-width: 479px) {
@@ -927,4 +972,3 @@
     color: #215276;
   }
 }
-

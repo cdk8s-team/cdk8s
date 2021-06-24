@@ -61,13 +61,12 @@ imports. You could use them in this fashion:
     ```javascript
     import { Cluster } from './imports/example-cluster';
     import { Autoscaler } from './imports/example-autoscaler';
-
-```
+    ```
 
 === "Python"
     ```python
     not yet supported
-```
+    ```
 
 ## Import Types
 

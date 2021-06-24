@@ -15,7 +15,7 @@ applications and reusable abstractions using familiar programming languages and
 rich object-oriented APIs. cdk8s generates pure Kubernetes YAML - you can use
 cdk8s to define applications for any Kubernetes cluster running anywhere.
 
-This is an early-stage, experimental project built with ❤️ by AWS. We encourage you to [try it out](#getting-started), [leave feedback](#help--feedback), and [jump in to help](#contributing)!
+CDK8s is a [Cloud Native Computing Foundation](https://www.cncf.io) Sandbox Project, built with ❤️ at AWS. We encourage you to [try it out](#getting-started), [leave feedback](#help--feedback), and [jump in to help](#contributing)!
 
 Contents:
 
@@ -99,6 +99,13 @@ Conduct](https://github.com/cncf/foundation/blob/master/code-of-conduct.md).
 We welcome community contributions and pull requests. See our [contribution
 guide](./CONTRIBUTING.md) for more information on how to report issues, set up a
 development environment and submit code.
+
+This project consists of multiple modules, maintained and released via the following repositories:
+
+- [cdk8s-cli](https://github.com/cdk8s-team/cdk8s-cli): command-line interface
+- [cdk8s-core](https://github.com/cdk8s-team/cdk8s-core): core library
+- [cdk8s-plus-17](https://github.com/cdk8s-team/cdk8s-plus-17): high-level constructs for Kubernetes core 1.17 and above.
+
 
 Join us for the cdk8s community meeting which takes place the [2nd Tuesday of the month at 9:00am Pacific Time](https://www.thetimezoneconverter.com/?t=9:00&tz=PT%20%28Pacific%20Time%29).
 
