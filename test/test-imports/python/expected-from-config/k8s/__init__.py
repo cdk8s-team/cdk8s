@@ -284,7 +284,7 @@ class AllowedHostPath:
         "version_priority": "versionPriority",
         "ca_bundle": "caBundle",
         "group": "group",
-        "insecure_skip_tls_verify": "insecureSkipTLSVerify",
+        "insecure_skip_tls_verify": "insecureSkipTlsVerify",
         "version": "version",
     },
 )
@@ -479,7 +479,7 @@ class AuditSinkSpec:
     jsii_type="k8s.AwsElasticBlockStoreVolumeSource",
     jsii_struct_bases=[],
     name_mapping={
-        "volume_id": "volumeID",
+        "volume_id": "volumeId",
         "fs_type": "fsType",
         "partition": "partition",
         "read_only": "readOnly",
@@ -577,7 +577,7 @@ class AwsElasticBlockStoreVolumeSource:
     jsii_struct_bases=[],
     name_mapping={
         "disk_name": "diskName",
-        "disk_uri": "diskURI",
+        "disk_uri": "diskUri",
         "caching_mode": "cachingMode",
         "fs_type": "fsType",
         "kind": "kind",
@@ -1386,7 +1386,7 @@ class CertificateSigningRequestSpec:
     jsii_type="k8s.CinderPersistentVolumeSource",
     jsii_struct_bases=[],
     name_mapping={
-        "volume_id": "volumeID",
+        "volume_id": "volumeId",
         "fs_type": "fsType",
         "read_only": "readOnly",
         "secret_ref": "secretRef",
@@ -1485,7 +1485,7 @@ class CinderPersistentVolumeSource:
     jsii_type="k8s.CinderVolumeSource",
     jsii_struct_bases=[],
     name_mapping={
-        "volume_id": "volumeID",
+        "volume_id": "volumeId",
         "fs_type": "fsType",
         "read_only": "readOnly",
         "secret_ref": "secretRef",
@@ -2528,7 +2528,7 @@ class Container:
     jsii_struct_bases=[],
     name_mapping={
         "container_port": "containerPort",
-        "host_ip": "hostIP",
+        "host_ip": "hostIp",
         "host_port": "hostPort",
         "name": "name",
         "protocol": "protocol",
@@ -2896,7 +2896,7 @@ class CsiDriverSpec:
 
     @builtins.property
     def pod_info_on_mount(self) -> typing.Optional[builtins.bool]:
-        '''If set to true, podInfoOnMount indicates this CSI volume driver requires additional pod information (like podName, podUID, etc.) during mount operations. If set to false, pod information will not be passed on mount. Default is false. The CSI driver specifies podInfoOnMount as part of driver deployment. If true, Kubelet will pass pod information as VolumeContext in the CSI NodePublishVolume() calls. The CSI driver is responsible for parsing and validating the information passed in as VolumeContext. The following VolumeConext will be passed if podInfoOnMount is set to true. This list might grow, but the prefix will be used. "csi.storage.k8s.io/pod.name": pod.Name "csi.storage.k8s.io/pod.namespace": pod.Namespace "csi.storage.k8s.io/pod.uid": string(pod.UID) "csi.storage.k8s.io/ephemeral": "true" iff the volume is an ephemeral inline volume                             defined by a CSIVolumeSource, otherwise "false".
+        '''If set to true, podInfoOnMount indicates this CSI volume driver requires additional pod information (like podName, podUID, etc.) during mount operations. If set to false, pod information will not be passed on mount. Default is false. The CSI driver specifies podInfoOnMount as part of driver deployment. If true, Kubelet will pass pod information as VolumeContext in the CSI NodePublishVolume() calls. The CSI driver is responsible for parsing and validating the information passed in as VolumeContext. The following VolumeConext will be passed if podInfoOnMount is set to true. This list might grow, but the prefix will be used. "csi.storage.k8s.io/pod.name": pod.Name "csi.storage.k8s.io/pod.namespace": pod.Namespace "csi.storage.k8s.io/pod.uid": string(pod.UID) "csi.storage.k8s.io/ephemeral": "true" iff the volume is an ephemeral inline volume defined by a CSIVolumeSource, otherwise "false".
 
         "csi.storage.k8s.io/ephemeral" is a new feature in Kubernetes 1.16. It is only required for drivers which support both the "Persistent" and "Ephemeral" VolumeLifecycleMode. Other drivers can leave pod info disabled and/or ignore this field. As Kubernetes 1.15 doesn't support this field, drivers can only support one mode when deployed on such a cluster and the deployment determines which mode that is, for example via a command line parameter of the driver.
 
@@ -2935,7 +2935,7 @@ class CsiDriverSpec:
     jsii_struct_bases=[],
     name_mapping={
         "name": "name",
-        "node_id": "nodeID",
+        "node_id": "nodeId",
         "allocatable": "allocatable",
         "topology_keys": "topologyKeys",
     },
@@ -3372,11 +3372,11 @@ class CsiVolumeSource:
     jsii_type="k8s.CustomResourceColumnDefinition",
     jsii_struct_bases=[],
     name_mapping={
+        "json_path": "jsonPath",
         "name": "name",
         "type": "type",
         "description": "description",
         "format": "format",
-        "json_path": "jsonPath",
         "priority": "priority",
     },
 )
@@ -3384,25 +3384,26 @@ class CustomResourceColumnDefinition:
     def __init__(
         self,
         *,
+        json_path: builtins.str,
         name: builtins.str,
         type: builtins.str,
         description: typing.Optional[builtins.str] = None,
         format: typing.Optional[builtins.str] = None,
-        json_path: typing.Optional[builtins.str] = None,
         priority: typing.Optional[jsii.Number] = None,
     ) -> None:
         '''CustomResourceColumnDefinition specifies a column for server side printing.
 
+        :param json_path: JSONPath is a simple JSON path (i.e. with array notation) which is evaluated against each custom resource to produce the value for this column.
         :param name: name is a human readable name for the column.
         :param type: type is an OpenAPI type definition for this column. See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for details.
         :param description: description is a human readable description of this column.
         :param format: format is an optional OpenAPI type definition for this column. The 'name' format is applied to the primary identifier column to assist in clients identifying column is the resource name. See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for details.
-        :param json_path: JSONPath is a simple JSON path (i.e. with array notation) which is evaluated against each custom resource to produce the value for this column.
         :param priority: priority is an integer defining the relative importance of this column compared to others. Lower numbers are considered higher priority. Columns that may be omitted in limited space scenarios should be given a priority greater than 0.
 
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition
         '''
         self._values: typing.Dict[str, typing.Any] = {
+            "json_path": json_path,
             "name": name,
             "type": type,
         }
@@ -3410,10 +3411,18 @@ class CustomResourceColumnDefinition:
             self._values["description"] = description
         if format is not None:
             self._values["format"] = format
-        if json_path is not None:
-            self._values["json_path"] = json_path
         if priority is not None:
             self._values["priority"] = priority
+
+    @builtins.property
+    def json_path(self) -> builtins.str:
+        '''JSONPath is a simple JSON path (i.e. with array notation) which is evaluated against each custom resource to produce the value for this column.
+
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition#JSONPath
+        '''
+        result = self._values.get("json_path")
+        assert result is not None, "Required property 'json_path' is missing"
+        return typing.cast(builtins.str, result)
 
     @builtins.property
     def name(self) -> builtins.str:
@@ -3455,15 +3464,6 @@ class CustomResourceColumnDefinition:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition#format
         '''
         result = self._values.get("format")
-        return typing.cast(typing.Optional[builtins.str], result)
-
-    @builtins.property
-    def json_path(self) -> typing.Optional[builtins.str]:
-        '''JSONPath is a simple JSON path (i.e. with array notation) which is evaluated against each custom resource to produce the value for this column.
-
-        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition#JSONPath
-        '''
-        result = self._values.get("json_path")
         return typing.cast(typing.Optional[builtins.str], result)
 
     @builtins.property
@@ -4169,7 +4169,7 @@ class CustomResourceSubresources:
 @jsii.data_type(
     jsii_type="k8s.CustomResourceValidation",
     jsii_struct_bases=[],
-    name_mapping={"open_apiv3_schema": "openAPIV3Schema"},
+    name_mapping={"open_apiv3_schema": "openApiv3Schema"},
 )
 class CustomResourceValidation:
     def __init__(
@@ -5071,7 +5071,7 @@ class Endpoint:
         :param conditions: conditions contains information about the current status of the endpoint.
         :param hostname: hostname of this endpoint. This field may be used by consumers of endpoints to distinguish endpoints from each other (e.g. in DNS names). Multiple endpoints which use the same hostname should be considered fungible (e.g. multiple A values in DNS). Must pass DNS Label (RFC 1123) validation.
         :param target_ref: targetRef is a reference to a Kubernetes object that represents this endpoint.
-        :param topology: topology contains arbitrary topology information associated with the endpoint. These key/value pairs must conform with the label format. https://kubernetes.io/docs/concepts/overview/working-with-objects/labels Topology may include a maximum of 16 key/value pairs. This includes, but is not limited to the following well known keys: * kubernetes.io/hostname: the value indicates the hostname of the node where the endpoint is located. This should match the corresponding node label. topology.kubernetes.io/zone: the value indicates the zone where the endpoint is located. This should match the corresponding node label. topology.kubernetes.io/region: the value indicates the region where the endpoint is located. This should match the corresponding node label.
+        :param topology: topology contains arbitrary topology information associated with the endpoint. These key/value pairs must conform with the label format. https://kubernetes.io/docs/concepts/overview/working-with-objects/labels Topology may include a maximum of 16 key/value pairs. This includes, but is not limited to the following well known keys: * kubernetes.io/hostname: the value indicates the hostname of the node where the endpoint is located. This should match the corresponding node label. - topology.kubernetes.io/zone: the value indicates the zone where the endpoint is located. This should match the corresponding node label. - topology.kubernetes.io/region: the value indicates the region where the endpoint is located. This should match the corresponding node label.
 
         :schema: io.k8s.api.discovery.v1beta1.Endpoint
         '''
@@ -5139,10 +5139,11 @@ class Endpoint:
         These key/value pairs must conform with the label format. https://kubernetes.io/docs/concepts/overview/working-with-objects/labels Topology may include a maximum of 16 key/value pairs. This includes, but is not limited to the following well known keys: * kubernetes.io/hostname: the value indicates the hostname of the node
         where the endpoint is located. This should match the corresponding
         node label.
-        topology.kubernetes.io/zone: the value indicates the zone where the
-        endpoint is located. This should match the corresponding node label.
-        topology.kubernetes.io/region: the value indicates the region where the
-        endpoint is located. This should match the corresponding node label.
+
+        - topology.kubernetes.io/zone: the value indicates the zone where the
+          endpoint is located. This should match the corresponding node label.
+        - topology.kubernetes.io/region: the value indicates the region where the
+          endpoint is located. This should match the corresponding node label.
 
         :schema: io.k8s.api.discovery.v1beta1.Endpoint#topology
         '''
@@ -6405,7 +6406,7 @@ class ExternalMetricSource:
         "fs_type": "fsType",
         "lun": "lun",
         "read_only": "readOnly",
-        "target_ww_ns": "targetWWNs",
+        "target_ww_ns": "targetWwNs",
         "wwids": "wwids",
     },
 )
@@ -6731,7 +6732,7 @@ class FlexVolumeSource:
 @jsii.data_type(
     jsii_type="k8s.FlockerVolumeSource",
     jsii_struct_bases=[],
-    name_mapping={"dataset_name": "datasetName", "dataset_uuid": "datasetUUID"},
+    name_mapping={"dataset_name": "datasetName", "dataset_uuid": "datasetUuid"},
 )
 class FlockerVolumeSource:
     def __init__(
@@ -8276,6 +8277,11 @@ class IntOrString(metaclass=jsii.JSIIMeta, jsii_type="k8s.IntOrString"):
         '''
         return typing.cast("IntOrString", jsii.sinvoke(cls, "fromString", [value]))
 
+    @builtins.property # type: ignore[misc]
+    @jsii.member(jsii_name="value")
+    def value(self) -> typing.Any:
+        return typing.cast(typing.Any, jsii.get(self, "value"))
+
 
 @jsii.enum(jsii_type="k8s.IoK8SApimachineryPkgApisMetaV1DeleteOptionsKind")
 class IoK8SApimachineryPkgApisMetaV1DeleteOptionsKind(enum.Enum):
@@ -9027,6 +9033,12 @@ class JobTemplateSpec:
         "title": "title",
         "type": "type",
         "unique_items": "uniqueItems",
+        "x_kubernetes_embedded_resource": "xKubernetesEmbeddedResource",
+        "x_kubernetes_int_or_string": "xKubernetesIntOrString",
+        "x_kubernetes_list_map_keys": "xKubernetesListMapKeys",
+        "x_kubernetes_list_type": "xKubernetesListType",
+        "x_kubernetes_map_type": "xKubernetesMapType",
+        "x_kubernetes_preserve_unknown_fields": "xKubernetesPreserveUnknownFields",
     },
 )
 class JsonSchemaProps:
@@ -9070,6 +9082,12 @@ class JsonSchemaProps:
         title: typing.Optional[builtins.str] = None,
         type: typing.Optional[builtins.str] = None,
         unique_items: typing.Optional[builtins.bool] = None,
+        x_kubernetes_embedded_resource: typing.Optional[builtins.bool] = None,
+        x_kubernetes_int_or_string: typing.Optional[builtins.bool] = None,
+        x_kubernetes_list_map_keys: typing.Optional[typing.Sequence[builtins.str]] = None,
+        x_kubernetes_list_type: typing.Optional[builtins.str] = None,
+        x_kubernetes_map_type: typing.Optional[builtins.str] = None,
+        x_kubernetes_preserve_unknown_fields: typing.Optional[builtins.bool] = None,
     ) -> None:
         '''JSONSchemaProps is a JSON-Schema following Specification Draft 4 (http://json-schema.org/).
 
@@ -9110,6 +9128,12 @@ class JsonSchemaProps:
         :param title: 
         :param type: 
         :param unique_items: 
+        :param x_kubernetes_embedded_resource: x-kubernetes-embedded-resource defines that the value is an embedded Kubernetes runtime.Object, with TypeMeta and ObjectMeta. The type must be object. It is allowed to further restrict the embedded object. kind, apiVersion and metadata are validated automatically. x-kubernetes-preserve-unknown-fields is allowed to be true, but does not have to be if the object is fully specified (up to kind, apiVersion, metadata).
+        :param x_kubernetes_int_or_string: x-kubernetes-int-or-string specifies that this value is either an integer or a string. If this is true, an empty type is allowed and type as child of anyOf is permitted if following one of the following patterns: 1. anyOf: - type: integer - type: string 2. allOf: - anyOf: - type: integer - type: string - ... zero or more
+        :param x_kubernetes_list_map_keys: x-kubernetes-list-map-keys annotates an array with the x-kubernetes-list-type ``map`` by specifying the keys used as the index of the map. This tag MUST only be used on lists that have the "x-kubernetes-list-type" extension set to "map". Also, the values specified for this attribute must be a scalar typed field of the child structure (no nesting is supported).
+        :param x_kubernetes_list_type: x-kubernetes-list-type annotates an array to further describe its topology. This extension must only be used on lists and may have 3 possible values: 1. ``atomic``: the list is treated as a single entity, like a scalar. Atomic lists will be entirely replaced when updated. This extension may be used on any type of list (struct, scalar, ...). 2. ``set``: Sets are lists that must not have multiple items with the same value. Each value must be a scalar, an object with x-kubernetes-map-type ``atomic`` or an array with x-kubernetes-list-type ``atomic``. 3. ``map``: These lists are like maps in that their elements have a non-index key used to identify them. Order is preserved upon merge. The map tag must only be used on a list with elements of type object. Defaults to atomic for arrays. Default: atomic for arrays.
+        :param x_kubernetes_map_type: x-kubernetes-map-type annotates an object to further describe its topology. This extension must only be used when type is object and may have 2 possible values: 1. ``granular``: These maps are actual maps (key-value pairs) and each fields are independent from each other (they can each be manipulated by separate actors). This is the default behaviour for all maps. 2. ``atomic``: the list is treated as a single entity, like a scalar. Atomic maps will be entirely replaced when updated.
+        :param x_kubernetes_preserve_unknown_fields: x-kubernetes-preserve-unknown-fields stops the API server decoding step from pruning fields which are not specified in the validation schema. This affects fields recursively, but switches back to normal pruning behaviour if nested properties or additionalProperties are specified in the schema. This can either be true or undefined. False is forbidden.
 
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps
         '''
@@ -9192,6 +9216,18 @@ class JsonSchemaProps:
             self._values["type"] = type
         if unique_items is not None:
             self._values["unique_items"] = unique_items
+        if x_kubernetes_embedded_resource is not None:
+            self._values["x_kubernetes_embedded_resource"] = x_kubernetes_embedded_resource
+        if x_kubernetes_int_or_string is not None:
+            self._values["x_kubernetes_int_or_string"] = x_kubernetes_int_or_string
+        if x_kubernetes_list_map_keys is not None:
+            self._values["x_kubernetes_list_map_keys"] = x_kubernetes_list_map_keys
+        if x_kubernetes_list_type is not None:
+            self._values["x_kubernetes_list_type"] = x_kubernetes_list_type
+        if x_kubernetes_map_type is not None:
+            self._values["x_kubernetes_map_type"] = x_kubernetes_map_type
+        if x_kubernetes_preserve_unknown_fields is not None:
+            self._values["x_kubernetes_preserve_unknown_fields"] = x_kubernetes_preserve_unknown_fields
 
     @builtins.property
     def additional_items(self) -> typing.Any:
@@ -9499,6 +9535,104 @@ class JsonSchemaProps:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#uniqueItems
         '''
         result = self._values.get("unique_items")
+        return typing.cast(typing.Optional[builtins.bool], result)
+
+    @builtins.property
+    def x_kubernetes_embedded_resource(self) -> typing.Optional[builtins.bool]:
+        '''x-kubernetes-embedded-resource defines that the value is an embedded Kubernetes runtime.Object, with TypeMeta and ObjectMeta. The type must be object. It is allowed to further restrict the embedded object. kind, apiVersion and metadata are validated automatically. x-kubernetes-preserve-unknown-fields is allowed to be true, but does not have to be if the object is fully specified (up to kind, apiVersion, metadata).
+
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#x-kubernetes-embedded-resource
+        '''
+        result = self._values.get("x_kubernetes_embedded_resource")
+        return typing.cast(typing.Optional[builtins.bool], result)
+
+    @builtins.property
+    def x_kubernetes_int_or_string(self) -> typing.Optional[builtins.bool]:
+        '''x-kubernetes-int-or-string specifies that this value is either an integer or a string.
+
+        If this is true, an empty type is allowed and type as child of anyOf is permitted if following one of the following patterns:
+
+        1. anyOf:
+
+        - type: integer
+        - type: string
+
+        1. allOf:
+
+        - anyOf:
+        - type: integer
+        - type: string
+        - ... zero or more
+
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#x-kubernetes-int-or-string
+        '''
+        result = self._values.get("x_kubernetes_int_or_string")
+        return typing.cast(typing.Optional[builtins.bool], result)
+
+    @builtins.property
+    def x_kubernetes_list_map_keys(self) -> typing.Optional[typing.List[builtins.str]]:
+        '''x-kubernetes-list-map-keys annotates an array with the x-kubernetes-list-type ``map`` by specifying the keys used as the index of the map.
+
+        This tag MUST only be used on lists that have the "x-kubernetes-list-type" extension set to "map". Also, the values specified for this attribute must be a scalar typed field of the child structure (no nesting is supported).
+
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#x-kubernetes-list-map-keys
+        '''
+        result = self._values.get("x_kubernetes_list_map_keys")
+        return typing.cast(typing.Optional[typing.List[builtins.str]], result)
+
+    @builtins.property
+    def x_kubernetes_list_type(self) -> typing.Optional[builtins.str]:
+        '''x-kubernetes-list-type annotates an array to further describe its topology.
+
+        This extension must only be used on lists and may have 3 possible values:
+
+        1. ``atomic``: the list is treated as a single entity, like a scalar.
+           Atomic lists will be entirely replaced when updated. This extension
+           may be used on any type of list (struct, scalar, ...).
+        2. ``set``:
+           Sets are lists that must not have multiple items with the same value. Each
+           value must be a scalar, an object with x-kubernetes-map-type ``atomic`` or an
+           array with x-kubernetes-list-type ``atomic``.
+        3. ``map``:
+           These lists are like maps in that their elements have a non-index key
+           used to identify them. Order is preserved upon merge. The map tag
+           must only be used on a list with elements of type object.
+           Defaults to atomic for arrays.
+
+        :default: atomic for arrays.
+
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#x-kubernetes-list-type
+        '''
+        result = self._values.get("x_kubernetes_list_type")
+        return typing.cast(typing.Optional[builtins.str], result)
+
+    @builtins.property
+    def x_kubernetes_map_type(self) -> typing.Optional[builtins.str]:
+        '''x-kubernetes-map-type annotates an object to further describe its topology.
+
+        This extension must only be used when type is object and may have 2 possible values:
+
+        1. ``granular``:
+           These maps are actual maps (key-value pairs) and each fields are independent
+           from each other (they can each be manipulated by separate actors). This is
+           the default behaviour for all maps.
+        2. ``atomic``: the list is treated as a single entity, like a scalar.
+           Atomic maps will be entirely replaced when updated.
+
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#x-kubernetes-map-type
+        '''
+        result = self._values.get("x_kubernetes_map_type")
+        return typing.cast(typing.Optional[builtins.str], result)
+
+    @builtins.property
+    def x_kubernetes_preserve_unknown_fields(self) -> typing.Optional[builtins.bool]:
+        '''x-kubernetes-preserve-unknown-fields stops the API server decoding step from pruning fields which are not specified in the validation schema.
+
+        This affects fields recursively, but switches back to normal pruning behaviour if nested properties or additionalProperties are specified in the schema. This can either be true or undefined. False is forbidden.
+
+        :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.JSONSchemaProps#x-kubernetes-preserve-unknown-fields
+        '''
+        result = self._values.get("x_kubernetes_preserve_unknown_fields")
         return typing.cast(typing.Optional[builtins.bool], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
@@ -33403,10 +33537,11 @@ class LimitedPriorityLevelConfiguration:
         '''LimitedPriorityLevelConfiguration specifies how to handle requests that are subject to limits.
 
         It addresses two issues:
-        How are requests for this priority level limited?
-        What should be done with requests that exceed the limit?
 
-        :param assured_concurrency_shares: ``assuredConcurrencyShares`` (ACS) configures the execution limit, which is a limit on the number of requests of this priority level that may be exeucting at a given time. ACS must be a positive number. The server's concurrency limit (SCL) is divided among the concurrency-controlled priority levels in proportion to their assured concurrency shares. This produces the assured concurrency value (ACV) --- the number of requests that may be executing at a time --- for each such priority level:: ACV(l) = ceil( SCL * ACS(l) / ( sum[priority levels k] ACS(k) ) ) bigger numbers of ACS mean more reserved concurrent requests (at the expense of every other PL). This field has a default value of 30.
+        - How are requests for this priority level limited?
+        - What should be done with requests that exceed the limit?
+
+        :param assured_concurrency_shares: ``assuredConcurrencyShares`` (ACS) configures the execution limit, which is a limit on the number of requests of this priority level that may be exeucting at a given time. ACS must be a positive number. The server's concurrency limit (SCL) is divided among the concurrency-controlled priority levels in proportion to their assured concurrency shares. This produces the assured concurrency value (ACV) --- the number of requests that may be executing at a time --- for each such priority level: ACV(l) = ceil( SCL * ACS(l) / ( sum[priority levels k] ACS(k) ) ) bigger numbers of ACS mean more reserved concurrent requests (at the expense of every other PL). This field has a default value of 30.
         :param limit_response: ``limitResponse`` indicates what to do with requests that can not be executed right now.
 
         :schema: io.k8s.api.flowcontrol.v1alpha1.LimitedPriorityLevelConfiguration
@@ -33423,9 +33558,9 @@ class LimitedPriorityLevelConfiguration:
     def assured_concurrency_shares(self) -> typing.Optional[jsii.Number]:
         '''``assuredConcurrencyShares`` (ACS) configures the execution limit, which is a limit on the number of requests of this priority level that may be exeucting at a given time.
 
-        ACS must be a positive number. The server's concurrency limit (SCL) is divided among the concurrency-controlled priority levels in proportion to their assured concurrency shares. This produces the assured concurrency value (ACV) --- the number of requests that may be executing at a time --- for each such priority level::
+        ACS must be a positive number. The server's concurrency limit (SCL) is divided among the concurrency-controlled priority levels in proportion to their assured concurrency shares. This produces the assured concurrency value (ACV) --- the number of requests that may be executing at a time --- for each such priority level:
 
-               ACV(l) = ceil( SCL * ACS(l) / ( sum[priority levels k] ACS(k) ) )
+        ACV(l) = ceil( SCL * ACS(l) / ( sum[priority levels k] ACS(k) ) )
 
         bigger numbers of ACS mean more reserved concurrent requests (at the expense of every other PL). This field has a default value of 30.
 
@@ -35097,10 +35232,10 @@ class NodeSelectorTerm:
     jsii_struct_bases=[],
     name_mapping={
         "config_source": "configSource",
-        "external_id": "externalID",
-        "pod_cidr": "podCIDR",
-        "pod_cid_rs": "podCIDRs",
-        "provider_id": "providerID",
+        "external_id": "externalId",
+        "pod_cidr": "podCidr",
+        "pod_cid_rs": "podCidRs",
+        "provider_id": "providerId",
         "taints": "taints",
         "unschedulable": "unschedulable",
     },
@@ -35286,7 +35421,7 @@ class NonResourceAttributes:
 @jsii.data_type(
     jsii_type="k8s.NonResourcePolicyRule",
     jsii_struct_bases=[],
-    name_mapping={"non_resource_ur_ls": "nonResourceURLs", "verbs": "verbs"},
+    name_mapping={"non_resource_ur_ls": "nonResourceUrLs", "verbs": "verbs"},
 )
 class NonResourcePolicyRule:
     def __init__(
@@ -36330,7 +36465,7 @@ class PersistentVolumeClaimVolumeSource:
         "portworx_volume": "portworxVolume",
         "quobyte": "quobyte",
         "rbd": "rbd",
-        "scale_io": "scaleIO",
+        "scale_io": "scaleIo",
         "storage_class_name": "storageClassName",
         "storageos": "storageos",
         "volume_mode": "volumeMode",
@@ -36838,7 +36973,7 @@ class PersistentVolumeSpec:
 @jsii.data_type(
     jsii_type="k8s.PhotonPersistentDiskVolumeSource",
     jsii_struct_bases=[],
-    name_mapping={"pd_id": "pdID", "fs_type": "fsType"},
+    name_mapping={"pd_id": "pdId", "fs_type": "fsType"},
 )
 class PhotonPersistentDiskVolumeSource:
     def __init__(
@@ -37632,7 +37767,7 @@ class PodSecurityContext:
         "se_linux": "seLinux",
         "supplemental_groups": "supplementalGroups",
         "allowed_capabilities": "allowedCapabilities",
-        "allowed_csi_drivers": "allowedCSIDrivers",
+        "allowed_csi_drivers": "allowedCsiDrivers",
         "allowed_flex_volumes": "allowedFlexVolumes",
         "allowed_host_paths": "allowedHostPaths",
         "allowed_proc_mount_types": "allowedProcMountTypes",
@@ -37641,9 +37776,9 @@ class PodSecurityContext:
         "default_add_capabilities": "defaultAddCapabilities",
         "default_allow_privilege_escalation": "defaultAllowPrivilegeEscalation",
         "forbidden_sysctls": "forbiddenSysctls",
-        "host_ipc": "hostIPC",
+        "host_ipc": "hostIpc",
         "host_network": "hostNetwork",
-        "host_pid": "hostPID",
+        "host_pid": "hostPid",
         "host_ports": "hostPorts",
         "privileged": "privileged",
         "read_only_root_filesystem": "readOnlyRootFilesystem",
@@ -38047,10 +38182,10 @@ class PodSecurityPolicySpec:
         "enable_service_links": "enableServiceLinks",
         "ephemeral_containers": "ephemeralContainers",
         "host_aliases": "hostAliases",
-        "host_ipc": "hostIPC",
+        "host_ipc": "hostIpc",
         "hostname": "hostname",
         "host_network": "hostNetwork",
-        "host_pid": "hostPID",
+        "host_pid": "hostPid",
         "image_pull_secrets": "imagePullSecrets",
         "init_containers": "initContainers",
         "node_name": "nodeName",
@@ -38811,7 +38946,7 @@ class Policy:
     name_mapping={
         "verbs": "verbs",
         "api_groups": "apiGroups",
-        "non_resource_ur_ls": "nonResourceURLs",
+        "non_resource_ur_ls": "nonResourceUrLs",
         "resource_names": "resourceNames",
         "resources": "resources",
     },
@@ -38999,7 +39134,7 @@ class PolicyRulesWithSubjects:
     jsii_type="k8s.PortworxVolumeSource",
     jsii_struct_bases=[],
     name_mapping={
-        "volume_id": "volumeID",
+        "volume_id": "volumeId",
         "fs_type": "fsType",
         "read_only": "readOnly",
     },
@@ -39531,6 +39666,11 @@ class Quantity(metaclass=jsii.JSIIMeta, jsii_type="k8s.Quantity"):
         :param value: -
         '''
         return typing.cast("Quantity", jsii.sinvoke(cls, "fromString", [value]))
+
+    @builtins.property # type: ignore[misc]
+    @jsii.member(jsii_name="value")
+    def value(self) -> typing.Any:
+        return typing.cast(typing.Any, jsii.get(self, "value"))
 
 
 @jsii.data_type(
@@ -43090,13 +43230,13 @@ class ServiceReference:
     jsii_type="k8s.ServiceSpec",
     jsii_struct_bases=[],
     name_mapping={
-        "cluster_ip": "clusterIP",
+        "cluster_ip": "clusterIp",
         "external_i_ps": "externalIPs",
         "external_name": "externalName",
         "external_traffic_policy": "externalTrafficPolicy",
         "health_check_node_port": "healthCheckNodePort",
         "ip_family": "ipFamily",
-        "load_balancer_ip": "loadBalancerIP",
+        "load_balancer_ip": "loadBalancerIp",
         "load_balancer_source_ranges": "loadBalancerSourceRanges",
         "ports": "ports",
         "publish_not_ready_addresses": "publishNotReadyAddresses",
@@ -43361,7 +43501,7 @@ class ServiceSpec:
 @jsii.data_type(
     jsii_type="k8s.SessionAffinityConfig",
     jsii_struct_bases=[],
-    name_mapping={"client_ip": "clientIP"},
+    name_mapping={"client_ip": "clientIp"},
 )
 class SessionAffinityConfig:
     def __init__(self, *, client_ip: typing.Optional[ClientIpConfig] = None) -> None:
@@ -45318,7 +45458,7 @@ class ValidatingWebhook:
         "cinder": "cinder",
         "config_map": "configMap",
         "csi": "csi",
-        "downward_api": "downwardAPI",
+        "downward_api": "downwardApi",
         "empty_dir": "emptyDir",
         "fc": "fc",
         "flex_volume": "flexVolume",
@@ -45335,7 +45475,7 @@ class ValidatingWebhook:
         "projected": "projected",
         "quobyte": "quobyte",
         "rbd": "rbd",
-        "scale_io": "scaleIO",
+        "scale_io": "scaleIo",
         "secret": "secret",
         "storageos": "storageos",
         "vsphere_volume": "vsphereVolume",
@@ -46235,7 +46375,7 @@ class VolumeNodeResources:
     jsii_struct_bases=[],
     name_mapping={
         "config_map": "configMap",
-        "downward_api": "downwardAPI",
+        "downward_api": "downwardApi",
         "secret": "secret",
         "service_account_token": "serviceAccountToken",
     },
@@ -46330,7 +46470,7 @@ class VolumeProjection:
     name_mapping={
         "volume_path": "volumePath",
         "fs_type": "fsType",
-        "storage_policy_id": "storagePolicyID",
+        "storage_policy_id": "storagePolicyId",
         "storage_policy_name": "storagePolicyName",
     },
 )

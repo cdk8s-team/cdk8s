@@ -19,11 +19,11 @@ export class HelloKube extends Chart {
             targets: 'cicd/jobs/*.jenkins'
           }
         ],
-        jenkinsAPISettings: {
+        jenkinsApiSettings: {
           authorizationStrategy: 'foo'
         },
         master: {
-          disableCSRFProtection: false
+          disableCsrfProtection: false
         }
       }
     });

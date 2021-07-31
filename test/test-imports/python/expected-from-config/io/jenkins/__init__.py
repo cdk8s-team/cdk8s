@@ -25,7 +25,7 @@ class Jenkins(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="iojenkins.Jen
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        metadata: typing.Any = None,
+        metadata: typing.Optional[cdk8s.ApiObjectMetadata] = None,
         spec: typing.Optional["JenkinsSpec"] = None,
     ) -> None:
         '''Defines a "Jenkins" API object.
@@ -44,7 +44,7 @@ class Jenkins(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="iojenkins.Jen
     def manifest(
         cls,
         *,
-        metadata: typing.Any = None,
+        metadata: typing.Optional[cdk8s.ApiObjectMetadata] = None,
         spec: typing.Optional["JenkinsSpec"] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "Jenkins".
@@ -74,7 +74,7 @@ class JenkinsProps:
     def __init__(
         self,
         *,
-        metadata: typing.Any = None,
+        metadata: typing.Optional[cdk8s.ApiObjectMetadata] = None,
         spec: typing.Optional["JenkinsSpec"] = None,
     ) -> None:
         '''Jenkins is the Schema for the jenkins API.
@@ -84,6 +84,8 @@ class JenkinsProps:
 
         :schema: Jenkins
         '''
+        if isinstance(metadata, dict):
+            metadata = cdk8s.ApiObjectMetadata(**metadata)
         if isinstance(spec, dict):
             spec = JenkinsSpec(**spec)
         self._values: typing.Dict[str, typing.Any] = {}
@@ -93,12 +95,12 @@ class JenkinsProps:
             self._values["spec"] = spec
 
     @builtins.property
-    def metadata(self) -> typing.Any:
+    def metadata(self) -> typing.Optional[cdk8s.ApiObjectMetadata]:
         '''
         :schema: Jenkins#metadata
         '''
         result = self._values.get("metadata")
-        return typing.cast(typing.Any, result)
+        return typing.cast(typing.Optional[cdk8s.ApiObjectMetadata], result)
 
     @builtins.property
     def spec(self) -> typing.Optional["JenkinsSpec"]:
@@ -125,7 +127,7 @@ class JenkinsProps:
     jsii_type="iojenkins.JenkinsSpec",
     jsii_struct_bases=[],
     name_mapping={
-        "jenkins_api_settings": "jenkinsAPISettings",
+        "jenkins_api_settings": "jenkinsApiSettings",
         "master": "master",
         "backup": "backup",
         "configuration_as_code": "configurationAsCode",
@@ -836,7 +838,7 @@ class JenkinsSpecJenkinsApiSettings:
     jsii_type="iojenkins.JenkinsSpecMaster",
     jsii_struct_bases=[],
     name_mapping={
-        "disable_csrf_protection": "disableCSRFProtection",
+        "disable_csrf_protection": "disableCsrfProtection",
         "annotations": "annotations",
         "base_plugins": "basePlugins",
         "containers": "containers",
@@ -2455,6 +2457,11 @@ class JenkinsSpecMasterContainersLifecyclePostStartHttpGetPort(
         '''
         return typing.cast("JenkinsSpecMasterContainersLifecyclePostStartHttpGetPort", jsii.sinvoke(cls, "fromString", [value]))
 
+    @builtins.property # type: ignore[misc]
+    @jsii.member(jsii_name="value")
+    def value(self) -> typing.Any:
+        return typing.cast(typing.Any, jsii.get(self, "value"))
+
 
 @jsii.data_type(
     jsii_type="iojenkins.JenkinsSpecMasterContainersLifecyclePostStartTcpSocket",
@@ -2548,6 +2555,11 @@ class JenkinsSpecMasterContainersLifecyclePostStartTcpSocketPort(
         :param value: -
         '''
         return typing.cast("JenkinsSpecMasterContainersLifecyclePostStartTcpSocketPort", jsii.sinvoke(cls, "fromString", [value]))
+
+    @builtins.property # type: ignore[misc]
+    @jsii.member(jsii_name="value")
+    def value(self) -> typing.Any:
+        return typing.cast(typing.Any, jsii.get(self, "value"))
 
 
 @jsii.data_type(
@@ -2879,6 +2891,11 @@ class JenkinsSpecMasterContainersLifecyclePreStopHttpGetPort(
         '''
         return typing.cast("JenkinsSpecMasterContainersLifecyclePreStopHttpGetPort", jsii.sinvoke(cls, "fromString", [value]))
 
+    @builtins.property # type: ignore[misc]
+    @jsii.member(jsii_name="value")
+    def value(self) -> typing.Any:
+        return typing.cast(typing.Any, jsii.get(self, "value"))
+
 
 @jsii.data_type(
     jsii_type="iojenkins.JenkinsSpecMasterContainersLifecyclePreStopTcpSocket",
@@ -2972,6 +2989,11 @@ class JenkinsSpecMasterContainersLifecyclePreStopTcpSocketPort(
         :param value: -
         '''
         return typing.cast("JenkinsSpecMasterContainersLifecyclePreStopTcpSocketPort", jsii.sinvoke(cls, "fromString", [value]))
+
+    @builtins.property # type: ignore[misc]
+    @jsii.member(jsii_name="value")
+    def value(self) -> typing.Any:
+        return typing.cast(typing.Any, jsii.get(self, "value"))
 
 
 @jsii.data_type(
@@ -3393,6 +3415,11 @@ class JenkinsSpecMasterContainersLivenessProbeHttpGetPort(
         '''
         return typing.cast("JenkinsSpecMasterContainersLivenessProbeHttpGetPort", jsii.sinvoke(cls, "fromString", [value]))
 
+    @builtins.property # type: ignore[misc]
+    @jsii.member(jsii_name="value")
+    def value(self) -> typing.Any:
+        return typing.cast(typing.Any, jsii.get(self, "value"))
+
 
 @jsii.data_type(
     jsii_type="iojenkins.JenkinsSpecMasterContainersLivenessProbeTcpSocket",
@@ -3487,13 +3514,18 @@ class JenkinsSpecMasterContainersLivenessProbeTcpSocketPort(
         '''
         return typing.cast("JenkinsSpecMasterContainersLivenessProbeTcpSocketPort", jsii.sinvoke(cls, "fromString", [value]))
 
+    @builtins.property # type: ignore[misc]
+    @jsii.member(jsii_name="value")
+    def value(self) -> typing.Any:
+        return typing.cast(typing.Any, jsii.get(self, "value"))
+
 
 @jsii.data_type(
     jsii_type="iojenkins.JenkinsSpecMasterContainersPorts",
     jsii_struct_bases=[],
     name_mapping={
         "container_port": "containerPort",
-        "host_ip": "hostIP",
+        "host_ip": "hostIp",
         "host_port": "hostPort",
         "name": "name",
         "protocol": "protocol",
@@ -4018,6 +4050,11 @@ class JenkinsSpecMasterContainersReadinessProbeHttpGetPort(
         '''
         return typing.cast("JenkinsSpecMasterContainersReadinessProbeHttpGetPort", jsii.sinvoke(cls, "fromString", [value]))
 
+    @builtins.property # type: ignore[misc]
+    @jsii.member(jsii_name="value")
+    def value(self) -> typing.Any:
+        return typing.cast(typing.Any, jsii.get(self, "value"))
+
 
 @jsii.data_type(
     jsii_type="iojenkins.JenkinsSpecMasterContainersReadinessProbeTcpSocket",
@@ -4111,6 +4148,11 @@ class JenkinsSpecMasterContainersReadinessProbeTcpSocketPort(
         :param value: -
         '''
         return typing.cast("JenkinsSpecMasterContainersReadinessProbeTcpSocketPort", jsii.sinvoke(cls, "fromString", [value]))
+
+    @builtins.property # type: ignore[misc]
+    @jsii.member(jsii_name="value")
+    def value(self) -> typing.Any:
+        return typing.cast(typing.Any, jsii.get(self, "value"))
 
 
 @jsii.data_type(
@@ -5345,7 +5387,7 @@ class JenkinsSpecMasterTolerations:
         "cinder": "cinder",
         "config_map": "configMap",
         "csi": "csi",
-        "downward_api": "downwardAPI",
+        "downward_api": "downwardApi",
         "empty_dir": "emptyDir",
         "fc": "fc",
         "flex_volume": "flexVolume",
@@ -5362,7 +5404,7 @@ class JenkinsSpecMasterTolerations:
         "projected": "projected",
         "quobyte": "quobyte",
         "rbd": "rbd",
-        "scale_io": "scaleIO",
+        "scale_io": "scaleIo",
         "secret": "secret",
         "storageos": "storageos",
         "vsphere_volume": "vsphereVolume",
@@ -5868,7 +5910,7 @@ class JenkinsSpecMasterVolumes:
     jsii_type="iojenkins.JenkinsSpecMasterVolumesAwsElasticBlockStore",
     jsii_struct_bases=[],
     name_mapping={
-        "volume_id": "volumeID",
+        "volume_id": "volumeId",
         "fs_type": "fsType",
         "partition": "partition",
         "read_only": "readOnly",
@@ -5966,7 +6008,7 @@ class JenkinsSpecMasterVolumesAwsElasticBlockStore:
     jsii_struct_bases=[],
     name_mapping={
         "disk_name": "diskName",
-        "disk_uri": "diskURI",
+        "disk_uri": "diskUri",
         "caching_mode": "cachingMode",
         "fs_type": "fsType",
         "kind": "kind",
@@ -6330,7 +6372,7 @@ class JenkinsSpecMasterVolumesCephfsSecretRef:
     jsii_type="iojenkins.JenkinsSpecMasterVolumesCinder",
     jsii_struct_bases=[],
     name_mapping={
-        "volume_id": "volumeID",
+        "volume_id": "volumeId",
         "fs_type": "fsType",
         "read_only": "readOnly",
         "secret_ref": "secretRef",
@@ -7152,7 +7194,7 @@ class JenkinsSpecMasterVolumesEmptyDir:
         "fs_type": "fsType",
         "lun": "lun",
         "read_only": "readOnly",
-        "target_ww_ns": "targetWWNs",
+        "target_ww_ns": "targetWwNs",
         "wwids": "wwids",
     },
 )
@@ -7409,7 +7451,7 @@ class JenkinsSpecMasterVolumesFlexVolumeSecretRef:
 @jsii.data_type(
     jsii_type="iojenkins.JenkinsSpecMasterVolumesFlocker",
     jsii_struct_bases=[],
-    name_mapping={"dataset_name": "datasetName", "dataset_uuid": "datasetUUID"},
+    name_mapping={"dataset_name": "datasetName", "dataset_uuid": "datasetUuid"},
 )
 class JenkinsSpecMasterVolumesFlocker:
     def __init__(
@@ -8169,7 +8211,7 @@ class JenkinsSpecMasterVolumesPersistentVolumeClaim:
 @jsii.data_type(
     jsii_type="iojenkins.JenkinsSpecMasterVolumesPhotonPersistentDisk",
     jsii_struct_bases=[],
-    name_mapping={"pd_id": "pdID", "fs_type": "fsType"},
+    name_mapping={"pd_id": "pdId", "fs_type": "fsType"},
 )
 class JenkinsSpecMasterVolumesPhotonPersistentDisk:
     def __init__(
@@ -8228,7 +8270,7 @@ class JenkinsSpecMasterVolumesPhotonPersistentDisk:
     jsii_type="iojenkins.JenkinsSpecMasterVolumesPortworxVolume",
     jsii_struct_bases=[],
     name_mapping={
-        "volume_id": "volumeID",
+        "volume_id": "volumeId",
         "fs_type": "fsType",
         "read_only": "readOnly",
     },
@@ -8366,7 +8408,7 @@ class JenkinsSpecMasterVolumesProjected:
     jsii_struct_bases=[],
     name_mapping={
         "config_map": "configMap",
-        "downward_api": "downwardAPI",
+        "downward_api": "downwardApi",
         "secret": "secret",
         "service_account_token": "serviceAccountToken",
     },
@@ -10012,7 +10054,7 @@ class JenkinsSpecMasterVolumesStorageosSecretRef:
     name_mapping={
         "volume_path": "volumePath",
         "fs_type": "fsType",
-        "storage_policy_id": "storagePolicyID",
+        "storage_policy_id": "storagePolicyId",
         "storage_policy_name": "storagePolicyName",
     },
 )
@@ -10421,7 +10463,7 @@ class JenkinsSpecNotificationsMailgunApiKeySecretKeySelectorSecret:
 @jsii.data_type(
     jsii_type="iojenkins.JenkinsSpecNotificationsSlack",
     jsii_struct_bases=[],
-    name_mapping={"web_hook_url_secret_key_selector": "webHookURLSecretKeySelector"},
+    name_mapping={"web_hook_url_secret_key_selector": "webHookUrlSecretKeySelector"},
 )
 class JenkinsSpecNotificationsSlack:
     def __init__(
@@ -10902,7 +10944,7 @@ class JenkinsSpecNotificationsSmtpUsernameSecretKeySelectorSecret:
 @jsii.data_type(
     jsii_type="iojenkins.JenkinsSpecNotificationsTeams",
     jsii_struct_bases=[],
-    name_mapping={"web_hook_url_secret_key_selector": "webHookURLSecretKeySelector"},
+    name_mapping={"web_hook_url_secret_key_selector": "webHookUrlSecretKeySelector"},
 )
 class JenkinsSpecNotificationsTeams:
     def __init__(
@@ -11287,14 +11329,14 @@ class JenkinsSpecRoles:
         "additional_classpath": "additionalClasspath",
         "bitbucket_push_trigger": "bitbucketPushTrigger",
         "build_periodically": "buildPeriodically",
-        "credential_id": "credentialID",
+        "credential_id": "credentialId",
         "credential_type": "credentialType",
         "description": "description",
         "fail_on_missing_plugin": "failOnMissingPlugin",
         "github_push_trigger": "githubPushTrigger",
         "id": "id",
         "ignore_missing_files": "ignoreMissingFiles",
-        "poll_scm": "pollSCM",
+        "poll_scm": "pollScm",
         "repository_branch": "repositoryBranch",
         "repository_url": "repositoryUrl",
         "targets": "targets",
@@ -11528,7 +11570,7 @@ class JenkinsSpecSeedJobs:
     name_mapping={
         "annotations": "annotations",
         "labels": "labels",
-        "load_balancer_ip": "loadBalancerIP",
+        "load_balancer_ip": "loadBalancerIp",
         "load_balancer_source_ranges": "loadBalancerSourceRanges",
         "node_port": "nodePort",
         "port": "port",
@@ -11724,7 +11766,7 @@ class JenkinsSpecServiceAccount:
     name_mapping={
         "annotations": "annotations",
         "labels": "labels",
-        "load_balancer_ip": "loadBalancerIP",
+        "load_balancer_ip": "loadBalancerIp",
         "load_balancer_source_ranges": "loadBalancerSourceRanges",
         "node_port": "nodePort",
         "port": "port",

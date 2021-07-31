@@ -28,28 +28,36 @@ class CronTab(
         scope: constructs.Construct,
         id: builtins.str,
         *,
+        metadata: typing.Optional[cdk8s.ApiObjectMetadata] = None,
         spec: typing.Optional["CronTabSpec"] = None,
     ) -> None:
         '''Defines a "CronTab" API object.
 
         :param scope: the scope in which to define this object.
         :param id: a scope-local name for the object.
+        :param metadata: 
         :param spec: 
         '''
-        props = CronTabProps(spec=spec)
+        props = CronTabProps(metadata=metadata, spec=spec)
 
         jsii.create(CronTab, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
-    def manifest(cls, *, spec: typing.Optional["CronTabSpec"] = None) -> typing.Any:
+    def manifest(
+        cls,
+        *,
+        metadata: typing.Optional[cdk8s.ApiObjectMetadata] = None,
+        spec: typing.Optional["CronTabSpec"] = None,
+    ) -> typing.Any:
         '''Renders a Kubernetes manifest for "CronTab".
 
         This can be used to inline resource manifests inside other objects (e.g. as templates).
 
+        :param metadata: 
         :param spec: 
         '''
-        props = CronTabProps(spec=spec)
+        props = CronTabProps(metadata=metadata, spec=spec)
 
         return typing.cast(typing.Any, jsii.sinvoke(cls, "manifest", [props]))
 
@@ -63,20 +71,38 @@ class CronTab(
 @jsii.data_type(
     jsii_type="comexamplestable.CronTabProps",
     jsii_struct_bases=[],
-    name_mapping={"spec": "spec"},
+    name_mapping={"metadata": "metadata", "spec": "spec"},
 )
 class CronTabProps:
-    def __init__(self, *, spec: typing.Optional["CronTabSpec"] = None) -> None:
+    def __init__(
+        self,
+        *,
+        metadata: typing.Optional[cdk8s.ApiObjectMetadata] = None,
+        spec: typing.Optional["CronTabSpec"] = None,
+    ) -> None:
         '''
+        :param metadata: 
         :param spec: 
 
         :schema: CronTab
         '''
+        if isinstance(metadata, dict):
+            metadata = cdk8s.ApiObjectMetadata(**metadata)
         if isinstance(spec, dict):
             spec = CronTabSpec(**spec)
         self._values: typing.Dict[str, typing.Any] = {}
+        if metadata is not None:
+            self._values["metadata"] = metadata
         if spec is not None:
             self._values["spec"] = spec
+
+    @builtins.property
+    def metadata(self) -> typing.Optional[cdk8s.ApiObjectMetadata]:
+        '''
+        :schema: CronTab#metadata
+        '''
+        result = self._values.get("metadata")
+        return typing.cast(typing.Optional[cdk8s.ApiObjectMetadata], result)
 
     @builtins.property
     def spec(self) -> typing.Optional["CronTabSpec"]:
