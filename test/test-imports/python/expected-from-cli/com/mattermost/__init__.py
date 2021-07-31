@@ -30,7 +30,7 @@ class ClusterInstallation(
         id: builtins.str,
         *,
         spec: "ClusterInstallationSpec",
-        metadata: typing.Any = None,
+        metadata: typing.Optional[cdk8s.ApiObjectMetadata] = None,
     ) -> None:
         '''Defines a "ClusterInstallation" API object.
 
@@ -49,7 +49,7 @@ class ClusterInstallation(
         cls,
         *,
         spec: "ClusterInstallationSpec",
-        metadata: typing.Any = None,
+        metadata: typing.Optional[cdk8s.ApiObjectMetadata] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "ClusterInstallation".
 
@@ -79,7 +79,7 @@ class ClusterInstallationProps:
         self,
         *,
         spec: "ClusterInstallationSpec",
-        metadata: typing.Any = None,
+        metadata: typing.Optional[cdk8s.ApiObjectMetadata] = None,
     ) -> None:
         '''ClusterInstallation is the Schema for the clusterinstallations API.
 
@@ -90,6 +90,8 @@ class ClusterInstallationProps:
         '''
         if isinstance(spec, dict):
             spec = ClusterInstallationSpec(**spec)
+        if isinstance(metadata, dict):
+            metadata = cdk8s.ApiObjectMetadata(**metadata)
         self._values: typing.Dict[str, typing.Any] = {
             "spec": spec,
         }
@@ -109,12 +111,12 @@ class ClusterInstallationProps:
         return typing.cast("ClusterInstallationSpec", result)
 
     @builtins.property
-    def metadata(self) -> typing.Any:
+    def metadata(self) -> typing.Optional[cdk8s.ApiObjectMetadata]:
         '''
         :schema: ClusterInstallation#metadata
         '''
         result = self._values.get("metadata")
-        return typing.cast(typing.Any, result)
+        return typing.cast(typing.Optional[cdk8s.ApiObjectMetadata], result)
 
     def __eq__(self, rhs: typing.Any) -> builtins.bool:
         return isinstance(rhs, self.__class__) and rhs._values == self._values
@@ -2724,8 +2726,8 @@ class ClusterInstallationSpecCanaryDeployment:
         "backup_restore_secret_name": "backupRestoreSecretName",
         "backup_schedule": "backupSchedule",
         "backup_secret_name": "backupSecretName",
-        "backup_url": "backupURL",
-        "init_bucket_url": "initBucketURL",
+        "backup_url": "backupUrl",
+        "init_bucket_url": "initBucketUrl",
         "replicas": "replicas",
         "resources": "resources",
         "secret": "secret",
@@ -3452,6 +3454,11 @@ class ClusterInstallationSpecLivenessProbeHttpGetPort(
         '''
         return typing.cast("ClusterInstallationSpecLivenessProbeHttpGetPort", jsii.sinvoke(cls, "fromString", [value]))
 
+    @builtins.property # type: ignore[misc]
+    @jsii.member(jsii_name="value")
+    def value(self) -> typing.Any:
+        return typing.cast(typing.Any, jsii.get(self, "value"))
+
 
 @jsii.data_type(
     jsii_type="commattermost.ClusterInstallationSpecLivenessProbeTcpSocket",
@@ -3545,6 +3552,11 @@ class ClusterInstallationSpecLivenessProbeTcpSocketPort(
         :param value: -
         '''
         return typing.cast("ClusterInstallationSpecLivenessProbeTcpSocketPort", jsii.sinvoke(cls, "fromString", [value]))
+
+    @builtins.property # type: ignore[misc]
+    @jsii.member(jsii_name="value")
+    def value(self) -> typing.Any:
+        return typing.cast(typing.Any, jsii.get(self, "value"))
 
 
 @jsii.data_type(
@@ -4010,7 +4022,7 @@ class ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef:
     jsii_struct_bases=[],
     name_mapping={
         "external_bucket": "externalBucket",
-        "external_url": "externalURL",
+        "external_url": "externalUrl",
         "replicas": "replicas",
         "resources": "resources",
         "secret": "secret",
@@ -4605,6 +4617,11 @@ class ClusterInstallationSpecReadinessProbeHttpGetPort(
         '''
         return typing.cast("ClusterInstallationSpecReadinessProbeHttpGetPort", jsii.sinvoke(cls, "fromString", [value]))
 
+    @builtins.property # type: ignore[misc]
+    @jsii.member(jsii_name="value")
+    def value(self) -> typing.Any:
+        return typing.cast(typing.Any, jsii.get(self, "value"))
+
 
 @jsii.data_type(
     jsii_type="commattermost.ClusterInstallationSpecReadinessProbeTcpSocket",
@@ -4698,6 +4715,11 @@ class ClusterInstallationSpecReadinessProbeTcpSocketPort(
         :param value: -
         '''
         return typing.cast("ClusterInstallationSpecReadinessProbeTcpSocketPort", jsii.sinvoke(cls, "fromString", [value]))
+
+    @builtins.property # type: ignore[misc]
+    @jsii.member(jsii_name="value")
+    def value(self) -> typing.Any:
+        return typing.cast(typing.Any, jsii.get(self, "value"))
 
 
 @jsii.data_type(
