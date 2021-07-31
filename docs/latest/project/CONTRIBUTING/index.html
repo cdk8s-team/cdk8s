@@ -1,0 +1,1731 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.1">
+    
+    
+      
+        <title>Contribution Guide - CDK8s Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.1118c9be.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ba0d045b.min.css">
+        
+          
+          
+          <meta name="theme-color" content="">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../assets/extra.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#133650" data-md-color-accent="">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#contribution-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="CDK8s Documentation" class="md-header__button md-logo" aria-label="CDK8s Documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CDK8s Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Contribution Guide
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/cdk8s-team/cdk8s/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    cdk8s-team/cdk8s
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CDK8s Documentation" class="md-nav__button md-logo" aria-label="CDK8s Documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    CDK8s Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/cdk8s-team/cdk8s/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    cdk8s-team/cdk8s
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/" class="md-nav__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
+        Concepts
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Concepts" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Concepts
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/constructs/" class="md-nav__link">
+        Constructs
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/chart/" class="md-nav__link">
+        Chart
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/api-object/" class="md-nav__link">
+        ApiObject
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/deps/" class="md-nav__link">
+        Dependencies
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/escape-hatches/" class="md-nav__link">
+        Escape Hatches
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/helm/" class="md-nav__link">
+        Helm Support
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/include/" class="md-nav__link">
+        Include
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/testing/" class="md-nav__link">
+        Testing
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        CLI
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="CLI" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          CLI
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cli/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cli/installation/" class="md-nav__link">
+        Installation
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cli/init/" class="md-nav__link">
+        init
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cli/import/" class="md-nav__link">
+        import
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cli/synth/" class="md-nav__link">
+        synth
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        CDK8s+
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="CDK8s+" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          CDK8s+
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plus/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plus/config-map/" class="md-nav__link">
+        ConfigMap
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plus/container/" class="md-nav__link">
+        Container
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plus/deployment/" class="md-nav__link">
+        Deployment
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plus/ingress/" class="md-nav__link">
+        Ingress
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plus/job/" class="md-nav__link">
+        Job
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plus/pod/" class="md-nav__link">
+        Pod
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plus/secret/" class="md-nav__link">
+        Secret
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plus/service-account/" class="md-nav__link">
+        ServiceAccount
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plus/service/" class="md-nav__link">
+        Service
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plus/volume/" class="md-nav__link">
+        Volume
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      <label class="md-nav__link" for="__nav_6">
+        API Reference
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="API Reference" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          API Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/cdk8s/" class="md-nav__link">
+        cdk8s
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/cdk8s-plus-17/" class="md-nav__link">
+        cdk8s-plus-17
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      <label class="md-nav__link" for="__nav_7">
+        Examples
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Examples" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Examples
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/hello/" class="md-nav__link">
+        Hello, Kubernetes!
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/web-service/" class="md-nav__link">
+        WebService Abstraction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/crd/" class="md-nav__link">
+        CRDs
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/plus-elasticsearch/" class="md-nav__link">
+        Elasticsearch (CDK8s+)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/plus-ingress/" class="md-nav__link">
+        Ingress (CDK8s+)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/podinfo/" class="md-nav__link">
+        Podinfo
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../support/" class="md-nav__link">
+        Support
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" checked>
+      
+      <label class="md-nav__link" for="__nav_9">
+        Project
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Project" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Project
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CHANGELOG/" class="md-nav__link">
+        Changelog
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Contribution Guide
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Contribution Guide
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#reporting-issues" class="md-nav__link">
+    Reporting Issues
+  </a>
+  
+    <nav class="md-nav" aria-label="Reporting Issues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-reports" class="md-nav__link">
+    Bug reports
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#suggestions" class="md-nav__link">
+    Suggestions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-contributions" class="md-nav__link">
+    Code Contributions
+  </a>
+  
+    <nav class="md-nav" aria-label="Code Contributions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tracking-issue" class="md-nav__link">
+    Tracking issue
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#repositories" class="md-nav__link">
+    Repositories
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#development-environment" class="md-nav__link">
+    Development environment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unit-tests" class="md-nav__link">
+    Unit tests
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-tests" class="md-nav__link">
+    Integration Tests
+  </a>
+  
+    <nav class="md-nav" aria-label="Integration Tests">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#running-integration-tests" class="md-nav__link">
+    Running Integration Tests
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#writing-integration-tests" class="md-nav__link">
+    Writing Integration Tests
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#snapshot-testing" class="md-nav__link">
+    Snapshot Testing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-environment-for-integration-tests" class="md-nav__link">
+    Docker environment for integration tests
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pull-requests" class="md-nav__link">
+    Pull Requests
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    Documentation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rfcs" class="md-nav__link">
+    RFCs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#community-meeting" class="md-nav__link">
+    Community Meeting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#for-maintainers" class="md-nav__link">
+    For Maintainers
+  </a>
+  
+    <nav class="md-nav" aria-label="For Maintainers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#version" class="md-nav__link">
+    Version
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#release-protocol" class="md-nav__link">
+    Release Protocol
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ROADMAP/" class="md-nav__link">
+        Roadmap
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
+      
+      <label class="md-nav__link" for="__nav_10">
+        Assets
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Assets" data-md-level="1">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          Assets
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_1" type="checkbox" id="__nav_10_1" >
+      
+      <label class="md-nav__link" for="__nav_10_1">
+        Logos
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Logos" data-md-level="2">
+        <label class="md-nav__title" for="__nav_10_1">
+          <span class="md-nav__icon md-icon"></span>
+          Logos
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assets/logos/readme/" class="md-nav__link">
+        CDK8s Logos
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#reporting-issues" class="md-nav__link">
+    Reporting Issues
+  </a>
+  
+    <nav class="md-nav" aria-label="Reporting Issues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-reports" class="md-nav__link">
+    Bug reports
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#suggestions" class="md-nav__link">
+    Suggestions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-contributions" class="md-nav__link">
+    Code Contributions
+  </a>
+  
+    <nav class="md-nav" aria-label="Code Contributions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tracking-issue" class="md-nav__link">
+    Tracking issue
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#repositories" class="md-nav__link">
+    Repositories
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#development-environment" class="md-nav__link">
+    Development environment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unit-tests" class="md-nav__link">
+    Unit tests
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-tests" class="md-nav__link">
+    Integration Tests
+  </a>
+  
+    <nav class="md-nav" aria-label="Integration Tests">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#running-integration-tests" class="md-nav__link">
+    Running Integration Tests
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#writing-integration-tests" class="md-nav__link">
+    Writing Integration Tests
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#snapshot-testing" class="md-nav__link">
+    Snapshot Testing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-environment-for-integration-tests" class="md-nav__link">
+    Docker environment for integration tests
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pull-requests" class="md-nav__link">
+    Pull Requests
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    Documentation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rfcs" class="md-nav__link">
+    RFCs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#community-meeting" class="md-nav__link">
+    Community Meeting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#for-maintainers" class="md-nav__link">
+    For Maintainers
+  </a>
+  
+    <nav class="md-nav" aria-label="For Maintainers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#version" class="md-nav__link">
+    Version
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#release-protocol" class="md-nav__link">
+    Release Protocol
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/cdk8s-team/cdk8s/blob/master/docs/project/CONTRIBUTING.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="contribution-guide">Contribution Guide<a class="headerlink" href="#contribution-guide" title="Permanent link">&para;</a></h1>
+<p><strong>cdk8s</strong> is licensed under <a href="./LICENSE">Apache 2.0</a> and accepts contributions via
+GitHub pull requests. This document outlines some of the conventions on commit
+message formatting, contact points for developers, and other resources to help
+get contributions into cdk8s.</p>
+<p>You can contribute to <strong>cdk8s</strong> in many ways. Contributions of all shapes and sizes are
+welcome and celebrated:</p>
+<ul>
+<li><a href="#reporting-issues">Reporting Issues</a></li>
+<li><a href="#code-contributions">Code Contributions</a></li>
+<li><a href="#rfcs">RFCs</a></li>
+<li><a href="#for-maintainers">For Maintainers</a></li>
+</ul>
+<p>We follows the <a href="https://github.com/cncf/foundation/blob/master/code-of-conduct.md">CNCF Community Code of
+Conduct</a></p>
+<h2 id="reporting-issues">Reporting Issues<a class="headerlink" href="#reporting-issues" title="Permanent link">&para;</a></h2>
+<p>If any part of the project has bugs or documentation mistakes, please let us
+know by <a href="./issues/new/choose">raising an issue</a>. We treat bugs and mistakes very seriously
+and believe no issue is too small. Before creating a bug report, please check
+that an issue reporting the same problem does not already exist.</p>
+<p>An issue can either be a <strong>bug report</strong> or a <strong>suggestion</strong>. If you wish to ask
+a question or seek guidance, please consider one of the other <a href="#getting-help">support
+channels</a>.</p>
+<h3 id="bug-reports">Bug reports<a class="headerlink" href="#bug-reports" title="Permanent link">&para;</a></h3>
+<p>To make the bug report accurate and easy to understand, please try to create bug
+reports that are:</p>
+<ul>
+<li><strong>Specific</strong>: Include as much details as possible: which version, what
+  environment, what configuration, etc.</li>
+<li><strong>Reproducible</strong>: Include the steps to reproduce the problem. We understand
+  some issues might be hard to reproduce, please includes the steps that might
+  lead to the problem. If possible, please provide a minimal code snippet that
+  reproduces the bug.</li>
+<li><strong>Isolated</strong>: Please try to isolate and reproduce the bug with minimum
+  dependencies. It would significantly slow down the speed to fix a bug if too
+  many dependencies are involved in a bug report.</li>
+<li><strong>Unique</strong>: Do not duplicate existing bug report.</li>
+<li><strong>Scoped</strong>: One bug per report. Do not follow up with another bug inside one
+  report.</li>
+</ul>
+<p>We might ask for further information to locate a bug. A duplicated bug report
+will be closed.</p>
+<p>Submit a bug report <a href="new-issue">here</a>.</p>
+<h3 id="suggestions">Suggestions<a class="headerlink" href="#suggestions" title="Permanent link">&para;</a></h3>
+<p>We also accept suggestions for new features or missing capabilities as GitHub
+issues. The most important aspect of a suggestion issue is to provide as many
+details as possible about your <strong>use case</strong> and less focus on the solution. It
+is usually possible to support different use cases in many different ways, and
+we need to understand the motivation before we dive into a solution.</p>
+<p>If you wish to suggest a major change to the project, please consider to submit
+an <a href="#rfcs">RFC</a> instead of a simple issue. An RFC also starts with a GitHub
+issue.</p>
+<p>Submit a suggestion <a href="new-issue">here</a></p>
+<h2 id="code-contributions">Code Contributions<a class="headerlink" href="#code-contributions" title="Permanent link">&para;</a></h2>
+<p>The general workflow for code contributions:</p>
+<ol>
+<li>Submit/find an issue in <strong>this repository</strong></li>
+<li>Clone <a href="#repositories">the relevant repo</a></li>
+<li>Make your code change</li>
+<li>Write tests &amp; update docs</li>
+<li>Build &amp; test locally</li>
+<li>Submit a pull request</li>
+<li>(Iterate)</li>
+<li>Your PR will be approved and merged</li>
+</ol>
+<h3 id="tracking-issue">Tracking issue<a class="headerlink" href="#tracking-issue" title="Permanent link">&para;</a></h3>
+<p>All pull requests should be tracked with a GitHub issue.</p>
+<p>You should search for an <a href="https://github.com/cdk8s-team/cdk8s/issues">existing
+issue</a> or raise a <a href="#reporting-issues">new
+bug or suggestion</a>.</p>
+<p>Add a comment indicating you are willing to pick it up in order to ensure no one
+else is currently working on it.</p>
+<p>If this is a major contribution, consider submitting an <a href="#rfcs">RFC</a> to obtain
+feedback from the community and maintainers.</p>
+<h3 id="repositories">Repositories<a class="headerlink" href="#repositories" title="Permanent link">&para;</a></h3>
+<p>This project consists of multiple modules, maintained and released via the following repositories:</p>
+<ul>
+<li><a href="https://github.com/cdk8s-team/cdk8s-cli">cdk8s-cli</a>: command-line interface</li>
+<li><a href="https://github.com/cdk8s-team/cdk8s-core">cdk8s-core</a>: core library</li>
+<li><a href="https://github.com/cdk8s-team/cdk8s-plus-17">cdk8s-plus-17</a>: high-level constructs for Kubernetes core 1.17 and above.</li>
+</ul>
+<h3 id="development-environment">Development environment<a class="headerlink" href="#development-environment" title="Permanent link">&para;</a></h3>
+<p>Prerequisites:</p>
+<ul>
+<li><a href="https://nodejs.org/en/">Node.js</a> &gt;= 12.14.0</li>
+<li><a href="https://classic.yarnpkg.com/lang/en/">yarn</a> &gt;= 1.22.0</li>
+</ul>
+<p>Prepare your environment:</p>
+<ol>
+<li>Fork <a href="#repositories">the relevant repo</a> and obtain a local clone.</li>
+<li>Install all dependencies: <code>yarn install</code></li>
+<li>Run <code>yarn build</code> to build all modules.</li>
+</ol>
+<h3 id="unit-tests">Unit tests<a class="headerlink" href="#unit-tests" title="Permanent link">&para;</a></h3>
+<p>Unit tests are located under the <code>test/</code> directory within each module and use the <a href="https://jestjs.io/">jest</a> framework.</p>
+<p>To run unit tests, execute <code>yarn test</code> either from the root of the repo (to unit test all modules) or from individual module directories:</p>
+<div class="highlight"><pre><span></span><code>yarn test
+</code></pre></div>
+<p>Out tests utilize <a href="https://jestjs.io/docs/en/snapshot-testing">jest snapshot testing</a>. In case a snapshot needs to be updated, just run:</p>
+<div class="highlight"><pre><span></span><code>yarn test -u
+</code></pre></div>
+<h3 id="integration-tests">Integration Tests<a class="headerlink" href="#integration-tests" title="Permanent link">&para;</a></h3>
+<p>Integration tests are executed <em>against the latest published modules</em>.
+This means that in order to execute integration tests against a development version, you&rsquo;lol need to <code>yarn link</code>
+your local version to this repository (all deps are at the root):</p>
+<div class="highlight"><pre><span></span><code>$ <span class="nb">cd</span> cdk8s-core
+$ yarn link
+$ <span class="nb">cd</span> ../cdk8s
+$ yarn link cdk8s
+</code></pre></div>
+<p>Now, you can run integration tests via:</p>
+<div class="highlight"><pre><span></span><code>yarn integ
+</code></pre></div>
+<p>Our integration tests also utilize snapshot testing. To update integration test snapshots, run:</p>
+<div class="highlight"><pre><span></span><code>yarn integ:update
+</code></pre></div>
+<h4 id="running-integration-tests">Running Integration Tests<a class="headerlink" href="#running-integration-tests" title="Permanent link">&para;</a></h4>
+<p>The <code>test</code> directory contains integration tests for the cdk8s project.</p>
+<p>Each subdirectory represents a single test, with an entrypoint of <code>test.sh</code>.
+Tests are written as simple shell scripts and can simulate user activity.</p>
+<p>You can either run individual tests by executing their entrypoint directly (e.g.
+<code>test-python-app/test.sh</code>) or run all tests by executing the script
+<code>./test-all.sh</code>.</p>
+<h4 id="writing-integration-tests">Writing Integration Tests<a class="headerlink" href="#writing-integration-tests" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Create a new subdirectory with a <code>test-</code> prefix.</li>
+<li>Create a file named <code>test.sh</code>, make it executable.</li>
+</ol>
+<p>Test Environment:</p>
+<ul>
+<li>The script <code>test.sh</code> is executed within a temporary working directory under
+  /tmp/xxxx/test (where xxxx is some random tmp file).</li>
+<li>See existing tests as examples on how to bring in auxiliary files to the test.</li>
+<li>Test MUST NOT install any dependencies or the <code>cdk8s</code> CLI. They can expect it
+  to be available in the environment.</li>
+<li>To install dependencies from package managers, use <code>yarn</code>, <code>npm</code>, <code>pipenv</code>,
+  <code>mvn</code> and <code>nuget</code>. Those programs will be shimmed to allow consuming local
+  dependencies.</li>
+</ul>
+<h4 id="snapshot-testing">Snapshot Testing<a class="headerlink" href="#snapshot-testing" title="Permanent link">&para;</a></h4>
+<p>Some integration tests utilize a simple snapshot testing mechanism.</p>
+<p>To update snapshots, run tests with:</p>
+<div class="highlight"><pre><span></span><code>UPDATE_SNAPSHOTS=1
+</code></pre></div>
+<p>Or, run this from the root of the repo:</p>
+<div class="highlight"><pre><span></span><code>yarn integ:update
+</code></pre></div>
+<h4 id="docker-environment-for-integration-tests">Docker environment for integration tests<a class="headerlink" href="#docker-environment-for-integration-tests" title="Permanent link">&para;</a></h4>
+<p>Due to the polyglot nature of the <a href="https://github.com/aws/jsii">jsii</a> tools used by cdk8s,
+the toolchain requirements are somewhat more complicated than for most projects.  To
+help with this, you can use the <code>jsii/superchain</code> docker image that includes all the required tools.</p>
+<p>In order to get an interactive shell within a superchain container you can use the
+following command.</p>
+<div class="highlight"><pre><span></span><code><span class="go">docker run --rm --net=host -it -v $PWD:$PWD -w $PWD jsii/superchain</span>
+</code></pre></div>
+<p>Then once in the docker shell, you can package and execute the tests as normal.</p>
+<div class="highlight"><pre><span></span><code>$ pip install pipenv  <span class="c1"># Currently not included in jsii docker image</span>
+$ yarn build
+$ yarn run package
+$ yarn integ:update
+</code></pre></div>
+<blockquote>
+<p>Note: this may leave some files owned as the docker root user id.  These will need to
+  be cleaned up manually.</p>
+</blockquote>
+<h3 id="pull-requests">Pull Requests<a class="headerlink" href="#pull-requests" title="Permanent link">&para;</a></h3>
+<p>We use the PR title when we automatically generate the change log for each
+release. Therefore please following these guidelines to the letter:</p>
+<ul>
+<li><strong>PR title</strong>:</li>
+<li>Must adhere to <a href="https://www.conventionalcommits.org/en/v1.0.0/">conventional
+    commits</a>.</li>
+<li>All lowercase with no period at the end of the title</li>
+<li>If this is a <code>fix</code> (bug) the title should describe the bug</li>
+<li>If this is a <code>feat</code> (feature) the title should describe the feature</li>
+<li><strong>PR description</strong>:</li>
+<li>Describe how did you fix the bug or what changes you had to make in order to
+    implement the feature</li>
+<li>Indicate <code>fixes #NNN</code> or <code>resolves #NNN</code> with the tracking issue number.</li>
+<li>If you <em>had</em> to test your change manually, describe how you tested it and
+    paste the test results.</li>
+<li>If this is a breaking change, the last paragraph should describe the
+    breaking change with the prefix <code>BREAKING CHANGE: xxxxxx</code>.</li>
+</ul>
+<h2 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">&para;</a></h2>
+<p>Documentation is rendered from markdown using
+<a href="https://squidfunk.github.io/mkdocs-material/">mkdocs-material</a> and sourced from
+the <a href="https://github.com/cdk8s-team/cdk8s/tree/master/docs"><code>docs</code></a> directory.</p>
+<p>API documentation for <code>cdk8s</code> and all <code>cdk8s-plus-*</code> packages is auto-generated from inline
+docstrings during build.</p>
+<p>To test locally, install python3 deps:</p>
+<div class="highlight"><pre><span></span><code>$ pip3 install -r docs/requirements.txt
+</code></pre></div>
+<p>And then:</p>
+<div class="highlight"><pre><span></span><code>$ mkdocs serve
+</code></pre></div>
+<p>This will serve a local web server with the website.</p>
+<blockquote>
+<p>A good reference for syntax and capabilities is the <a href="https://squidfunk.github.io/mkdocs-material">mkdocs-material</a> website.</p>
+</blockquote>
+<h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h2>
+<p>Examples are stored under
+<a href="https://github.com/cdk8s-team/cdk8s/tree/master/examples"><code>examples</code></a> and
+organized according to programming language.</p>
+<p>Every example also has an entry under
+<a href="https://github.com/cdk8s-team/cdk8s/tree/master/docs/examples"><code>docs/examples/xxx</code></a>
+which describes the example and includes links to the source code (on the main
+branch).</p>
+<h2 id="rfcs">RFCs<a class="headerlink" href="#rfcs" title="Permanent link">&para;</a></h2>
+<p>An RFC (request for comments) is a document that proposes and details a change
+or addition to cdk8s. It also is a process for reviewing and discussing the
+proposal and tracking its implementation. &ldquo;Request for comments&rdquo; means a request
+for discussion and oversight about the future of cdk8s from contributors and
+users. It is an open forum for suggestions, questions, and feedback.</p>
+<p>To create an RFC follow this process:</p>
+<ol>
+<li>Create an <a href="./issues/new/choose">issue</a> which will be the tracking issue for this RFC.</li>
+<li>Title should represent the title of the RFC.</li>
+<li>Description should provide the motivation for the RFC.</li>
+<li>Create a markdown file based off of
+   <a href="https://github.com/cdk8s-team/cdk8s/blob/master/rfc/0000-template.md">rfc/0000-template.md</a> under the
+   <code>rfc/&lt;nnnn&gt;-&lt;title-of-rfc&gt;</code> where <code>&lt;nnnn&gt;</code> is the tracking issue number and
+   <code>&lt;title-of-rfc&gt;</code> is a symbolic name for the title. For example:
+   <code>rfc/0030-construct-operators.md</code>.</li>
+<li>File a pull request with this markdown file. The title of the PR should
+   indicate <code>rfc: &lt;nnnn&gt; &lt;same as issue title&gt;</code>.</li>
+<li>The RFC will be reviewed as a pull request and once merged it means it is
+   ready for implementation.</li>
+</ol>
+<h2 id="community-meeting">Community Meeting<a class="headerlink" href="#community-meeting" title="Permanent link">&para;</a></h2>
+<p>Join us for the CDK8s community meeting which takes place the <a href="https://www.thetimezoneconverter.com/?t=9:00&amp;tz=PT%20%28Pacific%20Time%29">2nd Monday of the
+month at 9:00am Pacific
+Time</a>.</p>
+<ul>
+<li>Meeting link: <a href="https://chime.aws/7929414778">https://chime.aws/7929414778</a></li>
+<li><a href="https://docs.google.com/document/d/1QmZS2_cphxbs2VPfDCkrUVcoDwiawryh704hEfAyrBk/edit?usp=sharing">Agenda</a></li>
+</ul>
+<h2 id="for-maintainers">For Maintainers<a class="headerlink" href="#for-maintainers" title="Permanent link">&para;</a></h2>
+<p>This section includes information that is relevant for the maintainers of the project.</p>
+<h3 id="version">Version<a class="headerlink" href="#version" title="Permanent link">&para;</a></h3>
+<p>The current version of the project is mastered in the root <code>lerna.json</code> file. All other
+package.json files use <code>0.0.0</code>. This allows bumping a new version without
+needing to modify multiple files and avoid merge conflicts in post-release rebases.</p>
+<h3 id="release-protocol">Release Protocol<a class="headerlink" href="#release-protocol" title="Permanent link">&para;</a></h3>
+<p>To release a new version of cdk8s following these steps:</p>
+<div class="highlight"><pre><span></span><code>$ yarn bump
+</code></pre></div>
+<p>This will create a new CHANGELOG entry (from conventional commits), bump the version in
+<code>package.json</code> and create a bump commit.</p>
+<p>Now, push to <code>master</code> (in the future we will release from a release branch, but in the meantime we release directly from master):</p>
+<div class="highlight"><pre><span></span><code>$ git push origin master
+</code></pre></div>
+<p>This will trigger the <a href="https://github.com/cdk8s-team/cdk8s/blob/master/.github/workflows/release.yml">release
+workflow</a>
+which will release to all package managers and will also create a GitHub release
+with a tag.</p>
+<hr />
+<p>Portions of this guide were adopted from the contribution guides of the <a href="https://github.com/aws/aws-cdk">AWS
+CDK</a> and <a href="https://github.com/etcd-io/etcd">etcd</a>.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../CHANGELOG/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Changelog" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Changelog
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../ROADMAP/" class="md-footer__link md-footer__link--next" aria-label="Next: Roadmap" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Roadmap
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            © 2020, Amazon Web Services, Inc. or its affiliates. © cdk8s project authors. All rights reserved.
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://cdk.dev" target="_blank" rel="noopener" title="cdk.dev" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M94.12 315.1c0 25.9-21.16 47.06-47.06 47.06S0 341 0 315.1c0-25.9 21.16-47.06 47.06-47.06h47.06v47.06zm23.72 0c0-25.9 21.16-47.06 47.06-47.06s47.06 21.16 47.06 47.06v117.84c0 25.9-21.16 47.06-47.06 47.06s-47.06-21.16-47.06-47.06V315.1zm47.06-188.98c-25.9 0-47.06-21.16-47.06-47.06S139 32 164.9 32s47.06 21.16 47.06 47.06v47.06H164.9zm0 23.72c25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06H47.06C21.16 243.96 0 222.8 0 196.9s21.16-47.06 47.06-47.06H164.9zm188.98 47.06c0-25.9 21.16-47.06 47.06-47.06 25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06h-47.06V196.9zm-23.72 0c0 25.9-21.16 47.06-47.06 47.06-25.9 0-47.06-21.16-47.06-47.06V79.06c0-25.9 21.16-47.06 47.06-47.06 25.9 0 47.06 21.16 47.06 47.06V196.9zM283.1 385.88c25.9 0 47.06 21.16 47.06 47.06 0 25.9-21.16 47.06-47.06 47.06-25.9 0-47.06-21.16-47.06-47.06v-47.06h47.06zm0-23.72c-25.9 0-47.06-21.16-47.06-47.06 0-25.9 21.16-47.06 47.06-47.06h117.84c25.9 0 47.06 21.16 47.06 47.06 0 25.9-21.16 47.06-47.06 47.06H283.1z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://github.com/cdk8s-team/cdk8s" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "header.autohide"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.53c85856.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.716f8af4.min.js"></script>
+      
+    
+  </body>
+</html>
