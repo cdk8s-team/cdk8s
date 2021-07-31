@@ -2,7 +2,6 @@
   "tasks": {
     "clobber": {
       "name": "clobber",
-      "category": "30.maintain",
       "description": "hard resets to HEAD of origin and cleans the local repo",
       "env": {
         "BRANCH": "$(git branch --show-current)"
@@ -35,7 +34,6 @@
     },
     "test": {
       "name": "test",
-      "category": "10.test",
       "description": "Run tests",
       "steps": [
         {
@@ -45,7 +43,6 @@
     },
     "build": {
       "name": "build",
-      "category": "00.build",
       "description": "Full release build (test+compile)",
       "steps": [
         {
