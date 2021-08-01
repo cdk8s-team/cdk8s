@@ -18,7 +18,7 @@
     "constructs": "^3",
     "jest": "^27.0.6",
     "jest-junit": "^12",
-    "lerna": "^3",
+    "lerna": "^4",
     "npm-check-updates": "^11",
     "projen": "^0.27.12",
     "semver": "^7.3.5",
