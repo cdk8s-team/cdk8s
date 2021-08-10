@@ -12,11 +12,11 @@ type MyChartProps struct {
 }
 
 func NewMyChart(scope constructs.Construct, id string, props *MyChartProps) cdk8s.Chart {
-	var sprops cdk8s.ChartProps
+	var cprops cdk8s.ChartProps
 	if props != nil {
-		sprops = props.ChartProps
+		cprops = props.ChartProps
 	}
-	chart := cdk8s.NewChart(scope, &id, &sprops)
+	chart := cdk8s.NewChart(scope, jsii.String(id), &cprops)
 
 	label := map[string]*string{"app": jsii.String("hello-k8s")}
 
