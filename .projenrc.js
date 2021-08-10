@@ -24,7 +24,7 @@ const project = new NodeProject({
     'cdk8s-cli',
     'cdk8s-plus-17',
     'constructs@^3',
-    'lerna@^3',
+    'lerna@^4',
     'semver',
     'ts-jest',
     'typescript',
