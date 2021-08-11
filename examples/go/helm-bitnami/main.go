@@ -21,7 +21,7 @@ func NewHelloHelm(scope constructs.Construct, id string, props *HelloHelmProps) 
 		Chart: jsii.String("bitnami/redis"),
 		Values: &map[string]interface{}{
 			"sentinel": &map[string]interface{}{
-				"enabled": true, // not jsii.Bool(true)
+				"enabled": jsii.Bool(true),
 			},
 		},
 	})
