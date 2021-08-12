@@ -10,7 +10,7 @@
       
       
       <link rel="icon" href="../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.2">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.4">
     
     
       
@@ -18,10 +18,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.1118c9be.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.f7f47774.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ba0d045b.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
         
           
           
@@ -1490,8 +1490,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#static-app" class="md-nav__link">
-    static app() 
+  <a href="#static-appprops" class="md-nav__link">
+    static app(props?) 
   </a>
   
 </li>
@@ -1680,6 +1680,13 @@
         <li class="md-nav__item">
   <a href="#enum-sizeroundingbehavior" class="md-nav__link">
     enum SizeRoundingBehavior  
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enum-yamloutputtype" class="md-nav__link">
+    enum YamlOutputType  
   </a>
   
 </li>
@@ -2797,8 +2804,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#static-app" class="md-nav__link">
-    static app() 
+  <a href="#static-appprops" class="md-nav__link">
+    static app(props?) 
   </a>
   
 </li>
@@ -2991,6 +2998,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#enum-yamloutputtype" class="md-nav__link">
+    enum YamlOutputType  
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3158,6 +3172,10 @@
 <tr>
 <td><a href="#cdk8s-sizeroundingbehavior">SizeRoundingBehavior</a></td>
 <td>Rounding behaviour when converting between units of <code>Size</code>.</td>
+</tr>
+<tr>
+<td><a href="#cdk8s-yamloutputtype">YamlOutputType</a></td>
+<td>The method to divide YAML output into files.</td>
 </tr>
 </tbody>
 </table>
@@ -3338,6 +3356,7 @@ this child is not an <code>ApiObject</code>.</p>
 <ul>
 <li><strong>props</strong> (<code><a href="#cdk8s-appprops">AppProps</a></code>)  configuration options.</li>
 <li><strong>outdir</strong> (<code>string</code>)  The directory to output Kubernetes manifests. <strong><em>Default</em></strong>: CDK8S_OUTDIR if defined, otherwise &ldquo;dist&rdquo;</li>
+<li><strong>yamlOutputType</strong> (<code><a href="#cdk8s-yamloutputtype">YamlOutputType</a></code>)  How to divide the YAML output into files. <strong><em>Default</em></strong>: YamlOutputType.FILE_PER_CHART</li>
 </ul>
 <h3 id="properties_2">Properties<a class="headerlink" href="#properties_2" title="Permanent link">&para;</a></h3>
 <table>
@@ -3353,6 +3372,11 @@ this child is not an <code>ApiObject</code>.</p>
 <td><strong>outdir</strong></td>
 <td><code>string</code></td>
 <td>The output directory into which manifests will be synthesized.</td>
+</tr>
+<tr>
+<td><strong>yamlOutputType</strong></td>
+<td><code><a href="#cdk8s-yamloutputtype">YamlOutputType</a></code></td>
+<td>How to divide the YAML output into files.</td>
 </tr>
 </tbody>
 </table>
@@ -3980,10 +4004,15 @@ cannot be negative.</p>
 <h2 id="class-testing">class Testing  <a id="cdk8s-testing"></a><a class="headerlink" href="#class-testing" title="Permanent link">&para;</a></h2>
 <p>Testing utilities for cdk8s applications.</p>
 <h3 id="methods_11">Methods<a class="headerlink" href="#methods_11" title="Permanent link">&para;</a></h3>
-<h4 id="static-app"><em>static</em> app() <a id="cdk8s-testing-app"></a><a class="headerlink" href="#static-app" title="Permanent link">&para;</a></h4>
+<h4 id="static-appprops"><em>static</em> app(props?) <a id="cdk8s-testing-app"></a><a class="headerlink" href="#static-appprops" title="Permanent link">&para;</a></h4>
 <p>Returns an app for testing with the following properties: - Output directory is a temp dir.</p>
-<div class="highlight"><pre><span></span><code><span class="k">static</span> <span class="nx">app</span><span class="p">()</span><span class="o">:</span> <span class="nx">App</span>
+<div class="highlight"><pre><span></span><code><span class="k">static</span> <span class="nx">app</span><span class="p">(</span><span class="nx">props?</span>: <span class="kt">AppProps</span><span class="p">)</span><span class="o">:</span> <span class="nx">App</span>
 </code></pre></div>
+<ul>
+<li><strong>props</strong> (<code><a href="#cdk8s-appprops">AppProps</a></code>)  <em>No description</em></li>
+<li><strong>outdir</strong> (<code>string</code>)  The directory to output Kubernetes manifests. <strong><em>Default</em></strong>: CDK8S_OUTDIR if defined, otherwise &ldquo;dist&rdquo;</li>
+<li><strong>yamlOutputType</strong> (<code><a href="#cdk8s-yamloutputtype">YamlOutputType</a></code>)  How to divide the YAML output into files. <strong><em>Default</em></strong>: YamlOutputType.FILE_PER_CHART</li>
+</ul>
 <p><strong>Returns</strong>:
 * <code><a href="#cdk8s-app">App</a></code></p>
 <h4 id="static-chart"><em>static</em> chart() <a id="cdk8s-testing-chart"></a><a class="headerlink" href="#static-chart" title="Permanent link">&para;</a></h4>
@@ -4114,6 +4143,11 @@ cannot be negative.</p>
 <td><strong>outdir</strong>?</td>
 <td><code>string</code></td>
 <td>The directory to output Kubernetes manifests.<br/><strong><em>Default</em></strong>: CDK8S_OUTDIR if defined, otherwise &ldquo;dist&rdquo;</td>
+</tr>
+<tr>
+<td><strong>yamlOutputType</strong>?</td>
+<td><code><a href="#cdk8s-yamloutputtype">YamlOutputType</a></code></td>
+<td>How to divide the YAML output into files.<br/><strong><em>Default</em></strong>: YamlOutputType.FILE_PER_CHART</td>
 </tr>
 </tbody>
 </table>
@@ -4316,6 +4350,30 @@ cannot be negative.</p>
 </tr>
 </tbody>
 </table>
+<h2 id="enum-yamloutputtype">enum YamlOutputType  <a id="cdk8s-yamloutputtype"></a><a class="headerlink" href="#enum-yamloutputtype" title="Permanent link">&para;</a></h2>
+<p>The method to divide YAML output into files.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>FILE_PER_APP</strong></td>
+<td>All resources are output into a single YAML file.</td>
+</tr>
+<tr>
+<td><strong>FILE_PER_CHART</strong></td>
+<td>Resources are split into seperate files by chart.</td>
+</tr>
+<tr>
+<td><strong>FILE_PER_RESOURCE</strong></td>
+<td>Each resource is output to its own file.</td>
+</tr>
+</tbody>
+</table>
                 
               
               
@@ -4415,7 +4473,7 @@ cannot be negative.</p>
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "header.autohide"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.709b4209.min.js", "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.2b46852b.min.js"></script>
+      <script src="../../assets/javascripts/bundle.febc23d1.min.js"></script>
       
     
   </body>
