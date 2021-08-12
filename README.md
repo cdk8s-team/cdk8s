@@ -4,8 +4,8 @@
 
 ![Stability:Beta](https://img.shields.io/badge/stability-beta-orange)
 [![Website](https://github.com/cdk8s-team/cdk8s/workflows/website/badge.svg)](https://github.com/cdk8s-team/cdk8s/actions/workflows/website.yml)
-[![cdk8s-core](https://img.shields.io/github/workflow/status/cdk8s-team/cdk8s-core/build?label=cdk8s-core%20(build)&logo=GitHub)](https://github.com/cdk8s-team/cdk8s-core/actions/workflows/build.yml)
-[![cdk8s-cli](https://img.shields.io/github/workflow/status/cdk8s-team/cdk8s-cli/build?label=cdk8s-cli%20(build)&logo=GitHub)](https://github.com/cdk8s-team/cdk8s-cli/actions/workflows/build.yml)
+[![cdk8s-core](https://img.shields.io/github/workflow/status/cdk8s-team/cdk8s-core/release?label=cdk8s-core&logo=GitHub)](https://github.com/cdk8s-team/cdk8s-core/actions/workflows/release.yml)
+[![cdk8s-cli](https://img.shields.io/github/workflow/status/cdk8s-team/cdk8s-cli/release?label=cdk8s-cli&logo=GitHub)](https://github.com/cdk8s-team/cdk8s-cli/actions/workflows/release.yml)
 [![npm version](https://badge.fury.io/js/cdk8s.svg)](https://badge.fury.io/js/cdk8s)
 [![PyPI version](https://badge.fury.io/py/cdk8s.svg)](https://badge.fury.io/py/cdk8s)
 [![NuGet version](https://badge.fury.io/nu/Org.Cdk8s.svg)](https://badge.fury.io/nu/Org.Cdk8s)
