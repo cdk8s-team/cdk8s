@@ -4,7 +4,7 @@
     "clobber": "npx projen clobber",
     "test": "npx projen test",
     "build": "npx projen build",
-    "upgrade-dependencies": "npx projen upgrade-dependencies",
+    "upgrade": "npx projen upgrade",
     "default": "npx projen default",
     "integ": "npx projen integ",
     "projen": "npx projen"
@@ -12,15 +12,15 @@
   "devDependencies": {
     "@types/jest": "^26.0.24",
     "@types/node": "^14.17.9",
-    "cdk8s": "1.0.0-beta.27",
-    "cdk8s-cli": "1.0.0-beta.35",
-    "cdk8s-plus-17": "1.0.0-beta.48",
+    "cdk8s": "1.0.0-beta.28",
+    "cdk8s-cli": "1.0.0-beta.36",
+    "cdk8s-plus-17": "1.0.0-beta.49",
     "constructs": "^3",
     "jest": "^27.0.6",
     "jest-junit": "^12",
     "lerna": "^4",
     "npm-check-updates": "^11",
-    "projen": "^0.27.18",
+    "projen": "^0.27.27",
     "semver": "^7.3.5",
     "ts-jest": "^27.0.4",
     "typescript": "^4.3.5"

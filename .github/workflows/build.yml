@@ -10,6 +10,7 @@ jobs:
     permissions:
       checks: write
       contents: write
+      actions: write
     env:
       CI: "true"
     steps:
@@ -43,11 +44,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - if: steps.git_diff.outputs.has_changes
-        name: Fail check if self mutation happened
-        run: >-
-          echo "Self-mutation happened on this pull request, so this commit is
-          marked as having failed checks."
-
-          echo "The self-mutation commit has been marked as successful, and no further action should be necessary."
-
-          exit 1
+        name: Cancel workflow (if changed)
+        run: gh api -X POST /repos/${{ github.event.pull_request.head.repo.full_name
+          }}/actions/runs/${{ github.run_id }}/cancel
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
