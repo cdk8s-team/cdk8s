@@ -33,7 +33,7 @@ yarn-error.log*
 !/.github/workflows/auto-approve.yml
 !/.github/workflows/build.yml
 !/.github/workflows/stale.yml
-!/.github/workflows/upgrade-dependencies.yml
+!/.github/workflows/upgrade.yml
 !/.github/workflows/website.yml
 !/.mergify.yml
 !/.npmignore
