@@ -3184,7 +3184,7 @@
 <strong>Extends</strong>: <a href="#constructs-construct">Construct</a></p>
 <h3 id="initializer">Initializer<a class="headerlink" href="#initializer" title="Permanent link">&para;</a></h3>
 <p>Defines an API object.</p>
-<div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nx">ApiObject</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">id</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">props</span>: <span class="kt">ApiObjectProps</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="ow">new</span> <span class="nx">ApiObject</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">id</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">props</span>: <span class="kt">ApiObjectProps</span><span class="p">)</span>
 </code></pre></div>
 <ul>
 <li><strong>scope</strong> (<code><a href="#constructs-construct">Construct</a></code>)  the construct scope.</li>
@@ -3240,14 +3240,14 @@
 <h4 id="adddependencydependencies">addDependency(&hellip;dependencies) <a id="cdk8s-apiobject-adddependency"></a><a class="headerlink" href="#adddependencydependencies" title="Permanent link">&para;</a></h4>
 <p>Create a dependency between this ApiObject and other constructs.</p>
 <p>These can be other ApiObjects, Charts, or custom.</p>
-<div class="highlight"><pre><span></span><code><span class="nx">addDependency</span><span class="p">(...</span><span class="nx">dependencies</span>: <span class="kt">IConstruct</span><span class="p">[])</span><span class="o">:</span> <span class="k">void</span>
+<div class="highlight"><pre><span></span><code><span class="nx">addDependency</span><span class="p">(</span><span class="nx">...dependencies</span>: <span class="kt">IConstruct</span><span class="p">[])</span><span class="o">:</span> <span class="ow">void</span>
 </code></pre></div>
 <ul>
 <li><strong>dependencies</strong> (<code><a href="#constructs-iconstruct">IConstruct</a></code>)  the dependencies to add.</li>
 </ul>
 <h4 id="addjsonpatchops">addJsonPatch(&hellip;ops) <a id="cdk8s-apiobject-addjsonpatch"></a><a class="headerlink" href="#addjsonpatchops" title="Permanent link">&para;</a></h4>
 <p>Applies a set of RFC-6902 JSON-Patch operations to the manifest synthesized for this API object.</p>
-<div class="highlight"><pre><span></span><code><span class="nx">addJsonPatch</span><span class="p">(...</span><span class="nx">ops</span>: <span class="kt">JsonPatch</span><span class="p">[])</span><span class="o">:</span> <span class="k">void</span>
+<div class="highlight"><pre><span></span><code><span class="nx">addJsonPatch</span><span class="p">(</span><span class="nx">...ops</span>: <span class="kt">JsonPatch</span><span class="p">[])</span><span class="o">:</span> <span class="ow">void</span>
 </code></pre></div>
 <ul>
 <li><strong>ops</strong> (<code><a href="#cdk8s-jsonpatch">JsonPatch</a></code>)  The JSON-Patch operations to apply.</li>
@@ -3275,7 +3275,7 @@ this child is not an <code>ApiObject</code>.</p>
 <h2 id="class-apiobjectmetadatadefinition">class ApiObjectMetadataDefinition  <a id="cdk8s-apiobjectmetadatadefinition"></a><a class="headerlink" href="#class-apiobjectmetadatadefinition" title="Permanent link">&para;</a></h2>
 <p>Object metadata.</p>
 <h3 id="initializer_1">Initializer<a class="headerlink" href="#initializer_1" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nx">ApiObjectMetadataDefinition</span><span class="p">(</span><span class="nx">options?</span>: <span class="kt">ApiObjectMetadata</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="ow">new</span> <span class="nx">ApiObjectMetadataDefinition</span><span class="p">(</span><span class="nx">options?</span>: <span class="kt">ApiObjectMetadata</span><span class="p">)</span>
 </code></pre></div>
 <ul>
 <li><strong>options</strong> (<code><a href="#cdk8s-apiobjectmetadata">ApiObjectMetadata</a></code>)  <em>No description</em></li>
@@ -3309,7 +3309,7 @@ this child is not an <code>ApiObject</code>.</p>
 <h3 id="methods_1">Methods<a class="headerlink" href="#methods_1" title="Permanent link">&para;</a></h3>
 <h4 id="addkey-value">add(key, value) <a id="cdk8s-apiobjectmetadatadefinition-add"></a><a class="headerlink" href="#addkey-value" title="Permanent link">&para;</a></h4>
 <p>Adds an arbitrary key/value to the object metadata.</p>
-<div class="highlight"><pre><span></span><code><span class="nx">add</span><span class="p">(</span><span class="nx">key</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">value</span>: <span class="kt">any</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
+<div class="highlight"><pre><span></span><code><span class="nx">add</span><span class="p">(</span><span class="nx">key</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">value</span>: <span class="kt">any</span><span class="p">)</span><span class="o">:</span> <span class="ow">void</span>
 </code></pre></div>
 <ul>
 <li><strong>key</strong> (<code>string</code>)  Metadata key.</li>
@@ -3317,7 +3317,7 @@ this child is not an <code>ApiObject</code>.</p>
 </ul>
 <h4 id="addannotationkey-value">addAnnotation(key, value) <a id="cdk8s-apiobjectmetadatadefinition-addannotation"></a><a class="headerlink" href="#addannotationkey-value" title="Permanent link">&para;</a></h4>
 <p>Add an annotation.</p>
-<div class="highlight"><pre><span></span><code><span class="nx">addAnnotation</span><span class="p">(</span><span class="nx">key</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">value</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
+<div class="highlight"><pre><span></span><code><span class="nx">addAnnotation</span><span class="p">(</span><span class="nx">key</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">value</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="ow">void</span>
 </code></pre></div>
 <ul>
 <li><strong>key</strong> (<code>string</code>)  - The key.</li>
@@ -3325,7 +3325,7 @@ this child is not an <code>ApiObject</code>.</p>
 </ul>
 <h4 id="addlabelkey-value">addLabel(key, value) <a id="cdk8s-apiobjectmetadatadefinition-addlabel"></a><a class="headerlink" href="#addlabelkey-value" title="Permanent link">&para;</a></h4>
 <p>Add a label.</p>
-<div class="highlight"><pre><span></span><code><span class="nx">addLabel</span><span class="p">(</span><span class="nx">key</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">value</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
+<div class="highlight"><pre><span></span><code><span class="nx">addLabel</span><span class="p">(</span><span class="nx">key</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">value</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="ow">void</span>
 </code></pre></div>
 <ul>
 <li><strong>key</strong> (<code>string</code>)  - The key.</li>
@@ -3351,7 +3351,7 @@ this child is not an <code>ApiObject</code>.</p>
 <strong>Extends</strong>: <a href="#constructs-construct">Construct</a></p>
 <h3 id="initializer_2">Initializer<a class="headerlink" href="#initializer_2" title="Permanent link">&para;</a></h3>
 <p>Defines an app.</p>
-<div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nx">App</span><span class="p">(</span><span class="nx">props?</span>: <span class="kt">AppProps</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="ow">new</span> <span class="nx">App</span><span class="p">(</span><span class="nx">props?</span>: <span class="kt">AppProps</span><span class="p">)</span>
 </code></pre></div>
 <ul>
 <li><strong>props</strong> (<code><a href="#cdk8s-appprops">AppProps</a></code>)  configuration options.</li>
@@ -3383,13 +3383,13 @@ this child is not an <code>ApiObject</code>.</p>
 <h3 id="methods_2">Methods<a class="headerlink" href="#methods_2" title="Permanent link">&para;</a></h3>
 <h4 id="synth">synth() <a id="cdk8s-app-synth"></a><a class="headerlink" href="#synth" title="Permanent link">&para;</a></h4>
 <p>Synthesizes all manifests to the output directory.</p>
-<div class="highlight"><pre><span></span><code><span class="nx">synth</span><span class="p">()</span><span class="o">:</span> <span class="k">void</span>
+<div class="highlight"><pre><span></span><code><span class="nx">synth</span><span class="p">()</span><span class="o">:</span> <span class="ow">void</span>
 </code></pre></div>
 <h2 id="class-chart">class Chart  <a id="cdk8s-chart"></a><a class="headerlink" href="#class-chart" title="Permanent link">&para;</a></h2>
 <p><strong>Implements</strong>: <a href="#constructs-iconstruct">IConstruct</a>
 <strong>Extends</strong>: <a href="#constructs-construct">Construct</a></p>
 <h3 id="initializer_3">Initializer<a class="headerlink" href="#initializer_3" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nx">Chart</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">id</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">props?</span>: <span class="kt">ChartProps</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="ow">new</span> <span class="nx">Chart</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">id</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">props?</span>: <span class="kt">ChartProps</span><span class="p">)</span>
 </code></pre></div>
 <ul>
 <li><strong>scope</strong> (<code><a href="#constructs-construct">Construct</a></code>)  <em>No description</em></li>
@@ -3424,7 +3424,7 @@ this child is not an <code>ApiObject</code>.</p>
 <h4 id="adddependencydependencies_1">addDependency(&hellip;dependencies) <a id="cdk8s-chart-adddependency"></a><a class="headerlink" href="#adddependencydependencies_1" title="Permanent link">&para;</a></h4>
 <p>Create a dependency between this Chart and other constructs.</p>
 <p>These can be other ApiObjects, Charts, or custom.</p>
-<div class="highlight"><pre><span></span><code><span class="nx">addDependency</span><span class="p">(...</span><span class="nx">dependencies</span>: <span class="kt">IConstruct</span><span class="p">[])</span><span class="o">:</span> <span class="k">void</span>
+<div class="highlight"><pre><span></span><code><span class="nx">addDependency</span><span class="p">(</span><span class="nx">...dependencies</span>: <span class="kt">IConstruct</span><span class="p">[])</span><span class="o">:</span> <span class="ow">void</span>
 </code></pre></div>
 <ul>
 <li><strong>dependencies</strong> (<code><a href="#constructs-iconstruct">IConstruct</a></code>)  the dependencies to add.</li>
@@ -3473,7 +3473,7 @@ childless children of the root node of the graph.</p>
 <p>The graph does not include cross-scope dependencies. That is, if a child on the current scope depends on a node
 from a different scope, that relationship is not represented in this graph.</p>
 <h3 id="initializer_4">Initializer<a class="headerlink" href="#initializer_4" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nx">DependencyGraph</span><span class="p">(</span><span class="nx">node</span>: <span class="kt">Node</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="ow">new</span> <span class="nx">DependencyGraph</span><span class="p">(</span><span class="nx">node</span>: <span class="kt">Node</span><span class="p">)</span>
 </code></pre></div>
 <ul>
 <li><strong>node</strong> (<code><a href="#constructs-node">Node</a></code>)  <em>No description</em></li>
@@ -3505,7 +3505,7 @@ from a different scope, that relationship is not represented in this graph.</p>
 <p>Represents a vertex in the graph.</p>
 <p>The value of each vertex is an <code>IConstruct</code> that is accessible via the <code>.value</code> getter.</p>
 <h3 id="initializer_5">Initializer<a class="headerlink" href="#initializer_5" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nx">DependencyVertex</span><span class="p">(</span><span class="nx">value?</span>: <span class="kt">IConstruct</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="ow">new</span> <span class="nx">DependencyVertex</span><span class="p">(</span><span class="nx">value?</span>: <span class="kt">IConstruct</span><span class="p">)</span>
 </code></pre></div>
 <ul>
 <li><strong>value</strong> (<code><a href="#constructs-iconstruct">IConstruct</a></code>)  <em>No description</em></li>
@@ -3542,7 +3542,7 @@ from a different scope, that relationship is not represented in this graph.</p>
 <p>Adds a vertex as a dependency of the current node.</p>
 <p>Also updates the parents of <code>dep</code>, so that it contains this node as a parent.</p>
 <p>This operation will fail in case it creates a cycle in the graph.</p>
-<div class="highlight"><pre><span></span><code><span class="nx">addChild</span><span class="p">(</span><span class="nx">dep</span>: <span class="kt">DependencyVertex</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
+<div class="highlight"><pre><span></span><code><span class="nx">addChild</span><span class="p">(</span><span class="nx">dep</span>: <span class="kt">DependencyVertex</span><span class="p">)</span><span class="o">:</span> <span class="ow">void</span>
 </code></pre></div>
 <ul>
 <li><strong>dep</strong> (<code><a href="#cdk8s-dependencyvertex">DependencyVertex</a></code>)  The dependency.</li>
@@ -3680,7 +3680,7 @@ cannot be negative.</p>
 <p><strong>Implements</strong>: <a href="#constructs-iconstruct">IConstruct</a>
 <strong>Extends</strong>: <a href="#cdk8s-include">Include</a></p>
 <h3 id="initializer_6">Initializer<a class="headerlink" href="#initializer_6" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nx">Helm</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">id</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">props</span>: <span class="kt">HelmProps</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="ow">new</span> <span class="nx">Helm</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">id</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">props</span>: <span class="kt">HelmProps</span><span class="p">)</span>
 </code></pre></div>
 <ul>
 <li><strong>scope</strong> (<code><a href="#constructs-construct">Construct</a></code>)  <em>No description</em></li>
@@ -3716,7 +3716,7 @@ from the manifest.</p>
 <p><strong>Implements</strong>: <a href="#constructs-iconstruct">IConstruct</a>
 <strong>Extends</strong>: <a href="#constructs-construct">Construct</a></p>
 <h3 id="initializer_7">Initializer<a class="headerlink" href="#initializer_7" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nx">Include</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">id</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">props</span>: <span class="kt">IncludeProps</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="ow">new</span> <span class="nx">Include</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">id</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">props</span>: <span class="kt">IncludeProps</span><span class="p">)</span>
 </code></pre></div>
 <ul>
 <li><strong>scope</strong> (<code><a href="#constructs-construct">Construct</a></code>)  <em>No description</em></li>
@@ -3763,7 +3763,7 @@ used instead of an index to insert at the end of an array.</p>
 * <code><a href="#cdk8s-jsonpatch">JsonPatch</a></code></p>
 <h4 id="static-applydocument-ops"><em>static</em> apply(document, &hellip;ops) <a id="cdk8s-jsonpatch-apply"></a><a class="headerlink" href="#static-applydocument-ops" title="Permanent link">&para;</a></h4>
 <p>Applies a set of JSON-Patch (RFC-6902) operations to <code>document</code> and returns the result.</p>
-<div class="highlight"><pre><span></span><code><span class="k">static</span> <span class="nx">apply</span><span class="p">(</span><span class="nb">document</span><span class="o">:</span> <span class="nx">any</span><span class="p">,</span> <span class="p">...</span><span class="nx">ops</span>: <span class="kt">JsonPatch</span><span class="p">[])</span><span class="o">:</span> <span class="nx">any</span>
+<div class="highlight"><pre><span></span><code><span class="k">static</span> <span class="nx">apply</span><span class="p">(</span><span class="nx">document</span>: <span class="kt">any</span><span class="p">,</span> <span class="nx">...ops</span>: <span class="kt">JsonPatch</span><span class="p">[])</span><span class="o">:</span> <span class="nx">any</span>
 </code></pre></div>
 <ul>
 <li><strong>document</strong> (<code>any</code>)  The document to patch.</li>
@@ -3775,7 +3775,7 @@ used instead of an index to insert at the end of an array.</p>
 <p>Copies a value from one location to another within the JSON document.</p>
 <p>Both
 from and path are JSON Pointers.</p>
-<div class="highlight"><pre><span></span><code><span class="k">static</span> <span class="nx">copy</span><span class="p">(</span><span class="k">from</span><span class="o">:</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">path</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="nx">JsonPatch</span>
+<div class="highlight"><pre><span></span><code><span class="k">static</span> <span class="nx">copy</span><span class="p">(</span><span class="nx">from</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">path</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="nx">JsonPatch</span>
 </code></pre></div>
 <ul>
 <li><strong>from</strong> (<code>string</code>)  <em>No description</em></li>
@@ -3786,7 +3786,7 @@ from and path are JSON Pointers.</p>
 <h4 id="static-movefrom-path"><em>static</em> move(from, path) <a id="cdk8s-jsonpatch-move"></a><a class="headerlink" href="#static-movefrom-path" title="Permanent link">&para;</a></h4>
 <p>Moves a value from one location to the other.</p>
 <p>Both from and path are JSON Pointers.</p>
-<div class="highlight"><pre><span></span><code><span class="k">static</span> <span class="nx">move</span><span class="p">(</span><span class="k">from</span><span class="o">:</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">path</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="nx">JsonPatch</span>
+<div class="highlight"><pre><span></span><code><span class="k">static</span> <span class="nx">move</span><span class="p">(</span><span class="nx">from</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">path</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="nx">JsonPatch</span>
 </code></pre></div>
 <ul>
 <li><strong>from</strong> (<code>string</code>)  <em>No description</em></li>
@@ -4044,7 +4044,7 @@ cannot be negative.</p>
 * <code>Array<any></code></p>
 <h4 id="static-savefilepath-docs"><em>static</em> save(filePath, docs) <a id="cdk8s-yaml-save"></a><a class="headerlink" href="#static-savefilepath-docs" title="Permanent link">&para;</a></h4>
 <p>Saves a set of objects as a multi-document YAML file.</p>
-<div class="highlight"><pre><span></span><code><span class="k">static</span> <span class="nx">save</span><span class="p">(</span><span class="nx">filePath</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">docs</span>: <span class="kt">Array</span><span class="o">&lt;</span><span class="nx">any</span><span class="o">&gt;</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
+<div class="highlight"><pre><span></span><code><span class="k">static</span> <span class="nx">save</span><span class="p">(</span><span class="nx">filePath</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">docs</span>: <span class="kt">Array</span><span class="o">&lt;</span><span class="nx">any</span><span class="o">&gt;</span><span class="p">)</span><span class="o">:</span> <span class="ow">void</span>
 </code></pre></div>
 <ul>
 <li><strong>filePath</strong> (<code>string</code>)  The output path.</li>

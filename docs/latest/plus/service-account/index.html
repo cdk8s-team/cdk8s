@@ -1060,20 +1060,20 @@
 <h2 id="use-an-existing-serviceaccount">Use an existing <code>ServiceAccount</code><a class="headerlink" href="#use-an-existing-serviceaccount" title="Permanent link">&para;</a></h2>
 <p>To reference a service account created outside of your deployment definition, use the following. Note that this does not create a new object,
 and will therefore not be included in the resulting manifest.</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">kplus</span> <span class="k">from</span> <span class="s1">&#39;cdk8s-plus-17&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">kplus</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-17&#39;</span><span class="p">;</span>
 
 <span class="kd">const</span> <span class="nx">serviceAccount</span> <span class="o">=</span> <span class="nx">kplus</span><span class="p">.</span><span class="nx">ServiceAccount</span><span class="p">.</span><span class="nx">fromServiceAccountName</span><span class="p">(</span><span class="s1">&#39;aws-service&#39;</span><span class="p">);</span>
 </code></pre></div>
 <h2 id="allowing-access-to-secrets">Allowing access to secrets<a class="headerlink" href="#allowing-access-to-secrets" title="Permanent link">&para;</a></h2>
 <p>To create a new service account, and give it access to some secrets, use the following:</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">kplus</span> <span class="k">from</span> <span class="s1">&#39;cdk8s-plus-17&#39;</span><span class="p">;</span>
-<span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">k</span> <span class="k">from</span> <span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">kplus</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-17&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">k</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span>
 
-<span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">k</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span>
-<span class="kd">const</span> <span class="nx">chart</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">k</span><span class="p">.</span><span class="nx">Chart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;Chart&#39;</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">k</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span>
+<span class="kd">const</span> <span class="nx">chart</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">k</span><span class="p">.</span><span class="nx">Chart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;Chart&#39;</span><span class="p">);</span>
 
 <span class="kd">const</span> <span class="nx">awsCreds</span> <span class="o">=</span> <span class="nx">kplus</span><span class="p">.</span><span class="nx">Secret</span><span class="p">.</span><span class="nx">fromSecretName</span><span class="p">(</span><span class="s1">&#39;aws-creds&#39;</span><span class="p">);</span>
-<span class="kd">const</span> <span class="nx">awsService</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">kplus</span><span class="p">.</span><span class="nx">ServiceAccount</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span> <span class="s1">&#39;AWS&#39;</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">awsService</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">kplus</span><span class="p">.</span><span class="nx">ServiceAccount</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span> <span class="s1">&#39;AWS&#39;</span><span class="p">);</span>
 
 <span class="c1">// give access to the aws creds secret.</span>
 <span class="nx">awsService</span><span class="p">.</span><span class="nx">addSecret</span><span class="p">(</span><span class="nx">awsCreds</span><span class="p">);</span>

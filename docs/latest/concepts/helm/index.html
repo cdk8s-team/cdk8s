@@ -1009,7 +1009,7 @@ Helm chart with sentinel containers enabled:</p>
   <span class="kr">constructor</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">id</span>: <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">super</span><span class="p">(</span><span class="nx">scope</span><span class="p">,</span> <span class="nx">id</span><span class="p">);</span>
 
-    <span class="kd">const</span> <span class="nx">redis</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Helm</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;redis&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">redis</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Helm</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;redis&#39;</span><span class="p">,</span> <span class="p">{</span>
       <span class="nx">chart</span><span class="o">:</span> <span class="s1">&#39;bitnami/redis&#39;</span><span class="p">,</span>
       <span class="nx">values</span><span class="o">:</span> <span class="p">{</span>
         <span class="nx">sentinel</span><span class="o">:</span> <span class="p">{</span>
@@ -1031,7 +1031,7 @@ can use the <code>apiObjects</code> property to find and interact with included 
 objects.</p>
 <p>The following example shows how to add an annotation to the Redis master
 deployment:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">master</span> <span class="o">=</span> <span class="nx">redis</span><span class="p">.</span><span class="nx">apiObjects</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">o</span> <span class="o">=&gt;</span> <span class="nx">o</span><span class="p">.</span><span class="nx">name</span> <span class="o">===</span> <span class="s1">&#39;foo-redis-master&#39;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">master</span> <span class="o">=</span> <span class="nx">redis</span><span class="p">.</span><span class="nx">apiObjects</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">o</span> <span class="p">=&gt;</span> <span class="nx">o</span><span class="p">.</span><span class="nx">name</span> <span class="o">===</span> <span class="s1">&#39;foo-redis-master&#39;</span><span class="p">);</span>
 <span class="nx">master</span><span class="p">.</span><span class="nx">metadata</span><span class="p">.</span><span class="nx">addAnnotation</span><span class="p">(</span><span class="s1">&#39;my.annotation&#39;</span><span class="p">,</span> <span class="s1">&#39;hey-there&#39;</span><span class="p">);</span>
 </code></pre></div>
                 

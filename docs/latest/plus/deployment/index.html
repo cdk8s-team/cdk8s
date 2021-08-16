@@ -1060,13 +1060,13 @@
 <h2 id="automatic-pod-selection">Automatic pod selection<a class="headerlink" href="#automatic-pod-selection" title="Permanent link">&para;</a></h2>
 <p>When you specify pods in a deployment, you normally have to configure the appropriate labels and selectors to
 make the deployment control the relevant pods. This construct does this automatically.</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">k</span> <span class="k">from</span> <span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span>
-<span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">kplus</span> <span class="k">from</span> <span class="s1">&#39;cdk8s-plus-17&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">k</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">kplus</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-17&#39;</span><span class="p">;</span>
 
-<span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">k</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span>
-<span class="kd">const</span> <span class="nx">chart</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">k</span><span class="p">.</span><span class="nx">Chart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;Chart&#39;</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">k</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span>
+<span class="kd">const</span> <span class="nx">chart</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">k</span><span class="p">.</span><span class="nx">Chart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;Chart&#39;</span><span class="p">);</span>
 
-<span class="k">new</span> <span class="nx">kplus</span><span class="p">.</span><span class="nx">Deployment</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span> <span class="s1">&#39;FrontEnds&#39;</span><span class="p">,</span> <span class="p">{</span>
+<span class="ow">new</span> <span class="nx">kplus</span><span class="p">.</span><span class="nx">Deployment</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span> <span class="s1">&#39;FrontEnds&#39;</span><span class="p">,</span> <span class="p">{</span>
   <span class="nx">containers</span><span class="o">:</span> <span class="p">[</span> <span class="p">{</span> <span class="nx">image</span><span class="o">:</span> <span class="s1">&#39;node&#39;</span> <span class="p">}</span> <span class="p">],</span>
 <span class="p">});</span>
 </code></pre></div>
@@ -1092,7 +1092,7 @@ the selector for the deployment.</p>
 <h2 id="exposing-via-a-service">Exposing via a service<a class="headerlink" href="#exposing-via-a-service" title="Permanent link">&para;</a></h2>
 <p>Following up on pod selection, you can also easily create a service that will select the pods relevant to the deployment.</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// store the deployment to created in a constant</span>
-<span class="kd">const</span> <span class="nx">frontends</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">kplus</span><span class="p">.</span><span class="nx">Deployment</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span> <span class="s1">&#39;FrontEnds&#39;</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">frontends</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">kplus</span><span class="p">.</span><span class="nx">Deployment</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span> <span class="s1">&#39;FrontEnds&#39;</span><span class="p">);</span>
 
 <span class="c1">// create a ClusterIP service that listens on port 9000 and redirects to port 9000 on the containers.</span>
 <span class="nx">frontends</span><span class="p">.</span><span class="nx">expose</span><span class="p">(</span><span class="mf">9000</span><span class="p">)</span>

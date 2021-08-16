@@ -4112,7 +4112,7 @@
 <p><strong>Implements</strong>: <a href="#constructs-iconstruct">IConstruct</a>, <a href="#cdk8s-plus-17-iresource">IResource</a>, <a href="#cdk8s-plus-17-iconfigmap">IConfigMap</a>, <a href="#cdk8s-plus-17-iresource">IResource</a>
 <strong>Extends</strong>: <a href="#cdk8s-plus-17-resource">Resource</a></p>
 <h3 id="initializer">Initializer<a class="headerlink" href="#initializer" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nx">ConfigMap</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">id</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">props?</span>: <span class="kt">ConfigMapProps</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="ow">new</span> <span class="nx">ConfigMap</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">id</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">props?</span>: <span class="kt">ConfigMapProps</span><span class="p">)</span>
 </code></pre></div>
 <ul>
 <li><strong>scope</strong> (<code><a href="#constructs-construct">Construct</a></code>)  <em>No description</em></li>
@@ -4154,7 +4154,7 @@
 <p>Adds a binary data entry to the config map.</p>
 <p>BinaryData can contain byte
 sequences that are not in the UTF-8 range.</p>
-<div class="highlight"><pre><span></span><code><span class="nx">addBinaryData</span><span class="p">(</span><span class="nx">key</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">value</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
+<div class="highlight"><pre><span></span><code><span class="nx">addBinaryData</span><span class="p">(</span><span class="nx">key</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">value</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="ow">void</span>
 </code></pre></div>
 <ul>
 <li><strong>key</strong> (<code>string</code>)  The key.</li>
@@ -4162,7 +4162,7 @@ sequences that are not in the UTF-8 range.</p>
 </ul>
 <h4 id="adddatakey-value">addData(key, value) <a id="cdk8s-plus-17-configmap-adddata"></a><a class="headerlink" href="#adddatakey-value" title="Permanent link">&para;</a></h4>
 <p>Adds a data entry to the config map.</p>
-<div class="highlight"><pre><span></span><code><span class="nx">addData</span><span class="p">(</span><span class="nx">key</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">value</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
+<div class="highlight"><pre><span></span><code><span class="nx">addData</span><span class="p">(</span><span class="nx">key</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">value</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="ow">void</span>
 </code></pre></div>
 <ul>
 <li><strong>key</strong> (<code>string</code>)  The key.</li>
@@ -4170,7 +4170,7 @@ sequences that are not in the UTF-8 range.</p>
 </ul>
 <h4 id="adddirectorylocaldir-options">addDirectory(localDir, options?) <a id="cdk8s-plus-17-configmap-adddirectory"></a><a class="headerlink" href="#adddirectorylocaldir-options" title="Permanent link">&para;</a></h4>
 <p>Adds a directory to the ConfigMap.</p>
-<div class="highlight"><pre><span></span><code><span class="nx">addDirectory</span><span class="p">(</span><span class="nx">localDir</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">options?</span>: <span class="kt">AddDirectoryOptions</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
+<div class="highlight"><pre><span></span><code><span class="nx">addDirectory</span><span class="p">(</span><span class="nx">localDir</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">options?</span>: <span class="kt">AddDirectoryOptions</span><span class="p">)</span><span class="o">:</span> <span class="ow">void</span>
 </code></pre></div>
 <ul>
 <li><strong>localDir</strong> (<code>string</code>)  A path to a local directory.</li>
@@ -4180,7 +4180,7 @@ sequences that are not in the UTF-8 range.</p>
 </ul>
 <h4 id="addfilelocalfile-key">addFile(localFile, key?) <a id="cdk8s-plus-17-configmap-addfile"></a><a class="headerlink" href="#addfilelocalfile-key" title="Permanent link">&para;</a></h4>
 <p>Adds a file to the ConfigMap.</p>
-<div class="highlight"><pre><span></span><code><span class="nx">addFile</span><span class="p">(</span><span class="nx">localFile</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">key?</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
+<div class="highlight"><pre><span></span><code><span class="nx">addFile</span><span class="p">(</span><span class="nx">localFile</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">key?</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="ow">void</span>
 </code></pre></div>
 <ul>
 <li><strong>localFile</strong> (<code>string</code>)  The path to the local file.</li>
@@ -4198,7 +4198,7 @@ sequences that are not in the UTF-8 range.</p>
 <h2 id="class-container">class Container  <a id="cdk8s-plus-17-container"></a><a class="headerlink" href="#class-container" title="Permanent link">&para;</a></h2>
 <p>A single application container that you want to run within a pod.</p>
 <h3 id="initializer_1">Initializer<a class="headerlink" href="#initializer_1" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nx">Container</span><span class="p">(</span><span class="nx">props</span>: <span class="kt">ContainerProps</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="ow">new</span> <span class="nx">Container</span><span class="p">(</span><span class="nx">props</span>: <span class="kt">ContainerProps</span><span class="p">)</span>
 </code></pre></div>
 <ul>
 <li><strong>props</strong> (<code><a href="#cdk8s-plus-17-containerprops">ContainerProps</a></code>)  <em>No description</em></li>
@@ -4277,7 +4277,7 @@ sequences that are not in the UTF-8 range.</p>
 <p>Add an environment value to the container.</p>
 <p>The variable value can come
 from various dynamic sources such a secrets of config maps.</p>
-<div class="highlight"><pre><span></span><code><span class="nx">addEnv</span><span class="p">(</span><span class="nx">name</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">value</span>: <span class="kt">EnvValue</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
+<div class="highlight"><pre><span></span><code><span class="nx">addEnv</span><span class="p">(</span><span class="nx">name</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">value</span>: <span class="kt">EnvValue</span><span class="p">)</span><span class="o">:</span> <span class="ow">void</span>
 </code></pre></div>
 <ul>
 <li><strong>name</strong> (<code>string</code>)  - The variable name.</li>
@@ -4286,7 +4286,7 @@ from various dynamic sources such a secrets of config maps.</p>
 <h4 id="mountpath-volume-options">mount(path, volume, options?) <a id="cdk8s-plus-17-container-mount"></a><a class="headerlink" href="#mountpath-volume-options" title="Permanent link">&para;</a></h4>
 <p>Mount a volume to a specific path so that it is accessible by the container.</p>
 <p>Every pod that is configured to use this container will autmoatically have access to the volume.</p>
-<div class="highlight"><pre><span></span><code><span class="nx">mount</span><span class="p">(</span><span class="nx">path</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">volume</span>: <span class="kt">Volume</span><span class="p">,</span> <span class="nx">options?</span>: <span class="kt">MountOptions</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
+<div class="highlight"><pre><span></span><code><span class="nx">mount</span><span class="p">(</span><span class="nx">path</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">volume</span>: <span class="kt">Volume</span><span class="p">,</span> <span class="nx">options?</span>: <span class="kt">MountOptions</span><span class="p">)</span><span class="o">:</span> <span class="ow">void</span>
 </code></pre></div>
 <ul>
 <li><strong>path</strong> (<code>string</code>)  - The desired path in the container.</li>
@@ -4323,7 +4323,7 @@ existing Deployments and adopt all their resources with new Deployments.</p>
 <p><strong>Implements</strong>: <a href="#constructs-iconstruct">IConstruct</a>, <a href="#cdk8s-plus-17-iresource">IResource</a>, <a href="#cdk8s-plus-17-ipodtemplate">IPodTemplate</a>, <a href="#cdk8s-plus-17-ipodspec">IPodSpec</a>
 <strong>Extends</strong>: <a href="#cdk8s-plus-17-resource">Resource</a></p>
 <h3 id="initializer_2">Initializer<a class="headerlink" href="#initializer_2" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nx">Deployment</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">id</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">props?</span>: <span class="kt">DeploymentProps</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="ow">new</span> <span class="nx">Deployment</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">id</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">props?</span>: <span class="kt">DeploymentProps</span><span class="p">)</span>
 </code></pre></div>
 <ul>
 <li><strong>scope</strong> (<code><a href="#constructs-construct">Construct</a></code>)  <em>No description</em></li>
@@ -4414,7 +4414,7 @@ existing Deployments and adopt all their resources with new Deployments.</p>
 * <code><a href="#cdk8s-plus-17-container">Container</a></code></p>
 <h4 id="addvolumevolume">addVolume(volume) <a id="cdk8s-plus-17-deployment-addvolume"></a><a class="headerlink" href="#addvolumevolume" title="Permanent link">&para;</a></h4>
 <p>Add a volume to the pod.</p>
-<div class="highlight"><pre><span></span><code><span class="nx">addVolume</span><span class="p">(</span><span class="nx">volume</span>: <span class="kt">Volume</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
+<div class="highlight"><pre><span></span><code><span class="nx">addVolume</span><span class="p">(</span><span class="nx">volume</span>: <span class="kt">Volume</span><span class="p">)</span><span class="o">:</span> <span class="ow">void</span>
 </code></pre></div>
 <ul>
 <li><strong>volume</strong> (<code><a href="#cdk8s-plus-17-volume">Volume</a></code>)  <em>No description</em></li>
@@ -4437,7 +4437,7 @@ existing Deployments and adopt all their resources with new Deployments.</p>
 <h4 id="selectbylabelkey-value">selectByLabel(key, value) <a id="cdk8s-plus-17-deployment-selectbylabel"></a><a class="headerlink" href="#selectbylabelkey-value" title="Permanent link">&para;</a></h4>
 <p>Configure a label selector to this deployment.</p>
 <p>Pods that have the label will be selected by deployments configured with this spec.</p>
-<div class="highlight"><pre><span></span><code><span class="nx">selectByLabel</span><span class="p">(</span><span class="nx">key</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">value</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
+<div class="highlight"><pre><span></span><code><span class="nx">selectByLabel</span><span class="p">(</span><span class="nx">key</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">value</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="ow">void</span>
 </code></pre></div>
 <ul>
 <li><strong>key</strong> (<code>string</code>)  - The label key.</li>
@@ -4519,7 +4519,7 @@ based virtual hosting etc.</p>
 <p><strong>Implements</strong>: <a href="#constructs-iconstruct">IConstruct</a>, <a href="#cdk8s-plus-17-iresource">IResource</a>
 <strong>Extends</strong>: <a href="#cdk8s-plus-17-resource">Resource</a></p>
 <h3 id="initializer_3">Initializer<a class="headerlink" href="#initializer_3" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nx">IngressV1Beta1</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">id</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">props?</span>: <span class="kt">IngressV1Beta1Props</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="ow">new</span> <span class="nx">IngressV1Beta1</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">id</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">props?</span>: <span class="kt">IngressV1Beta1Props</span><span class="p">)</span>
 </code></pre></div>
 <ul>
 <li><strong>scope</strong> (<code><a href="#constructs-construct">Construct</a></code>)  <em>No description</em></li>
@@ -4552,7 +4552,7 @@ based virtual hosting etc.</p>
 <p>Defines the default backend for this ingress.</p>
 <p>A default backend capable of
 servicing requests that don&rsquo;t match any rule.</p>
-<div class="highlight"><pre><span></span><code><span class="nx">addDefaultBackend</span><span class="p">(</span><span class="nx">backend</span>: <span class="kt">IngressV1Beta1Backend</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
+<div class="highlight"><pre><span></span><code><span class="nx">addDefaultBackend</span><span class="p">(</span><span class="nx">backend</span>: <span class="kt">IngressV1Beta1Backend</span><span class="p">)</span><span class="o">:</span> <span class="ow">void</span>
 </code></pre></div>
 <ul>
 <li><strong>backend</strong> (<code><a href="#cdk8s-plus-17-ingressv1beta1backend">IngressV1Beta1Backend</a></code>)  The backend to use for requests that do not match any rule.</li>
@@ -4561,7 +4561,7 @@ servicing requests that don&rsquo;t match any rule.</p>
 <p>Specify a default backend for a specific host name.</p>
 <p>This backend will be used as a catch-all for requests
 targeted to this host name (the <code>Host</code> header matches this value).</p>
-<div class="highlight"><pre><span></span><code><span class="nx">addHostDefaultBackend</span><span class="p">(</span><span class="nx">host</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">backend</span>: <span class="kt">IngressV1Beta1Backend</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
+<div class="highlight"><pre><span></span><code><span class="nx">addHostDefaultBackend</span><span class="p">(</span><span class="nx">host</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">backend</span>: <span class="kt">IngressV1Beta1Backend</span><span class="p">)</span><span class="o">:</span> <span class="ow">void</span>
 </code></pre></div>
 <ul>
 <li><strong>host</strong> (<code>string</code>)  The host name to match.</li>
@@ -4569,7 +4569,7 @@ targeted to this host name (the <code>Host</code> header matches this value).</p
 </ul>
 <h4 id="addhostrulehost-path-backend">addHostRule(host, path, backend) <a id="cdk8s-plus-17-ingressv1beta1-addhostrule"></a><a class="headerlink" href="#addhostrulehost-path-backend" title="Permanent link">&para;</a></h4>
 <p>Adds an ingress rule applied to requests to a specific host and a specific HTTP path (the <code>Host</code> header matches this value).</p>
-<div class="highlight"><pre><span></span><code><span class="nx">addHostRule</span><span class="p">(</span><span class="nx">host</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">path</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">backend</span>: <span class="kt">IngressV1Beta1Backend</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
+<div class="highlight"><pre><span></span><code><span class="nx">addHostRule</span><span class="p">(</span><span class="nx">host</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">path</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">backend</span>: <span class="kt">IngressV1Beta1Backend</span><span class="p">)</span><span class="o">:</span> <span class="ow">void</span>
 </code></pre></div>
 <ul>
 <li><strong>host</strong> (<code>string</code>)  The host name.</li>
@@ -4578,7 +4578,7 @@ targeted to this host name (the <code>Host</code> header matches this value).</p
 </ul>
 <h4 id="addrulepath-backend">addRule(path, backend) <a id="cdk8s-plus-17-ingressv1beta1-addrule"></a><a class="headerlink" href="#addrulepath-backend" title="Permanent link">&para;</a></h4>
 <p>Adds an ingress rule applied to requests sent to a specific HTTP path.</p>
-<div class="highlight"><pre><span></span><code><span class="nx">addRule</span><span class="p">(</span><span class="nx">path</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">backend</span>: <span class="kt">IngressV1Beta1Backend</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
+<div class="highlight"><pre><span></span><code><span class="nx">addRule</span><span class="p">(</span><span class="nx">path</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">backend</span>: <span class="kt">IngressV1Beta1Backend</span><span class="p">)</span><span class="o">:</span> <span class="ow">void</span>
 </code></pre></div>
 <ul>
 <li><strong>path</strong> (<code>string</code>)  The HTTP path.</li>
@@ -4586,7 +4586,7 @@ targeted to this host name (the <code>Host</code> header matches this value).</p
 </ul>
 <h4 id="addrulesrules">addRules(&hellip;rules) <a id="cdk8s-plus-17-ingressv1beta1-addrules"></a><a class="headerlink" href="#addrulesrules" title="Permanent link">&para;</a></h4>
 <p>Adds rules to this ingress.</p>
-<div class="highlight"><pre><span></span><code><span class="nx">addRules</span><span class="p">(...</span><span class="nx">rules</span>: <span class="kt">IngressV1Beta1Rule</span><span class="p">[])</span><span class="o">:</span> <span class="k">void</span>
+<div class="highlight"><pre><span></span><code><span class="nx">addRules</span><span class="p">(</span><span class="nx">...rules</span>: <span class="kt">IngressV1Beta1Rule</span><span class="p">[])</span><span class="o">:</span> <span class="ow">void</span>
 </code></pre></div>
 <ul>
 <li><strong>rules</strong> (<code><a href="#cdk8s-plus-17-ingressv1beta1rule">IngressV1Beta1Rule</a></code>)  The rules to add.</li>
@@ -4595,7 +4595,7 @@ targeted to this host name (the <code>Host</code> header matches this value).</p
 <li><strong>path</strong> (<code>string</code>)  Path is an extended POSIX regex as defined by IEEE Std 1003.1, (i.e this follows the egrep/unix syntax, not the perl syntax) matched against the path of an incoming request. Currently it can contain characters disallowed from the conventional &ldquo;path&rdquo; part of a URL as defined by RFC 3986. Paths must begin with a &lsquo;/&rsquo;. <strong><em>Default</em></strong>: If unspecified, the path defaults to a catch all sending traffic to the backend.</li>
 </ul>
 <h4 id="addtlstls">addTls(tls) <a id="cdk8s-plus-17-ingressv1beta1-addtls"></a><a class="headerlink" href="#addtlstls" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><span class="nx">addTls</span><span class="p">(</span><span class="nx">tls</span>: <span class="kt">Array</span><span class="o">&lt;</span><span class="nx">IngressV1Beta1Tls</span><span class="o">&gt;</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
+<div class="highlight"><pre><span></span><code><span class="nx">addTls</span><span class="p">(</span><span class="nx">tls</span>: <span class="kt">Array</span><span class="o">&lt;</span><span class="nx">IngressV1Beta1Tls</span><span class="o">&gt;</span><span class="p">)</span><span class="o">:</span> <span class="ow">void</span>
 </code></pre></div>
 <ul>
 <li><strong>tls</strong> (<code>Array&lt;<a href="#cdk8s-plus-17-ingressv1beta1tls">IngressV1Beta1Tls</a>&gt;</code>)  <em>No description</em></li>
@@ -4632,7 +4632,7 @@ You can also use a Job to run multiple Pods in parallel.</p>
 <p><strong>Implements</strong>: <a href="#constructs-iconstruct">IConstruct</a>, <a href="#cdk8s-plus-17-iresource">IResource</a>, <a href="#cdk8s-plus-17-ipodtemplate">IPodTemplate</a>, <a href="#cdk8s-plus-17-ipodspec">IPodSpec</a>
 <strong>Extends</strong>: <a href="#cdk8s-plus-17-resource">Resource</a></p>
 <h3 id="initializer_4">Initializer<a class="headerlink" href="#initializer_4" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nx">Job</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">id</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">props?</span>: <span class="kt">JobProps</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="ow">new</span> <span class="nx">Job</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">id</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">props?</span>: <span class="kt">JobProps</span><span class="p">)</span>
 </code></pre></div>
 <ul>
 <li><strong>scope</strong> (<code><a href="#constructs-construct">Construct</a></code>)  <em>No description</em></li>
@@ -4729,7 +4729,7 @@ You can also use a Job to run multiple Pods in parallel.</p>
 * <code><a href="#cdk8s-plus-17-container">Container</a></code></p>
 <h4 id="addvolumevolume_1">addVolume(volume) <a id="cdk8s-plus-17-job-addvolume"></a><a class="headerlink" href="#addvolumevolume_1" title="Permanent link">&para;</a></h4>
 <p>Add a volume to the pod.</p>
-<div class="highlight"><pre><span></span><code><span class="nx">addVolume</span><span class="p">(</span><span class="nx">volume</span>: <span class="kt">Volume</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
+<div class="highlight"><pre><span></span><code><span class="nx">addVolume</span><span class="p">(</span><span class="nx">volume</span>: <span class="kt">Volume</span><span class="p">)</span><span class="o">:</span> <span class="ow">void</span>
 </code></pre></div>
 <ul>
 <li><strong>volume</strong> (<code><a href="#cdk8s-plus-17-volume">Volume</a></code>)  <em>No description</em></li>
@@ -4741,7 +4741,7 @@ created by clients and scheduled onto hosts.</p>
 <p><strong>Implements</strong>: <a href="#constructs-iconstruct">IConstruct</a>, <a href="#cdk8s-plus-17-iresource">IResource</a>, <a href="#cdk8s-plus-17-ipodspec">IPodSpec</a>
 <strong>Extends</strong>: <a href="#cdk8s-plus-17-resource">Resource</a></p>
 <h3 id="initializer_5">Initializer<a class="headerlink" href="#initializer_5" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nx">Pod</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">id</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">props?</span>: <span class="kt">PodProps</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="ow">new</span> <span class="nx">Pod</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">id</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">props?</span>: <span class="kt">PodProps</span><span class="p">)</span>
 </code></pre></div>
 <ul>
 <li><strong>scope</strong> (<code><a href="#constructs-construct">Construct</a></code>)  <em>No description</em></li>
@@ -4814,7 +4814,7 @@ created by clients and scheduled onto hosts.</p>
 * <code><a href="#cdk8s-plus-17-container">Container</a></code></p>
 <h4 id="addvolumevolume_2">addVolume(volume) <a id="cdk8s-plus-17-pod-addvolume"></a><a class="headerlink" href="#addvolumevolume_2" title="Permanent link">&para;</a></h4>
 <p>Add a volume to the pod.</p>
-<div class="highlight"><pre><span></span><code><span class="nx">addVolume</span><span class="p">(</span><span class="nx">volume</span>: <span class="kt">Volume</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
+<div class="highlight"><pre><span></span><code><span class="nx">addVolume</span><span class="p">(</span><span class="nx">volume</span>: <span class="kt">Volume</span><span class="p">)</span><span class="o">:</span> <span class="ow">void</span>
 </code></pre></div>
 <ul>
 <li><strong>volume</strong> (<code><a href="#cdk8s-plus-17-volume">Volume</a></code>)  <em>No description</em></li>
@@ -4823,7 +4823,7 @@ created by clients and scheduled onto hosts.</p>
 <p>Provides read/write capabilities ontop of a <code>PodSpecProps</code>.</p>
 <p><strong>Implements</strong>: <a href="#cdk8s-plus-17-ipodspec">IPodSpec</a></p>
 <h3 id="initializer_6">Initializer<a class="headerlink" href="#initializer_6" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nx">PodSpec</span><span class="p">(</span><span class="nx">props?</span>: <span class="kt">PodSpecProps</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="ow">new</span> <span class="nx">PodSpec</span><span class="p">(</span><span class="nx">props?</span>: <span class="kt">PodSpecProps</span><span class="p">)</span>
 </code></pre></div>
 <ul>
 <li><strong>props</strong> (<code><a href="#cdk8s-plus-17-podspecprops">PodSpecProps</a></code>)  <em>No description</em></li>
@@ -4888,7 +4888,7 @@ created by clients and scheduled onto hosts.</p>
 * <code><a href="#cdk8s-plus-17-container">Container</a></code></p>
 <h4 id="addvolumevolume_3">addVolume(volume) <a id="cdk8s-plus-17-podspec-addvolume"></a><a class="headerlink" href="#addvolumevolume_3" title="Permanent link">&para;</a></h4>
 <p>Add a volume to the pod.</p>
-<div class="highlight"><pre><span></span><code><span class="nx">addVolume</span><span class="p">(</span><span class="nx">volume</span>: <span class="kt">Volume</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
+<div class="highlight"><pre><span></span><code><span class="nx">addVolume</span><span class="p">(</span><span class="nx">volume</span>: <span class="kt">Volume</span><span class="p">)</span><span class="o">:</span> <span class="ow">void</span>
 </code></pre></div>
 <ul>
 <li><strong>volume</strong> (<code><a href="#cdk8s-plus-17-volume">Volume</a></code>)  <em>No description</em></li>
@@ -4898,7 +4898,7 @@ created by clients and scheduled onto hosts.</p>
 <p><strong>Implements</strong>: <a href="#cdk8s-plus-17-ipodspec">IPodSpec</a>, <a href="#cdk8s-plus-17-ipodtemplate">IPodTemplate</a>, <a href="#cdk8s-plus-17-ipodspec">IPodSpec</a>
 <strong>Extends</strong>: <a href="#cdk8s-plus-17-podspec">PodSpec</a></p>
 <h3 id="initializer_7">Initializer<a class="headerlink" href="#initializer_7" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nx">PodTemplate</span><span class="p">(</span><span class="nx">props?</span>: <span class="kt">PodTemplateProps</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="ow">new</span> <span class="nx">PodTemplate</span><span class="p">(</span><span class="nx">props?</span>: <span class="kt">PodTemplateProps</span><span class="p">)</span>
 </code></pre></div>
 <ul>
 <li><strong>props</strong> (<code><a href="#cdk8s-plus-17-podtemplateprops">PodTemplateProps</a></code>)  <em>No description</em></li>
@@ -4928,7 +4928,7 @@ created by clients and scheduled onto hosts.</p>
 <h2 id="class-probe">class Probe  <a id="cdk8s-plus-17-probe"></a><a class="headerlink" href="#class-probe" title="Permanent link">&para;</a></h2>
 <p>Probe describes a health check to be performed against a container to determine whether it is alive or ready to receive traffic.</p>
 <h3 id="initializer_8">Initializer<a class="headerlink" href="#initializer_8" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nx">Probe</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="ow">new</span> <span class="nx">Probe</span><span class="p">()</span>
 </code></pre></div>
 <h3 id="methods_9">Methods<a class="headerlink" href="#methods_9" title="Permanent link">&para;</a></h3>
 <h4 id="static-fromcommandcommand-options"><em>static</em> fromCommand(command, options?) <a id="cdk8s-plus-17-probe-fromcommand"></a><a class="headerlink" href="#static-fromcommandcommand-options" title="Permanent link">&para;</a></h4>
@@ -4971,7 +4971,7 @@ resource.</p>
 <strong>Implemented by</strong>: <a href="#cdk8s-plus-17-configmap">ConfigMap</a>, <a href="#cdk8s-plus-17-deployment">Deployment</a>, <a href="#cdk8s-plus-17-ingressv1beta1">IngressV1Beta1</a>, <a href="#cdk8s-plus-17-job">Job</a>, <a href="#cdk8s-plus-17-pod">Pod</a>, <a href="#cdk8s-plus-17-secret">Secret</a>, <a href="#cdk8s-plus-17-service">Service</a>, <a href="#cdk8s-plus-17-serviceaccount">ServiceAccount</a>, <a href="#cdk8s-plus-17-statefulset">StatefulSet</a></p>
 <h3 id="initializer_9">Initializer<a class="headerlink" href="#initializer_9" title="Permanent link">&para;</a></h3>
 <p>Creates a new construct node.</p>
-<div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nx">Resource</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">id</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">options?</span>: <span class="kt">ConstructOptions</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="ow">new</span> <span class="nx">Resource</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">id</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">options?</span>: <span class="kt">ConstructOptions</span><span class="p">)</span>
 </code></pre></div>
 <ul>
 <li><strong>scope</strong> (<code><a href="#constructs-construct">Construct</a></code>)  The scope in which to define this construct.</li>
@@ -5014,7 +5014,7 @@ definition or in a container image.</p>
 <p><strong>Implements</strong>: <a href="#constructs-iconstruct">IConstruct</a>, <a href="#cdk8s-plus-17-iresource">IResource</a>, <a href="#cdk8s-plus-17-isecret">ISecret</a>, <a href="#cdk8s-plus-17-iresource">IResource</a>
 <strong>Extends</strong>: <a href="#cdk8s-plus-17-resource">Resource</a></p>
 <h3 id="initializer_10">Initializer<a class="headerlink" href="#initializer_10" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nx">Secret</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">id</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">props?</span>: <span class="kt">SecretProps</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="ow">new</span> <span class="nx">Secret</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">id</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">props?</span>: <span class="kt">SecretProps</span><span class="p">)</span>
 </code></pre></div>
 <ul>
 <li><strong>scope</strong> (<code><a href="#constructs-construct">Construct</a></code>)  <em>No description</em></li>
@@ -5044,7 +5044,7 @@ definition or in a container image.</p>
 <h3 id="methods_10">Methods<a class="headerlink" href="#methods_10" title="Permanent link">&para;</a></h3>
 <h4 id="addstringdatakey-value">addStringData(key, value) <a id="cdk8s-plus-17-secret-addstringdata"></a><a class="headerlink" href="#addstringdatakey-value" title="Permanent link">&para;</a></h4>
 <p>Adds a string data field to the secert.</p>
-<div class="highlight"><pre><span></span><code><span class="nx">addStringData</span><span class="p">(</span><span class="nx">key</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">value</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
+<div class="highlight"><pre><span></span><code><span class="nx">addStringData</span><span class="p">(</span><span class="nx">key</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">value</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="ow">void</span>
 </code></pre></div>
 <ul>
 <li><strong>key</strong> (<code>string</code>)  Key.</li>
@@ -5082,7 +5082,7 @@ or load balancer in between your application and the backend Pods.</p>
 <p><strong>Implements</strong>: <a href="#constructs-iconstruct">IConstruct</a>, <a href="#cdk8s-plus-17-iresource">IResource</a>
 <strong>Extends</strong>: <a href="#cdk8s-plus-17-resource">Resource</a></p>
 <h3 id="initializer_11">Initializer<a class="headerlink" href="#initializer_11" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nx">Service</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">id</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">props?</span>: <span class="kt">ServiceProps</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="ow">new</span> <span class="nx">Service</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">id</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">props?</span>: <span class="kt">ServiceProps</span><span class="p">)</span>
 </code></pre></div>
 <ul>
 <li><strong>scope</strong> (<code><a href="#constructs-construct">Construct</a></code>)  <em>No description</em></li>
@@ -5144,7 +5144,7 @@ or load balancer in between your application and the backend Pods.</p>
 <p>If not targetPort is specific in the portOptions, then requests will be routed
 to the port exposed by the first container in the deployment&rsquo;s pods.
 The deployment&rsquo;s <code>labelSelector</code> will be used to select pods.</p>
-<div class="highlight"><pre><span></span><code><span class="nx">addDeployment</span><span class="p">(</span><span class="nx">deployment</span>: <span class="kt">Deployment</span><span class="p">,</span> <span class="nx">port</span>: <span class="kt">number</span><span class="p">,</span> <span class="nx">options?</span>: <span class="kt">ServicePortOptions</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
+<div class="highlight"><pre><span></span><code><span class="nx">addDeployment</span><span class="p">(</span><span class="nx">deployment</span>: <span class="kt">Deployment</span><span class="p">,</span> <span class="nx">port</span>: <span class="kt">number</span><span class="p">,</span> <span class="nx">options?</span>: <span class="kt">ServicePortOptions</span><span class="p">)</span><span class="o">:</span> <span class="ow">void</span>
 </code></pre></div>
 <ul>
 <li><strong>deployment</strong> (<code><a href="#cdk8s-plus-17-deployment">Deployment</a></code>)  The deployment to expose.</li>
@@ -5157,7 +5157,7 @@ The deployment&rsquo;s <code>labelSelector</code> will be used to select pods.</
 </ul>
 <h4 id="addselectorlabel-value">addSelector(label, value) <a id="cdk8s-plus-17-service-addselector"></a><a class="headerlink" href="#addselectorlabel-value" title="Permanent link">&para;</a></h4>
 <p>Services defined using this spec will select pods according the provided label.</p>
-<div class="highlight"><pre><span></span><code><span class="nx">addSelector</span><span class="p">(</span><span class="nx">label</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">value</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
+<div class="highlight"><pre><span></span><code><span class="nx">addSelector</span><span class="p">(</span><span class="nx">label</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">value</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="ow">void</span>
 </code></pre></div>
 <ul>
 <li><strong>label</strong> (<code>string</code>)  The label key.</li>
@@ -5166,7 +5166,7 @@ The deployment&rsquo;s <code>labelSelector</code> will be used to select pods.</
 <h4 id="serveport-options">serve(port, options?) <a id="cdk8s-plus-17-service-serve"></a><a class="headerlink" href="#serveport-options" title="Permanent link">&para;</a></h4>
 <p>Configure a port the service will bind to.</p>
 <p>This method can be called multiple times.</p>
-<div class="highlight"><pre><span></span><code><span class="nx">serve</span><span class="p">(</span><span class="nx">port</span>: <span class="kt">number</span><span class="p">,</span> <span class="nx">options?</span>: <span class="kt">ServicePortOptions</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
+<div class="highlight"><pre><span></span><code><span class="nx">serve</span><span class="p">(</span><span class="nx">port</span>: <span class="kt">number</span><span class="p">,</span> <span class="nx">options?</span>: <span class="kt">ServicePortOptions</span><span class="p">)</span><span class="o">:</span> <span class="ow">void</span>
 </code></pre></div>
 <ul>
 <li><strong>port</strong> (<code>number</code>)  The port definition.</li>
@@ -5187,7 +5187,7 @@ example, default).</p>
 <p><strong>Implements</strong>: <a href="#constructs-iconstruct">IConstruct</a>, <a href="#cdk8s-plus-17-iresource">IResource</a>, <a href="#cdk8s-plus-17-iserviceaccount">IServiceAccount</a>, <a href="#cdk8s-plus-17-iresource">IResource</a>
 <strong>Extends</strong>: <a href="#cdk8s-plus-17-resource">Resource</a></p>
 <h3 id="initializer_12">Initializer<a class="headerlink" href="#initializer_12" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nx">ServiceAccount</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">id</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">props?</span>: <span class="kt">ServiceAccountProps</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="ow">new</span> <span class="nx">ServiceAccount</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">id</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">props?</span>: <span class="kt">ServiceAccountProps</span><span class="p">)</span>
 </code></pre></div>
 <ul>
 <li><strong>scope</strong> (<code><a href="#constructs-construct">Construct</a></code>)  <em>No description</em></li>
@@ -5221,7 +5221,7 @@ example, default).</p>
 <h3 id="methods_12">Methods<a class="headerlink" href="#methods_12" title="Permanent link">&para;</a></h3>
 <h4 id="addsecretsecret">addSecret(secret) <a id="cdk8s-plus-17-serviceaccount-addsecret"></a><a class="headerlink" href="#addsecretsecret" title="Permanent link">&para;</a></h4>
 <p>Allow a secret to be accessed by pods using this service account.</p>
-<div class="highlight"><pre><span></span><code><span class="nx">addSecret</span><span class="p">(</span><span class="nx">secret</span>: <span class="kt">ISecret</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
+<div class="highlight"><pre><span></span><code><span class="nx">addSecret</span><span class="p">(</span><span class="nx">secret</span>: <span class="kt">ISecret</span><span class="p">)</span><span class="o">:</span> <span class="ow">void</span>
 </code></pre></div>
 <ul>
 <li><strong>secret</strong> (<code><a href="#cdk8s-plus-17-isecret">ISecret</a></code>)  The secret.</li>
@@ -5259,7 +5259,7 @@ volumes to the new Pods that replace any that have failed.</p>
 <p><strong>Implements</strong>: <a href="#constructs-iconstruct">IConstruct</a>, <a href="#cdk8s-plus-17-iresource">IResource</a>, <a href="#cdk8s-plus-17-ipodtemplate">IPodTemplate</a>, <a href="#cdk8s-plus-17-ipodspec">IPodSpec</a>
 <strong>Extends</strong>: <a href="#cdk8s-plus-17-resource">Resource</a></p>
 <h3 id="initializer_13">Initializer<a class="headerlink" href="#initializer_13" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nx">StatefulSet</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">id</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">props</span>: <span class="kt">StatefulSetProps</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="ow">new</span> <span class="nx">StatefulSet</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">id</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">props</span>: <span class="kt">StatefulSetProps</span><span class="p">)</span>
 </code></pre></div>
 <ul>
 <li><strong>scope</strong> (<code><a href="#constructs-construct">Construct</a></code>)  <em>No description</em></li>
@@ -5357,7 +5357,7 @@ volumes to the new Pods that replace any that have failed.</p>
 * <code><a href="#cdk8s-plus-17-container">Container</a></code></p>
 <h4 id="addvolumevolume_4">addVolume(volume) <a id="cdk8s-plus-17-statefulset-addvolume"></a><a class="headerlink" href="#addvolumevolume_4" title="Permanent link">&para;</a></h4>
 <p>Add a volume to the pod.</p>
-<div class="highlight"><pre><span></span><code><span class="nx">addVolume</span><span class="p">(</span><span class="nx">volume</span>: <span class="kt">Volume</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
+<div class="highlight"><pre><span></span><code><span class="nx">addVolume</span><span class="p">(</span><span class="nx">volume</span>: <span class="kt">Volume</span><span class="p">)</span><span class="o">:</span> <span class="ow">void</span>
 </code></pre></div>
 <ul>
 <li><strong>volume</strong> (<code><a href="#cdk8s-plus-17-volume">Volume</a></code>)  <em>No description</em></li>
@@ -5365,7 +5365,7 @@ volumes to the new Pods that replace any that have failed.</p>
 <h4 id="selectbylabelkey-value_1">selectByLabel(key, value) <a id="cdk8s-plus-17-statefulset-selectbylabel"></a><a class="headerlink" href="#selectbylabelkey-value_1" title="Permanent link">&para;</a></h4>
 <p>Configure a label selector to this deployment.</p>
 <p>Pods that have the label will be selected by deployments configured with this spec.</p>
-<div class="highlight"><pre><span></span><code><span class="nx">selectByLabel</span><span class="p">(</span><span class="nx">key</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">value</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
+<div class="highlight"><pre><span></span><code><span class="nx">selectByLabel</span><span class="p">(</span><span class="nx">key</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">value</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="ow">void</span>
 </code></pre></div>
 <ul>
 <li><strong>key</strong> (<code>string</code>)  - The label key.</li>
@@ -5398,7 +5398,7 @@ image and volumes. The Docker image is at the root of the filesystem
 hierarchy, and any volumes are mounted at the specified paths within the
 image. Volumes can not mount onto other volumes</p>
 <h3 id="initializer_14">Initializer<a class="headerlink" href="#initializer_14" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="nx">Volume</span><span class="p">(</span><span class="nx">name</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">config</span>: <span class="kt">any</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="ow">new</span> <span class="nx">Volume</span><span class="p">(</span><span class="nx">name</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">config</span>: <span class="kt">any</span><span class="p">)</span>
 </code></pre></div>
 <ul>
 <li><strong>name</strong> (<code>string</code>)  <em>No description</em></li>
@@ -5942,7 +5942,7 @@ any reason, the data in the emptyDir is deleted forever.</p>
 * <code><a href="#cdk8s-plus-17-container">Container</a></code></p>
 <h4 id="addvolumevolume_5">addVolume(volume) <a id="cdk8s-plus-17-ipodspec-addvolume"></a><a class="headerlink" href="#addvolumevolume_5" title="Permanent link">&para;</a></h4>
 <p>Add a volume to the pod.</p>
-<div class="highlight"><pre><span></span><code><span class="nx">addVolume</span><span class="p">(</span><span class="nx">volume</span>: <span class="kt">Volume</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
+<div class="highlight"><pre><span></span><code><span class="nx">addVolume</span><span class="p">(</span><span class="nx">volume</span>: <span class="kt">Volume</span><span class="p">)</span><span class="o">:</span> <span class="ow">void</span>
 </code></pre></div>
 <ul>
 <li><strong>volume</strong> (<code><a href="#cdk8s-plus-17-volume">Volume</a></code>)  The volume.</li>
@@ -6012,7 +6012,7 @@ any reason, the data in the emptyDir is deleted forever.</p>
 * <code><a href="#cdk8s-plus-17-container">Container</a></code></p>
 <h4 id="addvolumevolume_6">addVolume(volume) <a id="cdk8s-plus-17-ipodtemplate-addvolume"></a><a class="headerlink" href="#addvolumevolume_6" title="Permanent link">&para;</a></h4>
 <p>Add a volume to the pod.</p>
-<div class="highlight"><pre><span></span><code><span class="nx">addVolume</span><span class="p">(</span><span class="nx">volume</span>: <span class="kt">Volume</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span>
+<div class="highlight"><pre><span></span><code><span class="nx">addVolume</span><span class="p">(</span><span class="nx">volume</span>: <span class="kt">Volume</span><span class="p">)</span><span class="o">:</span> <span class="ow">void</span>
 </code></pre></div>
 <ul>
 <li><strong>volume</strong> (<code><a href="#cdk8s-plus-17-volume">Volume</a></code>)  The volume.</li>

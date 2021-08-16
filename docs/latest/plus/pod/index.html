@@ -1073,9 +1073,9 @@
 </div>
 <h2 id="adding-containersvolumes">Adding Containers/Volumes<a class="headerlink" href="#adding-containersvolumes" title="Permanent link">&para;</a></h2>
 <p>Containers and volumes can be added to pod definition like so:</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">kplus</span> <span class="k">from</span> <span class="s1">&#39;cdk8s-plus-17&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">kplus</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-17&#39;</span><span class="p">;</span>
 
-<span class="kd">const</span> <span class="nx">pod</span> <span class="o">=</span> <span class="k">new</span> <span class="k">new</span> <span class="nx">kplus</span><span class="p">.</span><span class="nx">Pod</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span> <span class="s1">&#39;Pod&#39;</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">pod</span> <span class="o">=</span> <span class="ow">new</span> <span class="ow">new</span> <span class="nx">kplus</span><span class="p">.</span><span class="nx">Pod</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span> <span class="s1">&#39;Pod&#39;</span><span class="p">);</span>
 
 <span class="kd">const</span> <span class="nx">container</span> <span class="o">=</span> <span class="nx">pod</span><span class="p">.</span><span class="nx">addContainer</span><span class="p">({</span>
   <span class="nx">image</span><span class="o">:</span> <span class="s1">&#39;node&#39;</span><span class="p">,</span>
@@ -1085,8 +1085,8 @@
 
 <span class="nx">container</span><span class="p">.</span><span class="nx">mount</span><span class="p">(</span><span class="s1">&#39;/data&#39;</span><span class="p">,</span> <span class="nx">storage</span><span class="p">);</span>
 
-<span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">k</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span>
-<span class="kd">const</span> <span class="nx">chart</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">k</span><span class="p">.</span><span class="nx">Chart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;Chart&#39;</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">k</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span>
+<span class="kd">const</span> <span class="nx">chart</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">k</span><span class="p">.</span><span class="nx">Chart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;Chart&#39;</span><span class="p">);</span>
 
 <span class="c1">// this will automatically add the volume as well.</span>
 <span class="nx">pod</span><span class="p">.</span><span class="nx">addContainer</span><span class="p">(</span><span class="nx">container</span><span class="p">);</span>
@@ -1095,22 +1095,22 @@
 <span class="nx">pod</span><span class="p">.</span><span class="nx">addVolume</span><span class="p">(</span><span class="nx">storage</span><span class="p">);</span>
 </code></pre></div>
 <h2 id="applying-a-restart-policy">Applying a restart policy<a class="headerlink" href="#applying-a-restart-policy" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">kplus</span> <span class="k">from</span> <span class="s1">&#39;cdk8s-plus-17&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">kplus</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-17&#39;</span><span class="p">;</span>
 
-<span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">k</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span>
-<span class="kd">const</span> <span class="nx">chart</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">k</span><span class="p">.</span><span class="nx">Chart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;Chart&#39;</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">k</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span>
+<span class="kd">const</span> <span class="nx">chart</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">k</span><span class="p">.</span><span class="nx">Chart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;Chart&#39;</span><span class="p">);</span>
 
-<span class="kd">const</span> <span class="nx">pod</span> <span class="o">=</span> <span class="k">new</span> <span class="k">new</span> <span class="nx">kplus</span><span class="p">.</span><span class="nx">Pod</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span> <span class="s1">&#39;Pod&#39;</span><span class="p">,</span> <span class="p">{</span>
+<span class="kd">const</span> <span class="nx">pod</span> <span class="o">=</span> <span class="ow">new</span> <span class="ow">new</span> <span class="nx">kplus</span><span class="p">.</span><span class="nx">Pod</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span> <span class="s1">&#39;Pod&#39;</span><span class="p">,</span> <span class="p">{</span>
   <span class="nx">restartPolicy</span>: <span class="kt">kplus.RestartPolicy.NEVER</span><span class="p">,</span>
 <span class="p">});</span>
 </code></pre></div>
 <h2 id="assigning-a-serviceaccount">Assigning a ServiceAccount<a class="headerlink" href="#assigning-a-serviceaccount" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">kplus</span> <span class="k">from</span> <span class="s1">&#39;cdk8s-plus-17&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">kplus</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-17&#39;</span><span class="p">;</span>
 
-<span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">k</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span>
-<span class="kd">const</span> <span class="nx">chart</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">k</span><span class="p">.</span><span class="nx">Chart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;Chart&#39;</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">k</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span>
+<span class="kd">const</span> <span class="nx">chart</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">k</span><span class="p">.</span><span class="nx">Chart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;Chart&#39;</span><span class="p">);</span>
 
-<span class="kd">const</span> <span class="nx">pod</span> <span class="o">=</span> <span class="k">new</span> <span class="k">new</span> <span class="nx">kplus</span><span class="p">.</span><span class="nx">Pod</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span> <span class="s1">&#39;Pod&#39;</span><span class="p">,</span> <span class="p">{</span>
+<span class="kd">const</span> <span class="nx">pod</span> <span class="o">=</span> <span class="ow">new</span> <span class="ow">new</span> <span class="nx">kplus</span><span class="p">.</span><span class="nx">Pod</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span> <span class="s1">&#39;Pod&#39;</span><span class="p">,</span> <span class="p">{</span>
   <span class="nx">serviceAccount</span>: <span class="kt">kplus.ServiceAccount.fromServiceAccountName</span><span class="p">(</span><span class="s1">&#39;aws&#39;</span><span class="p">),</span>
 <span class="p">});</span>
 </code></pre></div>
