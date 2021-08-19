@@ -9,6 +9,9 @@ mkdir test && cd test
 touch .foo
 mkdir .bar
 
+# check version
+echo cdk8s-cli version: $(cdk8s --version)
+
 # initialize an empty project
 cdk8s init typescript-app
 

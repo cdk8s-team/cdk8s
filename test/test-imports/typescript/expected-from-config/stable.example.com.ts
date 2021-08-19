@@ -38,7 +38,22 @@ export class CronTab extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: CronTabProps = {}) {
-    super(scope, id, CronTab.manifest(props));
+    super(scope, id, {
+      ...CronTab.GVK,
+      ...props,
+    });
+  }
+
+  /**
+   * Renders the object to Kubernetes JSON.
+   */
+  public toJson(): any {
+    const resolved = super.toJson();
+
+    return {
+      ...CronTab.GVK,
+      ...toJson_CronTabProps(resolved),
+    };
   }
 }
 
