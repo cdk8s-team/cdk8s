@@ -21,6 +21,9 @@ This guide will walk you through the following steps:
 === "Java"
     - [Maven >= 3.6.3](https://maven.apache.org/install.html)
 
+=== "Go"
+    - [Go >= 1.16](https://golang.org/dl/)
+
 ## Install the CLI
 
 CDK8s has a cute little CLI that has a few useful commands. Let's start by
@@ -73,6 +76,14 @@ Now, we'll use the `cdk8s init` command to create a new CDK8s app:
     $ cdk8s init java-app
     Initializing a project from the java-app template
     ...
+    ```
+
+=== "Go"
+    ```console
+    $ mkdir hello
+    $ cd hello
+    $ cdk8s init go-app
+    Initializing a project from the go-app template
     ```
 
 This will perform the following:
@@ -160,6 +171,42 @@ At this point, if you will see something like this:
         }
     }
     ```
+
+=== "Go"
+    `main.go`
+
+    ```go
+    package main
+
+    import (
+      "github.com/aws/constructs-go/constructs/v3"
+      "github.com/aws/jsii-runtime-go"
+      "github.com/cdk8s-team/cdk8s-core-go/cdk8s"
+    )
+
+    type MyChartProps struct {
+      cdk8s.ChartProps
+    }
+
+    func NewMyChart(scope constructs.Construct, id string, props *MyChartProps) cdk8s.Chart {
+      var cprops cdk8s.ChartProps
+      if props != nil {
+        cprops = props.ChartProps
+      }
+      chart := cdk8s.NewChart(scope, jsii.String(id), &cprops)
+
+      // define resources here
+
+      return chart
+    }
+
+    func main() {
+      app := cdk8s.NewApp(nil)
+      NewMyChart(app, "hello", nil)
+      app.Synth()
+    }
+    ```
+
 
 Apps are structured as a tree of **constructs**, which are composable units of
 abstraction. We will learn more about constructs soon.
@@ -399,6 +446,73 @@ resources inspired by [paulbouwer](https://github.com/paulbouwer)'s
     }
     ```
 
+=== "Go"
+    
+    ```go
+    package main
+
+    import (
+      "example.com/hello-k8s/imports/k8s"
+      "github.com/aws/constructs-go/constructs/v3"
+      "github.com/aws/jsii-runtime-go"
+      "github.com/cdk8s-team/cdk8s-core-go/cdk8s"
+    )
+
+    type MyChartProps struct {
+      cdk8s.ChartProps
+    }
+
+    func NewMyChart(scope constructs.Construct, id string, props *MyChartProps) cdk8s.Chart {
+      var cprops cdk8s.ChartProps
+      if props != nil {
+        cprops = props.ChartProps
+      }
+      chart := cdk8s.NewChart(scope, jsii.String(id), &cprops)
+
+      label := map[string]*string{"app": jsii.String("hello-k8s")}
+
+      k8s.NewKubeService(chart, jsii.String("service"), &k8s.KubeServiceProps{
+        Spec: &k8s.ServiceSpec{
+          Type: jsii.String("LoadBalancer"),
+          Ports: &[]*k8s.ServicePort{{
+            Port:       jsii.Number(80),
+            TargetPort: k8s.IntOrString_FromNumber(jsii.Number(8000)),
+          }},
+          Selector: &label,
+        },
+      })
+
+      k8s.NewKubeDeployment(chart, jsii.String("deployment"), &k8s.KubeDeploymentProps{
+        Spec: &k8s.DeploymentSpec{
+          Replicas: jsii.Number(2),
+          Selector: &k8s.LabelSelector{
+            MatchLabels: &label,
+          },
+          Template: &k8s.PodTemplateSpec{
+            Metadata: &k8s.ObjectMeta{
+              Labels: &label,
+            },
+            Spec: &k8s.PodSpec{
+              Containers: &[]*k8s.Container{{
+                Name:  jsii.String("hello-kubernetes"),
+                Image: jsii.String("paulbouwer/hello-kubernetes:1.7"),
+                Ports: &[]*k8s.ContainerPort{{ContainerPort: jsii.Number(8080)}},
+              }},
+            },
+          },
+        },
+      })
+
+      return chart
+    }
+
+    func main() {
+      app := cdk8s.NewApp(nil)
+      NewMyChart(app, "hello", nil)
+      app.Synth()
+    }
+    ```
+
 Now, compile & synth this project:
 
 ```shell
@@ -526,6 +640,24 @@ For example, this one line will add a hello world service to our chart:
       .image("paulbouwer/hello-kubernetes:1.7")
       .replicas(2)
       .build());
+    ```
+
+=== "Go"
+
+    ```go
+    NewWebService(chart, jsii.String("hello"), &WebServiceProps{
+      Image:    jsii.String("paulbouwer/hello-kubernetes:1.7"),
+    })
+    ```
+
+    It can also be customized through an API:
+
+    ```go
+    NewWebService(chart, jsii.String("hello"), &WebServiceProps{
+      Image:         jsii.String("paulbouwer/hello-kubernetes:1.7"),
+      ContainerPort: jsii.Number(8080),
+      Replicas:      jsii.Number(10),
+    })
     ```
 
 Here's how to implement `WebService`:
@@ -902,6 +1034,127 @@ Here's how to implement `WebService`:
     }
     ```
 
-As you can see, we now add define `WebService` constructs inside our chart: one
+=== "Go"
+
+    Create a file `webservice.go` with the following content:
+
+    ```go
+    package main
+
+    import (
+      "example.com/hello/imports/k8s"
+      "github.com/aws/constructs-go/constructs/v3"
+      "github.com/aws/jsii-runtime-go"
+    )
+
+    type WebServiceProps struct {
+      constructs.ConstructOptions
+      Image         *string
+      Replicas      *float64
+      Port          *float64
+      ContainerPort *float64
+    }
+
+    func NewWebService(scope constructs.Construct, id *string, props *WebServiceProps) constructs.Construct {
+      var cprops constructs.ConstructOptions
+      if props != nil {
+        cprops = props.ConstructOptions
+      }
+      construct := constructs.NewConstruct(scope, id, &cprops)
+
+      replicas := props.Replicas
+      if replicas == nil {
+        replicas = jsii.Number(1)
+      }
+
+      port := props.Port
+      if port == nil {
+        port = jsii.Number(80)
+      }
+
+      containerPort := props.ContainerPort
+      if containerPort == nil {
+        containerPort = jsii.Number(8080)
+      }
+
+      label := map[string]*string{
+        "app": constructs.Node_Of(construct).Id(),
+      }
+
+      k8s.NewKubeService(construct, jsii.String("service"), &k8s.KubeServiceProps{
+        Spec: &k8s.ServiceSpec{
+          Type: jsii.String("LoadBalancer"),
+          Ports: &[]*k8s.ServicePort{{
+            Port:       port,
+            TargetPort: k8s.IntOrString_FromNumber(containerPort),
+          }},
+          Selector: &label,
+        },
+      })
+
+      k8s.NewKubeDeployment(construct, jsii.String("deployment"), &k8s.KubeDeploymentProps{
+        Spec: &k8s.DeploymentSpec{
+          Replicas: replicas,
+          Selector: &k8s.LabelSelector{MatchLabels: &label},
+          Template: &k8s.PodTemplateSpec{
+            Metadata: &k8s.ObjectMeta{Labels: &label},
+            Spec: &k8s.PodSpec{
+              Containers: &[]*k8s.Container{{
+                Name:  jsii.String("web"),
+                Image: props.Image,
+                Ports: &[]*k8s.ContainerPort{{ContainerPort: containerPort}},
+              }},
+            },
+          },
+        },
+      })
+
+      return construct
+    }
+    ```
+
+    Now, let's edit `main.go` and use our new construct:
+
+    ```go
+    package main
+
+    import (
+      "github.com/aws/constructs-go/constructs/v3"
+      "github.com/aws/jsii-runtime-go"
+      "github.com/cdk8s-team/cdk8s-core-go/cdk8s"
+    )
+
+    type MyChartProps struct {
+      cdk8s.ChartProps
+    }
+
+    func NewMyChart(scope constructs.Construct, id string, props *MyChartProps) cdk8s.Chart {
+      var cprops cdk8s.ChartProps
+      if props != nil {
+        cprops = props.ChartProps
+      }
+      chart := cdk8s.NewChart(scope, jsii.String(id), &cprops)
+
+      NewWebService(chart, jsii.String("hello"), &WebServiceProps{
+        Image:    jsii.String("paulbouwer/hello-kubernetes:1.7"),
+        Replicas: jsii.Number(2),
+      })
+
+      NewWebService(chart, jsii.String("ghost"), &WebServiceProps{
+        Image:         jsii.String("ghost"),
+        ContainerPort: jsii.Number(2368),
+      })
+
+      return chart
+    }
+
+    func main() {
+      app := cdk8s.NewApp(nil)
+      NewMyChart(app, "hello", nil)
+      app.Synth()
+    }
+    ```
+
+As you can see, we now add `WebService` constructs inside our chart: one
 that runs the `paulbouwer/hello-kubernetes` image and one with an installation
 of [ghost](https://hub.docker.com/_/ghost/).
