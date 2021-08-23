@@ -22,7 +22,6 @@ const project = new NodeProject({
       with: {
         'go-version': '1.16',
       },
-      run: 'go version',
     },
   ],
   devDeps: [
