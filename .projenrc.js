@@ -15,7 +15,15 @@ const project = new NodeProject({
     {
       name: 'installing dependencies',
       run: 'tools/install-workflow-deps.sh'
-    }
+    },
+    {
+      name: 'Setup Go',
+      uses: 'actions/setup-go@v2',
+      with: {
+        'go-version': '1.16',
+      },
+      run: 'go version',
+    },
   ],
   devDeps: [
     '@types/jest',

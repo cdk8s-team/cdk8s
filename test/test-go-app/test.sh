@@ -8,8 +8,9 @@ mkdir test && cd test
 touch .foo
 mkdir .bar
 
-# check version
+# check versions
 echo cdk8s-cli version: $(cdk8s --version)
+echo go version: $(go version)
 
 # initialize an empty project
 cdk8s init go-app
