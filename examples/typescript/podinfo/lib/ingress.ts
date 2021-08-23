@@ -1,5 +1,5 @@
 import { Construct } from 'constructs';
-import { KubeIngressV1Beta1, IngressRule, IntOrString } from '../imports/k8s';
+import { KubeIngressV1Beta1, IngressRuleV1Beta1, IntOrString } from '../imports/k8s';
 
 export interface IngressTls {
   readonly hosts?: string[];
@@ -48,7 +48,7 @@ export class Ingress extends Construct {
     const hosts = options.hosts || [];
     const ingressPath = options.path || '/*';
 
-    const defaultRule: IngressRule = {
+    const defaultRule: IngressRuleV1Beta1 = {
       http: {
         paths: [
           {

@@ -2056,36 +2056,36 @@ cdk8s-cli@0.0.0:
     sscaff "^1.2.0"
     yargs "^15.1.0"
 
-cdk8s-cli@1.0.0-beta.37:
-  version "1.0.0-beta.37"
-  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-1.0.0-beta.37.tgz#4025d67b132cb957a0740f3d4a784d21fb686b26"
-  integrity sha512-0xRmM6/5EwTbzpqinQujvrVZKJhTkLfD8hXEuSASNAv/5uKLRa5pfdOD53ALq7n0eVeOqZaGNtwKhGRcPuNDxw==
+cdk8s-cli@1.0.0-beta.40:
+  version "1.0.0-beta.40"
+  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-1.0.0-beta.40.tgz#678728152c327bf77e5643a5fcfe1b9c0e45889f"
+  integrity sha512-+SEkOnvUDlrNXHByFO4kpoj5cjerC8d3KOdphYFeeqj3z9rnR0pDZZbE63ZzJOOOCz+yidJLLj+PMJ5/7WwmIQ==
   dependencies:
     "@types/node" "^10.17.0"
-    cdk8s "1.0.0-beta.27"
-    cdk8s-plus-17 "1.0.0-beta.42"
-    codemaker "^1.32.0"
+    cdk8s "1.0.0-beta.30"
+    cdk8s-plus-17 "1.0.0-beta.51"
+    codemaker "^1.33.0"
     colors "^1.4.0"
-    constructs "^3.3.110"
+    constructs "^3.3.127"
     fs-extra "^8"
-    jsii-pacmak "^1.32.0"
-    jsii-srcmak "^0.1.312"
-    json2jsii "^0.1.282"
-    sscaff "^1.2.33"
+    jsii-pacmak "^1.33.0"
+    jsii-srcmak "^0.1.328"
+    json2jsii "^0.2.0"
+    sscaff "^1.2.49"
     yaml "^1.10.2"
     yargs "^15"
-
-cdk8s-plus-17@1.0.0-beta.42:
-  version "1.0.0-beta.42"
-  resolved "https://registry.yarnpkg.com/cdk8s-plus-17/-/cdk8s-plus-17-1.0.0-beta.42.tgz#6fea5a1ac1a2db7e805179d21af8c7eb2ab2f0aa"
-  integrity sha512-GIe4xGLtd9zF7OPag8g4NVb7bsw/x/UcVH2w1WSTuXPe3ZFPNJ+zUAeEhuOL4BB90Czg0QIMDvIo7Vw00y3MmQ==
-  dependencies:
-    minimatch "^3.0.4"
 
 cdk8s-plus-17@1.0.0-beta.50:
   version "1.0.0-beta.50"
   resolved "https://registry.yarnpkg.com/cdk8s-plus-17/-/cdk8s-plus-17-1.0.0-beta.50.tgz#d454f95c12bbc15a1083ae339d6059b729cd325c"
   integrity sha512-LC4vj11AMWkUTokqbndcwX2mmmHTQ0KLS4kDfTFjvmxTvWkLWan7qPgmlkUU3Knch+zIo+FQax5s0wTWixFPBA==
+  dependencies:
+    minimatch "^3.0.4"
+
+cdk8s-plus-17@1.0.0-beta.51:
+  version "1.0.0-beta.51"
+  resolved "https://registry.yarnpkg.com/cdk8s-plus-17/-/cdk8s-plus-17-1.0.0-beta.51.tgz#ca01e3ab71572f2f0cdc2531c57a0f6c3e7d7251"
+  integrity sha512-BNcoC93Gdflsqs7rxIG/AZjF7f0JIJSSt/jXBbcERylnLX9zR8u1vd4/ngHx/gPsHMLKEXW7kDkrjqN9y0XieQ==
   dependencies:
     minimatch "^3.0.4"
 
@@ -2095,15 +2095,6 @@ cdk8s@0.0.0:
   integrity sha512-X1TgMES/I1lzKOcL2KWbZi0SJKPwR56SusLbTL3kqY0r+IXRpGmQzVLpdtz18wUNL821OTyOeHmcQZqSGWIxVg==
   dependencies:
     yaml "^1.7.2"
-
-cdk8s@1.0.0-beta.27:
-  version "1.0.0-beta.27"
-  resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-1.0.0-beta.27.tgz#3bd1d8bef14dfffaa46022ab7b465599b4a2863c"
-  integrity sha512-6WGhwIQ0zRrJfGDIxfpqwCsj6Varuds90xp3dEwym68ZLfROn/sq8Kdwr8QlMWf50qbcja+TLdqKgAt185a/ig==
-  dependencies:
-    fast-json-patch "^2.2.1"
-    follow-redirects "^1.14.1"
-    yaml "2.0.0-5"
 
 cdk8s@1.0.0-beta.30:
   version "1.0.0-beta.30"
@@ -2270,7 +2261,7 @@ codemaker@^0.22.0:
     decamelize "^1.2.0"
     fs-extra "^8.1.0"
 
-codemaker@^1.32.0, codemaker@^1.33.0:
+codemaker@^1.33.0:
   version "1.33.0"
   resolved "https://registry.yarnpkg.com/codemaker/-/codemaker-1.33.0.tgz#778526619c0951eb971967c7b73cdffa4bb2ae15"
   integrity sha512-u9PYqE1HaKINgMDpV7HyYVbtPDbHJNSPn1rTsYSsUkmi1DH1/3tK5nBJ7eUGNbkMP+k2hz7SQGTVcWEMRNAZ0w==
@@ -2411,10 +2402,15 @@ constructs@3.3.71:
   resolved "https://registry.yarnpkg.com/constructs/-/constructs-3.3.71.tgz#5a3e968de484ad327bc2650aa4a7f37a39834ac5"
   integrity sha512-3KFtTsA7OV27m/+pJhN4iJkKzHbPIPvyvEX5BQ/JCAWjfCHOQEVpIgxHLpT4i8L1OFta+pJrzcEVAHo6UitwqA==
 
-constructs@^3, constructs@^3.3.110:
+constructs@^3:
   version "3.3.124"
   resolved "https://registry.yarnpkg.com/constructs/-/constructs-3.3.124.tgz#f8b2b939f92643c1145e8b21408494461d712c5f"
   integrity sha512-Jj/I48WUvCUudNOJYslOXCFgPK+rg8x0JQdUpfUHh1YA2/uE9LheTHgm+yMg9BGlrfgulAUIc8bg3eUJlVNK0g==
+
+constructs@^3.3.127:
+  version "3.3.127"
+  resolved "https://registry.yarnpkg.com/constructs/-/constructs-3.3.127.tgz#c27ca7954db9f92be81c4e53f39af06bbfffaf1a"
+  integrity sha512-ySU7gk6NKVKLTRn3t8mJY/eB/pOPLK19fcMwYlZmhaKECz9Vdqy1ndeRi50zYvwPqAPyIXbF9JQIZR9Z7sLYdQ==
 
 conventional-changelog-angular@^5.0.12:
   version "5.0.12"
@@ -3150,9 +3146,9 @@ flatted@^2.0.1:
   integrity sha512-r5wGx7YeOwNWNlCA0wQ86zKyDLMQr+/RB8xy74M4hTphfmjlijTSSXGuH8rnvKZnfT9i+75zmd8jcKdMR4O6jA==
 
 follow-redirects@^1.14.1:
-  version "1.14.1"
-  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.14.1.tgz#d9114ded0a1cfdd334e164e6662ad02bfd91ff43"
-  integrity sha512-HWqDgT7ZEkqRzBvc2s64vSZ/hfOceEol3ac/7tKwzuvEyWx3/4UegXh5oBOIotkGsObyk3xznnSRVADBgWSQVg==
+  version "1.14.2"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.14.2.tgz#cecb825047c00f5e66b142f90fed4f515dec789b"
+  integrity sha512-yLR6WaE2lbF0x4K2qE2p9PEXKLDjUjnR/xmjS3wHAYxtlsI9MLLBJUZirAHKzUZDGLxje7w/cXR49WOUo4rbsA==
 
 foreach@^2.0.5:
   version "2.0.5"
@@ -4536,7 +4532,7 @@ jsesc@^2.5.1:
   resolved "https://registry.yarnpkg.com/jsesc/-/jsesc-2.5.2.tgz#80564d2e483dacf6e8ef209650a67df3f0c283a4"
   integrity sha512-OYu7XEzjkCQ3C5Ps3QIZsQfNpqoJyZZA99wd9aWd05NCtC5pWOkShK2mkL6HXQR6/Cy2lbNdPlZBpuQHXE63gA==
 
-jsii-pacmak@^1.32.0:
+jsii-pacmak@^1.33.0:
   version "1.33.0"
   resolved "https://registry.yarnpkg.com/jsii-pacmak/-/jsii-pacmak-1.33.0.tgz#d0aa96cab380cfc084830e09a04de3b3494d5268"
   integrity sha512-STcsk5wmAlJSCEzl5nTPAJ5emSZLIPJYoYjBCMcwv62MI1B4zozSSsmbpI/4oPQWh9c2fD2CJIEbwyct4KTPKQ==
@@ -4580,18 +4576,18 @@ jsii-rosetta@^1.33.0:
     xmldom "github:xmldom/xmldom#0.7.0"
     yargs "^16.2.0"
 
-jsii-srcmak@^0.1.312:
-  version "0.1.326"
-  resolved "https://registry.yarnpkg.com/jsii-srcmak/-/jsii-srcmak-0.1.326.tgz#98535c7b82fdd734759fbaa61218aad976a1c9b2"
-  integrity sha512-euZGdUcdZHI/cycrBZ7AVDea7Du2qu7TIzctEXUDuubtZ/n66rxWCQnlo/NsaQYx4HXkY47xaoVlRg69lhciZA==
+jsii-srcmak@^0.1.328:
+  version "0.1.328"
+  resolved "https://registry.yarnpkg.com/jsii-srcmak/-/jsii-srcmak-0.1.328.tgz#7162a3f235f8fc7cd0f22d8a52a2b0642b38eac2"
+  integrity sha512-+bjVQcM3SsXjod2QIKmBpC68wKVUVKbKqOGTGNHvhTAMfGIEC+WSzdw5b3Q5bt4wtIwM+dsQnF8UVponQY/tFA==
   dependencies:
     fs-extra "^9.1.0"
-    jsii "^1.32.0"
-    jsii-pacmak "^1.32.0"
+    jsii "^1.33.0"
+    jsii-pacmak "^1.33.0"
     ncp "^2.0.0"
     yargs "^15.4.1"
 
-jsii@^1.32.0:
+jsii@^1.33.0:
   version "1.33.0"
   resolved "https://registry.yarnpkg.com/jsii/-/jsii-1.33.0.tgz#b6086e31799583c91b86802fe627a0865123004b"
   integrity sha512-0WIWlrRtoQNrp7iyEyNMoPRzvjd2EK8/Zgn/tWyzpjaMZur9HevZuk4lduCthTly/Gs9A7u1Ajdyp1cBrALeBQ==
@@ -4652,10 +4648,10 @@ json-stringify-safe@^5.0.1, json-stringify-safe@~5.0.1:
   resolved "https://registry.yarnpkg.com/json-stringify-safe/-/json-stringify-safe-5.0.1.tgz#1296a2d58fd45f19a0f6ce01d65701e2c735b6eb"
   integrity sha1-Epai1Y/UXxmg9s4B1lcB4sc1tus=
 
-json2jsii@^0.1.282:
-  version "0.1.296"
-  resolved "https://registry.yarnpkg.com/json2jsii/-/json2jsii-0.1.296.tgz#bf825dc7bcd8cc0a4039c700759a4c63a8a61f0e"
-  integrity sha512-sr2xUhMuUMMtDqxckludB4fZ+64xJ8K+HODXVO/jbkv0QND5I8PmHwz0IqjqGkpUNHqJkYvXzn06tgXy/V1WeQ==
+json2jsii@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/json2jsii/-/json2jsii-0.2.0.tgz#e8c3c8a0bffb4e60354165350e9d1339189d68e8"
+  integrity sha512-/AsRAus0rkI9oeEj5jSPdwv/klEK5jb0wuwE4YtyoVrLLut69MwUDPX/sxp+7qkFH31Q20E8J1EHSPFDDVv1wA==
   dependencies:
     camelcase "^6.2.0"
     json-schema "^0.3.0"
@@ -6632,10 +6628,15 @@ sprintf-js@~1.0.2:
   resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
   integrity sha1-BOaSb2YolTVPPdAVIDYzuFcpfiw=
 
-sscaff@^1.2.0, sscaff@^1.2.33:
+sscaff@^1.2.0:
   version "1.2.47"
   resolved "https://registry.yarnpkg.com/sscaff/-/sscaff-1.2.47.tgz#96a42c7b3cb3e70010eb8d211eb1a86410fa963e"
   integrity sha512-0SSqDSLkF9sRHwO6g80D74S5iAqupqcG9EsHCv4BRvwlrqu2Jr3ury5PF0tyyA2wPZejwHZ+u5XgEo8GIVQ6rA==
+
+sscaff@^1.2.49:
+  version "1.2.49"
+  resolved "https://registry.yarnpkg.com/sscaff/-/sscaff-1.2.49.tgz#0d99d6b3fb24a1ac6084d18cbf6cf5eca062616f"
+  integrity sha512-drDc3ZfEyhPDf/Nc7GoFc901xfZ4uI0E0IEo2MgS6G+FJcN1177kMVnXfZ8LSrNXUgR7BIAnlzhANap2z9vP9g==
 
 sshpk@^1.7.0:
   version "1.16.1"

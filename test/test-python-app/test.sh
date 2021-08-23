@@ -11,6 +11,9 @@ mkdir .bar
 # debug
 pipenv --version
 
+# check version
+echo cdk8s-cli version: $(cdk8s --version)
+
 # initialize an empty project
 cdk8s init python-app
 

@@ -1,5 +1,5 @@
 import { Construct } from 'constructs';
-import { KubeHorizontalPodAutoscaler, MetricSpec, Quantity } from '../imports/k8s';
+import { KubeHorizontalPodAutoscalerV2Beta2, MetricSpecV2Beta2, Quantity } from '../imports/k8s';
 
 export interface ScaleTarget {
   readonly apiVersion: string;
@@ -45,7 +45,7 @@ export class Autoscaler extends Construct {
   constructor(scope: Construct, id: string, options: AutoscalerOptions) {
     super(scope, id);
 
-    const metrics = new Array<MetricSpec>();
+    const metrics = new Array<MetricSpecV2Beta2>();
 
     if (options.cpu) {
       metrics.push({ 
@@ -88,7 +88,7 @@ export class Autoscaler extends Construct {
       });
     }
 
-    new KubeHorizontalPodAutoscaler(this, 'default', {
+    new KubeHorizontalPodAutoscalerV2Beta2(this, 'default', {
       spec: {
         scaleTargetRef: {
           apiVersion: options.target.apiVersion,

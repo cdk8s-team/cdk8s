@@ -38,7 +38,22 @@ export class ClusterInstallation extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: ClusterInstallationProps) {
-    super(scope, id, ClusterInstallation.manifest(props));
+    super(scope, id, {
+      ...ClusterInstallation.GVK,
+      ...props,
+    });
+  }
+
+  /**
+   * Renders the object to Kubernetes JSON.
+   */
+  public toJson(): any {
+    const resolved = super.toJson();
+
+    return {
+      ...ClusterInstallation.GVK,
+      ...toJson_ClusterInstallationProps(resolved),
+    };
   }
 }
 
@@ -1799,7 +1814,6 @@ export class ClusterInstallationSpecLivenessProbeHttpGetPort {
     return new ClusterInstallationSpecLivenessProbeHttpGetPort(value);
   }
   private constructor(public readonly value: any) {
-    Object.defineProperty(this, 'resolve', { value: () => value });
   }
 }
 
@@ -1816,7 +1830,6 @@ export class ClusterInstallationSpecLivenessProbeTcpSocketPort {
     return new ClusterInstallationSpecLivenessProbeTcpSocketPort(value);
   }
   private constructor(public readonly value: any) {
-    Object.defineProperty(this, 'resolve', { value: () => value });
   }
 }
 
@@ -2042,7 +2055,6 @@ export class ClusterInstallationSpecReadinessProbeHttpGetPort {
     return new ClusterInstallationSpecReadinessProbeHttpGetPort(value);
   }
   private constructor(public readonly value: any) {
-    Object.defineProperty(this, 'resolve', { value: () => value });
   }
 }
 
@@ -2059,7 +2071,6 @@ export class ClusterInstallationSpecReadinessProbeTcpSocketPort {
     return new ClusterInstallationSpecReadinessProbeTcpSocketPort(value);
   }
   private constructor(public readonly value: any) {
-    Object.defineProperty(this, 'resolve', { value: () => value });
   }
 }
 

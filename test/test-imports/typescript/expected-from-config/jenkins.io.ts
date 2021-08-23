@@ -38,7 +38,22 @@ export class Jenkins extends ApiObject {
    * @param props initialization props
    */
   public constructor(scope: Construct, id: string, props: JenkinsProps = {}) {
-    super(scope, id, Jenkins.manifest(props));
+    super(scope, id, {
+      ...Jenkins.GVK,
+      ...props,
+    });
+  }
+
+  /**
+   * Renders the object to Kubernetes JSON.
+   */
+  public toJson(): any {
+    const resolved = super.toJson();
+
+    return {
+      ...Jenkins.GVK,
+      ...toJson_JenkinsProps(resolved),
+    };
   }
 }
 
@@ -6149,7 +6164,6 @@ export class JenkinsSpecMasterContainersLivenessProbeHttpGetPort {
     return new JenkinsSpecMasterContainersLivenessProbeHttpGetPort(value);
   }
   private constructor(public readonly value: any) {
-    Object.defineProperty(this, 'resolve', { value: () => value });
   }
 }
 
@@ -6166,7 +6180,6 @@ export class JenkinsSpecMasterContainersLivenessProbeTcpSocketPort {
     return new JenkinsSpecMasterContainersLivenessProbeTcpSocketPort(value);
   }
   private constructor(public readonly value: any) {
-    Object.defineProperty(this, 'resolve', { value: () => value });
   }
 }
 
@@ -6220,7 +6233,6 @@ export class JenkinsSpecMasterContainersReadinessProbeHttpGetPort {
     return new JenkinsSpecMasterContainersReadinessProbeHttpGetPort(value);
   }
   private constructor(public readonly value: any) {
-    Object.defineProperty(this, 'resolve', { value: () => value });
   }
 }
 
@@ -6237,7 +6249,6 @@ export class JenkinsSpecMasterContainersReadinessProbeTcpSocketPort {
     return new JenkinsSpecMasterContainersReadinessProbeTcpSocketPort(value);
   }
   private constructor(public readonly value: any) {
-    Object.defineProperty(this, 'resolve', { value: () => value });
   }
 }
 
@@ -6538,7 +6549,6 @@ export class JenkinsSpecMasterContainersLifecyclePostStartHttpGetPort {
     return new JenkinsSpecMasterContainersLifecyclePostStartHttpGetPort(value);
   }
   private constructor(public readonly value: any) {
-    Object.defineProperty(this, 'resolve', { value: () => value });
   }
 }
 
@@ -6555,7 +6565,6 @@ export class JenkinsSpecMasterContainersLifecyclePostStartTcpSocketPort {
     return new JenkinsSpecMasterContainersLifecyclePostStartTcpSocketPort(value);
   }
   private constructor(public readonly value: any) {
-    Object.defineProperty(this, 'resolve', { value: () => value });
   }
 }
 
@@ -6609,7 +6618,6 @@ export class JenkinsSpecMasterContainersLifecyclePreStopHttpGetPort {
     return new JenkinsSpecMasterContainersLifecyclePreStopHttpGetPort(value);
   }
   private constructor(public readonly value: any) {
-    Object.defineProperty(this, 'resolve', { value: () => value });
   }
 }
 
@@ -6626,7 +6634,6 @@ export class JenkinsSpecMasterContainersLifecyclePreStopTcpSocketPort {
     return new JenkinsSpecMasterContainersLifecyclePreStopTcpSocketPort(value);
   }
   private constructor(public readonly value: any) {
-    Object.defineProperty(this, 'resolve', { value: () => value });
   }
 }
 
