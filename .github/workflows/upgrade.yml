@@ -91,6 +91,8 @@ jobs:
 
 
             *Automatically created by projen via the "upgrade" workflow*
+          author: Automation <github-actions@github.com>
+          committer: Automation <github-actions@github.com>
       - name: Update status check
         if: steps.create-pr.outputs.pull-request-url != ''
         run: "curl -i --fail -X POST -H \"Accept: application/vnd.github.v3+json\" -H
