@@ -1516,9 +1516,9 @@
   integrity sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ==
 
 "@types/node@*":
-  version "16.6.1"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.6.1.tgz#aee62c7b966f55fc66c7b6dfa1d58db2a616da61"
-  integrity sha512-Sr7BhXEAer9xyGuCN3Ek9eg9xPviCF2gfu9kTfuU2HkTVAMYSDeX40fvpmo72n5nansg3nsBjuQBrsS28r+NUw==
+  version "16.7.1"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.7.1.tgz#c6b9198178da504dfca1fd0be9b2e1002f1586f0"
+  integrity sha512-ncRdc45SoYJ2H4eWU9ReDfp3vtFqDYhjOsKlFFUDEn8V1Bgr2RjYal8YT5byfadWIRluhPFU6JiDOl0H6Sl87A==
 
 "@types/node@^10.17.0":
   version "10.17.60"
@@ -2075,17 +2075,17 @@ cdk8s-cli@1.0.0-beta.40:
     yaml "^1.10.2"
     yargs "^15"
 
-cdk8s-plus-17@1.0.0-beta.50:
-  version "1.0.0-beta.50"
-  resolved "https://registry.yarnpkg.com/cdk8s-plus-17/-/cdk8s-plus-17-1.0.0-beta.50.tgz#d454f95c12bbc15a1083ae339d6059b729cd325c"
-  integrity sha512-LC4vj11AMWkUTokqbndcwX2mmmHTQ0KLS4kDfTFjvmxTvWkLWan7qPgmlkUU3Knch+zIo+FQax5s0wTWixFPBA==
-  dependencies:
-    minimatch "^3.0.4"
-
 cdk8s-plus-17@1.0.0-beta.51:
   version "1.0.0-beta.51"
   resolved "https://registry.yarnpkg.com/cdk8s-plus-17/-/cdk8s-plus-17-1.0.0-beta.51.tgz#ca01e3ab71572f2f0cdc2531c57a0f6c3e7d7251"
   integrity sha512-BNcoC93Gdflsqs7rxIG/AZjF7f0JIJSSt/jXBbcERylnLX9zR8u1vd4/ngHx/gPsHMLKEXW7kDkrjqN9y0XieQ==
+  dependencies:
+    minimatch "^3.0.4"
+
+cdk8s-plus-17@1.0.0-beta.57:
+  version "1.0.0-beta.57"
+  resolved "https://registry.yarnpkg.com/cdk8s-plus-17/-/cdk8s-plus-17-1.0.0-beta.57.tgz#e139e2cb3fc646db8766f2023c993ab079dc3501"
+  integrity sha512-xEHt7qxEqqPY7L7Thfmkyx+KmaBT8aFcFlmlfOdKA6rv+PhSlWBmCMM9bFq4QI/k6Yd0+pMuY67dV9KvODcdgQ==
   dependencies:
     minimatch "^3.0.4"
 
