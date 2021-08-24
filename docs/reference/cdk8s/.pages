@@ -1,0 +1,4 @@
+nav:
+  - TypeScript: typescript.md
+  - Python: python.md
+  - Go: go.md

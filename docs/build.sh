@@ -21,9 +21,14 @@ cp CONTRIBUTING.md docs/project/
 cp ROADMAP.md docs/project/
 
 for module in cdk8s cdk8s-plus-17; do
-  mdfile=$(node -p "require.resolve('${module}/API.md')")
-  cat $mdfile | sed "s/# API Reference/# ${module}/" > "docs/reference/${module}.md"
+  pythonmd=$(node -p "require.resolve('${module}/docs/python.md')")
+  typescriptmd=$(node -p "require.resolve('${module}/docs/typescript.md')")
+  cat $pythonmd | sed "s/# API Reference/# ${module} (Python)/" > "docs/reference/${module}/python.md"
+  cat $typescriptmd | sed "s/# API Reference/# ${module} (TypeScript)/" > "docs/reference/${module}/typescript.md"
 done
+
+# repo root
+cd ${scriptdir}/..
 
 docsout="${outdir}/latest"
 rm -fr ${docsout}
