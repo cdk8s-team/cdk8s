@@ -7,3 +7,7 @@
 h5 {
   text-transform: none !important;
 }
+
+.md-source__fact--version {
+  display: none;
+}
