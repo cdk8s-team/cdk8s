@@ -4,7 +4,7 @@ ConfigMap are used to store configuration data. They provide a dictionary based
 data structure that can be consumed in various shapes and forms.
 
 !!! tip ""
-    [API Reference](../reference/cdk8s-plus-17.md#cdk8s-plus-17-configmap)
+    [API Reference](../reference/cdk8s-plus-17/typescript.md#configmap)
 
 ## Use an existing `ConfigMap`
 

@@ -5,7 +5,7 @@ identity. They can also be used for externalizing endpoints to clients outside
 of the kubernetes cluster.
 
 !!! tip ""
-    [API Reference](../reference/cdk8s-plus-17.md#cdk8s-plus-17-service)
+    [API Reference](../reference/cdk8s-plus-17/typescript.md#service)
 
 ## Selectors
 
