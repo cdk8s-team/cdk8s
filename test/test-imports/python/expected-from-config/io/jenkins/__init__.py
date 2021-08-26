@@ -37,7 +37,7 @@ class Jenkins(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="iojenkins.Jen
         '''
         props = JenkinsProps(metadata=metadata, spec=spec)
 
-        jsii.create(Jenkins, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
