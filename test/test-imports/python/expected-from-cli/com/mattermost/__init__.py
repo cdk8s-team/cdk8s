@@ -41,7 +41,7 @@ class ClusterInstallation(
         '''
         props = ClusterInstallationProps(spec=spec, metadata=metadata)
 
-        jsii.create(ClusterInstallation, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
