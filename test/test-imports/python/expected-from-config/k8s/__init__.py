@@ -13287,7 +13287,7 @@ class KubeApiService(
         '''
         props = KubeApiServiceProps(metadata=metadata, spec=spec)
 
-        jsii.create(KubeApiService, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -13347,7 +13347,7 @@ class KubeApiServiceList(
         '''
         props = KubeApiServiceListProps(items=items, metadata=metadata)
 
-        jsii.create(KubeApiServiceList, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -13463,7 +13463,7 @@ class KubeApiServiceListV1Beta1(
         '''
         props = KubeApiServiceListV1Beta1Props(items=items, metadata=metadata)
 
-        jsii.create(KubeApiServiceListV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -13641,7 +13641,7 @@ class KubeApiServiceV1Beta1(
         '''
         props = KubeApiServiceV1Beta1Props(metadata=metadata, spec=spec)
 
-        jsii.create(KubeApiServiceV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -13761,7 +13761,7 @@ class KubeAuditSinkListV1Alpha1(
         '''
         props = KubeAuditSinkListV1Alpha1Props(items=items, metadata=metadata)
 
-        jsii.create(KubeAuditSinkListV1Alpha1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -13878,7 +13878,7 @@ class KubeAuditSinkV1Alpha1(
         '''
         props = KubeAuditSinkV1Alpha1Props(metadata=metadata, spec=spec)
 
-        jsii.create(KubeAuditSinkV1Alpha1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -13998,7 +13998,7 @@ class KubeBinding(
         '''
         props = KubeBindingProps(target=target, metadata=metadata)
 
-        jsii.create(KubeBinding, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -14123,7 +14123,7 @@ class KubeCertificateSigningRequestListV1Beta1(
             items=items, metadata=metadata
         )
 
-        jsii.create(KubeCertificateSigningRequestListV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -14240,7 +14240,7 @@ class KubeCertificateSigningRequestV1Beta1(
         '''
         props = KubeCertificateSigningRequestV1Beta1Props(metadata=metadata, spec=spec)
 
-        jsii.create(KubeCertificateSigningRequestV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -14362,7 +14362,7 @@ class KubeClusterRole(
             aggregation_rule=aggregation_rule, metadata=metadata, rules=rules
         )
 
-        jsii.create(KubeClusterRole, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -14432,7 +14432,7 @@ class KubeClusterRoleBinding(
             role_ref=role_ref, metadata=metadata, subjects=subjects
         )
 
-        jsii.create(KubeClusterRoleBinding, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -14496,7 +14496,7 @@ class KubeClusterRoleBindingList(
         '''
         props = KubeClusterRoleBindingListProps(items=items, metadata=metadata)
 
-        jsii.create(KubeClusterRoleBindingList, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -14616,7 +14616,7 @@ class KubeClusterRoleBindingListV1Alpha1(
         '''
         props = KubeClusterRoleBindingListV1Alpha1Props(items=items, metadata=metadata)
 
-        jsii.create(KubeClusterRoleBindingListV1Alpha1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -14738,7 +14738,7 @@ class KubeClusterRoleBindingListV1Beta1(
         '''
         props = KubeClusterRoleBindingListV1Beta1Props(items=items, metadata=metadata)
 
-        jsii.create(KubeClusterRoleBindingListV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -14945,7 +14945,7 @@ class KubeClusterRoleBindingV1Alpha1(
             role_ref=role_ref, metadata=metadata, subjects=subjects
         )
 
-        jsii.create(KubeClusterRoleBindingV1Alpha1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -15096,7 +15096,7 @@ class KubeClusterRoleBindingV1Beta1(
             role_ref=role_ref, metadata=metadata, subjects=subjects
         )
 
-        jsii.create(KubeClusterRoleBindingV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -15241,7 +15241,7 @@ class KubeClusterRoleList(
         '''
         props = KubeClusterRoleListProps(items=items, metadata=metadata)
 
-        jsii.create(KubeClusterRoleList, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -15361,7 +15361,7 @@ class KubeClusterRoleListV1Alpha1(
         '''
         props = KubeClusterRoleListV1Alpha1Props(items=items, metadata=metadata)
 
-        jsii.create(KubeClusterRoleListV1Alpha1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -15483,7 +15483,7 @@ class KubeClusterRoleListV1Beta1(
         '''
         props = KubeClusterRoleListV1Beta1Props(items=items, metadata=metadata)
 
-        jsii.create(KubeClusterRoleListV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -15687,7 +15687,7 @@ class KubeClusterRoleV1Alpha1(
             aggregation_rule=aggregation_rule, metadata=metadata, rules=rules
         )
 
-        jsii.create(KubeClusterRoleV1Alpha1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -15837,7 +15837,7 @@ class KubeClusterRoleV1Beta1(
             aggregation_rule=aggregation_rule, metadata=metadata, rules=rules
         )
 
-        jsii.create(KubeClusterRoleV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -15981,7 +15981,7 @@ class KubeComponentStatus(
         '''
         props = KubeComponentStatusProps(conditions=conditions, metadata=metadata)
 
-        jsii.create(KubeComponentStatus, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -16041,7 +16041,7 @@ class KubeComponentStatusList(
         '''
         props = KubeComponentStatusListProps(items=items, metadata=metadata)
 
-        jsii.create(KubeComponentStatusList, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -16224,7 +16224,7 @@ class KubeConfigMap(
             binary_data=binary_data, data=data, metadata=metadata
         )
 
-        jsii.create(KubeConfigMap, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -16288,7 +16288,7 @@ class KubeConfigMapList(
         '''
         props = KubeConfigMapListProps(items=items, metadata=metadata)
 
-        jsii.create(KubeConfigMapList, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -16490,7 +16490,7 @@ class KubeControllerRevision(
             revision=revision, data=data, metadata=metadata
         )
 
-        jsii.create(KubeControllerRevision, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -16554,7 +16554,7 @@ class KubeControllerRevisionList(
         '''
         props = KubeControllerRevisionListProps(items=items, metadata=metadata)
 
-        jsii.create(KubeControllerRevisionList, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -16672,7 +16672,7 @@ class KubeControllerRevisionListV1Beta1(
         '''
         props = KubeControllerRevisionListV1Beta1Props(items=items, metadata=metadata)
 
-        jsii.create(KubeControllerRevisionListV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -16790,7 +16790,7 @@ class KubeControllerRevisionListV1Beta2(
         '''
         props = KubeControllerRevisionListV1Beta2Props(items=items, metadata=metadata)
 
-        jsii.create(KubeControllerRevisionListV1Beta2, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -16989,7 +16989,7 @@ class KubeControllerRevisionV1Beta1(
             revision=revision, data=data, metadata=metadata
         )
 
-        jsii.create(KubeControllerRevisionV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -17134,7 +17134,7 @@ class KubeControllerRevisionV1Beta2(
             revision=revision, data=data, metadata=metadata
         )
 
-        jsii.create(KubeControllerRevisionV1Beta2, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -17273,7 +17273,7 @@ class KubeCronJobListV1Beta1(
         '''
         props = KubeCronJobListV1Beta1Props(items=items, metadata=metadata)
 
-        jsii.create(KubeCronJobListV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -17393,7 +17393,7 @@ class KubeCronJobListV2Alpha1(
         '''
         props = KubeCronJobListV2Alpha1Props(items=items, metadata=metadata)
 
-        jsii.create(KubeCronJobListV2Alpha1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -17513,7 +17513,7 @@ class KubeCronJobV1Beta1(
         '''
         props = KubeCronJobV1Beta1Props(metadata=metadata, spec=spec)
 
-        jsii.create(KubeCronJobV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -17636,7 +17636,7 @@ class KubeCronJobV2Alpha1(
         '''
         props = KubeCronJobV2Alpha1Props(metadata=metadata, spec=spec)
 
-        jsii.create(KubeCronJobV2Alpha1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -17759,7 +17759,7 @@ class KubeCsiDriverListV1Beta1(
         '''
         props = KubeCsiDriverListV1Beta1Props(items=items, metadata=metadata)
 
-        jsii.create(KubeCsiDriverListV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -17879,7 +17879,7 @@ class KubeCsiDriverV1Beta1(
         '''
         props = KubeCsiDriverV1Beta1Props(spec=spec, metadata=metadata)
 
-        jsii.create(KubeCsiDriverV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -18005,7 +18005,7 @@ class KubeCsiNode(
         '''
         props = KubeCsiNodeProps(spec=spec, metadata=metadata)
 
-        jsii.create(KubeCsiNode, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -18065,7 +18065,7 @@ class KubeCsiNodeList(
         '''
         props = KubeCsiNodeListProps(items=items, metadata=metadata)
 
-        jsii.create(KubeCsiNodeList, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -18183,7 +18183,7 @@ class KubeCsiNodeListV1Beta1(
         '''
         props = KubeCsiNodeListV1Beta1Props(items=items, metadata=metadata)
 
-        jsii.create(KubeCsiNodeListV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -18365,7 +18365,7 @@ class KubeCsiNodeV1Beta1(
         '''
         props = KubeCsiNodeV1Beta1Props(spec=spec, metadata=metadata)
 
-        jsii.create(KubeCsiNodeV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -18489,7 +18489,7 @@ class KubeCustomResourceDefinition(
         '''
         props = KubeCustomResourceDefinitionProps(spec=spec, metadata=metadata)
 
-        jsii.create(KubeCustomResourceDefinition, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -18549,7 +18549,7 @@ class KubeCustomResourceDefinitionList(
         '''
         props = KubeCustomResourceDefinitionListProps(items=items, metadata=metadata)
 
-        jsii.create(KubeCustomResourceDefinitionList, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -18668,7 +18668,7 @@ class KubeCustomResourceDefinitionListV1Beta1(
             items=items, metadata=metadata
         )
 
-        jsii.create(KubeCustomResourceDefinitionListV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -18850,7 +18850,7 @@ class KubeCustomResourceDefinitionV1Beta1(
         '''
         props = KubeCustomResourceDefinitionV1Beta1Props(spec=spec, metadata=metadata)
 
-        jsii.create(KubeCustomResourceDefinitionV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -18971,7 +18971,7 @@ class KubeDaemonSet(
         '''
         props = KubeDaemonSetProps(metadata=metadata, spec=spec)
 
-        jsii.create(KubeDaemonSet, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -19031,7 +19031,7 @@ class KubeDaemonSetList(
         '''
         props = KubeDaemonSetListProps(items=items, metadata=metadata)
 
-        jsii.create(KubeDaemonSetList, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -19151,7 +19151,7 @@ class KubeDaemonSetListV1Beta1(
         '''
         props = KubeDaemonSetListV1Beta1Props(items=items, metadata=metadata)
 
-        jsii.create(KubeDaemonSetListV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -19271,7 +19271,7 @@ class KubeDaemonSetListV1Beta2(
         '''
         props = KubeDaemonSetListV1Beta2Props(items=items, metadata=metadata)
 
-        jsii.create(KubeDaemonSetListV1Beta2, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -19456,7 +19456,7 @@ class KubeDaemonSetV1Beta1(
         '''
         props = KubeDaemonSetV1Beta1Props(metadata=metadata, spec=spec)
 
-        jsii.create(KubeDaemonSetV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -19583,7 +19583,7 @@ class KubeDaemonSetV1Beta2(
         '''
         props = KubeDaemonSetV1Beta2Props(metadata=metadata, spec=spec)
 
-        jsii.create(KubeDaemonSetV1Beta2, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -19708,7 +19708,7 @@ class KubeDeployment(
         '''
         props = KubeDeploymentProps(metadata=metadata, spec=spec)
 
-        jsii.create(KubeDeployment, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -19768,7 +19768,7 @@ class KubeDeploymentList(
         '''
         props = KubeDeploymentListProps(items=items, metadata=metadata)
 
-        jsii.create(KubeDeploymentList, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -19886,7 +19886,7 @@ class KubeDeploymentListV1Beta1(
         '''
         props = KubeDeploymentListV1Beta1Props(items=items, metadata=metadata)
 
-        jsii.create(KubeDeploymentListV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -20004,7 +20004,7 @@ class KubeDeploymentListV1Beta2(
         '''
         props = KubeDeploymentListV1Beta2Props(items=items, metadata=metadata)
 
-        jsii.create(KubeDeploymentListV1Beta2, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -20183,7 +20183,7 @@ class KubeDeploymentV1Beta1(
         '''
         props = KubeDeploymentV1Beta1Props(metadata=metadata, spec=spec)
 
-        jsii.create(KubeDeploymentV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -20306,7 +20306,7 @@ class KubeDeploymentV1Beta2(
         '''
         props = KubeDeploymentV1Beta2Props(metadata=metadata, spec=spec)
 
-        jsii.create(KubeDeploymentV1Beta2, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -20427,7 +20427,7 @@ class KubeEndpointSliceListV1Beta1(
         '''
         props = KubeEndpointSliceListV1Beta1Props(items=items, metadata=metadata)
 
-        jsii.create(KubeEndpointSliceListV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -20556,7 +20556,7 @@ class KubeEndpointSliceV1Beta1(
             ports=ports,
         )
 
-        jsii.create(KubeEndpointSliceV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -20735,7 +20735,7 @@ class KubeEndpoints(
         '''
         props = KubeEndpointsProps(metadata=metadata, subsets=subsets)
 
-        jsii.create(KubeEndpoints, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -20795,7 +20795,7 @@ class KubeEndpointsList(
         '''
         props = KubeEndpointsListProps(items=items, metadata=metadata)
 
-        jsii.create(KubeEndpointsList, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -21027,7 +21027,7 @@ class KubeEvent(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeEve
             type=type,
         )
 
-        jsii.create(KubeEvent, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -21129,7 +21129,7 @@ class KubeEventList(
         '''
         props = KubeEventListProps(items=items, metadata=metadata)
 
-        jsii.create(KubeEventList, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -21249,7 +21249,7 @@ class KubeEventListV1Beta1(
         '''
         props = KubeEventListV1Beta1Props(items=items, metadata=metadata)
 
-        jsii.create(KubeEventListV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -21670,7 +21670,7 @@ class KubeEventV1Beta1(
             type=type,
         )
 
-        jsii.create(KubeEventV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -22036,7 +22036,7 @@ class KubeEvictionV1Beta1(
             delete_options=delete_options, metadata=metadata
         )
 
-        jsii.create(KubeEvictionV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -22159,7 +22159,7 @@ class KubeFlowSchemaListV1Alpha1(
         '''
         props = KubeFlowSchemaListV1Alpha1Props(items=items, metadata=metadata)
 
-        jsii.create(KubeFlowSchemaListV1Alpha1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -22281,7 +22281,7 @@ class KubeFlowSchemaV1Alpha1(
         '''
         props = KubeFlowSchemaV1Alpha1Props(metadata=metadata, spec=spec)
 
-        jsii.create(KubeFlowSchemaV1Alpha1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -22406,7 +22406,7 @@ class KubeHorizontalPodAutoscaler(
         '''
         props = KubeHorizontalPodAutoscalerProps(metadata=metadata, spec=spec)
 
-        jsii.create(KubeHorizontalPodAutoscaler, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -22466,7 +22466,7 @@ class KubeHorizontalPodAutoscalerList(
         '''
         props = KubeHorizontalPodAutoscalerListProps(items=items, metadata=metadata)
 
-        jsii.create(KubeHorizontalPodAutoscalerList, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -22586,7 +22586,7 @@ class KubeHorizontalPodAutoscalerListV2Beta1(
             items=items, metadata=metadata
         )
 
-        jsii.create(KubeHorizontalPodAutoscalerListV2Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -22708,7 +22708,7 @@ class KubeHorizontalPodAutoscalerListV2Beta2(
             items=items, metadata=metadata
         )
 
-        jsii.create(KubeHorizontalPodAutoscalerListV2Beta2, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -22891,7 +22891,7 @@ class KubeHorizontalPodAutoscalerV2Beta1(
         '''
         props = KubeHorizontalPodAutoscalerV2Beta1Props(metadata=metadata, spec=spec)
 
-        jsii.create(KubeHorizontalPodAutoscalerV2Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -23014,7 +23014,7 @@ class KubeHorizontalPodAutoscalerV2Beta2(
         '''
         props = KubeHorizontalPodAutoscalerV2Beta2Props(metadata=metadata, spec=spec)
 
-        jsii.create(KubeHorizontalPodAutoscalerV2Beta2, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -23137,7 +23137,7 @@ class KubeIngressListV1Beta1(
         '''
         props = KubeIngressListV1Beta1Props(items=items, metadata=metadata)
 
-        jsii.create(KubeIngressListV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -23259,7 +23259,7 @@ class KubeIngressV1Beta1(
         '''
         props = KubeIngressV1Beta1Props(metadata=metadata, spec=spec)
 
-        jsii.create(KubeIngressV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -23380,7 +23380,7 @@ class KubeJob(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeJob")
         '''
         props = KubeJobProps(metadata=metadata, spec=spec)
 
-        jsii.create(KubeJob, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -23440,7 +23440,7 @@ class KubeJobList(
         '''
         props = KubeJobListProps(items=items, metadata=metadata)
 
-        jsii.create(KubeJobList, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -23619,7 +23619,7 @@ class KubeLease(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeLea
         '''
         props = KubeLeaseProps(metadata=metadata, spec=spec)
 
-        jsii.create(KubeLease, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -23679,7 +23679,7 @@ class KubeLeaseList(
         '''
         props = KubeLeaseListProps(items=items, metadata=metadata)
 
-        jsii.create(KubeLeaseList, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -23799,7 +23799,7 @@ class KubeLeaseListV1Beta1(
         '''
         props = KubeLeaseListV1Beta1Props(items=items, metadata=metadata)
 
-        jsii.create(KubeLeaseListV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -23980,7 +23980,7 @@ class KubeLeaseV1Beta1(
         '''
         props = KubeLeaseV1Beta1Props(metadata=metadata, spec=spec)
 
-        jsii.create(KubeLeaseV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -24101,7 +24101,7 @@ class KubeLimitRange(
         '''
         props = KubeLimitRangeProps(metadata=metadata, spec=spec)
 
-        jsii.create(KubeLimitRange, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -24161,7 +24161,7 @@ class KubeLimitRangeList(
         '''
         props = KubeLimitRangeListProps(items=items, metadata=metadata)
 
-        jsii.create(KubeLimitRangeList, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -24348,7 +24348,7 @@ class KubeLocalSubjectAccessReview(
         '''
         props = KubeLocalSubjectAccessReviewProps(spec=spec, metadata=metadata)
 
-        jsii.create(KubeLocalSubjectAccessReview, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -24473,7 +24473,7 @@ class KubeLocalSubjectAccessReviewV1Beta1(
         '''
         props = KubeLocalSubjectAccessReviewV1Beta1Props(spec=spec, metadata=metadata)
 
-        jsii.create(KubeLocalSubjectAccessReviewV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -24598,7 +24598,7 @@ class KubeMutatingWebhookConfiguration(
             metadata=metadata, webhooks=webhooks
         )
 
-        jsii.create(KubeMutatingWebhookConfiguration, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -24662,7 +24662,7 @@ class KubeMutatingWebhookConfigurationList(
             items=items, metadata=metadata
         )
 
-        jsii.create(KubeMutatingWebhookConfigurationList, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -24786,7 +24786,7 @@ class KubeMutatingWebhookConfigurationListV1Beta1(
             items=items, metadata=metadata
         )
 
-        jsii.create(KubeMutatingWebhookConfigurationListV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -24971,7 +24971,7 @@ class KubeMutatingWebhookConfigurationV1Beta1(
             metadata=metadata, webhooks=webhooks
         )
 
-        jsii.create(KubeMutatingWebhookConfigurationV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -25096,7 +25096,7 @@ class KubeNamespace(
         '''
         props = KubeNamespaceProps(metadata=metadata, spec=spec)
 
-        jsii.create(KubeNamespace, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -25156,7 +25156,7 @@ class KubeNamespaceList(
         '''
         props = KubeNamespaceListProps(items=items, metadata=metadata)
 
-        jsii.create(KubeNamespaceList, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -25343,7 +25343,7 @@ class KubeNetworkPolicy(
         '''
         props = KubeNetworkPolicyProps(metadata=metadata, spec=spec)
 
-        jsii.create(KubeNetworkPolicy, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -25403,7 +25403,7 @@ class KubeNetworkPolicyList(
         '''
         props = KubeNetworkPolicyListProps(items=items, metadata=metadata)
 
-        jsii.create(KubeNetworkPolicyList, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -25523,7 +25523,7 @@ class KubeNetworkPolicyListV1Beta1(
         '''
         props = KubeNetworkPolicyListV1Beta1Props(items=items, metadata=metadata)
 
-        jsii.create(KubeNetworkPolicyListV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -25704,7 +25704,7 @@ class KubeNetworkPolicyV1Beta1(
         '''
         props = KubeNetworkPolicyV1Beta1Props(metadata=metadata, spec=spec)
 
-        jsii.create(KubeNetworkPolicyV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -25823,7 +25823,7 @@ class KubeNode(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeNode
         '''
         props = KubeNodeProps(metadata=metadata, spec=spec)
 
-        jsii.create(KubeNode, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -25883,7 +25883,7 @@ class KubeNodeList(
         '''
         props = KubeNodeListProps(items=items, metadata=metadata)
 
-        jsii.create(KubeNodeList, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -26070,7 +26070,7 @@ class KubePersistentVolume(
         '''
         props = KubePersistentVolumeProps(metadata=metadata, spec=spec)
 
-        jsii.create(KubePersistentVolume, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -26130,7 +26130,7 @@ class KubePersistentVolumeClaim(
         '''
         props = KubePersistentVolumeClaimProps(metadata=metadata, spec=spec)
 
-        jsii.create(KubePersistentVolumeClaim, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -26190,7 +26190,7 @@ class KubePersistentVolumeClaimList(
         '''
         props = KubePersistentVolumeClaimListProps(items=items, metadata=metadata)
 
-        jsii.create(KubePersistentVolumeClaimList, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -26375,7 +26375,7 @@ class KubePersistentVolumeList(
         '''
         props = KubePersistentVolumeListProps(items=items, metadata=metadata)
 
-        jsii.create(KubePersistentVolumeList, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -26560,7 +26560,7 @@ class KubePod(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubePod")
         '''
         props = KubePodProps(metadata=metadata, spec=spec)
 
-        jsii.create(KubePod, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -26620,7 +26620,7 @@ class KubePodDisruptionBudgetListV1Beta1(
         '''
         props = KubePodDisruptionBudgetListV1Beta1Props(items=items, metadata=metadata)
 
-        jsii.create(KubePodDisruptionBudgetListV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -26736,7 +26736,7 @@ class KubePodDisruptionBudgetV1Beta1(
         '''
         props = KubePodDisruptionBudgetV1Beta1Props(metadata=metadata, spec=spec)
 
-        jsii.create(KubePodDisruptionBudgetV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -26854,7 +26854,7 @@ class KubePodList(
         '''
         props = KubePodListProps(items=items, metadata=metadata)
 
-        jsii.create(KubePodList, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -26976,7 +26976,7 @@ class KubePodPresetListV1Alpha1(
         '''
         props = KubePodPresetListV1Alpha1Props(items=items, metadata=metadata)
 
-        jsii.create(KubePodPresetListV1Alpha1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -27096,7 +27096,7 @@ class KubePodPresetV1Alpha1(
         '''
         props = KubePodPresetV1Alpha1Props(metadata=metadata, spec=spec)
 
-        jsii.create(KubePodPresetV1Alpha1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -27278,7 +27278,7 @@ class KubePodSecurityPolicyListV1Beta1(
         '''
         props = KubePodSecurityPolicyListV1Beta1Props(items=items, metadata=metadata)
 
-        jsii.create(KubePodSecurityPolicyListV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -27398,7 +27398,7 @@ class KubePodSecurityPolicyV1Beta1(
         '''
         props = KubePodSecurityPolicyV1Beta1Props(metadata=metadata, spec=spec)
 
-        jsii.create(KubePodSecurityPolicyV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -27519,7 +27519,7 @@ class KubePodTemplate(
         '''
         props = KubePodTemplateProps(metadata=metadata, template=template)
 
-        jsii.create(KubePodTemplate, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -27579,7 +27579,7 @@ class KubePodTemplateList(
         '''
         props = KubePodTemplateListProps(items=items, metadata=metadata)
 
-        jsii.create(KubePodTemplateList, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -27776,7 +27776,7 @@ class KubePriorityClass(
             preemption_policy=preemption_policy,
         )
 
-        jsii.create(KubePriorityClass, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -27848,7 +27848,7 @@ class KubePriorityClassList(
         '''
         props = KubePriorityClassListProps(items=items, metadata=metadata)
 
-        jsii.create(KubePriorityClassList, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -27966,7 +27966,7 @@ class KubePriorityClassListV1Alpha1(
         '''
         props = KubePriorityClassListV1Alpha1Props(items=items, metadata=metadata)
 
-        jsii.create(KubePriorityClassListV1Alpha1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -28084,7 +28084,7 @@ class KubePriorityClassListV1Beta1(
         '''
         props = KubePriorityClassListV1Beta1Props(items=items, metadata=metadata)
 
-        jsii.create(KubePriorityClassListV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -28329,7 +28329,7 @@ class KubePriorityClassV1Alpha1(
             preemption_policy=preemption_policy,
         )
 
-        jsii.create(KubePriorityClassV1Alpha1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -28526,7 +28526,7 @@ class KubePriorityClassV1Beta1(
             preemption_policy=preemption_policy,
         )
 
-        jsii.create(KubePriorityClassV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -28713,7 +28713,7 @@ class KubePriorityLevelConfigurationListV1Alpha1(
             items=items, metadata=metadata
         )
 
-        jsii.create(KubePriorityLevelConfigurationListV1Alpha1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -28837,7 +28837,7 @@ class KubePriorityLevelConfigurationV1Alpha1(
             metadata=metadata, spec=spec
         )
 
-        jsii.create(KubePriorityLevelConfigurationV1Alpha1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -28962,7 +28962,7 @@ class KubeReplicaSet(
         '''
         props = KubeReplicaSetProps(metadata=metadata, spec=spec)
 
-        jsii.create(KubeReplicaSet, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -29022,7 +29022,7 @@ class KubeReplicaSetList(
         '''
         props = KubeReplicaSetListProps(items=items, metadata=metadata)
 
-        jsii.create(KubeReplicaSetList, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -29144,7 +29144,7 @@ class KubeReplicaSetListV1Beta1(
         '''
         props = KubeReplicaSetListV1Beta1Props(items=items, metadata=metadata)
 
-        jsii.create(KubeReplicaSetListV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -29266,7 +29266,7 @@ class KubeReplicaSetListV1Beta2(
         '''
         props = KubeReplicaSetListV1Beta2Props(items=items, metadata=metadata)
 
-        jsii.create(KubeReplicaSetListV1Beta2, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -29453,7 +29453,7 @@ class KubeReplicaSetV1Beta1(
         '''
         props = KubeReplicaSetV1Beta1Props(metadata=metadata, spec=spec)
 
-        jsii.create(KubeReplicaSetV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -29580,7 +29580,7 @@ class KubeReplicaSetV1Beta2(
         '''
         props = KubeReplicaSetV1Beta2Props(metadata=metadata, spec=spec)
 
-        jsii.create(KubeReplicaSetV1Beta2, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -29705,7 +29705,7 @@ class KubeReplicationController(
         '''
         props = KubeReplicationControllerProps(metadata=metadata, spec=spec)
 
-        jsii.create(KubeReplicationController, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -29765,7 +29765,7 @@ class KubeReplicationControllerList(
         '''
         props = KubeReplicationControllerListProps(items=items, metadata=metadata)
 
-        jsii.create(KubeReplicationControllerList, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -29950,7 +29950,7 @@ class KubeResourceQuota(
         '''
         props = KubeResourceQuotaProps(metadata=metadata, spec=spec)
 
-        jsii.create(KubeResourceQuota, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -30010,7 +30010,7 @@ class KubeResourceQuotaList(
         '''
         props = KubeResourceQuotaListProps(items=items, metadata=metadata)
 
-        jsii.create(KubeResourceQuotaList, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -30191,7 +30191,7 @@ class KubeRole(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeRole
         '''
         props = KubeRoleProps(metadata=metadata, rules=rules)
 
-        jsii.create(KubeRole, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -30257,7 +30257,7 @@ class KubeRoleBinding(
             role_ref=role_ref, metadata=metadata, subjects=subjects
         )
 
-        jsii.create(KubeRoleBinding, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -30321,7 +30321,7 @@ class KubeRoleBindingList(
         '''
         props = KubeRoleBindingListProps(items=items, metadata=metadata)
 
-        jsii.create(KubeRoleBindingList, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -30439,7 +30439,7 @@ class KubeRoleBindingListV1Alpha1(
         '''
         props = KubeRoleBindingListV1Alpha1Props(items=items, metadata=metadata)
 
-        jsii.create(KubeRoleBindingListV1Alpha1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -30557,7 +30557,7 @@ class KubeRoleBindingListV1Beta1(
         '''
         props = KubeRoleBindingListV1Beta1Props(items=items, metadata=metadata)
 
-        jsii.create(KubeRoleBindingListV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -30762,7 +30762,7 @@ class KubeRoleBindingV1Alpha1(
             role_ref=role_ref, metadata=metadata, subjects=subjects
         )
 
-        jsii.create(KubeRoleBindingV1Alpha1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -30913,7 +30913,7 @@ class KubeRoleBindingV1Beta1(
             role_ref=role_ref, metadata=metadata, subjects=subjects
         )
 
-        jsii.create(KubeRoleBindingV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -31058,7 +31058,7 @@ class KubeRoleList(
         '''
         props = KubeRoleListProps(items=items, metadata=metadata)
 
-        jsii.create(KubeRoleList, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -31178,7 +31178,7 @@ class KubeRoleListV1Alpha1(
         '''
         props = KubeRoleListV1Alpha1Props(items=items, metadata=metadata)
 
-        jsii.create(KubeRoleListV1Alpha1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -31298,7 +31298,7 @@ class KubeRoleListV1Beta1(
         '''
         props = KubeRoleListV1Beta1Props(items=items, metadata=metadata)
 
-        jsii.create(KubeRoleListV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -31475,7 +31475,7 @@ class KubeRoleV1Alpha1(
         '''
         props = KubeRoleV1Alpha1Props(metadata=metadata, rules=rules)
 
-        jsii.create(KubeRoleV1Alpha1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -31596,7 +31596,7 @@ class KubeRoleV1Beta1(
         '''
         props = KubeRoleV1Beta1Props(metadata=metadata, rules=rules)
 
-        jsii.create(KubeRoleV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -31715,7 +31715,7 @@ class KubeRuntimeClassListV1Alpha1(
         '''
         props = KubeRuntimeClassListV1Alpha1Props(items=items, metadata=metadata)
 
-        jsii.create(KubeRuntimeClassListV1Alpha1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -31835,7 +31835,7 @@ class KubeRuntimeClassListV1Beta1(
         '''
         props = KubeRuntimeClassListV1Beta1Props(items=items, metadata=metadata)
 
-        jsii.create(KubeRuntimeClassListV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -31957,7 +31957,7 @@ class KubeRuntimeClassV1Alpha1(
         '''
         props = KubeRuntimeClassV1Alpha1Props(spec=spec, metadata=metadata)
 
-        jsii.create(KubeRuntimeClassV1Alpha1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -32090,7 +32090,7 @@ class KubeRuntimeClassV1Beta1(
             scheduling=scheduling,
         )
 
-        jsii.create(KubeRuntimeClassV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -32256,7 +32256,7 @@ class KubeScale(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeSca
         '''
         props = KubeScaleProps(metadata=metadata, spec=spec)
 
-        jsii.create(KubeScale, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -32379,7 +32379,7 @@ class KubeScaleV1Beta1(
         '''
         props = KubeScaleV1Beta1Props(metadata=metadata, spec=spec)
 
-        jsii.create(KubeScaleV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -32502,7 +32502,7 @@ class KubeScaleV1Beta2(
         '''
         props = KubeScaleV1Beta2Props(metadata=metadata, spec=spec)
 
-        jsii.create(KubeScaleV1Beta2, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -32629,7 +32629,7 @@ class KubeSecret(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeSe
             data=data, metadata=metadata, string_data=string_data, type=type
         )
 
-        jsii.create(KubeSecret, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -32695,7 +32695,7 @@ class KubeSecretList(
         '''
         props = KubeSecretListProps(items=items, metadata=metadata)
 
-        jsii.create(KubeSecretList, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -32917,7 +32917,7 @@ class KubeSelfSubjectAccessReview(
         '''
         props = KubeSelfSubjectAccessReviewProps(spec=spec, metadata=metadata)
 
-        jsii.create(KubeSelfSubjectAccessReview, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -33042,7 +33042,7 @@ class KubeSelfSubjectAccessReviewV1Beta1(
         '''
         props = KubeSelfSubjectAccessReviewV1Beta1Props(spec=spec, metadata=metadata)
 
-        jsii.create(KubeSelfSubjectAccessReviewV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -33167,7 +33167,7 @@ class KubeSelfSubjectRulesReview(
         '''
         props = KubeSelfSubjectRulesReviewProps(spec=spec, metadata=metadata)
 
-        jsii.create(KubeSelfSubjectRulesReview, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -33290,7 +33290,7 @@ class KubeSelfSubjectRulesReviewV1Beta1(
         '''
         props = KubeSelfSubjectRulesReviewV1Beta1Props(spec=spec, metadata=metadata)
 
-        jsii.create(KubeSelfSubjectRulesReviewV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -33411,7 +33411,7 @@ class KubeService(
         '''
         props = KubeServiceProps(metadata=metadata, spec=spec)
 
-        jsii.create(KubeService, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -33480,7 +33480,7 @@ class KubeServiceAccount(
             secrets=secrets,
         )
 
-        jsii.create(KubeServiceAccount, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -33549,7 +33549,7 @@ class KubeServiceAccountList(
         '''
         props = KubeServiceAccountListProps(items=items, metadata=metadata)
 
-        jsii.create(KubeServiceAccountList, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -33769,7 +33769,7 @@ class KubeServiceList(
         '''
         props = KubeServiceListProps(items=items, metadata=metadata)
 
-        jsii.create(KubeServiceList, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -33958,7 +33958,7 @@ class KubeStatefulSet(
         '''
         props = KubeStatefulSetProps(metadata=metadata, spec=spec)
 
-        jsii.create(KubeStatefulSet, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -34018,7 +34018,7 @@ class KubeStatefulSetList(
         '''
         props = KubeStatefulSetListProps(items=items, metadata=metadata)
 
-        jsii.create(KubeStatefulSetList, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -34134,7 +34134,7 @@ class KubeStatefulSetListV1Beta1(
         '''
         props = KubeStatefulSetListV1Beta1Props(items=items, metadata=metadata)
 
-        jsii.create(KubeStatefulSetListV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -34250,7 +34250,7 @@ class KubeStatefulSetListV1Beta2(
         '''
         props = KubeStatefulSetListV1Beta2Props(items=items, metadata=metadata)
 
-        jsii.create(KubeStatefulSetListV1Beta2, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -34436,7 +34436,7 @@ class KubeStatefulSetV1Beta1(
         '''
         props = KubeStatefulSetV1Beta1Props(metadata=metadata, spec=spec)
 
-        jsii.create(KubeStatefulSetV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -34566,7 +34566,7 @@ class KubeStatefulSetV1Beta2(
         '''
         props = KubeStatefulSetV1Beta2Props(metadata=metadata, spec=spec)
 
-        jsii.create(KubeStatefulSetV1Beta2, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -34698,7 +34698,7 @@ class KubeStatus(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeSt
             reason=reason,
         )
 
-        jsii.create(KubeStatus, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -34903,7 +34903,7 @@ class KubeStorageClass(
             volume_binding_mode=volume_binding_mode,
         )
 
-        jsii.create(KubeStorageClass, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -34984,7 +34984,7 @@ class KubeStorageClassList(
         '''
         props = KubeStorageClassListProps(items=items, metadata=metadata)
 
-        jsii.create(KubeStorageClassList, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -35102,7 +35102,7 @@ class KubeStorageClassListV1Beta1(
         '''
         props = KubeStorageClassListV1Beta1Props(items=items, metadata=metadata)
 
-        jsii.create(KubeStorageClassListV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -35402,7 +35402,7 @@ class KubeStorageClassV1Beta1(
             volume_binding_mode=volume_binding_mode,
         )
 
-        jsii.create(KubeStorageClassV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -35642,7 +35642,7 @@ class KubeSubjectAccessReview(
         '''
         props = KubeSubjectAccessReviewProps(spec=spec, metadata=metadata)
 
-        jsii.create(KubeSubjectAccessReview, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -35761,7 +35761,7 @@ class KubeSubjectAccessReviewV1Beta1(
         '''
         props = KubeSubjectAccessReviewV1Beta1Props(spec=spec, metadata=metadata)
 
-        jsii.create(KubeSubjectAccessReviewV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -35880,7 +35880,7 @@ class KubeTokenRequest(
         '''
         props = KubeTokenRequestProps(spec=spec, metadata=metadata)
 
-        jsii.create(KubeTokenRequest, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -36000,7 +36000,7 @@ class KubeTokenReview(
         '''
         props = KubeTokenReviewProps(spec=spec, metadata=metadata)
 
-        jsii.create(KubeTokenReview, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -36123,7 +36123,7 @@ class KubeTokenReviewV1Beta1(
         '''
         props = KubeTokenReviewV1Beta1Props(spec=spec, metadata=metadata)
 
-        jsii.create(KubeTokenReviewV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -36246,7 +36246,7 @@ class KubeValidatingWebhookConfiguration(
             metadata=metadata, webhooks=webhooks
         )
 
-        jsii.create(KubeValidatingWebhookConfiguration, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -36310,7 +36310,7 @@ class KubeValidatingWebhookConfigurationList(
             items=items, metadata=metadata
         )
 
-        jsii.create(KubeValidatingWebhookConfigurationList, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -36434,7 +36434,7 @@ class KubeValidatingWebhookConfigurationListV1Beta1(
             items=items, metadata=metadata
         )
 
-        jsii.create(KubeValidatingWebhookConfigurationListV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -36619,7 +36619,7 @@ class KubeValidatingWebhookConfigurationV1Beta1(
             metadata=metadata, webhooks=webhooks
         )
 
-        jsii.create(KubeValidatingWebhookConfigurationV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -36744,7 +36744,7 @@ class KubeVolumeAttachment(
         '''
         props = KubeVolumeAttachmentProps(spec=spec, metadata=metadata)
 
-        jsii.create(KubeVolumeAttachment, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -36804,7 +36804,7 @@ class KubeVolumeAttachmentList(
         '''
         props = KubeVolumeAttachmentListProps(items=items, metadata=metadata)
 
-        jsii.create(KubeVolumeAttachmentList, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -36922,7 +36922,7 @@ class KubeVolumeAttachmentListV1Alpha1(
         '''
         props = KubeVolumeAttachmentListV1Alpha1Props(items=items, metadata=metadata)
 
-        jsii.create(KubeVolumeAttachmentListV1Alpha1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -37040,7 +37040,7 @@ class KubeVolumeAttachmentListV1Beta1(
         '''
         props = KubeVolumeAttachmentListV1Beta1Props(items=items, metadata=metadata)
 
-        jsii.create(KubeVolumeAttachmentListV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -37226,7 +37226,7 @@ class KubeVolumeAttachmentV1Alpha1(
         '''
         props = KubeVolumeAttachmentV1Alpha1Props(spec=spec, metadata=metadata)
 
-        jsii.create(KubeVolumeAttachmentV1Alpha1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
@@ -37354,7 +37354,7 @@ class KubeVolumeAttachmentV1Beta1(
         '''
         props = KubeVolumeAttachmentV1Beta1Props(spec=spec, metadata=metadata)
 
-        jsii.create(KubeVolumeAttachmentV1Beta1, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod

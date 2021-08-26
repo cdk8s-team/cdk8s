@@ -40,7 +40,7 @@ class CronTab(
         '''
         props = CronTabProps(metadata=metadata, spec=spec)
 
-        jsii.create(CronTab, self, [scope, id, props])
+        jsii.create(self.__class__, self, [scope, id, props])
 
     @jsii.member(jsii_name="manifest") # type: ignore[misc]
     @builtins.classmethod
