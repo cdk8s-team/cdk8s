@@ -32,7 +32,7 @@ import * as k from 'cdk8s';
 const app = new k.App();
 const chart = new k.Chart(app, 'Chart');
 
-const config = new new kplus.ConfigMap(chart, 'Config');
+const config = new kplus.ConfigMap(chart, 'Config');
 config.addData('url', 'https://my-endpoint:8080');
 ```
 
@@ -48,7 +48,7 @@ import * as path from 'path';
 const app = new k.App();
 const chart = new k.Chart(app, 'Chart');
 
-const appMap = new new kplus.ConfigMap(chart, 'Config');
+const appMap = new kplus.ConfigMap(chart, 'Config');
 
 // add the files in the directory to the config map.
 // this will create a key for each file.
