@@ -69,7 +69,6 @@ const integ = project.addTask('integ', {
 // construct the build task
 project.buildTask.exec('lerna run build');
 project.buildTask.spawn(project.testTask);
-project.buildTask.spawn(integ);
 
 // remove unused commands
 project.tasks.removeTask('compile');
@@ -136,6 +135,49 @@ workflow.addJobs({
       }
     ]
   }
+});
+
+project.buildWorkflow.addJobs({
+  test: {
+    needs: [project.buildTask.name],
+    runsOn: '${{ matrix.os }}',
+    strategy: {
+      failFast: false,
+      matrix: {
+        domain: {
+          os: ['windows-latest', 'macos-latest', 'ubuntu-latest']
+        }
+      }
+    },
+    permissions: {
+      contents: JobPermission.READ,
+    },
+    steps: [
+      { uses: 'actions/checkout@v2' },
+      {
+        name: 'Set up Python 3.x',
+        uses: 'actions/setup-python@v2',
+        with: {
+          'python-version': '3.x',
+        },
+      },
+      {
+        name: 'Install pipenv',
+        run: 'pip install pipenv',
+      },
+      {
+        name: 'Set up Go',
+        uses: 'actions/setup-go@v2',
+        with: {
+          'go-version': '1.16',
+        },
+      },
+      {
+        name: 'Run integration tests',
+        run: `yarn run ${integ.name}`,
+      },
+    ],
+  },
 });
 
 project.synth();
