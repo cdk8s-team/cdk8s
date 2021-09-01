@@ -62,7 +62,7 @@ project.tasks.removeTask('test:compile');
 
 // integ tests
 const integ = project.addTask('integ', {
-  exec: 'test/test-all.sh',
+  exec: 'bash test/test-all.sh',
   env: { UPDATE_SNAPSHOTS: '1' }
 });
 

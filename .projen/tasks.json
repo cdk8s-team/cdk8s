@@ -92,7 +92,7 @@
       },
       "steps": [
         {
-          "exec": "test/test-all.sh"
+          "exec": "bash test/test-all.sh"
         }
       ]
     }
