@@ -54,7 +54,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   test:
-    needs: build
     runs-on: ${{ matrix.os }}
     permissions:
       contents: read
@@ -70,6 +69,8 @@ jobs:
         uses: actions/setup-go@v2
         with:
           go-version: "1.16"
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
       - name: Run integration tests
         run: yarn run integ
     strategy:

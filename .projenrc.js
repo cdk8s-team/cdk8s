@@ -139,7 +139,8 @@ workflow.addJobs({
 
 project.buildWorkflow.addJobs({
   test: {
-    needs: [project.buildTask.name],
+    // commented out for testing
+    // needs: [project.buildTask.name],
     runsOn: '${{ matrix.os }}',
     strategy: {
       failFast: false,
@@ -171,6 +172,10 @@ project.buildWorkflow.addJobs({
         with: {
           'go-version': '1.16',
         },
+      },
+      {
+        name: 'Install dependencies',
+        run: 'yarn install --frozen-lockfile',
       },
       {
         name: 'Run integration tests',
