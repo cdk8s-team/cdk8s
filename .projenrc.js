@@ -63,12 +63,16 @@ project.tasks.removeTask('test:compile');
 // integ tests
 const integ = project.addTask('integ', {
   exec: 'bash test/test-all.sh',
+});
+const integUpdate = project.addTask('integ:update', {
+  exec: 'bash test/test-all.sh',
   env: { UPDATE_SNAPSHOTS: '1' }
 });
 
 // construct the build task
 project.buildTask.exec('lerna run build');
 project.buildTask.spawn(project.testTask);
+project.buildTask.spawn(integUpdate);
 
 // remove unused commands
 project.tasks.removeTask('compile');
@@ -139,6 +143,8 @@ workflow.addJobs({
 
 project.buildWorkflow.addJobs({
   test: {
+    // commented out for testing
+    // needs: [project.buildTask.name],
     runsOn: '${{ matrix.os }}',
     strategy: {
       failFast: false,
@@ -174,11 +180,6 @@ project.buildWorkflow.addJobs({
       {
         name: 'Install dependencies',
         run: 'yarn install --frozen-lockfile',
-      },
-      {
-        name: 'Install rsync (on Windows)',
-        run: 'choco install rsync',
-        if: 'runner.os == \'Windows\''
       },
       {
         name: 'Run integration tests',
