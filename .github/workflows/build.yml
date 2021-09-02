@@ -71,6 +71,9 @@ jobs:
           go-version: "1.16"
       - name: Install dependencies
         run: yarn install --frozen-lockfile
+      - name: Install rsync (on Windows)
+        run: choco install rsync
+        if: runner.os == 'Windows'
       - name: Run integration tests
         run: yarn run integ
     strategy:

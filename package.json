@@ -7,7 +7,6 @@
     "upgrade": "npx projen upgrade",
     "default": "npx projen default",
     "integ": "npx projen integ",
-    "integ:update": "npx projen integ:update",
     "projen": "npx projen"
   },
   "devDependencies": {
