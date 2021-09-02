@@ -63,12 +63,16 @@ project.tasks.removeTask('test:compile');
 // integ tests
 const integ = project.addTask('integ', {
   exec: 'bash test/test-all.sh',
+});
+const integUpdate = project.addTask('integ:update', {
+  exec: 'bash test/test-all.sh',
   env: { UPDATE_SNAPSHOTS: '1' }
 });
 
 // construct the build task
 project.buildTask.exec('lerna run build');
 project.buildTask.spawn(project.testTask);
+project.buildTask.spawn(integUpdate);
 
 // remove unused commands
 project.tasks.removeTask('compile');
