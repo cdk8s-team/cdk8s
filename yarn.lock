@@ -2061,10 +2061,10 @@ cdk8s-cli@0.0.0:
     sscaff "^1.2.0"
     yargs "^15.1.0"
 
-cdk8s-cli@1.0.0-beta.45:
-  version "1.0.0-beta.45"
-  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-1.0.0-beta.45.tgz#6fcfee5d7669ba2565a4a9291e4af65152a5b1a5"
-  integrity sha512-4ixIu+0Fm5gv6nQ+cNhIHu5heJ95yC5HgVTU/Ad4hg5g0zWQLQcOn7s6znqgpFMDtrpH1v4RTMNp/jv10+FPiw==
+cdk8s-cli@1.0.0-beta.46:
+  version "1.0.0-beta.46"
+  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-1.0.0-beta.46.tgz#5ac92ba7060dbb43f7a1444f2d054fda56c1df90"
+  integrity sha512-MXOy+if76WdEKHoVTnDkjrvgW/BxG69BzgR++6marCJx9mghbmlh1gwcQpq4MPnIN6EAUrbDbX0ury0tbb6dYQ==
   dependencies:
     "@types/node" "^10.17.0"
     cdk8s "1.0.0-beta.30"
