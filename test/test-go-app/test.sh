@@ -4,6 +4,9 @@ scriptdir=$(cd $(dirname $0) && pwd)
 cd $(mktemp -d)
 mkdir test && cd test
 
+# import match_snapshot function
+source ${scriptdir}/../common.sh
+
 # hidden files should be ignored
 touch .foo
 mkdir .bar
@@ -23,6 +26,6 @@ cdk8s synth
 
 # show output
 cat dist/test.k8s.yaml
-diff dist ${scriptdir}/expected
+match_snapshot dist ${scriptdir}/expected
 
 echo "PASS"

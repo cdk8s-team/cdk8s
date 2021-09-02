@@ -2,7 +2,7 @@
 set -e
 scriptdir=$(cd $(dirname $0) && pwd)
 
-source ${scriptdir}/../common.sh
+source ${scriptdir}/../../common.sh
 
 cd $(mktemp -d)
 mkdir test && cd test
