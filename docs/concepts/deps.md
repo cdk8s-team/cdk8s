@@ -8,8 +8,8 @@ For example, you can force kubernetes to first apply a `Namespace` before applyi
 
 ```typescript
 
-const namespace = new k8s.Namespace(chart, 'backend');
-const service = new k8s.Service(chart, 'Service', { metadata: { namespace: namespace.name }});
+const namespace = new k8s.KubeNamespace(chart, 'backend');
+const service = new k8s.KubeService(chart, 'Service', { metadata: { namespace: namespace.name }});
 
 // declare the dependency. this is just a syntactic sugar for Node.of(service).addDependency(namespace)
 service.addDependency(namespace);
@@ -35,8 +35,8 @@ metadata:
 You can also specify dependencies between charts, in exactly the same manner. For example, if we have a chart that provisions our `namespace`, we need that chart to be applied first:
 
 ```typescript
-const namespaceChart = new NamespaceChart(app, 'namespace');
-const applicationChart = new ApplicationChart(app, 'application');
+const namespaceChart = new Chart(app, 'namespace');
+const applicationChart = new Chart(app, 'application');
 
 // declare the dependency. this is just a syntactic sugar for Node.of(applicationChart).addDependency(namespaceChart)
 applicationChart.addDependency(namespaceChart);
@@ -62,8 +62,8 @@ class Database extends Construct {
   constructor(scope: Construct, name: string) {
     super(scope, name);
 
-    new k8s.StatefulSet(this, 'StatefulSet');
-    new k8s.ConfigMap(this, 'ConfigMap');
+    new k8s.KubeStatefulSet(this, 'StatefulSet');
+    new k8s.KubeConfigMap(this, 'ConfigMap');
   }
 }
 
@@ -71,7 +71,7 @@ const app = new App();
 
 const chart = new Chart(app, 'Chart');
 
-const service = new k8s.Service(chart, 'Service')
+const service = new k8s.KubeService(chart, 'Service')
 const database = new Database(chart, 'Database');
 
 service.addDependency(database);
@@ -109,11 +109,11 @@ You can see that all `ApiObject`s of the `Database` construct, appear before the
 If you simply declare a dependency between two `ApiObject`s (or `Constructs`), that belong to two different `Chart`s, `cdk8s` will create the chart dependency automatically for you.
 
 ```typescript
-const namespaceChart = new NamespaceChart(app, 'namespace');
-const applicationChart = new ApplicationChart(app, 'application');
+const namespaceChart = new Chart(app, 'namespace');
+const applicationChart = new Chart(app, 'application');
 
-const namespace = new k8s.Namespace(namespaceChart, 'namespace');
-const deployment = new k8s.Deployment(applicationChart, 'Deployment');
+const namespace = new k8s.KubeNamespace(namespaceChart, 'namespace');
+const deployment = new k8s.KubeDeployment(applicationChart, 'Deployment');
 
 // dependency between ApiObjects, not Charts!
 deployment.addDependency(namespace);
