@@ -37,7 +37,7 @@
       "description": "Run tests",
       "steps": [
         {
-          "exec": "lerna run test -- -u"
+          "exec": "lerna run test"
         }
       ]
     },
@@ -55,7 +55,16 @@
           "spawn": "test"
         },
         {
-          "spawn": "integ:update"
+          "spawn": "integ"
+        }
+      ]
+    },
+    "test:update": {
+      "name": "test:update",
+      "description": "Update jest snapshots",
+      "steps": [
+        {
+          "exec": "lerna run test -- -u"
         }
       ]
     },

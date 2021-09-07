@@ -4,6 +4,7 @@
     "clobber": "npx projen clobber",
     "test": "npx projen test",
     "build": "npx projen build",
+    "test:update": "npx projen test:update",
     "upgrade": "npx projen upgrade",
     "default": "npx projen default",
     "integ": "npx projen integ",

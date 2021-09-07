@@ -55,16 +55,16 @@ project.package.addField('workspaces', {
 });
 
 // override the default test task to run test across the repo
-project.testTask.reset('lerna run test -- -u');
+project.testTask.reset('lerna run test');
+project.tasks.tryFind('test:update').reset('lerna run test -- -u');
 project.tasks.removeTask('test:watch');
-project.tasks.removeTask('test:update');
 project.tasks.removeTask('test:compile');
 
 // integ tests
 const integ = project.addTask('integ', {
   exec: 'bash test/test-all.sh',
 });
-const integUpdate = project.addTask('integ:update', {
+project.addTask('integ:update', {
   exec: 'bash test/test-all.sh',
   env: { UPDATE_SNAPSHOTS: '1' }
 });
@@ -72,7 +72,7 @@ const integUpdate = project.addTask('integ:update', {
 // construct the build task
 project.buildTask.exec('lerna run build');
 project.buildTask.spawn(project.testTask);
-project.buildTask.spawn(integUpdate);
+project.buildTask.spawn(integ);
 
 // remove unused commands
 project.tasks.removeTask('compile');
