@@ -143,8 +143,6 @@ workflow.addJobs({
 
 project.buildWorkflow.addJobs({
   test: {
-    // commented out for testing
-    // needs: [project.buildTask.name],
     runsOn: '${{ matrix.os }}',
     strategy: {
       failFast: false,
