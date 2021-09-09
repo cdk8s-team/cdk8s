@@ -1186,8 +1186,8 @@
 <p>You can declare dependencies between any two cdk8s constructs using the <code>addDependency()</code> method.</p>
 <h3 id="apiobjects">ApiObjects<a class="headerlink" href="#apiobjects" title="Permanent link">&para;</a></h3>
 <p>For example, you can force kubernetes to first apply a <code>Namespace</code> before applying the <code>Service</code> in the scope of that namespace:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">namespace</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">k8s</span><span class="p">.</span><span class="nx">Namespace</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span> <span class="s1">&#39;backend&#39;</span><span class="p">);</span>
-<span class="kd">const</span> <span class="nx">service</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">k8s</span><span class="p">.</span><span class="nx">Service</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span> <span class="s1">&#39;Service&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">metadata</span><span class="o">:</span> <span class="p">{</span> <span class="nx">namespace</span>: <span class="kt">namespace.name</span> <span class="p">}});</span>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">namespace</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">k8s</span><span class="p">.</span><span class="nx">KubeNamespace</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span> <span class="s1">&#39;backend&#39;</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">service</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">k8s</span><span class="p">.</span><span class="nx">KubeService</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span> <span class="s1">&#39;Service&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">metadata</span><span class="o">:</span> <span class="p">{</span> <span class="nx">namespace</span>: <span class="kt">namespace.name</span> <span class="p">}});</span>
 
 <span class="c1">// declare the dependency. this is just a syntactic sugar for Node.of(service).addDependency(namespace)</span>
 <span class="nx">service</span><span class="p">.</span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">namespace</span><span class="p">);</span>
@@ -1206,8 +1206,8 @@
 </code></pre></div>
 <h3 id="charts">Charts<a class="headerlink" href="#charts" title="Permanent link">&para;</a></h3>
 <p>You can also specify dependencies between charts, in exactly the same manner. For example, if we have a chart that provisions our <code>namespace</code>, we need that chart to be applied first:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">namespaceChart</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">NamespaceChart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;namespace&#39;</span><span class="p">);</span>
-<span class="kd">const</span> <span class="nx">applicationChart</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">ApplicationChart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;application&#39;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">namespaceChart</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Chart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;namespace&#39;</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">applicationChart</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Chart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;application&#39;</span><span class="p">);</span>
 
 <span class="c1">// declare the dependency. this is just a syntactic sugar for Node.of(applicationChart).addDependency(namespaceChart)</span>
 <span class="nx">applicationChart</span><span class="p">.</span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">namespaceChart</span><span class="p">);</span>
@@ -1225,8 +1225,8 @@
   <span class="kr">constructor</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">name</span>: <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">super</span><span class="p">(</span><span class="nx">scope</span><span class="p">,</span> <span class="nx">name</span><span class="p">);</span>
 
-    <span class="ow">new</span> <span class="nx">k8s</span><span class="p">.</span><span class="nx">StatefulSet</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;StatefulSet&#39;</span><span class="p">);</span>
-    <span class="ow">new</span> <span class="nx">k8s</span><span class="p">.</span><span class="nx">ConfigMap</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;ConfigMap&#39;</span><span class="p">);</span>
+    <span class="ow">new</span> <span class="nx">k8s</span><span class="p">.</span><span class="nx">KubeStatefulSet</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;StatefulSet&#39;</span><span class="p">);</span>
+    <span class="ow">new</span> <span class="nx">k8s</span><span class="p">.</span><span class="nx">KubeConfigMap</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;ConfigMap&#39;</span><span class="p">);</span>
   <span class="p">}</span>
 <span class="p">}</span>
 
@@ -1234,7 +1234,7 @@
 
 <span class="kd">const</span> <span class="nx">chart</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Chart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;Chart&#39;</span><span class="p">);</span>
 
-<span class="kd">const</span> <span class="nx">service</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">k8s</span><span class="p">.</span><span class="nx">Service</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span> <span class="s1">&#39;Service&#39;</span><span class="p">)</span>
+<span class="kd">const</span> <span class="nx">service</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">k8s</span><span class="p">.</span><span class="nx">KubeService</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span> <span class="s1">&#39;Service&#39;</span><span class="p">)</span>
 <span class="kd">const</span> <span class="nx">database</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Database</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span> <span class="s1">&#39;Database&#39;</span><span class="p">);</span>
 
 <span class="nx">service</span><span class="p">.</span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">database</span><span class="p">);</span>
@@ -1263,11 +1263,11 @@
 <p>You can see that all <code>ApiObject</code>s of the <code>Database</code> construct, appear before the <code>Service</code> object.</p>
 <h3 id="things-just-got-cool">Things just got cool<a class="headerlink" href="#things-just-got-cool" title="Permanent link">&para;</a></h3>
 <p>If you simply declare a dependency between two <code>ApiObject</code>s (or <code>Constructs</code>), that belong to two different <code>Chart</code>s, <code>cdk8s</code> will create the chart dependency automatically for you.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">namespaceChart</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">NamespaceChart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;namespace&#39;</span><span class="p">);</span>
-<span class="kd">const</span> <span class="nx">applicationChart</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">ApplicationChart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;application&#39;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">namespaceChart</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Chart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;namespace&#39;</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">applicationChart</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Chart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;application&#39;</span><span class="p">);</span>
 
-<span class="kd">const</span> <span class="nx">namespace</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">k8s</span><span class="p">.</span><span class="nx">Namespace</span><span class="p">(</span><span class="nx">namespaceChart</span><span class="p">,</span> <span class="s1">&#39;namespace&#39;</span><span class="p">);</span>
-<span class="kd">const</span> <span class="nx">deployment</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">k8s</span><span class="p">.</span><span class="nx">Deployment</span><span class="p">(</span><span class="nx">applicationChart</span><span class="p">,</span> <span class="s1">&#39;Deployment&#39;</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">namespace</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">k8s</span><span class="p">.</span><span class="nx">KubeNamespace</span><span class="p">(</span><span class="nx">namespaceChart</span><span class="p">,</span> <span class="s1">&#39;namespace&#39;</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">deployment</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">k8s</span><span class="p">.</span><span class="nx">KubeDeployment</span><span class="p">(</span><span class="nx">applicationChart</span><span class="p">,</span> <span class="s1">&#39;Deployment&#39;</span><span class="p">);</span>
 
 <span class="c1">// dependency between ApiObjects, not Charts!</span>
 <span class="nx">deployment</span><span class="p">.</span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">namespace</span><span class="p">);</span>
