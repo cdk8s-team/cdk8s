@@ -1,0 +1,3145 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
+    
+    
+      
+        <title>Java - CDK8s Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.802231af.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+          
+          
+          <meta name="theme-color" content="">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../../assets/extra.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#133650" data-md-color-accent="">
+  
+    
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#cdk8s-java" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="CDK8s Documentation" class="md-header__button md-logo" aria-label="CDK8s Documentation" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CDK8s Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Java
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/cdk8s-team/cdk8s/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    cdk8s-team/cdk8s
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="CDK8s Documentation" class="md-nav__button md-logo" aria-label="CDK8s Documentation" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    CDK8s Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/cdk8s-team/cdk8s/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    cdk8s-team/cdk8s
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/" class="md-nav__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
+        Concepts
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Concepts" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Concepts
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../concepts/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../concepts/constructs/" class="md-nav__link">
+        Constructs
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../concepts/chart/" class="md-nav__link">
+        Chart
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../concepts/api-object/" class="md-nav__link">
+        ApiObject
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../concepts/deps/" class="md-nav__link">
+        Dependencies
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../concepts/escape-hatches/" class="md-nav__link">
+        Escape Hatches
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../concepts/helm/" class="md-nav__link">
+        Helm Support
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../concepts/include/" class="md-nav__link">
+        Include
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../concepts/testing/" class="md-nav__link">
+        Testing
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        CLI
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="CLI" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          CLI
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cli/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cli/installation/" class="md-nav__link">
+        Installation
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cli/init/" class="md-nav__link">
+        init
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cli/import/" class="md-nav__link">
+        import
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cli/synth/" class="md-nav__link">
+        synth
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        CDK8s+
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="CDK8s+" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          CDK8s+
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../plus/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../plus/config-map/" class="md-nav__link">
+        ConfigMap
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../plus/container/" class="md-nav__link">
+        Container
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../plus/deployment/" class="md-nav__link">
+        Deployment
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../plus/ingress/" class="md-nav__link">
+        Ingress
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../plus/job/" class="md-nav__link">
+        Job
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../plus/pod/" class="md-nav__link">
+        Pod
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../plus/secret/" class="md-nav__link">
+        Secret
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../plus/service-account/" class="md-nav__link">
+        ServiceAccount
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../plus/service/" class="md-nav__link">
+        Service
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../plus/volume/" class="md-nav__link">
+        Volume
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
+      
+      <label class="md-nav__link" for="__nav_6">
+        API Reference
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="API Reference" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          API Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2" type="checkbox" id="__nav_6_2" checked>
+      
+      <label class="md-nav__link" for="__nav_6_2">
+        cdk8s
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="cdk8s" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_2">
+          <span class="md-nav__icon md-icon"></span>
+          cdk8s
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../typescript/" class="md-nav__link">
+        TypeScript
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/" class="md-nav__link">
+        Python
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Java
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Java
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#constructs" class="md-nav__link">
+    Constructs 
+  </a>
+  
+    <nav class="md-nav" aria-label="Constructs ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apiobject" class="md-nav__link">
+    ApiObject 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#app" class="md-nav__link">
+    App 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chart" class="md-nav__link">
+    Chart 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#helm" class="md-nav__link">
+    Helm 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#include" class="md-nav__link">
+    Include 
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#structs" class="md-nav__link">
+    Structs 
+  </a>
+  
+    <nav class="md-nav" aria-label="Structs ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apiobjectmetadata" class="md-nav__link">
+    ApiObjectMetadata 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apiobjectprops" class="md-nav__link">
+    ApiObjectProps 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#appprops" class="md-nav__link">
+    AppProps 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chartprops" class="md-nav__link">
+    ChartProps 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#groupversionkind" class="md-nav__link">
+    GroupVersionKind 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#helmprops" class="md-nav__link">
+    HelmProps 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#includeprops" class="md-nav__link">
+    IncludeProps 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nameoptions" class="md-nav__link">
+    NameOptions 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sizeconversionoptions" class="md-nav__link">
+    SizeConversionOptions 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#timeconversionoptions" class="md-nav__link">
+    TimeConversionOptions 
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    Classes 
+  </a>
+  
+    <nav class="md-nav" aria-label="Classes ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apiobjectmetadatadefinition" class="md-nav__link">
+    ApiObjectMetadataDefinition 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dependencygraph" class="md-nav__link">
+    DependencyGraph 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dependencyvertex" class="md-nav__link">
+    DependencyVertex 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#duration" class="md-nav__link">
+    Duration 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jsonpatch" class="md-nav__link">
+    JsonPatch 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lazy" class="md-nav__link">
+    Lazy 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#names" class="md-nav__link">
+    Names 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#size" class="md-nav__link">
+    Size 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing" class="md-nav__link">
+    Testing 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#yaml" class="md-nav__link">
+    Yaml 
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#protocols" class="md-nav__link">
+    Protocols 
+  </a>
+  
+    <nav class="md-nav" aria-label="Protocols ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ianyproducer" class="md-nav__link">
+    IAnyProducer 
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enums" class="md-nav__link">
+    Enums 
+  </a>
+  
+    <nav class="md-nav" aria-label="Enums ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sizeroundingbehavior" class="md-nav__link">
+    SizeRoundingBehavior 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#yamloutputtype" class="md-nav__link">
+    YamlOutputType 
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../go/" class="md-nav__link">
+        Go
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3" type="checkbox" id="__nav_6_3" >
+      
+      <label class="md-nav__link" for="__nav_6_3">
+        cdk8s-plus-17
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="cdk8s-plus-17" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_3">
+          <span class="md-nav__icon md-icon"></span>
+          cdk8s-plus-17
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cdk8s-plus-17/typescript/" class="md-nav__link">
+        TypeScript
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cdk8s-plus-17/python/" class="md-nav__link">
+        Python
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cdk8s-plus-17/java/" class="md-nav__link">
+        Java
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cdk8s-plus-17/go/" class="md-nav__link">
+        Go
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      <label class="md-nav__link" for="__nav_7">
+        Examples
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Examples" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Examples
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../examples/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../examples/hello/" class="md-nav__link">
+        Hello, Kubernetes!
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../examples/web-service/" class="md-nav__link">
+        WebService Abstraction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../examples/crd/" class="md-nav__link">
+        CRDs
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../examples/plus-elasticsearch/" class="md-nav__link">
+        Elasticsearch (CDK8s+)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../examples/plus-ingress/" class="md-nav__link">
+        Ingress (CDK8s+)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../examples/podinfo/" class="md-nav__link">
+        Podinfo
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../support/" class="md-nav__link">
+        Support
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      <label class="md-nav__link" for="__nav_9">
+        Project
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Project" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Project
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../project/CHANGELOG/" class="md-nav__link">
+        Changelog
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../project/CONTRIBUTING/" class="md-nav__link">
+        Contribution Guide
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../project/ROADMAP/" class="md-nav__link">
+        Roadmap
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
+      
+      <label class="md-nav__link" for="__nav_10">
+        Assets
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Assets" data-md-level="1">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          Assets
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_1" type="checkbox" id="__nav_10_1" >
+      
+      <label class="md-nav__link" for="__nav_10_1">
+        Logos
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Logos" data-md-level="2">
+        <label class="md-nav__title" for="__nav_10_1">
+          <span class="md-nav__icon md-icon"></span>
+          Logos
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../assets/logos/readme/" class="md-nav__link">
+        CDK8s Logos
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#constructs" class="md-nav__link">
+    Constructs 
+  </a>
+  
+    <nav class="md-nav" aria-label="Constructs ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apiobject" class="md-nav__link">
+    ApiObject 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#app" class="md-nav__link">
+    App 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chart" class="md-nav__link">
+    Chart 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#helm" class="md-nav__link">
+    Helm 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#include" class="md-nav__link">
+    Include 
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#structs" class="md-nav__link">
+    Structs 
+  </a>
+  
+    <nav class="md-nav" aria-label="Structs ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apiobjectmetadata" class="md-nav__link">
+    ApiObjectMetadata 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apiobjectprops" class="md-nav__link">
+    ApiObjectProps 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#appprops" class="md-nav__link">
+    AppProps 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chartprops" class="md-nav__link">
+    ChartProps 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#groupversionkind" class="md-nav__link">
+    GroupVersionKind 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#helmprops" class="md-nav__link">
+    HelmProps 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#includeprops" class="md-nav__link">
+    IncludeProps 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nameoptions" class="md-nav__link">
+    NameOptions 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sizeconversionoptions" class="md-nav__link">
+    SizeConversionOptions 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#timeconversionoptions" class="md-nav__link">
+    TimeConversionOptions 
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    Classes 
+  </a>
+  
+    <nav class="md-nav" aria-label="Classes ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apiobjectmetadatadefinition" class="md-nav__link">
+    ApiObjectMetadataDefinition 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dependencygraph" class="md-nav__link">
+    DependencyGraph 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dependencyvertex" class="md-nav__link">
+    DependencyVertex 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#duration" class="md-nav__link">
+    Duration 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jsonpatch" class="md-nav__link">
+    JsonPatch 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lazy" class="md-nav__link">
+    Lazy 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#names" class="md-nav__link">
+    Names 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#size" class="md-nav__link">
+    Size 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing" class="md-nav__link">
+    Testing 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#yaml" class="md-nav__link">
+    Yaml 
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#protocols" class="md-nav__link">
+    Protocols 
+  </a>
+  
+    <nav class="md-nav" aria-label="Protocols ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ianyproducer" class="md-nav__link">
+    IAnyProducer 
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enums" class="md-nav__link">
+    Enums 
+  </a>
+  
+    <nav class="md-nav" aria-label="Enums ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sizeroundingbehavior" class="md-nav__link">
+    SizeRoundingBehavior 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#yamloutputtype" class="md-nav__link">
+    YamlOutputType 
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/cdk8s-team/cdk8s/blob/master/docs/reference/cdk8s/java.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="cdk8s-java">cdk8s (Java) <a name="API Reference"></a><a class="headerlink" href="#cdk8s-java" title="Permanent link">&para;</a></h1>
+<h2 id="constructs">Constructs <a name="Constructs"></a><a class="headerlink" href="#constructs" title="Permanent link">&para;</a></h2>
+<h3 id="apiobject">ApiObject <a name="org.cdk8s.ApiObject"></a><a class="headerlink" href="#apiobject" title="Permanent link">&para;</a></h3>
+<h4 id="initializers">Initializers <a name="org.cdk8s.ApiObject.Initializer"></a><a class="headerlink" href="#initializers" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.ApiObject</span><span class="p">;</span>
+
+<span class="n">ApiObject</span><span class="p">.</span><span class="na">Builder</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="n">Construct</span> <span class="n">scope</span><span class="p">,</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="n">id</span><span class="p">)</span>
+    <span class="p">.</span><span class="na">apiVersion</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">)</span>
+    <span class="p">.</span><span class="na">kind</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">)</span>
+<span class="c1">//  .metadata(ApiObjectMetadata)</span>
+    <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+</code></pre></div>
+<h5 id="scoperequired"><code>scope</code><sup>Required</sup> <a name="org.cdk8s.ApiObject.parameter.scope"></a><a class="headerlink" href="#scoperequired" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <a href="#software.constructs.Construct"><code>software.constructs.Construct</code></a></li>
+</ul>
+<p>the construct scope.</p>
+<hr />
+<h5 id="idrequired"><code>id</code><sup>Required</sup> <a name="org.cdk8s.ApiObject.parameter.id"></a><a class="headerlink" href="#idrequired" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+</ul>
+<p>namespace.</p>
+<hr />
+<h5 id="apiversionrequired"><code>apiVersion</code><sup>Required</sup> <a name="org.cdk8s.ApiObjectProps.parameter.apiVersion"></a><a class="headerlink" href="#apiversionrequired" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+</ul>
+<p>API version.</p>
+<hr />
+<h5 id="kindrequired"><code>kind</code><sup>Required</sup> <a name="org.cdk8s.ApiObjectProps.parameter.kind"></a><a class="headerlink" href="#kindrequired" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+</ul>
+<p>Resource kind.</p>
+<hr />
+<h5 id="metadataoptional"><code>metadata</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectProps.parameter.metadata"></a><a class="headerlink" href="#metadataoptional" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.ApiObjectMetadata"><code>org.cdk8s.ApiObjectMetadata</code></a></li>
+</ul>
+<p>Object metadata.</p>
+<p>If <code>name</code> is not specified, an app-unique name will be allocated by the
+framework based on the path of the construct within thes construct tree.</p>
+<hr />
+<h4 id="methods">Methods <a name="Methods"></a><a class="headerlink" href="#methods" title="Permanent link">&para;</a></h4>
+<h5 id="adddependency"><code>addDependency</code> <a name="org.cdk8s.ApiObject.addDependency"></a><a class="headerlink" href="#adddependency" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">addDependency</span><span class="p">(</span><span class="n">IConstruct</span> <span class="n">dependencies</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="dependenciesrequired"><code>dependencies</code><sup>Required</sup> <a name="org.cdk8s.ApiObject.parameter.dependencies"></a><a class="headerlink" href="#dependenciesrequired" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <a href="#software.constructs.IConstruct"><code>software.constructs.IConstruct</code></a></li>
+</ul>
+<p>the dependencies to add.</p>
+<hr />
+<h5 id="addjsonpatch"><code>addJsonPatch</code> <a name="org.cdk8s.ApiObject.addJsonPatch"></a><a class="headerlink" href="#addjsonpatch" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">addJsonPatch</span><span class="p">(</span><span class="n">JsonPatch</span> <span class="n">ops</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="opsrequired"><code>ops</code><sup>Required</sup> <a name="org.cdk8s.ApiObject.parameter.ops"></a><a class="headerlink" href="#opsrequired" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.JsonPatch"><code>org.cdk8s.JsonPatch</code></a></li>
+</ul>
+<p>The JSON-Patch operations to apply.</p>
+<hr />
+<h5 id="tojson"><code>toJson</code> <a name="org.cdk8s.ApiObject.toJson"></a><a class="headerlink" href="#tojson" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">toJson</span><span class="p">()</span>
+</code></pre></div>
+<h4 id="static-functions">Static Functions <a name="Static Functions"></a><a class="headerlink" href="#static-functions" title="Permanent link">&para;</a></h4>
+<h5 id="of"><code>of</code> <a name="org.cdk8s.ApiObject.of"></a><a class="headerlink" href="#of" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.ApiObject</span><span class="p">;</span>
+
+<span class="n">ApiObject</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">IConstruct</span> <span class="n">c</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="crequired"><code>c</code><sup>Required</sup> <a name="org.cdk8s.ApiObject.parameter.c"></a><a class="headerlink" href="#crequired" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <a href="#software.constructs.IConstruct"><code>software.constructs.IConstruct</code></a></li>
+</ul>
+<p>The higher-level construct.</p>
+<hr />
+<h4 id="properties">Properties <a name="Properties"></a><a class="headerlink" href="#properties" title="Permanent link">&para;</a></h4>
+<h5 id="apigrouprequired"><code>apiGroup</code><sup>Required</sup> <a name="org.cdk8s.ApiObject.property.apiGroup"></a><a class="headerlink" href="#apigrouprequired" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+</ul>
+<p>The group portion of the API version (e.g. <code>authorization.k8s.io</code>).</p>
+<hr />
+<h5 id="apiversionrequired_1"><code>apiVersion</code><sup>Required</sup> <a name="org.cdk8s.ApiObject.property.apiVersion"></a><a class="headerlink" href="#apiversionrequired_1" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+</ul>
+<p>The object&rsquo;s API version (e.g. <code>authorization.k8s.io/v1</code>).</p>
+<hr />
+<h5 id="chartrequired"><code>chart</code><sup>Required</sup> <a name="org.cdk8s.ApiObject.property.chart"></a><a class="headerlink" href="#chartrequired" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.Chart"><code>org.cdk8s.Chart</code></a></li>
+</ul>
+<p>The chart in which this object is defined.</p>
+<hr />
+<h5 id="kindrequired_1"><code>kind</code><sup>Required</sup> <a name="org.cdk8s.ApiObject.property.kind"></a><a class="headerlink" href="#kindrequired_1" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+</ul>
+<p>The object kind.</p>
+<hr />
+<h5 id="metadatarequired"><code>metadata</code><sup>Required</sup> <a name="org.cdk8s.ApiObject.property.metadata"></a><a class="headerlink" href="#metadatarequired" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.ApiObjectMetadataDefinition"><code>org.cdk8s.ApiObjectMetadataDefinition</code></a></li>
+</ul>
+<p>Metadata associated with this API object.</p>
+<hr />
+<h5 id="namerequired"><code>name</code><sup>Required</sup> <a name="org.cdk8s.ApiObject.property.name"></a><a class="headerlink" href="#namerequired" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+</ul>
+<p>The name of the API object.</p>
+<p>If a name is specified in <code>metadata.name</code> this will be the name returned.
+Otherwise, a name will be generated by calling
+<code>Chart.of(this).generatedObjectName(this)</code>, which by default uses the
+construct path to generate a DNS-compatible name for the resource.</p>
+<hr />
+<h3 id="app">App <a name="org.cdk8s.App"></a><a class="headerlink" href="#app" title="Permanent link">&para;</a></h3>
+<p>Represents a cdk8s application.</p>
+<h4 id="initializers_1">Initializers <a name="org.cdk8s.App.Initializer"></a><a class="headerlink" href="#initializers_1" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.App</span><span class="p">;</span>
+
+<span class="n">App</span><span class="p">.</span><span class="na">Builder</span><span class="p">.</span><span class="na">create</span><span class="p">()</span>
+<span class="c1">//  .outdir(java.lang.String)</span>
+<span class="c1">//  .yamlOutputType(YamlOutputType)</span>
+    <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+</code></pre></div>
+<h5 id="outdiroptional"><code>outdir</code><sup>Optional</sup> <a name="org.cdk8s.AppProps.parameter.outdir"></a><a class="headerlink" href="#outdiroptional" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+<li><em>Default:</em> CDK8S_OUTDIR if defined, otherwise &ldquo;dist&rdquo;</li>
+</ul>
+<p>The directory to output Kubernetes manifests.</p>
+<hr />
+<h5 id="yamloutputtypeoptional"><code>yamlOutputType</code><sup>Optional</sup> <a name="org.cdk8s.AppProps.parameter.yamlOutputType"></a><a class="headerlink" href="#yamloutputtypeoptional" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.YamlOutputType"><code>org.cdk8s.YamlOutputType</code></a></li>
+<li><em>Default:</em> YamlOutputType.FILE_PER_CHART</li>
+</ul>
+<p>How to divide the YAML output into files.</p>
+<hr />
+<h4 id="methods_1">Methods <a name="Methods"></a><a class="headerlink" href="#methods_1" title="Permanent link">&para;</a></h4>
+<h5 id="synth"><code>synth</code> <a name="org.cdk8s.App.synth"></a><a class="headerlink" href="#synth" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">synth</span><span class="p">()</span>
+</code></pre></div>
+<h4 id="properties_1">Properties <a name="Properties"></a><a class="headerlink" href="#properties_1" title="Permanent link">&para;</a></h4>
+<h5 id="outdirrequired"><code>outdir</code><sup>Required</sup> <a name="org.cdk8s.App.property.outdir"></a><a class="headerlink" href="#outdirrequired" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+</ul>
+<p>The output directory into which manifests will be synthesized.</p>
+<hr />
+<h5 id="yamloutputtyperequired"><code>yamlOutputType</code><sup>Required</sup> <a name="org.cdk8s.App.property.yamlOutputType"></a><a class="headerlink" href="#yamloutputtyperequired" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.YamlOutputType"><code>org.cdk8s.YamlOutputType</code></a></li>
+<li><em>Default:</em> YamlOutputType.FILE_PER_CHART</li>
+</ul>
+<p>How to divide the YAML output into files.</p>
+<hr />
+<h3 id="chart">Chart <a name="org.cdk8s.Chart"></a><a class="headerlink" href="#chart" title="Permanent link">&para;</a></h3>
+<h4 id="initializers_2">Initializers <a name="org.cdk8s.Chart.Initializer"></a><a class="headerlink" href="#initializers_2" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.Chart</span><span class="p">;</span>
+
+<span class="n">Chart</span><span class="p">.</span><span class="na">Builder</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="n">Construct</span> <span class="n">scope</span><span class="p">,</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="n">id</span><span class="p">)</span>
+<span class="c1">//  .labels(java.util.Map&lt;java.lang.String, java.lang.String&gt;)</span>
+<span class="c1">//  .namespace(java.lang.String)</span>
+    <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+</code></pre></div>
+<h5 id="scoperequired_1"><code>scope</code><sup>Required</sup> <a name="org.cdk8s.Chart.parameter.scope"></a><a class="headerlink" href="#scoperequired_1" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <a href="#software.constructs.Construct"><code>software.constructs.Construct</code></a></li>
+</ul>
+<hr />
+<h5 id="idrequired_1"><code>id</code><sup>Required</sup> <a name="org.cdk8s.Chart.parameter.id"></a><a class="headerlink" href="#idrequired_1" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+</ul>
+<hr />
+<h5 id="labelsoptional"><code>labels</code><sup>Optional</sup> <a name="org.cdk8s.ChartProps.parameter.labels"></a><a class="headerlink" href="#labelsoptional" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> java.util.Map<java.lang.String, <code>java.lang.String</code>></li>
+<li><em>Default:</em> no common labels</li>
+</ul>
+<p>Labels to apply to all resources in this chart.</p>
+<hr />
+<h5 id="namespaceoptional"><code>namespace</code><sup>Optional</sup> <a name="org.cdk8s.ChartProps.parameter.namespace"></a><a class="headerlink" href="#namespaceoptional" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+<li><em>Default:</em> no namespace is synthesized (usually this implies &ldquo;default&rdquo;)</li>
+</ul>
+<p>The default namespace for all objects defined in this chart (directly or indirectly).</p>
+<p>This namespace will only apply to objects that don&rsquo;t have a
+<code>namespace</code> explicitly defined for them.</p>
+<hr />
+<h4 id="methods_2">Methods <a name="Methods"></a><a class="headerlink" href="#methods_2" title="Permanent link">&para;</a></h4>
+<h5 id="adddependency_1"><code>addDependency</code> <a name="org.cdk8s.Chart.addDependency"></a><a class="headerlink" href="#adddependency_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">addDependency</span><span class="p">(</span><span class="n">IConstruct</span> <span class="n">dependencies</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="dependenciesrequired_1"><code>dependencies</code><sup>Required</sup> <a name="org.cdk8s.Chart.parameter.dependencies"></a><a class="headerlink" href="#dependenciesrequired_1" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <a href="#software.constructs.IConstruct"><code>software.constructs.IConstruct</code></a></li>
+</ul>
+<p>the dependencies to add.</p>
+<hr />
+<h5 id="generateobjectname"><code>generateObjectName</code> <a name="org.cdk8s.Chart.generateObjectName"></a><a class="headerlink" href="#generateobjectname" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">generateObjectName</span><span class="p">(</span><span class="n">ApiObject</span> <span class="n">apiObject</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="apiobjectrequired"><code>apiObject</code><sup>Required</sup> <a name="org.cdk8s.Chart.parameter.apiObject"></a><a class="headerlink" href="#apiobjectrequired" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.ApiObject"><code>org.cdk8s.ApiObject</code></a></li>
+</ul>
+<p>The API object to generate a name for.</p>
+<hr />
+<h5 id="tojson_1"><code>toJson</code> <a name="org.cdk8s.Chart.toJson"></a><a class="headerlink" href="#tojson_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">toJson</span><span class="p">()</span>
+</code></pre></div>
+<h4 id="static-functions_1">Static Functions <a name="Static Functions"></a><a class="headerlink" href="#static-functions_1" title="Permanent link">&para;</a></h4>
+<h5 id="of_1"><code>of</code> <a name="org.cdk8s.Chart.of"></a><a class="headerlink" href="#of_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.Chart</span><span class="p">;</span>
+
+<span class="n">Chart</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">IConstruct</span> <span class="n">c</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="crequired_1"><code>c</code><sup>Required</sup> <a name="org.cdk8s.Chart.parameter.c"></a><a class="headerlink" href="#crequired_1" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <a href="#software.constructs.IConstruct"><code>software.constructs.IConstruct</code></a></li>
+</ul>
+<p>a construct node.</p>
+<hr />
+<h4 id="properties_2">Properties <a name="Properties"></a><a class="headerlink" href="#properties_2" title="Permanent link">&para;</a></h4>
+<h5 id="labelsrequired"><code>labels</code><sup>Required</sup> <a name="org.cdk8s.Chart.property.labels"></a><a class="headerlink" href="#labelsrequired" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> java.util.Map<java.lang.String, <code>java.lang.String</code>></li>
+</ul>
+<p>Labels applied to all resources in this chart.</p>
+<p>This is an immutable copy.</p>
+<hr />
+<h5 id="namespaceoptional_1"><code>namespace</code><sup>Optional</sup> <a name="org.cdk8s.Chart.property.namespace"></a><a class="headerlink" href="#namespaceoptional_1" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+</ul>
+<p>The default namespace for all objects in this chart.</p>
+<hr />
+<h3 id="helm">Helm <a name="org.cdk8s.Helm"></a><a class="headerlink" href="#helm" title="Permanent link">&para;</a></h3>
+<p>Represents a Helm deployment.</p>
+<p>Use this construct to import an existing Helm chart and incorporate it into your constructs.</p>
+<h4 id="initializers_3">Initializers <a name="org.cdk8s.Helm.Initializer"></a><a class="headerlink" href="#initializers_3" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.Helm</span><span class="p">;</span>
+
+<span class="n">Helm</span><span class="p">.</span><span class="na">Builder</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="n">Construct</span> <span class="n">scope</span><span class="p">,</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="n">id</span><span class="p">)</span>
+    <span class="p">.</span><span class="na">chart</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">)</span>
+<span class="c1">//  .helmExecutable(java.lang.String)</span>
+<span class="c1">//  .helmFlags(java.util.List&lt;java.lang.String&gt;)</span>
+<span class="c1">//  .releaseName(java.lang.String)</span>
+<span class="c1">//  .values(java.util.Map&lt;java.lang.String, java.lang.Object&gt;)</span>
+    <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+</code></pre></div>
+<h5 id="scoperequired_2"><code>scope</code><sup>Required</sup> <a name="org.cdk8s.Helm.parameter.scope"></a><a class="headerlink" href="#scoperequired_2" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <a href="#software.constructs.Construct"><code>software.constructs.Construct</code></a></li>
+</ul>
+<hr />
+<h5 id="idrequired_2"><code>id</code><sup>Required</sup> <a name="org.cdk8s.Helm.parameter.id"></a><a class="headerlink" href="#idrequired_2" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+</ul>
+<hr />
+<h5 id="chartrequired_1"><code>chart</code><sup>Required</sup> <a name="org.cdk8s.HelmProps.parameter.chart"></a><a class="headerlink" href="#chartrequired_1" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+</ul>
+<p>The chart name to use. It can be a chart from a helm repository or a local directory.</p>
+<p>This name is passed to <code>helm template</code> and has all the relevant semantics.</p>
+<hr />
+<h5 id="helmexecutableoptional"><code>helmExecutable</code><sup>Optional</sup> <a name="org.cdk8s.HelmProps.parameter.helmExecutable"></a><a class="headerlink" href="#helmexecutableoptional" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+<li><em>Default:</em> &ldquo;helm&rdquo;</li>
+</ul>
+<p>The local helm executable to use in order to create the manifest the chart.</p>
+<hr />
+<h5 id="helmflagsoptional"><code>helmFlags</code><sup>Optional</sup> <a name="org.cdk8s.HelmProps.parameter.helmFlags"></a><a class="headerlink" href="#helmflagsoptional" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> java.util.List&lt;<code>java.lang.String</code>&gt;</li>
+<li><em>Default:</em> []</li>
+</ul>
+<p>Additional flags to add to the <code>helm</code> execution.</p>
+<hr />
+<h5 id="releasenameoptional"><code>releaseName</code><sup>Optional</sup> <a name="org.cdk8s.HelmProps.parameter.releaseName"></a><a class="headerlink" href="#releasenameoptional" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+<li><em>Default:</em> if unspecified, a name will be allocated based on the construct path</li>
+</ul>
+<p>The release name.</p>
+<blockquote>
+<p>https://helm.sh/docs/intro/using_helm/#three-big-concepts</p>
+</blockquote>
+<hr />
+<h5 id="valuesoptional"><code>values</code><sup>Optional</sup> <a name="org.cdk8s.HelmProps.parameter.values"></a><a class="headerlink" href="#valuesoptional" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> java.util.Map<java.lang.String, <code>java.lang.Object</code>></li>
+<li><em>Default:</em> If no values are specified, chart will use the defaults.</li>
+</ul>
+<p>Values to pass to the chart.</p>
+<hr />
+<h4 id="properties_3">Properties <a name="Properties"></a><a class="headerlink" href="#properties_3" title="Permanent link">&para;</a></h4>
+<h5 id="releasenamerequired"><code>releaseName</code><sup>Required</sup> <a name="org.cdk8s.Helm.property.releaseName"></a><a class="headerlink" href="#releasenamerequired" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+</ul>
+<p>The helm release name.</p>
+<hr />
+<h3 id="include">Include <a name="org.cdk8s.Include"></a><a class="headerlink" href="#include" title="Permanent link">&para;</a></h3>
+<p>Reads a YAML manifest from a file or a URL and defines all resources as API objects within the defined scope.</p>
+<p>The names (<code>metadata.name</code>) of imported resources will be preserved as-is
+from the manifest.</p>
+<h4 id="initializers_4">Initializers <a name="org.cdk8s.Include.Initializer"></a><a class="headerlink" href="#initializers_4" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.Include</span><span class="p">;</span>
+
+<span class="n">Include</span><span class="p">.</span><span class="na">Builder</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="n">Construct</span> <span class="n">scope</span><span class="p">,</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="n">id</span><span class="p">)</span>
+    <span class="p">.</span><span class="na">url</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">)</span>
+    <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+</code></pre></div>
+<h5 id="scoperequired_3"><code>scope</code><sup>Required</sup> <a name="org.cdk8s.Include.parameter.scope"></a><a class="headerlink" href="#scoperequired_3" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <a href="#software.constructs.Construct"><code>software.constructs.Construct</code></a></li>
+</ul>
+<hr />
+<h5 id="idrequired_3"><code>id</code><sup>Required</sup> <a name="org.cdk8s.Include.parameter.id"></a><a class="headerlink" href="#idrequired_3" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+</ul>
+<hr />
+<h5 id="urlrequired"><code>url</code><sup>Required</sup> <a name="org.cdk8s.IncludeProps.parameter.url"></a><a class="headerlink" href="#urlrequired" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+</ul>
+<p>Local file path or URL which includes a Kubernetes YAML manifest.</p>
+<hr />
+<h4 id="properties_4">Properties <a name="Properties"></a><a class="headerlink" href="#properties_4" title="Permanent link">&para;</a></h4>
+<h5 id="apiobjectsrequired"><code>apiObjects</code><sup>Required</sup> <a name="org.cdk8s.Include.property.apiObjects"></a><a class="headerlink" href="#apiobjectsrequired" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.ApiObject"><code>org.cdk8s.ApiObject</code></a>&gt;</li>
+</ul>
+<p>Returns all the included API objects.</p>
+<hr />
+<h2 id="structs">Structs <a name="Structs"></a><a class="headerlink" href="#structs" title="Permanent link">&para;</a></h2>
+<h3 id="apiobjectmetadata">ApiObjectMetadata <a name="org.cdk8s.ApiObjectMetadata"></a><a class="headerlink" href="#apiobjectmetadata" title="Permanent link">&para;</a></h3>
+<p>Metadata associated with this object.</p>
+<h4 id="initializer">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.ApiObjectMetadata</span><span class="p">;</span>
+
+<span class="n">ApiObjectMetadata</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
+<span class="c1">//  .annotations(java.util.Map&lt;java.lang.String, java.lang.String&gt;)</span>
+<span class="c1">//  .labels(java.util.Map&lt;java.lang.String, java.lang.String&gt;)</span>
+<span class="c1">//  .name(java.lang.String)</span>
+<span class="c1">//  .namespace(java.lang.String)</span>
+    <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+</code></pre></div>
+<h5 id="annotationsoptional"><code>annotations</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectMetadata.property.annotations"></a><a class="headerlink" href="#annotationsoptional" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> java.util.Map<java.lang.String, <code>java.lang.String</code>></li>
+<li><em>Default:</em> No annotations.</li>
+</ul>
+<p>Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata.</p>
+<p>They are not queryable and should be
+preserved when modifying objects.</p>
+<blockquote>
+<p>http://kubernetes.io/docs/user-guide/annotations</p>
+</blockquote>
+<hr />
+<h5 id="labelsoptional_1"><code>labels</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectMetadata.property.labels"></a><a class="headerlink" href="#labelsoptional_1" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> java.util.Map<java.lang.String, <code>java.lang.String</code>></li>
+<li><em>Default:</em> No labels.</li>
+</ul>
+<p>Map of string keys and values that can be used to organize and categorize (scope and select) objects.</p>
+<p>May match selectors of replication controllers and services.</p>
+<blockquote>
+<p>http://kubernetes.io/docs/user-guide/labels</p>
+</blockquote>
+<hr />
+<h5 id="nameoptional"><code>name</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectMetadata.property.name"></a><a class="headerlink" href="#nameoptional" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+<li><em>Default:</em> an app-unique name generated by the chart</li>
+</ul>
+<p>The unique, namespace-global, name of this object inside the Kubernetes cluster.</p>
+<p>Normally, you shouldn&rsquo;t specify names for objects and let the CDK generate
+a name for you that is application-unique. The names CDK generates are
+composed from the construct path components, separated by dots and a suffix
+that is based on a hash of the entire path, to ensure uniqueness.</p>
+<p>You can supply custom name allocation logic by overriding the
+<code>chart.generateObjectName</code> method.</p>
+<p>If you use an explicit name here, bear in mind that this reduces the
+composability of your construct because it won&rsquo;t be possible to include
+more than one instance in any app. Therefore it is highly recommended to
+leave this unspecified.</p>
+<hr />
+<h5 id="namespaceoptional_2"><code>namespace</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectMetadata.property.namespace"></a><a class="headerlink" href="#namespaceoptional_2" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+<li><em>Default:</em> undefined (will be assigned to the &lsquo;default&rsquo; namespace)</li>
+</ul>
+<p>Namespace defines the space within each name must be unique.</p>
+<p>An empty namespace is equivalent to the &ldquo;default&rdquo; namespace, but &ldquo;default&rdquo; is the canonical representation.
+Not all objects are required to be scoped to a namespace - the value of this field for those objects will be empty. Must be a DNS_LABEL. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/namespaces</p>
+<hr />
+<h3 id="apiobjectprops">ApiObjectProps <a name="org.cdk8s.ApiObjectProps"></a><a class="headerlink" href="#apiobjectprops" title="Permanent link">&para;</a></h3>
+<p>Options for defining API objects.</p>
+<h4 id="initializer_1">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_1" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.ApiObjectProps</span><span class="p">;</span>
+
+<span class="n">ApiObjectProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
+    <span class="p">.</span><span class="na">apiVersion</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">)</span>
+    <span class="p">.</span><span class="na">kind</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">)</span>
+<span class="c1">//  .metadata(ApiObjectMetadata)</span>
+    <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+</code></pre></div>
+<h5 id="apiversionrequired_2"><code>apiVersion</code><sup>Required</sup> <a name="org.cdk8s.ApiObjectProps.property.apiVersion"></a><a class="headerlink" href="#apiversionrequired_2" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+</ul>
+<p>API version.</p>
+<hr />
+<h5 id="kindrequired_2"><code>kind</code><sup>Required</sup> <a name="org.cdk8s.ApiObjectProps.property.kind"></a><a class="headerlink" href="#kindrequired_2" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+</ul>
+<p>Resource kind.</p>
+<hr />
+<h5 id="metadataoptional_1"><code>metadata</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectProps.property.metadata"></a><a class="headerlink" href="#metadataoptional_1" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.ApiObjectMetadata"><code>org.cdk8s.ApiObjectMetadata</code></a></li>
+</ul>
+<p>Object metadata.</p>
+<p>If <code>name</code> is not specified, an app-unique name will be allocated by the
+framework based on the path of the construct within thes construct tree.</p>
+<hr />
+<h3 id="appprops">AppProps <a name="org.cdk8s.AppProps"></a><a class="headerlink" href="#appprops" title="Permanent link">&para;</a></h3>
+<h4 id="initializer_2">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_2" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.AppProps</span><span class="p">;</span>
+
+<span class="n">AppProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
+<span class="c1">//  .outdir(java.lang.String)</span>
+<span class="c1">//  .yamlOutputType(YamlOutputType)</span>
+    <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+</code></pre></div>
+<h5 id="outdiroptional_1"><code>outdir</code><sup>Optional</sup> <a name="org.cdk8s.AppProps.property.outdir"></a><a class="headerlink" href="#outdiroptional_1" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+<li><em>Default:</em> CDK8S_OUTDIR if defined, otherwise &ldquo;dist&rdquo;</li>
+</ul>
+<p>The directory to output Kubernetes manifests.</p>
+<hr />
+<h5 id="yamloutputtypeoptional_1"><code>yamlOutputType</code><sup>Optional</sup> <a name="org.cdk8s.AppProps.property.yamlOutputType"></a><a class="headerlink" href="#yamloutputtypeoptional_1" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.YamlOutputType"><code>org.cdk8s.YamlOutputType</code></a></li>
+<li><em>Default:</em> YamlOutputType.FILE_PER_CHART</li>
+</ul>
+<p>How to divide the YAML output into files.</p>
+<hr />
+<h3 id="chartprops">ChartProps <a name="org.cdk8s.ChartProps"></a><a class="headerlink" href="#chartprops" title="Permanent link">&para;</a></h3>
+<h4 id="initializer_3">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_3" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.ChartProps</span><span class="p">;</span>
+
+<span class="n">ChartProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
+<span class="c1">//  .labels(java.util.Map&lt;java.lang.String, java.lang.String&gt;)</span>
+<span class="c1">//  .namespace(java.lang.String)</span>
+    <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+</code></pre></div>
+<h5 id="labelsoptional_2"><code>labels</code><sup>Optional</sup> <a name="org.cdk8s.ChartProps.property.labels"></a><a class="headerlink" href="#labelsoptional_2" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> java.util.Map<java.lang.String, <code>java.lang.String</code>></li>
+<li><em>Default:</em> no common labels</li>
+</ul>
+<p>Labels to apply to all resources in this chart.</p>
+<hr />
+<h5 id="namespaceoptional_3"><code>namespace</code><sup>Optional</sup> <a name="org.cdk8s.ChartProps.property.namespace"></a><a class="headerlink" href="#namespaceoptional_3" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+<li><em>Default:</em> no namespace is synthesized (usually this implies &ldquo;default&rdquo;)</li>
+</ul>
+<p>The default namespace for all objects defined in this chart (directly or indirectly).</p>
+<p>This namespace will only apply to objects that don&rsquo;t have a
+<code>namespace</code> explicitly defined for them.</p>
+<hr />
+<h3 id="groupversionkind">GroupVersionKind <a name="org.cdk8s.GroupVersionKind"></a><a class="headerlink" href="#groupversionkind" title="Permanent link">&para;</a></h3>
+<h4 id="initializer_4">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_4" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.GroupVersionKind</span><span class="p">;</span>
+
+<span class="n">GroupVersionKind</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
+    <span class="p">.</span><span class="na">apiVersion</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">)</span>
+    <span class="p">.</span><span class="na">kind</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">)</span>
+    <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+</code></pre></div>
+<h5 id="apiversionrequired_3"><code>apiVersion</code><sup>Required</sup> <a name="org.cdk8s.GroupVersionKind.property.apiVersion"></a><a class="headerlink" href="#apiversionrequired_3" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+</ul>
+<p>The object&rsquo;s API version (e.g. <code>authorization.k8s.io/v1</code>).</p>
+<hr />
+<h5 id="kindrequired_3"><code>kind</code><sup>Required</sup> <a name="org.cdk8s.GroupVersionKind.property.kind"></a><a class="headerlink" href="#kindrequired_3" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+</ul>
+<p>The object kind.</p>
+<hr />
+<h3 id="helmprops">HelmProps <a name="org.cdk8s.HelmProps"></a><a class="headerlink" href="#helmprops" title="Permanent link">&para;</a></h3>
+<p>Options for <code>Helm</code>.</p>
+<h4 id="initializer_5">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_5" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.HelmProps</span><span class="p">;</span>
+
+<span class="n">HelmProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
+    <span class="p">.</span><span class="na">chart</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">)</span>
+<span class="c1">//  .helmExecutable(java.lang.String)</span>
+<span class="c1">//  .helmFlags(java.util.List&lt;java.lang.String&gt;)</span>
+<span class="c1">//  .releaseName(java.lang.String)</span>
+<span class="c1">//  .values(java.util.Map&lt;java.lang.String, java.lang.Object&gt;)</span>
+    <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+</code></pre></div>
+<h5 id="chartrequired_2"><code>chart</code><sup>Required</sup> <a name="org.cdk8s.HelmProps.property.chart"></a><a class="headerlink" href="#chartrequired_2" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+</ul>
+<p>The chart name to use. It can be a chart from a helm repository or a local directory.</p>
+<p>This name is passed to <code>helm template</code> and has all the relevant semantics.</p>
+<hr />
+<h5 id="helmexecutableoptional_1"><code>helmExecutable</code><sup>Optional</sup> <a name="org.cdk8s.HelmProps.property.helmExecutable"></a><a class="headerlink" href="#helmexecutableoptional_1" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+<li><em>Default:</em> &ldquo;helm&rdquo;</li>
+</ul>
+<p>The local helm executable to use in order to create the manifest the chart.</p>
+<hr />
+<h5 id="helmflagsoptional_1"><code>helmFlags</code><sup>Optional</sup> <a name="org.cdk8s.HelmProps.property.helmFlags"></a><a class="headerlink" href="#helmflagsoptional_1" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> java.util.List&lt;<code>java.lang.String</code>&gt;</li>
+<li><em>Default:</em> []</li>
+</ul>
+<p>Additional flags to add to the <code>helm</code> execution.</p>
+<hr />
+<h5 id="releasenameoptional_1"><code>releaseName</code><sup>Optional</sup> <a name="org.cdk8s.HelmProps.property.releaseName"></a><a class="headerlink" href="#releasenameoptional_1" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+<li><em>Default:</em> if unspecified, a name will be allocated based on the construct path</li>
+</ul>
+<p>The release name.</p>
+<blockquote>
+<p>https://helm.sh/docs/intro/using_helm/#three-big-concepts</p>
+</blockquote>
+<hr />
+<h5 id="valuesoptional_1"><code>values</code><sup>Optional</sup> <a name="org.cdk8s.HelmProps.property.values"></a><a class="headerlink" href="#valuesoptional_1" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> java.util.Map<java.lang.String, <code>java.lang.Object</code>></li>
+<li><em>Default:</em> If no values are specified, chart will use the defaults.</li>
+</ul>
+<p>Values to pass to the chart.</p>
+<hr />
+<h3 id="includeprops">IncludeProps <a name="org.cdk8s.IncludeProps"></a><a class="headerlink" href="#includeprops" title="Permanent link">&para;</a></h3>
+<h4 id="initializer_6">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_6" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.IncludeProps</span><span class="p">;</span>
+
+<span class="n">IncludeProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
+    <span class="p">.</span><span class="na">url</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">)</span>
+    <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+</code></pre></div>
+<h5 id="urlrequired_1"><code>url</code><sup>Required</sup> <a name="org.cdk8s.IncludeProps.property.url"></a><a class="headerlink" href="#urlrequired_1" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+</ul>
+<p>Local file path or URL which includes a Kubernetes YAML manifest.</p>
+<hr />
+<h3 id="nameoptions">NameOptions <a name="org.cdk8s.NameOptions"></a><a class="headerlink" href="#nameoptions" title="Permanent link">&para;</a></h3>
+<p>Options for name generation.</p>
+<h4 id="initializer_7">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_7" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.NameOptions</span><span class="p">;</span>
+
+<span class="n">NameOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
+<span class="c1">//  .delimiter(java.lang.String)</span>
+<span class="c1">//  .extra(java.util.List&lt;java.lang.String&gt;)</span>
+<span class="c1">//  .includeHash(java.lang.Boolean)</span>
+<span class="c1">//  .maxLen(java.lang.Number)</span>
+    <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+</code></pre></div>
+<h5 id="delimiteroptional"><code>delimiter</code><sup>Optional</sup> <a name="org.cdk8s.NameOptions.property.delimiter"></a><a class="headerlink" href="#delimiteroptional" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+<li><em>Default:</em> &ldquo;-&ldquo;</li>
+</ul>
+<p>Delimiter to use between components.</p>
+<hr />
+<h5 id="extraoptional"><code>extra</code><sup>Optional</sup> <a name="org.cdk8s.NameOptions.property.extra"></a><a class="headerlink" href="#extraoptional" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> java.util.List&lt;<code>java.lang.String</code>&gt;</li>
+<li><em>Default:</em> [] use the construct path components</li>
+</ul>
+<p>Extra components to include in the name.</p>
+<hr />
+<h5 id="includehashoptional"><code>includeHash</code><sup>Optional</sup> <a name="org.cdk8s.NameOptions.property.includeHash"></a><a class="headerlink" href="#includehashoptional" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> true</li>
+</ul>
+<p>Include a short hash as last part of the name.</p>
+<hr />
+<h5 id="maxlenoptional"><code>maxLen</code><sup>Optional</sup> <a name="org.cdk8s.NameOptions.property.maxLen"></a><a class="headerlink" href="#maxlenoptional" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.Number</code></li>
+<li><em>Default:</em> 63</li>
+</ul>
+<p>Maximum allowed length for the name.</p>
+<hr />
+<h3 id="sizeconversionoptions">SizeConversionOptions <a name="org.cdk8s.SizeConversionOptions"></a><a class="headerlink" href="#sizeconversionoptions" title="Permanent link">&para;</a></h3>
+<p>Options for how to convert time to a different unit.</p>
+<h4 id="initializer_8">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_8" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.SizeConversionOptions</span><span class="p">;</span>
+
+<span class="n">SizeConversionOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
+<span class="c1">//  .rounding(SizeRoundingBehavior)</span>
+    <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+</code></pre></div>
+<h5 id="roundingoptional"><code>rounding</code><sup>Optional</sup> <a name="org.cdk8s.SizeConversionOptions.property.rounding"></a><a class="headerlink" href="#roundingoptional" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.SizeRoundingBehavior"><code>org.cdk8s.SizeRoundingBehavior</code></a></li>
+<li><em>Default:</em> SizeRoundingBehavior.FAIL</li>
+</ul>
+<p>How conversions should behave when it encounters a non-integer result.</p>
+<hr />
+<h3 id="timeconversionoptions">TimeConversionOptions <a name="org.cdk8s.TimeConversionOptions"></a><a class="headerlink" href="#timeconversionoptions" title="Permanent link">&para;</a></h3>
+<p>Options for how to convert time to a different unit.</p>
+<h4 id="initializer_9">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_9" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.TimeConversionOptions</span><span class="p">;</span>
+
+<span class="n">TimeConversionOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
+<span class="c1">//  .integral(java.lang.Boolean)</span>
+    <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+</code></pre></div>
+<h5 id="integraloptional"><code>integral</code><sup>Optional</sup> <a name="org.cdk8s.TimeConversionOptions.property.integral"></a><a class="headerlink" href="#integraloptional" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> true</li>
+</ul>
+<p>If <code>true</code>, conversions into a larger time unit (e.g. <code>Seconds</code> to <code>Minutes</code>) will fail if the result is not an integer.</p>
+<hr />
+<h2 id="classes">Classes <a name="Classes"></a><a class="headerlink" href="#classes" title="Permanent link">&para;</a></h2>
+<h3 id="apiobjectmetadatadefinition">ApiObjectMetadataDefinition <a name="org.cdk8s.ApiObjectMetadataDefinition"></a><a class="headerlink" href="#apiobjectmetadatadefinition" title="Permanent link">&para;</a></h3>
+<p>Object metadata.</p>
+<h4 id="initializers_5">Initializers <a name="org.cdk8s.ApiObjectMetadataDefinition.Initializer"></a><a class="headerlink" href="#initializers_5" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.ApiObjectMetadataDefinition</span><span class="p">;</span>
+
+<span class="n">ApiObjectMetadataDefinition</span><span class="p">.</span><span class="na">Builder</span><span class="p">.</span><span class="na">create</span><span class="p">()</span>
+<span class="c1">//  .annotations(java.util.Map&lt;java.lang.String, java.lang.String&gt;)</span>
+<span class="c1">//  .labels(java.util.Map&lt;java.lang.String, java.lang.String&gt;)</span>
+<span class="c1">//  .name(java.lang.String)</span>
+<span class="c1">//  .namespace(java.lang.String)</span>
+    <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+</code></pre></div>
+<h5 id="annotationsoptional_1"><code>annotations</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectMetadata.parameter.annotations"></a><a class="headerlink" href="#annotationsoptional_1" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> java.util.Map<java.lang.String, <code>java.lang.String</code>></li>
+<li><em>Default:</em> No annotations.</li>
+</ul>
+<p>Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata.</p>
+<p>They are not queryable and should be
+preserved when modifying objects.</p>
+<blockquote>
+<p>http://kubernetes.io/docs/user-guide/annotations</p>
+</blockquote>
+<hr />
+<h5 id="labelsoptional_3"><code>labels</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectMetadata.parameter.labels"></a><a class="headerlink" href="#labelsoptional_3" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> java.util.Map<java.lang.String, <code>java.lang.String</code>></li>
+<li><em>Default:</em> No labels.</li>
+</ul>
+<p>Map of string keys and values that can be used to organize and categorize (scope and select) objects.</p>
+<p>May match selectors of replication controllers and services.</p>
+<blockquote>
+<p>http://kubernetes.io/docs/user-guide/labels</p>
+</blockquote>
+<hr />
+<h5 id="nameoptional_1"><code>name</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectMetadata.parameter.name"></a><a class="headerlink" href="#nameoptional_1" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+<li><em>Default:</em> an app-unique name generated by the chart</li>
+</ul>
+<p>The unique, namespace-global, name of this object inside the Kubernetes cluster.</p>
+<p>Normally, you shouldn&rsquo;t specify names for objects and let the CDK generate
+a name for you that is application-unique. The names CDK generates are
+composed from the construct path components, separated by dots and a suffix
+that is based on a hash of the entire path, to ensure uniqueness.</p>
+<p>You can supply custom name allocation logic by overriding the
+<code>chart.generateObjectName</code> method.</p>
+<p>If you use an explicit name here, bear in mind that this reduces the
+composability of your construct because it won&rsquo;t be possible to include
+more than one instance in any app. Therefore it is highly recommended to
+leave this unspecified.</p>
+<hr />
+<h5 id="namespaceoptional_4"><code>namespace</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectMetadata.parameter.namespace"></a><a class="headerlink" href="#namespaceoptional_4" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+<li><em>Default:</em> undefined (will be assigned to the &lsquo;default&rsquo; namespace)</li>
+</ul>
+<p>Namespace defines the space within each name must be unique.</p>
+<p>An empty namespace is equivalent to the &ldquo;default&rdquo; namespace, but &ldquo;default&rdquo; is the canonical representation.
+Not all objects are required to be scoped to a namespace - the value of this field for those objects will be empty. Must be a DNS_LABEL. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/namespaces</p>
+<hr />
+<h4 id="methods_3">Methods <a name="Methods"></a><a class="headerlink" href="#methods_3" title="Permanent link">&para;</a></h4>
+<h5 id="add"><code>add</code> <a name="org.cdk8s.ApiObjectMetadataDefinition.add"></a><a class="headerlink" href="#add" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">add</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="n">key</span><span class="p">,</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Object</span> <span class="n">value</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="keyrequired"><code>key</code><sup>Required</sup> <a name="org.cdk8s.ApiObjectMetadataDefinition.parameter.key"></a><a class="headerlink" href="#keyrequired" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+</ul>
+<p>Metadata key.</p>
+<hr />
+<h6 id="valuerequired"><code>value</code><sup>Required</sup> <a name="org.cdk8s.ApiObjectMetadataDefinition.parameter.value"></a><a class="headerlink" href="#valuerequired" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <code>java.lang.Object</code></li>
+</ul>
+<p>Metadata value.</p>
+<hr />
+<h5 id="addannotation"><code>addAnnotation</code> <a name="org.cdk8s.ApiObjectMetadataDefinition.addAnnotation"></a><a class="headerlink" href="#addannotation" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">addAnnotation</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="n">key</span><span class="p">,</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="n">value</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="keyrequired_1"><code>key</code><sup>Required</sup> <a name="org.cdk8s.ApiObjectMetadataDefinition.parameter.key"></a><a class="headerlink" href="#keyrequired_1" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+</ul>
+<p>The key.</p>
+<hr />
+<h6 id="valuerequired_1"><code>value</code><sup>Required</sup> <a name="org.cdk8s.ApiObjectMetadataDefinition.parameter.value"></a><a class="headerlink" href="#valuerequired_1" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+</ul>
+<p>The value.</p>
+<hr />
+<h5 id="addlabel"><code>addLabel</code> <a name="org.cdk8s.ApiObjectMetadataDefinition.addLabel"></a><a class="headerlink" href="#addlabel" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">addLabel</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="n">key</span><span class="p">,</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="n">value</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="keyrequired_2"><code>key</code><sup>Required</sup> <a name="org.cdk8s.ApiObjectMetadataDefinition.parameter.key"></a><a class="headerlink" href="#keyrequired_2" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+</ul>
+<p>The key.</p>
+<hr />
+<h6 id="valuerequired_2"><code>value</code><sup>Required</sup> <a name="org.cdk8s.ApiObjectMetadataDefinition.parameter.value"></a><a class="headerlink" href="#valuerequired_2" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+</ul>
+<p>The value.</p>
+<hr />
+<h5 id="getlabel"><code>getLabel</code> <a name="org.cdk8s.ApiObjectMetadataDefinition.getLabel"></a><a class="headerlink" href="#getlabel" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">getLabel</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="n">key</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="keyrequired_3"><code>key</code><sup>Required</sup> <a name="org.cdk8s.ApiObjectMetadataDefinition.parameter.key"></a><a class="headerlink" href="#keyrequired_3" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+</ul>
+<p>the label.</p>
+<hr />
+<h5 id="tojson_2"><code>toJson</code> <a name="org.cdk8s.ApiObjectMetadataDefinition.toJson"></a><a class="headerlink" href="#tojson_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">toJson</span><span class="p">()</span>
+</code></pre></div>
+<h4 id="properties_5">Properties <a name="Properties"></a><a class="headerlink" href="#properties_5" title="Permanent link">&para;</a></h4>
+<h5 id="nameoptional_2"><code>name</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectMetadataDefinition.property.name"></a><a class="headerlink" href="#nameoptional_2" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+</ul>
+<p>The name of the API object.</p>
+<p>If a name is specified in <code>metadata.name</code> this will be the name returned.
+Otherwise, a name will be generated by calling
+<code>Chart.of(this).generatedObjectName(this)</code>, which by default uses the
+construct path to generate a DNS-compatible name for the resource.</p>
+<hr />
+<h5 id="namespaceoptional_5"><code>namespace</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectMetadataDefinition.property.namespace"></a><a class="headerlink" href="#namespaceoptional_5" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+</ul>
+<p>The object&rsquo;s namespace.</p>
+<hr />
+<h3 id="dependencygraph">DependencyGraph <a name="org.cdk8s.DependencyGraph"></a><a class="headerlink" href="#dependencygraph" title="Permanent link">&para;</a></h3>
+<p>Represents the dependency graph for a given Node.</p>
+<p>This graph includes the dependency relationships between all nodes in the
+node (construct) sub-tree who&rsquo;s root is this Node.</p>
+<p>Note that this means that lonely nodes (no dependencies and no dependants) are also included in this graph as
+childless children of the root node of the graph.</p>
+<p>The graph does not include cross-scope dependencies. That is, if a child on the current scope depends on a node
+from a different scope, that relationship is not represented in this graph.</p>
+<h4 id="initializers_6">Initializers <a name="org.cdk8s.DependencyGraph.Initializer"></a><a class="headerlink" href="#initializers_6" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.DependencyGraph</span><span class="p">;</span>
+
+<span class="k">new</span> <span class="n">DependencyGraph</span><span class="p">(</span><span class="n">Node</span> <span class="n">node</span><span class="p">);</span>
+</code></pre></div>
+<h5 id="noderequired"><code>node</code><sup>Required</sup> <a name="org.cdk8s.DependencyGraph.parameter.node"></a><a class="headerlink" href="#noderequired" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <a href="#software.constructs.Node"><code>software.constructs.Node</code></a></li>
+</ul>
+<hr />
+<h4 id="methods_4">Methods <a name="Methods"></a><a class="headerlink" href="#methods_4" title="Permanent link">&para;</a></h4>
+<h5 id="topology"><code>topology</code> <a name="org.cdk8s.DependencyGraph.topology"></a><a class="headerlink" href="#topology" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">topology</span><span class="p">()</span>
+</code></pre></div>
+<h4 id="properties_6">Properties <a name="Properties"></a><a class="headerlink" href="#properties_6" title="Permanent link">&para;</a></h4>
+<h5 id="rootrequired"><code>root</code><sup>Required</sup> <a name="org.cdk8s.DependencyGraph.property.root"></a><a class="headerlink" href="#rootrequired" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.DependencyVertex"><code>org.cdk8s.DependencyVertex</code></a></li>
+</ul>
+<p>Returns the root of the graph.</p>
+<p>Note that this vertex will always have <code>null</code> as its <code>.value</code> since it is an artifical root
+that binds all the connected spaces of the graph.</p>
+<hr />
+<h3 id="dependencyvertex">DependencyVertex <a name="org.cdk8s.DependencyVertex"></a><a class="headerlink" href="#dependencyvertex" title="Permanent link">&para;</a></h3>
+<p>Represents a vertex in the graph.</p>
+<p>The value of each vertex is an <code>IConstruct</code> that is accessible via the <code>.value</code> getter.</p>
+<h4 id="initializers_7">Initializers <a name="org.cdk8s.DependencyVertex.Initializer"></a><a class="headerlink" href="#initializers_7" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.DependencyVertex</span><span class="p">;</span>
+
+<span class="k">new</span> <span class="n">DependencyVertex</span><span class="p">();</span>
+<span class="k">new</span> <span class="n">DependencyVertex</span><span class="p">(</span><span class="n">IConstruct</span> <span class="n">value</span><span class="p">);</span>
+</code></pre></div>
+<h5 id="valueoptional"><code>value</code><sup>Optional</sup> <a name="org.cdk8s.DependencyVertex.parameter.value"></a><a class="headerlink" href="#valueoptional" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <a href="#software.constructs.IConstruct"><code>software.constructs.IConstruct</code></a></li>
+</ul>
+<hr />
+<h4 id="methods_5">Methods <a name="Methods"></a><a class="headerlink" href="#methods_5" title="Permanent link">&para;</a></h4>
+<h5 id="addchild"><code>addChild</code> <a name="org.cdk8s.DependencyVertex.addChild"></a><a class="headerlink" href="#addchild" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">addChild</span><span class="p">(</span><span class="n">DependencyVertex</span> <span class="n">dep</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="deprequired"><code>dep</code><sup>Required</sup> <a name="org.cdk8s.DependencyVertex.parameter.dep"></a><a class="headerlink" href="#deprequired" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.DependencyVertex"><code>org.cdk8s.DependencyVertex</code></a></li>
+</ul>
+<p>The dependency.</p>
+<hr />
+<h5 id="topology_1"><code>topology</code> <a name="org.cdk8s.DependencyVertex.topology"></a><a class="headerlink" href="#topology_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">topology</span><span class="p">()</span>
+</code></pre></div>
+<h4 id="properties_7">Properties <a name="Properties"></a><a class="headerlink" href="#properties_7" title="Permanent link">&para;</a></h4>
+<h5 id="inboundrequired"><code>inbound</code><sup>Required</sup> <a name="org.cdk8s.DependencyVertex.property.inbound"></a><a class="headerlink" href="#inboundrequired" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.DependencyVertex"><code>org.cdk8s.DependencyVertex</code></a>&gt;</li>
+</ul>
+<p>Returns the parents of the vertex (i.e dependants).</p>
+<hr />
+<h5 id="outboundrequired"><code>outbound</code><sup>Required</sup> <a name="org.cdk8s.DependencyVertex.property.outbound"></a><a class="headerlink" href="#outboundrequired" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.DependencyVertex"><code>org.cdk8s.DependencyVertex</code></a>&gt;</li>
+</ul>
+<p>Returns the children of the vertex (i.e dependencies).</p>
+<hr />
+<h5 id="valueoptional_1"><code>value</code><sup>Optional</sup> <a name="org.cdk8s.DependencyVertex.property.value"></a><a class="headerlink" href="#valueoptional_1" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <a href="#software.constructs.IConstruct"><code>software.constructs.IConstruct</code></a></li>
+</ul>
+<p>Returns the IConstruct this graph vertex represents.</p>
+<p><code>null</code> in case this is the root of the graph.</p>
+<hr />
+<h3 id="duration">Duration <a name="org.cdk8s.Duration"></a><a class="headerlink" href="#duration" title="Permanent link">&para;</a></h3>
+<p>Represents a length of time.</p>
+<p>The amount can be specified either as a literal value (e.g: <code>10</code>) which
+cannot be negative.</p>
+<h4 id="methods_6">Methods <a name="Methods"></a><a class="headerlink" href="#methods_6" title="Permanent link">&para;</a></h4>
+<h5 id="todays"><code>toDays</code> <a name="org.cdk8s.Duration.toDays"></a><a class="headerlink" href="#todays" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">toDays</span><span class="p">()</span>
+<span class="kd">public</span> <span class="nf">toDays</span><span class="p">(</span><span class="n">TimeConversionOptions</span> <span class="n">opts</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="optsoptional"><code>opts</code><sup>Optional</sup> <a name="org.cdk8s.Duration.parameter.opts"></a><a class="headerlink" href="#optsoptional" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.TimeConversionOptions"><code>org.cdk8s.TimeConversionOptions</code></a></li>
+</ul>
+<hr />
+<h5 id="tohours"><code>toHours</code> <a name="org.cdk8s.Duration.toHours"></a><a class="headerlink" href="#tohours" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">toHours</span><span class="p">()</span>
+<span class="kd">public</span> <span class="nf">toHours</span><span class="p">(</span><span class="n">TimeConversionOptions</span> <span class="n">opts</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="optsoptional_1"><code>opts</code><sup>Optional</sup> <a name="org.cdk8s.Duration.parameter.opts"></a><a class="headerlink" href="#optsoptional_1" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.TimeConversionOptions"><code>org.cdk8s.TimeConversionOptions</code></a></li>
+</ul>
+<hr />
+<h5 id="tohumanstring"><code>toHumanString</code> <a name="org.cdk8s.Duration.toHumanString"></a><a class="headerlink" href="#tohumanstring" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">toHumanString</span><span class="p">()</span>
+</code></pre></div>
+<h5 id="toisostring"><code>toIsoString</code> <a name="org.cdk8s.Duration.toIsoString"></a><a class="headerlink" href="#toisostring" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">toIsoString</span><span class="p">()</span>
+</code></pre></div>
+<h5 id="tomilliseconds"><code>toMilliseconds</code> <a name="org.cdk8s.Duration.toMilliseconds"></a><a class="headerlink" href="#tomilliseconds" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">toMilliseconds</span><span class="p">()</span>
+<span class="kd">public</span> <span class="nf">toMilliseconds</span><span class="p">(</span><span class="n">TimeConversionOptions</span> <span class="n">opts</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="optsoptional_2"><code>opts</code><sup>Optional</sup> <a name="org.cdk8s.Duration.parameter.opts"></a><a class="headerlink" href="#optsoptional_2" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.TimeConversionOptions"><code>org.cdk8s.TimeConversionOptions</code></a></li>
+</ul>
+<hr />
+<h5 id="tominutes"><code>toMinutes</code> <a name="org.cdk8s.Duration.toMinutes"></a><a class="headerlink" href="#tominutes" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">toMinutes</span><span class="p">()</span>
+<span class="kd">public</span> <span class="nf">toMinutes</span><span class="p">(</span><span class="n">TimeConversionOptions</span> <span class="n">opts</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="optsoptional_3"><code>opts</code><sup>Optional</sup> <a name="org.cdk8s.Duration.parameter.opts"></a><a class="headerlink" href="#optsoptional_3" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.TimeConversionOptions"><code>org.cdk8s.TimeConversionOptions</code></a></li>
+</ul>
+<hr />
+<h5 id="toseconds"><code>toSeconds</code> <a name="org.cdk8s.Duration.toSeconds"></a><a class="headerlink" href="#toseconds" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">toSeconds</span><span class="p">()</span>
+<span class="kd">public</span> <span class="nf">toSeconds</span><span class="p">(</span><span class="n">TimeConversionOptions</span> <span class="n">opts</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="optsoptional_4"><code>opts</code><sup>Optional</sup> <a name="org.cdk8s.Duration.parameter.opts"></a><a class="headerlink" href="#optsoptional_4" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.TimeConversionOptions"><code>org.cdk8s.TimeConversionOptions</code></a></li>
+</ul>
+<hr />
+<h4 id="static-functions_2">Static Functions <a name="Static Functions"></a><a class="headerlink" href="#static-functions_2" title="Permanent link">&para;</a></h4>
+<h5 id="days"><code>days</code> <a name="org.cdk8s.Duration.days"></a><a class="headerlink" href="#days" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.Duration</span><span class="p">;</span>
+
+<span class="n">Duration</span><span class="p">.</span><span class="na">days</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="n">amount</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="amountrequired"><code>amount</code><sup>Required</sup> <a name="org.cdk8s.Duration.parameter.amount"></a><a class="headerlink" href="#amountrequired" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <code>java.lang.Number</code></li>
+</ul>
+<p>the amount of Days the <code>Duration</code> will represent.</p>
+<hr />
+<h5 id="hours"><code>hours</code> <a name="org.cdk8s.Duration.hours"></a><a class="headerlink" href="#hours" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.Duration</span><span class="p">;</span>
+
+<span class="n">Duration</span><span class="p">.</span><span class="na">hours</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="n">amount</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="amountrequired_1"><code>amount</code><sup>Required</sup> <a name="org.cdk8s.Duration.parameter.amount"></a><a class="headerlink" href="#amountrequired_1" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <code>java.lang.Number</code></li>
+</ul>
+<p>the amount of Hours the <code>Duration</code> will represent.</p>
+<hr />
+<h5 id="millis"><code>millis</code> <a name="org.cdk8s.Duration.millis"></a><a class="headerlink" href="#millis" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.Duration</span><span class="p">;</span>
+
+<span class="n">Duration</span><span class="p">.</span><span class="na">millis</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="n">amount</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="amountrequired_2"><code>amount</code><sup>Required</sup> <a name="org.cdk8s.Duration.parameter.amount"></a><a class="headerlink" href="#amountrequired_2" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <code>java.lang.Number</code></li>
+</ul>
+<p>the amount of Milliseconds the <code>Duration</code> will represent.</p>
+<hr />
+<h5 id="minutes"><code>minutes</code> <a name="org.cdk8s.Duration.minutes"></a><a class="headerlink" href="#minutes" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.Duration</span><span class="p">;</span>
+
+<span class="n">Duration</span><span class="p">.</span><span class="na">minutes</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="n">amount</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="amountrequired_3"><code>amount</code><sup>Required</sup> <a name="org.cdk8s.Duration.parameter.amount"></a><a class="headerlink" href="#amountrequired_3" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <code>java.lang.Number</code></li>
+</ul>
+<p>the amount of Minutes the <code>Duration</code> will represent.</p>
+<hr />
+<h5 id="parse"><code>parse</code> <a name="org.cdk8s.Duration.parse"></a><a class="headerlink" href="#parse" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.Duration</span><span class="p">;</span>
+
+<span class="n">Duration</span><span class="p">.</span><span class="na">parse</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="n">duration</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="durationrequired"><code>duration</code><sup>Required</sup> <a name="org.cdk8s.Duration.parameter.duration"></a><a class="headerlink" href="#durationrequired" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+</ul>
+<p>an ISO-formtted duration to be parsed.</p>
+<hr />
+<h5 id="seconds"><code>seconds</code> <a name="org.cdk8s.Duration.seconds"></a><a class="headerlink" href="#seconds" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.Duration</span><span class="p">;</span>
+
+<span class="n">Duration</span><span class="p">.</span><span class="na">seconds</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="n">amount</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="amountrequired_4"><code>amount</code><sup>Required</sup> <a name="org.cdk8s.Duration.parameter.amount"></a><a class="headerlink" href="#amountrequired_4" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <code>java.lang.Number</code></li>
+</ul>
+<p>the amount of Seconds the <code>Duration</code> will represent.</p>
+<hr />
+<h3 id="jsonpatch">JsonPatch <a name="org.cdk8s.JsonPatch"></a><a class="headerlink" href="#jsonpatch" title="Permanent link">&para;</a></h3>
+<p>Utility for applying RFC-6902 JSON-Patch to a document.</p>
+<p>Use the the <code>JsonPatch.apply(doc, ...ops)</code> function to apply a set of
+operations to a JSON document and return the result.</p>
+<p>Operations can be created using the factory methods <code>JsonPatch.add()</code>,
+<code>JsonPatch.remove()</code>, etc.</p>
+<h4 id="static-functions_3">Static Functions <a name="Static Functions"></a><a class="headerlink" href="#static-functions_3" title="Permanent link">&para;</a></h4>
+<h5 id="add_1"><code>add</code> <a name="org.cdk8s.JsonPatch.add"></a><a class="headerlink" href="#add_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.JsonPatch</span><span class="p">;</span>
+
+<span class="n">JsonPatch</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="n">path</span><span class="p">,</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Object</span> <span class="n">value</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="pathrequired"><code>path</code><sup>Required</sup> <a name="org.cdk8s.JsonPatch.parameter.path"></a><a class="headerlink" href="#pathrequired" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+</ul>
+<hr />
+<h6 id="valuerequired_3"><code>value</code><sup>Required</sup> <a name="org.cdk8s.JsonPatch.parameter.value"></a><a class="headerlink" href="#valuerequired_3" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <code>java.lang.Object</code></li>
+</ul>
+<hr />
+<h5 id="apply"><code>apply</code> <a name="org.cdk8s.JsonPatch.apply"></a><a class="headerlink" href="#apply" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.JsonPatch</span><span class="p">;</span>
+
+<span class="n">JsonPatch</span><span class="p">.</span><span class="na">apply</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Object</span> <span class="n">document</span><span class="p">,</span> <span class="n">JsonPatch</span> <span class="n">ops</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="documentrequired"><code>document</code><sup>Required</sup> <a name="org.cdk8s.JsonPatch.parameter.document"></a><a class="headerlink" href="#documentrequired" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <code>java.lang.Object</code></li>
+</ul>
+<p>The document to patch.</p>
+<hr />
+<h6 id="opsrequired_1"><code>ops</code><sup>Required</sup> <a name="org.cdk8s.JsonPatch.parameter.ops"></a><a class="headerlink" href="#opsrequired_1" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.JsonPatch"><code>org.cdk8s.JsonPatch</code></a></li>
+</ul>
+<p>The operations to apply.</p>
+<hr />
+<h5 id="copy"><code>copy</code> <a name="org.cdk8s.JsonPatch.copy"></a><a class="headerlink" href="#copy" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.JsonPatch</span><span class="p">;</span>
+
+<span class="n">JsonPatch</span><span class="p">.</span><span class="na">copy</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="n">from</span><span class="p">,</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="n">path</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="fromrequired"><code>from</code><sup>Required</sup> <a name="org.cdk8s.JsonPatch.parameter.from"></a><a class="headerlink" href="#fromrequired" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+</ul>
+<hr />
+<h6 id="pathrequired_1"><code>path</code><sup>Required</sup> <a name="org.cdk8s.JsonPatch.parameter.path"></a><a class="headerlink" href="#pathrequired_1" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+</ul>
+<hr />
+<h5 id="move"><code>move</code> <a name="org.cdk8s.JsonPatch.move"></a><a class="headerlink" href="#move" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.JsonPatch</span><span class="p">;</span>
+
+<span class="n">JsonPatch</span><span class="p">.</span><span class="na">move</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="n">from</span><span class="p">,</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="n">path</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="fromrequired_1"><code>from</code><sup>Required</sup> <a name="org.cdk8s.JsonPatch.parameter.from"></a><a class="headerlink" href="#fromrequired_1" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+</ul>
+<hr />
+<h6 id="pathrequired_2"><code>path</code><sup>Required</sup> <a name="org.cdk8s.JsonPatch.parameter.path"></a><a class="headerlink" href="#pathrequired_2" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+</ul>
+<hr />
+<h5 id="remove"><code>remove</code> <a name="org.cdk8s.JsonPatch.remove"></a><a class="headerlink" href="#remove" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.JsonPatch</span><span class="p">;</span>
+
+<span class="n">JsonPatch</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="n">path</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="pathrequired_3"><code>path</code><sup>Required</sup> <a name="org.cdk8s.JsonPatch.parameter.path"></a><a class="headerlink" href="#pathrequired_3" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+</ul>
+<hr />
+<h5 id="replace"><code>replace</code> <a name="org.cdk8s.JsonPatch.replace"></a><a class="headerlink" href="#replace" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.JsonPatch</span><span class="p">;</span>
+
+<span class="n">JsonPatch</span><span class="p">.</span><span class="na">replace</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="n">path</span><span class="p">,</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Object</span> <span class="n">value</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="pathrequired_4"><code>path</code><sup>Required</sup> <a name="org.cdk8s.JsonPatch.parameter.path"></a><a class="headerlink" href="#pathrequired_4" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+</ul>
+<hr />
+<h6 id="valuerequired_4"><code>value</code><sup>Required</sup> <a name="org.cdk8s.JsonPatch.parameter.value"></a><a class="headerlink" href="#valuerequired_4" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <code>java.lang.Object</code></li>
+</ul>
+<hr />
+<h5 id="test"><code>test</code> <a name="org.cdk8s.JsonPatch.test"></a><a class="headerlink" href="#test" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.JsonPatch</span><span class="p">;</span>
+
+<span class="n">JsonPatch</span><span class="p">.</span><span class="na">test</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="n">path</span><span class="p">,</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Object</span> <span class="n">value</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="pathrequired_5"><code>path</code><sup>Required</sup> <a name="org.cdk8s.JsonPatch.parameter.path"></a><a class="headerlink" href="#pathrequired_5" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+</ul>
+<hr />
+<h6 id="valuerequired_5"><code>value</code><sup>Required</sup> <a name="org.cdk8s.JsonPatch.parameter.value"></a><a class="headerlink" href="#valuerequired_5" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <code>java.lang.Object</code></li>
+</ul>
+<hr />
+<h3 id="lazy">Lazy <a name="org.cdk8s.Lazy"></a><a class="headerlink" href="#lazy" title="Permanent link">&para;</a></h3>
+<h4 id="methods_7">Methods <a name="Methods"></a><a class="headerlink" href="#methods_7" title="Permanent link">&para;</a></h4>
+<h5 id="produce"><code>produce</code> <a name="org.cdk8s.Lazy.produce"></a><a class="headerlink" href="#produce" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">produce</span><span class="p">()</span>
+</code></pre></div>
+<h4 id="static-functions_4">Static Functions <a name="Static Functions"></a><a class="headerlink" href="#static-functions_4" title="Permanent link">&para;</a></h4>
+<h5 id="any"><code>any</code> <a name="org.cdk8s.Lazy.any"></a><a class="headerlink" href="#any" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.Lazy</span><span class="p">;</span>
+
+<span class="n">Lazy</span><span class="p">.</span><span class="na">any</span><span class="p">(</span><span class="n">IAnyProducer</span> <span class="n">producer</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="producerrequired"><code>producer</code><sup>Required</sup> <a name="org.cdk8s.Lazy.parameter.producer"></a><a class="headerlink" href="#producerrequired" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.IAnyProducer"><code>org.cdk8s.IAnyProducer</code></a></li>
+</ul>
+<hr />
+<h3 id="names">Names <a name="org.cdk8s.Names"></a><a class="headerlink" href="#names" title="Permanent link">&para;</a></h3>
+<p>Utilities for generating unique and stable names.</p>
+<h4 id="static-functions_5">Static Functions <a name="Static Functions"></a><a class="headerlink" href="#static-functions_5" title="Permanent link">&para;</a></h4>
+<h5 id="todnslabel"><code>toDnsLabel</code> <a name="org.cdk8s.Names.toDnsLabel"></a><a class="headerlink" href="#todnslabel" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.Names</span><span class="p">;</span>
+
+<span class="n">Names</span><span class="p">.</span><span class="na">toDnsLabel</span><span class="p">(</span><span class="n">Construct</span> <span class="n">scope</span><span class="p">)</span>
+<span class="n">Names</span><span class="p">.</span><span class="na">toDnsLabel</span><span class="p">(</span><span class="n">Construct</span> <span class="n">scope</span><span class="p">,</span> <span class="n">NameOptions</span> <span class="n">options</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="scoperequired_4"><code>scope</code><sup>Required</sup> <a name="org.cdk8s.Names.parameter.scope"></a><a class="headerlink" href="#scoperequired_4" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <a href="#software.constructs.Construct"><code>software.constructs.Construct</code></a></li>
+</ul>
+<p>The construct for which to render the DNS label.</p>
+<hr />
+<h6 id="optionsoptional"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.Names.parameter.options"></a><a class="headerlink" href="#optionsoptional" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.NameOptions"><code>org.cdk8s.NameOptions</code></a></li>
+</ul>
+<p>Name options.</p>
+<hr />
+<h5 id="tolabelvalue"><code>toLabelValue</code> <a name="org.cdk8s.Names.toLabelValue"></a><a class="headerlink" href="#tolabelvalue" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.Names</span><span class="p">;</span>
+
+<span class="n">Names</span><span class="p">.</span><span class="na">toLabelValue</span><span class="p">(</span><span class="n">Construct</span> <span class="n">scope</span><span class="p">)</span>
+<span class="n">Names</span><span class="p">.</span><span class="na">toLabelValue</span><span class="p">(</span><span class="n">Construct</span> <span class="n">scope</span><span class="p">,</span> <span class="n">NameOptions</span> <span class="n">options</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="scoperequired_5"><code>scope</code><sup>Required</sup> <a name="org.cdk8s.Names.parameter.scope"></a><a class="headerlink" href="#scoperequired_5" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <a href="#software.constructs.Construct"><code>software.constructs.Construct</code></a></li>
+</ul>
+<p>The construct for which to render the DNS label.</p>
+<hr />
+<h6 id="optionsoptional_1"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.Names.parameter.options"></a><a class="headerlink" href="#optionsoptional_1" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.NameOptions"><code>org.cdk8s.NameOptions</code></a></li>
+</ul>
+<p>Name options.</p>
+<hr />
+<h3 id="size">Size <a name="org.cdk8s.Size"></a><a class="headerlink" href="#size" title="Permanent link">&para;</a></h3>
+<p>Represents the amount of digital storage.</p>
+<p>The amount can be specified either as a literal value (e.g: <code>10</code>) which
+cannot be negative.</p>
+<p>When the amount is passed as a token, unit conversion is not possible.</p>
+<h4 id="methods_8">Methods <a name="Methods"></a><a class="headerlink" href="#methods_8" title="Permanent link">&para;</a></h4>
+<h5 id="togibibytes"><code>toGibibytes</code> <a name="org.cdk8s.Size.toGibibytes"></a><a class="headerlink" href="#togibibytes" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">toGibibytes</span><span class="p">()</span>
+<span class="kd">public</span> <span class="nf">toGibibytes</span><span class="p">(</span><span class="n">SizeConversionOptions</span> <span class="n">opts</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="optsoptional_5"><code>opts</code><sup>Optional</sup> <a name="org.cdk8s.Size.parameter.opts"></a><a class="headerlink" href="#optsoptional_5" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.SizeConversionOptions"><code>org.cdk8s.SizeConversionOptions</code></a></li>
+</ul>
+<hr />
+<h5 id="tokibibytes"><code>toKibibytes</code> <a name="org.cdk8s.Size.toKibibytes"></a><a class="headerlink" href="#tokibibytes" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">toKibibytes</span><span class="p">()</span>
+<span class="kd">public</span> <span class="nf">toKibibytes</span><span class="p">(</span><span class="n">SizeConversionOptions</span> <span class="n">opts</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="optsoptional_6"><code>opts</code><sup>Optional</sup> <a name="org.cdk8s.Size.parameter.opts"></a><a class="headerlink" href="#optsoptional_6" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.SizeConversionOptions"><code>org.cdk8s.SizeConversionOptions</code></a></li>
+</ul>
+<hr />
+<h5 id="tomebibytes"><code>toMebibytes</code> <a name="org.cdk8s.Size.toMebibytes"></a><a class="headerlink" href="#tomebibytes" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">toMebibytes</span><span class="p">()</span>
+<span class="kd">public</span> <span class="nf">toMebibytes</span><span class="p">(</span><span class="n">SizeConversionOptions</span> <span class="n">opts</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="optsoptional_7"><code>opts</code><sup>Optional</sup> <a name="org.cdk8s.Size.parameter.opts"></a><a class="headerlink" href="#optsoptional_7" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.SizeConversionOptions"><code>org.cdk8s.SizeConversionOptions</code></a></li>
+</ul>
+<hr />
+<h5 id="topebibytes"><code>toPebibytes</code> <a name="org.cdk8s.Size.toPebibytes"></a><a class="headerlink" href="#topebibytes" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">toPebibytes</span><span class="p">()</span>
+<span class="kd">public</span> <span class="nf">toPebibytes</span><span class="p">(</span><span class="n">SizeConversionOptions</span> <span class="n">opts</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="optsoptional_8"><code>opts</code><sup>Optional</sup> <a name="org.cdk8s.Size.parameter.opts"></a><a class="headerlink" href="#optsoptional_8" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.SizeConversionOptions"><code>org.cdk8s.SizeConversionOptions</code></a></li>
+</ul>
+<hr />
+<h5 id="totebibytes"><code>toTebibytes</code> <a name="org.cdk8s.Size.toTebibytes"></a><a class="headerlink" href="#totebibytes" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">toTebibytes</span><span class="p">()</span>
+<span class="kd">public</span> <span class="nf">toTebibytes</span><span class="p">(</span><span class="n">SizeConversionOptions</span> <span class="n">opts</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="optsoptional_9"><code>opts</code><sup>Optional</sup> <a name="org.cdk8s.Size.parameter.opts"></a><a class="headerlink" href="#optsoptional_9" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.SizeConversionOptions"><code>org.cdk8s.SizeConversionOptions</code></a></li>
+</ul>
+<hr />
+<h4 id="static-functions_6">Static Functions <a name="Static Functions"></a><a class="headerlink" href="#static-functions_6" title="Permanent link">&para;</a></h4>
+<h5 id="gibibytes"><code>gibibytes</code> <a name="org.cdk8s.Size.gibibytes"></a><a class="headerlink" href="#gibibytes" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.Size</span><span class="p">;</span>
+
+<span class="n">Size</span><span class="p">.</span><span class="na">gibibytes</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="n">amount</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="amountrequired_5"><code>amount</code><sup>Required</sup> <a name="org.cdk8s.Size.parameter.amount"></a><a class="headerlink" href="#amountrequired_5" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <code>java.lang.Number</code></li>
+</ul>
+<hr />
+<h5 id="kibibytes"><code>kibibytes</code> <a name="org.cdk8s.Size.kibibytes"></a><a class="headerlink" href="#kibibytes" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.Size</span><span class="p">;</span>
+
+<span class="n">Size</span><span class="p">.</span><span class="na">kibibytes</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="n">amount</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="amountrequired_6"><code>amount</code><sup>Required</sup> <a name="org.cdk8s.Size.parameter.amount"></a><a class="headerlink" href="#amountrequired_6" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <code>java.lang.Number</code></li>
+</ul>
+<hr />
+<h5 id="mebibytes"><code>mebibytes</code> <a name="org.cdk8s.Size.mebibytes"></a><a class="headerlink" href="#mebibytes" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.Size</span><span class="p">;</span>
+
+<span class="n">Size</span><span class="p">.</span><span class="na">mebibytes</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="n">amount</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="amountrequired_7"><code>amount</code><sup>Required</sup> <a name="org.cdk8s.Size.parameter.amount"></a><a class="headerlink" href="#amountrequired_7" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <code>java.lang.Number</code></li>
+</ul>
+<hr />
+<h5 id="pebibyte"><code>pebibyte</code> <a name="org.cdk8s.Size.pebibyte"></a><a class="headerlink" href="#pebibyte" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.Size</span><span class="p">;</span>
+
+<span class="n">Size</span><span class="p">.</span><span class="na">pebibyte</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="n">amount</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="amountrequired_8"><code>amount</code><sup>Required</sup> <a name="org.cdk8s.Size.parameter.amount"></a><a class="headerlink" href="#amountrequired_8" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <code>java.lang.Number</code></li>
+</ul>
+<hr />
+<h5 id="tebibytes"><code>tebibytes</code> <a name="org.cdk8s.Size.tebibytes"></a><a class="headerlink" href="#tebibytes" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.Size</span><span class="p">;</span>
+
+<span class="n">Size</span><span class="p">.</span><span class="na">tebibytes</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="n">amount</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="amountrequired_9"><code>amount</code><sup>Required</sup> <a name="org.cdk8s.Size.parameter.amount"></a><a class="headerlink" href="#amountrequired_9" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <code>java.lang.Number</code></li>
+</ul>
+<hr />
+<h3 id="testing">Testing <a name="org.cdk8s.Testing"></a><a class="headerlink" href="#testing" title="Permanent link">&para;</a></h3>
+<p>Testing utilities for cdk8s applications.</p>
+<h4 id="static-functions_7">Static Functions <a name="Static Functions"></a><a class="headerlink" href="#static-functions_7" title="Permanent link">&para;</a></h4>
+<h5 id="app_1"><code>app</code> <a name="org.cdk8s.Testing.app"></a><a class="headerlink" href="#app_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.Testing</span><span class="p">;</span>
+
+<span class="n">Testing</span><span class="p">.</span><span class="na">app</span><span class="p">()</span>
+<span class="n">Testing</span><span class="p">.</span><span class="na">app</span><span class="p">(</span><span class="n">AppProps</span> <span class="n">props</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="propsoptional"><code>props</code><sup>Optional</sup> <a name="org.cdk8s.Testing.parameter.props"></a><a class="headerlink" href="#propsoptional" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.AppProps"><code>org.cdk8s.AppProps</code></a></li>
+</ul>
+<hr />
+<h5 id="chart_1"><code>chart</code> <a name="org.cdk8s.Testing.chart"></a><a class="headerlink" href="#chart_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.Testing</span><span class="p">;</span>
+
+<span class="n">Testing</span><span class="p">.</span><span class="na">chart</span><span class="p">()</span>
+</code></pre></div>
+<h5 id="synth_1"><code>synth</code> <a name="org.cdk8s.Testing.synth"></a><a class="headerlink" href="#synth_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.Testing</span><span class="p">;</span>
+
+<span class="n">Testing</span><span class="p">.</span><span class="na">synth</span><span class="p">(</span><span class="n">Chart</span> <span class="n">chart</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="chartrequired_3"><code>chart</code><sup>Required</sup> <a name="org.cdk8s.Testing.parameter.chart"></a><a class="headerlink" href="#chartrequired_3" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.Chart"><code>org.cdk8s.Chart</code></a></li>
+</ul>
+<hr />
+<h3 id="yaml">Yaml <a name="org.cdk8s.Yaml"></a><a class="headerlink" href="#yaml" title="Permanent link">&para;</a></h3>
+<p>YAML utilities.</p>
+<h4 id="static-functions_8">Static Functions <a name="Static Functions"></a><a class="headerlink" href="#static-functions_8" title="Permanent link">&para;</a></h4>
+<h5 id="load"><code>load</code> <a name="org.cdk8s.Yaml.load"></a><a class="headerlink" href="#load" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.Yaml</span><span class="p">;</span>
+
+<span class="n">Yaml</span><span class="p">.</span><span class="na">load</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="n">urlOrFile</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="urlorfilerequired"><code>urlOrFile</code><sup>Required</sup> <a name="org.cdk8s.Yaml.parameter.urlOrFile"></a><a class="headerlink" href="#urlorfilerequired" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+</ul>
+<p>a URL of a file path to load from.</p>
+<hr />
+<h5 id="save"><code>save</code> <a name="org.cdk8s.Yaml.save"></a><a class="headerlink" href="#save" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.Yaml</span><span class="p">;</span>
+
+<span class="n">Yaml</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="n">filePath</span><span class="p">,</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Object</span><span class="o">&gt;</span> <span class="n">docs</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="filepathrequired"><code>filePath</code><sup>Required</sup> <a name="org.cdk8s.Yaml.parameter.filePath"></a><a class="headerlink" href="#filepathrequired" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+</ul>
+<p>The output path.</p>
+<hr />
+<h6 id="docsrequired"><code>docs</code><sup>Required</sup> <a name="org.cdk8s.Yaml.parameter.docs"></a><a class="headerlink" href="#docsrequired" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> java.util.List&lt;<code>java.lang.Object</code>&gt;</li>
+</ul>
+<p>The set of objects.</p>
+<hr />
+<h5 id="stringify"><code>stringify</code> <a name="org.cdk8s.Yaml.stringify"></a><a class="headerlink" href="#stringify" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.Yaml</span><span class="p">;</span>
+
+<span class="n">Yaml</span><span class="p">.</span><span class="na">stringify</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Object</span> <span class="n">doc</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="docrequired"><code>doc</code><sup>Required</sup> <a name="org.cdk8s.Yaml.parameter.doc"></a><a class="headerlink" href="#docrequired" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <code>java.lang.Object</code></li>
+</ul>
+<p>An object.</p>
+<hr />
+<h5 id="tmp"><code>tmp</code> <a name="org.cdk8s.Yaml.tmp"></a><a class="headerlink" href="#tmp" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.Yaml</span><span class="p">;</span>
+
+<span class="n">Yaml</span><span class="p">.</span><span class="na">tmp</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Object</span><span class="o">&gt;</span> <span class="n">docs</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="docsrequired_1"><code>docs</code><sup>Required</sup> <a name="org.cdk8s.Yaml.parameter.docs"></a><a class="headerlink" href="#docsrequired_1" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> java.util.List&lt;<code>java.lang.Object</code>&gt;</li>
+</ul>
+<p>the set of documents to save.</p>
+<hr />
+<h2 id="protocols">Protocols <a name="Protocols"></a><a class="headerlink" href="#protocols" title="Permanent link">&para;</a></h2>
+<h3 id="ianyproducer">IAnyProducer <a name="org.cdk8s.IAnyProducer"></a><a class="headerlink" href="#ianyproducer" title="Permanent link">&para;</a></h3>
+<ul>
+<li><em>Implemented By:</em> <a href="#org.cdk8s.IAnyProducer"><code>org.cdk8s.IAnyProducer</code></a></li>
+</ul>
+<h4 id="methods_9">Methods <a name="Methods"></a><a class="headerlink" href="#methods_9" title="Permanent link">&para;</a></h4>
+<h5 id="produce_1"><code>produce</code> <a name="org.cdk8s.IAnyProducer.produce"></a><a class="headerlink" href="#produce_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">produce</span><span class="p">()</span>
+</code></pre></div>
+<h2 id="enums">Enums <a name="Enums"></a><a class="headerlink" href="#enums" title="Permanent link">&para;</a></h2>
+<h3 id="sizeroundingbehavior">SizeRoundingBehavior <a name="SizeRoundingBehavior"></a><a class="headerlink" href="#sizeroundingbehavior" title="Permanent link">&para;</a></h3>
+<p>Rounding behaviour when converting between units of <code>Size</code>.</p>
+<h4 id="fail"><code>FAIL</code> <a name="org.cdk8s.SizeRoundingBehavior.FAIL"></a><a class="headerlink" href="#fail" title="Permanent link">&para;</a></h4>
+<p>Fail the conversion if the result is not an integer.</p>
+<hr />
+<h4 id="floor"><code>FLOOR</code> <a name="org.cdk8s.SizeRoundingBehavior.FLOOR"></a><a class="headerlink" href="#floor" title="Permanent link">&para;</a></h4>
+<p>If the result is not an integer, round it to the closest integer less than the result.</p>
+<hr />
+<h4 id="none"><code>NONE</code> <a name="org.cdk8s.SizeRoundingBehavior.NONE"></a><a class="headerlink" href="#none" title="Permanent link">&para;</a></h4>
+<p>Don&rsquo;t round.</p>
+<p>Return even if the result is a fraction.</p>
+<hr />
+<h3 id="yamloutputtype">YamlOutputType <a name="YamlOutputType"></a><a class="headerlink" href="#yamloutputtype" title="Permanent link">&para;</a></h3>
+<p>The method to divide YAML output into files.</p>
+<h4 id="file_per_app"><code>FILE_PER_APP</code> <a name="org.cdk8s.YamlOutputType.FILE_PER_APP"></a><a class="headerlink" href="#file_per_app" title="Permanent link">&para;</a></h4>
+<p>All resources are output into a single YAML file.</p>
+<hr />
+<h4 id="file_per_chart"><code>FILE_PER_CHART</code> <a name="org.cdk8s.YamlOutputType.FILE_PER_CHART"></a><a class="headerlink" href="#file_per_chart" title="Permanent link">&para;</a></h4>
+<p>Resources are split into seperate files by chart.</p>
+<hr />
+<h4 id="file_per_resource"><code>FILE_PER_RESOURCE</code> <a name="org.cdk8s.YamlOutputType.FILE_PER_RESOURCE"></a><a class="headerlink" href="#file_per_resource" title="Permanent link">&para;</a></h4>
+<p>Each resource is output to its own file.</p>
+<hr />
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../python/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Python" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Python
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../go/" class="md-footer__link md-footer__link--next" aria-label="Next: Go" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Go
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            © 2020, Amazon Web Services, Inc. or its affiliates. © cdk8s project authors. All rights reserved.
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://cdk.dev" target="_blank" rel="noopener" title="cdk.dev" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M94.12 315.1c0 25.9-21.16 47.06-47.06 47.06S0 341 0 315.1c0-25.9 21.16-47.06 47.06-47.06h47.06v47.06zm23.72 0c0-25.9 21.16-47.06 47.06-47.06s47.06 21.16 47.06 47.06v117.84c0 25.9-21.16 47.06-47.06 47.06s-47.06-21.16-47.06-47.06V315.1zm47.06-188.98c-25.9 0-47.06-21.16-47.06-47.06S139 32 164.9 32s47.06 21.16 47.06 47.06v47.06H164.9zm0 23.72c25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06H47.06C21.16 243.96 0 222.8 0 196.9s21.16-47.06 47.06-47.06H164.9zm188.98 47.06c0-25.9 21.16-47.06 47.06-47.06 25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06h-47.06V196.9zm-23.72 0c0 25.9-21.16 47.06-47.06 47.06-25.9 0-47.06-21.16-47.06-47.06V79.06c0-25.9 21.16-47.06 47.06-47.06 25.9 0 47.06 21.16 47.06 47.06V196.9zM283.1 385.88c25.9 0 47.06 21.16 47.06 47.06 0 25.9-21.16 47.06-47.06 47.06-25.9 0-47.06-21.16-47.06-47.06v-47.06h47.06zm0-23.72c-25.9 0-47.06-21.16-47.06-47.06 0-25.9 21.16-47.06 47.06-47.06h117.84c25.9 0 47.06 21.16 47.06 47.06 0 25.9-21.16 47.06-47.06 47.06H283.1z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://github.com/cdk8s-team/cdk8s" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "header.autohide"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.756773cc.min.js"></script>
+      
+    
+  </body>
+</html>

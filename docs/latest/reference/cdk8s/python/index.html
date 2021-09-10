@@ -1001,6 +1001,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../java/" class="md-nav__link">
+        Java
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../go/" class="md-nav__link">
         Go
       </a>
@@ -1054,6 +1066,18 @@
     <li class="md-nav__item">
       <a href="../../cdk8s-plus-17/python/" class="md-nav__link">
         Python
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cdk8s-plus-17/java/" class="md-nav__link">
+        Java
       </a>
     </li>
   
@@ -1653,7 +1677,7 @@
                 <h1 id="cdk8s-python">cdk8s (Python) <a name="API Reference"></a><a class="headerlink" href="#cdk8s-python" title="Permanent link">&para;</a></h1>
 <h2 id="constructs">Constructs <a name="Constructs"></a><a class="headerlink" href="#constructs" title="Permanent link">&para;</a></h2>
 <h3 id="apiobject">ApiObject <a name="cdk8s.ApiObject"></a><a class="headerlink" href="#apiobject" title="Permanent link">&para;</a></h3>
-<h4 id="initializer">Initializer <a name="cdk8s.ApiObject.Initializer"></a><a class="headerlink" href="#initializer" title="Permanent link">&para;</a></h4>
+<h4 id="initializers">Initializers <a name="cdk8s.ApiObject.Initializer"></a><a class="headerlink" href="#initializers" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s</span>
 
 <span class="n">cdk8s</span><span class="o">.</span><span class="n">ApiObject</span><span class="p">(</span>
@@ -1779,7 +1803,7 @@ construct path to generate a DNS-compatible name for the resource.</p>
 <hr />
 <h3 id="app">App <a name="cdk8s.App"></a><a class="headerlink" href="#app" title="Permanent link">&para;</a></h3>
 <p>Represents a cdk8s application.</p>
-<h4 id="initializer_1">Initializer <a name="cdk8s.App.Initializer"></a><a class="headerlink" href="#initializer_1" title="Permanent link">&para;</a></h4>
+<h4 id="initializers_1">Initializers <a name="cdk8s.App.Initializer"></a><a class="headerlink" href="#initializers_1" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s</span>
 
 <span class="n">cdk8s</span><span class="o">.</span><span class="n">App</span><span class="p">(</span>
@@ -1820,7 +1844,7 @@ construct path to generate a DNS-compatible name for the resource.</p>
 <p>How to divide the YAML output into files.</p>
 <hr />
 <h3 id="chart">Chart <a name="cdk8s.Chart"></a><a class="headerlink" href="#chart" title="Permanent link">&para;</a></h3>
-<h4 id="initializer_2">Initializer <a name="cdk8s.Chart.Initializer"></a><a class="headerlink" href="#initializer_2" title="Permanent link">&para;</a></h4>
+<h4 id="initializers_2">Initializers <a name="cdk8s.Chart.Initializer"></a><a class="headerlink" href="#initializers_2" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s</span>
 
 <span class="n">cdk8s</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span>
@@ -1913,7 +1937,7 @@ construct path to generate a DNS-compatible name for the resource.</p>
 <h3 id="helm">Helm <a name="cdk8s.Helm"></a><a class="headerlink" href="#helm" title="Permanent link">&para;</a></h3>
 <p>Represents a Helm deployment.</p>
 <p>Use this construct to import an existing Helm chart and incorporate it into your constructs.</p>
-<h4 id="initializer_3">Initializer <a name="cdk8s.Helm.Initializer"></a><a class="headerlink" href="#initializer_3" title="Permanent link">&para;</a></h4>
+<h4 id="initializers_3">Initializers <a name="cdk8s.Helm.Initializer"></a><a class="headerlink" href="#initializers_3" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s</span>
 
 <span class="n">cdk8s</span><span class="o">.</span><span class="n">Helm</span><span class="p">(</span>
@@ -1985,7 +2009,7 @@ construct path to generate a DNS-compatible name for the resource.</p>
 <p>Reads a YAML manifest from a file or a URL and defines all resources as API objects within the defined scope.</p>
 <p>The names (<code>metadata.name</code>) of imported resources will be preserved as-is
 from the manifest.</p>
-<h4 id="initializer_4">Initializer <a name="cdk8s.Include.Initializer"></a><a class="headerlink" href="#initializer_4" title="Permanent link">&para;</a></h4>
+<h4 id="initializers_4">Initializers <a name="cdk8s.Include.Initializer"></a><a class="headerlink" href="#initializers_4" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s</span>
 
 <span class="n">cdk8s</span><span class="o">.</span><span class="n">Include</span><span class="p">(</span>
@@ -2020,7 +2044,7 @@ from the manifest.</p>
 <h2 id="structs">Structs <a name="Structs"></a><a class="headerlink" href="#structs" title="Permanent link">&para;</a></h2>
 <h3 id="apiobjectmetadata">ApiObjectMetadata <a name="cdk8s.ApiObjectMetadata"></a><a class="headerlink" href="#apiobjectmetadata" title="Permanent link">&para;</a></h3>
 <p>Metadata associated with this object.</p>
-<h4 id="initializer_5">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_5" title="Permanent link">&para;</a></h4>
+<h4 id="initializer">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s</span>
 
 <span class="n">cdk8s</span><span class="o">.</span><span class="n">ApiObjectMetadata</span><span class="p">(</span>
@@ -2081,7 +2105,7 @@ Not all objects are required to be scoped to a namespace - the value of this fie
 <hr />
 <h3 id="apiobjectprops">ApiObjectProps <a name="cdk8s.ApiObjectProps"></a><a class="headerlink" href="#apiobjectprops" title="Permanent link">&para;</a></h3>
 <p>Options for defining API objects.</p>
-<h4 id="initializer_6">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_6" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_1">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_1" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s</span>
 
 <span class="n">cdk8s</span><span class="o">.</span><span class="n">ApiObjectProps</span><span class="p">(</span>
@@ -2111,7 +2135,7 @@ Not all objects are required to be scoped to a namespace - the value of this fie
 framework based on the path of the construct within thes construct tree.</p>
 <hr />
 <h3 id="appprops">AppProps <a name="cdk8s.AppProps"></a><a class="headerlink" href="#appprops" title="Permanent link">&para;</a></h3>
-<h4 id="initializer_7">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_7" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_2">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_2" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s</span>
 
 <span class="n">cdk8s</span><span class="o">.</span><span class="n">AppProps</span><span class="p">(</span>
@@ -2134,7 +2158,7 @@ framework based on the path of the construct within thes construct tree.</p>
 <p>How to divide the YAML output into files.</p>
 <hr />
 <h3 id="chartprops">ChartProps <a name="cdk8s.ChartProps"></a><a class="headerlink" href="#chartprops" title="Permanent link">&para;</a></h3>
-<h4 id="initializer_8">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_8" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_3">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_3" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s</span>
 
 <span class="n">cdk8s</span><span class="o">.</span><span class="n">ChartProps</span><span class="p">(</span>
@@ -2159,7 +2183,7 @@ framework based on the path of the construct within thes construct tree.</p>
 <code>namespace</code> explicitly defined for them.</p>
 <hr />
 <h3 id="groupversionkind">GroupVersionKind <a name="cdk8s.GroupVersionKind"></a><a class="headerlink" href="#groupversionkind" title="Permanent link">&para;</a></h3>
-<h4 id="initializer_9">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_9" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_4">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_4" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s</span>
 
 <span class="n">cdk8s</span><span class="o">.</span><span class="n">GroupVersionKind</span><span class="p">(</span>
@@ -2181,7 +2205,7 @@ framework based on the path of the construct within thes construct tree.</p>
 <hr />
 <h3 id="helmprops">HelmProps <a name="cdk8s.HelmProps"></a><a class="headerlink" href="#helmprops" title="Permanent link">&para;</a></h3>
 <p>Options for <code>Helm</code>.</p>
-<h4 id="initializer_10">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_10" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_5">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_5" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s</span>
 
 <span class="n">cdk8s</span><span class="o">.</span><span class="n">HelmProps</span><span class="p">(</span>
@@ -2231,7 +2255,7 @@ framework based on the path of the construct within thes construct tree.</p>
 <p>Values to pass to the chart.</p>
 <hr />
 <h3 id="includeprops">IncludeProps <a name="cdk8s.IncludeProps"></a><a class="headerlink" href="#includeprops" title="Permanent link">&para;</a></h3>
-<h4 id="initializer_11">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_11" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_6">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_6" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s</span>
 
 <span class="n">cdk8s</span><span class="o">.</span><span class="n">IncludeProps</span><span class="p">(</span>
@@ -2246,7 +2270,7 @@ framework based on the path of the construct within thes construct tree.</p>
 <hr />
 <h3 id="nameoptions">NameOptions <a name="cdk8s.NameOptions"></a><a class="headerlink" href="#nameoptions" title="Permanent link">&para;</a></h3>
 <p>Options for name generation.</p>
-<h4 id="initializer_12">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_12" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_7">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_7" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s</span>
 
 <span class="n">cdk8s</span><span class="o">.</span><span class="n">NameOptions</span><span class="p">(</span>
@@ -2286,7 +2310,7 @@ framework based on the path of the construct within thes construct tree.</p>
 <hr />
 <h3 id="sizeconversionoptions">SizeConversionOptions <a name="cdk8s.SizeConversionOptions"></a><a class="headerlink" href="#sizeconversionoptions" title="Permanent link">&para;</a></h3>
 <p>Options for how to convert time to a different unit.</p>
-<h4 id="initializer_13">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_13" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_8">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_8" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s</span>
 
 <span class="n">cdk8s</span><span class="o">.</span><span class="n">SizeConversionOptions</span><span class="p">(</span>
@@ -2302,7 +2326,7 @@ framework based on the path of the construct within thes construct tree.</p>
 <hr />
 <h3 id="timeconversionoptions">TimeConversionOptions <a name="cdk8s.TimeConversionOptions"></a><a class="headerlink" href="#timeconversionoptions" title="Permanent link">&para;</a></h3>
 <p>Options for how to convert time to a different unit.</p>
-<h4 id="initializer_14">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_14" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_9">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_9" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s</span>
 
 <span class="n">cdk8s</span><span class="o">.</span><span class="n">TimeConversionOptions</span><span class="p">(</span>
@@ -2319,7 +2343,7 @@ framework based on the path of the construct within thes construct tree.</p>
 <h2 id="classes">Classes <a name="Classes"></a><a class="headerlink" href="#classes" title="Permanent link">&para;</a></h2>
 <h3 id="apiobjectmetadatadefinition">ApiObjectMetadataDefinition <a name="cdk8s.ApiObjectMetadataDefinition"></a><a class="headerlink" href="#apiobjectmetadatadefinition" title="Permanent link">&para;</a></h3>
 <p>Object metadata.</p>
-<h4 id="initializer_15">Initializer <a name="cdk8s.ApiObjectMetadataDefinition.Initializer"></a><a class="headerlink" href="#initializer_15" title="Permanent link">&para;</a></h4>
+<h4 id="initializers_5">Initializers <a name="cdk8s.ApiObjectMetadataDefinition.Initializer"></a><a class="headerlink" href="#initializers_5" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s</span>
 
 <span class="n">cdk8s</span><span class="o">.</span><span class="n">ApiObjectMetadataDefinition</span><span class="p">(</span>
@@ -2472,7 +2496,7 @@ node (construct) sub-tree who&rsquo;s root is this Node.</p>
 childless children of the root node of the graph.</p>
 <p>The graph does not include cross-scope dependencies. That is, if a child on the current scope depends on a node
 from a different scope, that relationship is not represented in this graph.</p>
-<h4 id="initializer_16">Initializer <a name="cdk8s.DependencyGraph.Initializer"></a><a class="headerlink" href="#initializer_16" title="Permanent link">&para;</a></h4>
+<h4 id="initializers_6">Initializers <a name="cdk8s.DependencyGraph.Initializer"></a><a class="headerlink" href="#initializers_6" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s</span>
 
 <span class="n">cdk8s</span><span class="o">.</span><span class="n">DependencyGraph</span><span class="p">(</span>
@@ -2500,7 +2524,7 @@ that binds all the connected spaces of the graph.</p>
 <h3 id="dependencyvertex">DependencyVertex <a name="cdk8s.DependencyVertex"></a><a class="headerlink" href="#dependencyvertex" title="Permanent link">&para;</a></h3>
 <p>Represents a vertex in the graph.</p>
 <p>The value of each vertex is an <code>IConstruct</code> that is accessible via the <code>.value</code> getter.</p>
-<h4 id="initializer_17">Initializer <a name="cdk8s.DependencyVertex.Initializer"></a><a class="headerlink" href="#initializer_17" title="Permanent link">&para;</a></h4>
+<h4 id="initializers_7">Initializers <a name="cdk8s.DependencyVertex.Initializer"></a><a class="headerlink" href="#initializers_7" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s</span>
 
 <span class="n">cdk8s</span><span class="o">.</span><span class="n">DependencyVertex</span><span class="p">(</span>
@@ -3236,13 +3260,13 @@ cannot be negative.</p>
       
       
         
-        <a href="../go/" class="md-footer__link md-footer__link--next" aria-label="Next: Go" rel="next">
+        <a href="../java/" class="md-footer__link md-footer__link--next" aria-label="Next: Java" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Go
+              Java
             </div>
           </div>
           <div class="md-footer__button md-icon">
