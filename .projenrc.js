@@ -147,7 +147,7 @@ integWorkflow.on({
   workflow_dispatch: {},
 });
 integWorkflow.addJobs({
-  test: {
+  integ: {
     runsOn: '${{ matrix.os }}',
     strategy: {
       failFast: false,

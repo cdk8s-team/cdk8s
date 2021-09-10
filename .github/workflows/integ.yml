@@ -5,7 +5,7 @@ on:
   pull_request: {}
   workflow_dispatch: {}
 jobs:
-  test:
+  integ:
     runs-on: ${{ matrix.os }}
     permissions:
       contents: read
