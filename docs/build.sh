@@ -21,8 +21,10 @@ cp CONTRIBUTING.md docs/project/
 cp ROADMAP.md docs/project/
 
 for module in cdk8s cdk8s-plus-17; do
+  javamd=$(node -p "require.resolve('${module}/docs/java.md')")
   pythonmd=$(node -p "require.resolve('${module}/docs/python.md')")
   typescriptmd=$(node -p "require.resolve('${module}/docs/typescript.md')")
+  cat $javamd | sed "s/# API Reference/# ${module} (Java)/" > "docs/reference/${module}/java.md"
   cat $pythonmd | sed "s/# API Reference/# ${module} (Python)/" > "docs/reference/${module}/python.md"
   cat $typescriptmd | sed "s/# API Reference/# ${module} (TypeScript)/" > "docs/reference/${module}/typescript.md"
 done

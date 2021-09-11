@@ -13,9 +13,9 @@
   "devDependencies": {
     "@types/jest": "^26.0.24",
     "@types/node": "^14.17.11",
-    "cdk8s": "1.0.0-beta.31",
+    "cdk8s": "1.0.0-beta.44",
     "cdk8s-cli": "1.0.0-beta.49",
-    "cdk8s-plus-17": "1.0.0-beta.57",
+    "cdk8s-plus-17": "1.0.0-beta.64",
     "constructs": "^3",
     "jest": "^27.0.6",
     "jest-junit": "^12",

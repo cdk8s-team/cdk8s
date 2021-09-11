@@ -8,7 +8,7 @@
 
 ConfigMap holds configuration data for pods to consume.
 
-#### Initializer <a name="cdk8s-plus-17.ConfigMap.Initializer"></a>
+#### Initializers <a name="cdk8s-plus-17.ConfigMap.Initializer"></a>
 
 ```typescript
 import { ConfigMap } from 'cdk8s-plus-17'
@@ -194,7 +194,7 @@ The following are typical use cases for Deployments:
 - Use the status of the Deployment as an indicator that a rollout has stuck.
 - Clean up older ReplicaSets that you don't need anymore.
 
-#### Initializer <a name="cdk8s-plus-17.Deployment.Initializer"></a>
+#### Initializers <a name="cdk8s-plus-17.Deployment.Initializer"></a>
 
 ```typescript
 import { Deployment } from 'cdk8s-plus-17'
@@ -364,7 +364,7 @@ An Ingress can be configured to give services
 externally-reachable urls, load balance traffic, terminate SSL, offer name
 based virtual hosting etc.
 
-#### Initializer <a name="cdk8s-plus-17.IngressV1Beta1.Initializer"></a>
+#### Initializers <a name="cdk8s-plus-17.IngressV1Beta1.Initializer"></a>
 
 ```typescript
 import { IngressV1Beta1 } from 'cdk8s-plus-17'
@@ -521,7 +521,7 @@ Deleting a Job will clean up the Pods it created. A simple case is to create one
 The Job object will start a new Pod if the first Pod fails or is deleted (for example due to a node hardware failure or a node reboot).
 You can also use a Job to run multiple Pods in parallel.
 
-#### Initializer <a name="cdk8s-plus-17.Job.Initializer"></a>
+#### Initializers <a name="cdk8s-plus-17.Job.Initializer"></a>
 
 ```typescript
 import { Job } from 'cdk8s-plus-17'
@@ -656,7 +656,7 @@ Pod is a collection of containers that can run on a host.
 This resource is
 created by clients and scheduled onto hosts.
 
-#### Initializer <a name="cdk8s-plus-17.Pod.Initializer"></a>
+#### Initializers <a name="cdk8s-plus-17.Pod.Initializer"></a>
 
 ```typescript
 import { Pod } from 'cdk8s-plus-17'
@@ -757,7 +757,7 @@ Base class for all Kubernetes objects in stdk8s.
 Represents a single
 resource.
 
-#### Initializer <a name="cdk8s-plus-17.Resource.Initializer"></a>
+#### Initializers <a name="cdk8s-plus-17.Resource.Initializer"></a>
 
 ```typescript
 import { Resource } from 'cdk8s-plus-17'
@@ -824,7 +824,7 @@ definition or in a container image.
 
 > https://kubernetes.io/docs/concepts/configuration/secret
 
-#### Initializer <a name="cdk8s-plus-17.Secret.Initializer"></a>
+#### Initializers <a name="cdk8s-plus-17.Secret.Initializer"></a>
 
 ```typescript
 import { Secret } from 'cdk8s-plus-17'
@@ -924,7 +924,7 @@ If you're able to use Kubernetes APIs for service discovery in your application,
 that get updated whenever the set of Pods in a Service changes. For non-native applications, Kubernetes offers ways to place a network port
 or load balancer in between your application and the backend Pods.
 
-#### Initializer <a name="cdk8s-plus-17.Service.Initializer"></a>
+#### Initializers <a name="cdk8s-plus-17.Service.Initializer"></a>
 
 ```typescript
 import { Service } from 'cdk8s-plus-17'
@@ -1085,7 +1085,7 @@ example, default).
 
 > https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account
 
-#### Initializer <a name="cdk8s-plus-17.ServiceAccount.Initializer"></a>
+#### Initializers <a name="cdk8s-plus-17.ServiceAccount.Initializer"></a>
 
 ```typescript
 import { ServiceAccount } from 'cdk8s-plus-17'
@@ -1187,7 +1187,7 @@ StatefulSets are valuable for applications that require one or more of the follo
 - Ordered, graceful deployment and scaling.
 - Ordered, automated rolling updates.
 
-#### Initializer <a name="cdk8s-plus-17.StatefulSet.Initializer"></a>
+#### Initializers <a name="cdk8s-plus-17.StatefulSet.Initializer"></a>
 
 ```typescript
 import { StatefulSet } from 'cdk8s-plus-17'
@@ -3278,7 +3278,7 @@ The volume to mount.
 
 A single application container that you want to run within a pod.
 
-#### Initializer <a name="cdk8s-plus-17.Container.Initializer"></a>
+#### Initializers <a name="cdk8s-plus-17.Container.Initializer"></a>
 
 ```typescript
 import { Container } from 'cdk8s-plus-17'
@@ -3577,7 +3577,7 @@ The service object.
 
 Provides read/write capabilities ontop of a `PodSpecProps`.
 
-#### Initializer <a name="cdk8s-plus-17.PodSpec.Initializer"></a>
+#### Initializers <a name="cdk8s-plus-17.PodSpec.Initializer"></a>
 
 ```typescript
 import { PodSpec } from 'cdk8s-plus-17'
@@ -3663,7 +3663,7 @@ The service account used to run this pod.
 
 Provides read/write capabilities ontop of a `PodTemplateProps`.
 
-#### Initializer <a name="cdk8s-plus-17.PodTemplate.Initializer"></a>
+#### Initializers <a name="cdk8s-plus-17.PodTemplate.Initializer"></a>
 
 ```typescript
 import { PodTemplate } from 'cdk8s-plus-17'
@@ -3694,7 +3694,7 @@ Provides read/write access to the underlying pod metadata of the resource.
 
 Probe describes a health check to be performed against a container to determine whether it is alive or ready to receive traffic.
 
-#### Initializer <a name="cdk8s-plus-17.Probe.Initializer"></a>
+#### Initializers <a name="cdk8s-plus-17.Probe.Initializer"></a>
 
 ```typescript
 import { Probe } from 'cdk8s-plus-17'
@@ -3788,7 +3788,7 @@ image and volumes. The Docker image is at the root of the filesystem
 hierarchy, and any volumes are mounted at the specified paths within the
 image. Volumes can not mount onto other volumes
 
-#### Initializer <a name="cdk8s-plus-17.Volume.Initializer"></a>
+#### Initializers <a name="cdk8s-plus-17.Volume.Initializer"></a>
 
 ```typescript
 import { Volume } from 'cdk8s-plus-17'
