@@ -192,4 +192,28 @@ integWorkflow.addJobs({
   },
 });
 
+project.tryFindObjectFile('.mergify.yml')
+  .addOverride('pull_request_rules', [
+    {
+      name: 'Automatic merge on approval and successful build',
+      actions: {
+        merge: {
+          method: 'squash',
+          commit_message: 'title+body',
+          strict: 'smart',
+          strict_method: 'merge',
+        },
+        delete_head_branch: {},
+      },
+      conditions: [
+        "#approved-reviews-by>=1",
+        '-label~=(do-not-merge)',
+        'status-success=build',
+        'status-success=integ (windows-latest)',
+        'status-success=integ (ubuntu-latest)',
+        'status-success=integ (macos-latest)',
+      ]
+    }
+  ]);
+
 project.synth();
