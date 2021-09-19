@@ -33,7 +33,7 @@ params:
       title: Language support
       details: |
         cdk8s lets you define applications using Typescript, JavaScript, Python,
-        and Java. Support for more languages is coming soon.
+        Java, and Go. Support for more languages is coming soon.
     imports:
       title: Supports core Kubernetes objects and custom resources
       details: |
