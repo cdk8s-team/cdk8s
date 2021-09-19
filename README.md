@@ -29,6 +29,7 @@ Contents:
 - [Examples](#examples)
 - [Roadmap](#roadmap)
 - [Community](#community)
+- [Stats](#stats)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -92,6 +93,29 @@ See our [roadmap](https://github.com/cdk8s-team/cdk8s/projects/1) for details ab
 ## Community
 
 See [Awesome cdk8s](https://github.com/dungahk/awesome-cdk8s).
+
+## Stats
+
+Following is a list of some interesting metrics we can use to gauge project engagement.
+
+- [`cdk8s-cli`](https://npm-stat.com/charts.html?package=cdk8s-cli) download stats from NPM.
+- [`cdk8s`](https://npm-stat.com/charts.html?package=cdk8s) download stats from NPM
+- [`cdk8s`](https://pypistats.org/packages/cdk8s) download stats from PyPI.
+- [`cdk8s-plus-17`](https://npm-stat.com/charts.html?package=cdk8s-plus-17) download stats from NPM
+- [`cdk8s-plus-17`](https://pypistats.org/packages/cdk8s-plus-17) download stats from PyPI.
+
+> Note that we currently don't have concrete download stats for GoLang and Java.
+
+In addition to download statistics, we also we have access to a CNCF provided dashboard to keep
+track of our GitHub activities: https://cdk8s.devstats.cncf.io/d/8/dashboards?orgId=1&refresh=15m
+
+Some interesting metrics are:
+
+- [Number of contributing developers and companies](https://cdk8s.devstats.cncf.io/d/7/companies-contributing-in-repository-groups?orgId=1)
+- [Number of contributions per company](https://cdk8s.devstats.cncf.io/d/5/companies-table?orgId=1)
+- [Number of new contributors](https://cdk8s.devstats.cncf.io/d/52/new-contributors-table?orgId=1&from=now-6M&to=now)
+- [Issues Opened/Closed](https://cdk8s.devstats.cncf.io/d/12/issues-opened-closed-by-repository-group?orgId=1)
+- [Issues Age](https://cdk8s.devstats.cncf.io/d/11/issues-age-by-repository-group?orgId=1)
 
 ## Contributing
 
