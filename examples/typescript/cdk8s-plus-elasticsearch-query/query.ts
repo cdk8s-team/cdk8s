@@ -42,7 +42,9 @@ http.createServer(function (req: http.IncomingMessage, res: http.ServerResponse)
 
 
   } catch (err) {
-    sendResponse(err.message);
+    if (err instanceof Error) {
+      sendResponse(err.message);
+    }
   }
 
 }).listen(port);
