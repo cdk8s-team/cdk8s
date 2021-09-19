@@ -13,3 +13,6 @@ pull_request_rules:
       - "#approved-reviews-by>=1"
       - -label~=(do-not-merge)
       - status-success=build
+      - status-success=integ (windows-latest)
+      - status-success=integ (ubuntu-latest)
+      - status-success=integ (macos-latest)

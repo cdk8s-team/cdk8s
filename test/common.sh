@@ -9,7 +9,7 @@ function match_snapshot() {
 
   # Exclude the .tgz files because their headers differ
   # because they were zipped at different times.
-  diff -r --exclude=*.tgz $actual $expected || {
+  diff -r --strip-trailing-cr --exclude=*.tgz $actual $expected || {
     echo "=================================================================="
     echo " Failed to match snapshot"
     echo " Actual: $(cd $actual && pwd)"

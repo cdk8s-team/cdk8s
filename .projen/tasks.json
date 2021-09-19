@@ -55,7 +55,7 @@
           "spawn": "test"
         },
         {
-          "spawn": "integ"
+          "spawn": "integ:update"
         }
       ]
     },
@@ -90,12 +90,20 @@
     },
     "integ": {
       "name": "integ",
+      "steps": [
+        {
+          "exec": "bash test/test-all.sh"
+        }
+      ]
+    },
+    "integ:update": {
+      "name": "integ:update",
       "env": {
         "UPDATE_SNAPSHOTS": "1"
       },
       "steps": [
         {
-          "exec": "test/test-all.sh"
+          "exec": "bash test/test-all.sh"
         }
       ]
     }

@@ -4,7 +4,7 @@
 
 ### ApiObject <a name="cdk8s.ApiObject"></a>
 
-#### Initializer <a name="cdk8s.ApiObject.Initializer"></a>
+#### Initializers <a name="cdk8s.ApiObject.Initializer"></a>
 
 ```python
 import cdk8s
@@ -181,7 +181,7 @@ construct path to generate a DNS-compatible name for the resource.
 
 Represents a cdk8s application.
 
-#### Initializer <a name="cdk8s.App.Initializer"></a>
+#### Initializers <a name="cdk8s.App.Initializer"></a>
 
 ```python
 import cdk8s
@@ -241,7 +241,7 @@ How to divide the YAML output into files.
 
 ### Chart <a name="cdk8s.Chart"></a>
 
-#### Initializer <a name="cdk8s.Chart.Initializer"></a>
+#### Initializers <a name="cdk8s.Chart.Initializer"></a>
 
 ```python
 import cdk8s
@@ -374,7 +374,7 @@ Represents a Helm deployment.
 
 Use this construct to import an existing Helm chart and incorporate it into your constructs.
 
-#### Initializer <a name="cdk8s.Helm.Initializer"></a>
+#### Initializers <a name="cdk8s.Helm.Initializer"></a>
 
 ```python
 import cdk8s
@@ -470,7 +470,7 @@ Reads a YAML manifest from a file or a URL and defines all resources as API obje
 The names (`metadata.name`) of imported resources will be preserved as-is
 from the manifest.
 
-#### Initializer <a name="cdk8s.Include.Initializer"></a>
+#### Initializers <a name="cdk8s.Include.Initializer"></a>
 
 ```python
 import cdk8s
@@ -923,7 +923,7 @@ If `true`, conversions into a larger time unit (e.g. `Seconds` to `Minutes`) wil
 
 Object metadata.
 
-#### Initializer <a name="cdk8s.ApiObjectMetadataDefinition.Initializer"></a>
+#### Initializers <a name="cdk8s.ApiObjectMetadataDefinition.Initializer"></a>
 
 ```python
 import cdk8s
@@ -1134,7 +1134,7 @@ childless children of the root node of the graph.
 The graph does not include cross-scope dependencies. That is, if a child on the current scope depends on a node
 from a different scope, that relationship is not represented in this graph.
 
-#### Initializer <a name="cdk8s.DependencyGraph.Initializer"></a>
+#### Initializers <a name="cdk8s.DependencyGraph.Initializer"></a>
 
 ```python
 import cdk8s
@@ -1179,7 +1179,7 @@ Represents a vertex in the graph.
 
 The value of each vertex is an `IConstruct` that is accessible via the `.value` getter.
 
-#### Initializer <a name="cdk8s.DependencyVertex.Initializer"></a>
+#### Initializers <a name="cdk8s.DependencyVertex.Initializer"></a>
 
 ```python
 import cdk8s

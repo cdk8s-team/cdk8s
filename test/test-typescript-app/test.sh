@@ -5,6 +5,9 @@ scriptdir=$(cd $(dirname $0) && pwd)
 cd $(mktemp -d)
 mkdir test && cd test
 
+# import match_snapshot function
+source ${scriptdir}/../common.sh
+
 # hidden files should be ignored
 touch .foo
 mkdir .bar
@@ -27,6 +30,6 @@ cp ${scriptdir}/main.test.ts .
 yarn compile && yarn test -u && yarn synth
 
 # show output
-diff dist ${scriptdir}/expected
+match_snapshot dist ${scriptdir}/expected
 
 echo "PASS"
