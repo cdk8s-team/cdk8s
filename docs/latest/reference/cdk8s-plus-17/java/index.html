@@ -2322,6 +2322,8 @@ is enforced during validation process.</p>
 <hr />
 <h4 id="properties">Properties <a name="Properties"></a><a class="headerlink" href="#properties" title="Permanent link">&para;</a></h4>
 <h5 id="binarydatarequired"><code>binaryData</code><sup>Required</sup> <a name="org.cdk8s.plus17.ConfigMap.property.binaryData"></a><a class="headerlink" href="#binarydatarequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="o">&gt;</span> <span class="nf">getBinaryData</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.Map<java.lang.String, <code>java.lang.String</code>></li>
 </ul>
@@ -2329,6 +2331,8 @@ is enforced during validation process.</p>
 <p>Returns a copy. To add data records, use <code>addBinaryData()</code> or <code>addData()</code>.</p>
 <hr />
 <h5 id="datarequired"><code>data</code><sup>Required</sup> <a name="org.cdk8s.plus17.ConfigMap.property.data"></a><a class="headerlink" href="#datarequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="o">&gt;</span> <span class="nf">getData</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.Map<java.lang.String, <code>java.lang.String</code>></li>
 </ul>
@@ -2510,6 +2514,8 @@ Account (for example, default).</p>
 <hr />
 <h4 id="properties_1">Properties <a name="Properties"></a><a class="headerlink" href="#properties_1" title="Permanent link">&para;</a></h4>
 <h5 id="containersrequired"><code>containers</code><sup>Required</sup> <a name="org.cdk8s.plus17.Deployment.property.containers"></a><a class="headerlink" href="#containersrequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">Container</span><span class="o">&gt;</span> <span class="nf">getContainers</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.plus17.Container"><code>org.cdk8s.plus17.Container</code></a>&gt;</li>
 </ul>
@@ -2517,6 +2523,8 @@ Account (for example, default).</p>
 <p>Use <code>addContainer</code> to add containers.</p>
 <hr />
 <h5 id="labelselectorrequired"><code>labelSelector</code><sup>Required</sup> <a name="org.cdk8s.plus17.Deployment.property.labelSelector"></a><a class="headerlink" href="#labelselectorrequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="o">&gt;</span> <span class="nf">getLabelSelector</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.Map<java.lang.String, <code>java.lang.String</code>></li>
 </ul>
@@ -2524,18 +2532,24 @@ Account (for example, default).</p>
 <p>Returns a a copy. Use <code>selectByLabel()</code> to add labels.</p>
 <hr />
 <h5 id="podmetadatarequired"><code>podMetadata</code><sup>Required</sup> <a name="org.cdk8s.plus17.Deployment.property.podMetadata"></a><a class="headerlink" href="#podmetadatarequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">ApiObjectMetadataDefinition</span> <span class="nf">getPodMetadata</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.ApiObjectMetadataDefinition"><code>org.cdk8s.ApiObjectMetadataDefinition</code></a></li>
 </ul>
 <p>Provides read/write access to the underlying pod metadata of the resource.</p>
 <hr />
 <h5 id="replicasrequired"><code>replicas</code><sup>Required</sup> <a name="org.cdk8s.plus17.Deployment.property.replicas"></a><a class="headerlink" href="#replicasrequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="nf">getReplicas</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.Number</code></li>
 </ul>
 <p>Number of desired pods.</p>
 <hr />
 <h5 id="volumesrequired"><code>volumes</code><sup>Required</sup> <a name="org.cdk8s.plus17.Deployment.property.volumes"></a><a class="headerlink" href="#volumesrequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">Volume</span><span class="o">&gt;</span> <span class="nf">getVolumes</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.plus17.Volume"><code>org.cdk8s.plus17.Volume</code></a>&gt;</li>
 </ul>
@@ -2543,12 +2557,16 @@ Account (for example, default).</p>
 <p>Use <code>addVolume</code> to add volumes.</p>
 <hr />
 <h5 id="restartpolicyoptional_1"><code>restartPolicy</code><sup>Optional</sup> <a name="org.cdk8s.plus17.Deployment.property.restartPolicy"></a><a class="headerlink" href="#restartpolicyoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">RestartPolicy</span> <span class="nf">getRestartPolicy</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus17.RestartPolicy"><code>org.cdk8s.plus17.RestartPolicy</code></a></li>
 </ul>
 <p>Restart policy for all containers within the pod.</p>
 <hr />
 <h5 id="serviceaccountoptional_1"><code>serviceAccount</code><sup>Optional</sup> <a name="org.cdk8s.plus17.Deployment.property.serviceAccount"></a><a class="headerlink" href="#serviceaccountoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">IServiceAccount</span> <span class="nf">getServiceAccount</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus17.IServiceAccount"><code>org.cdk8s.plus17.IServiceAccount</code></a></li>
 </ul>
@@ -2833,6 +2851,8 @@ field is alpha-level and is only honored by servers that enable the
 <hr />
 <h4 id="properties_2">Properties <a name="Properties"></a><a class="headerlink" href="#properties_2" title="Permanent link">&para;</a></h4>
 <h5 id="containersrequired_1"><code>containers</code><sup>Required</sup> <a name="org.cdk8s.plus17.Job.property.containers"></a><a class="headerlink" href="#containersrequired_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">Container</span><span class="o">&gt;</span> <span class="nf">getContainers</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.plus17.Container"><code>org.cdk8s.plus17.Container</code></a>&gt;</li>
 </ul>
@@ -2840,12 +2860,16 @@ field is alpha-level and is only honored by servers that enable the
 <p>Use <code>addContainer</code> to add containers.</p>
 <hr />
 <h5 id="podmetadatarequired_1"><code>podMetadata</code><sup>Required</sup> <a name="org.cdk8s.plus17.Job.property.podMetadata"></a><a class="headerlink" href="#podmetadatarequired_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">ApiObjectMetadataDefinition</span> <span class="nf">getPodMetadata</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.ApiObjectMetadataDefinition"><code>org.cdk8s.ApiObjectMetadataDefinition</code></a></li>
 </ul>
 <p>Provides read/write access to the underlying pod metadata of the resource.</p>
 <hr />
 <h5 id="volumesrequired_1"><code>volumes</code><sup>Required</sup> <a name="org.cdk8s.plus17.Job.property.volumes"></a><a class="headerlink" href="#volumesrequired_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">Volume</span><span class="o">&gt;</span> <span class="nf">getVolumes</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.plus17.Volume"><code>org.cdk8s.plus17.Volume</code></a>&gt;</li>
 </ul>
@@ -2853,6 +2877,8 @@ field is alpha-level and is only honored by servers that enable the
 <p>Use <code>addVolume</code> to add volumes.</p>
 <hr />
 <h5 id="activedeadlineoptional_1"><code>activeDeadline</code><sup>Optional</sup> <a name="org.cdk8s.plus17.Job.property.activeDeadline"></a><a class="headerlink" href="#activedeadlineoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">Duration</span> <span class="nf">getActiveDeadline</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.Duration"><code>org.cdk8s.Duration</code></a></li>
 </ul>
@@ -2860,24 +2886,32 @@ field is alpha-level and is only honored by servers that enable the
 <p>If undefined, there is no deadline.</p>
 <hr />
 <h5 id="backofflimitoptional_1"><code>backoffLimit</code><sup>Optional</sup> <a name="org.cdk8s.plus17.Job.property.backoffLimit"></a><a class="headerlink" href="#backofflimitoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="nf">getBackoffLimit</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.Number</code></li>
 </ul>
 <p>Number of retries before marking failed.</p>
 <hr />
 <h5 id="restartpolicyoptional_3"><code>restartPolicy</code><sup>Optional</sup> <a name="org.cdk8s.plus17.Job.property.restartPolicy"></a><a class="headerlink" href="#restartpolicyoptional_3" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">RestartPolicy</span> <span class="nf">getRestartPolicy</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus17.RestartPolicy"><code>org.cdk8s.plus17.RestartPolicy</code></a></li>
 </ul>
 <p>Restart policy for all containers within the pod.</p>
 <hr />
 <h5 id="serviceaccountoptional_3"><code>serviceAccount</code><sup>Optional</sup> <a name="org.cdk8s.plus17.Job.property.serviceAccount"></a><a class="headerlink" href="#serviceaccountoptional_3" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">IServiceAccount</span> <span class="nf">getServiceAccount</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus17.IServiceAccount"><code>org.cdk8s.plus17.IServiceAccount</code></a></li>
 </ul>
 <p>The service account used to run this pod.</p>
 <hr />
 <h5 id="ttlafterfinishedoptional_1"><code>ttlAfterFinished</code><sup>Optional</sup> <a name="org.cdk8s.plus17.Job.property.ttlAfterFinished"></a><a class="headerlink" href="#ttlafterfinishedoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">Duration</span> <span class="nf">getTtlAfterFinished</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.Duration"><code>org.cdk8s.Duration</code></a></li>
 </ul>
@@ -2983,6 +3017,8 @@ Account (for example, default).</p>
 <hr />
 <h4 id="properties_3">Properties <a name="Properties"></a><a class="headerlink" href="#properties_3" title="Permanent link">&para;</a></h4>
 <h5 id="containersrequired_2"><code>containers</code><sup>Required</sup> <a name="org.cdk8s.plus17.Pod.property.containers"></a><a class="headerlink" href="#containersrequired_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">Container</span><span class="o">&gt;</span> <span class="nf">getContainers</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.plus17.Container"><code>org.cdk8s.plus17.Container</code></a>&gt;</li>
 </ul>
@@ -2990,6 +3026,8 @@ Account (for example, default).</p>
 <p>Use <code>addContainer</code> to add containers.</p>
 <hr />
 <h5 id="volumesrequired_2"><code>volumes</code><sup>Required</sup> <a name="org.cdk8s.plus17.Pod.property.volumes"></a><a class="headerlink" href="#volumesrequired_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">Volume</span><span class="o">&gt;</span> <span class="nf">getVolumes</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.plus17.Volume"><code>org.cdk8s.plus17.Volume</code></a>&gt;</li>
 </ul>
@@ -2997,12 +3035,16 @@ Account (for example, default).</p>
 <p>Use <code>addVolume</code> to add volumes.</p>
 <hr />
 <h5 id="restartpolicyoptional_5"><code>restartPolicy</code><sup>Optional</sup> <a name="org.cdk8s.plus17.Pod.property.restartPolicy"></a><a class="headerlink" href="#restartpolicyoptional_5" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">RestartPolicy</span> <span class="nf">getRestartPolicy</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus17.RestartPolicy"><code>org.cdk8s.plus17.RestartPolicy</code></a></li>
 </ul>
 <p>Restart policy for all containers within the pod.</p>
 <hr />
 <h5 id="serviceaccountoptional_5"><code>serviceAccount</code><sup>Optional</sup> <a name="org.cdk8s.plus17.Pod.property.serviceAccount"></a><a class="headerlink" href="#serviceaccountoptional_5" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">IServiceAccount</span> <span class="nf">getServiceAccount</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus17.IServiceAccount"><code>org.cdk8s.plus17.IServiceAccount</code></a></li>
 </ul>
@@ -3046,11 +3088,15 @@ dash <code>--</code>.</p>
 <hr />
 <h4 id="properties_4">Properties <a name="Properties"></a><a class="headerlink" href="#properties_4" title="Permanent link">&para;</a></h4>
 <h5 id="metadatarequired"><code>metadata</code><sup>Required</sup> <a name="org.cdk8s.plus17.Resource.property.metadata"></a><a class="headerlink" href="#metadatarequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">ApiObjectMetadataDefinition</span> <span class="nf">getMetadata</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.ApiObjectMetadataDefinition"><code>org.cdk8s.ApiObjectMetadataDefinition</code></a></li>
 </ul>
 <hr />
 <h5 id="namerequired_1"><code>name</code><sup>Required</sup> <a name="org.cdk8s.plus17.Resource.property.name"></a><a class="headerlink" href="#namerequired_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getName</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 </ul>
@@ -3299,6 +3345,8 @@ Kubernetes system.</p>
 <hr />
 <h4 id="properties_5">Properties <a name="Properties"></a><a class="headerlink" href="#properties_5" title="Permanent link">&para;</a></h4>
 <h5 id="portsrequired"><code>ports</code><sup>Required</sup> <a name="org.cdk8s.plus17.Service.property.ports"></a><a class="headerlink" href="#portsrequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">ServicePort</span><span class="o">&gt;</span> <span class="nf">getPorts</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.plus17.ServicePort"><code>org.cdk8s.plus17.ServicePort</code></a>&gt;</li>
 </ul>
@@ -3306,24 +3354,32 @@ Kubernetes system.</p>
 <p>Use <code>serve()</code> to expose additional service ports.</p>
 <hr />
 <h5 id="selectorrequired"><code>selector</code><sup>Required</sup> <a name="org.cdk8s.plus17.Service.property.selector"></a><a class="headerlink" href="#selectorrequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="o">&gt;</span> <span class="nf">getSelector</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.Map<java.lang.String, <code>java.lang.String</code>></li>
 </ul>
 <p>Returns the labels which are used to select pods for this service.</p>
 <hr />
 <h5 id="typerequired"><code>type</code><sup>Required</sup> <a name="org.cdk8s.plus17.Service.property.type"></a><a class="headerlink" href="#typerequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">ServiceType</span> <span class="nf">getType</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus17.ServiceType"><code>org.cdk8s.plus17.ServiceType</code></a></li>
 </ul>
 <p>Determines how the Service is exposed.</p>
 <hr />
 <h5 id="clusteripoptional_1"><code>clusterIP</code><sup>Optional</sup> <a name="org.cdk8s.plus17.Service.property.clusterIP"></a><a class="headerlink" href="#clusteripoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getClusterIP</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 </ul>
 <p>The IP address of the service and is usually assigned randomly by the master.</p>
 <hr />
 <h5 id="externalnameoptional_1"><code>externalName</code><sup>Optional</sup> <a name="org.cdk8s.plus17.Service.property.externalName"></a><a class="headerlink" href="#externalnameoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getExternalName</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 </ul>
@@ -3400,6 +3456,8 @@ example, default).</p>
 <hr />
 <h4 id="properties_6">Properties <a name="Properties"></a><a class="headerlink" href="#properties_6" title="Permanent link">&para;</a></h4>
 <h5 id="secretsrequired"><code>secrets</code><sup>Required</sup> <a name="org.cdk8s.plus17.ServiceAccount.property.secrets"></a><a class="headerlink" href="#secretsrequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">ISecret</span><span class="o">&gt;</span> <span class="nf">getSecrets</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.plus17.ISecret"><code>org.cdk8s.plus17.ISecret</code></a>&gt;</li>
 </ul>
@@ -3578,6 +3636,8 @@ Account (for example, default).</p>
 <hr />
 <h4 id="properties_7">Properties <a name="Properties"></a><a class="headerlink" href="#properties_7" title="Permanent link">&para;</a></h4>
 <h5 id="containersrequired_3"><code>containers</code><sup>Required</sup> <a name="org.cdk8s.plus17.StatefulSet.property.containers"></a><a class="headerlink" href="#containersrequired_3" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">Container</span><span class="o">&gt;</span> <span class="nf">getContainers</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.plus17.Container"><code>org.cdk8s.plus17.Container</code></a>&gt;</li>
 </ul>
@@ -3585,6 +3645,8 @@ Account (for example, default).</p>
 <p>Use <code>addContainer</code> to add containers.</p>
 <hr />
 <h5 id="labelselectorrequired_1"><code>labelSelector</code><sup>Required</sup> <a name="org.cdk8s.plus17.StatefulSet.property.labelSelector"></a><a class="headerlink" href="#labelselectorrequired_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="o">&gt;</span> <span class="nf">getLabelSelector</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.Map<java.lang.String, <code>java.lang.String</code>></li>
 </ul>
@@ -3592,24 +3654,32 @@ Account (for example, default).</p>
 <p>Returns a a copy. Use <code>selectByLabel()</code> to add labels.</p>
 <hr />
 <h5 id="podmanagementpolicyrequired"><code>podManagementPolicy</code><sup>Required</sup> <a name="org.cdk8s.plus17.StatefulSet.property.podManagementPolicy"></a><a class="headerlink" href="#podmanagementpolicyrequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">PodManagementPolicy</span> <span class="nf">getPodManagementPolicy</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus17.PodManagementPolicy"><code>org.cdk8s.plus17.PodManagementPolicy</code></a></li>
 </ul>
 <p>Management policy to use for the set.</p>
 <hr />
 <h5 id="podmetadatarequired_2"><code>podMetadata</code><sup>Required</sup> <a name="org.cdk8s.plus17.StatefulSet.property.podMetadata"></a><a class="headerlink" href="#podmetadatarequired_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">ApiObjectMetadataDefinition</span> <span class="nf">getPodMetadata</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.ApiObjectMetadataDefinition"><code>org.cdk8s.ApiObjectMetadataDefinition</code></a></li>
 </ul>
 <p>Provides read/write access to the underlying pod metadata of the resource.</p>
 <hr />
 <h5 id="replicasrequired_1"><code>replicas</code><sup>Required</sup> <a name="org.cdk8s.plus17.StatefulSet.property.replicas"></a><a class="headerlink" href="#replicasrequired_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="nf">getReplicas</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.Number</code></li>
 </ul>
 <p>Number of desired pods.</p>
 <hr />
 <h5 id="volumesrequired_3"><code>volumes</code><sup>Required</sup> <a name="org.cdk8s.plus17.StatefulSet.property.volumes"></a><a class="headerlink" href="#volumesrequired_3" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">Volume</span><span class="o">&gt;</span> <span class="nf">getVolumes</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.plus17.Volume"><code>org.cdk8s.plus17.Volume</code></a>&gt;</li>
 </ul>
@@ -3617,12 +3687,16 @@ Account (for example, default).</p>
 <p>Use <code>addVolume</code> to add volumes.</p>
 <hr />
 <h5 id="restartpolicyoptional_7"><code>restartPolicy</code><sup>Optional</sup> <a name="org.cdk8s.plus17.StatefulSet.property.restartPolicy"></a><a class="headerlink" href="#restartpolicyoptional_7" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">RestartPolicy</span> <span class="nf">getRestartPolicy</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus17.RestartPolicy"><code>org.cdk8s.plus17.RestartPolicy</code></a></li>
 </ul>
 <p>Restart policy for all containers within the pod.</p>
 <hr />
 <h5 id="serviceaccountoptional_7"><code>serviceAccount</code><sup>Optional</sup> <a name="org.cdk8s.plus17.StatefulSet.property.serviceAccount"></a><a class="headerlink" href="#serviceaccountoptional_7" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">IServiceAccount</span> <span class="nf">getServiceAccount</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus17.IServiceAccount"><code>org.cdk8s.plus17.IServiceAccount</code></a></li>
 </ul>
@@ -3640,6 +3714,8 @@ Account (for example, default).</p>
     <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
 <h5 id="excludeoptional"><code>exclude</code><sup>Optional</sup> <a name="org.cdk8s.plus17.AddDirectoryOptions.property.exclude"></a><a class="headerlink" href="#excludeoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="o">&gt;</span> <span class="nf">getExclude</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<code>java.lang.String</code>&gt;</li>
 <li><em>Default:</em> include all files</li>
@@ -3647,6 +3723,8 @@ Account (for example, default).</p>
 <p>Glob patterns to exclude when adding files.</p>
 <hr />
 <h5 id="keyprefixoptional"><code>keyPrefix</code><sup>Optional</sup> <a name="org.cdk8s.plus17.AddDirectoryOptions.property.keyPrefix"></a><a class="headerlink" href="#keyprefixoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getKeyPrefix</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 <li><em>Default:</em> &ldquo;&rdquo;</li>
@@ -3667,6 +3745,8 @@ Account (for example, default).</p>
     <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
 <h5 id="failurethresholdoptional"><code>failureThreshold</code><sup>Optional</sup> <a name="org.cdk8s.plus17.CommandProbeOptions.property.failureThreshold"></a><a class="headerlink" href="#failurethresholdoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="nf">getFailureThreshold</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.Number</code></li>
 <li><em>Default:</em> 3</li>
@@ -3675,6 +3755,8 @@ Account (for example, default).</p>
 <p>Defaults to 3. Minimum value is 1.</p>
 <hr />
 <h5 id="initialdelaysecondsoptional"><code>initialDelaySeconds</code><sup>Optional</sup> <a name="org.cdk8s.plus17.CommandProbeOptions.property.initialDelaySeconds"></a><a class="headerlink" href="#initialdelaysecondsoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">Duration</span> <span class="nf">getInitialDelaySeconds</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.Duration"><code>org.cdk8s.Duration</code></a></li>
 <li><em>Default:</em> immediate</li>
@@ -3685,6 +3767,8 @@ Account (for example, default).</p>
 </blockquote>
 <hr />
 <h5 id="periodsecondsoptional"><code>periodSeconds</code><sup>Optional</sup> <a name="org.cdk8s.plus17.CommandProbeOptions.property.periodSeconds"></a><a class="headerlink" href="#periodsecondsoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">Duration</span> <span class="nf">getPeriodSeconds</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.Duration"><code>org.cdk8s.Duration</code></a></li>
 <li><em>Default:</em> Duration.seconds(10) Minimum value is 1.</li>
@@ -3693,6 +3777,8 @@ Account (for example, default).</p>
 <p>Default to 10 seconds. Minimum value is 1.</p>
 <hr />
 <h5 id="successthresholdoptional"><code>successThreshold</code><sup>Optional</sup> <a name="org.cdk8s.plus17.CommandProbeOptions.property.successThreshold"></a><a class="headerlink" href="#successthresholdoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="nf">getSuccessThreshold</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.Number</code></li>
 <li><em>Default:</em> 1 Must be 1 for liveness and startup. Minimum value is 1.</li>
@@ -3701,6 +3787,8 @@ Account (for example, default).</p>
 <p>Must be 1 for liveness and startup. Minimum value is 1.</p>
 <hr />
 <h5 id="timeoutsecondsoptional"><code>timeoutSeconds</code><sup>Optional</sup> <a name="org.cdk8s.plus17.CommandProbeOptions.property.timeoutSeconds"></a><a class="headerlink" href="#timeoutsecondsoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">Duration</span> <span class="nf">getTimeoutSeconds</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.Duration"><code>org.cdk8s.Duration</code></a></li>
 <li><em>Default:</em> Duration.seconds(1)</li>
@@ -3723,12 +3811,16 @@ Account (for example, default).</p>
     <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
 <h5 id="metadataoptional_9"><code>metadata</code><sup>Optional</sup> <a name="org.cdk8s.plus17.ConfigMapProps.property.metadata"></a><a class="headerlink" href="#metadataoptional_9" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">ApiObjectMetadata</span> <span class="nf">getMetadata</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.ApiObjectMetadata"><code>org.cdk8s.ApiObjectMetadata</code></a></li>
 </ul>
 <p>Metadata that all persisted resources must have, which includes all objects users must create.</p>
 <hr />
 <h5 id="binarydataoptional_1"><code>binaryData</code><sup>Optional</sup> <a name="org.cdk8s.plus17.ConfigMapProps.property.binaryData"></a><a class="headerlink" href="#binarydataoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="o">&gt;</span> <span class="nf">getBinaryData</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.Map<java.lang.String, <code>java.lang.String</code>></li>
 </ul>
@@ -3741,6 +3833,8 @@ this is enforced during validation process. Using this field will require
 <p>You can also add binary data using <code>configMap.addBinaryData()</code>.</p>
 <hr />
 <h5 id="dataoptional_1"><code>data</code><sup>Optional</sup> <a name="org.cdk8s.plus17.ConfigMapProps.property.data"></a><a class="headerlink" href="#dataoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="o">&gt;</span> <span class="nf">getData</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.Map<java.lang.String, <code>java.lang.String</code>></li>
 </ul>
@@ -3764,6 +3858,8 @@ is enforced during validation process.</p>
     <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
 <h5 id="defaultmodeoptional"><code>defaultMode</code><sup>Optional</sup> <a name="org.cdk8s.plus17.ConfigMapVolumeOptions.property.defaultMode"></a><a class="headerlink" href="#defaultmodeoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="nf">getDefaultMode</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.Number</code></li>
 <li><em>Default:</em> 0644. Directories within the path are not affected by this
@@ -3777,6 +3873,8 @@ this setting. This might be in conflict with other options that affect the
 file mode, like fsGroup, and the result can be other mode bits set.</p>
 <hr />
 <h5 id="itemsoptional"><code>items</code><sup>Optional</sup> <a name="org.cdk8s.plus17.ConfigMapVolumeOptions.property.items"></a><a class="headerlink" href="#itemsoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span> <span class="n">PathMapping</span><span class="o">&gt;</span> <span class="nf">getItems</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus17.PathMapping">klzzwxh:3194</a>></li>
 <li><em>Default:</em> no mapping</li>
@@ -3789,6 +3887,8 @@ error unless it is marked optional. Paths must be relative and may not
 contain the &lsquo;..&rsquo; path or start with &lsquo;..&rsquo;.</p>
 <hr />
 <h5 id="nameoptional"><code>name</code><sup>Optional</sup> <a name="org.cdk8s.plus17.ConfigMapVolumeOptions.property.name"></a><a class="headerlink" href="#nameoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getName</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 <li><em>Default:</em> auto-generated</li>
@@ -3796,6 +3896,8 @@ contain the &lsquo;..&rsquo; path or start with &lsquo;..&rsquo;.</p>
 <p>The volume name.</p>
 <hr />
 <h5 id="optionaloptional"><code>optional</code><sup>Optional</sup> <a name="org.cdk8s.plus17.ConfigMapVolumeOptions.property.optional"></a><a class="headerlink" href="#optionaloptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span> <span class="nf">getOptional</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.Boolean</code></li>
 <li><em>Default:</em> undocumented</li>
@@ -3823,12 +3925,16 @@ contain the &lsquo;..&rsquo; path or start with &lsquo;..&rsquo;.</p>
     <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
 <h5 id="imagerequired"><code>image</code><sup>Required</sup> <a name="org.cdk8s.plus17.ContainerProps.property.image"></a><a class="headerlink" href="#imagerequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getImage</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 </ul>
 <p>Docker image name.</p>
 <hr />
 <h5 id="argsoptional"><code>args</code><sup>Optional</sup> <a name="org.cdk8s.plus17.ContainerProps.property.args"></a><a class="headerlink" href="#argsoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="o">&gt;</span> <span class="nf">getArgs</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<code>java.lang.String</code>&gt;</li>
 <li><em>Default:</em> []</li>
@@ -3845,6 +3951,8 @@ regardless of whether the variable exists or not.</p>
 </blockquote>
 <hr />
 <h5 id="commandoptional"><code>command</code><sup>Optional</sup> <a name="org.cdk8s.plus17.ContainerProps.property.command"></a><a class="headerlink" href="#commandoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="o">&gt;</span> <span class="nf">getCommand</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<code>java.lang.String</code>&gt;</li>
 <li><em>Default:</em> The docker image&rsquo;s ENTRYPOINT.</li>
@@ -3856,6 +3964,8 @@ Escaped references will never be expanded, regardless of whether the variable ex
 More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell</p>
 <hr />
 <h5 id="envoptional"><code>env</code><sup>Optional</sup> <a name="org.cdk8s.plus17.ContainerProps.property.env"></a><a class="headerlink" href="#envoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span> <span class="n">EnvValue</span><span class="o">&gt;</span> <span class="nf">getEnv</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus17.EnvValue">klzzwxh:3175</a>></li>
 <li><em>Default:</em> No environment variables.</li>
@@ -3864,6 +3974,8 @@ More info: https://kubernetes.io/docs/tasks/inject-data-application/define-comma
 <p>Cannot be updated.</p>
 <hr />
 <h5 id="imagepullpolicyoptional"><code>imagePullPolicy</code><sup>Optional</sup> <a name="org.cdk8s.plus17.ContainerProps.property.imagePullPolicy"></a><a class="headerlink" href="#imagepullpolicyoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">ImagePullPolicy</span> <span class="nf">getImagePullPolicy</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus17.ImagePullPolicy"><code>org.cdk8s.plus17.ImagePullPolicy</code></a></li>
 <li><em>Default:</em> ImagePullPolicy.ALWAYS</li>
@@ -3871,6 +3983,8 @@ More info: https://kubernetes.io/docs/tasks/inject-data-application/define-comma
 <p>Image pull policy for this container.</p>
 <hr />
 <h5 id="livenessoptional"><code>liveness</code><sup>Optional</sup> <a name="org.cdk8s.plus17.ContainerProps.property.liveness"></a><a class="headerlink" href="#livenessoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">Probe</span> <span class="nf">getLiveness</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus17.Probe"><code>org.cdk8s.plus17.Probe</code></a></li>
 <li><em>Default:</em> no liveness probe is defined</li>
@@ -3879,6 +3993,8 @@ More info: https://kubernetes.io/docs/tasks/inject-data-application/define-comma
 <p>Container will be restarted if the probe fails.</p>
 <hr />
 <h5 id="nameoptional_1"><code>name</code><sup>Optional</sup> <a name="org.cdk8s.plus17.ContainerProps.property.name"></a><a class="headerlink" href="#nameoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getName</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 <li><em>Default:</em> &lsquo;main&rsquo;</li>
@@ -3887,6 +4003,8 @@ More info: https://kubernetes.io/docs/tasks/inject-data-application/define-comma
 <p>Each container in a pod must have a unique name (DNS_LABEL). Cannot be updated.</p>
 <hr />
 <h5 id="portoptional"><code>port</code><sup>Optional</sup> <a name="org.cdk8s.plus17.ContainerProps.property.port"></a><a class="headerlink" href="#portoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="nf">getPort</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.Number</code></li>
 <li><em>Default:</em> No port is exposed.</li>
@@ -3895,6 +4013,8 @@ More info: https://kubernetes.io/docs/tasks/inject-data-application/define-comma
 <p>This must be a valid port number, 0 &lt; x &lt; 65536.</p>
 <hr />
 <h5 id="readinessoptional"><code>readiness</code><sup>Optional</sup> <a name="org.cdk8s.plus17.ContainerProps.property.readiness"></a><a class="headerlink" href="#readinessoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">Probe</span> <span class="nf">getReadiness</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus17.Probe"><code>org.cdk8s.plus17.Probe</code></a></li>
 <li><em>Default:</em> no readiness probe is defined</li>
@@ -3902,6 +4022,8 @@ More info: https://kubernetes.io/docs/tasks/inject-data-application/define-comma
 <p>Determines when the container is ready to serve traffic.</p>
 <hr />
 <h5 id="startupoptional"><code>startup</code><sup>Optional</sup> <a name="org.cdk8s.plus17.ContainerProps.property.startup"></a><a class="headerlink" href="#startupoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">Probe</span> <span class="nf">getStartup</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus17.Probe"><code>org.cdk8s.plus17.Probe</code></a></li>
 <li><em>Default:</em> no startup probe is defined.</li>
@@ -3910,6 +4032,8 @@ More info: https://kubernetes.io/docs/tasks/inject-data-application/define-comma
 <p>If specified, no other probes are executed until this completes successfully</p>
 <hr />
 <h5 id="volumemountsoptional"><code>volumeMounts</code><sup>Optional</sup> <a name="org.cdk8s.plus17.ContainerProps.property.volumeMounts"></a><a class="headerlink" href="#volumemountsoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">VolumeMount</span><span class="o">&gt;</span> <span class="nf">getVolumeMounts</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.plus17.VolumeMount"><code>org.cdk8s.plus17.VolumeMount</code></a>&gt;</li>
 </ul>
@@ -3917,6 +4041,8 @@ More info: https://kubernetes.io/docs/tasks/inject-data-application/define-comma
 <p>Cannot be updated.</p>
 <hr />
 <h5 id="workingdiroptional"><code>workingDir</code><sup>Optional</sup> <a name="org.cdk8s.plus17.ContainerProps.property.workingDir"></a><a class="headerlink" href="#workingdiroptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getWorkingDir</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 <li><em>Default:</em> The container runtime&rsquo;s default.</li>
@@ -3941,12 +4067,16 @@ More info: https://kubernetes.io/docs/tasks/inject-data-application/define-comma
     <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
 <h5 id="metadataoptional_10"><code>metadata</code><sup>Optional</sup> <a name="org.cdk8s.plus17.DeploymentProps.property.metadata"></a><a class="headerlink" href="#metadataoptional_10" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">ApiObjectMetadata</span> <span class="nf">getMetadata</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.ApiObjectMetadata"><code>org.cdk8s.ApiObjectMetadata</code></a></li>
 </ul>
 <p>Metadata that all persisted resources must have, which includes all objects users must create.</p>
 <hr />
 <h5 id="containersoptional_4"><code>containers</code><sup>Optional</sup> <a name="org.cdk8s.plus17.DeploymentProps.property.containers"></a><a class="headerlink" href="#containersoptional_4" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">ContainerProps</span><span class="o">&gt;</span> <span class="nf">getContainers</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.plus17.ContainerProps"><code>org.cdk8s.plus17.ContainerProps</code></a>&gt;</li>
 <li><em>Default:</em> No containers. Note that a pod spec must include at least one container.</li>
@@ -3957,6 +4087,8 @@ added or removed. There must be at least one container in a Pod.</p>
 <p>You can add additionnal containers using <code>podSpec.addContainer()</code></p>
 <hr />
 <h5 id="restartpolicyoptional_8"><code>restartPolicy</code><sup>Optional</sup> <a name="org.cdk8s.plus17.DeploymentProps.property.restartPolicy"></a><a class="headerlink" href="#restartpolicyoptional_8" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">RestartPolicy</span> <span class="nf">getRestartPolicy</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus17.RestartPolicy"><code>org.cdk8s.plus17.RestartPolicy</code></a></li>
 <li><em>Default:</em> RestartPolicy.ALWAYS</li>
@@ -3967,6 +4099,8 @@ added or removed. There must be at least one container in a Pod.</p>
 </blockquote>
 <hr />
 <h5 id="serviceaccountoptional_8"><code>serviceAccount</code><sup>Optional</sup> <a name="org.cdk8s.plus17.DeploymentProps.property.serviceAccount"></a><a class="headerlink" href="#serviceaccountoptional_8" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">IServiceAccount</span> <span class="nf">getServiceAccount</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus17.IServiceAccount"><code>org.cdk8s.plus17.IServiceAccount</code></a></li>
 <li><em>Default:</em> No service account.</li>
@@ -3983,6 +4117,8 @@ Account (for example, default).</p>
 </blockquote>
 <hr />
 <h5 id="volumesoptional_4"><code>volumes</code><sup>Optional</sup> <a name="org.cdk8s.plus17.DeploymentProps.property.volumes"></a><a class="headerlink" href="#volumesoptional_4" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">Volume</span><span class="o">&gt;</span> <span class="nf">getVolumes</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.plus17.Volume"><code>org.cdk8s.plus17.Volume</code></a>&gt;</li>
 <li><em>Default:</em> No volumes.</li>
@@ -3994,12 +4130,16 @@ Account (for example, default).</p>
 </blockquote>
 <hr />
 <h5 id="podmetadataoptional_3"><code>podMetadata</code><sup>Optional</sup> <a name="org.cdk8s.plus17.DeploymentProps.property.podMetadata"></a><a class="headerlink" href="#podmetadataoptional_3" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">ApiObjectMetadata</span> <span class="nf">getPodMetadata</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.ApiObjectMetadata"><code>org.cdk8s.ApiObjectMetadata</code></a></li>
 </ul>
 <p>The pod metadata.</p>
 <hr />
 <h5 id="defaultselectoroptional_2"><code>defaultSelector</code><sup>Optional</sup> <a name="org.cdk8s.plus17.DeploymentProps.property.defaultSelector"></a><a class="headerlink" href="#defaultselectoroptional_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span> <span class="nf">getDefaultSelector</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.Boolean</code></li>
 <li><em>Default:</em> true</li>
@@ -4009,6 +4149,8 @@ Account (for example, default).</p>
 <code>deployment.podMetadata.addLabel()</code> and <code>deployment.selectByLabel()</code>.</p>
 <hr />
 <h5 id="replicasoptional_2"><code>replicas</code><sup>Optional</sup> <a name="org.cdk8s.plus17.DeploymentProps.property.replicas"></a><a class="headerlink" href="#replicasoptional_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="nf">getReplicas</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.Number</code></li>
 <li><em>Default:</em> 1</li>
@@ -4026,6 +4168,8 @@ Account (for example, default).</p>
     <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
 <h5 id="mediumoptional"><code>medium</code><sup>Optional</sup> <a name="org.cdk8s.plus17.EmptyDirVolumeOptions.property.medium"></a><a class="headerlink" href="#mediumoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">EmptyDirMedium</span> <span class="nf">getMedium</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus17.EmptyDirMedium"><code>org.cdk8s.plus17.EmptyDirMedium</code></a></li>
 <li><em>Default:</em> EmptyDirMedium.DEFAULT</li>
@@ -4038,6 +4182,8 @@ disks, tmpfs is cleared on node reboot and any files you write will count
 against your Container&rsquo;s memory limit.</p>
 <hr />
 <h5 id="sizelimitoptional"><code>sizeLimit</code><sup>Optional</sup> <a name="org.cdk8s.plus17.EmptyDirVolumeOptions.property.sizeLimit"></a><a class="headerlink" href="#sizelimitoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">Size</span> <span class="nf">getSizeLimit</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.Size"><code>org.cdk8s.Size</code></a></li>
 <li><em>Default:</em> limit is undefined</li>
@@ -4058,6 +4204,8 @@ here and the sum of memory limits of all containers in a pod.</p>
     <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
 <h5 id="optionaloptional_1"><code>optional</code><sup>Optional</sup> <a name="org.cdk8s.plus17.EnvValueFromConfigMapOptions.property.optional"></a><a class="headerlink" href="#optionaloptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span> <span class="nf">getOptional</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.Boolean</code></li>
 <li><em>Default:</em> false</li>
@@ -4074,6 +4222,8 @@ here and the sum of memory limits of all containers in a pod.</p>
     <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
 <h5 id="requiredoptional"><code>required</code><sup>Optional</sup> <a name="org.cdk8s.plus17.EnvValueFromProcessOptions.property.required"></a><a class="headerlink" href="#requiredoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span> <span class="nf">getRequired</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.Boolean</code></li>
 <li><em>Default:</em> false</li>
@@ -4091,6 +4241,8 @@ here and the sum of memory limits of all containers in a pod.</p>
     <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
 <h5 id="optionaloptional_2"><code>optional</code><sup>Optional</sup> <a name="org.cdk8s.plus17.EnvValueFromSecretOptions.property.optional"></a><a class="headerlink" href="#optionaloptional_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span> <span class="nf">getOptional</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.Boolean</code></li>
 <li><em>Default:</em> false</li>
@@ -4110,6 +4262,8 @@ here and the sum of memory limits of all containers in a pod.</p>
     <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
 <h5 id="nameoptional_2"><code>name</code><sup>Optional</sup> <a name="org.cdk8s.plus17.ExposeOptions.property.name"></a><a class="headerlink" href="#nameoptional_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getName</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 <li><em>Default:</em> undefined Uses the system generated name.</li>
@@ -4118,6 +4272,8 @@ here and the sum of memory limits of all containers in a pod.</p>
 <p>This will be set on the Service.metadata and must be a DNS_LABEL</p>
 <hr />
 <h5 id="protocoloptional"><code>protocol</code><sup>Optional</sup> <a name="org.cdk8s.plus17.ExposeOptions.property.protocol"></a><a class="headerlink" href="#protocoloptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">Protocol</span> <span class="nf">getProtocol</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus17.Protocol"><code>org.cdk8s.plus17.Protocol</code></a></li>
 <li><em>Default:</em> Protocol.TCP</li>
@@ -4126,6 +4282,8 @@ here and the sum of memory limits of all containers in a pod.</p>
 <p>Supports &ldquo;TCP&rdquo;, &ldquo;UDP&rdquo;, and &ldquo;SCTP&rdquo;. Default is TCP.</p>
 <hr />
 <h5 id="servicetypeoptional"><code>serviceType</code><sup>Optional</sup> <a name="org.cdk8s.plus17.ExposeOptions.property.serviceType"></a><a class="headerlink" href="#servicetypeoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">ServiceType</span> <span class="nf">getServiceType</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus17.ServiceType"><code>org.cdk8s.plus17.ServiceType</code></a></li>
 <li><em>Default:</em> ClusterIP.</li>
@@ -4133,6 +4291,8 @@ here and the sum of memory limits of all containers in a pod.</p>
 <p>The type of the exposed service.</p>
 <hr />
 <h5 id="targetportoptional"><code>targetPort</code><sup>Optional</sup> <a name="org.cdk8s.plus17.ExposeOptions.property.targetPort"></a><a class="headerlink" href="#targetportoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="nf">getTargetPort</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.Number</code></li>
 <li><em>Default:</em> The port of the first container in the deployment (ie. containers[0].port)</li>
@@ -4154,6 +4314,8 @@ here and the sum of memory limits of all containers in a pod.</p>
     <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
 <h5 id="failurethresholdoptional_1"><code>failureThreshold</code><sup>Optional</sup> <a name="org.cdk8s.plus17.HttpGetProbeOptions.property.failureThreshold"></a><a class="headerlink" href="#failurethresholdoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="nf">getFailureThreshold</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.Number</code></li>
 <li><em>Default:</em> 3</li>
@@ -4162,6 +4324,8 @@ here and the sum of memory limits of all containers in a pod.</p>
 <p>Defaults to 3. Minimum value is 1.</p>
 <hr />
 <h5 id="initialdelaysecondsoptional_1"><code>initialDelaySeconds</code><sup>Optional</sup> <a name="org.cdk8s.plus17.HttpGetProbeOptions.property.initialDelaySeconds"></a><a class="headerlink" href="#initialdelaysecondsoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">Duration</span> <span class="nf">getInitialDelaySeconds</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.Duration"><code>org.cdk8s.Duration</code></a></li>
 <li><em>Default:</em> immediate</li>
@@ -4172,6 +4336,8 @@ here and the sum of memory limits of all containers in a pod.</p>
 </blockquote>
 <hr />
 <h5 id="periodsecondsoptional_1"><code>periodSeconds</code><sup>Optional</sup> <a name="org.cdk8s.plus17.HttpGetProbeOptions.property.periodSeconds"></a><a class="headerlink" href="#periodsecondsoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">Duration</span> <span class="nf">getPeriodSeconds</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.Duration"><code>org.cdk8s.Duration</code></a></li>
 <li><em>Default:</em> Duration.seconds(10) Minimum value is 1.</li>
@@ -4180,6 +4346,8 @@ here and the sum of memory limits of all containers in a pod.</p>
 <p>Default to 10 seconds. Minimum value is 1.</p>
 <hr />
 <h5 id="successthresholdoptional_1"><code>successThreshold</code><sup>Optional</sup> <a name="org.cdk8s.plus17.HttpGetProbeOptions.property.successThreshold"></a><a class="headerlink" href="#successthresholdoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="nf">getSuccessThreshold</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.Number</code></li>
 <li><em>Default:</em> 1 Must be 1 for liveness and startup. Minimum value is 1.</li>
@@ -4188,6 +4356,8 @@ here and the sum of memory limits of all containers in a pod.</p>
 <p>Must be 1 for liveness and startup. Minimum value is 1.</p>
 <hr />
 <h5 id="timeoutsecondsoptional_1"><code>timeoutSeconds</code><sup>Optional</sup> <a name="org.cdk8s.plus17.HttpGetProbeOptions.property.timeoutSeconds"></a><a class="headerlink" href="#timeoutsecondsoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">Duration</span> <span class="nf">getTimeoutSeconds</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.Duration"><code>org.cdk8s.Duration</code></a></li>
 <li><em>Default:</em> Duration.seconds(1)</li>
@@ -4199,6 +4369,8 @@ here and the sum of memory limits of all containers in a pod.</p>
 </blockquote>
 <hr />
 <h5 id="portoptional_1"><code>port</code><sup>Optional</sup> <a name="org.cdk8s.plus17.HttpGetProbeOptions.property.port"></a><a class="headerlink" href="#portoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="nf">getPort</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.Number</code></li>
 <li><em>Default:</em> defaults to <code>container.port</code>.</li>
@@ -4218,12 +4390,16 @@ here and the sum of memory limits of all containers in a pod.</p>
     <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
 <h5 id="metadataoptional_11"><code>metadata</code><sup>Optional</sup> <a name="org.cdk8s.plus17.IngressV1Beta1Props.property.metadata"></a><a class="headerlink" href="#metadataoptional_11" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">ApiObjectMetadata</span> <span class="nf">getMetadata</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.ApiObjectMetadata"><code>org.cdk8s.ApiObjectMetadata</code></a></li>
 </ul>
 <p>Metadata that all persisted resources must have, which includes all objects users must create.</p>
 <hr />
 <h5 id="defaultbackendoptional_1"><code>defaultBackend</code><sup>Optional</sup> <a name="org.cdk8s.plus17.IngressV1Beta1Props.property.defaultBackend"></a><a class="headerlink" href="#defaultbackendoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">IngressV1Beta1Backend</span> <span class="nf">getDefaultBackend</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus17.IngressV1Beta1Backend"><code>org.cdk8s.plus17.IngressV1Beta1Backend</code></a></li>
 </ul>
@@ -4232,6 +4408,8 @@ here and the sum of memory limits of all containers in a pod.</p>
 adding a rule with both <code>path</code> and <code>host</code> undefined.</p>
 <hr />
 <h5 id="rulesoptional_1"><code>rules</code><sup>Optional</sup> <a name="org.cdk8s.plus17.IngressV1Beta1Props.property.rules"></a><a class="headerlink" href="#rulesoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">IngressV1Beta1Rule</span><span class="o">&gt;</span> <span class="nf">getRules</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.plus17.IngressV1Beta1Rule"><code>org.cdk8s.plus17.IngressV1Beta1Rule</code></a>&gt;</li>
 </ul>
@@ -4243,6 +4421,8 @@ backend will be used as the default backend of the ingress.</p>
 <code>addDefaultBackend()</code> and <code>addHostDefaultBackend()</code>.</p>
 <hr />
 <h5 id="tlsoptional_1"><code>tls</code><sup>Optional</sup> <a name="org.cdk8s.plus17.IngressV1Beta1Props.property.tls"></a><a class="headerlink" href="#tlsoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">IngressV1Beta1Tls</span><span class="o">&gt;</span> <span class="nf">getTls</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.plus17.IngressV1Beta1Tls"><code>org.cdk8s.plus17.IngressV1Beta1Tls</code></a>&gt;</li>
 </ul>
@@ -4267,12 +4447,16 @@ then routed to the backend associated with the matching path.</p>
     <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
 <h5 id="backendrequired_4"><code>backend</code><sup>Required</sup> <a name="org.cdk8s.plus17.IngressV1Beta1Rule.property.backend"></a><a class="headerlink" href="#backendrequired_4" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">IngressV1Beta1Backend</span> <span class="nf">getBackend</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus17.IngressV1Beta1Backend"><code>org.cdk8s.plus17.IngressV1Beta1Backend</code></a></li>
 </ul>
 <p>Backend defines the referenced service endpoint to which the traffic will be forwarded to.</p>
 <hr />
 <h5 id="hostoptional"><code>host</code><sup>Optional</sup> <a name="org.cdk8s.plus17.IngressV1Beta1Rule.property.host"></a><a class="headerlink" href="#hostoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getHost</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 <li><em>Default:</em> If the host is unspecified, the Ingress routes all traffic based
@@ -4288,6 +4472,8 @@ these may change in the future. Incoming requests are matched against the
 host before the IngressRuleValue.</p>
 <hr />
 <h5 id="pathoptional"><code>path</code><sup>Optional</sup> <a name="org.cdk8s.plus17.IngressV1Beta1Rule.property.path"></a><a class="headerlink" href="#pathoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getPath</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 <li><em>Default:</em> If unspecified, the path defaults to a catch all sending traffic
@@ -4306,6 +4492,8 @@ to the backend.</li>
     <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
 <h5 id="hostsoptional"><code>hosts</code><sup>Optional</sup> <a name="org.cdk8s.plus17.IngressV1Beta1Tls.property.hosts"></a><a class="headerlink" href="#hostsoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="o">&gt;</span> <span class="nf">getHosts</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<code>java.lang.String</code>&gt;</li>
 <li><em>Default:</em> If unspecified, it defaults to the wildcard host setting for
@@ -4316,6 +4504,8 @@ the loadbalancer controller fulfilling this Ingress.</li>
 this list must match the name/s used in the TLS Secret.</p>
 <hr />
 <h5 id="secretoptional"><code>secret</code><sup>Optional</sup> <a name="org.cdk8s.plus17.IngressV1Beta1Tls.property.secret"></a><a class="headerlink" href="#secretoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">ISecret</span> <span class="nf">getSecret</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus17.ISecret"><code>org.cdk8s.plus17.ISecret</code></a></li>
 <li><em>Default:</em> If unspecified, it allows SSL routing based on SNI hostname.</li>
@@ -4343,12 +4533,16 @@ termination and value of the Host header is used for routing.</p>
     <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
 <h5 id="metadataoptional_12"><code>metadata</code><sup>Optional</sup> <a name="org.cdk8s.plus17.JobProps.property.metadata"></a><a class="headerlink" href="#metadataoptional_12" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">ApiObjectMetadata</span> <span class="nf">getMetadata</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.ApiObjectMetadata"><code>org.cdk8s.ApiObjectMetadata</code></a></li>
 </ul>
 <p>Metadata that all persisted resources must have, which includes all objects users must create.</p>
 <hr />
 <h5 id="containersoptional_5"><code>containers</code><sup>Optional</sup> <a name="org.cdk8s.plus17.JobProps.property.containers"></a><a class="headerlink" href="#containersoptional_5" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">ContainerProps</span><span class="o">&gt;</span> <span class="nf">getContainers</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.plus17.ContainerProps"><code>org.cdk8s.plus17.ContainerProps</code></a>&gt;</li>
 <li><em>Default:</em> No containers. Note that a pod spec must include at least one container.</li>
@@ -4359,6 +4553,8 @@ added or removed. There must be at least one container in a Pod.</p>
 <p>You can add additionnal containers using <code>podSpec.addContainer()</code></p>
 <hr />
 <h5 id="restartpolicyoptional_9"><code>restartPolicy</code><sup>Optional</sup> <a name="org.cdk8s.plus17.JobProps.property.restartPolicy"></a><a class="headerlink" href="#restartpolicyoptional_9" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">RestartPolicy</span> <span class="nf">getRestartPolicy</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus17.RestartPolicy"><code>org.cdk8s.plus17.RestartPolicy</code></a></li>
 <li><em>Default:</em> RestartPolicy.ALWAYS</li>
@@ -4369,6 +4565,8 @@ added or removed. There must be at least one container in a Pod.</p>
 </blockquote>
 <hr />
 <h5 id="serviceaccountoptional_9"><code>serviceAccount</code><sup>Optional</sup> <a name="org.cdk8s.plus17.JobProps.property.serviceAccount"></a><a class="headerlink" href="#serviceaccountoptional_9" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">IServiceAccount</span> <span class="nf">getServiceAccount</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus17.IServiceAccount"><code>org.cdk8s.plus17.IServiceAccount</code></a></li>
 <li><em>Default:</em> No service account.</li>
@@ -4385,6 +4583,8 @@ Account (for example, default).</p>
 </blockquote>
 <hr />
 <h5 id="volumesoptional_5"><code>volumes</code><sup>Optional</sup> <a name="org.cdk8s.plus17.JobProps.property.volumes"></a><a class="headerlink" href="#volumesoptional_5" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">Volume</span><span class="o">&gt;</span> <span class="nf">getVolumes</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.plus17.Volume"><code>org.cdk8s.plus17.Volume</code></a>&gt;</li>
 <li><em>Default:</em> No volumes.</li>
@@ -4396,12 +4596,16 @@ Account (for example, default).</p>
 </blockquote>
 <hr />
 <h5 id="podmetadataoptional_4"><code>podMetadata</code><sup>Optional</sup> <a name="org.cdk8s.plus17.JobProps.property.podMetadata"></a><a class="headerlink" href="#podmetadataoptional_4" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">ApiObjectMetadata</span> <span class="nf">getPodMetadata</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.ApiObjectMetadata"><code>org.cdk8s.ApiObjectMetadata</code></a></li>
 </ul>
 <p>The pod metadata.</p>
 <hr />
 <h5 id="activedeadlineoptional_2"><code>activeDeadline</code><sup>Optional</sup> <a name="org.cdk8s.plus17.JobProps.property.activeDeadline"></a><a class="headerlink" href="#activedeadlineoptional_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">Duration</span> <span class="nf">getActiveDeadline</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.Duration"><code>org.cdk8s.Duration</code></a></li>
 <li><em>Default:</em> If unset, then there is no deadline.</li>
@@ -4409,6 +4613,8 @@ Account (for example, default).</p>
 <p>Specifies the duration the job may be active before the system tries to terminate it.</p>
 <hr />
 <h5 id="backofflimitoptional_2"><code>backoffLimit</code><sup>Optional</sup> <a name="org.cdk8s.plus17.JobProps.property.backoffLimit"></a><a class="headerlink" href="#backofflimitoptional_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="nf">getBackoffLimit</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.Number</code></li>
 <li><em>Default:</em> If not set, system defaults to 6.</li>
@@ -4416,6 +4622,8 @@ Account (for example, default).</p>
 <p>Specifies the number of retries before marking this job failed.</p>
 <hr />
 <h5 id="ttlafterfinishedoptional_2"><code>ttlAfterFinished</code><sup>Optional</sup> <a name="org.cdk8s.plus17.JobProps.property.ttlAfterFinished"></a><a class="headerlink" href="#ttlafterfinishedoptional_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">Duration</span> <span class="nf">getTtlAfterFinished</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.Duration"><code>org.cdk8s.Duration</code></a></li>
 <li><em>Default:</em> If this field is unset, the Job won&rsquo;t be automatically deleted.</li>
@@ -4441,6 +4649,8 @@ field is alpha-level and is only honored by servers that enable the
     <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
 <h5 id="propagationoptional"><code>propagation</code><sup>Optional</sup> <a name="org.cdk8s.plus17.MountOptions.property.propagation"></a><a class="headerlink" href="#propagationoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">MountPropagation</span> <span class="nf">getPropagation</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus17.MountPropagation"><code>org.cdk8s.plus17.MountPropagation</code></a></li>
 <li><em>Default:</em> MountPropagation.NONE</li>
@@ -4452,6 +4662,8 @@ other Containers in the same Pod, or even to other Pods on the same node.</p>
 <p>This field is beta in 1.10.</p>
 <hr />
 <h5 id="readonlyoptional"><code>readOnly</code><sup>Optional</sup> <a name="org.cdk8s.plus17.MountOptions.property.readOnly"></a><a class="headerlink" href="#readonlyoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span> <span class="nf">getReadOnly</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.Boolean</code></li>
 <li><em>Default:</em> false</li>
@@ -4460,6 +4672,8 @@ other Containers in the same Pod, or even to other Pods on the same node.</p>
 <p>Defaults to false.</p>
 <hr />
 <h5 id="subpathoptional"><code>subPath</code><sup>Optional</sup> <a name="org.cdk8s.plus17.MountOptions.property.subPath"></a><a class="headerlink" href="#subpathoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getSubPath</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 <li><em>Default:</em> &ldquo;&rdquo; the volume&rsquo;s root</li>
@@ -4467,6 +4681,8 @@ other Containers in the same Pod, or even to other Pods on the same node.</p>
 <p>Path within the volume from which the container&rsquo;s volume should be mounted.).</p>
 <hr />
 <h5 id="subpathexproptional"><code>subPathExpr</code><sup>Optional</sup> <a name="org.cdk8s.plus17.MountOptions.property.subPathExpr"></a><a class="headerlink" href="#subpathexproptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getSubPathExpr</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 <li><em>Default:</em> &ldquo;&rdquo; volume&rsquo;s root.</li>
@@ -4490,6 +4706,8 @@ is beta in 1.15.</p>
     <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
 <h5 id="pathrequired_2"><code>path</code><sup>Required</sup> <a name="org.cdk8s.plus17.PathMapping.property.path"></a><a class="headerlink" href="#pathrequired_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getPath</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 </ul>
@@ -4499,6 +4717,8 @@ path. May not contain the path element &lsquo;..&rsquo;. May not start with the 
 &lsquo;..&rsquo;.</p>
 <hr />
 <h5 id="modeoptional"><code>mode</code><sup>Optional</sup> <a name="org.cdk8s.plus17.PathMapping.property.mode"></a><a class="headerlink" href="#modeoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="nf">getMode</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.Number</code></li>
 </ul>
@@ -4521,12 +4741,16 @@ the result can be other mode bits set.</p>
     <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
 <h5 id="metadataoptional_13"><code>metadata</code><sup>Optional</sup> <a name="org.cdk8s.plus17.PodProps.property.metadata"></a><a class="headerlink" href="#metadataoptional_13" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">ApiObjectMetadata</span> <span class="nf">getMetadata</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.ApiObjectMetadata"><code>org.cdk8s.ApiObjectMetadata</code></a></li>
 </ul>
 <p>Metadata that all persisted resources must have, which includes all objects users must create.</p>
 <hr />
 <h5 id="containersoptional_6"><code>containers</code><sup>Optional</sup> <a name="org.cdk8s.plus17.PodProps.property.containers"></a><a class="headerlink" href="#containersoptional_6" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">ContainerProps</span><span class="o">&gt;</span> <span class="nf">getContainers</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.plus17.ContainerProps"><code>org.cdk8s.plus17.ContainerProps</code></a>&gt;</li>
 <li><em>Default:</em> No containers. Note that a pod spec must include at least one container.</li>
@@ -4537,6 +4761,8 @@ added or removed. There must be at least one container in a Pod.</p>
 <p>You can add additionnal containers using <code>podSpec.addContainer()</code></p>
 <hr />
 <h5 id="restartpolicyoptional_10"><code>restartPolicy</code><sup>Optional</sup> <a name="org.cdk8s.plus17.PodProps.property.restartPolicy"></a><a class="headerlink" href="#restartpolicyoptional_10" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">RestartPolicy</span> <span class="nf">getRestartPolicy</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus17.RestartPolicy"><code>org.cdk8s.plus17.RestartPolicy</code></a></li>
 <li><em>Default:</em> RestartPolicy.ALWAYS</li>
@@ -4547,6 +4773,8 @@ added or removed. There must be at least one container in a Pod.</p>
 </blockquote>
 <hr />
 <h5 id="serviceaccountoptional_10"><code>serviceAccount</code><sup>Optional</sup> <a name="org.cdk8s.plus17.PodProps.property.serviceAccount"></a><a class="headerlink" href="#serviceaccountoptional_10" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">IServiceAccount</span> <span class="nf">getServiceAccount</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus17.IServiceAccount"><code>org.cdk8s.plus17.IServiceAccount</code></a></li>
 <li><em>Default:</em> No service account.</li>
@@ -4563,6 +4791,8 @@ Account (for example, default).</p>
 </blockquote>
 <hr />
 <h5 id="volumesoptional_6"><code>volumes</code><sup>Optional</sup> <a name="org.cdk8s.plus17.PodProps.property.volumes"></a><a class="headerlink" href="#volumesoptional_6" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">Volume</span><span class="o">&gt;</span> <span class="nf">getVolumes</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.plus17.Volume"><code>org.cdk8s.plus17.Volume</code></a>&gt;</li>
 <li><em>Default:</em> No volumes.</li>
@@ -4586,6 +4816,8 @@ Account (for example, default).</p>
     <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
 <h5 id="containersoptional_7"><code>containers</code><sup>Optional</sup> <a name="org.cdk8s.plus17.PodSpecProps.property.containers"></a><a class="headerlink" href="#containersoptional_7" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">ContainerProps</span><span class="o">&gt;</span> <span class="nf">getContainers</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.plus17.ContainerProps"><code>org.cdk8s.plus17.ContainerProps</code></a>&gt;</li>
 <li><em>Default:</em> No containers. Note that a pod spec must include at least one container.</li>
@@ -4596,6 +4828,8 @@ added or removed. There must be at least one container in a Pod.</p>
 <p>You can add additionnal containers using <code>podSpec.addContainer()</code></p>
 <hr />
 <h5 id="restartpolicyoptional_11"><code>restartPolicy</code><sup>Optional</sup> <a name="org.cdk8s.plus17.PodSpecProps.property.restartPolicy"></a><a class="headerlink" href="#restartpolicyoptional_11" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">RestartPolicy</span> <span class="nf">getRestartPolicy</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus17.RestartPolicy"><code>org.cdk8s.plus17.RestartPolicy</code></a></li>
 <li><em>Default:</em> RestartPolicy.ALWAYS</li>
@@ -4606,6 +4840,8 @@ added or removed. There must be at least one container in a Pod.</p>
 </blockquote>
 <hr />
 <h5 id="serviceaccountoptional_11"><code>serviceAccount</code><sup>Optional</sup> <a name="org.cdk8s.plus17.PodSpecProps.property.serviceAccount"></a><a class="headerlink" href="#serviceaccountoptional_11" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">IServiceAccount</span> <span class="nf">getServiceAccount</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus17.IServiceAccount"><code>org.cdk8s.plus17.IServiceAccount</code></a></li>
 <li><em>Default:</em> No service account.</li>
@@ -4622,6 +4858,8 @@ Account (for example, default).</p>
 </blockquote>
 <hr />
 <h5 id="volumesoptional_7"><code>volumes</code><sup>Optional</sup> <a name="org.cdk8s.plus17.PodSpecProps.property.volumes"></a><a class="headerlink" href="#volumesoptional_7" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">Volume</span><span class="o">&gt;</span> <span class="nf">getVolumes</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.plus17.Volume"><code>org.cdk8s.plus17.Volume</code></a>&gt;</li>
 <li><em>Default:</em> No volumes.</li>
@@ -4647,6 +4885,8 @@ Account (for example, default).</p>
     <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
 <h5 id="containersoptional_8"><code>containers</code><sup>Optional</sup> <a name="org.cdk8s.plus17.PodTemplateProps.property.containers"></a><a class="headerlink" href="#containersoptional_8" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">ContainerProps</span><span class="o">&gt;</span> <span class="nf">getContainers</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.plus17.ContainerProps"><code>org.cdk8s.plus17.ContainerProps</code></a>&gt;</li>
 <li><em>Default:</em> No containers. Note that a pod spec must include at least one container.</li>
@@ -4657,6 +4897,8 @@ added or removed. There must be at least one container in a Pod.</p>
 <p>You can add additionnal containers using <code>podSpec.addContainer()</code></p>
 <hr />
 <h5 id="restartpolicyoptional_12"><code>restartPolicy</code><sup>Optional</sup> <a name="org.cdk8s.plus17.PodTemplateProps.property.restartPolicy"></a><a class="headerlink" href="#restartpolicyoptional_12" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">RestartPolicy</span> <span class="nf">getRestartPolicy</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus17.RestartPolicy"><code>org.cdk8s.plus17.RestartPolicy</code></a></li>
 <li><em>Default:</em> RestartPolicy.ALWAYS</li>
@@ -4667,6 +4909,8 @@ added or removed. There must be at least one container in a Pod.</p>
 </blockquote>
 <hr />
 <h5 id="serviceaccountoptional_12"><code>serviceAccount</code><sup>Optional</sup> <a name="org.cdk8s.plus17.PodTemplateProps.property.serviceAccount"></a><a class="headerlink" href="#serviceaccountoptional_12" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">IServiceAccount</span> <span class="nf">getServiceAccount</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus17.IServiceAccount"><code>org.cdk8s.plus17.IServiceAccount</code></a></li>
 <li><em>Default:</em> No service account.</li>
@@ -4683,6 +4927,8 @@ Account (for example, default).</p>
 </blockquote>
 <hr />
 <h5 id="volumesoptional_8"><code>volumes</code><sup>Optional</sup> <a name="org.cdk8s.plus17.PodTemplateProps.property.volumes"></a><a class="headerlink" href="#volumesoptional_8" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">Volume</span><span class="o">&gt;</span> <span class="nf">getVolumes</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.plus17.Volume"><code>org.cdk8s.plus17.Volume</code></a>&gt;</li>
 <li><em>Default:</em> No volumes.</li>
@@ -4694,6 +4940,8 @@ Account (for example, default).</p>
 </blockquote>
 <hr />
 <h5 id="podmetadataoptional_5"><code>podMetadata</code><sup>Optional</sup> <a name="org.cdk8s.plus17.PodTemplateProps.property.podMetadata"></a><a class="headerlink" href="#podmetadataoptional_5" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">ApiObjectMetadata</span> <span class="nf">getPodMetadata</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.ApiObjectMetadata"><code>org.cdk8s.ApiObjectMetadata</code></a></li>
 </ul>
@@ -4713,6 +4961,8 @@ Account (for example, default).</p>
     <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
 <h5 id="failurethresholdoptional_2"><code>failureThreshold</code><sup>Optional</sup> <a name="org.cdk8s.plus17.ProbeOptions.property.failureThreshold"></a><a class="headerlink" href="#failurethresholdoptional_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="nf">getFailureThreshold</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.Number</code></li>
 <li><em>Default:</em> 3</li>
@@ -4721,6 +4971,8 @@ Account (for example, default).</p>
 <p>Defaults to 3. Minimum value is 1.</p>
 <hr />
 <h5 id="initialdelaysecondsoptional_2"><code>initialDelaySeconds</code><sup>Optional</sup> <a name="org.cdk8s.plus17.ProbeOptions.property.initialDelaySeconds"></a><a class="headerlink" href="#initialdelaysecondsoptional_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">Duration</span> <span class="nf">getInitialDelaySeconds</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.Duration"><code>org.cdk8s.Duration</code></a></li>
 <li><em>Default:</em> immediate</li>
@@ -4731,6 +4983,8 @@ Account (for example, default).</p>
 </blockquote>
 <hr />
 <h5 id="periodsecondsoptional_2"><code>periodSeconds</code><sup>Optional</sup> <a name="org.cdk8s.plus17.ProbeOptions.property.periodSeconds"></a><a class="headerlink" href="#periodsecondsoptional_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">Duration</span> <span class="nf">getPeriodSeconds</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.Duration"><code>org.cdk8s.Duration</code></a></li>
 <li><em>Default:</em> Duration.seconds(10) Minimum value is 1.</li>
@@ -4739,6 +4993,8 @@ Account (for example, default).</p>
 <p>Default to 10 seconds. Minimum value is 1.</p>
 <hr />
 <h5 id="successthresholdoptional_2"><code>successThreshold</code><sup>Optional</sup> <a name="org.cdk8s.plus17.ProbeOptions.property.successThreshold"></a><a class="headerlink" href="#successthresholdoptional_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="nf">getSuccessThreshold</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.Number</code></li>
 <li><em>Default:</em> 1 Must be 1 for liveness and startup. Minimum value is 1.</li>
@@ -4747,6 +5003,8 @@ Account (for example, default).</p>
 <p>Must be 1 for liveness and startup. Minimum value is 1.</p>
 <hr />
 <h5 id="timeoutsecondsoptional_2"><code>timeoutSeconds</code><sup>Optional</sup> <a name="org.cdk8s.plus17.ProbeOptions.property.timeoutSeconds"></a><a class="headerlink" href="#timeoutsecondsoptional_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">Duration</span> <span class="nf">getTimeoutSeconds</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.Duration"><code>org.cdk8s.Duration</code></a></li>
 <li><em>Default:</em> Duration.seconds(1)</li>
@@ -4767,6 +5025,8 @@ Account (for example, default).</p>
     <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
 <h5 id="metadataoptional_14"><code>metadata</code><sup>Optional</sup> <a name="org.cdk8s.plus17.ResourceProps.property.metadata"></a><a class="headerlink" href="#metadataoptional_14" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">ApiObjectMetadata</span> <span class="nf">getMetadata</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.ApiObjectMetadata"><code>org.cdk8s.ApiObjectMetadata</code></a></li>
 </ul>
@@ -4783,12 +5043,16 @@ Account (for example, default).</p>
     <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
 <h5 id="metadataoptional_15"><code>metadata</code><sup>Optional</sup> <a name="org.cdk8s.plus17.SecretProps.property.metadata"></a><a class="headerlink" href="#metadataoptional_15" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">ApiObjectMetadata</span> <span class="nf">getMetadata</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.ApiObjectMetadata"><code>org.cdk8s.ApiObjectMetadata</code></a></li>
 </ul>
 <p>Metadata that all persisted resources must have, which includes all objects users must create.</p>
 <hr />
 <h5 id="stringdataoptional_1"><code>stringData</code><sup>Optional</sup> <a name="org.cdk8s.plus17.SecretProps.property.stringData"></a><a class="headerlink" href="#stringdataoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="o">&gt;</span> <span class="nf">getStringData</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.Map<java.lang.String, <code>java.lang.String</code>></li>
 </ul>
@@ -4799,6 +5063,8 @@ into the data field on write, overwriting any existing values. It is never
 output when reading from the API.</p>
 <hr />
 <h5 id="typeoptional_2"><code>type</code><sup>Optional</sup> <a name="org.cdk8s.plus17.SecretProps.property.type"></a><a class="headerlink" href="#typeoptional_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getType</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 <li><em>Default:</em> undefined - Don&rsquo;t set a type.</li>
@@ -4818,12 +5084,16 @@ handling of secret data by various controllers.</p>
     <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
 <h5 id="keyrequired_6"><code>key</code><sup>Required</sup> <a name="org.cdk8s.plus17.SecretValue.property.key"></a><a class="headerlink" href="#keyrequired_6" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getKey</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 </ul>
 <p>The JSON key.</p>
 <hr />
 <h5 id="secretrequired_1"><code>secret</code><sup>Required</sup> <a name="org.cdk8s.plus17.SecretValue.property.secret"></a><a class="headerlink" href="#secretrequired_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">ISecret</span> <span class="nf">getSecret</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus17.ISecret"><code>org.cdk8s.plus17.ISecret</code></a></li>
 </ul>
@@ -4841,12 +5111,16 @@ handling of secret data by various controllers.</p>
     <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
 <h5 id="metadataoptional_16"><code>metadata</code><sup>Optional</sup> <a name="org.cdk8s.plus17.ServiceAccountProps.property.metadata"></a><a class="headerlink" href="#metadataoptional_16" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">ApiObjectMetadata</span> <span class="nf">getMetadata</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.ApiObjectMetadata"><code>org.cdk8s.ApiObjectMetadata</code></a></li>
 </ul>
 <p>Metadata that all persisted resources must have, which includes all objects users must create.</p>
 <hr />
 <h5 id="secretsoptional_1"><code>secrets</code><sup>Optional</sup> <a name="org.cdk8s.plus17.ServiceAccountProps.property.secrets"></a><a class="headerlink" href="#secretsoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">ISecret</span><span class="o">&gt;</span> <span class="nf">getSecrets</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.plus17.ISecret"><code>org.cdk8s.plus17.ISecret</code></a>&gt;</li>
 </ul>
@@ -4865,6 +5139,8 @@ handling of secret data by various controllers.</p>
     <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
 <h5 id="portoptional_2"><code>port</code><sup>Optional</sup> <a name="org.cdk8s.plus17.ServiceIngressV1BetaBackendOptions.property.port"></a><a class="headerlink" href="#portoptional_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="nf">getPort</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.Number</code></li>
 <li><em>Default:</em> if the service exposes a single port, this port will be used.</li>
@@ -4889,6 +5165,8 @@ handling of secret data by various controllers.</p>
     <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
 <h5 id="nameoptional_3"><code>name</code><sup>Optional</sup> <a name="org.cdk8s.plus17.ServicePort.property.name"></a><a class="headerlink" href="#nameoptional_3" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getName</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 </ul>
@@ -4899,6 +5177,8 @@ field in EndpointPort objects. Optional if only one ServicePort is defined
 on this service.</p>
 <hr />
 <h5 id="nodeportoptional"><code>nodePort</code><sup>Optional</sup> <a name="org.cdk8s.plus17.ServicePort.property.nodePort"></a><a class="headerlink" href="#nodeportoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="nf">getNodePort</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.Number</code></li>
 <li><em>Default:</em> to auto-allocate a port if the ServiceType of this Service
@@ -4914,6 +5194,8 @@ requires one.</p>
 </blockquote>
 <hr />
 <h5 id="protocoloptional_1"><code>protocol</code><sup>Optional</sup> <a name="org.cdk8s.plus17.ServicePort.property.protocol"></a><a class="headerlink" href="#protocoloptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">Protocol</span> <span class="nf">getProtocol</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus17.Protocol"><code>org.cdk8s.plus17.Protocol</code></a></li>
 <li><em>Default:</em> Protocol.TCP</li>
@@ -4922,6 +5204,8 @@ requires one.</p>
 <p>Supports &ldquo;TCP&rdquo;, &ldquo;UDP&rdquo;, and &ldquo;SCTP&rdquo;. Default is TCP.</p>
 <hr />
 <h5 id="targetportoptional_1"><code>targetPort</code><sup>Optional</sup> <a name="org.cdk8s.plus17.ServicePort.property.targetPort"></a><a class="headerlink" href="#targetportoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="nf">getTargetPort</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.Number</code></li>
 <li><em>Default:</em> The value of <code>port</code> will be used.</li>
@@ -4929,6 +5213,8 @@ requires one.</p>
 <p>The port number the service will redirect to.</p>
 <hr />
 <h5 id="portrequired_3"><code>port</code><sup>Required</sup> <a name="org.cdk8s.plus17.ServicePort.property.port"></a><a class="headerlink" href="#portrequired_3" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="nf">getPort</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.Number</code></li>
 </ul>
@@ -4946,6 +5232,8 @@ requires one.</p>
     <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
 <h5 id="nameoptional_4"><code>name</code><sup>Optional</sup> <a name="org.cdk8s.plus17.ServicePortOptions.property.name"></a><a class="headerlink" href="#nameoptional_4" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getName</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 </ul>
@@ -4956,6 +5244,8 @@ field in EndpointPort objects. Optional if only one ServicePort is defined
 on this service.</p>
 <hr />
 <h5 id="nodeportoptional_1"><code>nodePort</code><sup>Optional</sup> <a name="org.cdk8s.plus17.ServicePortOptions.property.nodePort"></a><a class="headerlink" href="#nodeportoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="nf">getNodePort</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.Number</code></li>
 <li><em>Default:</em> to auto-allocate a port if the ServiceType of this Service
@@ -4971,6 +5261,8 @@ requires one.</p>
 </blockquote>
 <hr />
 <h5 id="protocoloptional_2"><code>protocol</code><sup>Optional</sup> <a name="org.cdk8s.plus17.ServicePortOptions.property.protocol"></a><a class="headerlink" href="#protocoloptional_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">Protocol</span> <span class="nf">getProtocol</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus17.Protocol"><code>org.cdk8s.plus17.Protocol</code></a></li>
 <li><em>Default:</em> Protocol.TCP</li>
@@ -4979,6 +5271,8 @@ requires one.</p>
 <p>Supports &ldquo;TCP&rdquo;, &ldquo;UDP&rdquo;, and &ldquo;SCTP&rdquo;. Default is TCP.</p>
 <hr />
 <h5 id="targetportoptional_2"><code>targetPort</code><sup>Optional</sup> <a name="org.cdk8s.plus17.ServicePortOptions.property.targetPort"></a><a class="headerlink" href="#targetportoptional_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="nf">getTargetPort</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.Number</code></li>
 <li><em>Default:</em> The value of <code>port</code> will be used.</li>
@@ -5001,12 +5295,16 @@ requires one.</p>
     <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
 <h5 id="metadataoptional_17"><code>metadata</code><sup>Optional</sup> <a name="org.cdk8s.plus17.ServiceProps.property.metadata"></a><a class="headerlink" href="#metadataoptional_17" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">ApiObjectMetadata</span> <span class="nf">getMetadata</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.ApiObjectMetadata"><code>org.cdk8s.ApiObjectMetadata</code></a></li>
 </ul>
 <p>Metadata that all persisted resources must have, which includes all objects users must create.</p>
 <hr />
 <h5 id="clusteripoptional_2"><code>clusterIP</code><sup>Optional</sup> <a name="org.cdk8s.plus17.ServiceProps.property.clusterIP"></a><a class="headerlink" href="#clusteripoptional_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getClusterIP</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 <li><em>Default:</em> Automatically assigned.</li>
@@ -5023,6 +5321,8 @@ ClusterIP, NodePort, and LoadBalancer. Ignored if type is ExternalName.</p>
 </blockquote>
 <hr />
 <h5 id="externalipsoptional_1"><code>externalIPs</code><sup>Optional</sup> <a name="org.cdk8s.plus17.ServiceProps.property.externalIPs"></a><a class="headerlink" href="#externalipsoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="o">&gt;</span> <span class="nf">getExternalIPs</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<code>java.lang.String</code>&gt;</li>
 <li><em>Default:</em> No external IPs.</li>
@@ -5034,6 +5334,8 @@ common example is external load-balancers that are not part of the
 Kubernetes system.</p>
 <hr />
 <h5 id="externalnameoptional_2"><code>externalName</code><sup>Optional</sup> <a name="org.cdk8s.plus17.ServiceProps.property.externalName"></a><a class="headerlink" href="#externalnameoptional_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getExternalName</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 <li><em>Default:</em> No external name.</li>
@@ -5041,6 +5343,8 @@ Kubernetes system.</p>
 <p>The externalName to be used when ServiceType.EXTERNAL_NAME is set.</p>
 <hr />
 <h5 id="loadbalancersourcerangesoptional_1"><code>loadBalancerSourceRanges</code><sup>Optional</sup> <a name="org.cdk8s.plus17.ServiceProps.property.loadBalancerSourceRanges"></a><a class="headerlink" href="#loadbalancersourcerangesoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="o">&gt;</span> <span class="nf">getLoadBalancerSourceRanges</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<code>java.lang.String</code>&gt;</li>
 </ul>
@@ -5048,6 +5352,8 @@ Kubernetes system.</p>
 <p>More info: https://kubernetes.io/docs/tasks/access-application-cluster/configure-cloud-provider-firewall/</p>
 <hr />
 <h5 id="portsoptional_1"><code>ports</code><sup>Optional</sup> <a name="org.cdk8s.plus17.ServiceProps.property.ports"></a><a class="headerlink" href="#portsoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">ServicePort</span><span class="o">&gt;</span> <span class="nf">getPorts</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.plus17.ServicePort"><code>org.cdk8s.plus17.ServicePort</code></a>&gt;</li>
 </ul>
@@ -5055,6 +5361,8 @@ Kubernetes system.</p>
 <p>More info: https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies</p>
 <hr />
 <h5 id="typeoptional_3"><code>type</code><sup>Optional</sup> <a name="org.cdk8s.plus17.ServiceProps.property.type"></a><a class="headerlink" href="#typeoptional_3" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">ServiceType</span> <span class="nf">getType</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus17.ServiceType"><code>org.cdk8s.plus17.ServiceType</code></a></li>
 <li><em>Default:</em> ServiceType.ClusterIP</li>
@@ -5081,12 +5389,16 @@ Kubernetes system.</p>
     <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
 <h5 id="metadataoptional_18"><code>metadata</code><sup>Optional</sup> <a name="org.cdk8s.plus17.StatefulSetProps.property.metadata"></a><a class="headerlink" href="#metadataoptional_18" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">ApiObjectMetadata</span> <span class="nf">getMetadata</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.ApiObjectMetadata"><code>org.cdk8s.ApiObjectMetadata</code></a></li>
 </ul>
 <p>Metadata that all persisted resources must have, which includes all objects users must create.</p>
 <hr />
 <h5 id="containersoptional_9"><code>containers</code><sup>Optional</sup> <a name="org.cdk8s.plus17.StatefulSetProps.property.containers"></a><a class="headerlink" href="#containersoptional_9" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">ContainerProps</span><span class="o">&gt;</span> <span class="nf">getContainers</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.plus17.ContainerProps"><code>org.cdk8s.plus17.ContainerProps</code></a>&gt;</li>
 <li><em>Default:</em> No containers. Note that a pod spec must include at least one container.</li>
@@ -5097,6 +5409,8 @@ added or removed. There must be at least one container in a Pod.</p>
 <p>You can add additionnal containers using <code>podSpec.addContainer()</code></p>
 <hr />
 <h5 id="restartpolicyoptional_13"><code>restartPolicy</code><sup>Optional</sup> <a name="org.cdk8s.plus17.StatefulSetProps.property.restartPolicy"></a><a class="headerlink" href="#restartpolicyoptional_13" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">RestartPolicy</span> <span class="nf">getRestartPolicy</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus17.RestartPolicy"><code>org.cdk8s.plus17.RestartPolicy</code></a></li>
 <li><em>Default:</em> RestartPolicy.ALWAYS</li>
@@ -5107,6 +5421,8 @@ added or removed. There must be at least one container in a Pod.</p>
 </blockquote>
 <hr />
 <h5 id="serviceaccountoptional_13"><code>serviceAccount</code><sup>Optional</sup> <a name="org.cdk8s.plus17.StatefulSetProps.property.serviceAccount"></a><a class="headerlink" href="#serviceaccountoptional_13" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">IServiceAccount</span> <span class="nf">getServiceAccount</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus17.IServiceAccount"><code>org.cdk8s.plus17.IServiceAccount</code></a></li>
 <li><em>Default:</em> No service account.</li>
@@ -5123,6 +5439,8 @@ Account (for example, default).</p>
 </blockquote>
 <hr />
 <h5 id="volumesoptional_9"><code>volumes</code><sup>Optional</sup> <a name="org.cdk8s.plus17.StatefulSetProps.property.volumes"></a><a class="headerlink" href="#volumesoptional_9" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">Volume</span><span class="o">&gt;</span> <span class="nf">getVolumes</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.plus17.Volume"><code>org.cdk8s.plus17.Volume</code></a>&gt;</li>
 <li><em>Default:</em> No volumes.</li>
@@ -5134,18 +5452,24 @@ Account (for example, default).</p>
 </blockquote>
 <hr />
 <h5 id="podmetadataoptional_6"><code>podMetadata</code><sup>Optional</sup> <a name="org.cdk8s.plus17.StatefulSetProps.property.podMetadata"></a><a class="headerlink" href="#podmetadataoptional_6" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">ApiObjectMetadata</span> <span class="nf">getPodMetadata</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.ApiObjectMetadata"><code>org.cdk8s.ApiObjectMetadata</code></a></li>
 </ul>
 <p>The pod metadata.</p>
 <hr />
 <h5 id="servicerequired_1"><code>service</code><sup>Required</sup> <a name="org.cdk8s.plus17.StatefulSetProps.property.service"></a><a class="headerlink" href="#servicerequired_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">Service</span> <span class="nf">getService</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus17.Service"><code>org.cdk8s.plus17.Service</code></a></li>
 </ul>
 <p>Service to associate with the statefulset.</p>
 <hr />
 <h5 id="defaultselectoroptional_3"><code>defaultSelector</code><sup>Optional</sup> <a name="org.cdk8s.plus17.StatefulSetProps.property.defaultSelector"></a><a class="headerlink" href="#defaultselectoroptional_3" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span> <span class="nf">getDefaultSelector</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.Boolean</code></li>
 <li><em>Default:</em> true</li>
@@ -5155,6 +5479,8 @@ Account (for example, default).</p>
 <code>statefulset.podMetadata.addLabel()</code> and <code>statefulset.selectByLabel()</code>.</p>
 <hr />
 <h5 id="podmanagementpolicyoptional_1"><code>podManagementPolicy</code><sup>Optional</sup> <a name="org.cdk8s.plus17.StatefulSetProps.property.podManagementPolicy"></a><a class="headerlink" href="#podmanagementpolicyoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">PodManagementPolicy</span> <span class="nf">getPodManagementPolicy</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus17.PodManagementPolicy"><code>org.cdk8s.plus17.PodManagementPolicy</code></a></li>
 <li><em>Default:</em> PodManagementPolicy.ORDERED_READY</li>
@@ -5162,6 +5488,8 @@ Account (for example, default).</p>
 <p>Pod management policy to use for this statefulset.</p>
 <hr />
 <h5 id="replicasoptional_3"><code>replicas</code><sup>Optional</sup> <a name="org.cdk8s.plus17.StatefulSetProps.property.replicas"></a><a class="headerlink" href="#replicasoptional_3" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="nf">getReplicas</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.Number</code></li>
 <li><em>Default:</em> 1</li>
@@ -5183,6 +5511,8 @@ Account (for example, default).</p>
     <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
 <h5 id="propagationoptional_1"><code>propagation</code><sup>Optional</sup> <a name="org.cdk8s.plus17.VolumeMount.property.propagation"></a><a class="headerlink" href="#propagationoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">MountPropagation</span> <span class="nf">getPropagation</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus17.MountPropagation"><code>org.cdk8s.plus17.MountPropagation</code></a></li>
 <li><em>Default:</em> MountPropagation.NONE</li>
@@ -5194,6 +5524,8 @@ other Containers in the same Pod, or even to other Pods on the same node.</p>
 <p>This field is beta in 1.10.</p>
 <hr />
 <h5 id="readonlyoptional_1"><code>readOnly</code><sup>Optional</sup> <a name="org.cdk8s.plus17.VolumeMount.property.readOnly"></a><a class="headerlink" href="#readonlyoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span> <span class="nf">getReadOnly</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.Boolean</code></li>
 <li><em>Default:</em> false</li>
@@ -5202,6 +5534,8 @@ other Containers in the same Pod, or even to other Pods on the same node.</p>
 <p>Defaults to false.</p>
 <hr />
 <h5 id="subpathoptional_1"><code>subPath</code><sup>Optional</sup> <a name="org.cdk8s.plus17.VolumeMount.property.subPath"></a><a class="headerlink" href="#subpathoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getSubPath</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 <li><em>Default:</em> &ldquo;&rdquo; the volume&rsquo;s root</li>
@@ -5209,6 +5543,8 @@ other Containers in the same Pod, or even to other Pods on the same node.</p>
 <p>Path within the volume from which the container&rsquo;s volume should be mounted.).</p>
 <hr />
 <h5 id="subpathexproptional_1"><code>subPathExpr</code><sup>Optional</sup> <a name="org.cdk8s.plus17.VolumeMount.property.subPathExpr"></a><a class="headerlink" href="#subpathexproptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getSubPathExpr</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 <li><em>Default:</em> &ldquo;&rdquo; volume&rsquo;s root.</li>
@@ -5222,6 +5558,8 @@ is beta in 1.15.</p>
 1.15.</p>
 <hr />
 <h5 id="pathrequired_3"><code>path</code><sup>Required</sup> <a name="org.cdk8s.plus17.VolumeMount.property.path"></a><a class="headerlink" href="#pathrequired_3" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getPath</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 </ul>
@@ -5230,6 +5568,8 @@ is beta in 1.15.</p>
 contain &lsquo;:&rsquo;.</p>
 <hr />
 <h5 id="volumerequired_4"><code>volume</code><sup>Required</sup> <a name="org.cdk8s.plus17.VolumeMount.property.volume"></a><a class="headerlink" href="#volumerequired_4" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">Volume</span> <span class="nf">getVolume</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus17.Volume"><code>org.cdk8s.plus17.Volume</code></a></li>
 </ul>
@@ -5397,6 +5737,8 @@ More info: https://kubernetes.io/docs/tasks/inject-data-application/define-comma
 <hr />
 <h4 id="properties_8">Properties <a name="Properties"></a><a class="headerlink" href="#properties_8" title="Permanent link">&para;</a></h4>
 <h5 id="envrequired"><code>env</code><sup>Required</sup> <a name="org.cdk8s.plus17.Container.property.env"></a><a class="headerlink" href="#envrequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span> <span class="n">EnvValue</span><span class="o">&gt;</span> <span class="nf">getEnv</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus17.EnvValue">klzzwxh:2730</a>></li>
 </ul>
@@ -5404,48 +5746,64 @@ More info: https://kubernetes.io/docs/tasks/inject-data-application/define-comma
 <p>Returns a copy. To add environment variables use <code>addEnv()</code>.</p>
 <hr />
 <h5 id="imagerequired_2"><code>image</code><sup>Required</sup> <a name="org.cdk8s.plus17.Container.property.image"></a><a class="headerlink" href="#imagerequired_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getImage</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 </ul>
 <p>The container image.</p>
 <hr />
 <h5 id="imagepullpolicyrequired"><code>imagePullPolicy</code><sup>Required</sup> <a name="org.cdk8s.plus17.Container.property.imagePullPolicy"></a><a class="headerlink" href="#imagepullpolicyrequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">ImagePullPolicy</span> <span class="nf">getImagePullPolicy</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus17.ImagePullPolicy"><code>org.cdk8s.plus17.ImagePullPolicy</code></a></li>
 </ul>
 <p>Image pull policy for this container.</p>
 <hr />
 <h5 id="mountsrequired"><code>mounts</code><sup>Required</sup> <a name="org.cdk8s.plus17.Container.property.mounts"></a><a class="headerlink" href="#mountsrequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">VolumeMount</span><span class="o">&gt;</span> <span class="nf">getMounts</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.plus17.VolumeMount"><code>org.cdk8s.plus17.VolumeMount</code></a>&gt;</li>
 </ul>
 <p>Volume mounts configured for this container.</p>
 <hr />
 <h5 id="namerequired_5"><code>name</code><sup>Required</sup> <a name="org.cdk8s.plus17.Container.property.name"></a><a class="headerlink" href="#namerequired_5" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getName</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 </ul>
 <p>The name of the container.</p>
 <hr />
 <h5 id="argsoptional_2"><code>args</code><sup>Optional</sup> <a name="org.cdk8s.plus17.Container.property.args"></a><a class="headerlink" href="#argsoptional_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="o">&gt;</span> <span class="nf">getArgs</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<code>java.lang.String</code>&gt;</li>
 </ul>
 <p>Arguments to the entrypoint.</p>
 <hr />
 <h5 id="commandoptional_2"><code>command</code><sup>Optional</sup> <a name="org.cdk8s.plus17.Container.property.command"></a><a class="headerlink" href="#commandoptional_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="o">&gt;</span> <span class="nf">getCommand</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<code>java.lang.String</code>&gt;</li>
 </ul>
 <p>Entrypoint array (the command to execute when the container starts).</p>
 <hr />
 <h5 id="portoptional_4"><code>port</code><sup>Optional</sup> <a name="org.cdk8s.plus17.Container.property.port"></a><a class="headerlink" href="#portoptional_4" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="nf">getPort</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.Number</code></li>
 </ul>
 <p>The port this container exposes.</p>
 <hr />
 <h5 id="workingdiroptional_2"><code>workingDir</code><sup>Optional</sup> <a name="org.cdk8s.plus17.Container.property.workingDir"></a><a class="headerlink" href="#workingdiroptional_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getWorkingDir</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 </ul>
@@ -5527,11 +5885,15 @@ More info: https://kubernetes.io/docs/tasks/inject-data-application/define-comma
 <hr />
 <h4 id="properties_9">Properties <a name="Properties"></a><a class="headerlink" href="#properties_9" title="Permanent link">&para;</a></h4>
 <h5 id="valueoptional"><code>value</code><sup>Optional</sup> <a name="org.cdk8s.plus17.EnvValue.property.value"></a><a class="headerlink" href="#valueoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Object</span> <span class="nf">getValue</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.Object</code></li>
 </ul>
 <hr />
 <h5 id="valuefromoptional"><code>valueFrom</code><sup>Optional</sup> <a name="org.cdk8s.plus17.EnvValue.property.valueFrom"></a><a class="headerlink" href="#valuefromoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Object</span> <span class="nf">getValueFrom</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.Object</code></li>
 </ul>
@@ -5637,6 +5999,8 @@ Account (for example, default).</p>
 <hr />
 <h4 id="properties_10">Properties <a name="Properties"></a><a class="headerlink" href="#properties_10" title="Permanent link">&para;</a></h4>
 <h5 id="containersrequired_4"><code>containers</code><sup>Required</sup> <a name="org.cdk8s.plus17.PodSpec.property.containers"></a><a class="headerlink" href="#containersrequired_4" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">Container</span><span class="o">&gt;</span> <span class="nf">getContainers</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.plus17.Container"><code>org.cdk8s.plus17.Container</code></a>&gt;</li>
 </ul>
@@ -5644,6 +6008,8 @@ Account (for example, default).</p>
 <p>Use <code>addContainer</code> to add containers.</p>
 <hr />
 <h5 id="volumesrequired_4"><code>volumes</code><sup>Required</sup> <a name="org.cdk8s.plus17.PodSpec.property.volumes"></a><a class="headerlink" href="#volumesrequired_4" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">Volume</span><span class="o">&gt;</span> <span class="nf">getVolumes</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.plus17.Volume"><code>org.cdk8s.plus17.Volume</code></a>&gt;</li>
 </ul>
@@ -5651,12 +6017,16 @@ Account (for example, default).</p>
 <p>Use <code>addVolume</code> to add volumes.</p>
 <hr />
 <h5 id="restartpolicyoptional_15"><code>restartPolicy</code><sup>Optional</sup> <a name="org.cdk8s.plus17.PodSpec.property.restartPolicy"></a><a class="headerlink" href="#restartpolicyoptional_15" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">RestartPolicy</span> <span class="nf">getRestartPolicy</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus17.RestartPolicy"><code>org.cdk8s.plus17.RestartPolicy</code></a></li>
 </ul>
 <p>Restart policy for all containers within the pod.</p>
 <hr />
 <h5 id="serviceaccountoptional_15"><code>serviceAccount</code><sup>Optional</sup> <a name="org.cdk8s.plus17.PodSpec.property.serviceAccount"></a><a class="headerlink" href="#serviceaccountoptional_15" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">IServiceAccount</span> <span class="nf">getServiceAccount</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus17.IServiceAccount"><code>org.cdk8s.plus17.IServiceAccount</code></a></li>
 </ul>
@@ -5733,6 +6103,8 @@ Account (for example, default).</p>
 <hr />
 <h4 id="properties_11">Properties <a name="Properties"></a><a class="headerlink" href="#properties_11" title="Permanent link">&para;</a></h4>
 <h5 id="podmetadatarequired_3"><code>podMetadata</code><sup>Required</sup> <a name="org.cdk8s.plus17.PodTemplate.property.podMetadata"></a><a class="headerlink" href="#podmetadatarequired_3" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">ApiObjectMetadataDefinition</span> <span class="nf">getPodMetadata</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.ApiObjectMetadataDefinition"><code>org.cdk8s.ApiObjectMetadataDefinition</code></a></li>
 </ul>
@@ -5861,6 +6233,8 @@ image. Volumes can not mount onto other volumes</p>
 <hr />
 <h4 id="properties_12">Properties <a name="Properties"></a><a class="headerlink" href="#properties_12" title="Permanent link">&para;</a></h4>
 <h5 id="namerequired_8"><code>name</code><sup>Required</sup> <a name="org.cdk8s.plus17.Volume.property.name"></a><a class="headerlink" href="#namerequired_8" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getName</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 </ul>
@@ -5878,6 +6252,8 @@ image. Volumes can not mount onto other volumes</p>
 <p>Represents a config map.</p>
 <h4 id="properties_13">Properties <a name="Properties"></a><a class="headerlink" href="#properties_13" title="Permanent link">&para;</a></h4>
 <h5 id="namerequired_9"><code>name</code><sup>Required</sup> <a name="org.cdk8s.plus17.IConfigMap.property.name"></a><a class="headerlink" href="#namerequired_9" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getName</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 </ul>
@@ -5910,6 +6286,8 @@ image. Volumes can not mount onto other volumes</p>
 <hr />
 <h4 id="properties_14">Properties <a name="Properties"></a><a class="headerlink" href="#properties_14" title="Permanent link">&para;</a></h4>
 <h5 id="containersrequired_5"><code>containers</code><sup>Required</sup> <a name="org.cdk8s.plus17.IPodSpec.property.containers"></a><a class="headerlink" href="#containersrequired_5" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">Container</span><span class="o">&gt;</span> <span class="nf">getContainers</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.plus17.Container"><code>org.cdk8s.plus17.Container</code></a>&gt;</li>
 </ul>
@@ -5917,6 +6295,8 @@ image. Volumes can not mount onto other volumes</p>
 <p>Use <code>addContainer</code> to add containers.</p>
 <hr />
 <h5 id="volumesrequired_5"><code>volumes</code><sup>Required</sup> <a name="org.cdk8s.plus17.IPodSpec.property.volumes"></a><a class="headerlink" href="#volumesrequired_5" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">Volume</span><span class="o">&gt;</span> <span class="nf">getVolumes</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.plus17.Volume"><code>org.cdk8s.plus17.Volume</code></a>&gt;</li>
 </ul>
@@ -5924,12 +6304,16 @@ image. Volumes can not mount onto other volumes</p>
 <p>Use <code>addVolume</code> to add volumes.</p>
 <hr />
 <h5 id="restartpolicyoptional_17"><code>restartPolicy</code><sup>Optional</sup> <a name="org.cdk8s.plus17.IPodSpec.property.restartPolicy"></a><a class="headerlink" href="#restartpolicyoptional_17" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">RestartPolicy</span> <span class="nf">getRestartPolicy</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus17.RestartPolicy"><code>org.cdk8s.plus17.RestartPolicy</code></a></li>
 </ul>
 <p>Restart policy for all containers within the pod.</p>
 <hr />
 <h5 id="serviceaccountoptional_17"><code>serviceAccount</code><sup>Optional</sup> <a name="org.cdk8s.plus17.IPodSpec.property.serviceAccount"></a><a class="headerlink" href="#serviceaccountoptional_17" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">IServiceAccount</span> <span class="nf">getServiceAccount</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus17.IServiceAccount"><code>org.cdk8s.plus17.IServiceAccount</code></a></li>
 </ul>
@@ -5948,6 +6332,8 @@ image. Volumes can not mount onto other volumes</p>
 <p>Use the <code>PodTemplate</code> class as an implementation helper.</p>
 <h4 id="properties_15">Properties <a name="Properties"></a><a class="headerlink" href="#properties_15" title="Permanent link">&para;</a></h4>
 <h5 id="containersrequired_6"><code>containers</code><sup>Required</sup> <a name="org.cdk8s.plus17.IPodTemplate.property.containers"></a><a class="headerlink" href="#containersrequired_6" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">Container</span><span class="o">&gt;</span> <span class="nf">getContainers</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.plus17.Container"><code>org.cdk8s.plus17.Container</code></a>&gt;</li>
 </ul>
@@ -5955,6 +6341,8 @@ image. Volumes can not mount onto other volumes</p>
 <p>Use <code>addContainer</code> to add containers.</p>
 <hr />
 <h5 id="volumesrequired_6"><code>volumes</code><sup>Required</sup> <a name="org.cdk8s.plus17.IPodTemplate.property.volumes"></a><a class="headerlink" href="#volumesrequired_6" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">Volume</span><span class="o">&gt;</span> <span class="nf">getVolumes</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.plus17.Volume"><code>org.cdk8s.plus17.Volume</code></a>&gt;</li>
 </ul>
@@ -5962,18 +6350,24 @@ image. Volumes can not mount onto other volumes</p>
 <p>Use <code>addVolume</code> to add volumes.</p>
 <hr />
 <h5 id="restartpolicyoptional_18"><code>restartPolicy</code><sup>Optional</sup> <a name="org.cdk8s.plus17.IPodTemplate.property.restartPolicy"></a><a class="headerlink" href="#restartpolicyoptional_18" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">RestartPolicy</span> <span class="nf">getRestartPolicy</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus17.RestartPolicy"><code>org.cdk8s.plus17.RestartPolicy</code></a></li>
 </ul>
 <p>Restart policy for all containers within the pod.</p>
 <hr />
 <h5 id="serviceaccountoptional_18"><code>serviceAccount</code><sup>Optional</sup> <a name="org.cdk8s.plus17.IPodTemplate.property.serviceAccount"></a><a class="headerlink" href="#serviceaccountoptional_18" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">IServiceAccount</span> <span class="nf">getServiceAccount</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus17.IServiceAccount"><code>org.cdk8s.plus17.IServiceAccount</code></a></li>
 </ul>
 <p>The service account used to run this pod.</p>
 <hr />
 <h5 id="podmetadatarequired_4"><code>podMetadata</code><sup>Required</sup> <a name="org.cdk8s.plus17.IPodTemplate.property.podMetadata"></a><a class="headerlink" href="#podmetadatarequired_4" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">ApiObjectMetadataDefinition</span> <span class="nf">getPodMetadata</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.ApiObjectMetadataDefinition"><code>org.cdk8s.ApiObjectMetadataDefinition</code></a></li>
 </ul>
@@ -5986,6 +6380,8 @@ image. Volumes can not mount onto other volumes</p>
 <p>Represents a resource.</p>
 <h4 id="properties_16">Properties <a name="Properties"></a><a class="headerlink" href="#properties_16" title="Permanent link">&para;</a></h4>
 <h5 id="namerequired_10"><code>name</code><sup>Required</sup> <a name="org.cdk8s.plus17.IResource.property.name"></a><a class="headerlink" href="#namerequired_10" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getName</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 </ul>
@@ -6002,6 +6398,8 @@ image. Volumes can not mount onto other volumes</p>
 </ul>
 <h4 id="properties_17">Properties <a name="Properties"></a><a class="headerlink" href="#properties_17" title="Permanent link">&para;</a></h4>
 <h5 id="namerequired_11"><code>name</code><sup>Required</sup> <a name="org.cdk8s.plus17.ISecret.property.name"></a><a class="headerlink" href="#namerequired_11" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getName</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 </ul>
@@ -6018,6 +6416,8 @@ image. Volumes can not mount onto other volumes</p>
 </ul>
 <h4 id="properties_18">Properties <a name="Properties"></a><a class="headerlink" href="#properties_18" title="Permanent link">&para;</a></h4>
 <h5 id="namerequired_12"><code>name</code><sup>Required</sup> <a name="org.cdk8s.plus17.IServiceAccount.property.name"></a><a class="headerlink" href="#namerequired_12" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getName</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 </ul>

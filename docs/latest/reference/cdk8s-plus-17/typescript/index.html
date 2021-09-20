@@ -2292,6 +2292,8 @@
 <hr />
 <h4 id="properties">Properties <a name="Properties"></a><a class="headerlink" href="#properties" title="Permanent link">&para;</a></h4>
 <h5 id="binarydatarequired"><code>binaryData</code><sup>Required</sup> <a name="cdk8s-plus-17.ConfigMap.property.binaryData"></a><a class="headerlink" href="#binarydatarequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">binaryData</span><span class="o">:</span> <span class="p">{[</span> <span class="nx">key</span>: <span class="kt">string</span> <span class="p">]</span><span class="o">:</span> <span class="kt">string</span><span class="p">};</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> {[ key: string ]: <code>string</code>}</li>
 </ul>
@@ -2299,6 +2301,8 @@
 <p>Returns a copy. To add data records, use <code>addBinaryData()</code> or <code>addData()</code>.</p>
 <hr />
 <h5 id="datarequired"><code>data</code><sup>Required</sup> <a name="cdk8s-plus-17.ConfigMap.property.data"></a><a class="headerlink" href="#datarequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">data</span><span class="o">:</span> <span class="p">{[</span> <span class="nx">key</span>: <span class="kt">string</span> <span class="p">]</span><span class="o">:</span> <span class="kt">string</span><span class="p">};</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> {[ key: string ]: <code>string</code>}</li>
 </ul>
@@ -2400,6 +2404,8 @@ existing Deployments and adopt all their resources with new Deployments.</p>
 <hr />
 <h4 id="properties_1">Properties <a name="Properties"></a><a class="headerlink" href="#properties_1" title="Permanent link">&para;</a></h4>
 <h5 id="containersrequired"><code>containers</code><sup>Required</sup> <a name="cdk8s-plus-17.Deployment.property.containers"></a><a class="headerlink" href="#containersrequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">containers</span>: <span class="kt">Container</span><span class="p">[];</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.Container"><code>cdk8s-plus-17.Container</code></a>[]</li>
 </ul>
@@ -2407,6 +2413,8 @@ existing Deployments and adopt all their resources with new Deployments.</p>
 <p>Use <code>addContainer</code> to add containers.</p>
 <hr />
 <h5 id="labelselectorrequired"><code>labelSelector</code><sup>Required</sup> <a name="cdk8s-plus-17.Deployment.property.labelSelector"></a><a class="headerlink" href="#labelselectorrequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">labelSelector</span><span class="o">:</span> <span class="p">{[</span> <span class="nx">key</span>: <span class="kt">string</span> <span class="p">]</span><span class="o">:</span> <span class="kt">string</span><span class="p">};</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> {[ key: string ]: <code>string</code>}</li>
 </ul>
@@ -2414,18 +2422,24 @@ existing Deployments and adopt all their resources with new Deployments.</p>
 <p>Returns a a copy. Use <code>selectByLabel()</code> to add labels.</p>
 <hr />
 <h5 id="podmetadatarequired"><code>podMetadata</code><sup>Required</sup> <a name="cdk8s-plus-17.Deployment.property.podMetadata"></a><a class="headerlink" href="#podmetadatarequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">podMetadata</span>: <span class="kt">ApiObjectMetadataDefinition</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s.ApiObjectMetadataDefinition"><code>cdk8s.ApiObjectMetadataDefinition</code></a></li>
 </ul>
 <p>Provides read/write access to the underlying pod metadata of the resource.</p>
 <hr />
 <h5 id="replicasrequired"><code>replicas</code><sup>Required</sup> <a name="cdk8s-plus-17.Deployment.property.replicas"></a><a class="headerlink" href="#replicasrequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">replicas</span>: <span class="kt">number</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>number</code></li>
 </ul>
 <p>Number of desired pods.</p>
 <hr />
 <h5 id="volumesrequired"><code>volumes</code><sup>Required</sup> <a name="cdk8s-plus-17.Deployment.property.volumes"></a><a class="headerlink" href="#volumesrequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">volumes</span>: <span class="kt">Volume</span><span class="p">[];</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.Volume"><code>cdk8s-plus-17.Volume</code></a>[]</li>
 </ul>
@@ -2433,12 +2447,16 @@ existing Deployments and adopt all their resources with new Deployments.</p>
 <p>Use <code>addVolume</code> to add volumes.</p>
 <hr />
 <h5 id="restartpolicyoptional"><code>restartPolicy</code><sup>Optional</sup> <a name="cdk8s-plus-17.Deployment.property.restartPolicy"></a><a class="headerlink" href="#restartpolicyoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">restartPolicy</span>: <span class="kt">RestartPolicy</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.RestartPolicy"><code>cdk8s-plus-17.RestartPolicy</code></a></li>
 </ul>
 <p>Restart policy for all containers within the pod.</p>
 <hr />
 <h5 id="serviceaccountoptional"><code>serviceAccount</code><sup>Optional</sup> <a name="cdk8s-plus-17.Deployment.property.serviceAccount"></a><a class="headerlink" href="#serviceaccountoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">serviceAccount</span>: <span class="kt">IServiceAccount</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.IServiceAccount"><code>cdk8s-plus-17.IServiceAccount</code></a></li>
 </ul>
@@ -2596,6 +2614,8 @@ You can also use a Job to run multiple Pods in parallel.</p>
 <hr />
 <h4 id="properties_2">Properties <a name="Properties"></a><a class="headerlink" href="#properties_2" title="Permanent link">&para;</a></h4>
 <h5 id="containersrequired_1"><code>containers</code><sup>Required</sup> <a name="cdk8s-plus-17.Job.property.containers"></a><a class="headerlink" href="#containersrequired_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">containers</span>: <span class="kt">Container</span><span class="p">[];</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.Container"><code>cdk8s-plus-17.Container</code></a>[]</li>
 </ul>
@@ -2603,12 +2623,16 @@ You can also use a Job to run multiple Pods in parallel.</p>
 <p>Use <code>addContainer</code> to add containers.</p>
 <hr />
 <h5 id="podmetadatarequired_1"><code>podMetadata</code><sup>Required</sup> <a name="cdk8s-plus-17.Job.property.podMetadata"></a><a class="headerlink" href="#podmetadatarequired_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">podMetadata</span>: <span class="kt">ApiObjectMetadataDefinition</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s.ApiObjectMetadataDefinition"><code>cdk8s.ApiObjectMetadataDefinition</code></a></li>
 </ul>
 <p>Provides read/write access to the underlying pod metadata of the resource.</p>
 <hr />
 <h5 id="volumesrequired_1"><code>volumes</code><sup>Required</sup> <a name="cdk8s-plus-17.Job.property.volumes"></a><a class="headerlink" href="#volumesrequired_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">volumes</span>: <span class="kt">Volume</span><span class="p">[];</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.Volume"><code>cdk8s-plus-17.Volume</code></a>[]</li>
 </ul>
@@ -2616,6 +2640,8 @@ You can also use a Job to run multiple Pods in parallel.</p>
 <p>Use <code>addVolume</code> to add volumes.</p>
 <hr />
 <h5 id="activedeadlineoptional"><code>activeDeadline</code><sup>Optional</sup> <a name="cdk8s-plus-17.Job.property.activeDeadline"></a><a class="headerlink" href="#activedeadlineoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">activeDeadline</span>: <span class="kt">Duration</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s.Duration"><code>cdk8s.Duration</code></a></li>
 </ul>
@@ -2623,24 +2649,32 @@ You can also use a Job to run multiple Pods in parallel.</p>
 <p>If undefined, there is no deadline.</p>
 <hr />
 <h5 id="backofflimitoptional"><code>backoffLimit</code><sup>Optional</sup> <a name="cdk8s-plus-17.Job.property.backoffLimit"></a><a class="headerlink" href="#backofflimitoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">backoffLimit</span>: <span class="kt">number</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>number</code></li>
 </ul>
 <p>Number of retries before marking failed.</p>
 <hr />
 <h5 id="restartpolicyoptional_1"><code>restartPolicy</code><sup>Optional</sup> <a name="cdk8s-plus-17.Job.property.restartPolicy"></a><a class="headerlink" href="#restartpolicyoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">restartPolicy</span>: <span class="kt">RestartPolicy</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.RestartPolicy"><code>cdk8s-plus-17.RestartPolicy</code></a></li>
 </ul>
 <p>Restart policy for all containers within the pod.</p>
 <hr />
 <h5 id="serviceaccountoptional_1"><code>serviceAccount</code><sup>Optional</sup> <a name="cdk8s-plus-17.Job.property.serviceAccount"></a><a class="headerlink" href="#serviceaccountoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">serviceAccount</span>: <span class="kt">IServiceAccount</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.IServiceAccount"><code>cdk8s-plus-17.IServiceAccount</code></a></li>
 </ul>
 <p>The service account used to run this pod.</p>
 <hr />
 <h5 id="ttlafterfinishedoptional"><code>ttlAfterFinished</code><sup>Optional</sup> <a name="cdk8s-plus-17.Job.property.ttlAfterFinished"></a><a class="headerlink" href="#ttlafterfinishedoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">ttlAfterFinished</span>: <span class="kt">Duration</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s.Duration"><code>cdk8s.Duration</code></a></li>
 </ul>
@@ -2692,6 +2726,8 @@ created by clients and scheduled onto hosts.</p>
 <hr />
 <h4 id="properties_3">Properties <a name="Properties"></a><a class="headerlink" href="#properties_3" title="Permanent link">&para;</a></h4>
 <h5 id="containersrequired_2"><code>containers</code><sup>Required</sup> <a name="cdk8s-plus-17.Pod.property.containers"></a><a class="headerlink" href="#containersrequired_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">containers</span>: <span class="kt">Container</span><span class="p">[];</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.Container"><code>cdk8s-plus-17.Container</code></a>[]</li>
 </ul>
@@ -2699,6 +2735,8 @@ created by clients and scheduled onto hosts.</p>
 <p>Use <code>addContainer</code> to add containers.</p>
 <hr />
 <h5 id="volumesrequired_2"><code>volumes</code><sup>Required</sup> <a name="cdk8s-plus-17.Pod.property.volumes"></a><a class="headerlink" href="#volumesrequired_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">volumes</span>: <span class="kt">Volume</span><span class="p">[];</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.Volume"><code>cdk8s-plus-17.Volume</code></a>[]</li>
 </ul>
@@ -2706,12 +2744,16 @@ created by clients and scheduled onto hosts.</p>
 <p>Use <code>addVolume</code> to add volumes.</p>
 <hr />
 <h5 id="restartpolicyoptional_2"><code>restartPolicy</code><sup>Optional</sup> <a name="cdk8s-plus-17.Pod.property.restartPolicy"></a><a class="headerlink" href="#restartpolicyoptional_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">restartPolicy</span>: <span class="kt">RestartPolicy</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.RestartPolicy"><code>cdk8s-plus-17.RestartPolicy</code></a></li>
 </ul>
 <p>Restart policy for all containers within the pod.</p>
 <hr />
 <h5 id="serviceaccountoptional_2"><code>serviceAccount</code><sup>Optional</sup> <a name="cdk8s-plus-17.Pod.property.serviceAccount"></a><a class="headerlink" href="#serviceaccountoptional_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">serviceAccount</span>: <span class="kt">IServiceAccount</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.IServiceAccount"><code>cdk8s-plus-17.IServiceAccount</code></a></li>
 </ul>
@@ -2752,11 +2794,15 @@ dash <code>--</code>.</p>
 <hr />
 <h4 id="properties_4">Properties <a name="Properties"></a><a class="headerlink" href="#properties_4" title="Permanent link">&para;</a></h4>
 <h5 id="metadatarequired"><code>metadata</code><sup>Required</sup> <a name="cdk8s-plus-17.Resource.property.metadata"></a><a class="headerlink" href="#metadatarequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">metadata</span>: <span class="kt">ApiObjectMetadataDefinition</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s.ApiObjectMetadataDefinition"><code>cdk8s.ApiObjectMetadataDefinition</code></a></li>
 </ul>
 <hr />
 <h5 id="namerequired_1"><code>name</code><sup>Required</sup> <a name="cdk8s-plus-17.Resource.property.name"></a><a class="headerlink" href="#namerequired_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">name</span>: <span class="kt">string</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code></li>
 </ul>
@@ -2914,6 +2960,8 @@ or load balancer in between your application and the backend Pods.</p>
 <hr />
 <h4 id="properties_5">Properties <a name="Properties"></a><a class="headerlink" href="#properties_5" title="Permanent link">&para;</a></h4>
 <h5 id="portsrequired"><code>ports</code><sup>Required</sup> <a name="cdk8s-plus-17.Service.property.ports"></a><a class="headerlink" href="#portsrequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">ports</span>: <span class="kt">ServicePort</span><span class="p">[];</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.ServicePort"><code>cdk8s-plus-17.ServicePort</code></a>[]</li>
 </ul>
@@ -2921,24 +2969,32 @@ or load balancer in between your application and the backend Pods.</p>
 <p>Use <code>serve()</code> to expose additional service ports.</p>
 <hr />
 <h5 id="selectorrequired"><code>selector</code><sup>Required</sup> <a name="cdk8s-plus-17.Service.property.selector"></a><a class="headerlink" href="#selectorrequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">selector</span><span class="o">:</span> <span class="p">{[</span> <span class="nx">key</span>: <span class="kt">string</span> <span class="p">]</span><span class="o">:</span> <span class="kt">string</span><span class="p">};</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> {[ key: string ]: <code>string</code>}</li>
 </ul>
 <p>Returns the labels which are used to select pods for this service.</p>
 <hr />
 <h5 id="typerequired"><code>type</code><sup>Required</sup> <a name="cdk8s-plus-17.Service.property.type"></a><a class="headerlink" href="#typerequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="kr">type</span><span class="o">:</span> <span class="nx">ServiceType</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.ServiceType"><code>cdk8s-plus-17.ServiceType</code></a></li>
 </ul>
 <p>Determines how the Service is exposed.</p>
 <hr />
 <h5 id="clusteripoptional"><code>clusterIP</code><sup>Optional</sup> <a name="cdk8s-plus-17.Service.property.clusterIP"></a><a class="headerlink" href="#clusteripoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">clusterIP</span>: <span class="kt">string</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code></li>
 </ul>
 <p>The IP address of the service and is usually assigned randomly by the master.</p>
 <hr />
 <h5 id="externalnameoptional"><code>externalName</code><sup>Optional</sup> <a name="cdk8s-plus-17.Service.property.externalName"></a><a class="headerlink" href="#externalnameoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">externalName</span>: <span class="kt">string</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code></li>
 </ul>
@@ -3002,6 +3058,8 @@ example, default).</p>
 <hr />
 <h4 id="properties_6">Properties <a name="Properties"></a><a class="headerlink" href="#properties_6" title="Permanent link">&para;</a></h4>
 <h5 id="secretsrequired"><code>secrets</code><sup>Required</sup> <a name="cdk8s-plus-17.ServiceAccount.property.secrets"></a><a class="headerlink" href="#secretsrequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">secrets</span>: <span class="kt">ISecret</span><span class="p">[];</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.ISecret"><code>cdk8s-plus-17.ISecret</code></a>[]</li>
 </ul>
@@ -3086,6 +3144,8 @@ volumes to the new Pods that replace any that have failed.</p>
 <hr />
 <h4 id="properties_7">Properties <a name="Properties"></a><a class="headerlink" href="#properties_7" title="Permanent link">&para;</a></h4>
 <h5 id="containersrequired_3"><code>containers</code><sup>Required</sup> <a name="cdk8s-plus-17.StatefulSet.property.containers"></a><a class="headerlink" href="#containersrequired_3" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">containers</span>: <span class="kt">Container</span><span class="p">[];</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.Container"><code>cdk8s-plus-17.Container</code></a>[]</li>
 </ul>
@@ -3093,6 +3153,8 @@ volumes to the new Pods that replace any that have failed.</p>
 <p>Use <code>addContainer</code> to add containers.</p>
 <hr />
 <h5 id="labelselectorrequired_1"><code>labelSelector</code><sup>Required</sup> <a name="cdk8s-plus-17.StatefulSet.property.labelSelector"></a><a class="headerlink" href="#labelselectorrequired_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">labelSelector</span><span class="o">:</span> <span class="p">{[</span> <span class="nx">key</span>: <span class="kt">string</span> <span class="p">]</span><span class="o">:</span> <span class="kt">string</span><span class="p">};</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> {[ key: string ]: <code>string</code>}</li>
 </ul>
@@ -3100,24 +3162,32 @@ volumes to the new Pods that replace any that have failed.</p>
 <p>Returns a a copy. Use <code>selectByLabel()</code> to add labels.</p>
 <hr />
 <h5 id="podmanagementpolicyrequired"><code>podManagementPolicy</code><sup>Required</sup> <a name="cdk8s-plus-17.StatefulSet.property.podManagementPolicy"></a><a class="headerlink" href="#podmanagementpolicyrequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">podManagementPolicy</span>: <span class="kt">PodManagementPolicy</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.PodManagementPolicy"><code>cdk8s-plus-17.PodManagementPolicy</code></a></li>
 </ul>
 <p>Management policy to use for the set.</p>
 <hr />
 <h5 id="podmetadatarequired_2"><code>podMetadata</code><sup>Required</sup> <a name="cdk8s-plus-17.StatefulSet.property.podMetadata"></a><a class="headerlink" href="#podmetadatarequired_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">podMetadata</span>: <span class="kt">ApiObjectMetadataDefinition</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s.ApiObjectMetadataDefinition"><code>cdk8s.ApiObjectMetadataDefinition</code></a></li>
 </ul>
 <p>Provides read/write access to the underlying pod metadata of the resource.</p>
 <hr />
 <h5 id="replicasrequired_1"><code>replicas</code><sup>Required</sup> <a name="cdk8s-plus-17.StatefulSet.property.replicas"></a><a class="headerlink" href="#replicasrequired_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">replicas</span>: <span class="kt">number</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>number</code></li>
 </ul>
 <p>Number of desired pods.</p>
 <hr />
 <h5 id="volumesrequired_3"><code>volumes</code><sup>Required</sup> <a name="cdk8s-plus-17.StatefulSet.property.volumes"></a><a class="headerlink" href="#volumesrequired_3" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">volumes</span>: <span class="kt">Volume</span><span class="p">[];</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.Volume"><code>cdk8s-plus-17.Volume</code></a>[]</li>
 </ul>
@@ -3125,12 +3195,16 @@ volumes to the new Pods that replace any that have failed.</p>
 <p>Use <code>addVolume</code> to add volumes.</p>
 <hr />
 <h5 id="restartpolicyoptional_3"><code>restartPolicy</code><sup>Optional</sup> <a name="cdk8s-plus-17.StatefulSet.property.restartPolicy"></a><a class="headerlink" href="#restartpolicyoptional_3" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">restartPolicy</span>: <span class="kt">RestartPolicy</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.RestartPolicy"><code>cdk8s-plus-17.RestartPolicy</code></a></li>
 </ul>
 <p>Restart policy for all containers within the pod.</p>
 <hr />
 <h5 id="serviceaccountoptional_3"><code>serviceAccount</code><sup>Optional</sup> <a name="cdk8s-plus-17.StatefulSet.property.serviceAccount"></a><a class="headerlink" href="#serviceaccountoptional_3" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">serviceAccount</span>: <span class="kt">IServiceAccount</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.IServiceAccount"><code>cdk8s-plus-17.IServiceAccount</code></a></li>
 </ul>
@@ -3145,6 +3219,8 @@ volumes to the new Pods that replace any that have failed.</p>
 <span class="kd">const</span> <span class="nx">addDirectoryOptions</span>: <span class="kt">AddDirectoryOptions</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
 </code></pre></div>
 <h5 id="excludeoptional"><code>exclude</code><sup>Optional</sup> <a name="cdk8s-plus-17.AddDirectoryOptions.property.exclude"></a><a class="headerlink" href="#excludeoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">exclude</span>: <span class="kt">string</span><span class="p">[];</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code>[]</li>
 <li><em>Default:</em> include all files</li>
@@ -3152,6 +3228,8 @@ volumes to the new Pods that replace any that have failed.</p>
 <p>Glob patterns to exclude when adding files.</p>
 <hr />
 <h5 id="keyprefixoptional"><code>keyPrefix</code><sup>Optional</sup> <a name="cdk8s-plus-17.AddDirectoryOptions.property.keyPrefix"></a><a class="headerlink" href="#keyprefixoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">keyPrefix</span>: <span class="kt">string</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code></li>
 <li><em>Default:</em> &ldquo;&rdquo;</li>
@@ -3166,6 +3244,8 @@ volumes to the new Pods that replace any that have failed.</p>
 <span class="kd">const</span> <span class="nx">commandProbeOptions</span>: <span class="kt">CommandProbeOptions</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
 </code></pre></div>
 <h5 id="failurethresholdoptional"><code>failureThreshold</code><sup>Optional</sup> <a name="cdk8s-plus-17.CommandProbeOptions.property.failureThreshold"></a><a class="headerlink" href="#failurethresholdoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">failureThreshold</span>: <span class="kt">number</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>number</code></li>
 <li><em>Default:</em> 3</li>
@@ -3174,6 +3254,8 @@ volumes to the new Pods that replace any that have failed.</p>
 <p>Defaults to 3. Minimum value is 1.</p>
 <hr />
 <h5 id="initialdelaysecondsoptional"><code>initialDelaySeconds</code><sup>Optional</sup> <a name="cdk8s-plus-17.CommandProbeOptions.property.initialDelaySeconds"></a><a class="headerlink" href="#initialdelaysecondsoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">initialDelaySeconds</span>: <span class="kt">Duration</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s.Duration"><code>cdk8s.Duration</code></a></li>
 <li><em>Default:</em> immediate</li>
@@ -3184,6 +3266,8 @@ volumes to the new Pods that replace any that have failed.</p>
 </blockquote>
 <hr />
 <h5 id="periodsecondsoptional"><code>periodSeconds</code><sup>Optional</sup> <a name="cdk8s-plus-17.CommandProbeOptions.property.periodSeconds"></a><a class="headerlink" href="#periodsecondsoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">periodSeconds</span>: <span class="kt">Duration</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s.Duration"><code>cdk8s.Duration</code></a></li>
 <li><em>Default:</em> Duration.seconds(10) Minimum value is 1.</li>
@@ -3192,6 +3276,8 @@ volumes to the new Pods that replace any that have failed.</p>
 <p>Default to 10 seconds. Minimum value is 1.</p>
 <hr />
 <h5 id="successthresholdoptional"><code>successThreshold</code><sup>Optional</sup> <a name="cdk8s-plus-17.CommandProbeOptions.property.successThreshold"></a><a class="headerlink" href="#successthresholdoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">successThreshold</span>: <span class="kt">number</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>number</code></li>
 <li><em>Default:</em> 1 Must be 1 for liveness and startup. Minimum value is 1.</li>
@@ -3200,6 +3286,8 @@ volumes to the new Pods that replace any that have failed.</p>
 <p>Must be 1 for liveness and startup. Minimum value is 1.</p>
 <hr />
 <h5 id="timeoutsecondsoptional"><code>timeoutSeconds</code><sup>Optional</sup> <a name="cdk8s-plus-17.CommandProbeOptions.property.timeoutSeconds"></a><a class="headerlink" href="#timeoutsecondsoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">timeoutSeconds</span>: <span class="kt">Duration</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s.Duration"><code>cdk8s.Duration</code></a></li>
 <li><em>Default:</em> Duration.seconds(1)</li>
@@ -3218,12 +3306,16 @@ volumes to the new Pods that replace any that have failed.</p>
 <span class="kd">const</span> <span class="nx">configMapProps</span>: <span class="kt">ConfigMapProps</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
 </code></pre></div>
 <h5 id="metadataoptional"><code>metadata</code><sup>Optional</sup> <a name="cdk8s-plus-17.ConfigMapProps.property.metadata"></a><a class="headerlink" href="#metadataoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">metadata</span>: <span class="kt">ApiObjectMetadata</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s.ApiObjectMetadata"><code>cdk8s.ApiObjectMetadata</code></a></li>
 </ul>
 <p>Metadata that all persisted resources must have, which includes all objects users must create.</p>
 <hr />
 <h5 id="binarydataoptional"><code>binaryData</code><sup>Optional</sup> <a name="cdk8s-plus-17.ConfigMapProps.property.binaryData"></a><a class="headerlink" href="#binarydataoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">binaryData</span><span class="o">:</span> <span class="p">{[</span> <span class="nx">key</span>: <span class="kt">string</span> <span class="p">]</span><span class="o">:</span> <span class="kt">string</span><span class="p">};</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> {[ key: string ]: <code>string</code>}</li>
 </ul>
@@ -3236,6 +3328,8 @@ this is enforced during validation process. Using this field will require
 <p>You can also add binary data using <code>configMap.addBinaryData()</code>.</p>
 <hr />
 <h5 id="dataoptional"><code>data</code><sup>Optional</sup> <a name="cdk8s-plus-17.ConfigMapProps.property.data"></a><a class="headerlink" href="#dataoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">data</span><span class="o">:</span> <span class="p">{[</span> <span class="nx">key</span>: <span class="kt">string</span> <span class="p">]</span><span class="o">:</span> <span class="kt">string</span><span class="p">};</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> {[ key: string ]: <code>string</code>}</li>
 </ul>
@@ -3254,6 +3348,8 @@ is enforced during validation process.</p>
 <span class="kd">const</span> <span class="nx">configMapVolumeOptions</span>: <span class="kt">ConfigMapVolumeOptions</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
 </code></pre></div>
 <h5 id="defaultmodeoptional"><code>defaultMode</code><sup>Optional</sup> <a name="cdk8s-plus-17.ConfigMapVolumeOptions.property.defaultMode"></a><a class="headerlink" href="#defaultmodeoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">defaultMode</span>: <span class="kt">number</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>number</code></li>
 <li><em>Default:</em> 0644. Directories within the path are not affected by this
@@ -3267,6 +3363,8 @@ this setting. This might be in conflict with other options that affect the
 file mode, like fsGroup, and the result can be other mode bits set.</p>
 <hr />
 <h5 id="itemsoptional"><code>items</code><sup>Optional</sup> <a name="cdk8s-plus-17.ConfigMapVolumeOptions.property.items"></a><a class="headerlink" href="#itemsoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">items</span><span class="o">:</span> <span class="p">{[</span> <span class="nx">key</span>: <span class="kt">string</span> <span class="p">]</span><span class="o">:</span> <span class="nx">PathMapping</span><span class="p">};</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> {[ key: string ]: <a href="#cdk8s-plus-17.PathMapping"><code>cdk8s-plus-17.PathMapping</code></a>}</li>
 <li><em>Default:</em> no mapping</li>
@@ -3279,6 +3377,8 @@ error unless it is marked optional. Paths must be relative and may not
 contain the &lsquo;..&rsquo; path or start with &lsquo;..&rsquo;.</p>
 <hr />
 <h5 id="nameoptional"><code>name</code><sup>Optional</sup> <a name="cdk8s-plus-17.ConfigMapVolumeOptions.property.name"></a><a class="headerlink" href="#nameoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">name</span>: <span class="kt">string</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code></li>
 <li><em>Default:</em> auto-generated</li>
@@ -3286,6 +3386,8 @@ contain the &lsquo;..&rsquo; path or start with &lsquo;..&rsquo;.</p>
 <p>The volume name.</p>
 <hr />
 <h5 id="optionaloptional"><code>optional</code><sup>Optional</sup> <a name="cdk8s-plus-17.ConfigMapVolumeOptions.property.optional"></a><a class="headerlink" href="#optionaloptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">optional</span>: <span class="kt">boolean</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>boolean</code></li>
 <li><em>Default:</em> undocumented</li>
@@ -3300,12 +3402,16 @@ contain the &lsquo;..&rsquo; path or start with &lsquo;..&rsquo;.</p>
 <span class="kd">const</span> <span class="nx">containerProps</span>: <span class="kt">ContainerProps</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
 </code></pre></div>
 <h5 id="imagerequired"><code>image</code><sup>Required</sup> <a name="cdk8s-plus-17.ContainerProps.property.image"></a><a class="headerlink" href="#imagerequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">image</span>: <span class="kt">string</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code></li>
 </ul>
 <p>Docker image name.</p>
 <hr />
 <h5 id="argsoptional"><code>args</code><sup>Optional</sup> <a name="cdk8s-plus-17.ContainerProps.property.args"></a><a class="headerlink" href="#argsoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">args</span>: <span class="kt">string</span><span class="p">[];</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code>[]</li>
 <li><em>Default:</em> []</li>
@@ -3322,6 +3428,8 @@ regardless of whether the variable exists or not.</p>
 </blockquote>
 <hr />
 <h5 id="commandoptional"><code>command</code><sup>Optional</sup> <a name="cdk8s-plus-17.ContainerProps.property.command"></a><a class="headerlink" href="#commandoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">command</span>: <span class="kt">string</span><span class="p">[];</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code>[]</li>
 <li><em>Default:</em> The docker image&rsquo;s ENTRYPOINT.</li>
@@ -3333,6 +3441,8 @@ Escaped references will never be expanded, regardless of whether the variable ex
 More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell</p>
 <hr />
 <h5 id="envoptional"><code>env</code><sup>Optional</sup> <a name="cdk8s-plus-17.ContainerProps.property.env"></a><a class="headerlink" href="#envoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">env</span><span class="o">:</span> <span class="p">{[</span> <span class="nx">key</span>: <span class="kt">string</span> <span class="p">]</span><span class="o">:</span> <span class="nx">EnvValue</span><span class="p">};</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> {[ key: string ]: <a href="#cdk8s-plus-17.EnvValue"><code>cdk8s-plus-17.EnvValue</code></a>}</li>
 <li><em>Default:</em> No environment variables.</li>
@@ -3341,6 +3451,8 @@ More info: https://kubernetes.io/docs/tasks/inject-data-application/define-comma
 <p>Cannot be updated.</p>
 <hr />
 <h5 id="imagepullpolicyoptional"><code>imagePullPolicy</code><sup>Optional</sup> <a name="cdk8s-plus-17.ContainerProps.property.imagePullPolicy"></a><a class="headerlink" href="#imagepullpolicyoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">imagePullPolicy</span>: <span class="kt">ImagePullPolicy</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.ImagePullPolicy"><code>cdk8s-plus-17.ImagePullPolicy</code></a></li>
 <li><em>Default:</em> ImagePullPolicy.ALWAYS</li>
@@ -3348,6 +3460,8 @@ More info: https://kubernetes.io/docs/tasks/inject-data-application/define-comma
 <p>Image pull policy for this container.</p>
 <hr />
 <h5 id="livenessoptional"><code>liveness</code><sup>Optional</sup> <a name="cdk8s-plus-17.ContainerProps.property.liveness"></a><a class="headerlink" href="#livenessoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">liveness</span>: <span class="kt">Probe</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.Probe"><code>cdk8s-plus-17.Probe</code></a></li>
 <li><em>Default:</em> no liveness probe is defined</li>
@@ -3356,6 +3470,8 @@ More info: https://kubernetes.io/docs/tasks/inject-data-application/define-comma
 <p>Container will be restarted if the probe fails.</p>
 <hr />
 <h5 id="nameoptional_1"><code>name</code><sup>Optional</sup> <a name="cdk8s-plus-17.ContainerProps.property.name"></a><a class="headerlink" href="#nameoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">name</span>: <span class="kt">string</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code></li>
 <li><em>Default:</em> &lsquo;main&rsquo;</li>
@@ -3364,6 +3480,8 @@ More info: https://kubernetes.io/docs/tasks/inject-data-application/define-comma
 <p>Each container in a pod must have a unique name (DNS_LABEL). Cannot be updated.</p>
 <hr />
 <h5 id="portoptional"><code>port</code><sup>Optional</sup> <a name="cdk8s-plus-17.ContainerProps.property.port"></a><a class="headerlink" href="#portoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">port</span>: <span class="kt">number</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>number</code></li>
 <li><em>Default:</em> No port is exposed.</li>
@@ -3372,6 +3490,8 @@ More info: https://kubernetes.io/docs/tasks/inject-data-application/define-comma
 <p>This must be a valid port number, 0 &lt; x &lt; 65536.</p>
 <hr />
 <h5 id="readinessoptional"><code>readiness</code><sup>Optional</sup> <a name="cdk8s-plus-17.ContainerProps.property.readiness"></a><a class="headerlink" href="#readinessoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">readiness</span>: <span class="kt">Probe</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.Probe"><code>cdk8s-plus-17.Probe</code></a></li>
 <li><em>Default:</em> no readiness probe is defined</li>
@@ -3379,6 +3499,8 @@ More info: https://kubernetes.io/docs/tasks/inject-data-application/define-comma
 <p>Determines when the container is ready to serve traffic.</p>
 <hr />
 <h5 id="startupoptional"><code>startup</code><sup>Optional</sup> <a name="cdk8s-plus-17.ContainerProps.property.startup"></a><a class="headerlink" href="#startupoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">startup</span>: <span class="kt">Probe</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.Probe"><code>cdk8s-plus-17.Probe</code></a></li>
 <li><em>Default:</em> no startup probe is defined.</li>
@@ -3387,6 +3509,8 @@ More info: https://kubernetes.io/docs/tasks/inject-data-application/define-comma
 <p>If specified, no other probes are executed until this completes successfully</p>
 <hr />
 <h5 id="volumemountsoptional"><code>volumeMounts</code><sup>Optional</sup> <a name="cdk8s-plus-17.ContainerProps.property.volumeMounts"></a><a class="headerlink" href="#volumemountsoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">volumeMounts</span>: <span class="kt">VolumeMount</span><span class="p">[];</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.VolumeMount"><code>cdk8s-plus-17.VolumeMount</code></a>[]</li>
 </ul>
@@ -3394,6 +3518,8 @@ More info: https://kubernetes.io/docs/tasks/inject-data-application/define-comma
 <p>Cannot be updated.</p>
 <hr />
 <h5 id="workingdiroptional"><code>workingDir</code><sup>Optional</sup> <a name="cdk8s-plus-17.ContainerProps.property.workingDir"></a><a class="headerlink" href="#workingdiroptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">workingDir</span>: <span class="kt">string</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code></li>
 <li><em>Default:</em> The container runtime&rsquo;s default.</li>
@@ -3409,12 +3535,16 @@ More info: https://kubernetes.io/docs/tasks/inject-data-application/define-comma
 <span class="kd">const</span> <span class="nx">deploymentProps</span>: <span class="kt">DeploymentProps</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
 </code></pre></div>
 <h5 id="metadataoptional_1"><code>metadata</code><sup>Optional</sup> <a name="cdk8s-plus-17.DeploymentProps.property.metadata"></a><a class="headerlink" href="#metadataoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">metadata</span>: <span class="kt">ApiObjectMetadata</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s.ApiObjectMetadata"><code>cdk8s.ApiObjectMetadata</code></a></li>
 </ul>
 <p>Metadata that all persisted resources must have, which includes all objects users must create.</p>
 <hr />
 <h5 id="containersoptional"><code>containers</code><sup>Optional</sup> <a name="cdk8s-plus-17.DeploymentProps.property.containers"></a><a class="headerlink" href="#containersoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">containers</span>: <span class="kt">ContainerProps</span><span class="p">[];</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.ContainerProps"><code>cdk8s-plus-17.ContainerProps</code></a>[]</li>
 <li><em>Default:</em> No containers. Note that a pod spec must include at least one container.</li>
@@ -3425,6 +3555,8 @@ added or removed. There must be at least one container in a Pod.</p>
 <p>You can add additionnal containers using <code>podSpec.addContainer()</code></p>
 <hr />
 <h5 id="restartpolicyoptional_4"><code>restartPolicy</code><sup>Optional</sup> <a name="cdk8s-plus-17.DeploymentProps.property.restartPolicy"></a><a class="headerlink" href="#restartpolicyoptional_4" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">restartPolicy</span>: <span class="kt">RestartPolicy</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.RestartPolicy"><code>cdk8s-plus-17.RestartPolicy</code></a></li>
 <li><em>Default:</em> RestartPolicy.ALWAYS</li>
@@ -3435,6 +3567,8 @@ added or removed. There must be at least one container in a Pod.</p>
 </blockquote>
 <hr />
 <h5 id="serviceaccountoptional_4"><code>serviceAccount</code><sup>Optional</sup> <a name="cdk8s-plus-17.DeploymentProps.property.serviceAccount"></a><a class="headerlink" href="#serviceaccountoptional_4" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">serviceAccount</span>: <span class="kt">IServiceAccount</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.IServiceAccount"><code>cdk8s-plus-17.IServiceAccount</code></a></li>
 <li><em>Default:</em> No service account.</li>
@@ -3451,6 +3585,8 @@ Account (for example, default).</p>
 </blockquote>
 <hr />
 <h5 id="volumesoptional"><code>volumes</code><sup>Optional</sup> <a name="cdk8s-plus-17.DeploymentProps.property.volumes"></a><a class="headerlink" href="#volumesoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">volumes</span>: <span class="kt">Volume</span><span class="p">[];</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.Volume"><code>cdk8s-plus-17.Volume</code></a>[]</li>
 <li><em>Default:</em> No volumes.</li>
@@ -3462,12 +3598,16 @@ Account (for example, default).</p>
 </blockquote>
 <hr />
 <h5 id="podmetadataoptional"><code>podMetadata</code><sup>Optional</sup> <a name="cdk8s-plus-17.DeploymentProps.property.podMetadata"></a><a class="headerlink" href="#podmetadataoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">podMetadata</span>: <span class="kt">ApiObjectMetadata</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s.ApiObjectMetadata"><code>cdk8s.ApiObjectMetadata</code></a></li>
 </ul>
 <p>The pod metadata.</p>
 <hr />
 <h5 id="defaultselectoroptional"><code>defaultSelector</code><sup>Optional</sup> <a name="cdk8s-plus-17.DeploymentProps.property.defaultSelector"></a><a class="headerlink" href="#defaultselectoroptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">defaultSelector</span>: <span class="kt">boolean</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>boolean</code></li>
 <li><em>Default:</em> true</li>
@@ -3477,6 +3617,8 @@ Account (for example, default).</p>
 <code>deployment.podMetadata.addLabel()</code> and <code>deployment.selectByLabel()</code>.</p>
 <hr />
 <h5 id="replicasoptional"><code>replicas</code><sup>Optional</sup> <a name="cdk8s-plus-17.DeploymentProps.property.replicas"></a><a class="headerlink" href="#replicasoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">replicas</span>: <span class="kt">number</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>number</code></li>
 <li><em>Default:</em> 1</li>
@@ -3491,6 +3633,8 @@ Account (for example, default).</p>
 <span class="kd">const</span> <span class="nx">emptyDirVolumeOptions</span>: <span class="kt">EmptyDirVolumeOptions</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
 </code></pre></div>
 <h5 id="mediumoptional"><code>medium</code><sup>Optional</sup> <a name="cdk8s-plus-17.EmptyDirVolumeOptions.property.medium"></a><a class="headerlink" href="#mediumoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">medium</span>: <span class="kt">EmptyDirMedium</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.EmptyDirMedium"><code>cdk8s-plus-17.EmptyDirMedium</code></a></li>
 <li><em>Default:</em> EmptyDirMedium.DEFAULT</li>
@@ -3503,6 +3647,8 @@ disks, tmpfs is cleared on node reboot and any files you write will count
 against your Container&rsquo;s memory limit.</p>
 <hr />
 <h5 id="sizelimitoptional"><code>sizeLimit</code><sup>Optional</sup> <a name="cdk8s-plus-17.EmptyDirVolumeOptions.property.sizeLimit"></a><a class="headerlink" href="#sizelimitoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">sizeLimit</span>: <span class="kt">Size</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s.Size"><code>cdk8s.Size</code></a></li>
 <li><em>Default:</em> limit is undefined</li>
@@ -3521,6 +3667,8 @@ here and the sum of memory limits of all containers in a pod.</p>
 <span class="kd">const</span> <span class="nx">envValueFromConfigMapOptions</span>: <span class="kt">EnvValueFromConfigMapOptions</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
 </code></pre></div>
 <h5 id="optionaloptional_1"><code>optional</code><sup>Optional</sup> <a name="cdk8s-plus-17.EnvValueFromConfigMapOptions.property.optional"></a><a class="headerlink" href="#optionaloptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">optional</span>: <span class="kt">boolean</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>boolean</code></li>
 <li><em>Default:</em> false</li>
@@ -3535,6 +3683,8 @@ here and the sum of memory limits of all containers in a pod.</p>
 <span class="kd">const</span> <span class="nx">envValueFromProcessOptions</span>: <span class="kt">EnvValueFromProcessOptions</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
 </code></pre></div>
 <h5 id="requiredoptional"><code>required</code><sup>Optional</sup> <a name="cdk8s-plus-17.EnvValueFromProcessOptions.property.required"></a><a class="headerlink" href="#requiredoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">required</span>: <span class="kt">boolean</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>boolean</code></li>
 <li><em>Default:</em> false</li>
@@ -3550,6 +3700,8 @@ here and the sum of memory limits of all containers in a pod.</p>
 <span class="kd">const</span> <span class="nx">envValueFromSecretOptions</span>: <span class="kt">EnvValueFromSecretOptions</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
 </code></pre></div>
 <h5 id="optionaloptional_2"><code>optional</code><sup>Optional</sup> <a name="cdk8s-plus-17.EnvValueFromSecretOptions.property.optional"></a><a class="headerlink" href="#optionaloptional_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">optional</span>: <span class="kt">boolean</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>boolean</code></li>
 <li><em>Default:</em> false</li>
@@ -3564,6 +3716,8 @@ here and the sum of memory limits of all containers in a pod.</p>
 <span class="kd">const</span> <span class="nx">exposeOptions</span>: <span class="kt">ExposeOptions</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
 </code></pre></div>
 <h5 id="nameoptional_2"><code>name</code><sup>Optional</sup> <a name="cdk8s-plus-17.ExposeOptions.property.name"></a><a class="headerlink" href="#nameoptional_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">name</span>: <span class="kt">string</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code></li>
 <li><em>Default:</em> undefined Uses the system generated name.</li>
@@ -3572,6 +3726,8 @@ here and the sum of memory limits of all containers in a pod.</p>
 <p>This will be set on the Service.metadata and must be a DNS_LABEL</p>
 <hr />
 <h5 id="protocoloptional"><code>protocol</code><sup>Optional</sup> <a name="cdk8s-plus-17.ExposeOptions.property.protocol"></a><a class="headerlink" href="#protocoloptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">protocol</span>: <span class="kt">Protocol</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.Protocol"><code>cdk8s-plus-17.Protocol</code></a></li>
 <li><em>Default:</em> Protocol.TCP</li>
@@ -3580,6 +3736,8 @@ here and the sum of memory limits of all containers in a pod.</p>
 <p>Supports &ldquo;TCP&rdquo;, &ldquo;UDP&rdquo;, and &ldquo;SCTP&rdquo;. Default is TCP.</p>
 <hr />
 <h5 id="servicetypeoptional"><code>serviceType</code><sup>Optional</sup> <a name="cdk8s-plus-17.ExposeOptions.property.serviceType"></a><a class="headerlink" href="#servicetypeoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">serviceType</span>: <span class="kt">ServiceType</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.ServiceType"><code>cdk8s-plus-17.ServiceType</code></a></li>
 <li><em>Default:</em> ClusterIP.</li>
@@ -3587,6 +3745,8 @@ here and the sum of memory limits of all containers in a pod.</p>
 <p>The type of the exposed service.</p>
 <hr />
 <h5 id="targetportoptional"><code>targetPort</code><sup>Optional</sup> <a name="cdk8s-plus-17.ExposeOptions.property.targetPort"></a><a class="headerlink" href="#targetportoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">targetPort</span>: <span class="kt">number</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>number</code></li>
 <li><em>Default:</em> The port of the first container in the deployment (ie. containers[0].port)</li>
@@ -3601,6 +3761,8 @@ here and the sum of memory limits of all containers in a pod.</p>
 <span class="kd">const</span> <span class="nx">httpGetProbeOptions</span>: <span class="kt">HttpGetProbeOptions</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
 </code></pre></div>
 <h5 id="failurethresholdoptional_1"><code>failureThreshold</code><sup>Optional</sup> <a name="cdk8s-plus-17.HttpGetProbeOptions.property.failureThreshold"></a><a class="headerlink" href="#failurethresholdoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">failureThreshold</span>: <span class="kt">number</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>number</code></li>
 <li><em>Default:</em> 3</li>
@@ -3609,6 +3771,8 @@ here and the sum of memory limits of all containers in a pod.</p>
 <p>Defaults to 3. Minimum value is 1.</p>
 <hr />
 <h5 id="initialdelaysecondsoptional_1"><code>initialDelaySeconds</code><sup>Optional</sup> <a name="cdk8s-plus-17.HttpGetProbeOptions.property.initialDelaySeconds"></a><a class="headerlink" href="#initialdelaysecondsoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">initialDelaySeconds</span>: <span class="kt">Duration</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s.Duration"><code>cdk8s.Duration</code></a></li>
 <li><em>Default:</em> immediate</li>
@@ -3619,6 +3783,8 @@ here and the sum of memory limits of all containers in a pod.</p>
 </blockquote>
 <hr />
 <h5 id="periodsecondsoptional_1"><code>periodSeconds</code><sup>Optional</sup> <a name="cdk8s-plus-17.HttpGetProbeOptions.property.periodSeconds"></a><a class="headerlink" href="#periodsecondsoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">periodSeconds</span>: <span class="kt">Duration</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s.Duration"><code>cdk8s.Duration</code></a></li>
 <li><em>Default:</em> Duration.seconds(10) Minimum value is 1.</li>
@@ -3627,6 +3793,8 @@ here and the sum of memory limits of all containers in a pod.</p>
 <p>Default to 10 seconds. Minimum value is 1.</p>
 <hr />
 <h5 id="successthresholdoptional_1"><code>successThreshold</code><sup>Optional</sup> <a name="cdk8s-plus-17.HttpGetProbeOptions.property.successThreshold"></a><a class="headerlink" href="#successthresholdoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">successThreshold</span>: <span class="kt">number</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>number</code></li>
 <li><em>Default:</em> 1 Must be 1 for liveness and startup. Minimum value is 1.</li>
@@ -3635,6 +3803,8 @@ here and the sum of memory limits of all containers in a pod.</p>
 <p>Must be 1 for liveness and startup. Minimum value is 1.</p>
 <hr />
 <h5 id="timeoutsecondsoptional_1"><code>timeoutSeconds</code><sup>Optional</sup> <a name="cdk8s-plus-17.HttpGetProbeOptions.property.timeoutSeconds"></a><a class="headerlink" href="#timeoutsecondsoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">timeoutSeconds</span>: <span class="kt">Duration</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s.Duration"><code>cdk8s.Duration</code></a></li>
 <li><em>Default:</em> Duration.seconds(1)</li>
@@ -3646,6 +3816,8 @@ here and the sum of memory limits of all containers in a pod.</p>
 </blockquote>
 <hr />
 <h5 id="portoptional_1"><code>port</code><sup>Optional</sup> <a name="cdk8s-plus-17.HttpGetProbeOptions.property.port"></a><a class="headerlink" href="#portoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">port</span>: <span class="kt">number</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>number</code></li>
 <li><em>Default:</em> defaults to <code>container.port</code>.</li>
@@ -3660,12 +3832,16 @@ here and the sum of memory limits of all containers in a pod.</p>
 <span class="kd">const</span> <span class="nx">ingressV1Beta1Props</span>: <span class="kt">IngressV1Beta1Props</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
 </code></pre></div>
 <h5 id="metadataoptional_2"><code>metadata</code><sup>Optional</sup> <a name="cdk8s-plus-17.IngressV1Beta1Props.property.metadata"></a><a class="headerlink" href="#metadataoptional_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">metadata</span>: <span class="kt">ApiObjectMetadata</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s.ApiObjectMetadata"><code>cdk8s.ApiObjectMetadata</code></a></li>
 </ul>
 <p>Metadata that all persisted resources must have, which includes all objects users must create.</p>
 <hr />
 <h5 id="defaultbackendoptional"><code>defaultBackend</code><sup>Optional</sup> <a name="cdk8s-plus-17.IngressV1Beta1Props.property.defaultBackend"></a><a class="headerlink" href="#defaultbackendoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">defaultBackend</span>: <span class="kt">IngressV1Beta1Backend</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.IngressV1Beta1Backend"><code>cdk8s-plus-17.IngressV1Beta1Backend</code></a></li>
 </ul>
@@ -3674,6 +3850,8 @@ here and the sum of memory limits of all containers in a pod.</p>
 adding a rule with both <code>path</code> and <code>host</code> undefined.</p>
 <hr />
 <h5 id="rulesoptional"><code>rules</code><sup>Optional</sup> <a name="cdk8s-plus-17.IngressV1Beta1Props.property.rules"></a><a class="headerlink" href="#rulesoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">rules</span>: <span class="kt">IngressV1Beta1Rule</span><span class="p">[];</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.IngressV1Beta1Rule"><code>cdk8s-plus-17.IngressV1Beta1Rule</code></a>[]</li>
 </ul>
@@ -3685,6 +3863,8 @@ backend will be used as the default backend of the ingress.</p>
 <code>addDefaultBackend()</code> and <code>addHostDefaultBackend()</code>.</p>
 <hr />
 <h5 id="tlsoptional"><code>tls</code><sup>Optional</sup> <a name="cdk8s-plus-17.IngressV1Beta1Props.property.tls"></a><a class="headerlink" href="#tlsoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">tls</span>: <span class="kt">IngressV1Beta1Tls</span><span class="p">[];</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.IngressV1Beta1Tls"><code>cdk8s-plus-17.IngressV1Beta1Tls</code></a>[]</li>
 </ul>
@@ -3705,12 +3885,16 @@ then routed to the backend associated with the matching path.</p>
 <span class="kd">const</span> <span class="nx">ingressV1Beta1Rule</span>: <span class="kt">IngressV1Beta1Rule</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
 </code></pre></div>
 <h5 id="backendrequired_4"><code>backend</code><sup>Required</sup> <a name="cdk8s-plus-17.IngressV1Beta1Rule.property.backend"></a><a class="headerlink" href="#backendrequired_4" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">backend</span>: <span class="kt">IngressV1Beta1Backend</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.IngressV1Beta1Backend"><code>cdk8s-plus-17.IngressV1Beta1Backend</code></a></li>
 </ul>
 <p>Backend defines the referenced service endpoint to which the traffic will be forwarded to.</p>
 <hr />
 <h5 id="hostoptional"><code>host</code><sup>Optional</sup> <a name="cdk8s-plus-17.IngressV1Beta1Rule.property.host"></a><a class="headerlink" href="#hostoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">host</span>: <span class="kt">string</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code></li>
 <li><em>Default:</em> If the host is unspecified, the Ingress routes all traffic based
@@ -3726,6 +3910,8 @@ these may change in the future. Incoming requests are matched against the
 host before the IngressRuleValue.</p>
 <hr />
 <h5 id="pathoptional"><code>path</code><sup>Optional</sup> <a name="cdk8s-plus-17.IngressV1Beta1Rule.property.path"></a><a class="headerlink" href="#pathoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">path</span>: <span class="kt">string</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code></li>
 <li><em>Default:</em> If unspecified, the path defaults to a catch all sending traffic
@@ -3741,6 +3927,8 @@ to the backend.</li>
 <span class="kd">const</span> <span class="nx">ingressV1Beta1Tls</span>: <span class="kt">IngressV1Beta1Tls</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
 </code></pre></div>
 <h5 id="hostsoptional"><code>hosts</code><sup>Optional</sup> <a name="cdk8s-plus-17.IngressV1Beta1Tls.property.hosts"></a><a class="headerlink" href="#hostsoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">hosts</span>: <span class="kt">string</span><span class="p">[];</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code>[]</li>
 <li><em>Default:</em> If unspecified, it defaults to the wildcard host setting for
@@ -3751,6 +3939,8 @@ the loadbalancer controller fulfilling this Ingress.</li>
 this list must match the name/s used in the TLS Secret.</p>
 <hr />
 <h5 id="secretoptional"><code>secret</code><sup>Optional</sup> <a name="cdk8s-plus-17.IngressV1Beta1Tls.property.secret"></a><a class="headerlink" href="#secretoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">secret</span>: <span class="kt">ISecret</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.ISecret"><code>cdk8s-plus-17.ISecret</code></a></li>
 <li><em>Default:</em> If unspecified, it allows SSL routing based on SNI hostname.</li>
@@ -3768,12 +3958,16 @@ termination and value of the Host header is used for routing.</p>
 <span class="kd">const</span> <span class="nx">jobProps</span>: <span class="kt">JobProps</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
 </code></pre></div>
 <h5 id="metadataoptional_3"><code>metadata</code><sup>Optional</sup> <a name="cdk8s-plus-17.JobProps.property.metadata"></a><a class="headerlink" href="#metadataoptional_3" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">metadata</span>: <span class="kt">ApiObjectMetadata</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s.ApiObjectMetadata"><code>cdk8s.ApiObjectMetadata</code></a></li>
 </ul>
 <p>Metadata that all persisted resources must have, which includes all objects users must create.</p>
 <hr />
 <h5 id="containersoptional_1"><code>containers</code><sup>Optional</sup> <a name="cdk8s-plus-17.JobProps.property.containers"></a><a class="headerlink" href="#containersoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">containers</span>: <span class="kt">ContainerProps</span><span class="p">[];</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.ContainerProps"><code>cdk8s-plus-17.ContainerProps</code></a>[]</li>
 <li><em>Default:</em> No containers. Note that a pod spec must include at least one container.</li>
@@ -3784,6 +3978,8 @@ added or removed. There must be at least one container in a Pod.</p>
 <p>You can add additionnal containers using <code>podSpec.addContainer()</code></p>
 <hr />
 <h5 id="restartpolicyoptional_5"><code>restartPolicy</code><sup>Optional</sup> <a name="cdk8s-plus-17.JobProps.property.restartPolicy"></a><a class="headerlink" href="#restartpolicyoptional_5" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">restartPolicy</span>: <span class="kt">RestartPolicy</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.RestartPolicy"><code>cdk8s-plus-17.RestartPolicy</code></a></li>
 <li><em>Default:</em> RestartPolicy.ALWAYS</li>
@@ -3794,6 +3990,8 @@ added or removed. There must be at least one container in a Pod.</p>
 </blockquote>
 <hr />
 <h5 id="serviceaccountoptional_5"><code>serviceAccount</code><sup>Optional</sup> <a name="cdk8s-plus-17.JobProps.property.serviceAccount"></a><a class="headerlink" href="#serviceaccountoptional_5" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">serviceAccount</span>: <span class="kt">IServiceAccount</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.IServiceAccount"><code>cdk8s-plus-17.IServiceAccount</code></a></li>
 <li><em>Default:</em> No service account.</li>
@@ -3810,6 +4008,8 @@ Account (for example, default).</p>
 </blockquote>
 <hr />
 <h5 id="volumesoptional_1"><code>volumes</code><sup>Optional</sup> <a name="cdk8s-plus-17.JobProps.property.volumes"></a><a class="headerlink" href="#volumesoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">volumes</span>: <span class="kt">Volume</span><span class="p">[];</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.Volume"><code>cdk8s-plus-17.Volume</code></a>[]</li>
 <li><em>Default:</em> No volumes.</li>
@@ -3821,12 +4021,16 @@ Account (for example, default).</p>
 </blockquote>
 <hr />
 <h5 id="podmetadataoptional_1"><code>podMetadata</code><sup>Optional</sup> <a name="cdk8s-plus-17.JobProps.property.podMetadata"></a><a class="headerlink" href="#podmetadataoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">podMetadata</span>: <span class="kt">ApiObjectMetadata</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s.ApiObjectMetadata"><code>cdk8s.ApiObjectMetadata</code></a></li>
 </ul>
 <p>The pod metadata.</p>
 <hr />
 <h5 id="activedeadlineoptional_1"><code>activeDeadline</code><sup>Optional</sup> <a name="cdk8s-plus-17.JobProps.property.activeDeadline"></a><a class="headerlink" href="#activedeadlineoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">activeDeadline</span>: <span class="kt">Duration</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s.Duration"><code>cdk8s.Duration</code></a></li>
 <li><em>Default:</em> If unset, then there is no deadline.</li>
@@ -3834,6 +4038,8 @@ Account (for example, default).</p>
 <p>Specifies the duration the job may be active before the system tries to terminate it.</p>
 <hr />
 <h5 id="backofflimitoptional_1"><code>backoffLimit</code><sup>Optional</sup> <a name="cdk8s-plus-17.JobProps.property.backoffLimit"></a><a class="headerlink" href="#backofflimitoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">backoffLimit</span>: <span class="kt">number</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>number</code></li>
 <li><em>Default:</em> If not set, system defaults to 6.</li>
@@ -3841,6 +4047,8 @@ Account (for example, default).</p>
 <p>Specifies the number of retries before marking this job failed.</p>
 <hr />
 <h5 id="ttlafterfinishedoptional_1"><code>ttlAfterFinished</code><sup>Optional</sup> <a name="cdk8s-plus-17.JobProps.property.ttlAfterFinished"></a><a class="headerlink" href="#ttlafterfinishedoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">ttlAfterFinished</span>: <span class="kt">Duration</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s.Duration"><code>cdk8s.Duration</code></a></li>
 <li><em>Default:</em> If this field is unset, the Job won&rsquo;t be automatically deleted.</li>
@@ -3861,6 +4069,8 @@ field is alpha-level and is only honored by servers that enable the
 <span class="kd">const</span> <span class="nx">mountOptions</span>: <span class="kt">MountOptions</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
 </code></pre></div>
 <h5 id="propagationoptional"><code>propagation</code><sup>Optional</sup> <a name="cdk8s-plus-17.MountOptions.property.propagation"></a><a class="headerlink" href="#propagationoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">propagation</span>: <span class="kt">MountPropagation</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.MountPropagation"><code>cdk8s-plus-17.MountPropagation</code></a></li>
 <li><em>Default:</em> MountPropagation.NONE</li>
@@ -3872,6 +4082,8 @@ other Containers in the same Pod, or even to other Pods on the same node.</p>
 <p>This field is beta in 1.10.</p>
 <hr />
 <h5 id="readonlyoptional"><code>readOnly</code><sup>Optional</sup> <a name="cdk8s-plus-17.MountOptions.property.readOnly"></a><a class="headerlink" href="#readonlyoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">readOnly</span>: <span class="kt">boolean</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>boolean</code></li>
 <li><em>Default:</em> false</li>
@@ -3880,6 +4092,8 @@ other Containers in the same Pod, or even to other Pods on the same node.</p>
 <p>Defaults to false.</p>
 <hr />
 <h5 id="subpathoptional"><code>subPath</code><sup>Optional</sup> <a name="cdk8s-plus-17.MountOptions.property.subPath"></a><a class="headerlink" href="#subpathoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">subPath</span>: <span class="kt">string</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code></li>
 <li><em>Default:</em> &ldquo;&rdquo; the volume&rsquo;s root</li>
@@ -3887,6 +4101,8 @@ other Containers in the same Pod, or even to other Pods on the same node.</p>
 <p>Path within the volume from which the container&rsquo;s volume should be mounted.).</p>
 <hr />
 <h5 id="subpathexproptional"><code>subPathExpr</code><sup>Optional</sup> <a name="cdk8s-plus-17.MountOptions.property.subPathExpr"></a><a class="headerlink" href="#subpathexproptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">subPathExpr</span>: <span class="kt">string</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code></li>
 <li><em>Default:</em> &ldquo;&rdquo; volume&rsquo;s root.</li>
@@ -3907,6 +4123,8 @@ is beta in 1.15.</p>
 <span class="kd">const</span> <span class="nx">pathMapping</span>: <span class="kt">PathMapping</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
 </code></pre></div>
 <h5 id="pathrequired_2"><code>path</code><sup>Required</sup> <a name="cdk8s-plus-17.PathMapping.property.path"></a><a class="headerlink" href="#pathrequired_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">path</span>: <span class="kt">string</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code></li>
 </ul>
@@ -3916,6 +4134,8 @@ path. May not contain the path element &lsquo;..&rsquo;. May not start with the 
 &lsquo;..&rsquo;.</p>
 <hr />
 <h5 id="modeoptional"><code>mode</code><sup>Optional</sup> <a name="cdk8s-plus-17.PathMapping.property.mode"></a><a class="headerlink" href="#modeoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">mode</span>: <span class="kt">number</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>number</code></li>
 </ul>
@@ -3932,12 +4152,16 @@ the result can be other mode bits set.</p>
 <span class="kd">const</span> <span class="nx">podProps</span>: <span class="kt">PodProps</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
 </code></pre></div>
 <h5 id="metadataoptional_4"><code>metadata</code><sup>Optional</sup> <a name="cdk8s-plus-17.PodProps.property.metadata"></a><a class="headerlink" href="#metadataoptional_4" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">metadata</span>: <span class="kt">ApiObjectMetadata</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s.ApiObjectMetadata"><code>cdk8s.ApiObjectMetadata</code></a></li>
 </ul>
 <p>Metadata that all persisted resources must have, which includes all objects users must create.</p>
 <hr />
 <h5 id="containersoptional_2"><code>containers</code><sup>Optional</sup> <a name="cdk8s-plus-17.PodProps.property.containers"></a><a class="headerlink" href="#containersoptional_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">containers</span>: <span class="kt">ContainerProps</span><span class="p">[];</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.ContainerProps"><code>cdk8s-plus-17.ContainerProps</code></a>[]</li>
 <li><em>Default:</em> No containers. Note that a pod spec must include at least one container.</li>
@@ -3948,6 +4172,8 @@ added or removed. There must be at least one container in a Pod.</p>
 <p>You can add additionnal containers using <code>podSpec.addContainer()</code></p>
 <hr />
 <h5 id="restartpolicyoptional_6"><code>restartPolicy</code><sup>Optional</sup> <a name="cdk8s-plus-17.PodProps.property.restartPolicy"></a><a class="headerlink" href="#restartpolicyoptional_6" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">restartPolicy</span>: <span class="kt">RestartPolicy</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.RestartPolicy"><code>cdk8s-plus-17.RestartPolicy</code></a></li>
 <li><em>Default:</em> RestartPolicy.ALWAYS</li>
@@ -3958,6 +4184,8 @@ added or removed. There must be at least one container in a Pod.</p>
 </blockquote>
 <hr />
 <h5 id="serviceaccountoptional_6"><code>serviceAccount</code><sup>Optional</sup> <a name="cdk8s-plus-17.PodProps.property.serviceAccount"></a><a class="headerlink" href="#serviceaccountoptional_6" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">serviceAccount</span>: <span class="kt">IServiceAccount</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.IServiceAccount"><code>cdk8s-plus-17.IServiceAccount</code></a></li>
 <li><em>Default:</em> No service account.</li>
@@ -3974,6 +4202,8 @@ Account (for example, default).</p>
 </blockquote>
 <hr />
 <h5 id="volumesoptional_2"><code>volumes</code><sup>Optional</sup> <a name="cdk8s-plus-17.PodProps.property.volumes"></a><a class="headerlink" href="#volumesoptional_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">volumes</span>: <span class="kt">Volume</span><span class="p">[];</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.Volume"><code>cdk8s-plus-17.Volume</code></a>[]</li>
 <li><em>Default:</em> No volumes.</li>
@@ -3992,6 +4222,8 @@ Account (for example, default).</p>
 <span class="kd">const</span> <span class="nx">podSpecProps</span>: <span class="kt">PodSpecProps</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
 </code></pre></div>
 <h5 id="containersoptional_3"><code>containers</code><sup>Optional</sup> <a name="cdk8s-plus-17.PodSpecProps.property.containers"></a><a class="headerlink" href="#containersoptional_3" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">containers</span>: <span class="kt">ContainerProps</span><span class="p">[];</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.ContainerProps"><code>cdk8s-plus-17.ContainerProps</code></a>[]</li>
 <li><em>Default:</em> No containers. Note that a pod spec must include at least one container.</li>
@@ -4002,6 +4234,8 @@ added or removed. There must be at least one container in a Pod.</p>
 <p>You can add additionnal containers using <code>podSpec.addContainer()</code></p>
 <hr />
 <h5 id="restartpolicyoptional_7"><code>restartPolicy</code><sup>Optional</sup> <a name="cdk8s-plus-17.PodSpecProps.property.restartPolicy"></a><a class="headerlink" href="#restartpolicyoptional_7" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">restartPolicy</span>: <span class="kt">RestartPolicy</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.RestartPolicy"><code>cdk8s-plus-17.RestartPolicy</code></a></li>
 <li><em>Default:</em> RestartPolicy.ALWAYS</li>
@@ -4012,6 +4246,8 @@ added or removed. There must be at least one container in a Pod.</p>
 </blockquote>
 <hr />
 <h5 id="serviceaccountoptional_7"><code>serviceAccount</code><sup>Optional</sup> <a name="cdk8s-plus-17.PodSpecProps.property.serviceAccount"></a><a class="headerlink" href="#serviceaccountoptional_7" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">serviceAccount</span>: <span class="kt">IServiceAccount</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.IServiceAccount"><code>cdk8s-plus-17.IServiceAccount</code></a></li>
 <li><em>Default:</em> No service account.</li>
@@ -4028,6 +4264,8 @@ Account (for example, default).</p>
 </blockquote>
 <hr />
 <h5 id="volumesoptional_3"><code>volumes</code><sup>Optional</sup> <a name="cdk8s-plus-17.PodSpecProps.property.volumes"></a><a class="headerlink" href="#volumesoptional_3" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">volumes</span>: <span class="kt">Volume</span><span class="p">[];</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.Volume"><code>cdk8s-plus-17.Volume</code></a>[]</li>
 <li><em>Default:</em> No volumes.</li>
@@ -4047,6 +4285,8 @@ Account (for example, default).</p>
 <span class="kd">const</span> <span class="nx">podTemplateProps</span>: <span class="kt">PodTemplateProps</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
 </code></pre></div>
 <h5 id="containersoptional_4"><code>containers</code><sup>Optional</sup> <a name="cdk8s-plus-17.PodTemplateProps.property.containers"></a><a class="headerlink" href="#containersoptional_4" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">containers</span>: <span class="kt">ContainerProps</span><span class="p">[];</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.ContainerProps"><code>cdk8s-plus-17.ContainerProps</code></a>[]</li>
 <li><em>Default:</em> No containers. Note that a pod spec must include at least one container.</li>
@@ -4057,6 +4297,8 @@ added or removed. There must be at least one container in a Pod.</p>
 <p>You can add additionnal containers using <code>podSpec.addContainer()</code></p>
 <hr />
 <h5 id="restartpolicyoptional_8"><code>restartPolicy</code><sup>Optional</sup> <a name="cdk8s-plus-17.PodTemplateProps.property.restartPolicy"></a><a class="headerlink" href="#restartpolicyoptional_8" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">restartPolicy</span>: <span class="kt">RestartPolicy</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.RestartPolicy"><code>cdk8s-plus-17.RestartPolicy</code></a></li>
 <li><em>Default:</em> RestartPolicy.ALWAYS</li>
@@ -4067,6 +4309,8 @@ added or removed. There must be at least one container in a Pod.</p>
 </blockquote>
 <hr />
 <h5 id="serviceaccountoptional_8"><code>serviceAccount</code><sup>Optional</sup> <a name="cdk8s-plus-17.PodTemplateProps.property.serviceAccount"></a><a class="headerlink" href="#serviceaccountoptional_8" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">serviceAccount</span>: <span class="kt">IServiceAccount</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.IServiceAccount"><code>cdk8s-plus-17.IServiceAccount</code></a></li>
 <li><em>Default:</em> No service account.</li>
@@ -4083,6 +4327,8 @@ Account (for example, default).</p>
 </blockquote>
 <hr />
 <h5 id="volumesoptional_4"><code>volumes</code><sup>Optional</sup> <a name="cdk8s-plus-17.PodTemplateProps.property.volumes"></a><a class="headerlink" href="#volumesoptional_4" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">volumes</span>: <span class="kt">Volume</span><span class="p">[];</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.Volume"><code>cdk8s-plus-17.Volume</code></a>[]</li>
 <li><em>Default:</em> No volumes.</li>
@@ -4094,6 +4340,8 @@ Account (for example, default).</p>
 </blockquote>
 <hr />
 <h5 id="podmetadataoptional_2"><code>podMetadata</code><sup>Optional</sup> <a name="cdk8s-plus-17.PodTemplateProps.property.podMetadata"></a><a class="headerlink" href="#podmetadataoptional_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">podMetadata</span>: <span class="kt">ApiObjectMetadata</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s.ApiObjectMetadata"><code>cdk8s.ApiObjectMetadata</code></a></li>
 </ul>
@@ -4107,6 +4355,8 @@ Account (for example, default).</p>
 <span class="kd">const</span> <span class="nx">probeOptions</span>: <span class="kt">ProbeOptions</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
 </code></pre></div>
 <h5 id="failurethresholdoptional_2"><code>failureThreshold</code><sup>Optional</sup> <a name="cdk8s-plus-17.ProbeOptions.property.failureThreshold"></a><a class="headerlink" href="#failurethresholdoptional_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">failureThreshold</span>: <span class="kt">number</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>number</code></li>
 <li><em>Default:</em> 3</li>
@@ -4115,6 +4365,8 @@ Account (for example, default).</p>
 <p>Defaults to 3. Minimum value is 1.</p>
 <hr />
 <h5 id="initialdelaysecondsoptional_2"><code>initialDelaySeconds</code><sup>Optional</sup> <a name="cdk8s-plus-17.ProbeOptions.property.initialDelaySeconds"></a><a class="headerlink" href="#initialdelaysecondsoptional_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">initialDelaySeconds</span>: <span class="kt">Duration</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s.Duration"><code>cdk8s.Duration</code></a></li>
 <li><em>Default:</em> immediate</li>
@@ -4125,6 +4377,8 @@ Account (for example, default).</p>
 </blockquote>
 <hr />
 <h5 id="periodsecondsoptional_2"><code>periodSeconds</code><sup>Optional</sup> <a name="cdk8s-plus-17.ProbeOptions.property.periodSeconds"></a><a class="headerlink" href="#periodsecondsoptional_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">periodSeconds</span>: <span class="kt">Duration</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s.Duration"><code>cdk8s.Duration</code></a></li>
 <li><em>Default:</em> Duration.seconds(10) Minimum value is 1.</li>
@@ -4133,6 +4387,8 @@ Account (for example, default).</p>
 <p>Default to 10 seconds. Minimum value is 1.</p>
 <hr />
 <h5 id="successthresholdoptional_2"><code>successThreshold</code><sup>Optional</sup> <a name="cdk8s-plus-17.ProbeOptions.property.successThreshold"></a><a class="headerlink" href="#successthresholdoptional_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">successThreshold</span>: <span class="kt">number</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>number</code></li>
 <li><em>Default:</em> 1 Must be 1 for liveness and startup. Minimum value is 1.</li>
@@ -4141,6 +4397,8 @@ Account (for example, default).</p>
 <p>Must be 1 for liveness and startup. Minimum value is 1.</p>
 <hr />
 <h5 id="timeoutsecondsoptional_2"><code>timeoutSeconds</code><sup>Optional</sup> <a name="cdk8s-plus-17.ProbeOptions.property.timeoutSeconds"></a><a class="headerlink" href="#timeoutsecondsoptional_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">timeoutSeconds</span>: <span class="kt">Duration</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s.Duration"><code>cdk8s.Duration</code></a></li>
 <li><em>Default:</em> Duration.seconds(1)</li>
@@ -4159,6 +4417,8 @@ Account (for example, default).</p>
 <span class="kd">const</span> <span class="nx">resourceProps</span>: <span class="kt">ResourceProps</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
 </code></pre></div>
 <h5 id="metadataoptional_5"><code>metadata</code><sup>Optional</sup> <a name="cdk8s-plus-17.ResourceProps.property.metadata"></a><a class="headerlink" href="#metadataoptional_5" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">metadata</span>: <span class="kt">ApiObjectMetadata</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s.ApiObjectMetadata"><code>cdk8s.ApiObjectMetadata</code></a></li>
 </ul>
@@ -4171,12 +4431,16 @@ Account (for example, default).</p>
 <span class="kd">const</span> <span class="nx">secretProps</span>: <span class="kt">SecretProps</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
 </code></pre></div>
 <h5 id="metadataoptional_6"><code>metadata</code><sup>Optional</sup> <a name="cdk8s-plus-17.SecretProps.property.metadata"></a><a class="headerlink" href="#metadataoptional_6" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">metadata</span>: <span class="kt">ApiObjectMetadata</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s.ApiObjectMetadata"><code>cdk8s.ApiObjectMetadata</code></a></li>
 </ul>
 <p>Metadata that all persisted resources must have, which includes all objects users must create.</p>
 <hr />
 <h5 id="stringdataoptional"><code>stringData</code><sup>Optional</sup> <a name="cdk8s-plus-17.SecretProps.property.stringData"></a><a class="headerlink" href="#stringdataoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">stringData</span><span class="o">:</span> <span class="p">{[</span> <span class="nx">key</span>: <span class="kt">string</span> <span class="p">]</span><span class="o">:</span> <span class="kt">string</span><span class="p">};</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> {[ key: string ]: <code>string</code>}</li>
 </ul>
@@ -4187,6 +4451,8 @@ into the data field on write, overwriting any existing values. It is never
 output when reading from the API.</p>
 <hr />
 <h5 id="typeoptional"><code>type</code><sup>Optional</sup> <a name="cdk8s-plus-17.SecretProps.property.type"></a><a class="headerlink" href="#typeoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="kr">type</span><span class="o">:</span> <span class="kt">string</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code></li>
 <li><em>Default:</em> undefined - Don&rsquo;t set a type.</li>
@@ -4203,12 +4469,16 @@ handling of secret data by various controllers.</p>
 <span class="kd">const</span> <span class="nx">secretValue</span>: <span class="kt">SecretValue</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
 </code></pre></div>
 <h5 id="keyrequired_6"><code>key</code><sup>Required</sup> <a name="cdk8s-plus-17.SecretValue.property.key"></a><a class="headerlink" href="#keyrequired_6" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">key</span>: <span class="kt">string</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code></li>
 </ul>
 <p>The JSON key.</p>
 <hr />
 <h5 id="secretrequired_1"><code>secret</code><sup>Required</sup> <a name="cdk8s-plus-17.SecretValue.property.secret"></a><a class="headerlink" href="#secretrequired_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">secret</span>: <span class="kt">ISecret</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.ISecret"><code>cdk8s-plus-17.ISecret</code></a></li>
 </ul>
@@ -4223,12 +4493,16 @@ handling of secret data by various controllers.</p>
 <span class="kd">const</span> <span class="nx">serviceAccountProps</span>: <span class="kt">ServiceAccountProps</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
 </code></pre></div>
 <h5 id="metadataoptional_7"><code>metadata</code><sup>Optional</sup> <a name="cdk8s-plus-17.ServiceAccountProps.property.metadata"></a><a class="headerlink" href="#metadataoptional_7" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">metadata</span>: <span class="kt">ApiObjectMetadata</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s.ApiObjectMetadata"><code>cdk8s.ApiObjectMetadata</code></a></li>
 </ul>
 <p>Metadata that all persisted resources must have, which includes all objects users must create.</p>
 <hr />
 <h5 id="secretsoptional"><code>secrets</code><sup>Optional</sup> <a name="cdk8s-plus-17.ServiceAccountProps.property.secrets"></a><a class="headerlink" href="#secretsoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">secrets</span>: <span class="kt">ISecret</span><span class="p">[];</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.ISecret"><code>cdk8s-plus-17.ISecret</code></a>[]</li>
 </ul>
@@ -4245,6 +4519,8 @@ handling of secret data by various controllers.</p>
 <span class="kd">const</span> <span class="nx">serviceIngressV1BetaBackendOptions</span>: <span class="kt">ServiceIngressV1BetaBackendOptions</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
 </code></pre></div>
 <h5 id="portoptional_2"><code>port</code><sup>Optional</sup> <a name="cdk8s-plus-17.ServiceIngressV1BetaBackendOptions.property.port"></a><a class="headerlink" href="#portoptional_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">port</span>: <span class="kt">number</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>number</code></li>
 <li><em>Default:</em> if the service exposes a single port, this port will be used.</li>
@@ -4263,6 +4539,8 @@ handling of secret data by various controllers.</p>
 <span class="kd">const</span> <span class="nx">servicePort</span>: <span class="kt">ServicePort</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
 </code></pre></div>
 <h5 id="nameoptional_3"><code>name</code><sup>Optional</sup> <a name="cdk8s-plus-17.ServicePort.property.name"></a><a class="headerlink" href="#nameoptional_3" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">name</span>: <span class="kt">string</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code></li>
 </ul>
@@ -4273,6 +4551,8 @@ field in EndpointPort objects. Optional if only one ServicePort is defined
 on this service.</p>
 <hr />
 <h5 id="nodeportoptional"><code>nodePort</code><sup>Optional</sup> <a name="cdk8s-plus-17.ServicePort.property.nodePort"></a><a class="headerlink" href="#nodeportoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">nodePort</span>: <span class="kt">number</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>number</code></li>
 <li><em>Default:</em> to auto-allocate a port if the ServiceType of this Service
@@ -4288,6 +4568,8 @@ requires one.</p>
 </blockquote>
 <hr />
 <h5 id="protocoloptional_1"><code>protocol</code><sup>Optional</sup> <a name="cdk8s-plus-17.ServicePort.property.protocol"></a><a class="headerlink" href="#protocoloptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">protocol</span>: <span class="kt">Protocol</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.Protocol"><code>cdk8s-plus-17.Protocol</code></a></li>
 <li><em>Default:</em> Protocol.TCP</li>
@@ -4296,6 +4578,8 @@ requires one.</p>
 <p>Supports &ldquo;TCP&rdquo;, &ldquo;UDP&rdquo;, and &ldquo;SCTP&rdquo;. Default is TCP.</p>
 <hr />
 <h5 id="targetportoptional_1"><code>targetPort</code><sup>Optional</sup> <a name="cdk8s-plus-17.ServicePort.property.targetPort"></a><a class="headerlink" href="#targetportoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">targetPort</span>: <span class="kt">number</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>number</code></li>
 <li><em>Default:</em> The value of <code>port</code> will be used.</li>
@@ -4303,6 +4587,8 @@ requires one.</p>
 <p>The port number the service will redirect to.</p>
 <hr />
 <h5 id="portrequired_3"><code>port</code><sup>Required</sup> <a name="cdk8s-plus-17.ServicePort.property.port"></a><a class="headerlink" href="#portrequired_3" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">port</span>: <span class="kt">number</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>number</code></li>
 </ul>
@@ -4315,6 +4601,8 @@ requires one.</p>
 <span class="kd">const</span> <span class="nx">servicePortOptions</span>: <span class="kt">ServicePortOptions</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
 </code></pre></div>
 <h5 id="nameoptional_4"><code>name</code><sup>Optional</sup> <a name="cdk8s-plus-17.ServicePortOptions.property.name"></a><a class="headerlink" href="#nameoptional_4" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">name</span>: <span class="kt">string</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code></li>
 </ul>
@@ -4325,6 +4613,8 @@ field in EndpointPort objects. Optional if only one ServicePort is defined
 on this service.</p>
 <hr />
 <h5 id="nodeportoptional_1"><code>nodePort</code><sup>Optional</sup> <a name="cdk8s-plus-17.ServicePortOptions.property.nodePort"></a><a class="headerlink" href="#nodeportoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">nodePort</span>: <span class="kt">number</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>number</code></li>
 <li><em>Default:</em> to auto-allocate a port if the ServiceType of this Service
@@ -4340,6 +4630,8 @@ requires one.</p>
 </blockquote>
 <hr />
 <h5 id="protocoloptional_2"><code>protocol</code><sup>Optional</sup> <a name="cdk8s-plus-17.ServicePortOptions.property.protocol"></a><a class="headerlink" href="#protocoloptional_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">protocol</span>: <span class="kt">Protocol</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.Protocol"><code>cdk8s-plus-17.Protocol</code></a></li>
 <li><em>Default:</em> Protocol.TCP</li>
@@ -4348,6 +4640,8 @@ requires one.</p>
 <p>Supports &ldquo;TCP&rdquo;, &ldquo;UDP&rdquo;, and &ldquo;SCTP&rdquo;. Default is TCP.</p>
 <hr />
 <h5 id="targetportoptional_2"><code>targetPort</code><sup>Optional</sup> <a name="cdk8s-plus-17.ServicePortOptions.property.targetPort"></a><a class="headerlink" href="#targetportoptional_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">targetPort</span>: <span class="kt">number</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>number</code></li>
 <li><em>Default:</em> The value of <code>port</code> will be used.</li>
@@ -4362,12 +4656,16 @@ requires one.</p>
 <span class="kd">const</span> <span class="nx">serviceProps</span>: <span class="kt">ServiceProps</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
 </code></pre></div>
 <h5 id="metadataoptional_8"><code>metadata</code><sup>Optional</sup> <a name="cdk8s-plus-17.ServiceProps.property.metadata"></a><a class="headerlink" href="#metadataoptional_8" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">metadata</span>: <span class="kt">ApiObjectMetadata</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s.ApiObjectMetadata"><code>cdk8s.ApiObjectMetadata</code></a></li>
 </ul>
 <p>Metadata that all persisted resources must have, which includes all objects users must create.</p>
 <hr />
 <h5 id="clusteripoptional_1"><code>clusterIP</code><sup>Optional</sup> <a name="cdk8s-plus-17.ServiceProps.property.clusterIP"></a><a class="headerlink" href="#clusteripoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">clusterIP</span>: <span class="kt">string</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code></li>
 <li><em>Default:</em> Automatically assigned.</li>
@@ -4384,6 +4682,8 @@ ClusterIP, NodePort, and LoadBalancer. Ignored if type is ExternalName.</p>
 </blockquote>
 <hr />
 <h5 id="externalipsoptional"><code>externalIPs</code><sup>Optional</sup> <a name="cdk8s-plus-17.ServiceProps.property.externalIPs"></a><a class="headerlink" href="#externalipsoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">externalIPs</span>: <span class="kt">string</span><span class="p">[];</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code>[]</li>
 <li><em>Default:</em> No external IPs.</li>
@@ -4395,6 +4695,8 @@ common example is external load-balancers that are not part of the
 Kubernetes system.</p>
 <hr />
 <h5 id="externalnameoptional_1"><code>externalName</code><sup>Optional</sup> <a name="cdk8s-plus-17.ServiceProps.property.externalName"></a><a class="headerlink" href="#externalnameoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">externalName</span>: <span class="kt">string</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code></li>
 <li><em>Default:</em> No external name.</li>
@@ -4402,6 +4704,8 @@ Kubernetes system.</p>
 <p>The externalName to be used when ServiceType.EXTERNAL_NAME is set.</p>
 <hr />
 <h5 id="loadbalancersourcerangesoptional"><code>loadBalancerSourceRanges</code><sup>Optional</sup> <a name="cdk8s-plus-17.ServiceProps.property.loadBalancerSourceRanges"></a><a class="headerlink" href="#loadbalancersourcerangesoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">loadBalancerSourceRanges</span>: <span class="kt">string</span><span class="p">[];</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code>[]</li>
 </ul>
@@ -4409,6 +4713,8 @@ Kubernetes system.</p>
 <p>More info: https://kubernetes.io/docs/tasks/access-application-cluster/configure-cloud-provider-firewall/</p>
 <hr />
 <h5 id="portsoptional"><code>ports</code><sup>Optional</sup> <a name="cdk8s-plus-17.ServiceProps.property.ports"></a><a class="headerlink" href="#portsoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">ports</span>: <span class="kt">ServicePort</span><span class="p">[];</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.ServicePort"><code>cdk8s-plus-17.ServicePort</code></a>[]</li>
 </ul>
@@ -4416,6 +4722,8 @@ Kubernetes system.</p>
 <p>More info: https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies</p>
 <hr />
 <h5 id="typeoptional_1"><code>type</code><sup>Optional</sup> <a name="cdk8s-plus-17.ServiceProps.property.type"></a><a class="headerlink" href="#typeoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="kr">type</span><span class="o">:</span> <span class="nx">ServiceType</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.ServiceType"><code>cdk8s-plus-17.ServiceType</code></a></li>
 <li><em>Default:</em> ServiceType.ClusterIP</li>
@@ -4431,12 +4739,16 @@ Kubernetes system.</p>
 <span class="kd">const</span> <span class="nx">statefulSetProps</span>: <span class="kt">StatefulSetProps</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
 </code></pre></div>
 <h5 id="metadataoptional_9"><code>metadata</code><sup>Optional</sup> <a name="cdk8s-plus-17.StatefulSetProps.property.metadata"></a><a class="headerlink" href="#metadataoptional_9" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">metadata</span>: <span class="kt">ApiObjectMetadata</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s.ApiObjectMetadata"><code>cdk8s.ApiObjectMetadata</code></a></li>
 </ul>
 <p>Metadata that all persisted resources must have, which includes all objects users must create.</p>
 <hr />
 <h5 id="containersoptional_5"><code>containers</code><sup>Optional</sup> <a name="cdk8s-plus-17.StatefulSetProps.property.containers"></a><a class="headerlink" href="#containersoptional_5" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">containers</span>: <span class="kt">ContainerProps</span><span class="p">[];</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.ContainerProps"><code>cdk8s-plus-17.ContainerProps</code></a>[]</li>
 <li><em>Default:</em> No containers. Note that a pod spec must include at least one container.</li>
@@ -4447,6 +4759,8 @@ added or removed. There must be at least one container in a Pod.</p>
 <p>You can add additionnal containers using <code>podSpec.addContainer()</code></p>
 <hr />
 <h5 id="restartpolicyoptional_9"><code>restartPolicy</code><sup>Optional</sup> <a name="cdk8s-plus-17.StatefulSetProps.property.restartPolicy"></a><a class="headerlink" href="#restartpolicyoptional_9" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">restartPolicy</span>: <span class="kt">RestartPolicy</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.RestartPolicy"><code>cdk8s-plus-17.RestartPolicy</code></a></li>
 <li><em>Default:</em> RestartPolicy.ALWAYS</li>
@@ -4457,6 +4771,8 @@ added or removed. There must be at least one container in a Pod.</p>
 </blockquote>
 <hr />
 <h5 id="serviceaccountoptional_9"><code>serviceAccount</code><sup>Optional</sup> <a name="cdk8s-plus-17.StatefulSetProps.property.serviceAccount"></a><a class="headerlink" href="#serviceaccountoptional_9" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">serviceAccount</span>: <span class="kt">IServiceAccount</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.IServiceAccount"><code>cdk8s-plus-17.IServiceAccount</code></a></li>
 <li><em>Default:</em> No service account.</li>
@@ -4473,6 +4789,8 @@ Account (for example, default).</p>
 </blockquote>
 <hr />
 <h5 id="volumesoptional_5"><code>volumes</code><sup>Optional</sup> <a name="cdk8s-plus-17.StatefulSetProps.property.volumes"></a><a class="headerlink" href="#volumesoptional_5" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">volumes</span>: <span class="kt">Volume</span><span class="p">[];</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.Volume"><code>cdk8s-plus-17.Volume</code></a>[]</li>
 <li><em>Default:</em> No volumes.</li>
@@ -4484,18 +4802,24 @@ Account (for example, default).</p>
 </blockquote>
 <hr />
 <h5 id="podmetadataoptional_3"><code>podMetadata</code><sup>Optional</sup> <a name="cdk8s-plus-17.StatefulSetProps.property.podMetadata"></a><a class="headerlink" href="#podmetadataoptional_3" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">podMetadata</span>: <span class="kt">ApiObjectMetadata</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s.ApiObjectMetadata"><code>cdk8s.ApiObjectMetadata</code></a></li>
 </ul>
 <p>The pod metadata.</p>
 <hr />
 <h5 id="servicerequired"><code>service</code><sup>Required</sup> <a name="cdk8s-plus-17.StatefulSetProps.property.service"></a><a class="headerlink" href="#servicerequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">service</span>: <span class="kt">Service</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.Service"><code>cdk8s-plus-17.Service</code></a></li>
 </ul>
 <p>Service to associate with the statefulset.</p>
 <hr />
 <h5 id="defaultselectoroptional_1"><code>defaultSelector</code><sup>Optional</sup> <a name="cdk8s-plus-17.StatefulSetProps.property.defaultSelector"></a><a class="headerlink" href="#defaultselectoroptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">defaultSelector</span>: <span class="kt">boolean</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>boolean</code></li>
 <li><em>Default:</em> true</li>
@@ -4505,6 +4829,8 @@ Account (for example, default).</p>
 <code>statefulset.podMetadata.addLabel()</code> and <code>statefulset.selectByLabel()</code>.</p>
 <hr />
 <h5 id="podmanagementpolicyoptional"><code>podManagementPolicy</code><sup>Optional</sup> <a name="cdk8s-plus-17.StatefulSetProps.property.podManagementPolicy"></a><a class="headerlink" href="#podmanagementpolicyoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">podManagementPolicy</span>: <span class="kt">PodManagementPolicy</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.PodManagementPolicy"><code>cdk8s-plus-17.PodManagementPolicy</code></a></li>
 <li><em>Default:</em> PodManagementPolicy.ORDERED_READY</li>
@@ -4512,6 +4838,8 @@ Account (for example, default).</p>
 <p>Pod management policy to use for this statefulset.</p>
 <hr />
 <h5 id="replicasoptional_1"><code>replicas</code><sup>Optional</sup> <a name="cdk8s-plus-17.StatefulSetProps.property.replicas"></a><a class="headerlink" href="#replicasoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">replicas</span>: <span class="kt">number</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>number</code></li>
 <li><em>Default:</em> 1</li>
@@ -4526,6 +4854,8 @@ Account (for example, default).</p>
 <span class="kd">const</span> <span class="nx">volumeMount</span>: <span class="kt">VolumeMount</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
 </code></pre></div>
 <h5 id="propagationoptional_1"><code>propagation</code><sup>Optional</sup> <a name="cdk8s-plus-17.VolumeMount.property.propagation"></a><a class="headerlink" href="#propagationoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">propagation</span>: <span class="kt">MountPropagation</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.MountPropagation"><code>cdk8s-plus-17.MountPropagation</code></a></li>
 <li><em>Default:</em> MountPropagation.NONE</li>
@@ -4537,6 +4867,8 @@ other Containers in the same Pod, or even to other Pods on the same node.</p>
 <p>This field is beta in 1.10.</p>
 <hr />
 <h5 id="readonlyoptional_1"><code>readOnly</code><sup>Optional</sup> <a name="cdk8s-plus-17.VolumeMount.property.readOnly"></a><a class="headerlink" href="#readonlyoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">readOnly</span>: <span class="kt">boolean</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>boolean</code></li>
 <li><em>Default:</em> false</li>
@@ -4545,6 +4877,8 @@ other Containers in the same Pod, or even to other Pods on the same node.</p>
 <p>Defaults to false.</p>
 <hr />
 <h5 id="subpathoptional_1"><code>subPath</code><sup>Optional</sup> <a name="cdk8s-plus-17.VolumeMount.property.subPath"></a><a class="headerlink" href="#subpathoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">subPath</span>: <span class="kt">string</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code></li>
 <li><em>Default:</em> &ldquo;&rdquo; the volume&rsquo;s root</li>
@@ -4552,6 +4886,8 @@ other Containers in the same Pod, or even to other Pods on the same node.</p>
 <p>Path within the volume from which the container&rsquo;s volume should be mounted.).</p>
 <hr />
 <h5 id="subpathexproptional_1"><code>subPathExpr</code><sup>Optional</sup> <a name="cdk8s-plus-17.VolumeMount.property.subPathExpr"></a><a class="headerlink" href="#subpathexproptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">subPathExpr</span>: <span class="kt">string</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code></li>
 <li><em>Default:</em> &ldquo;&rdquo; volume&rsquo;s root.</li>
@@ -4565,6 +4901,8 @@ is beta in 1.15.</p>
 1.15.</p>
 <hr />
 <h5 id="pathrequired_3"><code>path</code><sup>Required</sup> <a name="cdk8s-plus-17.VolumeMount.property.path"></a><a class="headerlink" href="#pathrequired_3" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">path</span>: <span class="kt">string</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code></li>
 </ul>
@@ -4573,6 +4911,8 @@ is beta in 1.15.</p>
 contain &lsquo;:&rsquo;.</p>
 <hr />
 <h5 id="volumerequired_4"><code>volume</code><sup>Required</sup> <a name="cdk8s-plus-17.VolumeMount.property.volume"></a><a class="headerlink" href="#volumerequired_4" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">volume</span>: <span class="kt">Volume</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.Volume"><code>cdk8s-plus-17.Volume</code></a></li>
 </ul>
@@ -4629,6 +4969,8 @@ contain &lsquo;:&rsquo;.</p>
 <hr />
 <h4 id="properties_8">Properties <a name="Properties"></a><a class="headerlink" href="#properties_8" title="Permanent link">&para;</a></h4>
 <h5 id="envrequired"><code>env</code><sup>Required</sup> <a name="cdk8s-plus-17.Container.property.env"></a><a class="headerlink" href="#envrequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">env</span><span class="o">:</span> <span class="p">{[</span> <span class="nx">key</span>: <span class="kt">string</span> <span class="p">]</span><span class="o">:</span> <span class="nx">EnvValue</span><span class="p">};</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> {[ key: string ]: <a href="#cdk8s-plus-17.EnvValue"><code>cdk8s-plus-17.EnvValue</code></a>}</li>
 </ul>
@@ -4636,48 +4978,64 @@ contain &lsquo;:&rsquo;.</p>
 <p>Returns a copy. To add environment variables use <code>addEnv()</code>.</p>
 <hr />
 <h5 id="imagerequired_1"><code>image</code><sup>Required</sup> <a name="cdk8s-plus-17.Container.property.image"></a><a class="headerlink" href="#imagerequired_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">image</span>: <span class="kt">string</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code></li>
 </ul>
 <p>The container image.</p>
 <hr />
 <h5 id="imagepullpolicyrequired"><code>imagePullPolicy</code><sup>Required</sup> <a name="cdk8s-plus-17.Container.property.imagePullPolicy"></a><a class="headerlink" href="#imagepullpolicyrequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">imagePullPolicy</span>: <span class="kt">ImagePullPolicy</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.ImagePullPolicy"><code>cdk8s-plus-17.ImagePullPolicy</code></a></li>
 </ul>
 <p>Image pull policy for this container.</p>
 <hr />
 <h5 id="mountsrequired"><code>mounts</code><sup>Required</sup> <a name="cdk8s-plus-17.Container.property.mounts"></a><a class="headerlink" href="#mountsrequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">mounts</span>: <span class="kt">VolumeMount</span><span class="p">[];</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.VolumeMount"><code>cdk8s-plus-17.VolumeMount</code></a>[]</li>
 </ul>
 <p>Volume mounts configured for this container.</p>
 <hr />
 <h5 id="namerequired_5"><code>name</code><sup>Required</sup> <a name="cdk8s-plus-17.Container.property.name"></a><a class="headerlink" href="#namerequired_5" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">name</span>: <span class="kt">string</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code></li>
 </ul>
 <p>The name of the container.</p>
 <hr />
 <h5 id="argsoptional_1"><code>args</code><sup>Optional</sup> <a name="cdk8s-plus-17.Container.property.args"></a><a class="headerlink" href="#argsoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">args</span>: <span class="kt">string</span><span class="p">[];</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code>[]</li>
 </ul>
 <p>Arguments to the entrypoint.</p>
 <hr />
 <h5 id="commandoptional_1"><code>command</code><sup>Optional</sup> <a name="cdk8s-plus-17.Container.property.command"></a><a class="headerlink" href="#commandoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">command</span>: <span class="kt">string</span><span class="p">[];</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code>[]</li>
 </ul>
 <p>Entrypoint array (the command to execute when the container starts).</p>
 <hr />
 <h5 id="portoptional_3"><code>port</code><sup>Optional</sup> <a name="cdk8s-plus-17.Container.property.port"></a><a class="headerlink" href="#portoptional_3" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">port</span>: <span class="kt">number</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>number</code></li>
 </ul>
 <p>The port this container exposes.</p>
 <hr />
 <h5 id="workingdiroptional_1"><code>workingDir</code><sup>Optional</sup> <a name="cdk8s-plus-17.Container.property.workingDir"></a><a class="headerlink" href="#workingdiroptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">workingDir</span>: <span class="kt">string</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code></li>
 </ul>
@@ -4756,11 +5114,15 @@ contain &lsquo;:&rsquo;.</p>
 <hr />
 <h4 id="properties_9">Properties <a name="Properties"></a><a class="headerlink" href="#properties_9" title="Permanent link">&para;</a></h4>
 <h5 id="valueoptional"><code>value</code><sup>Optional</sup> <a name="cdk8s-plus-17.EnvValue.property.value"></a><a class="headerlink" href="#valueoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">value</span>: <span class="kt">any</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>any</code></li>
 </ul>
 <hr />
 <h5 id="valuefromoptional"><code>valueFrom</code><sup>Optional</sup> <a name="cdk8s-plus-17.EnvValue.property.valueFrom"></a><a class="headerlink" href="#valuefromoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">valueFrom</span>: <span class="kt">any</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>any</code></li>
 </ul>
@@ -4818,6 +5180,8 @@ contain &lsquo;:&rsquo;.</p>
 <hr />
 <h4 id="properties_10">Properties <a name="Properties"></a><a class="headerlink" href="#properties_10" title="Permanent link">&para;</a></h4>
 <h5 id="containersrequired_4"><code>containers</code><sup>Required</sup> <a name="cdk8s-plus-17.PodSpec.property.containers"></a><a class="headerlink" href="#containersrequired_4" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">containers</span>: <span class="kt">Container</span><span class="p">[];</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.Container"><code>cdk8s-plus-17.Container</code></a>[]</li>
 </ul>
@@ -4825,6 +5189,8 @@ contain &lsquo;:&rsquo;.</p>
 <p>Use <code>addContainer</code> to add containers.</p>
 <hr />
 <h5 id="volumesrequired_4"><code>volumes</code><sup>Required</sup> <a name="cdk8s-plus-17.PodSpec.property.volumes"></a><a class="headerlink" href="#volumesrequired_4" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">volumes</span>: <span class="kt">Volume</span><span class="p">[];</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.Volume"><code>cdk8s-plus-17.Volume</code></a>[]</li>
 </ul>
@@ -4832,12 +5198,16 @@ contain &lsquo;:&rsquo;.</p>
 <p>Use <code>addVolume</code> to add volumes.</p>
 <hr />
 <h5 id="restartpolicyoptional_10"><code>restartPolicy</code><sup>Optional</sup> <a name="cdk8s-plus-17.PodSpec.property.restartPolicy"></a><a class="headerlink" href="#restartpolicyoptional_10" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">restartPolicy</span>: <span class="kt">RestartPolicy</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.RestartPolicy"><code>cdk8s-plus-17.RestartPolicy</code></a></li>
 </ul>
 <p>Restart policy for all containers within the pod.</p>
 <hr />
 <h5 id="serviceaccountoptional_10"><code>serviceAccount</code><sup>Optional</sup> <a name="cdk8s-plus-17.PodSpec.property.serviceAccount"></a><a class="headerlink" href="#serviceaccountoptional_10" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">serviceAccount</span>: <span class="kt">IServiceAccount</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.IServiceAccount"><code>cdk8s-plus-17.IServiceAccount</code></a></li>
 </ul>
@@ -4860,6 +5230,8 @@ contain &lsquo;:&rsquo;.</p>
 <hr />
 <h4 id="properties_11">Properties <a name="Properties"></a><a class="headerlink" href="#properties_11" title="Permanent link">&para;</a></h4>
 <h5 id="podmetadatarequired_3"><code>podMetadata</code><sup>Required</sup> <a name="cdk8s-plus-17.PodTemplate.property.podMetadata"></a><a class="headerlink" href="#podmetadatarequired_3" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">podMetadata</span>: <span class="kt">ApiObjectMetadataDefinition</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s.ApiObjectMetadataDefinition"><code>cdk8s.ApiObjectMetadataDefinition</code></a></li>
 </ul>
@@ -4984,6 +5356,8 @@ image. Volumes can not mount onto other volumes</p>
 <hr />
 <h4 id="properties_12">Properties <a name="Properties"></a><a class="headerlink" href="#properties_12" title="Permanent link">&para;</a></h4>
 <h5 id="namerequired_8"><code>name</code><sup>Required</sup> <a name="cdk8s-plus-17.Volume.property.name"></a><a class="headerlink" href="#namerequired_8" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">name</span>: <span class="kt">string</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code></li>
 </ul>
@@ -5001,6 +5375,8 @@ image. Volumes can not mount onto other volumes</p>
 <p>Represents a config map.</p>
 <h4 id="properties_13">Properties <a name="Properties"></a><a class="headerlink" href="#properties_13" title="Permanent link">&para;</a></h4>
 <h5 id="namerequired_9"><code>name</code><sup>Required</sup> <a name="cdk8s-plus-17.IConfigMap.property.name"></a><a class="headerlink" href="#namerequired_9" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">name</span>: <span class="kt">string</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code></li>
 </ul>
@@ -5033,6 +5409,8 @@ image. Volumes can not mount onto other volumes</p>
 <hr />
 <h4 id="properties_14">Properties <a name="Properties"></a><a class="headerlink" href="#properties_14" title="Permanent link">&para;</a></h4>
 <h5 id="containersrequired_5"><code>containers</code><sup>Required</sup> <a name="cdk8s-plus-17.IPodSpec.property.containers"></a><a class="headerlink" href="#containersrequired_5" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">containers</span>: <span class="kt">Container</span><span class="p">[];</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.Container"><code>cdk8s-plus-17.Container</code></a>[]</li>
 </ul>
@@ -5040,6 +5418,8 @@ image. Volumes can not mount onto other volumes</p>
 <p>Use <code>addContainer</code> to add containers.</p>
 <hr />
 <h5 id="volumesrequired_5"><code>volumes</code><sup>Required</sup> <a name="cdk8s-plus-17.IPodSpec.property.volumes"></a><a class="headerlink" href="#volumesrequired_5" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">volumes</span>: <span class="kt">Volume</span><span class="p">[];</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.Volume"><code>cdk8s-plus-17.Volume</code></a>[]</li>
 </ul>
@@ -5047,12 +5427,16 @@ image. Volumes can not mount onto other volumes</p>
 <p>Use <code>addVolume</code> to add volumes.</p>
 <hr />
 <h5 id="restartpolicyoptional_11"><code>restartPolicy</code><sup>Optional</sup> <a name="cdk8s-plus-17.IPodSpec.property.restartPolicy"></a><a class="headerlink" href="#restartpolicyoptional_11" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">restartPolicy</span>: <span class="kt">RestartPolicy</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.RestartPolicy"><code>cdk8s-plus-17.RestartPolicy</code></a></li>
 </ul>
 <p>Restart policy for all containers within the pod.</p>
 <hr />
 <h5 id="serviceaccountoptional_11"><code>serviceAccount</code><sup>Optional</sup> <a name="cdk8s-plus-17.IPodSpec.property.serviceAccount"></a><a class="headerlink" href="#serviceaccountoptional_11" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">serviceAccount</span>: <span class="kt">IServiceAccount</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.IServiceAccount"><code>cdk8s-plus-17.IServiceAccount</code></a></li>
 </ul>
@@ -5071,6 +5455,8 @@ image. Volumes can not mount onto other volumes</p>
 <p>Use the <code>PodTemplate</code> class as an implementation helper.</p>
 <h4 id="properties_15">Properties <a name="Properties"></a><a class="headerlink" href="#properties_15" title="Permanent link">&para;</a></h4>
 <h5 id="containersrequired_6"><code>containers</code><sup>Required</sup> <a name="cdk8s-plus-17.IPodTemplate.property.containers"></a><a class="headerlink" href="#containersrequired_6" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">containers</span>: <span class="kt">Container</span><span class="p">[];</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.Container"><code>cdk8s-plus-17.Container</code></a>[]</li>
 </ul>
@@ -5078,6 +5464,8 @@ image. Volumes can not mount onto other volumes</p>
 <p>Use <code>addContainer</code> to add containers.</p>
 <hr />
 <h5 id="volumesrequired_6"><code>volumes</code><sup>Required</sup> <a name="cdk8s-plus-17.IPodTemplate.property.volumes"></a><a class="headerlink" href="#volumesrequired_6" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">volumes</span>: <span class="kt">Volume</span><span class="p">[];</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.Volume"><code>cdk8s-plus-17.Volume</code></a>[]</li>
 </ul>
@@ -5085,18 +5473,24 @@ image. Volumes can not mount onto other volumes</p>
 <p>Use <code>addVolume</code> to add volumes.</p>
 <hr />
 <h5 id="restartpolicyoptional_12"><code>restartPolicy</code><sup>Optional</sup> <a name="cdk8s-plus-17.IPodTemplate.property.restartPolicy"></a><a class="headerlink" href="#restartpolicyoptional_12" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">restartPolicy</span>: <span class="kt">RestartPolicy</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.RestartPolicy"><code>cdk8s-plus-17.RestartPolicy</code></a></li>
 </ul>
 <p>Restart policy for all containers within the pod.</p>
 <hr />
 <h5 id="serviceaccountoptional_12"><code>serviceAccount</code><sup>Optional</sup> <a name="cdk8s-plus-17.IPodTemplate.property.serviceAccount"></a><a class="headerlink" href="#serviceaccountoptional_12" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">serviceAccount</span>: <span class="kt">IServiceAccount</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-17.IServiceAccount"><code>cdk8s-plus-17.IServiceAccount</code></a></li>
 </ul>
 <p>The service account used to run this pod.</p>
 <hr />
 <h5 id="podmetadatarequired_4"><code>podMetadata</code><sup>Required</sup> <a name="cdk8s-plus-17.IPodTemplate.property.podMetadata"></a><a class="headerlink" href="#podmetadatarequired_4" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">podMetadata</span>: <span class="kt">ApiObjectMetadataDefinition</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s.ApiObjectMetadataDefinition"><code>cdk8s.ApiObjectMetadataDefinition</code></a></li>
 </ul>
@@ -5109,6 +5503,8 @@ image. Volumes can not mount onto other volumes</p>
 <p>Represents a resource.</p>
 <h4 id="properties_16">Properties <a name="Properties"></a><a class="headerlink" href="#properties_16" title="Permanent link">&para;</a></h4>
 <h5 id="namerequired_10"><code>name</code><sup>Required</sup> <a name="cdk8s-plus-17.IResource.property.name"></a><a class="headerlink" href="#namerequired_10" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">name</span>: <span class="kt">string</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code></li>
 </ul>
@@ -5125,6 +5521,8 @@ image. Volumes can not mount onto other volumes</p>
 </ul>
 <h4 id="properties_17">Properties <a name="Properties"></a><a class="headerlink" href="#properties_17" title="Permanent link">&para;</a></h4>
 <h5 id="namerequired_11"><code>name</code><sup>Required</sup> <a name="cdk8s-plus-17.ISecret.property.name"></a><a class="headerlink" href="#namerequired_11" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">name</span>: <span class="kt">string</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code></li>
 </ul>
@@ -5141,6 +5539,8 @@ image. Volumes can not mount onto other volumes</p>
 </ul>
 <h4 id="properties_18">Properties <a name="Properties"></a><a class="headerlink" href="#properties_18" title="Permanent link">&para;</a></h4>
 <h5 id="namerequired_12"><code>name</code><sup>Required</sup> <a name="cdk8s-plus-17.IServiceAccount.property.name"></a><a class="headerlink" href="#namerequired_12" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">name</span>: <span class="kt">string</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code></li>
 </ul>
