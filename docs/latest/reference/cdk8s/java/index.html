@@ -1754,36 +1754,48 @@ framework based on the path of the construct within thes construct tree.</p>
 <hr />
 <h4 id="properties">Properties <a name="Properties"></a><a class="headerlink" href="#properties" title="Permanent link">&para;</a></h4>
 <h5 id="apigrouprequired"><code>apiGroup</code><sup>Required</sup> <a name="org.cdk8s.ApiObject.property.apiGroup"></a><a class="headerlink" href="#apigrouprequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getApiGroup</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 </ul>
 <p>The group portion of the API version (e.g. <code>authorization.k8s.io</code>).</p>
 <hr />
 <h5 id="apiversionrequired_1"><code>apiVersion</code><sup>Required</sup> <a name="org.cdk8s.ApiObject.property.apiVersion"></a><a class="headerlink" href="#apiversionrequired_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getApiVersion</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 </ul>
 <p>The object&rsquo;s API version (e.g. <code>authorization.k8s.io/v1</code>).</p>
 <hr />
 <h5 id="chartrequired"><code>chart</code><sup>Required</sup> <a name="org.cdk8s.ApiObject.property.chart"></a><a class="headerlink" href="#chartrequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">Chart</span> <span class="nf">getChart</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.Chart"><code>org.cdk8s.Chart</code></a></li>
 </ul>
 <p>The chart in which this object is defined.</p>
 <hr />
 <h5 id="kindrequired_1"><code>kind</code><sup>Required</sup> <a name="org.cdk8s.ApiObject.property.kind"></a><a class="headerlink" href="#kindrequired_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getKind</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 </ul>
 <p>The object kind.</p>
 <hr />
 <h5 id="metadatarequired"><code>metadata</code><sup>Required</sup> <a name="org.cdk8s.ApiObject.property.metadata"></a><a class="headerlink" href="#metadatarequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">ApiObjectMetadataDefinition</span> <span class="nf">getMetadata</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.ApiObjectMetadataDefinition"><code>org.cdk8s.ApiObjectMetadataDefinition</code></a></li>
 </ul>
 <p>Metadata associated with this API object.</p>
 <hr />
 <h5 id="namerequired"><code>name</code><sup>Required</sup> <a name="org.cdk8s.ApiObject.property.name"></a><a class="headerlink" href="#namerequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getName</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 </ul>
@@ -1823,12 +1835,16 @@ construct path to generate a DNS-compatible name for the resource.</p>
 </code></pre></div>
 <h4 id="properties_1">Properties <a name="Properties"></a><a class="headerlink" href="#properties_1" title="Permanent link">&para;</a></h4>
 <h5 id="outdirrequired"><code>outdir</code><sup>Required</sup> <a name="org.cdk8s.App.property.outdir"></a><a class="headerlink" href="#outdirrequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getOutdir</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 </ul>
 <p>The output directory into which manifests will be synthesized.</p>
 <hr />
 <h5 id="yamloutputtyperequired"><code>yamlOutputType</code><sup>Required</sup> <a name="org.cdk8s.App.property.yamlOutputType"></a><a class="headerlink" href="#yamloutputtyperequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">YamlOutputType</span> <span class="nf">getYamlOutputType</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.YamlOutputType"><code>org.cdk8s.YamlOutputType</code></a></li>
 <li><em>Default:</em> YamlOutputType.FILE_PER_CHART</li>
@@ -1906,6 +1922,8 @@ construct path to generate a DNS-compatible name for the resource.</p>
 <hr />
 <h4 id="properties_2">Properties <a name="Properties"></a><a class="headerlink" href="#properties_2" title="Permanent link">&para;</a></h4>
 <h5 id="labelsrequired"><code>labels</code><sup>Required</sup> <a name="org.cdk8s.Chart.property.labels"></a><a class="headerlink" href="#labelsrequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="o">&gt;</span> <span class="nf">getLabels</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.Map<java.lang.String, <code>java.lang.String</code>></li>
 </ul>
@@ -1913,6 +1931,8 @@ construct path to generate a DNS-compatible name for the resource.</p>
 <p>This is an immutable copy.</p>
 <hr />
 <h5 id="namespaceoptional_1"><code>namespace</code><sup>Optional</sup> <a name="org.cdk8s.Chart.property.namespace"></a><a class="headerlink" href="#namespaceoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getNamespace</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 </ul>
@@ -1982,6 +2002,8 @@ construct path to generate a DNS-compatible name for the resource.</p>
 <hr />
 <h4 id="properties_3">Properties <a name="Properties"></a><a class="headerlink" href="#properties_3" title="Permanent link">&para;</a></h4>
 <h5 id="releasenamerequired"><code>releaseName</code><sup>Required</sup> <a name="org.cdk8s.Helm.property.releaseName"></a><a class="headerlink" href="#releasenamerequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getReleaseName</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 </ul>
@@ -2016,6 +2038,8 @@ from the manifest.</p>
 <hr />
 <h4 id="properties_4">Properties <a name="Properties"></a><a class="headerlink" href="#properties_4" title="Permanent link">&para;</a></h4>
 <h5 id="apiobjectsrequired"><code>apiObjects</code><sup>Required</sup> <a name="org.cdk8s.Include.property.apiObjects"></a><a class="headerlink" href="#apiobjectsrequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">ApiObject</span><span class="o">&gt;</span> <span class="nf">getApiObjects</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.ApiObject"><code>org.cdk8s.ApiObject</code></a>&gt;</li>
 </ul>
@@ -2035,6 +2059,8 @@ from the manifest.</p>
     <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
 <h5 id="annotationsoptional"><code>annotations</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectMetadata.property.annotations"></a><a class="headerlink" href="#annotationsoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="o">&gt;</span> <span class="nf">getAnnotations</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.Map<java.lang.String, <code>java.lang.String</code>></li>
 <li><em>Default:</em> No annotations.</li>
@@ -2047,6 +2073,8 @@ preserved when modifying objects.</p>
 </blockquote>
 <hr />
 <h5 id="labelsoptional_1"><code>labels</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectMetadata.property.labels"></a><a class="headerlink" href="#labelsoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="o">&gt;</span> <span class="nf">getLabels</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.Map<java.lang.String, <code>java.lang.String</code>></li>
 <li><em>Default:</em> No labels.</li>
@@ -2058,6 +2086,8 @@ preserved when modifying objects.</p>
 </blockquote>
 <hr />
 <h5 id="nameoptional"><code>name</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectMetadata.property.name"></a><a class="headerlink" href="#nameoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getName</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 <li><em>Default:</em> an app-unique name generated by the chart</li>
@@ -2075,6 +2105,8 @@ more than one instance in any app. Therefore it is highly recommended to
 leave this unspecified.</p>
 <hr />
 <h5 id="namespaceoptional_2"><code>namespace</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectMetadata.property.namespace"></a><a class="headerlink" href="#namespaceoptional_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getNamespace</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 <li><em>Default:</em> undefined (will be assigned to the &lsquo;default&rsquo; namespace)</li>
@@ -2095,18 +2127,24 @@ Not all objects are required to be scoped to a namespace - the value of this fie
     <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
 <h5 id="apiversionrequired_2"><code>apiVersion</code><sup>Required</sup> <a name="org.cdk8s.ApiObjectProps.property.apiVersion"></a><a class="headerlink" href="#apiversionrequired_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getApiVersion</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 </ul>
 <p>API version.</p>
 <hr />
 <h5 id="kindrequired_2"><code>kind</code><sup>Required</sup> <a name="org.cdk8s.ApiObjectProps.property.kind"></a><a class="headerlink" href="#kindrequired_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getKind</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 </ul>
 <p>Resource kind.</p>
 <hr />
 <h5 id="metadataoptional_1"><code>metadata</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectProps.property.metadata"></a><a class="headerlink" href="#metadataoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">ApiObjectMetadata</span> <span class="nf">getMetadata</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.ApiObjectMetadata"><code>org.cdk8s.ApiObjectMetadata</code></a></li>
 </ul>
@@ -2124,6 +2162,8 @@ framework based on the path of the construct within thes construct tree.</p>
     <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
 <h5 id="outdiroptional_1"><code>outdir</code><sup>Optional</sup> <a name="org.cdk8s.AppProps.property.outdir"></a><a class="headerlink" href="#outdiroptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getOutdir</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 <li><em>Default:</em> CDK8S_OUTDIR if defined, otherwise &ldquo;dist&rdquo;</li>
@@ -2131,6 +2171,8 @@ framework based on the path of the construct within thes construct tree.</p>
 <p>The directory to output Kubernetes manifests.</p>
 <hr />
 <h5 id="yamloutputtypeoptional_1"><code>yamlOutputType</code><sup>Optional</sup> <a name="org.cdk8s.AppProps.property.yamlOutputType"></a><a class="headerlink" href="#yamloutputtypeoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">YamlOutputType</span> <span class="nf">getYamlOutputType</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.YamlOutputType"><code>org.cdk8s.YamlOutputType</code></a></li>
 <li><em>Default:</em> YamlOutputType.FILE_PER_CHART</li>
@@ -2147,6 +2189,8 @@ framework based on the path of the construct within thes construct tree.</p>
     <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
 <h5 id="labelsoptional_2"><code>labels</code><sup>Optional</sup> <a name="org.cdk8s.ChartProps.property.labels"></a><a class="headerlink" href="#labelsoptional_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="o">&gt;</span> <span class="nf">getLabels</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.Map<java.lang.String, <code>java.lang.String</code>></li>
 <li><em>Default:</em> no common labels</li>
@@ -2154,6 +2198,8 @@ framework based on the path of the construct within thes construct tree.</p>
 <p>Labels to apply to all resources in this chart.</p>
 <hr />
 <h5 id="namespaceoptional_3"><code>namespace</code><sup>Optional</sup> <a name="org.cdk8s.ChartProps.property.namespace"></a><a class="headerlink" href="#namespaceoptional_3" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getNamespace</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 <li><em>Default:</em> no namespace is synthesized (usually this implies &ldquo;default&rdquo;)</li>
@@ -2172,12 +2218,16 @@ framework based on the path of the construct within thes construct tree.</p>
     <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
 <h5 id="apiversionrequired_3"><code>apiVersion</code><sup>Required</sup> <a name="org.cdk8s.GroupVersionKind.property.apiVersion"></a><a class="headerlink" href="#apiversionrequired_3" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getApiVersion</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 </ul>
 <p>The object&rsquo;s API version (e.g. <code>authorization.k8s.io/v1</code>).</p>
 <hr />
 <h5 id="kindrequired_3"><code>kind</code><sup>Required</sup> <a name="org.cdk8s.GroupVersionKind.property.kind"></a><a class="headerlink" href="#kindrequired_3" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getKind</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 </ul>
@@ -2197,6 +2247,8 @@ framework based on the path of the construct within thes construct tree.</p>
     <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
 <h5 id="chartrequired_2"><code>chart</code><sup>Required</sup> <a name="org.cdk8s.HelmProps.property.chart"></a><a class="headerlink" href="#chartrequired_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getChart</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 </ul>
@@ -2204,6 +2256,8 @@ framework based on the path of the construct within thes construct tree.</p>
 <p>This name is passed to <code>helm template</code> and has all the relevant semantics.</p>
 <hr />
 <h5 id="helmexecutableoptional_1"><code>helmExecutable</code><sup>Optional</sup> <a name="org.cdk8s.HelmProps.property.helmExecutable"></a><a class="headerlink" href="#helmexecutableoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getHelmExecutable</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 <li><em>Default:</em> &ldquo;helm&rdquo;</li>
@@ -2211,6 +2265,8 @@ framework based on the path of the construct within thes construct tree.</p>
 <p>The local helm executable to use in order to create the manifest the chart.</p>
 <hr />
 <h5 id="helmflagsoptional_1"><code>helmFlags</code><sup>Optional</sup> <a name="org.cdk8s.HelmProps.property.helmFlags"></a><a class="headerlink" href="#helmflagsoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="o">&gt;</span> <span class="nf">getHelmFlags</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<code>java.lang.String</code>&gt;</li>
 <li><em>Default:</em> []</li>
@@ -2218,6 +2274,8 @@ framework based on the path of the construct within thes construct tree.</p>
 <p>Additional flags to add to the <code>helm</code> execution.</p>
 <hr />
 <h5 id="releasenameoptional_1"><code>releaseName</code><sup>Optional</sup> <a name="org.cdk8s.HelmProps.property.releaseName"></a><a class="headerlink" href="#releasenameoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getReleaseName</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 <li><em>Default:</em> if unspecified, a name will be allocated based on the construct path</li>
@@ -2228,6 +2286,8 @@ framework based on the path of the construct within thes construct tree.</p>
 </blockquote>
 <hr />
 <h5 id="valuesoptional_1"><code>values</code><sup>Optional</sup> <a name="org.cdk8s.HelmProps.property.values"></a><a class="headerlink" href="#valuesoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Object</span><span class="o">&gt;</span> <span class="nf">getValues</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.Map<java.lang.String, <code>java.lang.Object</code>></li>
 <li><em>Default:</em> If no values are specified, chart will use the defaults.</li>
@@ -2243,6 +2303,8 @@ framework based on the path of the construct within thes construct tree.</p>
     <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
 <h5 id="urlrequired_1"><code>url</code><sup>Required</sup> <a name="org.cdk8s.IncludeProps.property.url"></a><a class="headerlink" href="#urlrequired_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getUrl</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 </ul>
@@ -2261,6 +2323,8 @@ framework based on the path of the construct within thes construct tree.</p>
     <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
 <h5 id="delimiteroptional"><code>delimiter</code><sup>Optional</sup> <a name="org.cdk8s.NameOptions.property.delimiter"></a><a class="headerlink" href="#delimiteroptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getDelimiter</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 <li><em>Default:</em> &ldquo;-&ldquo;</li>
@@ -2268,6 +2332,8 @@ framework based on the path of the construct within thes construct tree.</p>
 <p>Delimiter to use between components.</p>
 <hr />
 <h5 id="extraoptional"><code>extra</code><sup>Optional</sup> <a name="org.cdk8s.NameOptions.property.extra"></a><a class="headerlink" href="#extraoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="o">&gt;</span> <span class="nf">getExtra</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<code>java.lang.String</code>&gt;</li>
 <li><em>Default:</em> [] use the construct path components</li>
@@ -2275,6 +2341,8 @@ framework based on the path of the construct within thes construct tree.</p>
 <p>Extra components to include in the name.</p>
 <hr />
 <h5 id="includehashoptional"><code>includeHash</code><sup>Optional</sup> <a name="org.cdk8s.NameOptions.property.includeHash"></a><a class="headerlink" href="#includehashoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span> <span class="nf">getIncludeHash</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.Boolean</code></li>
 <li><em>Default:</em> true</li>
@@ -2282,6 +2350,8 @@ framework based on the path of the construct within thes construct tree.</p>
 <p>Include a short hash as last part of the name.</p>
 <hr />
 <h5 id="maxlenoptional"><code>maxLen</code><sup>Optional</sup> <a name="org.cdk8s.NameOptions.property.maxLen"></a><a class="headerlink" href="#maxlenoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="nf">getMaxLen</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.Number</code></li>
 <li><em>Default:</em> 63</li>
@@ -2298,6 +2368,8 @@ framework based on the path of the construct within thes construct tree.</p>
     <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
 <h5 id="roundingoptional"><code>rounding</code><sup>Optional</sup> <a name="org.cdk8s.SizeConversionOptions.property.rounding"></a><a class="headerlink" href="#roundingoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">SizeRoundingBehavior</span> <span class="nf">getRounding</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.SizeRoundingBehavior"><code>org.cdk8s.SizeRoundingBehavior</code></a></li>
 <li><em>Default:</em> SizeRoundingBehavior.FAIL</li>
@@ -2314,6 +2386,8 @@ framework based on the path of the construct within thes construct tree.</p>
     <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
 <h5 id="integraloptional"><code>integral</code><sup>Optional</sup> <a name="org.cdk8s.TimeConversionOptions.property.integral"></a><a class="headerlink" href="#integraloptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span> <span class="nf">getIntegral</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.Boolean</code></li>
 <li><em>Default:</em> true</li>
@@ -2442,6 +2516,8 @@ Not all objects are required to be scoped to a namespace - the value of this fie
 </code></pre></div>
 <h4 id="properties_5">Properties <a name="Properties"></a><a class="headerlink" href="#properties_5" title="Permanent link">&para;</a></h4>
 <h5 id="nameoptional_2"><code>name</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectMetadataDefinition.property.name"></a><a class="headerlink" href="#nameoptional_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getName</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 </ul>
@@ -2452,6 +2528,8 @@ Otherwise, a name will be generated by calling
 construct path to generate a DNS-compatible name for the resource.</p>
 <hr />
 <h5 id="namespaceoptional_5"><code>namespace</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectMetadataDefinition.property.namespace"></a><a class="headerlink" href="#namespaceoptional_5" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getNamespace</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 </ul>
@@ -2481,6 +2559,8 @@ from a different scope, that relationship is not represented in this graph.</p>
 </code></pre></div>
 <h4 id="properties_6">Properties <a name="Properties"></a><a class="headerlink" href="#properties_6" title="Permanent link">&para;</a></h4>
 <h5 id="rootrequired"><code>root</code><sup>Required</sup> <a name="org.cdk8s.DependencyGraph.property.root"></a><a class="headerlink" href="#rootrequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">DependencyVertex</span> <span class="nf">getRoot</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.DependencyVertex"><code>org.cdk8s.DependencyVertex</code></a></li>
 </ul>
@@ -2517,18 +2597,24 @@ that binds all the connected spaces of the graph.</p>
 </code></pre></div>
 <h4 id="properties_7">Properties <a name="Properties"></a><a class="headerlink" href="#properties_7" title="Permanent link">&para;</a></h4>
 <h5 id="inboundrequired"><code>inbound</code><sup>Required</sup> <a name="org.cdk8s.DependencyVertex.property.inbound"></a><a class="headerlink" href="#inboundrequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">DependencyVertex</span><span class="o">&gt;</span> <span class="nf">getInbound</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.DependencyVertex"><code>org.cdk8s.DependencyVertex</code></a>&gt;</li>
 </ul>
 <p>Returns the parents of the vertex (i.e dependants).</p>
 <hr />
 <h5 id="outboundrequired"><code>outbound</code><sup>Required</sup> <a name="org.cdk8s.DependencyVertex.property.outbound"></a><a class="headerlink" href="#outboundrequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">DependencyVertex</span><span class="o">&gt;</span> <span class="nf">getOutbound</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.DependencyVertex"><code>org.cdk8s.DependencyVertex</code></a>&gt;</li>
 </ul>
 <p>Returns the children of the vertex (i.e dependencies).</p>
 <hr />
 <h5 id="valueoptional_1"><code>value</code><sup>Optional</sup> <a name="org.cdk8s.DependencyVertex.property.value"></a><a class="headerlink" href="#valueoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">IConstruct</span> <span class="nf">getValue</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#software.constructs.IConstruct"><code>software.constructs.IConstruct</code></a></li>
 </ul>

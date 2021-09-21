@@ -1736,36 +1736,48 @@
 <hr />
 <h4 id="properties">Properties <a name="Properties"></a><a class="headerlink" href="#properties" title="Permanent link">&para;</a></h4>
 <h5 id="apigrouprequired"><code>apiGroup</code><sup>Required</sup> <a name="cdk8s.ApiObject.property.apiGroup"></a><a class="headerlink" href="#apigrouprequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">apiGroup</span>: <span class="kt">string</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code></li>
 </ul>
 <p>The group portion of the API version (e.g. <code>authorization.k8s.io</code>).</p>
 <hr />
 <h5 id="apiversionrequired"><code>apiVersion</code><sup>Required</sup> <a name="cdk8s.ApiObject.property.apiVersion"></a><a class="headerlink" href="#apiversionrequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">apiVersion</span>: <span class="kt">string</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code></li>
 </ul>
 <p>The object&rsquo;s API version (e.g. <code>authorization.k8s.io/v1</code>).</p>
 <hr />
 <h5 id="chartrequired"><code>chart</code><sup>Required</sup> <a name="cdk8s.ApiObject.property.chart"></a><a class="headerlink" href="#chartrequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">chart</span>: <span class="kt">Chart</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s.Chart"><code>cdk8s.Chart</code></a></li>
 </ul>
 <p>The chart in which this object is defined.</p>
 <hr />
 <h5 id="kindrequired"><code>kind</code><sup>Required</sup> <a name="cdk8s.ApiObject.property.kind"></a><a class="headerlink" href="#kindrequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">kind</span>: <span class="kt">string</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code></li>
 </ul>
 <p>The object kind.</p>
 <hr />
 <h5 id="metadatarequired"><code>metadata</code><sup>Required</sup> <a name="cdk8s.ApiObject.property.metadata"></a><a class="headerlink" href="#metadatarequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">metadata</span>: <span class="kt">ApiObjectMetadataDefinition</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s.ApiObjectMetadataDefinition"><code>cdk8s.ApiObjectMetadataDefinition</code></a></li>
 </ul>
 <p>Metadata associated with this API object.</p>
 <hr />
 <h5 id="namerequired"><code>name</code><sup>Required</sup> <a name="cdk8s.ApiObject.property.name"></a><a class="headerlink" href="#namerequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">name</span>: <span class="kt">string</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code></li>
 </ul>
@@ -1794,12 +1806,16 @@ construct path to generate a DNS-compatible name for the resource.</p>
 </code></pre></div>
 <h4 id="properties_1">Properties <a name="Properties"></a><a class="headerlink" href="#properties_1" title="Permanent link">&para;</a></h4>
 <h5 id="outdirrequired"><code>outdir</code><sup>Required</sup> <a name="cdk8s.App.property.outdir"></a><a class="headerlink" href="#outdirrequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">outdir</span>: <span class="kt">string</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code></li>
 </ul>
 <p>The output directory into which manifests will be synthesized.</p>
 <hr />
 <h5 id="yamloutputtyperequired"><code>yamlOutputType</code><sup>Required</sup> <a name="cdk8s.App.property.yamlOutputType"></a><a class="headerlink" href="#yamloutputtyperequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">yamlOutputType</span>: <span class="kt">YamlOutputType</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s.YamlOutputType"><code>cdk8s.YamlOutputType</code></a></li>
 <li><em>Default:</em> YamlOutputType.FILE_PER_CHART</li>
@@ -1863,6 +1879,8 @@ construct path to generate a DNS-compatible name for the resource.</p>
 <hr />
 <h4 id="properties_2">Properties <a name="Properties"></a><a class="headerlink" href="#properties_2" title="Permanent link">&para;</a></h4>
 <h5 id="labelsrequired"><code>labels</code><sup>Required</sup> <a name="cdk8s.Chart.property.labels"></a><a class="headerlink" href="#labelsrequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">labels</span><span class="o">:</span> <span class="p">{[</span> <span class="nx">key</span>: <span class="kt">string</span> <span class="p">]</span><span class="o">:</span> <span class="kt">string</span><span class="p">};</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> {[ key: string ]: <code>string</code>}</li>
 </ul>
@@ -1870,6 +1888,8 @@ construct path to generate a DNS-compatible name for the resource.</p>
 <p>This is an immutable copy.</p>
 <hr />
 <h5 id="namespaceoptional"><code>namespace</code><sup>Optional</sup> <a name="cdk8s.Chart.property.namespace"></a><a class="headerlink" href="#namespaceoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">namespace</span>: <span class="kt">string</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code></li>
 </ul>
@@ -1900,6 +1920,8 @@ construct path to generate a DNS-compatible name for the resource.</p>
 <hr />
 <h4 id="properties_3">Properties <a name="Properties"></a><a class="headerlink" href="#properties_3" title="Permanent link">&para;</a></h4>
 <h5 id="releasenamerequired"><code>releaseName</code><sup>Required</sup> <a name="cdk8s.Helm.property.releaseName"></a><a class="headerlink" href="#releasenamerequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">releaseName</span>: <span class="kt">string</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code></li>
 </ul>
@@ -1931,6 +1953,8 @@ from the manifest.</p>
 <hr />
 <h4 id="properties_4">Properties <a name="Properties"></a><a class="headerlink" href="#properties_4" title="Permanent link">&para;</a></h4>
 <h5 id="apiobjectsrequired"><code>apiObjects</code><sup>Required</sup> <a name="cdk8s.Include.property.apiObjects"></a><a class="headerlink" href="#apiobjectsrequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">apiObjects</span>: <span class="kt">ApiObject</span><span class="p">[];</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s.ApiObject"><code>cdk8s.ApiObject</code></a>[]</li>
 </ul>
@@ -1945,6 +1969,8 @@ from the manifest.</p>
 <span class="kd">const</span> <span class="nx">apiObjectMetadata</span>: <span class="kt">ApiObjectMetadata</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
 </code></pre></div>
 <h5 id="annotationsoptional"><code>annotations</code><sup>Optional</sup> <a name="cdk8s.ApiObjectMetadata.property.annotations"></a><a class="headerlink" href="#annotationsoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">annotations</span><span class="o">:</span> <span class="p">{[</span> <span class="nx">key</span>: <span class="kt">string</span> <span class="p">]</span><span class="o">:</span> <span class="kt">string</span><span class="p">};</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> {[ key: string ]: <code>string</code>}</li>
 <li><em>Default:</em> No annotations.</li>
@@ -1957,6 +1983,8 @@ preserved when modifying objects.</p>
 </blockquote>
 <hr />
 <h5 id="labelsoptional"><code>labels</code><sup>Optional</sup> <a name="cdk8s.ApiObjectMetadata.property.labels"></a><a class="headerlink" href="#labelsoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">labels</span><span class="o">:</span> <span class="p">{[</span> <span class="nx">key</span>: <span class="kt">string</span> <span class="p">]</span><span class="o">:</span> <span class="kt">string</span><span class="p">};</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> {[ key: string ]: <code>string</code>}</li>
 <li><em>Default:</em> No labels.</li>
@@ -1968,6 +1996,8 @@ preserved when modifying objects.</p>
 </blockquote>
 <hr />
 <h5 id="nameoptional"><code>name</code><sup>Optional</sup> <a name="cdk8s.ApiObjectMetadata.property.name"></a><a class="headerlink" href="#nameoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">name</span>: <span class="kt">string</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code></li>
 <li><em>Default:</em> an app-unique name generated by the chart</li>
@@ -1985,6 +2015,8 @@ more than one instance in any app. Therefore it is highly recommended to
 leave this unspecified.</p>
 <hr />
 <h5 id="namespaceoptional_1"><code>namespace</code><sup>Optional</sup> <a name="cdk8s.ApiObjectMetadata.property.namespace"></a><a class="headerlink" href="#namespaceoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">namespace</span>: <span class="kt">string</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code></li>
 <li><em>Default:</em> undefined (will be assigned to the &lsquo;default&rsquo; namespace)</li>
@@ -2001,18 +2033,24 @@ Not all objects are required to be scoped to a namespace - the value of this fie
 <span class="kd">const</span> <span class="nx">apiObjectProps</span>: <span class="kt">ApiObjectProps</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
 </code></pre></div>
 <h5 id="apiversionrequired_1"><code>apiVersion</code><sup>Required</sup> <a name="cdk8s.ApiObjectProps.property.apiVersion"></a><a class="headerlink" href="#apiversionrequired_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">apiVersion</span>: <span class="kt">string</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code></li>
 </ul>
 <p>API version.</p>
 <hr />
 <h5 id="kindrequired_1"><code>kind</code><sup>Required</sup> <a name="cdk8s.ApiObjectProps.property.kind"></a><a class="headerlink" href="#kindrequired_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">kind</span>: <span class="kt">string</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code></li>
 </ul>
 <p>Resource kind.</p>
 <hr />
 <h5 id="metadataoptional"><code>metadata</code><sup>Optional</sup> <a name="cdk8s.ApiObjectProps.property.metadata"></a><a class="headerlink" href="#metadataoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">metadata</span>: <span class="kt">ApiObjectMetadata</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s.ApiObjectMetadata"><code>cdk8s.ApiObjectMetadata</code></a></li>
 </ul>
@@ -2027,6 +2065,8 @@ framework based on the path of the construct within thes construct tree.</p>
 <span class="kd">const</span> <span class="nx">appProps</span>: <span class="kt">AppProps</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
 </code></pre></div>
 <h5 id="outdiroptional"><code>outdir</code><sup>Optional</sup> <a name="cdk8s.AppProps.property.outdir"></a><a class="headerlink" href="#outdiroptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">outdir</span>: <span class="kt">string</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code></li>
 <li><em>Default:</em> CDK8S_OUTDIR if defined, otherwise &ldquo;dist&rdquo;</li>
@@ -2034,6 +2074,8 @@ framework based on the path of the construct within thes construct tree.</p>
 <p>The directory to output Kubernetes manifests.</p>
 <hr />
 <h5 id="yamloutputtypeoptional"><code>yamlOutputType</code><sup>Optional</sup> <a name="cdk8s.AppProps.property.yamlOutputType"></a><a class="headerlink" href="#yamloutputtypeoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">yamlOutputType</span>: <span class="kt">YamlOutputType</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s.YamlOutputType"><code>cdk8s.YamlOutputType</code></a></li>
 <li><em>Default:</em> YamlOutputType.FILE_PER_CHART</li>
@@ -2047,6 +2089,8 @@ framework based on the path of the construct within thes construct tree.</p>
 <span class="kd">const</span> <span class="nx">chartProps</span>: <span class="kt">ChartProps</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
 </code></pre></div>
 <h5 id="labelsoptional_1"><code>labels</code><sup>Optional</sup> <a name="cdk8s.ChartProps.property.labels"></a><a class="headerlink" href="#labelsoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">labels</span><span class="o">:</span> <span class="p">{[</span> <span class="nx">key</span>: <span class="kt">string</span> <span class="p">]</span><span class="o">:</span> <span class="kt">string</span><span class="p">};</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> {[ key: string ]: <code>string</code>}</li>
 <li><em>Default:</em> no common labels</li>
@@ -2054,6 +2098,8 @@ framework based on the path of the construct within thes construct tree.</p>
 <p>Labels to apply to all resources in this chart.</p>
 <hr />
 <h5 id="namespaceoptional_2"><code>namespace</code><sup>Optional</sup> <a name="cdk8s.ChartProps.property.namespace"></a><a class="headerlink" href="#namespaceoptional_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">namespace</span>: <span class="kt">string</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code></li>
 <li><em>Default:</em> no namespace is synthesized (usually this implies &ldquo;default&rdquo;)</li>
@@ -2069,12 +2115,16 @@ framework based on the path of the construct within thes construct tree.</p>
 <span class="kd">const</span> <span class="nx">groupVersionKind</span>: <span class="kt">GroupVersionKind</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
 </code></pre></div>
 <h5 id="apiversionrequired_2"><code>apiVersion</code><sup>Required</sup> <a name="cdk8s.GroupVersionKind.property.apiVersion"></a><a class="headerlink" href="#apiversionrequired_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">apiVersion</span>: <span class="kt">string</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code></li>
 </ul>
 <p>The object&rsquo;s API version (e.g. <code>authorization.k8s.io/v1</code>).</p>
 <hr />
 <h5 id="kindrequired_2"><code>kind</code><sup>Required</sup> <a name="cdk8s.GroupVersionKind.property.kind"></a><a class="headerlink" href="#kindrequired_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">kind</span>: <span class="kt">string</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code></li>
 </ul>
@@ -2088,6 +2138,8 @@ framework based on the path of the construct within thes construct tree.</p>
 <span class="kd">const</span> <span class="nx">helmProps</span>: <span class="kt">HelmProps</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
 </code></pre></div>
 <h5 id="chartrequired_1"><code>chart</code><sup>Required</sup> <a name="cdk8s.HelmProps.property.chart"></a><a class="headerlink" href="#chartrequired_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">chart</span>: <span class="kt">string</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code></li>
 </ul>
@@ -2095,6 +2147,8 @@ framework based on the path of the construct within thes construct tree.</p>
 <p>This name is passed to <code>helm template</code> and has all the relevant semantics.</p>
 <hr />
 <h5 id="helmexecutableoptional"><code>helmExecutable</code><sup>Optional</sup> <a name="cdk8s.HelmProps.property.helmExecutable"></a><a class="headerlink" href="#helmexecutableoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">helmExecutable</span>: <span class="kt">string</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code></li>
 <li><em>Default:</em> &ldquo;helm&rdquo;</li>
@@ -2102,6 +2156,8 @@ framework based on the path of the construct within thes construct tree.</p>
 <p>The local helm executable to use in order to create the manifest the chart.</p>
 <hr />
 <h5 id="helmflagsoptional"><code>helmFlags</code><sup>Optional</sup> <a name="cdk8s.HelmProps.property.helmFlags"></a><a class="headerlink" href="#helmflagsoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">helmFlags</span>: <span class="kt">string</span><span class="p">[];</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code>[]</li>
 <li><em>Default:</em> []</li>
@@ -2109,6 +2165,8 @@ framework based on the path of the construct within thes construct tree.</p>
 <p>Additional flags to add to the <code>helm</code> execution.</p>
 <hr />
 <h5 id="releasenameoptional"><code>releaseName</code><sup>Optional</sup> <a name="cdk8s.HelmProps.property.releaseName"></a><a class="headerlink" href="#releasenameoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">releaseName</span>: <span class="kt">string</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code></li>
 <li><em>Default:</em> if unspecified, a name will be allocated based on the construct path</li>
@@ -2119,6 +2177,8 @@ framework based on the path of the construct within thes construct tree.</p>
 </blockquote>
 <hr />
 <h5 id="valuesoptional"><code>values</code><sup>Optional</sup> <a name="cdk8s.HelmProps.property.values"></a><a class="headerlink" href="#valuesoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">values</span><span class="o">:</span> <span class="p">{[</span> <span class="nx">key</span>: <span class="kt">string</span> <span class="p">]</span><span class="o">:</span> <span class="nx">any</span><span class="p">};</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> {[ key: string ]: <code>any</code>}</li>
 <li><em>Default:</em> If no values are specified, chart will use the defaults.</li>
@@ -2132,6 +2192,8 @@ framework based on the path of the construct within thes construct tree.</p>
 <span class="kd">const</span> <span class="nx">includeProps</span>: <span class="kt">IncludeProps</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
 </code></pre></div>
 <h5 id="urlrequired"><code>url</code><sup>Required</sup> <a name="cdk8s.IncludeProps.property.url"></a><a class="headerlink" href="#urlrequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">url</span>: <span class="kt">string</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code></li>
 </ul>
@@ -2145,6 +2207,8 @@ framework based on the path of the construct within thes construct tree.</p>
 <span class="kd">const</span> <span class="nx">nameOptions</span>: <span class="kt">NameOptions</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
 </code></pre></div>
 <h5 id="delimiteroptional"><code>delimiter</code><sup>Optional</sup> <a name="cdk8s.NameOptions.property.delimiter"></a><a class="headerlink" href="#delimiteroptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">delimiter</span>: <span class="kt">string</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code></li>
 <li><em>Default:</em> &ldquo;-&ldquo;</li>
@@ -2152,6 +2216,8 @@ framework based on the path of the construct within thes construct tree.</p>
 <p>Delimiter to use between components.</p>
 <hr />
 <h5 id="extraoptional"><code>extra</code><sup>Optional</sup> <a name="cdk8s.NameOptions.property.extra"></a><a class="headerlink" href="#extraoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">extra</span>: <span class="kt">string</span><span class="p">[];</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code>[]</li>
 <li><em>Default:</em> [] use the construct path components</li>
@@ -2159,6 +2225,8 @@ framework based on the path of the construct within thes construct tree.</p>
 <p>Extra components to include in the name.</p>
 <hr />
 <h5 id="includehashoptional"><code>includeHash</code><sup>Optional</sup> <a name="cdk8s.NameOptions.property.includeHash"></a><a class="headerlink" href="#includehashoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">includeHash</span>: <span class="kt">boolean</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>boolean</code></li>
 <li><em>Default:</em> true</li>
@@ -2166,6 +2234,8 @@ framework based on the path of the construct within thes construct tree.</p>
 <p>Include a short hash as last part of the name.</p>
 <hr />
 <h5 id="maxlenoptional"><code>maxLen</code><sup>Optional</sup> <a name="cdk8s.NameOptions.property.maxLen"></a><a class="headerlink" href="#maxlenoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">maxLen</span>: <span class="kt">number</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>number</code></li>
 <li><em>Default:</em> 63</li>
@@ -2180,6 +2250,8 @@ framework based on the path of the construct within thes construct tree.</p>
 <span class="kd">const</span> <span class="nx">sizeConversionOptions</span>: <span class="kt">SizeConversionOptions</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
 </code></pre></div>
 <h5 id="roundingoptional"><code>rounding</code><sup>Optional</sup> <a name="cdk8s.SizeConversionOptions.property.rounding"></a><a class="headerlink" href="#roundingoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">rounding</span>: <span class="kt">SizeRoundingBehavior</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s.SizeRoundingBehavior"><code>cdk8s.SizeRoundingBehavior</code></a></li>
 <li><em>Default:</em> SizeRoundingBehavior.FAIL</li>
@@ -2194,6 +2266,8 @@ framework based on the path of the construct within thes construct tree.</p>
 <span class="kd">const</span> <span class="nx">timeConversionOptions</span>: <span class="kt">TimeConversionOptions</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
 </code></pre></div>
 <h5 id="integraloptional"><code>integral</code><sup>Optional</sup> <a name="cdk8s.TimeConversionOptions.property.integral"></a><a class="headerlink" href="#integraloptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">integral</span>: <span class="kt">boolean</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>boolean</code></li>
 <li><em>Default:</em> true</li>
@@ -2273,6 +2347,8 @@ framework based on the path of the construct within thes construct tree.</p>
 </code></pre></div>
 <h4 id="properties_5">Properties <a name="Properties"></a><a class="headerlink" href="#properties_5" title="Permanent link">&para;</a></h4>
 <h5 id="nameoptional_1"><code>name</code><sup>Optional</sup> <a name="cdk8s.ApiObjectMetadataDefinition.property.name"></a><a class="headerlink" href="#nameoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">name</span>: <span class="kt">string</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code></li>
 </ul>
@@ -2283,6 +2359,8 @@ Otherwise, a name will be generated by calling
 construct path to generate a DNS-compatible name for the resource.</p>
 <hr />
 <h5 id="namespaceoptional_3"><code>namespace</code><sup>Optional</sup> <a name="cdk8s.ApiObjectMetadataDefinition.property.namespace"></a><a class="headerlink" href="#namespaceoptional_3" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">namespace</span>: <span class="kt">string</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <code>string</code></li>
 </ul>
@@ -2312,6 +2390,8 @@ from a different scope, that relationship is not represented in this graph.</p>
 </code></pre></div>
 <h4 id="properties_6">Properties <a name="Properties"></a><a class="headerlink" href="#properties_6" title="Permanent link">&para;</a></h4>
 <h5 id="rootrequired"><code>root</code><sup>Required</sup> <a name="cdk8s.DependencyGraph.property.root"></a><a class="headerlink" href="#rootrequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">root</span>: <span class="kt">DependencyVertex</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s.DependencyVertex"><code>cdk8s.DependencyVertex</code></a></li>
 </ul>
@@ -2347,18 +2427,24 @@ that binds all the connected spaces of the graph.</p>
 </code></pre></div>
 <h4 id="properties_7">Properties <a name="Properties"></a><a class="headerlink" href="#properties_7" title="Permanent link">&para;</a></h4>
 <h5 id="inboundrequired"><code>inbound</code><sup>Required</sup> <a name="cdk8s.DependencyVertex.property.inbound"></a><a class="headerlink" href="#inboundrequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">inbound</span>: <span class="kt">DependencyVertex</span><span class="p">[];</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s.DependencyVertex"><code>cdk8s.DependencyVertex</code></a>[]</li>
 </ul>
 <p>Returns the parents of the vertex (i.e dependants).</p>
 <hr />
 <h5 id="outboundrequired"><code>outbound</code><sup>Required</sup> <a name="cdk8s.DependencyVertex.property.outbound"></a><a class="headerlink" href="#outboundrequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">outbound</span>: <span class="kt">DependencyVertex</span><span class="p">[];</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s.DependencyVertex"><code>cdk8s.DependencyVertex</code></a>[]</li>
 </ul>
 <p>Returns the children of the vertex (i.e dependencies).</p>
 <hr />
 <h5 id="valueoptional_1"><code>value</code><sup>Optional</sup> <a name="cdk8s.DependencyVertex.property.value"></a><a class="headerlink" href="#valueoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">value</span>: <span class="kt">IConstruct</span><span class="p">;</span>
+</code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#constructs.IConstruct"><code>constructs.IConstruct</code></a></li>
 </ul>
