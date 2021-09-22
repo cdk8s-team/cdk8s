@@ -527,8 +527,42 @@
       
         <li class="md-nav__item">
   <a href="#spec-compatibility" class="md-nav__link">
-    Spec Compatibility
+    Spec compatibility
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#faq" class="md-nav__link">
+    FAQ
+  </a>
+  
+    <nav class="md-nav" aria-label="FAQ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#whats-the-difference-between-cdk8s-plus-20-cdk8s-plus-21-and-cdk8s-plus-22" class="md-nav__link">
+    What's the difference between cdk8s-plus-20, cdk8s-plus-21, and cdk8s-plus-22?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i-operate-kubernetes-version-1xx-which-cdk8s-library-should-i-be-using" class="md-nav__link">
+    I operate Kubernetes version 1.XX - which cdk8s+ library should I be using?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#im-using-cdk8s-plus-xx-which-kubernetes-versions-will-my-manifest-work-on" class="md-nav__link">
+    I'm using cdk8s-plus-XX - which kubernetes versions will my manifest work on?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1395,8 +1429,42 @@
       
         <li class="md-nav__item">
   <a href="#spec-compatibility" class="md-nav__link">
-    Spec Compatibility
+    Spec compatibility
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#faq" class="md-nav__link">
+    FAQ
+  </a>
+  
+    <nav class="md-nav" aria-label="FAQ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#whats-the-difference-between-cdk8s-plus-20-cdk8s-plus-21-and-cdk8s-plus-22" class="md-nav__link">
+    What's the difference between cdk8s-plus-20, cdk8s-plus-21, and cdk8s-plus-22?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i-operate-kubernetes-version-1xx-which-cdk8s-library-should-i-be-using" class="md-nav__link">
+    I operate Kubernetes version 1.XX - which cdk8s+ library should I be using?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#im-using-cdk8s-plus-xx-which-kubernetes-versions-will-my-manifest-work-on" class="md-nav__link">
+    I'm using cdk8s-plus-XX - which kubernetes versions will my manifest work on?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1444,13 +1512,39 @@ and is vended as the <code>cdk8s-plus-22</code> library.</p>
 <li>Stable resources are represented by a <em>construct</em> of the same <em>kind</em>. For example, the <code>io.k8s.api.core.v1.Pod</code> resource maps to the <code>Pod</code> <em>construct</em>.</li>
 <li>Non stable resources are suffixed with their <em>api version</em>. For example, the <code>io.k8s.api.networking.v1beta1.Ingress</code> maps to the <code>IngressV1Beta1</code> <em>construct</em>.</li>
 </ul>
-<h3 id="spec-compatibility">Spec Compatibility<a class="headerlink" href="#spec-compatibility" title="Permanent link">&para;</a></h3>
+<h3 id="spec-compatibility">Spec compatibility<a class="headerlink" href="#spec-compatibility" title="Permanent link">&para;</a></h3>
 <p>Per kubernetes <a href="https://kubernetes.io/docs/concepts/overview/kubernetes-api/#api-groups-and-versioning">compatibility guarantees</a>, <strong>stable</strong> resources in this library are compatible with
 any spec version higher or equal to <code>1.22.0</code>. <strong>Non-stable</strong> resources are not guaranteed to be compatible, as they may be removed in future spec versions.</p>
 <div class="admonition notice">
 <p class="admonition-title">Notice</p>
 <p>If you are deploying manifests produced by <code>cdk8s-plus-22</code> onto clusters of a lower version, you might encounter some unsupported spec properties or invalid manifests.</p>
 </div>
+<h2 id="faq">FAQ<a class="headerlink" href="#faq" title="Permanent link">&para;</a></h2>
+<h3 id="whats-the-difference-between-cdk8s-plus-20-cdk8s-plus-21-and-cdk8s-plus-22">What&rsquo;s the difference between <code>cdk8s-plus-20</code>, <code>cdk8s-plus-21</code>, and <code>cdk8s-plus-22</code>?<a class="headerlink" href="#whats-the-difference-between-cdk8s-plus-20-cdk8s-plus-21-and-cdk8s-plus-22" title="Permanent link">&para;</a></h3>
+<p>These are separately vended libraries that each target a different kubernetes
+version, marked by the <code>-XX</code> suffix. For example, <code>cdk8s-plus-22</code> targets
+kubernetes version <code>1.22.0</code>.</p>
+<p>We offer a dedicated package per Kubernetes version to allow users to match
+their manifests to the Kubernetes version they are operating. This way, users
+are only exposed to a set of capabilities offered by their specific cluster,
+preventing deployment errors caused by version mismatches.</p>
+<h3 id="i-operate-kubernetes-version-1xx-which-cdk8s-library-should-i-be-using">I operate Kubernetes version <code>1.XX</code> - which cdk8s+ library should I be using?<a class="headerlink" href="#i-operate-kubernetes-version-1xx-which-cdk8s-library-should-i-be-using" title="Permanent link">&para;</a></h3>
+<p>If there is a <code>cdk8s-plus-XX</code> library that matches your target Kubernetes
+version, we recommend using it since all Kubernetes manifests generated using it
+will be compatible.</p>
+<p>If there is not a matching <code>cdk8s-plus-XX</code> library, we recommend using the
+closest matching version. The manifests generated by <code>cdk8s-plus-XX</code> may also
+work for older versions of Kubernetes, but you might encounter some unsupported
+spec properties or invalid manifests.</p>
+<h3 id="im-using-cdk8s-plus-xx-which-kubernetes-versions-will-my-manifest-work-on">I&rsquo;m using <code>cdk8s-plus-XX</code> - which kubernetes versions will my manifest work on?<a class="headerlink" href="#im-using-cdk8s-plus-xx-which-kubernetes-versions-will-my-manifest-work-on" title="Permanent link">&para;</a></h3>
+<p>If you are using stable APIs (those that are not in alpha or beta), manifests
+generated in <code>cdk8s-plus-XX</code> will work in Kubernetes versions <code>1.XX.0</code> and
+above. Unstable APIs (which are always labeled in cdk8s+ using a suffix, e.g.
+<code>IngressV1Beta1</code>) may work in newer versions of Kubernetes, but it is also
+possible they have been removed.</p>
+<p>The manifests generated by <code>cdk8s-plus-XX</code> may also work for older versions of
+Kubernetes, but you might encounter some unsupported spec properties or invalid
+manifests.</p>
 <h2 id="at-a-glance">At a glance<a class="headerlink" href="#at-a-glance" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">kplus</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-22&#39;</span><span class="p">;</span>
 <span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">cdk8s</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span>
