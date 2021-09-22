@@ -32,7 +32,7 @@ These are separately vended libraries that each target a different kubernetes
 version, marked by the `-XX` suffix. For example, `cdk8s-plus-22` targets
 kubernetes version `1.22.0`.
 
-We offer a dedicated version per Kubernetes version to allow users to match
+We offer a dedicated package per Kubernetes version to allow users to match
 their manifests to the Kubernetes version they are operating. This way, users
 are only exposed to a set of capabilities offered by their specific cluster,
 preventing deployment errors caused by version mismatches.
