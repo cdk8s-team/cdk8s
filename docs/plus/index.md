@@ -160,6 +160,8 @@ app.synth();
         image: 'ubuntu',
       }],
     });
+
+    app.synth();
     ```
 
 === "Python"
@@ -177,5 +179,7 @@ app.synth();
       replicas=1,
       containers=[kplus.Container(image='ubuntu')]
     )
+
+    app.synth()
     ```
 
