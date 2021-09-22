@@ -9,10 +9,10 @@
     "test": "echo 'no test for python yet.'"
   },
   "dependencies": {
-    "cdk8s": "0.0.0",
-    "constructs": "3.3.71"
+    "cdk8s": "^1.0.0-beta.49",
+    "constructs": "^3.3.150"
   },
   "devDependencies": {
-    "cdk8s-cli": "0.0.0"
+    "cdk8s-cli": "1.0.0-beta.53"
   }
 }

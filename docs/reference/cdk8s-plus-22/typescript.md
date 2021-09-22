@@ -1,48 +1,48 @@
-# cdk8s-plus-17 (TypeScript) <a name="API Reference"></a>
+# cdk8s-plus-22 (TypeScript) <a name="API Reference"></a>
 
 ## Constructs <a name="Constructs"></a>
 
-### ConfigMap <a name="cdk8s-plus-17.ConfigMap"></a>
+### ConfigMap <a name="cdk8s-plus-22.ConfigMap"></a>
 
-- *Implements:* [`cdk8s-plus-17.IConfigMap`](#cdk8s-plus-17.IConfigMap)
+- *Implements:* [`cdk8s-plus-22.IConfigMap`](#cdk8s-plus-22.IConfigMap)
 
 ConfigMap holds configuration data for pods to consume.
 
-#### Initializers <a name="cdk8s-plus-17.ConfigMap.Initializer"></a>
+#### Initializers <a name="cdk8s-plus-22.ConfigMap.Initializer"></a>
 
 ```typescript
-import { ConfigMap } from 'cdk8s-plus-17'
+import { ConfigMap } from 'cdk8s-plus-22'
 
 new ConfigMap(scope: Construct, id: string, props?: ConfigMapProps)
 ```
 
-##### `scope`<sup>Required</sup> <a name="cdk8s-plus-17.ConfigMap.parameter.scope"></a>
+##### `scope`<sup>Required</sup> <a name="cdk8s-plus-22.ConfigMap.parameter.scope"></a>
 
 - *Type:* [`constructs.Construct`](#constructs.Construct)
 
 ---
 
-##### `id`<sup>Required</sup> <a name="cdk8s-plus-17.ConfigMap.parameter.id"></a>
+##### `id`<sup>Required</sup> <a name="cdk8s-plus-22.ConfigMap.parameter.id"></a>
 
 - *Type:* `string`
 
 ---
 
-##### `props`<sup>Optional</sup> <a name="cdk8s-plus-17.ConfigMap.parameter.props"></a>
+##### `props`<sup>Optional</sup> <a name="cdk8s-plus-22.ConfigMap.parameter.props"></a>
 
-- *Type:* [`cdk8s-plus-17.ConfigMapProps`](#cdk8s-plus-17.ConfigMapProps)
+- *Type:* [`cdk8s-plus-22.ConfigMapProps`](#cdk8s-plus-22.ConfigMapProps)
 
 ---
 
 #### Methods <a name="Methods"></a>
 
-##### `addBinaryData` <a name="cdk8s-plus-17.ConfigMap.addBinaryData"></a>
+##### `addBinaryData` <a name="cdk8s-plus-22.ConfigMap.addBinaryData"></a>
 
 ```typescript
 public addBinaryData(key: string, value: string)
 ```
 
-###### `key`<sup>Required</sup> <a name="cdk8s-plus-17.ConfigMap.parameter.key"></a>
+###### `key`<sup>Required</sup> <a name="cdk8s-plus-22.ConfigMap.parameter.key"></a>
 
 - *Type:* `string`
 
@@ -50,7 +50,7 @@ The key.
 
 ---
 
-###### `value`<sup>Required</sup> <a name="cdk8s-plus-17.ConfigMap.parameter.value"></a>
+###### `value`<sup>Required</sup> <a name="cdk8s-plus-22.ConfigMap.parameter.value"></a>
 
 - *Type:* `string`
 
@@ -58,13 +58,13 @@ The value.
 
 ---
 
-##### `addData` <a name="cdk8s-plus-17.ConfigMap.addData"></a>
+##### `addData` <a name="cdk8s-plus-22.ConfigMap.addData"></a>
 
 ```typescript
 public addData(key: string, value: string)
 ```
 
-###### `key`<sup>Required</sup> <a name="cdk8s-plus-17.ConfigMap.parameter.key"></a>
+###### `key`<sup>Required</sup> <a name="cdk8s-plus-22.ConfigMap.parameter.key"></a>
 
 - *Type:* `string`
 
@@ -72,7 +72,7 @@ The key.
 
 ---
 
-###### `value`<sup>Required</sup> <a name="cdk8s-plus-17.ConfigMap.parameter.value"></a>
+###### `value`<sup>Required</sup> <a name="cdk8s-plus-22.ConfigMap.parameter.value"></a>
 
 - *Type:* `string`
 
@@ -80,13 +80,13 @@ The value.
 
 ---
 
-##### `addDirectory` <a name="cdk8s-plus-17.ConfigMap.addDirectory"></a>
+##### `addDirectory` <a name="cdk8s-plus-22.ConfigMap.addDirectory"></a>
 
 ```typescript
 public addDirectory(localDir: string, options?: AddDirectoryOptions)
 ```
 
-###### `localDir`<sup>Required</sup> <a name="cdk8s-plus-17.ConfigMap.parameter.localDir"></a>
+###### `localDir`<sup>Required</sup> <a name="cdk8s-plus-22.ConfigMap.parameter.localDir"></a>
 
 - *Type:* `string`
 
@@ -94,21 +94,21 @@ A path to a local directory.
 
 ---
 
-###### `options`<sup>Optional</sup> <a name="cdk8s-plus-17.ConfigMap.parameter.options"></a>
+###### `options`<sup>Optional</sup> <a name="cdk8s-plus-22.ConfigMap.parameter.options"></a>
 
-- *Type:* [`cdk8s-plus-17.AddDirectoryOptions`](#cdk8s-plus-17.AddDirectoryOptions)
+- *Type:* [`cdk8s-plus-22.AddDirectoryOptions`](#cdk8s-plus-22.AddDirectoryOptions)
 
 Options.
 
 ---
 
-##### `addFile` <a name="cdk8s-plus-17.ConfigMap.addFile"></a>
+##### `addFile` <a name="cdk8s-plus-22.ConfigMap.addFile"></a>
 
 ```typescript
 public addFile(localFile: string, key?: string)
 ```
 
-###### `localFile`<sup>Required</sup> <a name="cdk8s-plus-17.ConfigMap.parameter.localFile"></a>
+###### `localFile`<sup>Required</sup> <a name="cdk8s-plus-22.ConfigMap.parameter.localFile"></a>
 
 - *Type:* `string`
 
@@ -116,7 +116,7 @@ The path to the local file.
 
 ---
 
-###### `key`<sup>Optional</sup> <a name="cdk8s-plus-17.ConfigMap.parameter.key"></a>
+###### `key`<sup>Optional</sup> <a name="cdk8s-plus-22.ConfigMap.parameter.key"></a>
 
 - *Type:* `string`
 
@@ -126,15 +126,15 @@ The ConfigMap key (default to the file name).
 
 #### Static Functions <a name="Static Functions"></a>
 
-##### `fromConfigMapName` <a name="cdk8s-plus-17.ConfigMap.fromConfigMapName"></a>
+##### `fromConfigMapName` <a name="cdk8s-plus-22.ConfigMap.fromConfigMapName"></a>
 
 ```typescript
-import { ConfigMap } from 'cdk8s-plus-17'
+import { ConfigMap } from 'cdk8s-plus-22'
 
 ConfigMap.fromConfigMapName(name: string)
 ```
 
-###### `name`<sup>Required</sup> <a name="cdk8s-plus-17.ConfigMap.parameter.name"></a>
+###### `name`<sup>Required</sup> <a name="cdk8s-plus-22.ConfigMap.parameter.name"></a>
 
 - *Type:* `string`
 
@@ -144,7 +144,7 @@ The name of the config map to import.
 
 #### Properties <a name="Properties"></a>
 
-##### `binaryData`<sup>Required</sup> <a name="cdk8s-plus-17.ConfigMap.property.binaryData"></a>
+##### `binaryData`<sup>Required</sup> <a name="cdk8s-plus-22.ConfigMap.property.binaryData"></a>
 
 ```typescript
 public readonly binaryData: {[ key: string ]: string};
@@ -158,7 +158,7 @@ Returns a copy. To add data records, use `addBinaryData()` or `addData()`.
 
 ---
 
-##### `data`<sup>Required</sup> <a name="cdk8s-plus-17.ConfigMap.property.data"></a>
+##### `data`<sup>Required</sup> <a name="cdk8s-plus-22.ConfigMap.property.data"></a>
 
 ```typescript
 public readonly data: {[ key: string ]: string};
@@ -173,9 +173,9 @@ Returns an copy. To add data records, use `addData()` or `addBinaryData()`.
 ---
 
 
-### Deployment <a name="cdk8s-plus-17.Deployment"></a>
+### Deployment <a name="cdk8s-plus-22.Deployment"></a>
 
-- *Implements:* [`cdk8s-plus-17.IPodTemplate`](#cdk8s-plus-17.IPodTemplate)
+- *Implements:* [`cdk8s-plus-22.IPodTemplate`](#cdk8s-plus-22.IPodTemplate)
 
 A Deployment provides declarative updates for Pods and ReplicaSets.
 
@@ -202,65 +202,65 @@ The following are typical use cases for Deployments:
 - Use the status of the Deployment as an indicator that a rollout has stuck.
 - Clean up older ReplicaSets that you don't need anymore.
 
-#### Initializers <a name="cdk8s-plus-17.Deployment.Initializer"></a>
+#### Initializers <a name="cdk8s-plus-22.Deployment.Initializer"></a>
 
 ```typescript
-import { Deployment } from 'cdk8s-plus-17'
+import { Deployment } from 'cdk8s-plus-22'
 
 new Deployment(scope: Construct, id: string, props?: DeploymentProps)
 ```
 
-##### `scope`<sup>Required</sup> <a name="cdk8s-plus-17.Deployment.parameter.scope"></a>
+##### `scope`<sup>Required</sup> <a name="cdk8s-plus-22.Deployment.parameter.scope"></a>
 
 - *Type:* [`constructs.Construct`](#constructs.Construct)
 
 ---
 
-##### `id`<sup>Required</sup> <a name="cdk8s-plus-17.Deployment.parameter.id"></a>
+##### `id`<sup>Required</sup> <a name="cdk8s-plus-22.Deployment.parameter.id"></a>
 
 - *Type:* `string`
 
 ---
 
-##### `props`<sup>Optional</sup> <a name="cdk8s-plus-17.Deployment.parameter.props"></a>
+##### `props`<sup>Optional</sup> <a name="cdk8s-plus-22.Deployment.parameter.props"></a>
 
-- *Type:* [`cdk8s-plus-17.DeploymentProps`](#cdk8s-plus-17.DeploymentProps)
+- *Type:* [`cdk8s-plus-22.DeploymentProps`](#cdk8s-plus-22.DeploymentProps)
 
 ---
 
 #### Methods <a name="Methods"></a>
 
-##### `addContainer` <a name="cdk8s-plus-17.Deployment.addContainer"></a>
+##### `addContainer` <a name="cdk8s-plus-22.Deployment.addContainer"></a>
 
 ```typescript
 public addContainer(container: ContainerProps)
 ```
 
-###### `container`<sup>Required</sup> <a name="cdk8s-plus-17.Deployment.parameter.container"></a>
+###### `container`<sup>Required</sup> <a name="cdk8s-plus-22.Deployment.parameter.container"></a>
 
-- *Type:* [`cdk8s-plus-17.ContainerProps`](#cdk8s-plus-17.ContainerProps)
+- *Type:* [`cdk8s-plus-22.ContainerProps`](#cdk8s-plus-22.ContainerProps)
 
 ---
 
-##### `addVolume` <a name="cdk8s-plus-17.Deployment.addVolume"></a>
+##### `addVolume` <a name="cdk8s-plus-22.Deployment.addVolume"></a>
 
 ```typescript
 public addVolume(volume: Volume)
 ```
 
-###### `volume`<sup>Required</sup> <a name="cdk8s-plus-17.Deployment.parameter.volume"></a>
+###### `volume`<sup>Required</sup> <a name="cdk8s-plus-22.Deployment.parameter.volume"></a>
 
-- *Type:* [`cdk8s-plus-17.Volume`](#cdk8s-plus-17.Volume)
+- *Type:* [`cdk8s-plus-22.Volume`](#cdk8s-plus-22.Volume)
 
 ---
 
-##### `expose` <a name="cdk8s-plus-17.Deployment.expose"></a>
+##### `expose` <a name="cdk8s-plus-22.Deployment.expose"></a>
 
 ```typescript
 public expose(port: number, options?: ExposeOptions)
 ```
 
-###### `port`<sup>Required</sup> <a name="cdk8s-plus-17.Deployment.parameter.port"></a>
+###### `port`<sup>Required</sup> <a name="cdk8s-plus-22.Deployment.parameter.port"></a>
 
 - *Type:* `number`
 
@@ -268,21 +268,21 @@ The port number the service will bind to.
 
 ---
 
-###### `options`<sup>Optional</sup> <a name="cdk8s-plus-17.Deployment.parameter.options"></a>
+###### `options`<sup>Optional</sup> <a name="cdk8s-plus-22.Deployment.parameter.options"></a>
 
-- *Type:* [`cdk8s-plus-17.ExposeOptions`](#cdk8s-plus-17.ExposeOptions)
+- *Type:* [`cdk8s-plus-22.ExposeOptions`](#cdk8s-plus-22.ExposeOptions)
 
 Options to determine details of the service and port exposed.
 
 ---
 
-##### `selectByLabel` <a name="cdk8s-plus-17.Deployment.selectByLabel"></a>
+##### `selectByLabel` <a name="cdk8s-plus-22.Deployment.selectByLabel"></a>
 
 ```typescript
 public selectByLabel(key: string, value: string)
 ```
 
-###### `key`<sup>Required</sup> <a name="cdk8s-plus-17.Deployment.parameter.key"></a>
+###### `key`<sup>Required</sup> <a name="cdk8s-plus-22.Deployment.parameter.key"></a>
 
 - *Type:* `string`
 
@@ -290,7 +290,7 @@ The label key.
 
 ---
 
-###### `value`<sup>Required</sup> <a name="cdk8s-plus-17.Deployment.parameter.value"></a>
+###### `value`<sup>Required</sup> <a name="cdk8s-plus-22.Deployment.parameter.value"></a>
 
 - *Type:* `string`
 
@@ -301,13 +301,13 @@ The label value.
 
 #### Properties <a name="Properties"></a>
 
-##### `containers`<sup>Required</sup> <a name="cdk8s-plus-17.Deployment.property.containers"></a>
+##### `containers`<sup>Required</sup> <a name="cdk8s-plus-22.Deployment.property.containers"></a>
 
 ```typescript
 public readonly containers: Container[];
 ```
 
-- *Type:* [`cdk8s-plus-17.Container`](#cdk8s-plus-17.Container)[]
+- *Type:* [`cdk8s-plus-22.Container`](#cdk8s-plus-22.Container)[]
 
 The containers belonging to the pod.
 
@@ -315,7 +315,7 @@ Use `addContainer` to add containers.
 
 ---
 
-##### `labelSelector`<sup>Required</sup> <a name="cdk8s-plus-17.Deployment.property.labelSelector"></a>
+##### `labelSelector`<sup>Required</sup> <a name="cdk8s-plus-22.Deployment.property.labelSelector"></a>
 
 ```typescript
 public readonly labelSelector: {[ key: string ]: string};
@@ -329,7 +329,7 @@ Returns a a copy. Use `selectByLabel()` to add labels.
 
 ---
 
-##### `podMetadata`<sup>Required</sup> <a name="cdk8s-plus-17.Deployment.property.podMetadata"></a>
+##### `podMetadata`<sup>Required</sup> <a name="cdk8s-plus-22.Deployment.property.podMetadata"></a>
 
 ```typescript
 public readonly podMetadata: ApiObjectMetadataDefinition;
@@ -341,7 +341,7 @@ Provides read/write access to the underlying pod metadata of the resource.
 
 ---
 
-##### `replicas`<sup>Required</sup> <a name="cdk8s-plus-17.Deployment.property.replicas"></a>
+##### `replicas`<sup>Required</sup> <a name="cdk8s-plus-22.Deployment.property.replicas"></a>
 
 ```typescript
 public readonly replicas: number;
@@ -353,13 +353,13 @@ Number of desired pods.
 
 ---
 
-##### `volumes`<sup>Required</sup> <a name="cdk8s-plus-17.Deployment.property.volumes"></a>
+##### `volumes`<sup>Required</sup> <a name="cdk8s-plus-22.Deployment.property.volumes"></a>
 
 ```typescript
 public readonly volumes: Volume[];
 ```
 
-- *Type:* [`cdk8s-plus-17.Volume`](#cdk8s-plus-17.Volume)[]
+- *Type:* [`cdk8s-plus-22.Volume`](#cdk8s-plus-22.Volume)[]
 
 The volumes associated with this pod.
 
@@ -367,32 +367,32 @@ Use `addVolume` to add volumes.
 
 ---
 
-##### `restartPolicy`<sup>Optional</sup> <a name="cdk8s-plus-17.Deployment.property.restartPolicy"></a>
+##### `restartPolicy`<sup>Optional</sup> <a name="cdk8s-plus-22.Deployment.property.restartPolicy"></a>
 
 ```typescript
 public readonly restartPolicy: RestartPolicy;
 ```
 
-- *Type:* [`cdk8s-plus-17.RestartPolicy`](#cdk8s-plus-17.RestartPolicy)
+- *Type:* [`cdk8s-plus-22.RestartPolicy`](#cdk8s-plus-22.RestartPolicy)
 
 Restart policy for all containers within the pod.
 
 ---
 
-##### `serviceAccount`<sup>Optional</sup> <a name="cdk8s-plus-17.Deployment.property.serviceAccount"></a>
+##### `serviceAccount`<sup>Optional</sup> <a name="cdk8s-plus-22.Deployment.property.serviceAccount"></a>
 
 ```typescript
 public readonly serviceAccount: IServiceAccount;
 ```
 
-- *Type:* [`cdk8s-plus-17.IServiceAccount`](#cdk8s-plus-17.IServiceAccount)
+- *Type:* [`cdk8s-plus-22.IServiceAccount`](#cdk8s-plus-22.IServiceAccount)
 
 The service account used to run this pod.
 
 ---
 
 
-### IngressV1Beta1 <a name="cdk8s-plus-17.IngressV1Beta1"></a>
+### Ingress <a name="cdk8s-plus-22.Ingress"></a>
 
 Ingress is a collection of rules that allow inbound connections to reach the endpoints defined by a backend.
 
@@ -400,55 +400,55 @@ An Ingress can be configured to give services
 externally-reachable urls, load balance traffic, terminate SSL, offer name
 based virtual hosting etc.
 
-#### Initializers <a name="cdk8s-plus-17.IngressV1Beta1.Initializer"></a>
+#### Initializers <a name="cdk8s-plus-22.Ingress.Initializer"></a>
 
 ```typescript
-import { IngressV1Beta1 } from 'cdk8s-plus-17'
+import { Ingress } from 'cdk8s-plus-22'
 
-new IngressV1Beta1(scope: Construct, id: string, props?: IngressV1Beta1Props)
+new Ingress(scope: Construct, id: string, props?: IngressProps)
 ```
 
-##### `scope`<sup>Required</sup> <a name="cdk8s-plus-17.IngressV1Beta1.parameter.scope"></a>
+##### `scope`<sup>Required</sup> <a name="cdk8s-plus-22.Ingress.parameter.scope"></a>
 
 - *Type:* [`constructs.Construct`](#constructs.Construct)
 
 ---
 
-##### `id`<sup>Required</sup> <a name="cdk8s-plus-17.IngressV1Beta1.parameter.id"></a>
+##### `id`<sup>Required</sup> <a name="cdk8s-plus-22.Ingress.parameter.id"></a>
 
 - *Type:* `string`
 
 ---
 
-##### `props`<sup>Optional</sup> <a name="cdk8s-plus-17.IngressV1Beta1.parameter.props"></a>
+##### `props`<sup>Optional</sup> <a name="cdk8s-plus-22.Ingress.parameter.props"></a>
 
-- *Type:* [`cdk8s-plus-17.IngressV1Beta1Props`](#cdk8s-plus-17.IngressV1Beta1Props)
+- *Type:* [`cdk8s-plus-22.IngressProps`](#cdk8s-plus-22.IngressProps)
 
 ---
 
 #### Methods <a name="Methods"></a>
 
-##### `addDefaultBackend` <a name="cdk8s-plus-17.IngressV1Beta1.addDefaultBackend"></a>
+##### `addDefaultBackend` <a name="cdk8s-plus-22.Ingress.addDefaultBackend"></a>
 
 ```typescript
-public addDefaultBackend(backend: IngressV1Beta1Backend)
+public addDefaultBackend(backend: IngressBackend)
 ```
 
-###### `backend`<sup>Required</sup> <a name="cdk8s-plus-17.IngressV1Beta1.parameter.backend"></a>
+###### `backend`<sup>Required</sup> <a name="cdk8s-plus-22.Ingress.parameter.backend"></a>
 
-- *Type:* [`cdk8s-plus-17.IngressV1Beta1Backend`](#cdk8s-plus-17.IngressV1Beta1Backend)
+- *Type:* [`cdk8s-plus-22.IngressBackend`](#cdk8s-plus-22.IngressBackend)
 
 The backend to use for requests that do not match any rule.
 
 ---
 
-##### `addHostDefaultBackend` <a name="cdk8s-plus-17.IngressV1Beta1.addHostDefaultBackend"></a>
+##### `addHostDefaultBackend` <a name="cdk8s-plus-22.Ingress.addHostDefaultBackend"></a>
 
 ```typescript
-public addHostDefaultBackend(host: string, backend: IngressV1Beta1Backend)
+public addHostDefaultBackend(host: string, backend: IngressBackend)
 ```
 
-###### `host`<sup>Required</sup> <a name="cdk8s-plus-17.IngressV1Beta1.parameter.host"></a>
+###### `host`<sup>Required</sup> <a name="cdk8s-plus-22.Ingress.parameter.host"></a>
 
 - *Type:* `string`
 
@@ -456,21 +456,21 @@ The host name to match.
 
 ---
 
-###### `backend`<sup>Required</sup> <a name="cdk8s-plus-17.IngressV1Beta1.parameter.backend"></a>
+###### `backend`<sup>Required</sup> <a name="cdk8s-plus-22.Ingress.parameter.backend"></a>
 
-- *Type:* [`cdk8s-plus-17.IngressV1Beta1Backend`](#cdk8s-plus-17.IngressV1Beta1Backend)
+- *Type:* [`cdk8s-plus-22.IngressBackend`](#cdk8s-plus-22.IngressBackend)
 
 The backend to route to.
 
 ---
 
-##### `addHostRule` <a name="cdk8s-plus-17.IngressV1Beta1.addHostRule"></a>
+##### `addHostRule` <a name="cdk8s-plus-22.Ingress.addHostRule"></a>
 
 ```typescript
-public addHostRule(host: string, path: string, backend: IngressV1Beta1Backend)
+public addHostRule(host: string, path: string, backend: IngressBackend, pathType?: HttpIngressPathType)
 ```
 
-###### `host`<sup>Required</sup> <a name="cdk8s-plus-17.IngressV1Beta1.parameter.host"></a>
+###### `host`<sup>Required</sup> <a name="cdk8s-plus-22.Ingress.parameter.host"></a>
 
 - *Type:* `string`
 
@@ -478,7 +478,7 @@ The host name.
 
 ---
 
-###### `path`<sup>Required</sup> <a name="cdk8s-plus-17.IngressV1Beta1.parameter.path"></a>
+###### `path`<sup>Required</sup> <a name="cdk8s-plus-22.Ingress.parameter.path"></a>
 
 - *Type:* `string`
 
@@ -486,21 +486,29 @@ The HTTP path.
 
 ---
 
-###### `backend`<sup>Required</sup> <a name="cdk8s-plus-17.IngressV1Beta1.parameter.backend"></a>
+###### `backend`<sup>Required</sup> <a name="cdk8s-plus-22.Ingress.parameter.backend"></a>
 
-- *Type:* [`cdk8s-plus-17.IngressV1Beta1Backend`](#cdk8s-plus-17.IngressV1Beta1Backend)
+- *Type:* [`cdk8s-plus-22.IngressBackend`](#cdk8s-plus-22.IngressBackend)
 
 The backend to route requests to.
 
 ---
 
-##### `addRule` <a name="cdk8s-plus-17.IngressV1Beta1.addRule"></a>
+###### `pathType`<sup>Optional</sup> <a name="cdk8s-plus-22.Ingress.parameter.pathType"></a>
+
+- *Type:* [`cdk8s-plus-22.HttpIngressPathType`](#cdk8s-plus-22.HttpIngressPathType)
+
+How the path is matched against request paths.
+
+---
+
+##### `addRule` <a name="cdk8s-plus-22.Ingress.addRule"></a>
 
 ```typescript
-public addRule(path: string, backend: IngressV1Beta1Backend)
+public addRule(path: string, backend: IngressBackend, pathType?: HttpIngressPathType)
 ```
 
-###### `path`<sup>Required</sup> <a name="cdk8s-plus-17.IngressV1Beta1.parameter.path"></a>
+###### `path`<sup>Required</sup> <a name="cdk8s-plus-22.Ingress.parameter.path"></a>
 
 - *Type:* `string`
 
@@ -508,46 +516,54 @@ The HTTP path.
 
 ---
 
-###### `backend`<sup>Required</sup> <a name="cdk8s-plus-17.IngressV1Beta1.parameter.backend"></a>
+###### `backend`<sup>Required</sup> <a name="cdk8s-plus-22.Ingress.parameter.backend"></a>
 
-- *Type:* [`cdk8s-plus-17.IngressV1Beta1Backend`](#cdk8s-plus-17.IngressV1Beta1Backend)
+- *Type:* [`cdk8s-plus-22.IngressBackend`](#cdk8s-plus-22.IngressBackend)
 
 The backend to route requests to.
 
 ---
 
-##### `addRules` <a name="cdk8s-plus-17.IngressV1Beta1.addRules"></a>
+###### `pathType`<sup>Optional</sup> <a name="cdk8s-plus-22.Ingress.parameter.pathType"></a>
+
+- *Type:* [`cdk8s-plus-22.HttpIngressPathType`](#cdk8s-plus-22.HttpIngressPathType)
+
+How the path is matched against request paths.
+
+---
+
+##### `addRules` <a name="cdk8s-plus-22.Ingress.addRules"></a>
 
 ```typescript
-public addRules(rules: IngressV1Beta1Rule)
+public addRules(rules: IngressRule)
 ```
 
-###### `rules`<sup>Required</sup> <a name="cdk8s-plus-17.IngressV1Beta1.parameter.rules"></a>
+###### `rules`<sup>Required</sup> <a name="cdk8s-plus-22.Ingress.parameter.rules"></a>
 
-- *Type:* [`cdk8s-plus-17.IngressV1Beta1Rule`](#cdk8s-plus-17.IngressV1Beta1Rule)
+- *Type:* [`cdk8s-plus-22.IngressRule`](#cdk8s-plus-22.IngressRule)
 
 The rules to add.
 
 ---
 
-##### `addTls` <a name="cdk8s-plus-17.IngressV1Beta1.addTls"></a>
+##### `addTls` <a name="cdk8s-plus-22.Ingress.addTls"></a>
 
 ```typescript
-public addTls(tls: IngressV1Beta1Tls[])
+public addTls(tls: IngressTls[])
 ```
 
-###### `tls`<sup>Required</sup> <a name="cdk8s-plus-17.IngressV1Beta1.parameter.tls"></a>
+###### `tls`<sup>Required</sup> <a name="cdk8s-plus-22.Ingress.parameter.tls"></a>
 
-- *Type:* [`cdk8s-plus-17.IngressV1Beta1Tls`](#cdk8s-plus-17.IngressV1Beta1Tls)[]
+- *Type:* [`cdk8s-plus-22.IngressTls`](#cdk8s-plus-22.IngressTls)[]
 
 ---
 
 
 
 
-### Job <a name="cdk8s-plus-17.Job"></a>
+### Job <a name="cdk8s-plus-22.Job"></a>
 
-- *Implements:* [`cdk8s-plus-17.IPodTemplate`](#cdk8s-plus-17.IPodTemplate)
+- *Implements:* [`cdk8s-plus-22.IPodTemplate`](#cdk8s-plus-22.IPodTemplate)
 
 A Job creates one or more Pods and ensures that a specified number of them successfully terminate.
 
@@ -557,68 +573,68 @@ Deleting a Job will clean up the Pods it created. A simple case is to create one
 The Job object will start a new Pod if the first Pod fails or is deleted (for example due to a node hardware failure or a node reboot).
 You can also use a Job to run multiple Pods in parallel.
 
-#### Initializers <a name="cdk8s-plus-17.Job.Initializer"></a>
+#### Initializers <a name="cdk8s-plus-22.Job.Initializer"></a>
 
 ```typescript
-import { Job } from 'cdk8s-plus-17'
+import { Job } from 'cdk8s-plus-22'
 
 new Job(scope: Construct, id: string, props?: JobProps)
 ```
 
-##### `scope`<sup>Required</sup> <a name="cdk8s-plus-17.Job.parameter.scope"></a>
+##### `scope`<sup>Required</sup> <a name="cdk8s-plus-22.Job.parameter.scope"></a>
 
 - *Type:* [`constructs.Construct`](#constructs.Construct)
 
 ---
 
-##### `id`<sup>Required</sup> <a name="cdk8s-plus-17.Job.parameter.id"></a>
+##### `id`<sup>Required</sup> <a name="cdk8s-plus-22.Job.parameter.id"></a>
 
 - *Type:* `string`
 
 ---
 
-##### `props`<sup>Optional</sup> <a name="cdk8s-plus-17.Job.parameter.props"></a>
+##### `props`<sup>Optional</sup> <a name="cdk8s-plus-22.Job.parameter.props"></a>
 
-- *Type:* [`cdk8s-plus-17.JobProps`](#cdk8s-plus-17.JobProps)
+- *Type:* [`cdk8s-plus-22.JobProps`](#cdk8s-plus-22.JobProps)
 
 ---
 
 #### Methods <a name="Methods"></a>
 
-##### `addContainer` <a name="cdk8s-plus-17.Job.addContainer"></a>
+##### `addContainer` <a name="cdk8s-plus-22.Job.addContainer"></a>
 
 ```typescript
 public addContainer(container: ContainerProps)
 ```
 
-###### `container`<sup>Required</sup> <a name="cdk8s-plus-17.Job.parameter.container"></a>
+###### `container`<sup>Required</sup> <a name="cdk8s-plus-22.Job.parameter.container"></a>
 
-- *Type:* [`cdk8s-plus-17.ContainerProps`](#cdk8s-plus-17.ContainerProps)
+- *Type:* [`cdk8s-plus-22.ContainerProps`](#cdk8s-plus-22.ContainerProps)
 
 ---
 
-##### `addVolume` <a name="cdk8s-plus-17.Job.addVolume"></a>
+##### `addVolume` <a name="cdk8s-plus-22.Job.addVolume"></a>
 
 ```typescript
 public addVolume(volume: Volume)
 ```
 
-###### `volume`<sup>Required</sup> <a name="cdk8s-plus-17.Job.parameter.volume"></a>
+###### `volume`<sup>Required</sup> <a name="cdk8s-plus-22.Job.parameter.volume"></a>
 
-- *Type:* [`cdk8s-plus-17.Volume`](#cdk8s-plus-17.Volume)
+- *Type:* [`cdk8s-plus-22.Volume`](#cdk8s-plus-22.Volume)
 
 ---
 
 
 #### Properties <a name="Properties"></a>
 
-##### `containers`<sup>Required</sup> <a name="cdk8s-plus-17.Job.property.containers"></a>
+##### `containers`<sup>Required</sup> <a name="cdk8s-plus-22.Job.property.containers"></a>
 
 ```typescript
 public readonly containers: Container[];
 ```
 
-- *Type:* [`cdk8s-plus-17.Container`](#cdk8s-plus-17.Container)[]
+- *Type:* [`cdk8s-plus-22.Container`](#cdk8s-plus-22.Container)[]
 
 The containers belonging to the pod.
 
@@ -626,7 +642,7 @@ Use `addContainer` to add containers.
 
 ---
 
-##### `podMetadata`<sup>Required</sup> <a name="cdk8s-plus-17.Job.property.podMetadata"></a>
+##### `podMetadata`<sup>Required</sup> <a name="cdk8s-plus-22.Job.property.podMetadata"></a>
 
 ```typescript
 public readonly podMetadata: ApiObjectMetadataDefinition;
@@ -638,13 +654,13 @@ Provides read/write access to the underlying pod metadata of the resource.
 
 ---
 
-##### `volumes`<sup>Required</sup> <a name="cdk8s-plus-17.Job.property.volumes"></a>
+##### `volumes`<sup>Required</sup> <a name="cdk8s-plus-22.Job.property.volumes"></a>
 
 ```typescript
 public readonly volumes: Volume[];
 ```
 
-- *Type:* [`cdk8s-plus-17.Volume`](#cdk8s-plus-17.Volume)[]
+- *Type:* [`cdk8s-plus-22.Volume`](#cdk8s-plus-22.Volume)[]
 
 The volumes associated with this pod.
 
@@ -652,7 +668,7 @@ Use `addVolume` to add volumes.
 
 ---
 
-##### `activeDeadline`<sup>Optional</sup> <a name="cdk8s-plus-17.Job.property.activeDeadline"></a>
+##### `activeDeadline`<sup>Optional</sup> <a name="cdk8s-plus-22.Job.property.activeDeadline"></a>
 
 ```typescript
 public readonly activeDeadline: Duration;
@@ -666,7 +682,7 @@ If undefined, there is no deadline.
 
 ---
 
-##### `backoffLimit`<sup>Optional</sup> <a name="cdk8s-plus-17.Job.property.backoffLimit"></a>
+##### `backoffLimit`<sup>Optional</sup> <a name="cdk8s-plus-22.Job.property.backoffLimit"></a>
 
 ```typescript
 public readonly backoffLimit: number;
@@ -678,31 +694,31 @@ Number of retries before marking failed.
 
 ---
 
-##### `restartPolicy`<sup>Optional</sup> <a name="cdk8s-plus-17.Job.property.restartPolicy"></a>
+##### `restartPolicy`<sup>Optional</sup> <a name="cdk8s-plus-22.Job.property.restartPolicy"></a>
 
 ```typescript
 public readonly restartPolicy: RestartPolicy;
 ```
 
-- *Type:* [`cdk8s-plus-17.RestartPolicy`](#cdk8s-plus-17.RestartPolicy)
+- *Type:* [`cdk8s-plus-22.RestartPolicy`](#cdk8s-plus-22.RestartPolicy)
 
 Restart policy for all containers within the pod.
 
 ---
 
-##### `serviceAccount`<sup>Optional</sup> <a name="cdk8s-plus-17.Job.property.serviceAccount"></a>
+##### `serviceAccount`<sup>Optional</sup> <a name="cdk8s-plus-22.Job.property.serviceAccount"></a>
 
 ```typescript
 public readonly serviceAccount: IServiceAccount;
 ```
 
-- *Type:* [`cdk8s-plus-17.IServiceAccount`](#cdk8s-plus-17.IServiceAccount)
+- *Type:* [`cdk8s-plus-22.IServiceAccount`](#cdk8s-plus-22.IServiceAccount)
 
 The service account used to run this pod.
 
 ---
 
-##### `ttlAfterFinished`<sup>Optional</sup> <a name="cdk8s-plus-17.Job.property.ttlAfterFinished"></a>
+##### `ttlAfterFinished`<sup>Optional</sup> <a name="cdk8s-plus-22.Job.property.ttlAfterFinished"></a>
 
 ```typescript
 public readonly ttlAfterFinished: Duration;
@@ -715,77 +731,77 @@ TTL before the job is deleted after it is finished.
 ---
 
 
-### Pod <a name="cdk8s-plus-17.Pod"></a>
+### Pod <a name="cdk8s-plus-22.Pod"></a>
 
-- *Implements:* [`cdk8s-plus-17.IPodSpec`](#cdk8s-plus-17.IPodSpec)
+- *Implements:* [`cdk8s-plus-22.IPodSpec`](#cdk8s-plus-22.IPodSpec)
 
 Pod is a collection of containers that can run on a host.
 
 This resource is
 created by clients and scheduled onto hosts.
 
-#### Initializers <a name="cdk8s-plus-17.Pod.Initializer"></a>
+#### Initializers <a name="cdk8s-plus-22.Pod.Initializer"></a>
 
 ```typescript
-import { Pod } from 'cdk8s-plus-17'
+import { Pod } from 'cdk8s-plus-22'
 
 new Pod(scope: Construct, id: string, props?: PodProps)
 ```
 
-##### `scope`<sup>Required</sup> <a name="cdk8s-plus-17.Pod.parameter.scope"></a>
+##### `scope`<sup>Required</sup> <a name="cdk8s-plus-22.Pod.parameter.scope"></a>
 
 - *Type:* [`constructs.Construct`](#constructs.Construct)
 
 ---
 
-##### `id`<sup>Required</sup> <a name="cdk8s-plus-17.Pod.parameter.id"></a>
+##### `id`<sup>Required</sup> <a name="cdk8s-plus-22.Pod.parameter.id"></a>
 
 - *Type:* `string`
 
 ---
 
-##### `props`<sup>Optional</sup> <a name="cdk8s-plus-17.Pod.parameter.props"></a>
+##### `props`<sup>Optional</sup> <a name="cdk8s-plus-22.Pod.parameter.props"></a>
 
-- *Type:* [`cdk8s-plus-17.PodProps`](#cdk8s-plus-17.PodProps)
+- *Type:* [`cdk8s-plus-22.PodProps`](#cdk8s-plus-22.PodProps)
 
 ---
 
 #### Methods <a name="Methods"></a>
 
-##### `addContainer` <a name="cdk8s-plus-17.Pod.addContainer"></a>
+##### `addContainer` <a name="cdk8s-plus-22.Pod.addContainer"></a>
 
 ```typescript
 public addContainer(container: ContainerProps)
 ```
 
-###### `container`<sup>Required</sup> <a name="cdk8s-plus-17.Pod.parameter.container"></a>
+###### `container`<sup>Required</sup> <a name="cdk8s-plus-22.Pod.parameter.container"></a>
 
-- *Type:* [`cdk8s-plus-17.ContainerProps`](#cdk8s-plus-17.ContainerProps)
+- *Type:* [`cdk8s-plus-22.ContainerProps`](#cdk8s-plus-22.ContainerProps)
 
 ---
 
-##### `addVolume` <a name="cdk8s-plus-17.Pod.addVolume"></a>
+##### `addVolume` <a name="cdk8s-plus-22.Pod.addVolume"></a>
 
 ```typescript
 public addVolume(volume: Volume)
 ```
 
-###### `volume`<sup>Required</sup> <a name="cdk8s-plus-17.Pod.parameter.volume"></a>
+###### `volume`<sup>Required</sup> <a name="cdk8s-plus-22.Pod.parameter.volume"></a>
 
-- *Type:* [`cdk8s-plus-17.Volume`](#cdk8s-plus-17.Volume)
+- *Type:* [`cdk8s-plus-22.Volume`](#cdk8s-plus-22.Volume)
 
 ---
 
 
 #### Properties <a name="Properties"></a>
 
-##### `containers`<sup>Required</sup> <a name="cdk8s-plus-17.Pod.property.containers"></a>
+##### `containers`<sup>Required</sup> <a name="cdk8s-plus-22.Pod.property.containers"></a>
 
 ```typescript
 public readonly containers: Container[];
 ```
 
-- *Type:* [`cdk8s-plus-17.Container`](#cdk8s-plus-17.Container)[]
+- *Type:* [`cdk8s-plus-22.Container`](#cdk8s-plus-22.Container)[]
 
 The containers belonging to the pod.
 
@@ -793,13 +809,13 @@ Use `addContainer` to add containers.
 
 ---
 
-##### `volumes`<sup>Required</sup> <a name="cdk8s-plus-17.Pod.property.volumes"></a>
+##### `volumes`<sup>Required</sup> <a name="cdk8s-plus-22.Pod.property.volumes"></a>
 
 ```typescript
 public readonly volumes: Volume[];
 ```
 
-- *Type:* [`cdk8s-plus-17.Volume`](#cdk8s-plus-17.Volume)[]
+- *Type:* [`cdk8s-plus-22.Volume`](#cdk8s-plus-22.Volume)[]
 
 The volumes associated with this pod.
 
@@ -807,49 +823,49 @@ Use `addVolume` to add volumes.
 
 ---
 
-##### `restartPolicy`<sup>Optional</sup> <a name="cdk8s-plus-17.Pod.property.restartPolicy"></a>
+##### `restartPolicy`<sup>Optional</sup> <a name="cdk8s-plus-22.Pod.property.restartPolicy"></a>
 
 ```typescript
 public readonly restartPolicy: RestartPolicy;
 ```
 
-- *Type:* [`cdk8s-plus-17.RestartPolicy`](#cdk8s-plus-17.RestartPolicy)
+- *Type:* [`cdk8s-plus-22.RestartPolicy`](#cdk8s-plus-22.RestartPolicy)
 
 Restart policy for all containers within the pod.
 
 ---
 
-##### `serviceAccount`<sup>Optional</sup> <a name="cdk8s-plus-17.Pod.property.serviceAccount"></a>
+##### `serviceAccount`<sup>Optional</sup> <a name="cdk8s-plus-22.Pod.property.serviceAccount"></a>
 
 ```typescript
 public readonly serviceAccount: IServiceAccount;
 ```
 
-- *Type:* [`cdk8s-plus-17.IServiceAccount`](#cdk8s-plus-17.IServiceAccount)
+- *Type:* [`cdk8s-plus-22.IServiceAccount`](#cdk8s-plus-22.IServiceAccount)
 
 The service account used to run this pod.
 
 ---
 
 
-### Resource <a name="cdk8s-plus-17.Resource"></a>
+### Resource <a name="cdk8s-plus-22.Resource"></a>
 
-- *Implements:* [`cdk8s-plus-17.IResource`](#cdk8s-plus-17.IResource)
+- *Implements:* [`cdk8s-plus-22.IResource`](#cdk8s-plus-22.IResource)
 
 Base class for all Kubernetes objects in stdk8s.
 
 Represents a single
 resource.
 
-#### Initializers <a name="cdk8s-plus-17.Resource.Initializer"></a>
+#### Initializers <a name="cdk8s-plus-22.Resource.Initializer"></a>
 
 ```typescript
-import { Resource } from 'cdk8s-plus-17'
+import { Resource } from 'cdk8s-plus-22'
 
 new Resource(scope: Construct, id: string, options?: ConstructOptions)
 ```
 
-##### `scope`<sup>Required</sup> <a name="cdk8s-plus-17.Resource.parameter.scope"></a>
+##### `scope`<sup>Required</sup> <a name="cdk8s-plus-22.Resource.parameter.scope"></a>
 
 - *Type:* [`constructs.Construct`](#constructs.Construct)
 
@@ -857,7 +873,7 @@ The scope in which to define this construct.
 
 ---
 
-##### `id`<sup>Required</sup> <a name="cdk8s-plus-17.Resource.parameter.id"></a>
+##### `id`<sup>Required</sup> <a name="cdk8s-plus-22.Resource.parameter.id"></a>
 
 - *Type:* `string`
 
@@ -869,7 +885,7 @@ dash `--`.
 
 ---
 
-##### `options`<sup>Optional</sup> <a name="cdk8s-plus-17.Resource.parameter.options"></a>
+##### `options`<sup>Optional</sup> <a name="cdk8s-plus-22.Resource.parameter.options"></a>
 
 - *Type:* [`constructs.ConstructOptions`](#constructs.ConstructOptions)
 
@@ -881,7 +897,7 @@ Options.
 
 #### Properties <a name="Properties"></a>
 
-##### `metadata`<sup>Required</sup> <a name="cdk8s-plus-17.Resource.property.metadata"></a>
+##### `metadata`<sup>Required</sup> <a name="cdk8s-plus-22.Resource.property.metadata"></a>
 
 ```typescript
 public readonly metadata: ApiObjectMetadataDefinition;
@@ -891,7 +907,7 @@ public readonly metadata: ApiObjectMetadataDefinition;
 
 ---
 
-##### `name`<sup>Required</sup> <a name="cdk8s-plus-17.Resource.property.name"></a>
+##### `name`<sup>Required</sup> <a name="cdk8s-plus-22.Resource.property.name"></a>
 
 ```typescript
 public readonly name: string;
@@ -904,9 +920,9 @@ The name of this API object.
 ---
 
 
-### Secret <a name="cdk8s-plus-17.Secret"></a>
+### Secret <a name="cdk8s-plus-22.Secret"></a>
 
-- *Implements:* [`cdk8s-plus-17.ISecret`](#cdk8s-plus-17.ISecret)
+- *Implements:* [`cdk8s-plus-22.ISecret`](#cdk8s-plus-22.ISecret)
 
 Kubernetes Secrets let you store and manage sensitive information, such as passwords, OAuth tokens, and ssh keys.
 
@@ -916,41 +932,41 @@ definition or in a container image.
 
 > https://kubernetes.io/docs/concepts/configuration/secret
 
-#### Initializers <a name="cdk8s-plus-17.Secret.Initializer"></a>
+#### Initializers <a name="cdk8s-plus-22.Secret.Initializer"></a>
 
 ```typescript
-import { Secret } from 'cdk8s-plus-17'
+import { Secret } from 'cdk8s-plus-22'
 
 new Secret(scope: Construct, id: string, props?: SecretProps)
 ```
 
-##### `scope`<sup>Required</sup> <a name="cdk8s-plus-17.Secret.parameter.scope"></a>
+##### `scope`<sup>Required</sup> <a name="cdk8s-plus-22.Secret.parameter.scope"></a>
 
 - *Type:* [`constructs.Construct`](#constructs.Construct)
 
 ---
 
-##### `id`<sup>Required</sup> <a name="cdk8s-plus-17.Secret.parameter.id"></a>
+##### `id`<sup>Required</sup> <a name="cdk8s-plus-22.Secret.parameter.id"></a>
 
 - *Type:* `string`
 
 ---
 
-##### `props`<sup>Optional</sup> <a name="cdk8s-plus-17.Secret.parameter.props"></a>
+##### `props`<sup>Optional</sup> <a name="cdk8s-plus-22.Secret.parameter.props"></a>
 
-- *Type:* [`cdk8s-plus-17.SecretProps`](#cdk8s-plus-17.SecretProps)
+- *Type:* [`cdk8s-plus-22.SecretProps`](#cdk8s-plus-22.SecretProps)
 
 ---
 
 #### Methods <a name="Methods"></a>
 
-##### `addStringData` <a name="cdk8s-plus-17.Secret.addStringData"></a>
+##### `addStringData` <a name="cdk8s-plus-22.Secret.addStringData"></a>
 
 ```typescript
 public addStringData(key: string, value: string)
 ```
 
-###### `key`<sup>Required</sup> <a name="cdk8s-plus-17.Secret.parameter.key"></a>
+###### `key`<sup>Required</sup> <a name="cdk8s-plus-22.Secret.parameter.key"></a>
 
 - *Type:* `string`
 
@@ -958,7 +974,7 @@ Key.
 
 ---
 
-###### `value`<sup>Required</sup> <a name="cdk8s-plus-17.Secret.parameter.value"></a>
+###### `value`<sup>Required</sup> <a name="cdk8s-plus-22.Secret.parameter.value"></a>
 
 - *Type:* `string`
 
@@ -966,13 +982,13 @@ Value.
 
 ---
 
-##### `getStringData` <a name="cdk8s-plus-17.Secret.getStringData"></a>
+##### `getStringData` <a name="cdk8s-plus-22.Secret.getStringData"></a>
 
 ```typescript
 public getStringData(key: string)
 ```
 
-###### `key`<sup>Required</sup> <a name="cdk8s-plus-17.Secret.parameter.key"></a>
+###### `key`<sup>Required</sup> <a name="cdk8s-plus-22.Secret.parameter.key"></a>
 
 - *Type:* `string`
 
@@ -982,15 +998,15 @@ Key.
 
 #### Static Functions <a name="Static Functions"></a>
 
-##### `fromSecretName` <a name="cdk8s-plus-17.Secret.fromSecretName"></a>
+##### `fromSecretName` <a name="cdk8s-plus-22.Secret.fromSecretName"></a>
 
 ```typescript
-import { Secret } from 'cdk8s-plus-17'
+import { Secret } from 'cdk8s-plus-22'
 
 Secret.fromSecretName(name: string)
 ```
 
-###### `name`<sup>Required</sup> <a name="cdk8s-plus-17.Secret.parameter.name"></a>
+###### `name`<sup>Required</sup> <a name="cdk8s-plus-22.Secret.parameter.name"></a>
 
 - *Type:* `string`
 
@@ -1000,7 +1016,7 @@ The name of the secret to reference.
 
 
 
-### Service <a name="cdk8s-plus-17.Service"></a>
+### Service <a name="cdk8s-plus-22.Service"></a>
 
 An abstract way to expose an application running on a set of Pods as a network service.
 
@@ -1016,49 +1032,49 @@ If you're able to use Kubernetes APIs for service discovery in your application,
 that get updated whenever the set of Pods in a Service changes. For non-native applications, Kubernetes offers ways to place a network port
 or load balancer in between your application and the backend Pods.
 
-#### Initializers <a name="cdk8s-plus-17.Service.Initializer"></a>
+#### Initializers <a name="cdk8s-plus-22.Service.Initializer"></a>
 
 ```typescript
-import { Service } from 'cdk8s-plus-17'
+import { Service } from 'cdk8s-plus-22'
 
 new Service(scope: Construct, id: string, props?: ServiceProps)
 ```
 
-##### `scope`<sup>Required</sup> <a name="cdk8s-plus-17.Service.parameter.scope"></a>
+##### `scope`<sup>Required</sup> <a name="cdk8s-plus-22.Service.parameter.scope"></a>
 
 - *Type:* [`constructs.Construct`](#constructs.Construct)
 
 ---
 
-##### `id`<sup>Required</sup> <a name="cdk8s-plus-17.Service.parameter.id"></a>
+##### `id`<sup>Required</sup> <a name="cdk8s-plus-22.Service.parameter.id"></a>
 
 - *Type:* `string`
 
 ---
 
-##### `props`<sup>Optional</sup> <a name="cdk8s-plus-17.Service.parameter.props"></a>
+##### `props`<sup>Optional</sup> <a name="cdk8s-plus-22.Service.parameter.props"></a>
 
-- *Type:* [`cdk8s-plus-17.ServiceProps`](#cdk8s-plus-17.ServiceProps)
+- *Type:* [`cdk8s-plus-22.ServiceProps`](#cdk8s-plus-22.ServiceProps)
 
 ---
 
 #### Methods <a name="Methods"></a>
 
-##### `addDeployment` <a name="cdk8s-plus-17.Service.addDeployment"></a>
+##### `addDeployment` <a name="cdk8s-plus-22.Service.addDeployment"></a>
 
 ```typescript
 public addDeployment(deployment: Deployment, port: number, options?: ServicePortOptions)
 ```
 
-###### `deployment`<sup>Required</sup> <a name="cdk8s-plus-17.Service.parameter.deployment"></a>
+###### `deployment`<sup>Required</sup> <a name="cdk8s-plus-22.Service.parameter.deployment"></a>
 
-- *Type:* [`cdk8s-plus-17.Deployment`](#cdk8s-plus-17.Deployment)
+- *Type:* [`cdk8s-plus-22.Deployment`](#cdk8s-plus-22.Deployment)
 
 The deployment to expose.
 
 ---
 
-###### `port`<sup>Required</sup> <a name="cdk8s-plus-17.Service.parameter.port"></a>
+###### `port`<sup>Required</sup> <a name="cdk8s-plus-22.Service.parameter.port"></a>
 
 - *Type:* `number`
 
@@ -1066,21 +1082,21 @@ The external port.
 
 ---
 
-###### `options`<sup>Optional</sup> <a name="cdk8s-plus-17.Service.parameter.options"></a>
+###### `options`<sup>Optional</sup> <a name="cdk8s-plus-22.Service.parameter.options"></a>
 
-- *Type:* [`cdk8s-plus-17.ServicePortOptions`](#cdk8s-plus-17.ServicePortOptions)
+- *Type:* [`cdk8s-plus-22.ServicePortOptions`](#cdk8s-plus-22.ServicePortOptions)
 
 Optional settings for the port.
 
 ---
 
-##### `addSelector` <a name="cdk8s-plus-17.Service.addSelector"></a>
+##### `addSelector` <a name="cdk8s-plus-22.Service.addSelector"></a>
 
 ```typescript
 public addSelector(label: string, value: string)
 ```
 
-###### `label`<sup>Required</sup> <a name="cdk8s-plus-17.Service.parameter.label"></a>
+###### `label`<sup>Required</sup> <a name="cdk8s-plus-22.Service.parameter.label"></a>
 
 - *Type:* `string`
 
@@ -1088,7 +1104,7 @@ The label key.
 
 ---
 
-###### `value`<sup>Required</sup> <a name="cdk8s-plus-17.Service.parameter.value"></a>
+###### `value`<sup>Required</sup> <a name="cdk8s-plus-22.Service.parameter.value"></a>
 
 - *Type:* `string`
 
@@ -1096,13 +1112,13 @@ The label value.
 
 ---
 
-##### `serve` <a name="cdk8s-plus-17.Service.serve"></a>
+##### `serve` <a name="cdk8s-plus-22.Service.serve"></a>
 
 ```typescript
 public serve(port: number, options?: ServicePortOptions)
 ```
 
-###### `port`<sup>Required</sup> <a name="cdk8s-plus-17.Service.parameter.port"></a>
+###### `port`<sup>Required</sup> <a name="cdk8s-plus-22.Service.parameter.port"></a>
 
 - *Type:* `number`
 
@@ -1110,22 +1126,22 @@ The port definition.
 
 ---
 
-###### `options`<sup>Optional</sup> <a name="cdk8s-plus-17.Service.parameter.options"></a>
+###### `options`<sup>Optional</sup> <a name="cdk8s-plus-22.Service.parameter.options"></a>
 
-- *Type:* [`cdk8s-plus-17.ServicePortOptions`](#cdk8s-plus-17.ServicePortOptions)
+- *Type:* [`cdk8s-plus-22.ServicePortOptions`](#cdk8s-plus-22.ServicePortOptions)
 
 ---
 
 
 #### Properties <a name="Properties"></a>
 
-##### `ports`<sup>Required</sup> <a name="cdk8s-plus-17.Service.property.ports"></a>
+##### `ports`<sup>Required</sup> <a name="cdk8s-plus-22.Service.property.ports"></a>
 
 ```typescript
 public readonly ports: ServicePort[];
 ```
 
-- *Type:* [`cdk8s-plus-17.ServicePort`](#cdk8s-plus-17.ServicePort)[]
+- *Type:* [`cdk8s-plus-22.ServicePort`](#cdk8s-plus-22.ServicePort)[]
 
 Ports for this service.
 
@@ -1133,7 +1149,7 @@ Use `serve()` to expose additional service ports.
 
 ---
 
-##### `selector`<sup>Required</sup> <a name="cdk8s-plus-17.Service.property.selector"></a>
+##### `selector`<sup>Required</sup> <a name="cdk8s-plus-22.Service.property.selector"></a>
 
 ```typescript
 public readonly selector: {[ key: string ]: string};
@@ -1145,19 +1161,19 @@ Returns the labels which are used to select pods for this service.
 
 ---
 
-##### `type`<sup>Required</sup> <a name="cdk8s-plus-17.Service.property.type"></a>
+##### `type`<sup>Required</sup> <a name="cdk8s-plus-22.Service.property.type"></a>
 
 ```typescript
 public readonly type: ServiceType;
 ```
 
-- *Type:* [`cdk8s-plus-17.ServiceType`](#cdk8s-plus-17.ServiceType)
+- *Type:* [`cdk8s-plus-22.ServiceType`](#cdk8s-plus-22.ServiceType)
 
 Determines how the Service is exposed.
 
 ---
 
-##### `clusterIP`<sup>Optional</sup> <a name="cdk8s-plus-17.Service.property.clusterIP"></a>
+##### `clusterIP`<sup>Optional</sup> <a name="cdk8s-plus-22.Service.property.clusterIP"></a>
 
 ```typescript
 public readonly clusterIP: string;
@@ -1169,7 +1185,7 @@ The IP address of the service and is usually assigned randomly by the master.
 
 ---
 
-##### `externalName`<sup>Optional</sup> <a name="cdk8s-plus-17.Service.property.externalName"></a>
+##### `externalName`<sup>Optional</sup> <a name="cdk8s-plus-22.Service.property.externalName"></a>
 
 ```typescript
 public readonly externalName: string;
@@ -1182,9 +1198,9 @@ The externalName to be used for EXTERNAL_NAME types.
 ---
 
 
-### ServiceAccount <a name="cdk8s-plus-17.ServiceAccount"></a>
+### ServiceAccount <a name="cdk8s-plus-22.ServiceAccount"></a>
 
-- *Implements:* [`cdk8s-plus-17.IServiceAccount`](#cdk8s-plus-17.IServiceAccount)
+- *Implements:* [`cdk8s-plus-22.IServiceAccount`](#cdk8s-plus-22.IServiceAccount)
 
 A service account provides an identity for processes that run in a Pod.
 
@@ -1197,43 +1213,43 @@ example, default).
 
 > https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account
 
-#### Initializers <a name="cdk8s-plus-17.ServiceAccount.Initializer"></a>
+#### Initializers <a name="cdk8s-plus-22.ServiceAccount.Initializer"></a>
 
 ```typescript
-import { ServiceAccount } from 'cdk8s-plus-17'
+import { ServiceAccount } from 'cdk8s-plus-22'
 
 new ServiceAccount(scope: Construct, id: string, props?: ServiceAccountProps)
 ```
 
-##### `scope`<sup>Required</sup> <a name="cdk8s-plus-17.ServiceAccount.parameter.scope"></a>
+##### `scope`<sup>Required</sup> <a name="cdk8s-plus-22.ServiceAccount.parameter.scope"></a>
 
 - *Type:* [`constructs.Construct`](#constructs.Construct)
 
 ---
 
-##### `id`<sup>Required</sup> <a name="cdk8s-plus-17.ServiceAccount.parameter.id"></a>
+##### `id`<sup>Required</sup> <a name="cdk8s-plus-22.ServiceAccount.parameter.id"></a>
 
 - *Type:* `string`
 
 ---
 
-##### `props`<sup>Optional</sup> <a name="cdk8s-plus-17.ServiceAccount.parameter.props"></a>
+##### `props`<sup>Optional</sup> <a name="cdk8s-plus-22.ServiceAccount.parameter.props"></a>
 
-- *Type:* [`cdk8s-plus-17.ServiceAccountProps`](#cdk8s-plus-17.ServiceAccountProps)
+- *Type:* [`cdk8s-plus-22.ServiceAccountProps`](#cdk8s-plus-22.ServiceAccountProps)
 
 ---
 
 #### Methods <a name="Methods"></a>
 
-##### `addSecret` <a name="cdk8s-plus-17.ServiceAccount.addSecret"></a>
+##### `addSecret` <a name="cdk8s-plus-22.ServiceAccount.addSecret"></a>
 
 ```typescript
 public addSecret(secret: ISecret)
 ```
 
-###### `secret`<sup>Required</sup> <a name="cdk8s-plus-17.ServiceAccount.parameter.secret"></a>
+###### `secret`<sup>Required</sup> <a name="cdk8s-plus-22.ServiceAccount.parameter.secret"></a>
 
-- *Type:* [`cdk8s-plus-17.ISecret`](#cdk8s-plus-17.ISecret)
+- *Type:* [`cdk8s-plus-22.ISecret`](#cdk8s-plus-22.ISecret)
 
 The secret.
 
@@ -1241,15 +1257,15 @@ The secret.
 
 #### Static Functions <a name="Static Functions"></a>
 
-##### `fromServiceAccountName` <a name="cdk8s-plus-17.ServiceAccount.fromServiceAccountName"></a>
+##### `fromServiceAccountName` <a name="cdk8s-plus-22.ServiceAccount.fromServiceAccountName"></a>
 
 ```typescript
-import { ServiceAccount } from 'cdk8s-plus-17'
+import { ServiceAccount } from 'cdk8s-plus-22'
 
 ServiceAccount.fromServiceAccountName(name: string)
 ```
 
-###### `name`<sup>Required</sup> <a name="cdk8s-plus-17.ServiceAccount.parameter.name"></a>
+###### `name`<sup>Required</sup> <a name="cdk8s-plus-22.ServiceAccount.parameter.name"></a>
 
 - *Type:* `string`
 
@@ -1259,13 +1275,13 @@ The name of the service account resource.
 
 #### Properties <a name="Properties"></a>
 
-##### `secrets`<sup>Required</sup> <a name="cdk8s-plus-17.ServiceAccount.property.secrets"></a>
+##### `secrets`<sup>Required</sup> <a name="cdk8s-plus-22.ServiceAccount.property.secrets"></a>
 
 ```typescript
 public readonly secrets: ISecret[];
 ```
 
-- *Type:* [`cdk8s-plus-17.ISecret`](#cdk8s-plus-17.ISecret)[]
+- *Type:* [`cdk8s-plus-22.ISecret`](#cdk8s-plus-22.ISecret)[]
 
 List of secrets allowed to be used by pods running using this service account.
 
@@ -1274,9 +1290,9 @@ Returns a copy. To add a secret, use `addSecret()`.
 ---
 
 
-### StatefulSet <a name="cdk8s-plus-17.StatefulSet"></a>
+### StatefulSet <a name="cdk8s-plus-22.StatefulSet"></a>
 
-- *Implements:* [`cdk8s-plus-17.IPodTemplate`](#cdk8s-plus-17.IPodTemplate)
+- *Implements:* [`cdk8s-plus-22.IPodTemplate`](#cdk8s-plus-22.IPodTemplate)
 
 StatefulSet is the workload API object used to manage stateful applications.
 
@@ -1303,65 +1319,65 @@ StatefulSets are valuable for applications that require one or more of the follo
 - Ordered, graceful deployment and scaling.
 - Ordered, automated rolling updates.
 
-#### Initializers <a name="cdk8s-plus-17.StatefulSet.Initializer"></a>
+#### Initializers <a name="cdk8s-plus-22.StatefulSet.Initializer"></a>
 
 ```typescript
-import { StatefulSet } from 'cdk8s-plus-17'
+import { StatefulSet } from 'cdk8s-plus-22'
 
 new StatefulSet(scope: Construct, id: string, props: StatefulSetProps)
 ```
 
-##### `scope`<sup>Required</sup> <a name="cdk8s-plus-17.StatefulSet.parameter.scope"></a>
+##### `scope`<sup>Required</sup> <a name="cdk8s-plus-22.StatefulSet.parameter.scope"></a>
 
 - *Type:* [`constructs.Construct`](#constructs.Construct)
 
 ---
 
-##### `id`<sup>Required</sup> <a name="cdk8s-plus-17.StatefulSet.parameter.id"></a>
+##### `id`<sup>Required</sup> <a name="cdk8s-plus-22.StatefulSet.parameter.id"></a>
 
 - *Type:* `string`
 
 ---
 
-##### `props`<sup>Required</sup> <a name="cdk8s-plus-17.StatefulSet.parameter.props"></a>
+##### `props`<sup>Required</sup> <a name="cdk8s-plus-22.StatefulSet.parameter.props"></a>
 
-- *Type:* [`cdk8s-plus-17.StatefulSetProps`](#cdk8s-plus-17.StatefulSetProps)
+- *Type:* [`cdk8s-plus-22.StatefulSetProps`](#cdk8s-plus-22.StatefulSetProps)
 
 ---
 
 #### Methods <a name="Methods"></a>
 
-##### `addContainer` <a name="cdk8s-plus-17.StatefulSet.addContainer"></a>
+##### `addContainer` <a name="cdk8s-plus-22.StatefulSet.addContainer"></a>
 
 ```typescript
 public addContainer(container: ContainerProps)
 ```
 
-###### `container`<sup>Required</sup> <a name="cdk8s-plus-17.StatefulSet.parameter.container"></a>
+###### `container`<sup>Required</sup> <a name="cdk8s-plus-22.StatefulSet.parameter.container"></a>
 
-- *Type:* [`cdk8s-plus-17.ContainerProps`](#cdk8s-plus-17.ContainerProps)
+- *Type:* [`cdk8s-plus-22.ContainerProps`](#cdk8s-plus-22.ContainerProps)
 
 ---
 
-##### `addVolume` <a name="cdk8s-plus-17.StatefulSet.addVolume"></a>
+##### `addVolume` <a name="cdk8s-plus-22.StatefulSet.addVolume"></a>
 
 ```typescript
 public addVolume(volume: Volume)
 ```
 
-###### `volume`<sup>Required</sup> <a name="cdk8s-plus-17.StatefulSet.parameter.volume"></a>
+###### `volume`<sup>Required</sup> <a name="cdk8s-plus-22.StatefulSet.parameter.volume"></a>
 
-- *Type:* [`cdk8s-plus-17.Volume`](#cdk8s-plus-17.Volume)
+- *Type:* [`cdk8s-plus-22.Volume`](#cdk8s-plus-22.Volume)
 
 ---
 
-##### `selectByLabel` <a name="cdk8s-plus-17.StatefulSet.selectByLabel"></a>
+##### `selectByLabel` <a name="cdk8s-plus-22.StatefulSet.selectByLabel"></a>
 
 ```typescript
 public selectByLabel(key: string, value: string)
 ```
 
-###### `key`<sup>Required</sup> <a name="cdk8s-plus-17.StatefulSet.parameter.key"></a>
+###### `key`<sup>Required</sup> <a name="cdk8s-plus-22.StatefulSet.parameter.key"></a>
 
 - *Type:* `string`
 
@@ -1369,7 +1385,7 @@ The label key.
 
 ---
 
-###### `value`<sup>Required</sup> <a name="cdk8s-plus-17.StatefulSet.parameter.value"></a>
+###### `value`<sup>Required</sup> <a name="cdk8s-plus-22.StatefulSet.parameter.value"></a>
 
 - *Type:* `string`
 
@@ -1380,13 +1396,13 @@ The label value.
 
 #### Properties <a name="Properties"></a>
 
-##### `containers`<sup>Required</sup> <a name="cdk8s-plus-17.StatefulSet.property.containers"></a>
+##### `containers`<sup>Required</sup> <a name="cdk8s-plus-22.StatefulSet.property.containers"></a>
 
 ```typescript
 public readonly containers: Container[];
 ```
 
-- *Type:* [`cdk8s-plus-17.Container`](#cdk8s-plus-17.Container)[]
+- *Type:* [`cdk8s-plus-22.Container`](#cdk8s-plus-22.Container)[]
 
 The containers belonging to the pod.
 
@@ -1394,7 +1410,7 @@ Use `addContainer` to add containers.
 
 ---
 
-##### `labelSelector`<sup>Required</sup> <a name="cdk8s-plus-17.StatefulSet.property.labelSelector"></a>
+##### `labelSelector`<sup>Required</sup> <a name="cdk8s-plus-22.StatefulSet.property.labelSelector"></a>
 
 ```typescript
 public readonly labelSelector: {[ key: string ]: string};
@@ -1408,19 +1424,19 @@ Returns a a copy. Use `selectByLabel()` to add labels.
 
 ---
 
-##### `podManagementPolicy`<sup>Required</sup> <a name="cdk8s-plus-17.StatefulSet.property.podManagementPolicy"></a>
+##### `podManagementPolicy`<sup>Required</sup> <a name="cdk8s-plus-22.StatefulSet.property.podManagementPolicy"></a>
 
 ```typescript
 public readonly podManagementPolicy: PodManagementPolicy;
 ```
 
-- *Type:* [`cdk8s-plus-17.PodManagementPolicy`](#cdk8s-plus-17.PodManagementPolicy)
+- *Type:* [`cdk8s-plus-22.PodManagementPolicy`](#cdk8s-plus-22.PodManagementPolicy)
 
 Management policy to use for the set.
 
 ---
 
-##### `podMetadata`<sup>Required</sup> <a name="cdk8s-plus-17.StatefulSet.property.podMetadata"></a>
+##### `podMetadata`<sup>Required</sup> <a name="cdk8s-plus-22.StatefulSet.property.podMetadata"></a>
 
 ```typescript
 public readonly podMetadata: ApiObjectMetadataDefinition;
@@ -1432,7 +1448,7 @@ Provides read/write access to the underlying pod metadata of the resource.
 
 ---
 
-##### `replicas`<sup>Required</sup> <a name="cdk8s-plus-17.StatefulSet.property.replicas"></a>
+##### `replicas`<sup>Required</sup> <a name="cdk8s-plus-22.StatefulSet.property.replicas"></a>
 
 ```typescript
 public readonly replicas: number;
@@ -1444,13 +1460,13 @@ Number of desired pods.
 
 ---
 
-##### `volumes`<sup>Required</sup> <a name="cdk8s-plus-17.StatefulSet.property.volumes"></a>
+##### `volumes`<sup>Required</sup> <a name="cdk8s-plus-22.StatefulSet.property.volumes"></a>
 
 ```typescript
 public readonly volumes: Volume[];
 ```
 
-- *Type:* [`cdk8s-plus-17.Volume`](#cdk8s-plus-17.Volume)[]
+- *Type:* [`cdk8s-plus-22.Volume`](#cdk8s-plus-22.Volume)[]
 
 The volumes associated with this pod.
 
@@ -1458,25 +1474,25 @@ Use `addVolume` to add volumes.
 
 ---
 
-##### `restartPolicy`<sup>Optional</sup> <a name="cdk8s-plus-17.StatefulSet.property.restartPolicy"></a>
+##### `restartPolicy`<sup>Optional</sup> <a name="cdk8s-plus-22.StatefulSet.property.restartPolicy"></a>
 
 ```typescript
 public readonly restartPolicy: RestartPolicy;
 ```
 
-- *Type:* [`cdk8s-plus-17.RestartPolicy`](#cdk8s-plus-17.RestartPolicy)
+- *Type:* [`cdk8s-plus-22.RestartPolicy`](#cdk8s-plus-22.RestartPolicy)
 
 Restart policy for all containers within the pod.
 
 ---
 
-##### `serviceAccount`<sup>Optional</sup> <a name="cdk8s-plus-17.StatefulSet.property.serviceAccount"></a>
+##### `serviceAccount`<sup>Optional</sup> <a name="cdk8s-plus-22.StatefulSet.property.serviceAccount"></a>
 
 ```typescript
 public readonly serviceAccount: IServiceAccount;
 ```
 
-- *Type:* [`cdk8s-plus-17.IServiceAccount`](#cdk8s-plus-17.IServiceAccount)
+- *Type:* [`cdk8s-plus-22.IServiceAccount`](#cdk8s-plus-22.IServiceAccount)
 
 The service account used to run this pod.
 
@@ -1485,19 +1501,19 @@ The service account used to run this pod.
 
 ## Structs <a name="Structs"></a>
 
-### AddDirectoryOptions <a name="cdk8s-plus-17.AddDirectoryOptions"></a>
+### AddDirectoryOptions <a name="cdk8s-plus-22.AddDirectoryOptions"></a>
 
 Options for `configmap.addDirectory()`.
 
 #### Initializer <a name="[object Object].Initializer"></a>
 
 ```typescript
-import { AddDirectoryOptions } from 'cdk8s-plus-17'
+import { AddDirectoryOptions } from 'cdk8s-plus-22'
 
 const addDirectoryOptions: AddDirectoryOptions = { ... }
 ```
 
-##### `exclude`<sup>Optional</sup> <a name="cdk8s-plus-17.AddDirectoryOptions.property.exclude"></a>
+##### `exclude`<sup>Optional</sup> <a name="cdk8s-plus-22.AddDirectoryOptions.property.exclude"></a>
 
 ```typescript
 public readonly exclude: string[];
@@ -1510,7 +1526,7 @@ Glob patterns to exclude when adding files.
 
 ---
 
-##### `keyPrefix`<sup>Optional</sup> <a name="cdk8s-plus-17.AddDirectoryOptions.property.keyPrefix"></a>
+##### `keyPrefix`<sup>Optional</sup> <a name="cdk8s-plus-22.AddDirectoryOptions.property.keyPrefix"></a>
 
 ```typescript
 public readonly keyPrefix: string;
@@ -1523,19 +1539,19 @@ A prefix to add to all keys in the config map.
 
 ---
 
-### CommandProbeOptions <a name="cdk8s-plus-17.CommandProbeOptions"></a>
+### CommandProbeOptions <a name="cdk8s-plus-22.CommandProbeOptions"></a>
 
 Options for `Probe.fromCommand()`.
 
 #### Initializer <a name="[object Object].Initializer"></a>
 
 ```typescript
-import { CommandProbeOptions } from 'cdk8s-plus-17'
+import { CommandProbeOptions } from 'cdk8s-plus-22'
 
 const commandProbeOptions: CommandProbeOptions = { ... }
 ```
 
-##### `failureThreshold`<sup>Optional</sup> <a name="cdk8s-plus-17.CommandProbeOptions.property.failureThreshold"></a>
+##### `failureThreshold`<sup>Optional</sup> <a name="cdk8s-plus-22.CommandProbeOptions.property.failureThreshold"></a>
 
 ```typescript
 public readonly failureThreshold: number;
@@ -1550,7 +1566,7 @@ Defaults to 3. Minimum value is 1.
 
 ---
 
-##### `initialDelaySeconds`<sup>Optional</sup> <a name="cdk8s-plus-17.CommandProbeOptions.property.initialDelaySeconds"></a>
+##### `initialDelaySeconds`<sup>Optional</sup> <a name="cdk8s-plus-22.CommandProbeOptions.property.initialDelaySeconds"></a>
 
 ```typescript
 public readonly initialDelaySeconds: Duration;
@@ -1565,7 +1581,7 @@ Number of seconds after the container has started before liveness probes are ini
 
 ---
 
-##### `periodSeconds`<sup>Optional</sup> <a name="cdk8s-plus-17.CommandProbeOptions.property.periodSeconds"></a>
+##### `periodSeconds`<sup>Optional</sup> <a name="cdk8s-plus-22.CommandProbeOptions.property.periodSeconds"></a>
 
 ```typescript
 public readonly periodSeconds: Duration;
@@ -1580,7 +1596,7 @@ Default to 10 seconds. Minimum value is 1.
 
 ---
 
-##### `successThreshold`<sup>Optional</sup> <a name="cdk8s-plus-17.CommandProbeOptions.property.successThreshold"></a>
+##### `successThreshold`<sup>Optional</sup> <a name="cdk8s-plus-22.CommandProbeOptions.property.successThreshold"></a>
 
 ```typescript
 public readonly successThreshold: number;
@@ -1595,7 +1611,7 @@ Must be 1 for liveness and startup. Minimum value is 1.
 
 ---
 
-##### `timeoutSeconds`<sup>Optional</sup> <a name="cdk8s-plus-17.CommandProbeOptions.property.timeoutSeconds"></a>
+##### `timeoutSeconds`<sup>Optional</sup> <a name="cdk8s-plus-22.CommandProbeOptions.property.timeoutSeconds"></a>
 
 ```typescript
 public readonly timeoutSeconds: Duration;
@@ -1612,19 +1628,19 @@ Defaults to 1 second. Minimum value is 1.
 
 ---
 
-### ConfigMapProps <a name="cdk8s-plus-17.ConfigMapProps"></a>
+### ConfigMapProps <a name="cdk8s-plus-22.ConfigMapProps"></a>
 
 Properties for initialization of `ConfigMap`.
 
 #### Initializer <a name="[object Object].Initializer"></a>
 
 ```typescript
-import { ConfigMapProps } from 'cdk8s-plus-17'
+import { ConfigMapProps } from 'cdk8s-plus-22'
 
 const configMapProps: ConfigMapProps = { ... }
 ```
 
-##### `metadata`<sup>Optional</sup> <a name="cdk8s-plus-17.ConfigMapProps.property.metadata"></a>
+##### `metadata`<sup>Optional</sup> <a name="cdk8s-plus-22.ConfigMapProps.property.metadata"></a>
 
 ```typescript
 public readonly metadata: ApiObjectMetadata;
@@ -1636,7 +1652,7 @@ Metadata that all persisted resources must have, which includes all objects user
 
 ---
 
-##### `binaryData`<sup>Optional</sup> <a name="cdk8s-plus-17.ConfigMapProps.property.binaryData"></a>
+##### `binaryData`<sup>Optional</sup> <a name="cdk8s-plus-22.ConfigMapProps.property.binaryData"></a>
 
 ```typescript
 public readonly binaryData: {[ key: string ]: string};
@@ -1656,7 +1672,7 @@ You can also add binary data using `configMap.addBinaryData()`.
 
 ---
 
-##### `data`<sup>Optional</sup> <a name="cdk8s-plus-17.ConfigMapProps.property.data"></a>
+##### `data`<sup>Optional</sup> <a name="cdk8s-plus-22.ConfigMapProps.property.data"></a>
 
 ```typescript
 public readonly data: {[ key: string ]: string};
@@ -1675,19 +1691,19 @@ You can also add data using `configMap.addData()`.
 
 ---
 
-### ConfigMapVolumeOptions <a name="cdk8s-plus-17.ConfigMapVolumeOptions"></a>
+### ConfigMapVolumeOptions <a name="cdk8s-plus-22.ConfigMapVolumeOptions"></a>
 
 Options for the ConfigMap-based volume.
 
 #### Initializer <a name="[object Object].Initializer"></a>
 
 ```typescript
-import { ConfigMapVolumeOptions } from 'cdk8s-plus-17'
+import { ConfigMapVolumeOptions } from 'cdk8s-plus-22'
 
 const configMapVolumeOptions: ConfigMapVolumeOptions = { ... }
 ```
 
-##### `defaultMode`<sup>Optional</sup> <a name="cdk8s-plus-17.ConfigMapVolumeOptions.property.defaultMode"></a>
+##### `defaultMode`<sup>Optional</sup> <a name="cdk8s-plus-22.ConfigMapVolumeOptions.property.defaultMode"></a>
 
 ```typescript
 public readonly defaultMode: number;
@@ -1707,13 +1723,13 @@ file mode, like fsGroup, and the result can be other mode bits set.
 
 ---
 
-##### `items`<sup>Optional</sup> <a name="cdk8s-plus-17.ConfigMapVolumeOptions.property.items"></a>
+##### `items`<sup>Optional</sup> <a name="cdk8s-plus-22.ConfigMapVolumeOptions.property.items"></a>
 
 ```typescript
 public readonly items: {[ key: string ]: PathMapping};
 ```
 
-- *Type:* {[ key: string ]: [`cdk8s-plus-17.PathMapping`](#cdk8s-plus-17.PathMapping)}
+- *Type:* {[ key: string ]: [`cdk8s-plus-22.PathMapping`](#cdk8s-plus-22.PathMapping)}
 - *Default:* no mapping
 
 If unspecified, each key-value pair in the Data field of the referenced ConfigMap will be projected into the volume as a file whose name is the key and content is the value.
@@ -1726,7 +1742,7 @@ contain the '..' path or start with '..'.
 
 ---
 
-##### `name`<sup>Optional</sup> <a name="cdk8s-plus-17.ConfigMapVolumeOptions.property.name"></a>
+##### `name`<sup>Optional</sup> <a name="cdk8s-plus-22.ConfigMapVolumeOptions.property.name"></a>
 
 ```typescript
 public readonly name: string;
@@ -1739,7 +1755,7 @@ The volume name.
 
 ---
 
-##### `optional`<sup>Optional</sup> <a name="cdk8s-plus-17.ConfigMapVolumeOptions.property.optional"></a>
+##### `optional`<sup>Optional</sup> <a name="cdk8s-plus-22.ConfigMapVolumeOptions.property.optional"></a>
 
 ```typescript
 public readonly optional: boolean;
@@ -1752,19 +1768,19 @@ Specify whether the ConfigMap or its keys must be defined.
 
 ---
 
-### ContainerProps <a name="cdk8s-plus-17.ContainerProps"></a>
+### ContainerProps <a name="cdk8s-plus-22.ContainerProps"></a>
 
 Properties for creating a container.
 
 #### Initializer <a name="[object Object].Initializer"></a>
 
 ```typescript
-import { ContainerProps } from 'cdk8s-plus-17'
+import { ContainerProps } from 'cdk8s-plus-22'
 
 const containerProps: ContainerProps = { ... }
 ```
 
-##### `image`<sup>Required</sup> <a name="cdk8s-plus-17.ContainerProps.property.image"></a>
+##### `image`<sup>Required</sup> <a name="cdk8s-plus-22.ContainerProps.property.image"></a>
 
 ```typescript
 public readonly image: string;
@@ -1776,7 +1792,7 @@ Docker image name.
 
 ---
 
-##### `args`<sup>Optional</sup> <a name="cdk8s-plus-17.ContainerProps.property.args"></a>
+##### `args`<sup>Optional</sup> <a name="cdk8s-plus-22.ContainerProps.property.args"></a>
 
 ```typescript
 public readonly args: string[];
@@ -1799,7 +1815,7 @@ Cannot be updated.
 
 ---
 
-##### `command`<sup>Optional</sup> <a name="cdk8s-plus-17.ContainerProps.property.command"></a>
+##### `command`<sup>Optional</sup> <a name="cdk8s-plus-22.ContainerProps.property.command"></a>
 
 ```typescript
 public readonly command: string[];
@@ -1817,13 +1833,13 @@ More info: https://kubernetes.io/docs/tasks/inject-data-application/define-comma
 
 ---
 
-##### `env`<sup>Optional</sup> <a name="cdk8s-plus-17.ContainerProps.property.env"></a>
+##### `env`<sup>Optional</sup> <a name="cdk8s-plus-22.ContainerProps.property.env"></a>
 
 ```typescript
 public readonly env: {[ key: string ]: EnvValue};
 ```
 
-- *Type:* {[ key: string ]: [`cdk8s-plus-17.EnvValue`](#cdk8s-plus-17.EnvValue)}
+- *Type:* {[ key: string ]: [`cdk8s-plus-22.EnvValue`](#cdk8s-plus-22.EnvValue)}
 - *Default:* No environment variables.
 
 List of environment variables to set in the container.
@@ -1832,26 +1848,26 @@ Cannot be updated.
 
 ---
 
-##### `imagePullPolicy`<sup>Optional</sup> <a name="cdk8s-plus-17.ContainerProps.property.imagePullPolicy"></a>
+##### `imagePullPolicy`<sup>Optional</sup> <a name="cdk8s-plus-22.ContainerProps.property.imagePullPolicy"></a>
 
 ```typescript
 public readonly imagePullPolicy: ImagePullPolicy;
 ```
 
-- *Type:* [`cdk8s-plus-17.ImagePullPolicy`](#cdk8s-plus-17.ImagePullPolicy)
+- *Type:* [`cdk8s-plus-22.ImagePullPolicy`](#cdk8s-plus-22.ImagePullPolicy)
 - *Default:* ImagePullPolicy.ALWAYS
 
 Image pull policy for this container.
 
 ---
 
-##### `liveness`<sup>Optional</sup> <a name="cdk8s-plus-17.ContainerProps.property.liveness"></a>
+##### `liveness`<sup>Optional</sup> <a name="cdk8s-plus-22.ContainerProps.property.liveness"></a>
 
 ```typescript
 public readonly liveness: Probe;
 ```
 
-- *Type:* [`cdk8s-plus-17.Probe`](#cdk8s-plus-17.Probe)
+- *Type:* [`cdk8s-plus-22.Probe`](#cdk8s-plus-22.Probe)
 - *Default:* no liveness probe is defined
 
 Periodic probe of container liveness.
@@ -1860,7 +1876,7 @@ Container will be restarted if the probe fails.
 
 ---
 
-##### `name`<sup>Optional</sup> <a name="cdk8s-plus-17.ContainerProps.property.name"></a>
+##### `name`<sup>Optional</sup> <a name="cdk8s-plus-22.ContainerProps.property.name"></a>
 
 ```typescript
 public readonly name: string;
@@ -1875,7 +1891,7 @@ Each container in a pod must have a unique name (DNS_LABEL). Cannot be updated.
 
 ---
 
-##### `port`<sup>Optional</sup> <a name="cdk8s-plus-17.ContainerProps.property.port"></a>
+##### `port`<sup>Optional</sup> <a name="cdk8s-plus-22.ContainerProps.property.port"></a>
 
 ```typescript
 public readonly port: number;
@@ -1890,26 +1906,26 @@ This must be a valid port number, 0 < x < 65536.
 
 ---
 
-##### `readiness`<sup>Optional</sup> <a name="cdk8s-plus-17.ContainerProps.property.readiness"></a>
+##### `readiness`<sup>Optional</sup> <a name="cdk8s-plus-22.ContainerProps.property.readiness"></a>
 
 ```typescript
 public readonly readiness: Probe;
 ```
 
-- *Type:* [`cdk8s-plus-17.Probe`](#cdk8s-plus-17.Probe)
+- *Type:* [`cdk8s-plus-22.Probe`](#cdk8s-plus-22.Probe)
 - *Default:* no readiness probe is defined
 
 Determines when the container is ready to serve traffic.
 
 ---
 
-##### `startup`<sup>Optional</sup> <a name="cdk8s-plus-17.ContainerProps.property.startup"></a>
+##### `startup`<sup>Optional</sup> <a name="cdk8s-plus-22.ContainerProps.property.startup"></a>
 
 ```typescript
 public readonly startup: Probe;
 ```
 
-- *Type:* [`cdk8s-plus-17.Probe`](#cdk8s-plus-17.Probe)
+- *Type:* [`cdk8s-plus-22.Probe`](#cdk8s-plus-22.Probe)
 - *Default:* no startup probe is defined.
 
 StartupProbe indicates that the Pod has successfully initialized.
@@ -1918,13 +1934,13 @@ If specified, no other probes are executed until this completes successfully
 
 ---
 
-##### `volumeMounts`<sup>Optional</sup> <a name="cdk8s-plus-17.ContainerProps.property.volumeMounts"></a>
+##### `volumeMounts`<sup>Optional</sup> <a name="cdk8s-plus-22.ContainerProps.property.volumeMounts"></a>
 
 ```typescript
 public readonly volumeMounts: VolumeMount[];
 ```
 
-- *Type:* [`cdk8s-plus-17.VolumeMount`](#cdk8s-plus-17.VolumeMount)[]
+- *Type:* [`cdk8s-plus-22.VolumeMount`](#cdk8s-plus-22.VolumeMount)[]
 
 Pod volumes to mount into the container's filesystem.
 
@@ -1932,7 +1948,7 @@ Cannot be updated.
 
 ---
 
-##### `workingDir`<sup>Optional</sup> <a name="cdk8s-plus-17.ContainerProps.property.workingDir"></a>
+##### `workingDir`<sup>Optional</sup> <a name="cdk8s-plus-22.ContainerProps.property.workingDir"></a>
 
 ```typescript
 public readonly workingDir: string;
@@ -1947,19 +1963,19 @@ If not specified, the container runtime's default will be used, which might be c
 
 ---
 
-### DeploymentProps <a name="cdk8s-plus-17.DeploymentProps"></a>
+### DeploymentProps <a name="cdk8s-plus-22.DeploymentProps"></a>
 
 Properties for initialization of `Deployment`.
 
 #### Initializer <a name="[object Object].Initializer"></a>
 
 ```typescript
-import { DeploymentProps } from 'cdk8s-plus-17'
+import { DeploymentProps } from 'cdk8s-plus-22'
 
 const deploymentProps: DeploymentProps = { ... }
 ```
 
-##### `metadata`<sup>Optional</sup> <a name="cdk8s-plus-17.DeploymentProps.property.metadata"></a>
+##### `metadata`<sup>Optional</sup> <a name="cdk8s-plus-22.DeploymentProps.property.metadata"></a>
 
 ```typescript
 public readonly metadata: ApiObjectMetadata;
@@ -1971,13 +1987,13 @@ Metadata that all persisted resources must have, which includes all objects user
 
 ---
 
-##### `containers`<sup>Optional</sup> <a name="cdk8s-plus-17.DeploymentProps.property.containers"></a>
+##### `containers`<sup>Optional</sup> <a name="cdk8s-plus-22.DeploymentProps.property.containers"></a>
 
 ```typescript
 public readonly containers: ContainerProps[];
 ```
 
-- *Type:* [`cdk8s-plus-17.ContainerProps`](#cdk8s-plus-17.ContainerProps)[]
+- *Type:* [`cdk8s-plus-22.ContainerProps`](#cdk8s-plus-22.ContainerProps)[]
 - *Default:* No containers. Note that a pod spec must include at least one container.
 
 List of containers belonging to the pod.
@@ -1989,13 +2005,13 @@ You can add additionnal containers using `podSpec.addContainer()`
 
 ---
 
-##### `restartPolicy`<sup>Optional</sup> <a name="cdk8s-plus-17.DeploymentProps.property.restartPolicy"></a>
+##### `restartPolicy`<sup>Optional</sup> <a name="cdk8s-plus-22.DeploymentProps.property.restartPolicy"></a>
 
 ```typescript
 public readonly restartPolicy: RestartPolicy;
 ```
 
-- *Type:* [`cdk8s-plus-17.RestartPolicy`](#cdk8s-plus-17.RestartPolicy)
+- *Type:* [`cdk8s-plus-22.RestartPolicy`](#cdk8s-plus-22.RestartPolicy)
 - *Default:* RestartPolicy.ALWAYS
 
 Restart policy for all containers within the pod.
@@ -2004,13 +2020,13 @@ Restart policy for all containers within the pod.
 
 ---
 
-##### `serviceAccount`<sup>Optional</sup> <a name="cdk8s-plus-17.DeploymentProps.property.serviceAccount"></a>
+##### `serviceAccount`<sup>Optional</sup> <a name="cdk8s-plus-22.DeploymentProps.property.serviceAccount"></a>
 
 ```typescript
 public readonly serviceAccount: IServiceAccount;
 ```
 
-- *Type:* [`cdk8s-plus-17.IServiceAccount`](#cdk8s-plus-17.IServiceAccount)
+- *Type:* [`cdk8s-plus-22.IServiceAccount`](#cdk8s-plus-22.IServiceAccount)
 - *Default:* No service account.
 
 A service account provides an identity for processes that run in a Pod.
@@ -2026,13 +2042,13 @@ Account (for example, default).
 
 ---
 
-##### `volumes`<sup>Optional</sup> <a name="cdk8s-plus-17.DeploymentProps.property.volumes"></a>
+##### `volumes`<sup>Optional</sup> <a name="cdk8s-plus-22.DeploymentProps.property.volumes"></a>
 
 ```typescript
 public readonly volumes: Volume[];
 ```
 
-- *Type:* [`cdk8s-plus-17.Volume`](#cdk8s-plus-17.Volume)[]
+- *Type:* [`cdk8s-plus-22.Volume`](#cdk8s-plus-22.Volume)[]
 - *Default:* No volumes.
 
 List of volumes that can be mounted by containers belonging to the pod.
@@ -2043,7 +2059,7 @@ You can also add volumes later using `podSpec.addVolume()`
 
 ---
 
-##### `podMetadata`<sup>Optional</sup> <a name="cdk8s-plus-17.DeploymentProps.property.podMetadata"></a>
+##### `podMetadata`<sup>Optional</sup> <a name="cdk8s-plus-22.DeploymentProps.property.podMetadata"></a>
 
 ```typescript
 public readonly podMetadata: ApiObjectMetadata;
@@ -2055,7 +2071,7 @@ The pod metadata.
 
 ---
 
-##### `defaultSelector`<sup>Optional</sup> <a name="cdk8s-plus-17.DeploymentProps.property.defaultSelector"></a>
+##### `defaultSelector`<sup>Optional</sup> <a name="cdk8s-plus-22.DeploymentProps.property.defaultSelector"></a>
 
 ```typescript
 public readonly defaultSelector: boolean;
@@ -2071,7 +2087,7 @@ If this is set to `false` you must define your selector through
 
 ---
 
-##### `replicas`<sup>Optional</sup> <a name="cdk8s-plus-17.DeploymentProps.property.replicas"></a>
+##### `replicas`<sup>Optional</sup> <a name="cdk8s-plus-22.DeploymentProps.property.replicas"></a>
 
 ```typescript
 public readonly replicas: number;
@@ -2084,25 +2100,25 @@ Number of desired pods.
 
 ---
 
-### EmptyDirVolumeOptions <a name="cdk8s-plus-17.EmptyDirVolumeOptions"></a>
+### EmptyDirVolumeOptions <a name="cdk8s-plus-22.EmptyDirVolumeOptions"></a>
 
 Options for volumes populated with an empty directory.
 
 #### Initializer <a name="[object Object].Initializer"></a>
 
 ```typescript
-import { EmptyDirVolumeOptions } from 'cdk8s-plus-17'
+import { EmptyDirVolumeOptions } from 'cdk8s-plus-22'
 
 const emptyDirVolumeOptions: EmptyDirVolumeOptions = { ... }
 ```
 
-##### `medium`<sup>Optional</sup> <a name="cdk8s-plus-17.EmptyDirVolumeOptions.property.medium"></a>
+##### `medium`<sup>Optional</sup> <a name="cdk8s-plus-22.EmptyDirVolumeOptions.property.medium"></a>
 
 ```typescript
 public readonly medium: EmptyDirMedium;
 ```
 
-- *Type:* [`cdk8s-plus-17.EmptyDirMedium`](#cdk8s-plus-17.EmptyDirMedium)
+- *Type:* [`cdk8s-plus-22.EmptyDirMedium`](#cdk8s-plus-22.EmptyDirMedium)
 - *Default:* EmptyDirMedium.DEFAULT
 
 By default, emptyDir volumes are stored on whatever medium is backing the node - that might be disk or SSD or network storage, depending on your environment.
@@ -2115,7 +2131,7 @@ against your Container's memory limit.
 
 ---
 
-##### `sizeLimit`<sup>Optional</sup> <a name="cdk8s-plus-17.EmptyDirVolumeOptions.property.sizeLimit"></a>
+##### `sizeLimit`<sup>Optional</sup> <a name="cdk8s-plus-22.EmptyDirVolumeOptions.property.sizeLimit"></a>
 
 ```typescript
 public readonly sizeLimit: Size;
@@ -2133,19 +2149,19 @@ here and the sum of memory limits of all containers in a pod.
 
 ---
 
-### EnvValueFromConfigMapOptions <a name="cdk8s-plus-17.EnvValueFromConfigMapOptions"></a>
+### EnvValueFromConfigMapOptions <a name="cdk8s-plus-22.EnvValueFromConfigMapOptions"></a>
 
 Options to specify an envionment variable value from a ConfigMap key.
 
 #### Initializer <a name="[object Object].Initializer"></a>
 
 ```typescript
-import { EnvValueFromConfigMapOptions } from 'cdk8s-plus-17'
+import { EnvValueFromConfigMapOptions } from 'cdk8s-plus-22'
 
 const envValueFromConfigMapOptions: EnvValueFromConfigMapOptions = { ... }
 ```
 
-##### `optional`<sup>Optional</sup> <a name="cdk8s-plus-17.EnvValueFromConfigMapOptions.property.optional"></a>
+##### `optional`<sup>Optional</sup> <a name="cdk8s-plus-22.EnvValueFromConfigMapOptions.property.optional"></a>
 
 ```typescript
 public readonly optional: boolean;
@@ -2158,19 +2174,19 @@ Specify whether the ConfigMap or its key must be defined.
 
 ---
 
-### EnvValueFromProcessOptions <a name="cdk8s-plus-17.EnvValueFromProcessOptions"></a>
+### EnvValueFromProcessOptions <a name="cdk8s-plus-22.EnvValueFromProcessOptions"></a>
 
 Options to specify an environment variable value from the process environment.
 
 #### Initializer <a name="[object Object].Initializer"></a>
 
 ```typescript
-import { EnvValueFromProcessOptions } from 'cdk8s-plus-17'
+import { EnvValueFromProcessOptions } from 'cdk8s-plus-22'
 
 const envValueFromProcessOptions: EnvValueFromProcessOptions = { ... }
 ```
 
-##### `required`<sup>Optional</sup> <a name="cdk8s-plus-17.EnvValueFromProcessOptions.property.required"></a>
+##### `required`<sup>Optional</sup> <a name="cdk8s-plus-22.EnvValueFromProcessOptions.property.required"></a>
 
 ```typescript
 public readonly required: boolean;
@@ -2185,19 +2201,19 @@ If this is set to true, and the key does not exist, an error will thrown.
 
 ---
 
-### EnvValueFromSecretOptions <a name="cdk8s-plus-17.EnvValueFromSecretOptions"></a>
+### EnvValueFromSecretOptions <a name="cdk8s-plus-22.EnvValueFromSecretOptions"></a>
 
 Options to specify an environment variable value from a Secret.
 
 #### Initializer <a name="[object Object].Initializer"></a>
 
 ```typescript
-import { EnvValueFromSecretOptions } from 'cdk8s-plus-17'
+import { EnvValueFromSecretOptions } from 'cdk8s-plus-22'
 
 const envValueFromSecretOptions: EnvValueFromSecretOptions = { ... }
 ```
 
-##### `optional`<sup>Optional</sup> <a name="cdk8s-plus-17.EnvValueFromSecretOptions.property.optional"></a>
+##### `optional`<sup>Optional</sup> <a name="cdk8s-plus-22.EnvValueFromSecretOptions.property.optional"></a>
 
 ```typescript
 public readonly optional: boolean;
@@ -2210,19 +2226,19 @@ Specify whether the Secret or its key must be defined.
 
 ---
 
-### ExposeOptions <a name="cdk8s-plus-17.ExposeOptions"></a>
+### ExposeOptions <a name="cdk8s-plus-22.ExposeOptions"></a>
 
 Options for exposing a deployment via a service.
 
 #### Initializer <a name="[object Object].Initializer"></a>
 
 ```typescript
-import { ExposeOptions } from 'cdk8s-plus-17'
+import { ExposeOptions } from 'cdk8s-plus-22'
 
 const exposeOptions: ExposeOptions = { ... }
 ```
 
-##### `name`<sup>Optional</sup> <a name="cdk8s-plus-17.ExposeOptions.property.name"></a>
+##### `name`<sup>Optional</sup> <a name="cdk8s-plus-22.ExposeOptions.property.name"></a>
 
 ```typescript
 public readonly name: string;
@@ -2237,13 +2253,13 @@ This will be set on the Service.metadata and must be a DNS_LABEL
 
 ---
 
-##### `protocol`<sup>Optional</sup> <a name="cdk8s-plus-17.ExposeOptions.property.protocol"></a>
+##### `protocol`<sup>Optional</sup> <a name="cdk8s-plus-22.ExposeOptions.property.protocol"></a>
 
 ```typescript
 public readonly protocol: Protocol;
 ```
 
-- *Type:* [`cdk8s-plus-17.Protocol`](#cdk8s-plus-17.Protocol)
+- *Type:* [`cdk8s-plus-22.Protocol`](#cdk8s-plus-22.Protocol)
 - *Default:* Protocol.TCP
 
 The IP protocol for this port.
@@ -2252,20 +2268,20 @@ Supports "TCP", "UDP", and "SCTP". Default is TCP.
 
 ---
 
-##### `serviceType`<sup>Optional</sup> <a name="cdk8s-plus-17.ExposeOptions.property.serviceType"></a>
+##### `serviceType`<sup>Optional</sup> <a name="cdk8s-plus-22.ExposeOptions.property.serviceType"></a>
 
 ```typescript
 public readonly serviceType: ServiceType;
 ```
 
-- *Type:* [`cdk8s-plus-17.ServiceType`](#cdk8s-plus-17.ServiceType)
+- *Type:* [`cdk8s-plus-22.ServiceType`](#cdk8s-plus-22.ServiceType)
 - *Default:* ClusterIP.
 
 The type of the exposed service.
 
 ---
 
-##### `targetPort`<sup>Optional</sup> <a name="cdk8s-plus-17.ExposeOptions.property.targetPort"></a>
+##### `targetPort`<sup>Optional</sup> <a name="cdk8s-plus-22.ExposeOptions.property.targetPort"></a>
 
 ```typescript
 public readonly targetPort: number;
@@ -2278,19 +2294,19 @@ The port number the service will redirect to.
 
 ---
 
-### HttpGetProbeOptions <a name="cdk8s-plus-17.HttpGetProbeOptions"></a>
+### HttpGetProbeOptions <a name="cdk8s-plus-22.HttpGetProbeOptions"></a>
 
 Options for `Probe.fromHttpGet()`.
 
 #### Initializer <a name="[object Object].Initializer"></a>
 
 ```typescript
-import { HttpGetProbeOptions } from 'cdk8s-plus-17'
+import { HttpGetProbeOptions } from 'cdk8s-plus-22'
 
 const httpGetProbeOptions: HttpGetProbeOptions = { ... }
 ```
 
-##### `failureThreshold`<sup>Optional</sup> <a name="cdk8s-plus-17.HttpGetProbeOptions.property.failureThreshold"></a>
+##### `failureThreshold`<sup>Optional</sup> <a name="cdk8s-plus-22.HttpGetProbeOptions.property.failureThreshold"></a>
 
 ```typescript
 public readonly failureThreshold: number;
@@ -2305,7 +2321,7 @@ Defaults to 3. Minimum value is 1.
 
 ---
 
-##### `initialDelaySeconds`<sup>Optional</sup> <a name="cdk8s-plus-17.HttpGetProbeOptions.property.initialDelaySeconds"></a>
+##### `initialDelaySeconds`<sup>Optional</sup> <a name="cdk8s-plus-22.HttpGetProbeOptions.property.initialDelaySeconds"></a>
 
 ```typescript
 public readonly initialDelaySeconds: Duration;
@@ -2320,7 +2336,7 @@ Number of seconds after the container has started before liveness probes are ini
 
 ---
 
-##### `periodSeconds`<sup>Optional</sup> <a name="cdk8s-plus-17.HttpGetProbeOptions.property.periodSeconds"></a>
+##### `periodSeconds`<sup>Optional</sup> <a name="cdk8s-plus-22.HttpGetProbeOptions.property.periodSeconds"></a>
 
 ```typescript
 public readonly periodSeconds: Duration;
@@ -2335,7 +2351,7 @@ Default to 10 seconds. Minimum value is 1.
 
 ---
 
-##### `successThreshold`<sup>Optional</sup> <a name="cdk8s-plus-17.HttpGetProbeOptions.property.successThreshold"></a>
+##### `successThreshold`<sup>Optional</sup> <a name="cdk8s-plus-22.HttpGetProbeOptions.property.successThreshold"></a>
 
 ```typescript
 public readonly successThreshold: number;
@@ -2350,7 +2366,7 @@ Must be 1 for liveness and startup. Minimum value is 1.
 
 ---
 
-##### `timeoutSeconds`<sup>Optional</sup> <a name="cdk8s-plus-17.HttpGetProbeOptions.property.timeoutSeconds"></a>
+##### `timeoutSeconds`<sup>Optional</sup> <a name="cdk8s-plus-22.HttpGetProbeOptions.property.timeoutSeconds"></a>
 
 ```typescript
 public readonly timeoutSeconds: Duration;
@@ -2367,7 +2383,7 @@ Defaults to 1 second. Minimum value is 1.
 
 ---
 
-##### `port`<sup>Optional</sup> <a name="cdk8s-plus-17.HttpGetProbeOptions.property.port"></a>
+##### `port`<sup>Optional</sup> <a name="cdk8s-plus-22.HttpGetProbeOptions.property.port"></a>
 
 ```typescript
 public readonly port: number;
@@ -2380,19 +2396,19 @@ The TCP port to use when sending the GET request.
 
 ---
 
-### IngressV1Beta1Props <a name="cdk8s-plus-17.IngressV1Beta1Props"></a>
+### IngressProps <a name="cdk8s-plus-22.IngressProps"></a>
 
 Properties for `Ingress`.
 
 #### Initializer <a name="[object Object].Initializer"></a>
 
 ```typescript
-import { IngressV1Beta1Props } from 'cdk8s-plus-17'
+import { IngressProps } from 'cdk8s-plus-22'
 
-const ingressV1Beta1Props: IngressV1Beta1Props = { ... }
+const ingressProps: IngressProps = { ... }
 ```
 
-##### `metadata`<sup>Optional</sup> <a name="cdk8s-plus-17.IngressV1Beta1Props.property.metadata"></a>
+##### `metadata`<sup>Optional</sup> <a name="cdk8s-plus-22.IngressProps.property.metadata"></a>
 
 ```typescript
 public readonly metadata: ApiObjectMetadata;
@@ -2404,13 +2420,13 @@ Metadata that all persisted resources must have, which includes all objects user
 
 ---
 
-##### `defaultBackend`<sup>Optional</sup> <a name="cdk8s-plus-17.IngressV1Beta1Props.property.defaultBackend"></a>
+##### `defaultBackend`<sup>Optional</sup> <a name="cdk8s-plus-22.IngressProps.property.defaultBackend"></a>
 
 ```typescript
-public readonly defaultBackend: IngressV1Beta1Backend;
+public readonly defaultBackend: IngressBackend;
 ```
 
-- *Type:* [`cdk8s-plus-17.IngressV1Beta1Backend`](#cdk8s-plus-17.IngressV1Beta1Backend)
+- *Type:* [`cdk8s-plus-22.IngressBackend`](#cdk8s-plus-22.IngressBackend)
 
 The default backend services requests that do not match any rule.
 
@@ -2419,13 +2435,13 @@ adding a rule with both `path` and `host` undefined.
 
 ---
 
-##### `rules`<sup>Optional</sup> <a name="cdk8s-plus-17.IngressV1Beta1Props.property.rules"></a>
+##### `rules`<sup>Optional</sup> <a name="cdk8s-plus-22.IngressProps.property.rules"></a>
 
 ```typescript
-public readonly rules: IngressV1Beta1Rule[];
+public readonly rules: IngressRule[];
 ```
 
-- *Type:* [`cdk8s-plus-17.IngressV1Beta1Rule`](#cdk8s-plus-17.IngressV1Beta1Rule)[]
+- *Type:* [`cdk8s-plus-22.IngressRule`](#cdk8s-plus-22.IngressRule)[]
 
 Routing rules for this ingress.
 
@@ -2438,13 +2454,13 @@ You can also add rules later using `addRule()`, `addHostRule()`,
 
 ---
 
-##### `tls`<sup>Optional</sup> <a name="cdk8s-plus-17.IngressV1Beta1Props.property.tls"></a>
+##### `tls`<sup>Optional</sup> <a name="cdk8s-plus-22.IngressProps.property.tls"></a>
 
 ```typescript
-public readonly tls: IngressV1Beta1Tls[];
+public readonly tls: IngressTls[];
 ```
 
-- *Type:* [`cdk8s-plus-17.IngressV1Beta1Tls`](#cdk8s-plus-17.IngressV1Beta1Tls)[]
+- *Type:* [`cdk8s-plus-22.IngressTls`](#cdk8s-plus-22.IngressTls)[]
 
 TLS settings for this ingress.
 
@@ -2456,7 +2472,7 @@ extension, if the ingress controller fulfilling the ingress supports SNI.
 
 ---
 
-### IngressV1Beta1Rule <a name="cdk8s-plus-17.IngressV1Beta1Rule"></a>
+### IngressRule <a name="cdk8s-plus-22.IngressRule"></a>
 
 Represents the rules mapping the paths under a specified host to the related backend services.
 
@@ -2466,24 +2482,24 @@ then routed to the backend associated with the matching path.
 #### Initializer <a name="[object Object].Initializer"></a>
 
 ```typescript
-import { IngressV1Beta1Rule } from 'cdk8s-plus-17'
+import { IngressRule } from 'cdk8s-plus-22'
 
-const ingressV1Beta1Rule: IngressV1Beta1Rule = { ... }
+const ingressRule: IngressRule = { ... }
 ```
 
-##### `backend`<sup>Required</sup> <a name="cdk8s-plus-17.IngressV1Beta1Rule.property.backend"></a>
+##### `backend`<sup>Required</sup> <a name="cdk8s-plus-22.IngressRule.property.backend"></a>
 
 ```typescript
-public readonly backend: IngressV1Beta1Backend;
+public readonly backend: IngressBackend;
 ```
 
-- *Type:* [`cdk8s-plus-17.IngressV1Beta1Backend`](#cdk8s-plus-17.IngressV1Beta1Backend)
+- *Type:* [`cdk8s-plus-22.IngressBackend`](#cdk8s-plus-22.IngressBackend)
 
 Backend defines the referenced service endpoint to which the traffic will be forwarded to.
 
 ---
 
-##### `host`<sup>Optional</sup> <a name="cdk8s-plus-17.IngressV1Beta1Rule.property.host"></a>
+##### `host`<sup>Optional</sup> <a name="cdk8s-plus-22.IngressRule.property.host"></a>
 
 ```typescript
 public readonly host: string;
@@ -2505,7 +2521,7 @@ host before the IngressRuleValue.
 
 ---
 
-##### `path`<sup>Optional</sup> <a name="cdk8s-plus-17.IngressV1Beta1Rule.property.path"></a>
+##### `path`<sup>Optional</sup> <a name="cdk8s-plus-22.IngressRule.property.path"></a>
 
 ```typescript
 public readonly path: string;
@@ -2519,19 +2535,36 @@ Path is an extended POSIX regex as defined by IEEE Std 1003.1, (i.e this follows
 
 ---
 
-### IngressV1Beta1Tls <a name="cdk8s-plus-17.IngressV1Beta1Tls"></a>
+##### `pathType`<sup>Optional</sup> <a name="cdk8s-plus-22.IngressRule.property.pathType"></a>
+
+```typescript
+public readonly pathType: HttpIngressPathType;
+```
+
+- *Type:* [`cdk8s-plus-22.HttpIngressPathType`](#cdk8s-plus-22.HttpIngressPathType)
+
+Specify how the path is matched against request paths.
+
+By default, path
+types will be matched by prefix.
+
+> https://kubernetes.io/docs/concepts/services-networking/ingress/#path-types
+
+---
+
+### IngressTls <a name="cdk8s-plus-22.IngressTls"></a>
 
 Represents the TLS configuration mapping that is passed to the ingress controller for SSL termination.
 
 #### Initializer <a name="[object Object].Initializer"></a>
 
 ```typescript
-import { IngressV1Beta1Tls } from 'cdk8s-plus-17'
+import { IngressTls } from 'cdk8s-plus-22'
 
-const ingressV1Beta1Tls: IngressV1Beta1Tls = { ... }
+const ingressTls: IngressTls = { ... }
 ```
 
-##### `hosts`<sup>Optional</sup> <a name="cdk8s-plus-17.IngressV1Beta1Tls.property.hosts"></a>
+##### `hosts`<sup>Optional</sup> <a name="cdk8s-plus-22.IngressTls.property.hosts"></a>
 
 ```typescript
 public readonly hosts: string[];
@@ -2548,13 +2581,13 @@ this list must match the name/s used in the TLS Secret.
 
 ---
 
-##### `secret`<sup>Optional</sup> <a name="cdk8s-plus-17.IngressV1Beta1Tls.property.secret"></a>
+##### `secret`<sup>Optional</sup> <a name="cdk8s-plus-22.IngressTls.property.secret"></a>
 
 ```typescript
 public readonly secret: ISecret;
 ```
 
-- *Type:* [`cdk8s-plus-17.ISecret`](#cdk8s-plus-17.ISecret)
+- *Type:* [`cdk8s-plus-22.ISecret`](#cdk8s-plus-22.ISecret)
 - *Default:* If unspecified, it allows SSL routing based on SNI hostname.
 
 Secret is the secret that contains the certificate and key used to terminate SSL traffic on 443.
@@ -2565,19 +2598,19 @@ termination and value of the Host header is used for routing.
 
 ---
 
-### JobProps <a name="cdk8s-plus-17.JobProps"></a>
+### JobProps <a name="cdk8s-plus-22.JobProps"></a>
 
 Properties for initialization of `Job`.
 
 #### Initializer <a name="[object Object].Initializer"></a>
 
 ```typescript
-import { JobProps } from 'cdk8s-plus-17'
+import { JobProps } from 'cdk8s-plus-22'
 
 const jobProps: JobProps = { ... }
 ```
 
-##### `metadata`<sup>Optional</sup> <a name="cdk8s-plus-17.JobProps.property.metadata"></a>
+##### `metadata`<sup>Optional</sup> <a name="cdk8s-plus-22.JobProps.property.metadata"></a>
 
 ```typescript
 public readonly metadata: ApiObjectMetadata;
@@ -2589,13 +2622,13 @@ Metadata that all persisted resources must have, which includes all objects user
 
 ---
 
-##### `containers`<sup>Optional</sup> <a name="cdk8s-plus-17.JobProps.property.containers"></a>
+##### `containers`<sup>Optional</sup> <a name="cdk8s-plus-22.JobProps.property.containers"></a>
 
 ```typescript
 public readonly containers: ContainerProps[];
 ```
 
-- *Type:* [`cdk8s-plus-17.ContainerProps`](#cdk8s-plus-17.ContainerProps)[]
+- *Type:* [`cdk8s-plus-22.ContainerProps`](#cdk8s-plus-22.ContainerProps)[]
 - *Default:* No containers. Note that a pod spec must include at least one container.
 
 List of containers belonging to the pod.
@@ -2607,13 +2640,13 @@ You can add additionnal containers using `podSpec.addContainer()`
 
 ---
 
-##### `restartPolicy`<sup>Optional</sup> <a name="cdk8s-plus-17.JobProps.property.restartPolicy"></a>
+##### `restartPolicy`<sup>Optional</sup> <a name="cdk8s-plus-22.JobProps.property.restartPolicy"></a>
 
 ```typescript
 public readonly restartPolicy: RestartPolicy;
 ```
 
-- *Type:* [`cdk8s-plus-17.RestartPolicy`](#cdk8s-plus-17.RestartPolicy)
+- *Type:* [`cdk8s-plus-22.RestartPolicy`](#cdk8s-plus-22.RestartPolicy)
 - *Default:* RestartPolicy.ALWAYS
 
 Restart policy for all containers within the pod.
@@ -2622,13 +2655,13 @@ Restart policy for all containers within the pod.
 
 ---
 
-##### `serviceAccount`<sup>Optional</sup> <a name="cdk8s-plus-17.JobProps.property.serviceAccount"></a>
+##### `serviceAccount`<sup>Optional</sup> <a name="cdk8s-plus-22.JobProps.property.serviceAccount"></a>
 
 ```typescript
 public readonly serviceAccount: IServiceAccount;
 ```
 
-- *Type:* [`cdk8s-plus-17.IServiceAccount`](#cdk8s-plus-17.IServiceAccount)
+- *Type:* [`cdk8s-plus-22.IServiceAccount`](#cdk8s-plus-22.IServiceAccount)
 - *Default:* No service account.
 
 A service account provides an identity for processes that run in a Pod.
@@ -2644,13 +2677,13 @@ Account (for example, default).
 
 ---
 
-##### `volumes`<sup>Optional</sup> <a name="cdk8s-plus-17.JobProps.property.volumes"></a>
+##### `volumes`<sup>Optional</sup> <a name="cdk8s-plus-22.JobProps.property.volumes"></a>
 
 ```typescript
 public readonly volumes: Volume[];
 ```
 
-- *Type:* [`cdk8s-plus-17.Volume`](#cdk8s-plus-17.Volume)[]
+- *Type:* [`cdk8s-plus-22.Volume`](#cdk8s-plus-22.Volume)[]
 - *Default:* No volumes.
 
 List of volumes that can be mounted by containers belonging to the pod.
@@ -2661,7 +2694,7 @@ You can also add volumes later using `podSpec.addVolume()`
 
 ---
 
-##### `podMetadata`<sup>Optional</sup> <a name="cdk8s-plus-17.JobProps.property.podMetadata"></a>
+##### `podMetadata`<sup>Optional</sup> <a name="cdk8s-plus-22.JobProps.property.podMetadata"></a>
 
 ```typescript
 public readonly podMetadata: ApiObjectMetadata;
@@ -2673,7 +2706,7 @@ The pod metadata.
 
 ---
 
-##### `activeDeadline`<sup>Optional</sup> <a name="cdk8s-plus-17.JobProps.property.activeDeadline"></a>
+##### `activeDeadline`<sup>Optional</sup> <a name="cdk8s-plus-22.JobProps.property.activeDeadline"></a>
 
 ```typescript
 public readonly activeDeadline: Duration;
@@ -2686,7 +2719,7 @@ Specifies the duration the job may be active before the system tries to terminat
 
 ---
 
-##### `backoffLimit`<sup>Optional</sup> <a name="cdk8s-plus-17.JobProps.property.backoffLimit"></a>
+##### `backoffLimit`<sup>Optional</sup> <a name="cdk8s-plus-22.JobProps.property.backoffLimit"></a>
 
 ```typescript
 public readonly backoffLimit: number;
@@ -2699,7 +2732,7 @@ Specifies the number of retries before marking this job failed.
 
 ---
 
-##### `ttlAfterFinished`<sup>Optional</sup> <a name="cdk8s-plus-17.JobProps.property.ttlAfterFinished"></a>
+##### `ttlAfterFinished`<sup>Optional</sup> <a name="cdk8s-plus-22.JobProps.property.ttlAfterFinished"></a>
 
 ```typescript
 public readonly ttlAfterFinished: Duration;
@@ -2719,25 +2752,25 @@ field is alpha-level and is only honored by servers that enable the
 
 ---
 
-### MountOptions <a name="cdk8s-plus-17.MountOptions"></a>
+### MountOptions <a name="cdk8s-plus-22.MountOptions"></a>
 
 Options for mounts.
 
 #### Initializer <a name="[object Object].Initializer"></a>
 
 ```typescript
-import { MountOptions } from 'cdk8s-plus-17'
+import { MountOptions } from 'cdk8s-plus-22'
 
 const mountOptions: MountOptions = { ... }
 ```
 
-##### `propagation`<sup>Optional</sup> <a name="cdk8s-plus-17.MountOptions.property.propagation"></a>
+##### `propagation`<sup>Optional</sup> <a name="cdk8s-plus-22.MountOptions.property.propagation"></a>
 
 ```typescript
 public readonly propagation: MountPropagation;
 ```
 
-- *Type:* [`cdk8s-plus-17.MountPropagation`](#cdk8s-plus-17.MountPropagation)
+- *Type:* [`cdk8s-plus-22.MountPropagation`](#cdk8s-plus-22.MountPropagation)
 - *Default:* MountPropagation.NONE
 
 Determines how mounts are propagated from the host to container and the other way around.
@@ -2751,7 +2784,7 @@ This field is beta in 1.10.
 
 ---
 
-##### `readOnly`<sup>Optional</sup> <a name="cdk8s-plus-17.MountOptions.property.readOnly"></a>
+##### `readOnly`<sup>Optional</sup> <a name="cdk8s-plus-22.MountOptions.property.readOnly"></a>
 
 ```typescript
 public readonly readOnly: boolean;
@@ -2766,7 +2799,7 @@ Defaults to false.
 
 ---
 
-##### `subPath`<sup>Optional</sup> <a name="cdk8s-plus-17.MountOptions.property.subPath"></a>
+##### `subPath`<sup>Optional</sup> <a name="cdk8s-plus-22.MountOptions.property.subPath"></a>
 
 ```typescript
 public readonly subPath: string;
@@ -2779,7 +2812,7 @@ Path within the volume from which the container's volume should be mounted.).
 
 ---
 
-##### `subPathExpr`<sup>Optional</sup> <a name="cdk8s-plus-17.MountOptions.property.subPathExpr"></a>
+##### `subPathExpr`<sup>Optional</sup> <a name="cdk8s-plus-22.MountOptions.property.subPathExpr"></a>
 
 ```typescript
 public readonly subPathExpr: string;
@@ -2800,19 +2833,19 @@ is beta in 1.15.
 
 ---
 
-### PathMapping <a name="cdk8s-plus-17.PathMapping"></a>
+### PathMapping <a name="cdk8s-plus-22.PathMapping"></a>
 
 Maps a string key to a path within a volume.
 
 #### Initializer <a name="[object Object].Initializer"></a>
 
 ```typescript
-import { PathMapping } from 'cdk8s-plus-17'
+import { PathMapping } from 'cdk8s-plus-22'
 
 const pathMapping: PathMapping = { ... }
 ```
 
-##### `path`<sup>Required</sup> <a name="cdk8s-plus-17.PathMapping.property.path"></a>
+##### `path`<sup>Required</sup> <a name="cdk8s-plus-22.PathMapping.property.path"></a>
 
 ```typescript
 public readonly path: string;
@@ -2828,7 +2861,7 @@ path. May not contain the path element '..'. May not start with the string
 
 ---
 
-##### `mode`<sup>Optional</sup> <a name="cdk8s-plus-17.PathMapping.property.mode"></a>
+##### `mode`<sup>Optional</sup> <a name="cdk8s-plus-22.PathMapping.property.mode"></a>
 
 ```typescript
 public readonly mode: number;
@@ -2844,19 +2877,19 @@ the result can be other mode bits set.
 
 ---
 
-### PodProps <a name="cdk8s-plus-17.PodProps"></a>
+### PodProps <a name="cdk8s-plus-22.PodProps"></a>
 
 Properties for initialization of `Pod`.
 
 #### Initializer <a name="[object Object].Initializer"></a>
 
 ```typescript
-import { PodProps } from 'cdk8s-plus-17'
+import { PodProps } from 'cdk8s-plus-22'
 
 const podProps: PodProps = { ... }
 ```
 
-##### `metadata`<sup>Optional</sup> <a name="cdk8s-plus-17.PodProps.property.metadata"></a>
+##### `metadata`<sup>Optional</sup> <a name="cdk8s-plus-22.PodProps.property.metadata"></a>
 
 ```typescript
 public readonly metadata: ApiObjectMetadata;
@@ -2868,13 +2901,13 @@ Metadata that all persisted resources must have, which includes all objects user
 
 ---
 
-##### `containers`<sup>Optional</sup> <a name="cdk8s-plus-17.PodProps.property.containers"></a>
+##### `containers`<sup>Optional</sup> <a name="cdk8s-plus-22.PodProps.property.containers"></a>
 
 ```typescript
 public readonly containers: ContainerProps[];
 ```
 
-- *Type:* [`cdk8s-plus-17.ContainerProps`](#cdk8s-plus-17.ContainerProps)[]
+- *Type:* [`cdk8s-plus-22.ContainerProps`](#cdk8s-plus-22.ContainerProps)[]
 - *Default:* No containers. Note that a pod spec must include at least one container.
 
 List of containers belonging to the pod.
@@ -2886,13 +2919,13 @@ You can add additionnal containers using `podSpec.addContainer()`
 
 ---
 
-##### `restartPolicy`<sup>Optional</sup> <a name="cdk8s-plus-17.PodProps.property.restartPolicy"></a>
+##### `restartPolicy`<sup>Optional</sup> <a name="cdk8s-plus-22.PodProps.property.restartPolicy"></a>
 
 ```typescript
 public readonly restartPolicy: RestartPolicy;
 ```
 
-- *Type:* [`cdk8s-plus-17.RestartPolicy`](#cdk8s-plus-17.RestartPolicy)
+- *Type:* [`cdk8s-plus-22.RestartPolicy`](#cdk8s-plus-22.RestartPolicy)
 - *Default:* RestartPolicy.ALWAYS
 
 Restart policy for all containers within the pod.
@@ -2901,13 +2934,13 @@ Restart policy for all containers within the pod.
 
 ---
 
-##### `serviceAccount`<sup>Optional</sup> <a name="cdk8s-plus-17.PodProps.property.serviceAccount"></a>
+##### `serviceAccount`<sup>Optional</sup> <a name="cdk8s-plus-22.PodProps.property.serviceAccount"></a>
 
 ```typescript
 public readonly serviceAccount: IServiceAccount;
 ```
 
-- *Type:* [`cdk8s-plus-17.IServiceAccount`](#cdk8s-plus-17.IServiceAccount)
+- *Type:* [`cdk8s-plus-22.IServiceAccount`](#cdk8s-plus-22.IServiceAccount)
 - *Default:* No service account.
 
 A service account provides an identity for processes that run in a Pod.
@@ -2923,13 +2956,13 @@ Account (for example, default).
 
 ---
 
-##### `volumes`<sup>Optional</sup> <a name="cdk8s-plus-17.PodProps.property.volumes"></a>
+##### `volumes`<sup>Optional</sup> <a name="cdk8s-plus-22.PodProps.property.volumes"></a>
 
 ```typescript
 public readonly volumes: Volume[];
 ```
 
-- *Type:* [`cdk8s-plus-17.Volume`](#cdk8s-plus-17.Volume)[]
+- *Type:* [`cdk8s-plus-22.Volume`](#cdk8s-plus-22.Volume)[]
 - *Default:* No volumes.
 
 List of volumes that can be mounted by containers belonging to the pod.
@@ -2940,25 +2973,25 @@ You can also add volumes later using `podSpec.addVolume()`
 
 ---
 
-### PodSpecProps <a name="cdk8s-plus-17.PodSpecProps"></a>
+### PodSpecProps <a name="cdk8s-plus-22.PodSpecProps"></a>
 
 Properties of a `PodSpec`.
 
 #### Initializer <a name="[object Object].Initializer"></a>
 
 ```typescript
-import { PodSpecProps } from 'cdk8s-plus-17'
+import { PodSpecProps } from 'cdk8s-plus-22'
 
 const podSpecProps: PodSpecProps = { ... }
 ```
 
-##### `containers`<sup>Optional</sup> <a name="cdk8s-plus-17.PodSpecProps.property.containers"></a>
+##### `containers`<sup>Optional</sup> <a name="cdk8s-plus-22.PodSpecProps.property.containers"></a>
 
 ```typescript
 public readonly containers: ContainerProps[];
 ```
 
-- *Type:* [`cdk8s-plus-17.ContainerProps`](#cdk8s-plus-17.ContainerProps)[]
+- *Type:* [`cdk8s-plus-22.ContainerProps`](#cdk8s-plus-22.ContainerProps)[]
 - *Default:* No containers. Note that a pod spec must include at least one container.
 
 List of containers belonging to the pod.
@@ -2970,13 +3003,13 @@ You can add additionnal containers using `podSpec.addContainer()`
 
 ---
 
-##### `restartPolicy`<sup>Optional</sup> <a name="cdk8s-plus-17.PodSpecProps.property.restartPolicy"></a>
+##### `restartPolicy`<sup>Optional</sup> <a name="cdk8s-plus-22.PodSpecProps.property.restartPolicy"></a>
 
 ```typescript
 public readonly restartPolicy: RestartPolicy;
 ```
 
-- *Type:* [`cdk8s-plus-17.RestartPolicy`](#cdk8s-plus-17.RestartPolicy)
+- *Type:* [`cdk8s-plus-22.RestartPolicy`](#cdk8s-plus-22.RestartPolicy)
 - *Default:* RestartPolicy.ALWAYS
 
 Restart policy for all containers within the pod.
@@ -2985,13 +3018,13 @@ Restart policy for all containers within the pod.
 
 ---
 
-##### `serviceAccount`<sup>Optional</sup> <a name="cdk8s-plus-17.PodSpecProps.property.serviceAccount"></a>
+##### `serviceAccount`<sup>Optional</sup> <a name="cdk8s-plus-22.PodSpecProps.property.serviceAccount"></a>
 
 ```typescript
 public readonly serviceAccount: IServiceAccount;
 ```
 
-- *Type:* [`cdk8s-plus-17.IServiceAccount`](#cdk8s-plus-17.IServiceAccount)
+- *Type:* [`cdk8s-plus-22.IServiceAccount`](#cdk8s-plus-22.IServiceAccount)
 - *Default:* No service account.
 
 A service account provides an identity for processes that run in a Pod.
@@ -3007,13 +3040,13 @@ Account (for example, default).
 
 ---
 
-##### `volumes`<sup>Optional</sup> <a name="cdk8s-plus-17.PodSpecProps.property.volumes"></a>
+##### `volumes`<sup>Optional</sup> <a name="cdk8s-plus-22.PodSpecProps.property.volumes"></a>
 
 ```typescript
 public readonly volumes: Volume[];
 ```
 
-- *Type:* [`cdk8s-plus-17.Volume`](#cdk8s-plus-17.Volume)[]
+- *Type:* [`cdk8s-plus-22.Volume`](#cdk8s-plus-22.Volume)[]
 - *Default:* No volumes.
 
 List of volumes that can be mounted by containers belonging to the pod.
@@ -3024,7 +3057,7 @@ You can also add volumes later using `podSpec.addVolume()`
 
 ---
 
-### PodTemplateProps <a name="cdk8s-plus-17.PodTemplateProps"></a>
+### PodTemplateProps <a name="cdk8s-plus-22.PodTemplateProps"></a>
 
 Properties of a `PodTemplate`.
 
@@ -3033,18 +3066,18 @@ Adds metadata information on top of the spec.
 #### Initializer <a name="[object Object].Initializer"></a>
 
 ```typescript
-import { PodTemplateProps } from 'cdk8s-plus-17'
+import { PodTemplateProps } from 'cdk8s-plus-22'
 
 const podTemplateProps: PodTemplateProps = { ... }
 ```
 
-##### `containers`<sup>Optional</sup> <a name="cdk8s-plus-17.PodTemplateProps.property.containers"></a>
+##### `containers`<sup>Optional</sup> <a name="cdk8s-plus-22.PodTemplateProps.property.containers"></a>
 
 ```typescript
 public readonly containers: ContainerProps[];
 ```
 
-- *Type:* [`cdk8s-plus-17.ContainerProps`](#cdk8s-plus-17.ContainerProps)[]
+- *Type:* [`cdk8s-plus-22.ContainerProps`](#cdk8s-plus-22.ContainerProps)[]
 - *Default:* No containers. Note that a pod spec must include at least one container.
 
 List of containers belonging to the pod.
@@ -3056,13 +3089,13 @@ You can add additionnal containers using `podSpec.addContainer()`
 
 ---
 
-##### `restartPolicy`<sup>Optional</sup> <a name="cdk8s-plus-17.PodTemplateProps.property.restartPolicy"></a>
+##### `restartPolicy`<sup>Optional</sup> <a name="cdk8s-plus-22.PodTemplateProps.property.restartPolicy"></a>
 
 ```typescript
 public readonly restartPolicy: RestartPolicy;
 ```
 
-- *Type:* [`cdk8s-plus-17.RestartPolicy`](#cdk8s-plus-17.RestartPolicy)
+- *Type:* [`cdk8s-plus-22.RestartPolicy`](#cdk8s-plus-22.RestartPolicy)
 - *Default:* RestartPolicy.ALWAYS
 
 Restart policy for all containers within the pod.
@@ -3071,13 +3104,13 @@ Restart policy for all containers within the pod.
 
 ---
 
-##### `serviceAccount`<sup>Optional</sup> <a name="cdk8s-plus-17.PodTemplateProps.property.serviceAccount"></a>
+##### `serviceAccount`<sup>Optional</sup> <a name="cdk8s-plus-22.PodTemplateProps.property.serviceAccount"></a>
 
 ```typescript
 public readonly serviceAccount: IServiceAccount;
 ```
 
-- *Type:* [`cdk8s-plus-17.IServiceAccount`](#cdk8s-plus-17.IServiceAccount)
+- *Type:* [`cdk8s-plus-22.IServiceAccount`](#cdk8s-plus-22.IServiceAccount)
 - *Default:* No service account.
 
 A service account provides an identity for processes that run in a Pod.
@@ -3093,13 +3126,13 @@ Account (for example, default).
 
 ---
 
-##### `volumes`<sup>Optional</sup> <a name="cdk8s-plus-17.PodTemplateProps.property.volumes"></a>
+##### `volumes`<sup>Optional</sup> <a name="cdk8s-plus-22.PodTemplateProps.property.volumes"></a>
 
 ```typescript
 public readonly volumes: Volume[];
 ```
 
-- *Type:* [`cdk8s-plus-17.Volume`](#cdk8s-plus-17.Volume)[]
+- *Type:* [`cdk8s-plus-22.Volume`](#cdk8s-plus-22.Volume)[]
 - *Default:* No volumes.
 
 List of volumes that can be mounted by containers belonging to the pod.
@@ -3110,7 +3143,7 @@ You can also add volumes later using `podSpec.addVolume()`
 
 ---
 
-##### `podMetadata`<sup>Optional</sup> <a name="cdk8s-plus-17.PodTemplateProps.property.podMetadata"></a>
+##### `podMetadata`<sup>Optional</sup> <a name="cdk8s-plus-22.PodTemplateProps.property.podMetadata"></a>
 
 ```typescript
 public readonly podMetadata: ApiObjectMetadata;
@@ -3122,19 +3155,19 @@ The pod metadata.
 
 ---
 
-### ProbeOptions <a name="cdk8s-plus-17.ProbeOptions"></a>
+### ProbeOptions <a name="cdk8s-plus-22.ProbeOptions"></a>
 
 Probe options.
 
 #### Initializer <a name="[object Object].Initializer"></a>
 
 ```typescript
-import { ProbeOptions } from 'cdk8s-plus-17'
+import { ProbeOptions } from 'cdk8s-plus-22'
 
 const probeOptions: ProbeOptions = { ... }
 ```
 
-##### `failureThreshold`<sup>Optional</sup> <a name="cdk8s-plus-17.ProbeOptions.property.failureThreshold"></a>
+##### `failureThreshold`<sup>Optional</sup> <a name="cdk8s-plus-22.ProbeOptions.property.failureThreshold"></a>
 
 ```typescript
 public readonly failureThreshold: number;
@@ -3149,7 +3182,7 @@ Defaults to 3. Minimum value is 1.
 
 ---
 
-##### `initialDelaySeconds`<sup>Optional</sup> <a name="cdk8s-plus-17.ProbeOptions.property.initialDelaySeconds"></a>
+##### `initialDelaySeconds`<sup>Optional</sup> <a name="cdk8s-plus-22.ProbeOptions.property.initialDelaySeconds"></a>
 
 ```typescript
 public readonly initialDelaySeconds: Duration;
@@ -3164,7 +3197,7 @@ Number of seconds after the container has started before liveness probes are ini
 
 ---
 
-##### `periodSeconds`<sup>Optional</sup> <a name="cdk8s-plus-17.ProbeOptions.property.periodSeconds"></a>
+##### `periodSeconds`<sup>Optional</sup> <a name="cdk8s-plus-22.ProbeOptions.property.periodSeconds"></a>
 
 ```typescript
 public readonly periodSeconds: Duration;
@@ -3179,7 +3212,7 @@ Default to 10 seconds. Minimum value is 1.
 
 ---
 
-##### `successThreshold`<sup>Optional</sup> <a name="cdk8s-plus-17.ProbeOptions.property.successThreshold"></a>
+##### `successThreshold`<sup>Optional</sup> <a name="cdk8s-plus-22.ProbeOptions.property.successThreshold"></a>
 
 ```typescript
 public readonly successThreshold: number;
@@ -3194,7 +3227,7 @@ Must be 1 for liveness and startup. Minimum value is 1.
 
 ---
 
-##### `timeoutSeconds`<sup>Optional</sup> <a name="cdk8s-plus-17.ProbeOptions.property.timeoutSeconds"></a>
+##### `timeoutSeconds`<sup>Optional</sup> <a name="cdk8s-plus-22.ProbeOptions.property.timeoutSeconds"></a>
 
 ```typescript
 public readonly timeoutSeconds: Duration;
@@ -3211,19 +3244,19 @@ Defaults to 1 second. Minimum value is 1.
 
 ---
 
-### ResourceProps <a name="cdk8s-plus-17.ResourceProps"></a>
+### ResourceProps <a name="cdk8s-plus-22.ResourceProps"></a>
 
 Initialization properties for resources.
 
 #### Initializer <a name="[object Object].Initializer"></a>
 
 ```typescript
-import { ResourceProps } from 'cdk8s-plus-17'
+import { ResourceProps } from 'cdk8s-plus-22'
 
 const resourceProps: ResourceProps = { ... }
 ```
 
-##### `metadata`<sup>Optional</sup> <a name="cdk8s-plus-17.ResourceProps.property.metadata"></a>
+##### `metadata`<sup>Optional</sup> <a name="cdk8s-plus-22.ResourceProps.property.metadata"></a>
 
 ```typescript
 public readonly metadata: ApiObjectMetadata;
@@ -3235,17 +3268,17 @@ Metadata that all persisted resources must have, which includes all objects user
 
 ---
 
-### SecretProps <a name="cdk8s-plus-17.SecretProps"></a>
+### SecretProps <a name="cdk8s-plus-22.SecretProps"></a>
 
 #### Initializer <a name="[object Object].Initializer"></a>
 
 ```typescript
-import { SecretProps } from 'cdk8s-plus-17'
+import { SecretProps } from 'cdk8s-plus-22'
 
 const secretProps: SecretProps = { ... }
 ```
 
-##### `metadata`<sup>Optional</sup> <a name="cdk8s-plus-17.SecretProps.property.metadata"></a>
+##### `metadata`<sup>Optional</sup> <a name="cdk8s-plus-22.SecretProps.property.metadata"></a>
 
 ```typescript
 public readonly metadata: ApiObjectMetadata;
@@ -3257,7 +3290,7 @@ Metadata that all persisted resources must have, which includes all objects user
 
 ---
 
-##### `stringData`<sup>Optional</sup> <a name="cdk8s-plus-17.SecretProps.property.stringData"></a>
+##### `stringData`<sup>Optional</sup> <a name="cdk8s-plus-22.SecretProps.property.stringData"></a>
 
 ```typescript
 public readonly stringData: {[ key: string ]: string};
@@ -3274,7 +3307,7 @@ output when reading from the API.
 
 ---
 
-##### `type`<sup>Optional</sup> <a name="cdk8s-plus-17.SecretProps.property.type"></a>
+##### `type`<sup>Optional</sup> <a name="cdk8s-plus-22.SecretProps.property.type"></a>
 
 ```typescript
 public readonly type: string;
@@ -3290,19 +3323,19 @@ handling of secret data by various controllers.
 
 ---
 
-### SecretValue <a name="cdk8s-plus-17.SecretValue"></a>
+### SecretValue <a name="cdk8s-plus-22.SecretValue"></a>
 
 Represents a specific value in JSON secret.
 
 #### Initializer <a name="[object Object].Initializer"></a>
 
 ```typescript
-import { SecretValue } from 'cdk8s-plus-17'
+import { SecretValue } from 'cdk8s-plus-22'
 
 const secretValue: SecretValue = { ... }
 ```
 
-##### `key`<sup>Required</sup> <a name="cdk8s-plus-17.SecretValue.property.key"></a>
+##### `key`<sup>Required</sup> <a name="cdk8s-plus-22.SecretValue.property.key"></a>
 
 ```typescript
 public readonly key: string;
@@ -3314,19 +3347,19 @@ The JSON key.
 
 ---
 
-##### `secret`<sup>Required</sup> <a name="cdk8s-plus-17.SecretValue.property.secret"></a>
+##### `secret`<sup>Required</sup> <a name="cdk8s-plus-22.SecretValue.property.secret"></a>
 
 ```typescript
 public readonly secret: ISecret;
 ```
 
-- *Type:* [`cdk8s-plus-17.ISecret`](#cdk8s-plus-17.ISecret)
+- *Type:* [`cdk8s-plus-22.ISecret`](#cdk8s-plus-22.ISecret)
 
 The secret.
 
 ---
 
-### ServiceAccountProps <a name="cdk8s-plus-17.ServiceAccountProps"></a>
+### ServiceAccountProps <a name="cdk8s-plus-22.ServiceAccountProps"></a>
 
 Properties for initialization of `ServiceAccount`.
 
@@ -3335,12 +3368,12 @@ Properties for initialization of `ServiceAccount`.
 #### Initializer <a name="[object Object].Initializer"></a>
 
 ```typescript
-import { ServiceAccountProps } from 'cdk8s-plus-17'
+import { ServiceAccountProps } from 'cdk8s-plus-22'
 
 const serviceAccountProps: ServiceAccountProps = { ... }
 ```
 
-##### `metadata`<sup>Optional</sup> <a name="cdk8s-plus-17.ServiceAccountProps.property.metadata"></a>
+##### `metadata`<sup>Optional</sup> <a name="cdk8s-plus-22.ServiceAccountProps.property.metadata"></a>
 
 ```typescript
 public readonly metadata: ApiObjectMetadata;
@@ -3352,13 +3385,13 @@ Metadata that all persisted resources must have, which includes all objects user
 
 ---
 
-##### `secrets`<sup>Optional</sup> <a name="cdk8s-plus-17.ServiceAccountProps.property.secrets"></a>
+##### `secrets`<sup>Optional</sup> <a name="cdk8s-plus-22.ServiceAccountProps.property.secrets"></a>
 
 ```typescript
 public readonly secrets: ISecret[];
 ```
 
-- *Type:* [`cdk8s-plus-17.ISecret`](#cdk8s-plus-17.ISecret)[]
+- *Type:* [`cdk8s-plus-22.ISecret`](#cdk8s-plus-22.ISecret)[]
 
 List of secrets allowed to be used by pods running using this ServiceAccount.
 
@@ -3366,19 +3399,19 @@ List of secrets allowed to be used by pods running using this ServiceAccount.
 
 ---
 
-### ServiceIngressV1BetaBackendOptions <a name="cdk8s-plus-17.ServiceIngressV1BetaBackendOptions"></a>
+### ServiceIngressBackendOptions <a name="cdk8s-plus-22.ServiceIngressBackendOptions"></a>
 
 Options for setting up backends for ingress rules.
 
 #### Initializer <a name="[object Object].Initializer"></a>
 
 ```typescript
-import { ServiceIngressV1BetaBackendOptions } from 'cdk8s-plus-17'
+import { ServiceIngressBackendOptions } from 'cdk8s-plus-22'
 
-const serviceIngressV1BetaBackendOptions: ServiceIngressV1BetaBackendOptions = { ... }
+const serviceIngressBackendOptions: ServiceIngressBackendOptions = { ... }
 ```
 
-##### `port`<sup>Optional</sup> <a name="cdk8s-plus-17.ServiceIngressV1BetaBackendOptions.property.port"></a>
+##### `port`<sup>Optional</sup> <a name="cdk8s-plus-22.ServiceIngressBackendOptions.property.port"></a>
 
 ```typescript
 public readonly port: number;
@@ -3396,19 +3429,19 @@ This option will fail if the service does not expose any ports.
 
 ---
 
-### ServicePort <a name="cdk8s-plus-17.ServicePort"></a>
+### ServicePort <a name="cdk8s-plus-22.ServicePort"></a>
 
 Definition of a service port.
 
 #### Initializer <a name="[object Object].Initializer"></a>
 
 ```typescript
-import { ServicePort } from 'cdk8s-plus-17'
+import { ServicePort } from 'cdk8s-plus-22'
 
 const servicePort: ServicePort = { ... }
 ```
 
-##### `name`<sup>Optional</sup> <a name="cdk8s-plus-17.ServicePort.property.name"></a>
+##### `name`<sup>Optional</sup> <a name="cdk8s-plus-22.ServicePort.property.name"></a>
 
 ```typescript
 public readonly name: string;
@@ -3425,7 +3458,7 @@ on this service.
 
 ---
 
-##### `nodePort`<sup>Optional</sup> <a name="cdk8s-plus-17.ServicePort.property.nodePort"></a>
+##### `nodePort`<sup>Optional</sup> <a name="cdk8s-plus-22.ServicePort.property.nodePort"></a>
 
 ```typescript
 public readonly nodePort: number;
@@ -3446,13 +3479,13 @@ requires one.
 
 ---
 
-##### `protocol`<sup>Optional</sup> <a name="cdk8s-plus-17.ServicePort.property.protocol"></a>
+##### `protocol`<sup>Optional</sup> <a name="cdk8s-plus-22.ServicePort.property.protocol"></a>
 
 ```typescript
 public readonly protocol: Protocol;
 ```
 
-- *Type:* [`cdk8s-plus-17.Protocol`](#cdk8s-plus-17.Protocol)
+- *Type:* [`cdk8s-plus-22.Protocol`](#cdk8s-plus-22.Protocol)
 - *Default:* Protocol.TCP
 
 The IP protocol for this port.
@@ -3461,7 +3494,7 @@ Supports "TCP", "UDP", and "SCTP". Default is TCP.
 
 ---
 
-##### `targetPort`<sup>Optional</sup> <a name="cdk8s-plus-17.ServicePort.property.targetPort"></a>
+##### `targetPort`<sup>Optional</sup> <a name="cdk8s-plus-22.ServicePort.property.targetPort"></a>
 
 ```typescript
 public readonly targetPort: number;
@@ -3474,7 +3507,7 @@ The port number the service will redirect to.
 
 ---
 
-##### `port`<sup>Required</sup> <a name="cdk8s-plus-17.ServicePort.property.port"></a>
+##### `port`<sup>Required</sup> <a name="cdk8s-plus-22.ServicePort.property.port"></a>
 
 ```typescript
 public readonly port: number;
@@ -3486,17 +3519,17 @@ The port number the service will bind to.
 
 ---
 
-### ServicePortOptions <a name="cdk8s-plus-17.ServicePortOptions"></a>
+### ServicePortOptions <a name="cdk8s-plus-22.ServicePortOptions"></a>
 
 #### Initializer <a name="[object Object].Initializer"></a>
 
 ```typescript
-import { ServicePortOptions } from 'cdk8s-plus-17'
+import { ServicePortOptions } from 'cdk8s-plus-22'
 
 const servicePortOptions: ServicePortOptions = { ... }
 ```
 
-##### `name`<sup>Optional</sup> <a name="cdk8s-plus-17.ServicePortOptions.property.name"></a>
+##### `name`<sup>Optional</sup> <a name="cdk8s-plus-22.ServicePortOptions.property.name"></a>
 
 ```typescript
 public readonly name: string;
@@ -3513,7 +3546,7 @@ on this service.
 
 ---
 
-##### `nodePort`<sup>Optional</sup> <a name="cdk8s-plus-17.ServicePortOptions.property.nodePort"></a>
+##### `nodePort`<sup>Optional</sup> <a name="cdk8s-plus-22.ServicePortOptions.property.nodePort"></a>
 
 ```typescript
 public readonly nodePort: number;
@@ -3534,13 +3567,13 @@ requires one.
 
 ---
 
-##### `protocol`<sup>Optional</sup> <a name="cdk8s-plus-17.ServicePortOptions.property.protocol"></a>
+##### `protocol`<sup>Optional</sup> <a name="cdk8s-plus-22.ServicePortOptions.property.protocol"></a>
 
 ```typescript
 public readonly protocol: Protocol;
 ```
 
-- *Type:* [`cdk8s-plus-17.Protocol`](#cdk8s-plus-17.Protocol)
+- *Type:* [`cdk8s-plus-22.Protocol`](#cdk8s-plus-22.Protocol)
 - *Default:* Protocol.TCP
 
 The IP protocol for this port.
@@ -3549,7 +3582,7 @@ Supports "TCP", "UDP", and "SCTP". Default is TCP.
 
 ---
 
-##### `targetPort`<sup>Optional</sup> <a name="cdk8s-plus-17.ServicePortOptions.property.targetPort"></a>
+##### `targetPort`<sup>Optional</sup> <a name="cdk8s-plus-22.ServicePortOptions.property.targetPort"></a>
 
 ```typescript
 public readonly targetPort: number;
@@ -3562,19 +3595,19 @@ The port number the service will redirect to.
 
 ---
 
-### ServiceProps <a name="cdk8s-plus-17.ServiceProps"></a>
+### ServiceProps <a name="cdk8s-plus-22.ServiceProps"></a>
 
 Properties for initialization of `Service`.
 
 #### Initializer <a name="[object Object].Initializer"></a>
 
 ```typescript
-import { ServiceProps } from 'cdk8s-plus-17'
+import { ServiceProps } from 'cdk8s-plus-22'
 
 const serviceProps: ServiceProps = { ... }
 ```
 
-##### `metadata`<sup>Optional</sup> <a name="cdk8s-plus-17.ServiceProps.property.metadata"></a>
+##### `metadata`<sup>Optional</sup> <a name="cdk8s-plus-22.ServiceProps.property.metadata"></a>
 
 ```typescript
 public readonly metadata: ApiObjectMetadata;
@@ -3586,7 +3619,7 @@ Metadata that all persisted resources must have, which includes all objects user
 
 ---
 
-##### `clusterIP`<sup>Optional</sup> <a name="cdk8s-plus-17.ServiceProps.property.clusterIP"></a>
+##### `clusterIP`<sup>Optional</sup> <a name="cdk8s-plus-22.ServiceProps.property.clusterIP"></a>
 
 ```typescript
 public readonly clusterIP: string;
@@ -3608,7 +3641,7 @@ ClusterIP, NodePort, and LoadBalancer. Ignored if type is ExternalName.
 
 ---
 
-##### `externalIPs`<sup>Optional</sup> <a name="cdk8s-plus-17.ServiceProps.property.externalIPs"></a>
+##### `externalIPs`<sup>Optional</sup> <a name="cdk8s-plus-22.ServiceProps.property.externalIPs"></a>
 
 ```typescript
 public readonly externalIPs: string[];
@@ -3626,7 +3659,7 @@ Kubernetes system.
 
 ---
 
-##### `externalName`<sup>Optional</sup> <a name="cdk8s-plus-17.ServiceProps.property.externalName"></a>
+##### `externalName`<sup>Optional</sup> <a name="cdk8s-plus-22.ServiceProps.property.externalName"></a>
 
 ```typescript
 public readonly externalName: string;
@@ -3639,7 +3672,7 @@ The externalName to be used when ServiceType.EXTERNAL_NAME is set.
 
 ---
 
-##### `loadBalancerSourceRanges`<sup>Optional</sup> <a name="cdk8s-plus-17.ServiceProps.property.loadBalancerSourceRanges"></a>
+##### `loadBalancerSourceRanges`<sup>Optional</sup> <a name="cdk8s-plus-22.ServiceProps.property.loadBalancerSourceRanges"></a>
 
 ```typescript
 public readonly loadBalancerSourceRanges: string[];
@@ -3653,13 +3686,13 @@ More info: https://kubernetes.io/docs/tasks/access-application-cluster/configure
 
 ---
 
-##### `ports`<sup>Optional</sup> <a name="cdk8s-plus-17.ServiceProps.property.ports"></a>
+##### `ports`<sup>Optional</sup> <a name="cdk8s-plus-22.ServiceProps.property.ports"></a>
 
 ```typescript
 public readonly ports: ServicePort[];
 ```
 
-- *Type:* [`cdk8s-plus-17.ServicePort`](#cdk8s-plus-17.ServicePort)[]
+- *Type:* [`cdk8s-plus-22.ServicePort`](#cdk8s-plus-22.ServicePort)[]
 
 The port exposed by this service.
 
@@ -3667,13 +3700,13 @@ More info: https://kubernetes.io/docs/concepts/services-networking/service/#virt
 
 ---
 
-##### `type`<sup>Optional</sup> <a name="cdk8s-plus-17.ServiceProps.property.type"></a>
+##### `type`<sup>Optional</sup> <a name="cdk8s-plus-22.ServiceProps.property.type"></a>
 
 ```typescript
 public readonly type: ServiceType;
 ```
 
-- *Type:* [`cdk8s-plus-17.ServiceType`](#cdk8s-plus-17.ServiceType)
+- *Type:* [`cdk8s-plus-22.ServiceType`](#cdk8s-plus-22.ServiceType)
 - *Default:* ServiceType.ClusterIP
 
 Determines how the Service is exposed.
@@ -3682,19 +3715,19 @@ More info: https://kubernetes.io/docs/concepts/services-networking/service/#publ
 
 ---
 
-### StatefulSetProps <a name="cdk8s-plus-17.StatefulSetProps"></a>
+### StatefulSetProps <a name="cdk8s-plus-22.StatefulSetProps"></a>
 
 Properties for initialization of `StatefulSet`.
 
 #### Initializer <a name="[object Object].Initializer"></a>
 
 ```typescript
-import { StatefulSetProps } from 'cdk8s-plus-17'
+import { StatefulSetProps } from 'cdk8s-plus-22'
 
 const statefulSetProps: StatefulSetProps = { ... }
 ```
 
-##### `metadata`<sup>Optional</sup> <a name="cdk8s-plus-17.StatefulSetProps.property.metadata"></a>
+##### `metadata`<sup>Optional</sup> <a name="cdk8s-plus-22.StatefulSetProps.property.metadata"></a>
 
 ```typescript
 public readonly metadata: ApiObjectMetadata;
@@ -3706,13 +3739,13 @@ Metadata that all persisted resources must have, which includes all objects user
 
 ---
 
-##### `containers`<sup>Optional</sup> <a name="cdk8s-plus-17.StatefulSetProps.property.containers"></a>
+##### `containers`<sup>Optional</sup> <a name="cdk8s-plus-22.StatefulSetProps.property.containers"></a>
 
 ```typescript
 public readonly containers: ContainerProps[];
 ```
 
-- *Type:* [`cdk8s-plus-17.ContainerProps`](#cdk8s-plus-17.ContainerProps)[]
+- *Type:* [`cdk8s-plus-22.ContainerProps`](#cdk8s-plus-22.ContainerProps)[]
 - *Default:* No containers. Note that a pod spec must include at least one container.
 
 List of containers belonging to the pod.
@@ -3724,13 +3757,13 @@ You can add additionnal containers using `podSpec.addContainer()`
 
 ---
 
-##### `restartPolicy`<sup>Optional</sup> <a name="cdk8s-plus-17.StatefulSetProps.property.restartPolicy"></a>
+##### `restartPolicy`<sup>Optional</sup> <a name="cdk8s-plus-22.StatefulSetProps.property.restartPolicy"></a>
 
 ```typescript
 public readonly restartPolicy: RestartPolicy;
 ```
 
-- *Type:* [`cdk8s-plus-17.RestartPolicy`](#cdk8s-plus-17.RestartPolicy)
+- *Type:* [`cdk8s-plus-22.RestartPolicy`](#cdk8s-plus-22.RestartPolicy)
 - *Default:* RestartPolicy.ALWAYS
 
 Restart policy for all containers within the pod.
@@ -3739,13 +3772,13 @@ Restart policy for all containers within the pod.
 
 ---
 
-##### `serviceAccount`<sup>Optional</sup> <a name="cdk8s-plus-17.StatefulSetProps.property.serviceAccount"></a>
+##### `serviceAccount`<sup>Optional</sup> <a name="cdk8s-plus-22.StatefulSetProps.property.serviceAccount"></a>
 
 ```typescript
 public readonly serviceAccount: IServiceAccount;
 ```
 
-- *Type:* [`cdk8s-plus-17.IServiceAccount`](#cdk8s-plus-17.IServiceAccount)
+- *Type:* [`cdk8s-plus-22.IServiceAccount`](#cdk8s-plus-22.IServiceAccount)
 - *Default:* No service account.
 
 A service account provides an identity for processes that run in a Pod.
@@ -3761,13 +3794,13 @@ Account (for example, default).
 
 ---
 
-##### `volumes`<sup>Optional</sup> <a name="cdk8s-plus-17.StatefulSetProps.property.volumes"></a>
+##### `volumes`<sup>Optional</sup> <a name="cdk8s-plus-22.StatefulSetProps.property.volumes"></a>
 
 ```typescript
 public readonly volumes: Volume[];
 ```
 
-- *Type:* [`cdk8s-plus-17.Volume`](#cdk8s-plus-17.Volume)[]
+- *Type:* [`cdk8s-plus-22.Volume`](#cdk8s-plus-22.Volume)[]
 - *Default:* No volumes.
 
 List of volumes that can be mounted by containers belonging to the pod.
@@ -3778,7 +3811,7 @@ You can also add volumes later using `podSpec.addVolume()`
 
 ---
 
-##### `podMetadata`<sup>Optional</sup> <a name="cdk8s-plus-17.StatefulSetProps.property.podMetadata"></a>
+##### `podMetadata`<sup>Optional</sup> <a name="cdk8s-plus-22.StatefulSetProps.property.podMetadata"></a>
 
 ```typescript
 public readonly podMetadata: ApiObjectMetadata;
@@ -3790,19 +3823,19 @@ The pod metadata.
 
 ---
 
-##### `service`<sup>Required</sup> <a name="cdk8s-plus-17.StatefulSetProps.property.service"></a>
+##### `service`<sup>Required</sup> <a name="cdk8s-plus-22.StatefulSetProps.property.service"></a>
 
 ```typescript
 public readonly service: Service;
 ```
 
-- *Type:* [`cdk8s-plus-17.Service`](#cdk8s-plus-17.Service)
+- *Type:* [`cdk8s-plus-22.Service`](#cdk8s-plus-22.Service)
 
 Service to associate with the statefulset.
 
 ---
 
-##### `defaultSelector`<sup>Optional</sup> <a name="cdk8s-plus-17.StatefulSetProps.property.defaultSelector"></a>
+##### `defaultSelector`<sup>Optional</sup> <a name="cdk8s-plus-22.StatefulSetProps.property.defaultSelector"></a>
 
 ```typescript
 public readonly defaultSelector: boolean;
@@ -3818,20 +3851,20 @@ If this is set to `false` you must define your selector through
 
 ---
 
-##### `podManagementPolicy`<sup>Optional</sup> <a name="cdk8s-plus-17.StatefulSetProps.property.podManagementPolicy"></a>
+##### `podManagementPolicy`<sup>Optional</sup> <a name="cdk8s-plus-22.StatefulSetProps.property.podManagementPolicy"></a>
 
 ```typescript
 public readonly podManagementPolicy: PodManagementPolicy;
 ```
 
-- *Type:* [`cdk8s-plus-17.PodManagementPolicy`](#cdk8s-plus-17.PodManagementPolicy)
+- *Type:* [`cdk8s-plus-22.PodManagementPolicy`](#cdk8s-plus-22.PodManagementPolicy)
 - *Default:* PodManagementPolicy.ORDERED_READY
 
 Pod management policy to use for this statefulset.
 
 ---
 
-##### `replicas`<sup>Optional</sup> <a name="cdk8s-plus-17.StatefulSetProps.property.replicas"></a>
+##### `replicas`<sup>Optional</sup> <a name="cdk8s-plus-22.StatefulSetProps.property.replicas"></a>
 
 ```typescript
 public readonly replicas: number;
@@ -3844,25 +3877,25 @@ Number of desired pods.
 
 ---
 
-### VolumeMount <a name="cdk8s-plus-17.VolumeMount"></a>
+### VolumeMount <a name="cdk8s-plus-22.VolumeMount"></a>
 
 Mount a volume from the pod to the container.
 
 #### Initializer <a name="[object Object].Initializer"></a>
 
 ```typescript
-import { VolumeMount } from 'cdk8s-plus-17'
+import { VolumeMount } from 'cdk8s-plus-22'
 
 const volumeMount: VolumeMount = { ... }
 ```
 
-##### `propagation`<sup>Optional</sup> <a name="cdk8s-plus-17.VolumeMount.property.propagation"></a>
+##### `propagation`<sup>Optional</sup> <a name="cdk8s-plus-22.VolumeMount.property.propagation"></a>
 
 ```typescript
 public readonly propagation: MountPropagation;
 ```
 
-- *Type:* [`cdk8s-plus-17.MountPropagation`](#cdk8s-plus-17.MountPropagation)
+- *Type:* [`cdk8s-plus-22.MountPropagation`](#cdk8s-plus-22.MountPropagation)
 - *Default:* MountPropagation.NONE
 
 Determines how mounts are propagated from the host to container and the other way around.
@@ -3876,7 +3909,7 @@ This field is beta in 1.10.
 
 ---
 
-##### `readOnly`<sup>Optional</sup> <a name="cdk8s-plus-17.VolumeMount.property.readOnly"></a>
+##### `readOnly`<sup>Optional</sup> <a name="cdk8s-plus-22.VolumeMount.property.readOnly"></a>
 
 ```typescript
 public readonly readOnly: boolean;
@@ -3891,7 +3924,7 @@ Defaults to false.
 
 ---
 
-##### `subPath`<sup>Optional</sup> <a name="cdk8s-plus-17.VolumeMount.property.subPath"></a>
+##### `subPath`<sup>Optional</sup> <a name="cdk8s-plus-22.VolumeMount.property.subPath"></a>
 
 ```typescript
 public readonly subPath: string;
@@ -3904,7 +3937,7 @@ Path within the volume from which the container's volume should be mounted.).
 
 ---
 
-##### `subPathExpr`<sup>Optional</sup> <a name="cdk8s-plus-17.VolumeMount.property.subPathExpr"></a>
+##### `subPathExpr`<sup>Optional</sup> <a name="cdk8s-plus-22.VolumeMount.property.subPathExpr"></a>
 
 ```typescript
 public readonly subPathExpr: string;
@@ -3925,7 +3958,7 @@ is beta in 1.15.
 
 ---
 
-##### `path`<sup>Required</sup> <a name="cdk8s-plus-17.VolumeMount.property.path"></a>
+##### `path`<sup>Required</sup> <a name="cdk8s-plus-22.VolumeMount.property.path"></a>
 
 ```typescript
 public readonly path: string;
@@ -3940,13 +3973,13 @@ contain ':'.
 
 ---
 
-##### `volume`<sup>Required</sup> <a name="cdk8s-plus-17.VolumeMount.property.volume"></a>
+##### `volume`<sup>Required</sup> <a name="cdk8s-plus-22.VolumeMount.property.volume"></a>
 
 ```typescript
 public readonly volume: Volume;
 ```
 
-- *Type:* [`cdk8s-plus-17.Volume`](#cdk8s-plus-17.Volume)
+- *Type:* [`cdk8s-plus-22.Volume`](#cdk8s-plus-22.Volume)
 
 The volume to mount.
 
@@ -3954,33 +3987,33 @@ The volume to mount.
 
 ## Classes <a name="Classes"></a>
 
-### Container <a name="cdk8s-plus-17.Container"></a>
+### Container <a name="cdk8s-plus-22.Container"></a>
 
 A single application container that you want to run within a pod.
 
-#### Initializers <a name="cdk8s-plus-17.Container.Initializer"></a>
+#### Initializers <a name="cdk8s-plus-22.Container.Initializer"></a>
 
 ```typescript
-import { Container } from 'cdk8s-plus-17'
+import { Container } from 'cdk8s-plus-22'
 
 new Container(props: ContainerProps)
 ```
 
-##### `props`<sup>Required</sup> <a name="cdk8s-plus-17.Container.parameter.props"></a>
+##### `props`<sup>Required</sup> <a name="cdk8s-plus-22.Container.parameter.props"></a>
 
-- *Type:* [`cdk8s-plus-17.ContainerProps`](#cdk8s-plus-17.ContainerProps)
+- *Type:* [`cdk8s-plus-22.ContainerProps`](#cdk8s-plus-22.ContainerProps)
 
 ---
 
 #### Methods <a name="Methods"></a>
 
-##### `addEnv` <a name="cdk8s-plus-17.Container.addEnv"></a>
+##### `addEnv` <a name="cdk8s-plus-22.Container.addEnv"></a>
 
 ```typescript
 public addEnv(name: string, value: EnvValue)
 ```
 
-###### `name`<sup>Required</sup> <a name="cdk8s-plus-17.Container.parameter.name"></a>
+###### `name`<sup>Required</sup> <a name="cdk8s-plus-22.Container.parameter.name"></a>
 
 - *Type:* `string`
 
@@ -3988,21 +4021,21 @@ The variable name.
 
 ---
 
-###### `value`<sup>Required</sup> <a name="cdk8s-plus-17.Container.parameter.value"></a>
+###### `value`<sup>Required</sup> <a name="cdk8s-plus-22.Container.parameter.value"></a>
 
-- *Type:* [`cdk8s-plus-17.EnvValue`](#cdk8s-plus-17.EnvValue)
+- *Type:* [`cdk8s-plus-22.EnvValue`](#cdk8s-plus-22.EnvValue)
 
 The variable value.
 
 ---
 
-##### `mount` <a name="cdk8s-plus-17.Container.mount"></a>
+##### `mount` <a name="cdk8s-plus-22.Container.mount"></a>
 
 ```typescript
 public mount(path: string, volume: Volume, options?: MountOptions)
 ```
 
-###### `path`<sup>Required</sup> <a name="cdk8s-plus-17.Container.parameter.path"></a>
+###### `path`<sup>Required</sup> <a name="cdk8s-plus-22.Container.parameter.path"></a>
 
 - *Type:* `string`
 
@@ -4010,30 +4043,30 @@ The desired path in the container.
 
 ---
 
-###### `volume`<sup>Required</sup> <a name="cdk8s-plus-17.Container.parameter.volume"></a>
+###### `volume`<sup>Required</sup> <a name="cdk8s-plus-22.Container.parameter.volume"></a>
 
-- *Type:* [`cdk8s-plus-17.Volume`](#cdk8s-plus-17.Volume)
+- *Type:* [`cdk8s-plus-22.Volume`](#cdk8s-plus-22.Volume)
 
 The volume to mount.
 
 ---
 
-###### `options`<sup>Optional</sup> <a name="cdk8s-plus-17.Container.parameter.options"></a>
+###### `options`<sup>Optional</sup> <a name="cdk8s-plus-22.Container.parameter.options"></a>
 
-- *Type:* [`cdk8s-plus-17.MountOptions`](#cdk8s-plus-17.MountOptions)
+- *Type:* [`cdk8s-plus-22.MountOptions`](#cdk8s-plus-22.MountOptions)
 
 ---
 
 
 #### Properties <a name="Properties"></a>
 
-##### `env`<sup>Required</sup> <a name="cdk8s-plus-17.Container.property.env"></a>
+##### `env`<sup>Required</sup> <a name="cdk8s-plus-22.Container.property.env"></a>
 
 ```typescript
 public readonly env: {[ key: string ]: EnvValue};
 ```
 
-- *Type:* {[ key: string ]: [`cdk8s-plus-17.EnvValue`](#cdk8s-plus-17.EnvValue)}
+- *Type:* {[ key: string ]: [`cdk8s-plus-22.EnvValue`](#cdk8s-plus-22.EnvValue)}
 
 The environment variables for this container.
 
@@ -4041,7 +4074,7 @@ Returns a copy. To add environment variables use `addEnv()`.
 
 ---
 
-##### `image`<sup>Required</sup> <a name="cdk8s-plus-17.Container.property.image"></a>
+##### `image`<sup>Required</sup> <a name="cdk8s-plus-22.Container.property.image"></a>
 
 ```typescript
 public readonly image: string;
@@ -4053,31 +4086,31 @@ The container image.
 
 ---
 
-##### `imagePullPolicy`<sup>Required</sup> <a name="cdk8s-plus-17.Container.property.imagePullPolicy"></a>
+##### `imagePullPolicy`<sup>Required</sup> <a name="cdk8s-plus-22.Container.property.imagePullPolicy"></a>
 
 ```typescript
 public readonly imagePullPolicy: ImagePullPolicy;
 ```
 
-- *Type:* [`cdk8s-plus-17.ImagePullPolicy`](#cdk8s-plus-17.ImagePullPolicy)
+- *Type:* [`cdk8s-plus-22.ImagePullPolicy`](#cdk8s-plus-22.ImagePullPolicy)
 
 Image pull policy for this container.
 
 ---
 
-##### `mounts`<sup>Required</sup> <a name="cdk8s-plus-17.Container.property.mounts"></a>
+##### `mounts`<sup>Required</sup> <a name="cdk8s-plus-22.Container.property.mounts"></a>
 
 ```typescript
 public readonly mounts: VolumeMount[];
 ```
 
-- *Type:* [`cdk8s-plus-17.VolumeMount`](#cdk8s-plus-17.VolumeMount)[]
+- *Type:* [`cdk8s-plus-22.VolumeMount`](#cdk8s-plus-22.VolumeMount)[]
 
 Volume mounts configured for this container.
 
 ---
 
-##### `name`<sup>Required</sup> <a name="cdk8s-plus-17.Container.property.name"></a>
+##### `name`<sup>Required</sup> <a name="cdk8s-plus-22.Container.property.name"></a>
 
 ```typescript
 public readonly name: string;
@@ -4089,7 +4122,7 @@ The name of the container.
 
 ---
 
-##### `args`<sup>Optional</sup> <a name="cdk8s-plus-17.Container.property.args"></a>
+##### `args`<sup>Optional</sup> <a name="cdk8s-plus-22.Container.property.args"></a>
 
 ```typescript
 public readonly args: string[];
@@ -4101,7 +4134,7 @@ Arguments to the entrypoint.
 
 ---
 
-##### `command`<sup>Optional</sup> <a name="cdk8s-plus-17.Container.property.command"></a>
+##### `command`<sup>Optional</sup> <a name="cdk8s-plus-22.Container.property.command"></a>
 
 ```typescript
 public readonly command: string[];
@@ -4113,7 +4146,7 @@ Entrypoint array (the command to execute when the container starts).
 
 ---
 
-##### `port`<sup>Optional</sup> <a name="cdk8s-plus-17.Container.property.port"></a>
+##### `port`<sup>Optional</sup> <a name="cdk8s-plus-22.Container.property.port"></a>
 
 ```typescript
 public readonly port: number;
@@ -4125,7 +4158,7 @@ The port this container exposes.
 
 ---
 
-##### `workingDir`<sup>Optional</sup> <a name="cdk8s-plus-17.Container.property.workingDir"></a>
+##### `workingDir`<sup>Optional</sup> <a name="cdk8s-plus-22.Container.property.workingDir"></a>
 
 ```typescript
 public readonly workingDir: string;
@@ -4138,30 +4171,30 @@ The working directory inside the container.
 ---
 
 
-### EnvValue <a name="cdk8s-plus-17.EnvValue"></a>
+### EnvValue <a name="cdk8s-plus-22.EnvValue"></a>
 
 Utility class for creating reading env values from various sources.
 
 
 #### Static Functions <a name="Static Functions"></a>
 
-##### `fromConfigMap` <a name="cdk8s-plus-17.EnvValue.fromConfigMap"></a>
+##### `fromConfigMap` <a name="cdk8s-plus-22.EnvValue.fromConfigMap"></a>
 
 ```typescript
-import { EnvValue } from 'cdk8s-plus-17'
+import { EnvValue } from 'cdk8s-plus-22'
 
 EnvValue.fromConfigMap(configMap: IConfigMap, key: string, options?: EnvValueFromConfigMapOptions)
 ```
 
-###### `configMap`<sup>Required</sup> <a name="cdk8s-plus-17.EnvValue.parameter.configMap"></a>
+###### `configMap`<sup>Required</sup> <a name="cdk8s-plus-22.EnvValue.parameter.configMap"></a>
 
-- *Type:* [`cdk8s-plus-17.IConfigMap`](#cdk8s-plus-17.IConfigMap)
+- *Type:* [`cdk8s-plus-22.IConfigMap`](#cdk8s-plus-22.IConfigMap)
 
 The config map.
 
 ---
 
-###### `key`<sup>Required</sup> <a name="cdk8s-plus-17.EnvValue.parameter.key"></a>
+###### `key`<sup>Required</sup> <a name="cdk8s-plus-22.EnvValue.parameter.key"></a>
 
 - *Type:* `string`
 
@@ -4169,23 +4202,23 @@ The key to extract the value from.
 
 ---
 
-###### `options`<sup>Optional</sup> <a name="cdk8s-plus-17.EnvValue.parameter.options"></a>
+###### `options`<sup>Optional</sup> <a name="cdk8s-plus-22.EnvValue.parameter.options"></a>
 
-- *Type:* [`cdk8s-plus-17.EnvValueFromConfigMapOptions`](#cdk8s-plus-17.EnvValueFromConfigMapOptions)
+- *Type:* [`cdk8s-plus-22.EnvValueFromConfigMapOptions`](#cdk8s-plus-22.EnvValueFromConfigMapOptions)
 
 Additional options.
 
 ---
 
-##### `fromProcess` <a name="cdk8s-plus-17.EnvValue.fromProcess"></a>
+##### `fromProcess` <a name="cdk8s-plus-22.EnvValue.fromProcess"></a>
 
 ```typescript
-import { EnvValue } from 'cdk8s-plus-17'
+import { EnvValue } from 'cdk8s-plus-22'
 
 EnvValue.fromProcess(key: string, options?: EnvValueFromProcessOptions)
 ```
 
-###### `key`<sup>Required</sup> <a name="cdk8s-plus-17.EnvValue.parameter.key"></a>
+###### `key`<sup>Required</sup> <a name="cdk8s-plus-22.EnvValue.parameter.key"></a>
 
 - *Type:* `string`
 
@@ -4193,47 +4226,47 @@ The key to read.
 
 ---
 
-###### `options`<sup>Optional</sup> <a name="cdk8s-plus-17.EnvValue.parameter.options"></a>
+###### `options`<sup>Optional</sup> <a name="cdk8s-plus-22.EnvValue.parameter.options"></a>
 
-- *Type:* [`cdk8s-plus-17.EnvValueFromProcessOptions`](#cdk8s-plus-17.EnvValueFromProcessOptions)
+- *Type:* [`cdk8s-plus-22.EnvValueFromProcessOptions`](#cdk8s-plus-22.EnvValueFromProcessOptions)
 
 Additional options.
 
 ---
 
-##### `fromSecretValue` <a name="cdk8s-plus-17.EnvValue.fromSecretValue"></a>
+##### `fromSecretValue` <a name="cdk8s-plus-22.EnvValue.fromSecretValue"></a>
 
 ```typescript
-import { EnvValue } from 'cdk8s-plus-17'
+import { EnvValue } from 'cdk8s-plus-22'
 
 EnvValue.fromSecretValue(secretValue: SecretValue, options?: EnvValueFromSecretOptions)
 ```
 
-###### `secretValue`<sup>Required</sup> <a name="cdk8s-plus-17.EnvValue.parameter.secretValue"></a>
+###### `secretValue`<sup>Required</sup> <a name="cdk8s-plus-22.EnvValue.parameter.secretValue"></a>
 
-- *Type:* [`cdk8s-plus-17.SecretValue`](#cdk8s-plus-17.SecretValue)
+- *Type:* [`cdk8s-plus-22.SecretValue`](#cdk8s-plus-22.SecretValue)
 
 The secret value (secrent + key).
 
 ---
 
-###### `options`<sup>Optional</sup> <a name="cdk8s-plus-17.EnvValue.parameter.options"></a>
+###### `options`<sup>Optional</sup> <a name="cdk8s-plus-22.EnvValue.parameter.options"></a>
 
-- *Type:* [`cdk8s-plus-17.EnvValueFromSecretOptions`](#cdk8s-plus-17.EnvValueFromSecretOptions)
+- *Type:* [`cdk8s-plus-22.EnvValueFromSecretOptions`](#cdk8s-plus-22.EnvValueFromSecretOptions)
 
 Additional options.
 
 ---
 
-##### `fromValue` <a name="cdk8s-plus-17.EnvValue.fromValue"></a>
+##### `fromValue` <a name="cdk8s-plus-22.EnvValue.fromValue"></a>
 
 ```typescript
-import { EnvValue } from 'cdk8s-plus-17'
+import { EnvValue } from 'cdk8s-plus-22'
 
 EnvValue.fromValue(value: string)
 ```
 
-###### `value`<sup>Required</sup> <a name="cdk8s-plus-17.EnvValue.parameter.value"></a>
+###### `value`<sup>Required</sup> <a name="cdk8s-plus-22.EnvValue.parameter.value"></a>
 
 - *Type:* `string`
 
@@ -4243,7 +4276,7 @@ The value.
 
 #### Properties <a name="Properties"></a>
 
-##### `value`<sup>Optional</sup> <a name="cdk8s-plus-17.EnvValue.property.value"></a>
+##### `value`<sup>Optional</sup> <a name="cdk8s-plus-22.EnvValue.property.value"></a>
 
 ```typescript
 public readonly value: any;
@@ -4253,7 +4286,7 @@ public readonly value: any;
 
 ---
 
-##### `valueFrom`<sup>Optional</sup> <a name="cdk8s-plus-17.EnvValue.property.valueFrom"></a>
+##### `valueFrom`<sup>Optional</sup> <a name="cdk8s-plus-22.EnvValue.property.valueFrom"></a>
 
 ```typescript
 public readonly valueFrom: any;
@@ -4264,93 +4297,93 @@ public readonly valueFrom: any;
 ---
 
 
-### IngressV1Beta1Backend <a name="cdk8s-plus-17.IngressV1Beta1Backend"></a>
+### IngressBackend <a name="cdk8s-plus-22.IngressBackend"></a>
 
 The backend for an ingress path.
 
 
 #### Static Functions <a name="Static Functions"></a>
 
-##### `fromService` <a name="cdk8s-plus-17.IngressV1Beta1Backend.fromService"></a>
+##### `fromService` <a name="cdk8s-plus-22.IngressBackend.fromService"></a>
 
 ```typescript
-import { IngressV1Beta1Backend } from 'cdk8s-plus-17'
+import { IngressBackend } from 'cdk8s-plus-22'
 
-IngressV1Beta1Backend.fromService(service: Service, options?: ServiceIngressV1BetaBackendOptions)
+IngressBackend.fromService(service: Service, options?: ServiceIngressBackendOptions)
 ```
 
-###### `service`<sup>Required</sup> <a name="cdk8s-plus-17.IngressV1Beta1Backend.parameter.service"></a>
+###### `service`<sup>Required</sup> <a name="cdk8s-plus-22.IngressBackend.parameter.service"></a>
 
-- *Type:* [`cdk8s-plus-17.Service`](#cdk8s-plus-17.Service)
+- *Type:* [`cdk8s-plus-22.Service`](#cdk8s-plus-22.Service)
 
 The service object.
 
 ---
 
-###### `options`<sup>Optional</sup> <a name="cdk8s-plus-17.IngressV1Beta1Backend.parameter.options"></a>
+###### `options`<sup>Optional</sup> <a name="cdk8s-plus-22.IngressBackend.parameter.options"></a>
 
-- *Type:* [`cdk8s-plus-17.ServiceIngressV1BetaBackendOptions`](#cdk8s-plus-17.ServiceIngressV1BetaBackendOptions)
+- *Type:* [`cdk8s-plus-22.ServiceIngressBackendOptions`](#cdk8s-plus-22.ServiceIngressBackendOptions)
 
 ---
 
 
 
-### PodSpec <a name="cdk8s-plus-17.PodSpec"></a>
+### PodSpec <a name="cdk8s-plus-22.PodSpec"></a>
 
-- *Implements:* [`cdk8s-plus-17.IPodSpec`](#cdk8s-plus-17.IPodSpec)
+- *Implements:* [`cdk8s-plus-22.IPodSpec`](#cdk8s-plus-22.IPodSpec)
 
 Provides read/write capabilities ontop of a `PodSpecProps`.
 
-#### Initializers <a name="cdk8s-plus-17.PodSpec.Initializer"></a>
+#### Initializers <a name="cdk8s-plus-22.PodSpec.Initializer"></a>
 
 ```typescript
-import { PodSpec } from 'cdk8s-plus-17'
+import { PodSpec } from 'cdk8s-plus-22'
 
 new PodSpec(props?: PodSpecProps)
 ```
 
-##### `props`<sup>Optional</sup> <a name="cdk8s-plus-17.PodSpec.parameter.props"></a>
+##### `props`<sup>Optional</sup> <a name="cdk8s-plus-22.PodSpec.parameter.props"></a>
 
-- *Type:* [`cdk8s-plus-17.PodSpecProps`](#cdk8s-plus-17.PodSpecProps)
+- *Type:* [`cdk8s-plus-22.PodSpecProps`](#cdk8s-plus-22.PodSpecProps)
 
 ---
 
 #### Methods <a name="Methods"></a>
 
-##### `addContainer` <a name="cdk8s-plus-17.PodSpec.addContainer"></a>
+##### `addContainer` <a name="cdk8s-plus-22.PodSpec.addContainer"></a>
 
 ```typescript
 public addContainer(container: ContainerProps)
 ```
 
-###### `container`<sup>Required</sup> <a name="cdk8s-plus-17.PodSpec.parameter.container"></a>
+###### `container`<sup>Required</sup> <a name="cdk8s-plus-22.PodSpec.parameter.container"></a>
 
-- *Type:* [`cdk8s-plus-17.ContainerProps`](#cdk8s-plus-17.ContainerProps)
+- *Type:* [`cdk8s-plus-22.ContainerProps`](#cdk8s-plus-22.ContainerProps)
 
 ---
 
-##### `addVolume` <a name="cdk8s-plus-17.PodSpec.addVolume"></a>
+##### `addVolume` <a name="cdk8s-plus-22.PodSpec.addVolume"></a>
 
 ```typescript
 public addVolume(volume: Volume)
 ```
 
-###### `volume`<sup>Required</sup> <a name="cdk8s-plus-17.PodSpec.parameter.volume"></a>
+###### `volume`<sup>Required</sup> <a name="cdk8s-plus-22.PodSpec.parameter.volume"></a>
 
-- *Type:* [`cdk8s-plus-17.Volume`](#cdk8s-plus-17.Volume)
+- *Type:* [`cdk8s-plus-22.Volume`](#cdk8s-plus-22.Volume)
 
 ---
 
 
 #### Properties <a name="Properties"></a>
 
-##### `containers`<sup>Required</sup> <a name="cdk8s-plus-17.PodSpec.property.containers"></a>
+##### `containers`<sup>Required</sup> <a name="cdk8s-plus-22.PodSpec.property.containers"></a>
 
 ```typescript
 public readonly containers: Container[];
 ```
 
-- *Type:* [`cdk8s-plus-17.Container`](#cdk8s-plus-17.Container)[]
+- *Type:* [`cdk8s-plus-22.Container`](#cdk8s-plus-22.Container)[]
 
 The containers belonging to the pod.
 
@@ -4358,13 +4391,13 @@ Use `addContainer` to add containers.
 
 ---
 
-##### `volumes`<sup>Required</sup> <a name="cdk8s-plus-17.PodSpec.property.volumes"></a>
+##### `volumes`<sup>Required</sup> <a name="cdk8s-plus-22.PodSpec.property.volumes"></a>
 
 ```typescript
 public readonly volumes: Volume[];
 ```
 
-- *Type:* [`cdk8s-plus-17.Volume`](#cdk8s-plus-17.Volume)[]
+- *Type:* [`cdk8s-plus-22.Volume`](#cdk8s-plus-22.Volume)[]
 
 The volumes associated with this pod.
 
@@ -4372,48 +4405,48 @@ Use `addVolume` to add volumes.
 
 ---
 
-##### `restartPolicy`<sup>Optional</sup> <a name="cdk8s-plus-17.PodSpec.property.restartPolicy"></a>
+##### `restartPolicy`<sup>Optional</sup> <a name="cdk8s-plus-22.PodSpec.property.restartPolicy"></a>
 
 ```typescript
 public readonly restartPolicy: RestartPolicy;
 ```
 
-- *Type:* [`cdk8s-plus-17.RestartPolicy`](#cdk8s-plus-17.RestartPolicy)
+- *Type:* [`cdk8s-plus-22.RestartPolicy`](#cdk8s-plus-22.RestartPolicy)
 
 Restart policy for all containers within the pod.
 
 ---
 
-##### `serviceAccount`<sup>Optional</sup> <a name="cdk8s-plus-17.PodSpec.property.serviceAccount"></a>
+##### `serviceAccount`<sup>Optional</sup> <a name="cdk8s-plus-22.PodSpec.property.serviceAccount"></a>
 
 ```typescript
 public readonly serviceAccount: IServiceAccount;
 ```
 
-- *Type:* [`cdk8s-plus-17.IServiceAccount`](#cdk8s-plus-17.IServiceAccount)
+- *Type:* [`cdk8s-plus-22.IServiceAccount`](#cdk8s-plus-22.IServiceAccount)
 
 The service account used to run this pod.
 
 ---
 
 
-### PodTemplate <a name="cdk8s-plus-17.PodTemplate"></a>
+### PodTemplate <a name="cdk8s-plus-22.PodTemplate"></a>
 
-- *Implements:* [`cdk8s-plus-17.IPodTemplate`](#cdk8s-plus-17.IPodTemplate)
+- *Implements:* [`cdk8s-plus-22.IPodTemplate`](#cdk8s-plus-22.IPodTemplate)
 
 Provides read/write capabilities ontop of a `PodTemplateProps`.
 
-#### Initializers <a name="cdk8s-plus-17.PodTemplate.Initializer"></a>
+#### Initializers <a name="cdk8s-plus-22.PodTemplate.Initializer"></a>
 
 ```typescript
-import { PodTemplate } from 'cdk8s-plus-17'
+import { PodTemplate } from 'cdk8s-plus-22'
 
 new PodTemplate(props?: PodTemplateProps)
 ```
 
-##### `props`<sup>Optional</sup> <a name="cdk8s-plus-17.PodTemplate.parameter.props"></a>
+##### `props`<sup>Optional</sup> <a name="cdk8s-plus-22.PodTemplate.parameter.props"></a>
 
-- *Type:* [`cdk8s-plus-17.PodTemplateProps`](#cdk8s-plus-17.PodTemplateProps)
+- *Type:* [`cdk8s-plus-22.PodTemplateProps`](#cdk8s-plus-22.PodTemplateProps)
 
 ---
 
@@ -4421,7 +4454,7 @@ new PodTemplate(props?: PodTemplateProps)
 
 #### Properties <a name="Properties"></a>
 
-##### `podMetadata`<sup>Required</sup> <a name="cdk8s-plus-17.PodTemplate.property.podMetadata"></a>
+##### `podMetadata`<sup>Required</sup> <a name="cdk8s-plus-22.PodTemplate.property.podMetadata"></a>
 
 ```typescript
 public readonly podMetadata: ApiObjectMetadataDefinition;
@@ -4434,14 +4467,14 @@ Provides read/write access to the underlying pod metadata of the resource.
 ---
 
 
-### Probe <a name="cdk8s-plus-17.Probe"></a>
+### Probe <a name="cdk8s-plus-22.Probe"></a>
 
 Probe describes a health check to be performed against a container to determine whether it is alive or ready to receive traffic.
 
-#### Initializers <a name="cdk8s-plus-17.Probe.Initializer"></a>
+#### Initializers <a name="cdk8s-plus-22.Probe.Initializer"></a>
 
 ```typescript
-import { Probe } from 'cdk8s-plus-17'
+import { Probe } from 'cdk8s-plus-22'
 
 new Probe()
 ```
@@ -4449,15 +4482,15 @@ new Probe()
 
 #### Static Functions <a name="Static Functions"></a>
 
-##### `fromCommand` <a name="cdk8s-plus-17.Probe.fromCommand"></a>
+##### `fromCommand` <a name="cdk8s-plus-22.Probe.fromCommand"></a>
 
 ```typescript
-import { Probe } from 'cdk8s-plus-17'
+import { Probe } from 'cdk8s-plus-22'
 
 Probe.fromCommand(command: string[], options?: CommandProbeOptions)
 ```
 
-###### `command`<sup>Required</sup> <a name="cdk8s-plus-17.Probe.parameter.command"></a>
+###### `command`<sup>Required</sup> <a name="cdk8s-plus-22.Probe.parameter.command"></a>
 
 - *Type:* `string`[]
 
@@ -4465,23 +4498,23 @@ The command to execute.
 
 ---
 
-###### `options`<sup>Optional</sup> <a name="cdk8s-plus-17.Probe.parameter.options"></a>
+###### `options`<sup>Optional</sup> <a name="cdk8s-plus-22.Probe.parameter.options"></a>
 
-- *Type:* [`cdk8s-plus-17.CommandProbeOptions`](#cdk8s-plus-17.CommandProbeOptions)
+- *Type:* [`cdk8s-plus-22.CommandProbeOptions`](#cdk8s-plus-22.CommandProbeOptions)
 
 Options.
 
 ---
 
-##### `fromHttpGet` <a name="cdk8s-plus-17.Probe.fromHttpGet"></a>
+##### `fromHttpGet` <a name="cdk8s-plus-22.Probe.fromHttpGet"></a>
 
 ```typescript
-import { Probe } from 'cdk8s-plus-17'
+import { Probe } from 'cdk8s-plus-22'
 
 Probe.fromHttpGet(path: string, options?: HttpGetProbeOptions)
 ```
 
-###### `path`<sup>Required</sup> <a name="cdk8s-plus-17.Probe.parameter.path"></a>
+###### `path`<sup>Required</sup> <a name="cdk8s-plus-22.Probe.parameter.path"></a>
 
 - *Type:* `string`
 
@@ -4489,9 +4522,9 @@ The URL path to hit.
 
 ---
 
-###### `options`<sup>Optional</sup> <a name="cdk8s-plus-17.Probe.parameter.options"></a>
+###### `options`<sup>Optional</sup> <a name="cdk8s-plus-22.Probe.parameter.options"></a>
 
-- *Type:* [`cdk8s-plus-17.HttpGetProbeOptions`](#cdk8s-plus-17.HttpGetProbeOptions)
+- *Type:* [`cdk8s-plus-22.HttpGetProbeOptions`](#cdk8s-plus-22.HttpGetProbeOptions)
 
 Options.
 
@@ -4499,7 +4532,7 @@ Options.
 
 
 
-### Volume <a name="cdk8s-plus-17.Volume"></a>
+### Volume <a name="cdk8s-plus-22.Volume"></a>
 
 Volume represents a named volume in a pod that may be accessed by any container in the pod.
 
@@ -4532,21 +4565,21 @@ image and volumes. The Docker image is at the root of the filesystem
 hierarchy, and any volumes are mounted at the specified paths within the
 image. Volumes can not mount onto other volumes
 
-#### Initializers <a name="cdk8s-plus-17.Volume.Initializer"></a>
+#### Initializers <a name="cdk8s-plus-22.Volume.Initializer"></a>
 
 ```typescript
-import { Volume } from 'cdk8s-plus-17'
+import { Volume } from 'cdk8s-plus-22'
 
 new Volume(name: string, config: any)
 ```
 
-##### `name`<sup>Required</sup> <a name="cdk8s-plus-17.Volume.parameter.name"></a>
+##### `name`<sup>Required</sup> <a name="cdk8s-plus-22.Volume.parameter.name"></a>
 
 - *Type:* `string`
 
 ---
 
-##### `config`<sup>Required</sup> <a name="cdk8s-plus-17.Volume.parameter.config"></a>
+##### `config`<sup>Required</sup> <a name="cdk8s-plus-22.Volume.parameter.config"></a>
 
 - *Type:* `any`
 
@@ -4555,47 +4588,47 @@ new Volume(name: string, config: any)
 
 #### Static Functions <a name="Static Functions"></a>
 
-##### `fromConfigMap` <a name="cdk8s-plus-17.Volume.fromConfigMap"></a>
+##### `fromConfigMap` <a name="cdk8s-plus-22.Volume.fromConfigMap"></a>
 
 ```typescript
-import { Volume } from 'cdk8s-plus-17'
+import { Volume } from 'cdk8s-plus-22'
 
 Volume.fromConfigMap(configMap: IConfigMap, options?: ConfigMapVolumeOptions)
 ```
 
-###### `configMap`<sup>Required</sup> <a name="cdk8s-plus-17.Volume.parameter.configMap"></a>
+###### `configMap`<sup>Required</sup> <a name="cdk8s-plus-22.Volume.parameter.configMap"></a>
 
-- *Type:* [`cdk8s-plus-17.IConfigMap`](#cdk8s-plus-17.IConfigMap)
+- *Type:* [`cdk8s-plus-22.IConfigMap`](#cdk8s-plus-22.IConfigMap)
 
 The config map to use to populate the volume.
 
 ---
 
-###### `options`<sup>Optional</sup> <a name="cdk8s-plus-17.Volume.parameter.options"></a>
+###### `options`<sup>Optional</sup> <a name="cdk8s-plus-22.Volume.parameter.options"></a>
 
-- *Type:* [`cdk8s-plus-17.ConfigMapVolumeOptions`](#cdk8s-plus-17.ConfigMapVolumeOptions)
+- *Type:* [`cdk8s-plus-22.ConfigMapVolumeOptions`](#cdk8s-plus-22.ConfigMapVolumeOptions)
 
 Options.
 
 ---
 
-##### `fromEmptyDir` <a name="cdk8s-plus-17.Volume.fromEmptyDir"></a>
+##### `fromEmptyDir` <a name="cdk8s-plus-22.Volume.fromEmptyDir"></a>
 
 ```typescript
-import { Volume } from 'cdk8s-plus-17'
+import { Volume } from 'cdk8s-plus-22'
 
 Volume.fromEmptyDir(name: string, options?: EmptyDirVolumeOptions)
 ```
 
-###### `name`<sup>Required</sup> <a name="cdk8s-plus-17.Volume.parameter.name"></a>
+###### `name`<sup>Required</sup> <a name="cdk8s-plus-22.Volume.parameter.name"></a>
 
 - *Type:* `string`
 
 ---
 
-###### `options`<sup>Optional</sup> <a name="cdk8s-plus-17.Volume.parameter.options"></a>
+###### `options`<sup>Optional</sup> <a name="cdk8s-plus-22.Volume.parameter.options"></a>
 
-- *Type:* [`cdk8s-plus-17.EmptyDirVolumeOptions`](#cdk8s-plus-17.EmptyDirVolumeOptions)
+- *Type:* [`cdk8s-plus-22.EmptyDirVolumeOptions`](#cdk8s-plus-22.EmptyDirVolumeOptions)
 
 Additional options.
 
@@ -4603,7 +4636,7 @@ Additional options.
 
 #### Properties <a name="Properties"></a>
 
-##### `name`<sup>Required</sup> <a name="cdk8s-plus-17.Volume.property.name"></a>
+##### `name`<sup>Required</sup> <a name="cdk8s-plus-22.Volume.property.name"></a>
 
 ```typescript
 public readonly name: string;
@@ -4616,18 +4649,18 @@ public readonly name: string;
 
 ## Protocols <a name="Protocols"></a>
 
-### IConfigMap <a name="cdk8s-plus-17.IConfigMap"></a>
+### IConfigMap <a name="cdk8s-plus-22.IConfigMap"></a>
 
-- *Extends:* [`cdk8s-plus-17.IResource`](#cdk8s-plus-17.IResource)
+- *Extends:* [`cdk8s-plus-22.IResource`](#cdk8s-plus-22.IResource)
 
-- *Implemented By:* [`cdk8s-plus-17.ConfigMap`](#cdk8s-plus-17.ConfigMap), [`cdk8s-plus-17.IConfigMap`](#cdk8s-plus-17.IConfigMap)
+- *Implemented By:* [`cdk8s-plus-22.ConfigMap`](#cdk8s-plus-22.ConfigMap), [`cdk8s-plus-22.IConfigMap`](#cdk8s-plus-22.IConfigMap)
 
 Represents a config map.
 
 
 #### Properties <a name="Properties"></a>
 
-##### `name`<sup>Required</sup> <a name="cdk8s-plus-17.IConfigMap.property.name"></a>
+##### `name`<sup>Required</sup> <a name="cdk8s-plus-22.IConfigMap.property.name"></a>
 
 ```typescript
 public readonly name: string;
@@ -4639,9 +4672,9 @@ The Kubernetes name of this resource.
 
 ---
 
-### IPodSpec <a name="cdk8s-plus-17.IPodSpec"></a>
+### IPodSpec <a name="cdk8s-plus-22.IPodSpec"></a>
 
-- *Implemented By:* [`cdk8s-plus-17.Deployment`](#cdk8s-plus-17.Deployment), [`cdk8s-plus-17.Job`](#cdk8s-plus-17.Job), [`cdk8s-plus-17.Pod`](#cdk8s-plus-17.Pod), [`cdk8s-plus-17.PodSpec`](#cdk8s-plus-17.PodSpec), [`cdk8s-plus-17.PodTemplate`](#cdk8s-plus-17.PodTemplate), [`cdk8s-plus-17.StatefulSet`](#cdk8s-plus-17.StatefulSet), [`cdk8s-plus-17.IPodSpec`](#cdk8s-plus-17.IPodSpec), [`cdk8s-plus-17.IPodTemplate`](#cdk8s-plus-17.IPodTemplate)
+- *Implemented By:* [`cdk8s-plus-22.Deployment`](#cdk8s-plus-22.Deployment), [`cdk8s-plus-22.Job`](#cdk8s-plus-22.Job), [`cdk8s-plus-22.Pod`](#cdk8s-plus-22.Pod), [`cdk8s-plus-22.PodSpec`](#cdk8s-plus-22.PodSpec), [`cdk8s-plus-22.PodTemplate`](#cdk8s-plus-22.PodTemplate), [`cdk8s-plus-22.StatefulSet`](#cdk8s-plus-22.StatefulSet), [`cdk8s-plus-22.IPodSpec`](#cdk8s-plus-22.IPodSpec), [`cdk8s-plus-22.IPodTemplate`](#cdk8s-plus-22.IPodTemplate)
 
 Represents a resource that can be configured with a kuberenets pod spec. (e.g `Deployment`, `Job`, `Pod`, ...).
 
@@ -4649,29 +4682,29 @@ Use the `PodSpec` class as an implementation helper.
 
 #### Methods <a name="Methods"></a>
 
-##### `addContainer` <a name="cdk8s-plus-17.IPodSpec.addContainer"></a>
+##### `addContainer` <a name="cdk8s-plus-22.IPodSpec.addContainer"></a>
 
 ```typescript
 public addContainer(container: ContainerProps)
 ```
 
-###### `container`<sup>Required</sup> <a name="cdk8s-plus-17.IPodSpec.parameter.container"></a>
+###### `container`<sup>Required</sup> <a name="cdk8s-plus-22.IPodSpec.parameter.container"></a>
 
-- *Type:* [`cdk8s-plus-17.ContainerProps`](#cdk8s-plus-17.ContainerProps)
+- *Type:* [`cdk8s-plus-22.ContainerProps`](#cdk8s-plus-22.ContainerProps)
 
 The container.
 
 ---
 
-##### `addVolume` <a name="cdk8s-plus-17.IPodSpec.addVolume"></a>
+##### `addVolume` <a name="cdk8s-plus-22.IPodSpec.addVolume"></a>
 
 ```typescript
 public addVolume(volume: Volume)
 ```
 
-###### `volume`<sup>Required</sup> <a name="cdk8s-plus-17.IPodSpec.parameter.volume"></a>
+###### `volume`<sup>Required</sup> <a name="cdk8s-plus-22.IPodSpec.parameter.volume"></a>
 
-- *Type:* [`cdk8s-plus-17.Volume`](#cdk8s-plus-17.Volume)
+- *Type:* [`cdk8s-plus-22.Volume`](#cdk8s-plus-22.Volume)
 
 The volume.
 
@@ -4679,13 +4712,13 @@ The volume.
 
 #### Properties <a name="Properties"></a>
 
-##### `containers`<sup>Required</sup> <a name="cdk8s-plus-17.IPodSpec.property.containers"></a>
+##### `containers`<sup>Required</sup> <a name="cdk8s-plus-22.IPodSpec.property.containers"></a>
 
 ```typescript
 public readonly containers: Container[];
 ```
 
-- *Type:* [`cdk8s-plus-17.Container`](#cdk8s-plus-17.Container)[]
+- *Type:* [`cdk8s-plus-22.Container`](#cdk8s-plus-22.Container)[]
 
 The containers belonging to the pod.
 
@@ -4693,13 +4726,13 @@ Use `addContainer` to add containers.
 
 ---
 
-##### `volumes`<sup>Required</sup> <a name="cdk8s-plus-17.IPodSpec.property.volumes"></a>
+##### `volumes`<sup>Required</sup> <a name="cdk8s-plus-22.IPodSpec.property.volumes"></a>
 
 ```typescript
 public readonly volumes: Volume[];
 ```
 
-- *Type:* [`cdk8s-plus-17.Volume`](#cdk8s-plus-17.Volume)[]
+- *Type:* [`cdk8s-plus-22.Volume`](#cdk8s-plus-22.Volume)[]
 
 The volumes associated with this pod.
 
@@ -4707,35 +4740,35 @@ Use `addVolume` to add volumes.
 
 ---
 
-##### `restartPolicy`<sup>Optional</sup> <a name="cdk8s-plus-17.IPodSpec.property.restartPolicy"></a>
+##### `restartPolicy`<sup>Optional</sup> <a name="cdk8s-plus-22.IPodSpec.property.restartPolicy"></a>
 
 ```typescript
 public readonly restartPolicy: RestartPolicy;
 ```
 
-- *Type:* [`cdk8s-plus-17.RestartPolicy`](#cdk8s-plus-17.RestartPolicy)
+- *Type:* [`cdk8s-plus-22.RestartPolicy`](#cdk8s-plus-22.RestartPolicy)
 
 Restart policy for all containers within the pod.
 
 ---
 
-##### `serviceAccount`<sup>Optional</sup> <a name="cdk8s-plus-17.IPodSpec.property.serviceAccount"></a>
+##### `serviceAccount`<sup>Optional</sup> <a name="cdk8s-plus-22.IPodSpec.property.serviceAccount"></a>
 
 ```typescript
 public readonly serviceAccount: IServiceAccount;
 ```
 
-- *Type:* [`cdk8s-plus-17.IServiceAccount`](#cdk8s-plus-17.IServiceAccount)
+- *Type:* [`cdk8s-plus-22.IServiceAccount`](#cdk8s-plus-22.IServiceAccount)
 
 The service account used to run this pod.
 
 ---
 
-### IPodTemplate <a name="cdk8s-plus-17.IPodTemplate"></a>
+### IPodTemplate <a name="cdk8s-plus-22.IPodTemplate"></a>
 
-- *Extends:* [`cdk8s-plus-17.IPodSpec`](#cdk8s-plus-17.IPodSpec)
+- *Extends:* [`cdk8s-plus-22.IPodSpec`](#cdk8s-plus-22.IPodSpec)
 
-- *Implemented By:* [`cdk8s-plus-17.Deployment`](#cdk8s-plus-17.Deployment), [`cdk8s-plus-17.Job`](#cdk8s-plus-17.Job), [`cdk8s-plus-17.PodTemplate`](#cdk8s-plus-17.PodTemplate), [`cdk8s-plus-17.StatefulSet`](#cdk8s-plus-17.StatefulSet), [`cdk8s-plus-17.IPodTemplate`](#cdk8s-plus-17.IPodTemplate)
+- *Implemented By:* [`cdk8s-plus-22.Deployment`](#cdk8s-plus-22.Deployment), [`cdk8s-plus-22.Job`](#cdk8s-plus-22.Job), [`cdk8s-plus-22.PodTemplate`](#cdk8s-plus-22.PodTemplate), [`cdk8s-plus-22.StatefulSet`](#cdk8s-plus-22.StatefulSet), [`cdk8s-plus-22.IPodTemplate`](#cdk8s-plus-22.IPodTemplate)
 
 Represents a resource that can be configured with a kuberenets pod template. (e.g `Deployment`, `Job`, ...).
 
@@ -4744,13 +4777,13 @@ Use the `PodTemplate` class as an implementation helper.
 
 #### Properties <a name="Properties"></a>
 
-##### `containers`<sup>Required</sup> <a name="cdk8s-plus-17.IPodTemplate.property.containers"></a>
+##### `containers`<sup>Required</sup> <a name="cdk8s-plus-22.IPodTemplate.property.containers"></a>
 
 ```typescript
 public readonly containers: Container[];
 ```
 
-- *Type:* [`cdk8s-plus-17.Container`](#cdk8s-plus-17.Container)[]
+- *Type:* [`cdk8s-plus-22.Container`](#cdk8s-plus-22.Container)[]
 
 The containers belonging to the pod.
 
@@ -4758,13 +4791,13 @@ Use `addContainer` to add containers.
 
 ---
 
-##### `volumes`<sup>Required</sup> <a name="cdk8s-plus-17.IPodTemplate.property.volumes"></a>
+##### `volumes`<sup>Required</sup> <a name="cdk8s-plus-22.IPodTemplate.property.volumes"></a>
 
 ```typescript
 public readonly volumes: Volume[];
 ```
 
-- *Type:* [`cdk8s-plus-17.Volume`](#cdk8s-plus-17.Volume)[]
+- *Type:* [`cdk8s-plus-22.Volume`](#cdk8s-plus-22.Volume)[]
 
 The volumes associated with this pod.
 
@@ -4772,31 +4805,31 @@ Use `addVolume` to add volumes.
 
 ---
 
-##### `restartPolicy`<sup>Optional</sup> <a name="cdk8s-plus-17.IPodTemplate.property.restartPolicy"></a>
+##### `restartPolicy`<sup>Optional</sup> <a name="cdk8s-plus-22.IPodTemplate.property.restartPolicy"></a>
 
 ```typescript
 public readonly restartPolicy: RestartPolicy;
 ```
 
-- *Type:* [`cdk8s-plus-17.RestartPolicy`](#cdk8s-plus-17.RestartPolicy)
+- *Type:* [`cdk8s-plus-22.RestartPolicy`](#cdk8s-plus-22.RestartPolicy)
 
 Restart policy for all containers within the pod.
 
 ---
 
-##### `serviceAccount`<sup>Optional</sup> <a name="cdk8s-plus-17.IPodTemplate.property.serviceAccount"></a>
+##### `serviceAccount`<sup>Optional</sup> <a name="cdk8s-plus-22.IPodTemplate.property.serviceAccount"></a>
 
 ```typescript
 public readonly serviceAccount: IServiceAccount;
 ```
 
-- *Type:* [`cdk8s-plus-17.IServiceAccount`](#cdk8s-plus-17.IServiceAccount)
+- *Type:* [`cdk8s-plus-22.IServiceAccount`](#cdk8s-plus-22.IServiceAccount)
 
 The service account used to run this pod.
 
 ---
 
-##### `podMetadata`<sup>Required</sup> <a name="cdk8s-plus-17.IPodTemplate.property.podMetadata"></a>
+##### `podMetadata`<sup>Required</sup> <a name="cdk8s-plus-22.IPodTemplate.property.podMetadata"></a>
 
 ```typescript
 public readonly podMetadata: ApiObjectMetadataDefinition;
@@ -4808,16 +4841,16 @@ Provides read/write access to the underlying pod metadata of the resource.
 
 ---
 
-### IResource <a name="cdk8s-plus-17.IResource"></a>
+### IResource <a name="cdk8s-plus-22.IResource"></a>
 
-- *Implemented By:* [`cdk8s-plus-17.ConfigMap`](#cdk8s-plus-17.ConfigMap), [`cdk8s-plus-17.Deployment`](#cdk8s-plus-17.Deployment), [`cdk8s-plus-17.IngressV1Beta1`](#cdk8s-plus-17.IngressV1Beta1), [`cdk8s-plus-17.Job`](#cdk8s-plus-17.Job), [`cdk8s-plus-17.Pod`](#cdk8s-plus-17.Pod), [`cdk8s-plus-17.Resource`](#cdk8s-plus-17.Resource), [`cdk8s-plus-17.Secret`](#cdk8s-plus-17.Secret), [`cdk8s-plus-17.Service`](#cdk8s-plus-17.Service), [`cdk8s-plus-17.ServiceAccount`](#cdk8s-plus-17.ServiceAccount), [`cdk8s-plus-17.StatefulSet`](#cdk8s-plus-17.StatefulSet), [`cdk8s-plus-17.IConfigMap`](#cdk8s-plus-17.IConfigMap), [`cdk8s-plus-17.IResource`](#cdk8s-plus-17.IResource), [`cdk8s-plus-17.ISecret`](#cdk8s-plus-17.ISecret), [`cdk8s-plus-17.IServiceAccount`](#cdk8s-plus-17.IServiceAccount)
+- *Implemented By:* [`cdk8s-plus-22.ConfigMap`](#cdk8s-plus-22.ConfigMap), [`cdk8s-plus-22.Deployment`](#cdk8s-plus-22.Deployment), [`cdk8s-plus-22.Ingress`](#cdk8s-plus-22.Ingress), [`cdk8s-plus-22.Job`](#cdk8s-plus-22.Job), [`cdk8s-plus-22.Pod`](#cdk8s-plus-22.Pod), [`cdk8s-plus-22.Resource`](#cdk8s-plus-22.Resource), [`cdk8s-plus-22.Secret`](#cdk8s-plus-22.Secret), [`cdk8s-plus-22.Service`](#cdk8s-plus-22.Service), [`cdk8s-plus-22.ServiceAccount`](#cdk8s-plus-22.ServiceAccount), [`cdk8s-plus-22.StatefulSet`](#cdk8s-plus-22.StatefulSet), [`cdk8s-plus-22.IConfigMap`](#cdk8s-plus-22.IConfigMap), [`cdk8s-plus-22.IResource`](#cdk8s-plus-22.IResource), [`cdk8s-plus-22.ISecret`](#cdk8s-plus-22.ISecret), [`cdk8s-plus-22.IServiceAccount`](#cdk8s-plus-22.IServiceAccount)
 
 Represents a resource.
 
 
 #### Properties <a name="Properties"></a>
 
-##### `name`<sup>Required</sup> <a name="cdk8s-plus-17.IResource.property.name"></a>
+##### `name`<sup>Required</sup> <a name="cdk8s-plus-22.IResource.property.name"></a>
 
 ```typescript
 public readonly name: string;
@@ -4829,16 +4862,16 @@ The Kubernetes name of this resource.
 
 ---
 
-### ISecret <a name="cdk8s-plus-17.ISecret"></a>
+### ISecret <a name="cdk8s-plus-22.ISecret"></a>
 
-- *Extends:* [`cdk8s-plus-17.IResource`](#cdk8s-plus-17.IResource)
+- *Extends:* [`cdk8s-plus-22.IResource`](#cdk8s-plus-22.IResource)
 
-- *Implemented By:* [`cdk8s-plus-17.Secret`](#cdk8s-plus-17.Secret), [`cdk8s-plus-17.ISecret`](#cdk8s-plus-17.ISecret)
+- *Implemented By:* [`cdk8s-plus-22.Secret`](#cdk8s-plus-22.Secret), [`cdk8s-plus-22.ISecret`](#cdk8s-plus-22.ISecret)
 
 
 #### Properties <a name="Properties"></a>
 
-##### `name`<sup>Required</sup> <a name="cdk8s-plus-17.ISecret.property.name"></a>
+##### `name`<sup>Required</sup> <a name="cdk8s-plus-22.ISecret.property.name"></a>
 
 ```typescript
 public readonly name: string;
@@ -4850,16 +4883,16 @@ The Kubernetes name of this resource.
 
 ---
 
-### IServiceAccount <a name="cdk8s-plus-17.IServiceAccount"></a>
+### IServiceAccount <a name="cdk8s-plus-22.IServiceAccount"></a>
 
-- *Extends:* [`cdk8s-plus-17.IResource`](#cdk8s-plus-17.IResource)
+- *Extends:* [`cdk8s-plus-22.IResource`](#cdk8s-plus-22.IResource)
 
-- *Implemented By:* [`cdk8s-plus-17.ServiceAccount`](#cdk8s-plus-17.ServiceAccount), [`cdk8s-plus-17.IServiceAccount`](#cdk8s-plus-17.IServiceAccount)
+- *Implemented By:* [`cdk8s-plus-22.ServiceAccount`](#cdk8s-plus-22.ServiceAccount), [`cdk8s-plus-22.IServiceAccount`](#cdk8s-plus-22.IServiceAccount)
 
 
 #### Properties <a name="Properties"></a>
 
-##### `name`<sup>Required</sup> <a name="cdk8s-plus-17.IServiceAccount.property.name"></a>
+##### `name`<sup>Required</sup> <a name="cdk8s-plus-22.IServiceAccount.property.name"></a>
 
 ```typescript
 public readonly name: string;
@@ -4877,14 +4910,14 @@ The Kubernetes name of this resource.
 
 The medium on which to store the volume.
 
-#### `DEFAULT` <a name="cdk8s-plus-17.EmptyDirMedium.DEFAULT"></a>
+#### `DEFAULT` <a name="cdk8s-plus-22.EmptyDirMedium.DEFAULT"></a>
 
 The default volume of the backing node.
 
 ---
 
 
-#### `MEMORY` <a name="cdk8s-plus-17.EmptyDirMedium.MEMORY"></a>
+#### `MEMORY` <a name="cdk8s-plus-22.EmptyDirMedium.MEMORY"></a>
 
 Mount a tmpfs (RAM-backed filesystem) for you instead.
 
@@ -4895,9 +4928,36 @@ files you write will count against your Container's memory limit.
 ---
 
 
+### HttpIngressPathType <a name="HttpIngressPathType"></a>
+
+Specify how the path is matched against request paths.
+
+> https://kubernetes.io/docs/concepts/services-networking/ingress/#path-types
+
+#### `PREFIX` <a name="cdk8s-plus-22.HttpIngressPathType.PREFIX"></a>
+
+Matches the URL path exactly.
+
+---
+
+
+#### `EXACT` <a name="cdk8s-plus-22.HttpIngressPathType.EXACT"></a>
+
+Matches based on a URL path prefix split by '/'.
+
+---
+
+
+#### `IMPLEMENTATION_SPECIFIC` <a name="cdk8s-plus-22.HttpIngressPathType.IMPLEMENTATION_SPECIFIC"></a>
+
+Matching is specified by the underlying IngressClass.
+
+---
+
+
 ### ImagePullPolicy <a name="ImagePullPolicy"></a>
 
-#### `ALWAYS` <a name="cdk8s-plus-17.ImagePullPolicy.ALWAYS"></a>
+#### `ALWAYS` <a name="cdk8s-plus-22.ImagePullPolicy.ALWAYS"></a>
 
 Every time the kubelet launches a container, the kubelet queries the container image registry to resolve the name to an image digest.
 
@@ -4911,7 +4971,7 @@ the image tag is omitted.
 ---
 
 
-#### `IF_NOT_PRESENT` <a name="cdk8s-plus-17.ImagePullPolicy.IF_NOT_PRESENT"></a>
+#### `IF_NOT_PRESENT` <a name="cdk8s-plus-22.ImagePullPolicy.IF_NOT_PRESENT"></a>
 
 The image is pulled only if it is not already present locally.
 
@@ -4921,7 +4981,7 @@ not :latest
 ---
 
 
-#### `NEVER` <a name="cdk8s-plus-17.ImagePullPolicy.NEVER"></a>
+#### `NEVER` <a name="cdk8s-plus-22.ImagePullPolicy.NEVER"></a>
 
 The image is assumed to exist locally.
 
@@ -4932,7 +4992,7 @@ No attempt is made to pull the image.
 
 ### MountPropagation <a name="MountPropagation"></a>
 
-#### `NONE` <a name="cdk8s-plus-17.MountPropagation.NONE"></a>
+#### `NONE` <a name="cdk8s-plus-22.MountPropagation.NONE"></a>
 
 This volume mount will not receive any subsequent mounts that are mounted to this volume or any of its subdirectories by the host.
 
@@ -4947,7 +5007,7 @@ kernel documentation
 ---
 
 
-#### `HOST_TO_CONTAINER` <a name="cdk8s-plus-17.MountPropagation.HOST_TO_CONTAINER"></a>
+#### `HOST_TO_CONTAINER` <a name="cdk8s-plus-22.MountPropagation.HOST_TO_CONTAINER"></a>
 
 This volume mount will receive all subsequent mounts that are mounted to this volume or any of its subdirectories.
 
@@ -4964,7 +5024,7 @@ kernel documentation
 ---
 
 
-#### `BIDIRECTIONAL` <a name="cdk8s-plus-17.MountPropagation.BIDIRECTIONAL"></a>
+#### `BIDIRECTIONAL` <a name="cdk8s-plus-22.MountPropagation.BIDIRECTIONAL"></a>
 
 This volume mount behaves the same the HostToContainer mount.
 
@@ -4998,29 +5058,29 @@ continuing. When scaling down, the pods are removed in the opposite order.
 The alternative policy is `Parallel` which will create pods in parallel to match the
 desired scale without waiting, and on scale down will delete all pods at once.
 
-#### `ORDERED_READY` <a name="cdk8s-plus-17.PodManagementPolicy.ORDERED_READY"></a>
+#### `ORDERED_READY` <a name="cdk8s-plus-22.PodManagementPolicy.ORDERED_READY"></a>
 
 ---
 
 
-#### `PARALLEL` <a name="cdk8s-plus-17.PodManagementPolicy.PARALLEL"></a>
+#### `PARALLEL` <a name="cdk8s-plus-22.PodManagementPolicy.PARALLEL"></a>
 
 ---
 
 
 ### Protocol <a name="Protocol"></a>
 
-#### `TCP` <a name="cdk8s-plus-17.Protocol.TCP"></a>
+#### `TCP` <a name="cdk8s-plus-22.Protocol.TCP"></a>
 
 ---
 
 
-#### `UDP` <a name="cdk8s-plus-17.Protocol.UDP"></a>
+#### `UDP` <a name="cdk8s-plus-22.Protocol.UDP"></a>
 
 ---
 
 
-#### `SCTP` <a name="cdk8s-plus-17.Protocol.SCTP"></a>
+#### `SCTP` <a name="cdk8s-plus-22.Protocol.SCTP"></a>
 
 ---
 
@@ -5029,21 +5089,21 @@ desired scale without waiting, and on scale down will delete all pods at once.
 
 Restart policy for all containers within the pod.
 
-#### `ALWAYS` <a name="cdk8s-plus-17.RestartPolicy.ALWAYS"></a>
+#### `ALWAYS` <a name="cdk8s-plus-22.RestartPolicy.ALWAYS"></a>
 
 Always restart the pod after it exits.
 
 ---
 
 
-#### `ON_FAILURE` <a name="cdk8s-plus-17.RestartPolicy.ON_FAILURE"></a>
+#### `ON_FAILURE` <a name="cdk8s-plus-22.RestartPolicy.ON_FAILURE"></a>
 
 Only restart if the pod exits with a non-zero exit code.
 
 ---
 
 
-#### `NEVER` <a name="cdk8s-plus-17.RestartPolicy.NEVER"></a>
+#### `NEVER` <a name="cdk8s-plus-22.RestartPolicy.NEVER"></a>
 
 Never restart the pod.
 
@@ -5057,7 +5117,7 @@ For some parts of your application (for example, frontends) you may want to expo
 Kubernetes ServiceTypes allow you to specify what kind of Service you want.
 The default is ClusterIP.
 
-#### `CLUSTER_IP` <a name="cdk8s-plus-17.ServiceType.CLUSTER_IP"></a>
+#### `CLUSTER_IP` <a name="cdk8s-plus-22.ServiceType.CLUSTER_IP"></a>
 
 Exposes the Service on a cluster-internal IP.
 
@@ -5067,7 +5127,7 @@ This is the default ServiceType
 ---
 
 
-#### `NODE_PORT` <a name="cdk8s-plus-17.ServiceType.NODE_PORT"></a>
+#### `NODE_PORT` <a name="cdk8s-plus-22.ServiceType.NODE_PORT"></a>
 
 Exposes the Service on each Node's IP at a static port (the NodePort).
 
@@ -5078,7 +5138,7 @@ by requesting <NodeIP>:<NodePort>.
 ---
 
 
-#### `LOAD_BALANCER` <a name="cdk8s-plus-17.ServiceType.LOAD_BALANCER"></a>
+#### `LOAD_BALANCER` <a name="cdk8s-plus-22.ServiceType.LOAD_BALANCER"></a>
 
 Exposes the Service externally using a cloud provider's load balancer.
 
@@ -5088,7 +5148,7 @@ are automatically created.
 ---
 
 
-#### `EXTERNAL_NAME` <a name="cdk8s-plus-17.ServiceType.EXTERNAL_NAME"></a>
+#### `EXTERNAL_NAME` <a name="cdk8s-plus-22.ServiceType.EXTERNAL_NAME"></a>
 
 Maps the Service to the contents of the externalName field (e.g. foo.bar.example.com), by returning a CNAME record with its value. No proxying of any kind is set up.
 
