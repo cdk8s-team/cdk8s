@@ -1196,12 +1196,12 @@
 <p>ConfigMap are used to store configuration data. They provide a dictionary based
 data structure that can be consumed in various shapes and forms.</p>
 <div class="admonition tip">
-<p><a href="../../reference/cdk8s-plus-17/typescript/#configmap">API Reference</a></p>
+<p><a href="../reference/cdk8s-plus-22/typescript.md#configmap">API Reference</a></p>
 </div>
 <h2 id="use-an-existing-configmap">Use an existing <code>ConfigMap</code><a class="headerlink" href="#use-an-existing-configmap" title="Permanent link">&para;</a></h2>
 <p>You can reference to an existing <code>ConfigMap</code> like so. Note that this does not create a new object,
 and will therefore not be included in the resulting manifest.</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">kplus</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-17&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">kplus</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-22&#39;</span><span class="p">;</span>
 
 <span class="kd">const</span> <span class="nx">config</span>: <span class="kt">kplus.IConfigMap</span> <span class="o">=</span> <span class="nx">kplus</span><span class="p">.</span><span class="nx">ConfigMap</span><span class="p">.</span><span class="nx">fromConfigMapName</span><span class="p">(</span><span class="s1">&#39;config&#39;</span><span class="p">);</span>
 
@@ -1211,7 +1211,7 @@ and will therefore not be included in the resulting manifest.</p>
 </code></pre></div>
 <h2 id="adding-data">Adding data<a class="headerlink" href="#adding-data" title="Permanent link">&para;</a></h2>
 <p>You can create config maps and add some data to them like so:</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">kplus</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-17&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">kplus</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-22&#39;</span><span class="p">;</span>
 <span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">k</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span>
 
 <span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">k</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span>
@@ -1222,7 +1222,7 @@ and will therefore not be included in the resulting manifest.</p>
 </code></pre></div>
 <h2 id="creating-a-volume-from-a-directory">Creating a volume from a directory<a class="headerlink" href="#creating-a-volume-from-a-directory" title="Permanent link">&para;</a></h2>
 <p>Here is a nifty little trick you can use to create a volume that contains a directory on the client machine (machine that runs <code>cdk8s synth</code>):</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">kplus</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-17&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">kplus</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-22&#39;</span><span class="p">;</span>
 <span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">k</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span>
 <span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">path</span> <span class="kr">from</span> <span class="s1">&#39;path&#39;</span><span class="p">;</span>
 

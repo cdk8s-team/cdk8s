@@ -1195,11 +1195,11 @@
                 <h1 id="pod">Pod<a class="headerlink" href="#pod" title="Permanent link">&para;</a></h1>
 <p>A pod is essentially a collection of containers. It is the most fundamental computation unit that can be provisioned.</p>
 <div class="admonition tip">
-<p><a href="../../reference/cdk8s-plus-17/typescript/#pod">API Reference</a></p>
+<p><a href="../reference/cdk8s-plus-22/typescript.md#pod">API Reference</a></p>
 </div>
 <h2 id="adding-containersvolumes">Adding Containers/Volumes<a class="headerlink" href="#adding-containersvolumes" title="Permanent link">&para;</a></h2>
 <p>Containers and volumes can be added to pod definition like so:</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">kplus</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-17&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">kplus</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-22&#39;</span><span class="p">;</span>
 
 <span class="kd">const</span> <span class="nx">pod</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">kplus</span><span class="p">.</span><span class="nx">Pod</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span> <span class="s1">&#39;Pod&#39;</span><span class="p">);</span>
 
@@ -1221,7 +1221,7 @@
 <span class="nx">pod</span><span class="p">.</span><span class="nx">addVolume</span><span class="p">(</span><span class="nx">storage</span><span class="p">);</span>
 </code></pre></div>
 <h2 id="applying-a-restart-policy">Applying a restart policy<a class="headerlink" href="#applying-a-restart-policy" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">kplus</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-17&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">kplus</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-22&#39;</span><span class="p">;</span>
 
 <span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">k</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span>
 <span class="kd">const</span> <span class="nx">chart</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">k</span><span class="p">.</span><span class="nx">Chart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;Chart&#39;</span><span class="p">);</span>
@@ -1231,7 +1231,7 @@
 <span class="p">});</span>
 </code></pre></div>
 <h2 id="assigning-a-serviceaccount">Assigning a ServiceAccount<a class="headerlink" href="#assigning-a-serviceaccount" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">kplus</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-17&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">kplus</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-22&#39;</span><span class="p">;</span>
 
 <span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">k</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span>
 <span class="kd">const</span> <span class="nx">chart</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">k</span><span class="p">.</span><span class="nx">Chart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;Chart&#39;</span><span class="p">);</span>

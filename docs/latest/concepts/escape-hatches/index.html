@@ -1215,7 +1215,7 @@ the CDK8s+ <code>Pod</code> API, so you&rsquo;ll want to patch the underlying <c
 this value.</p>
 <p>To do that, you will need to &ldquo;peak&rdquo; into the construct tree and find the underlying
 API object, so you can apply the patch to it:</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Pod</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-17&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Pod</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-22&#39;</span><span class="p">;</span>
 <span class="k">import</span> <span class="p">{</span> <span class="nx">ApiObject</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span>
 
 <span class="kd">const</span> <span class="nx">pod</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Pod</span><span class="p">(...);</span>

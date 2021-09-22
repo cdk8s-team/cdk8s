@@ -1124,7 +1124,7 @@
 HTTP. Ingress may provide load balancing, SSL termination and name-based virtual
 hosting.</p>
 <div class="admonition tip">
-<p><a href="../../reference/cdk8s-plus-17/typescript/#ingressv1beta1">API Reference</a></p>
+<p><a href="../reference/cdk8s-plus-22/typescript.md#ingressv1beta1">API Reference</a></p>
 </div>
 <p>You must have an <a href="https://kubernetes.io/docs/concepts/services-networking/ingress-controllers">Ingress controller</a> to satisfy an Ingress. Only creating an
 Ingress resource has no effect.</p>
@@ -1142,8 +1142,8 @@ to a service associated with a deployment of the
 
 <span class="kd">const</span> <span class="nx">helloService</span> <span class="o">=</span> <span class="nx">helloDeployment</span><span class="p">.</span><span class="nx">expose</span><span class="p">(</span><span class="mf">5678</span><span class="p">);</span>
 
-<span class="kd">const</span> <span class="nx">ingress</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">IngressV1Beta1</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;ingress&#39;</span><span class="p">);</span>
-<span class="nx">ingress</span><span class="p">.</span><span class="nx">addRule</span><span class="p">(</span><span class="s1">&#39;/hello&#39;</span><span class="p">,</span> <span class="nx">kplus</span><span class="p">.</span><span class="nx">IngressV1Beta1Backend</span><span class="p">.</span><span class="nx">fromService</span><span class="p">(</span><span class="nx">helloService</span><span class="p">));</span>
+<span class="kd">const</span> <span class="nx">ingress</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Ingress</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;ingress&#39;</span><span class="p">);</span>
+<span class="nx">ingress</span><span class="p">.</span><span class="nx">addRule</span><span class="p">(</span><span class="s1">&#39;/hello&#39;</span><span class="p">,</span> <span class="nx">kplus</span><span class="p">.</span><span class="nx">IngressBackend</span><span class="p">.</span><span class="nx">fromService</span><span class="p">(</span><span class="nx">helloService</span><span class="p">));</span>
 </code></pre></div>
 <p>You can use <code>addHostRule(host, path, backend)</code> to define a route that will only
 apply to requests with this <code>Host</code> header. This can be used to implement virtual
@@ -1154,7 +1154,7 @@ match any other rules.</p>
 <p>The TCP port used to route requests to services will be determined based on
 which ports are exposed by the service (e.g. through <code>serve()</code>). If the service
 exposes multiple ports, then a port must be specified via
-<code>IngressBackend.fromService(service, { port }</code>.</p>
+<code>IngressBackend.fromService(service, { port })</code>.</p>
                 
               
               

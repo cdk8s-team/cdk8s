@@ -1212,8 +1212,8 @@ applications.</p>
 <p>Built on top of the auto-generated building blocks provided by CDK8s, this
 library includes a hand crafted <em>construct</em> for each native kubernetes object,
 exposing richer API&rsquo;s with reduced complexity.</p>
-<p><strong>cdk8s+</strong> is vended as a separate library for each kubernetes spec version. The documentation presented here represents version <a href="https://github.com/kubernetes/kubernetes/tree/v1.17.0/api/openapi-spec">1.17.0</a>
-and is vended as the <code>cdk8s-plus-17</code> library.</p>
+<p><strong>cdk8s+</strong> is vended as a separate library for each kubernetes spec version. The documentation presented here represents version <a href="https://github.com/kubernetes/kubernetes/tree/v1.22.0/api/openapi-spec">1.22.0</a>
+and is vended as the <code>cdk8s-plus-22</code> library.</p>
 <h3 id="naming-conventions">Naming conventions<a class="headerlink" href="#naming-conventions" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Stable resources are represented by a <em>construct</em> of the same <em>kind</em>. For example, the <code>io.k8s.api.core.v1.Pod</code> resource maps to the <code>Pod</code> <em>construct</em>.</li>
@@ -1224,10 +1224,10 @@ and is vended as the <code>cdk8s-plus-17</code> library.</p>
 any spec version higher or equal to <code>1.17.0</code>. <strong>Non-stable</strong> resources are not guaranteed to be compatible, as they may be removed in future spec versions.</p>
 <div class="admonition notice">
 <p class="admonition-title">Notice</p>
-<p>If you are deploying manifests produced by <code>cdk8s-plus-17</code> onto clusters of a lower version, you might encounter some unsupported spec properties or invalid manifests.</p>
+<p>If you are deploying manifests produced by <code>cdk8s-plus-22</code> onto clusters of a lower version, you might encounter some unsupported spec properties or invalid manifests.</p>
 </div>
 <h2 id="at-a-glance">At a glance<a class="headerlink" href="#at-a-glance" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">kplus</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-17&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">kplus</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-22&#39;</span><span class="p">;</span>
 <span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">cdk8s</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span>
 <span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">path</span> <span class="kr">from</span> <span class="s1">&#39;path&#39;</span><span class="p">;</span>
 
@@ -1340,8 +1340,8 @@ any spec version higher or equal to <code>1.17.0</code>. <strong>Non-stable</str
 </details>
 <h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
 <div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">TypeScript/JavaScript</label><div class="tabbed-content">
-<p><code>❯ npm install cdk8s-plus-17 cdk8s</code></p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">kplus</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-17&#39;</span><span class="p">;</span>
+<p><code>❯ npm install cdk8s-plus-22 cdk8s</code></p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">kplus</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-22&#39;</span><span class="p">;</span>
 <span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">cdk8s</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span>
 
 <span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">cdk8s</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span>
@@ -1356,7 +1356,7 @@ any spec version higher or equal to <code>1.17.0</code>. <strong>Non-stable</str
 </code></pre></div>
 </div>
 <input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Python</label><div class="tabbed-content">
-<p><code>❯ pip install --pre cdk8s-plus-17 cdk8s</code></p>
+<p><code>❯ pip install --pre cdk8s-plus-22 cdk8s</code></p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_17</span> <span class="k">as</span> <span class="nn">kplus</span>
 <span class="kn">import</span> <span class="nn">cdk8s</span>
 
