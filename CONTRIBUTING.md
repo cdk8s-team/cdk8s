@@ -100,7 +100,7 @@ This project consists of multiple modules, maintained and released via the follo
 
 - [cdk8s-cli](https://github.com/cdk8s-team/cdk8s-cli): command-line interface
 - [cdk8s-core](https://github.com/cdk8s-team/cdk8s-core): core library
-- [cdk8s-plus-17](https://github.com/cdk8s-team/cdk8s-plus-17): high-level constructs for Kubernetes core 1.17 and above.
+- [cdk8s-plus](https://github.com/cdk8s-team/cdk8s-plus): high-level constructs for Kubernetes core.
 
 ### Development environment
 
