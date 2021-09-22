@@ -160,6 +160,8 @@ app.synth();
         image: 'ubuntu',
       }],
     });
+
+    app.synth();
     ```
 
 === "Python"
@@ -167,7 +169,7 @@ app.synth();
     `❯ pip install --pre cdk8s-plus-22 cdk8s`
 
     ```python
-    import cdk8s_plus_17 as kplus
+    import cdk8s_plus_22 as kplus
     import cdk8s
 
     app = cdk8s.App()
@@ -177,5 +179,65 @@ app.synth();
       replicas=1,
       containers=[kplus.Container(image='ubuntu')]
     )
+
+    app.synth()
     ```
 
+=== "Java"
+
+    ```xml
+    <dependency>
+      <groupId>org.cdk8s</groupId>
+      <artifactId>cdk8s</artifactId>
+      <version>1.0.0-beta.46</version>
+    </dependency>
+    <dependency>
+      <groupId>org.cdk8s</groupId>
+      <artifactId>cdk8s-plus-22</artifactId>
+      <version>1.0.0-beta.1</version>
+    </dependency>
+    ```
+
+    ```java
+    import org.cdk8s.App;
+    import org.cdk8s.Chart;
+    import org.cdk8s.plus22.Deployment;
+    import org.cdk8s.plus22.ContainerProps;
+
+    App app = new App();
+    Chart chart = new Chart(app, "Chart");
+
+    Deployment.Builder.create(this, "Deployment")
+      .replicas(3)
+      .containers(Arrays.asList(ContainerProps.builder()
+        .image("ubuntu")
+        .build()))
+      .build();
+
+    app.synth();
+    ```
+
+=== "Go"
+
+    ```go
+    import (
+      "github.com/aws/constructs-go/constructs/v3"
+      "github.com/aws/jsii-runtime-go"
+      "github.com/cdk8s-team/cdk8s-core-go/cdk8s"
+      "github.com/cdk8s-team/cdk8s-plus-go/cdk8splus22"
+    )
+    ```
+
+    ```go
+    app := cdk8s.NewApp(nil)
+    chart := cdk8s.NewChart(app, jsii.String(id), nil)
+
+    cdk8splus22.NewDeployment(chart, jsii.String("Deployment"), &cdk8splus22.DeploymentProps{
+      Replicas: jsii.Number(3),
+      Containers: &[]*cdk8splus22.ContainerProps{{
+        Image: jsii.String("ubuntu"),
+      }},
+    })
+
+    app.Synth()
+    ```
