@@ -1564,7 +1564,7 @@ any spec version higher or equal to <code>1.22.0</code>. <strong>Non-stable</str
 </code></pre></div>
 </details>
 <h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
-<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">TypeScript/JavaScript</label><div class="tabbed-content">
+<div class="tabbed-set" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">TypeScript/JavaScript</label><div class="tabbed-content">
 <p><code>❯ npm install cdk8s-plus-22 cdk8s</code></p>
 <div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">kplus</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-22&#39;</span><span class="p">;</span>
 <span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">cdk8s</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span>
@@ -1578,11 +1578,13 @@ any spec version higher or equal to <code>1.22.0</code>. <strong>Non-stable</str
     <span class="nx">image</span><span class="o">:</span> <span class="s1">&#39;ubuntu&#39;</span><span class="p">,</span>
   <span class="p">}],</span>
 <span class="p">});</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">synth</span><span class="p">();</span>
 </code></pre></div>
 </div>
 <input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Python</label><div class="tabbed-content">
 <p><code>❯ pip install --pre cdk8s-plus-22 cdk8s</code></p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_17</span> <span class="k">as</span> <span class="nn">kplus</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_22</span> <span class="k">as</span> <span class="nn">kplus</span>
 <span class="kn">import</span> <span class="nn">cdk8s</span>
 
 <span class="n">app</span> <span class="o">=</span> <span class="n">cdk8s</span><span class="o">.</span><span class="n">App</span><span class="p">()</span>
@@ -1592,6 +1594,59 @@ any spec version higher or equal to <code>1.22.0</code>. <strong>Non-stable</str
   <span class="n">replicas</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
   <span class="n">containers</span><span class="o">=</span><span class="p">[</span><span class="n">kplus</span><span class="o">.</span><span class="n">Container</span><span class="p">(</span><span class="n">image</span><span class="o">=</span><span class="s1">&#39;ubuntu&#39;</span><span class="p">)]</span>
 <span class="p">)</span>
+
+<span class="n">app</span><span class="o">.</span><span class="n">synth</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><label for="__tabbed_1_3">Java</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.cdk8s<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>cdk8s<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>1.0.0-beta.46<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.cdk8s<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>cdk8s-plus-22<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>1.0.0-beta.1<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.App</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.cdk8s.Chart</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.cdk8s.plus22.Deployment</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.cdk8s.plus22.ContainerProps</span><span class="p">;</span>
+
+<span class="n">App</span> <span class="n">app</span> <span class="o">=</span> <span class="k">new</span> <span class="n">App</span><span class="p">();</span>
+<span class="n">Chart</span> <span class="n">chart</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Chart</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="s">&quot;Chart&quot;</span><span class="p">);</span>
+
+<span class="n">Deployment</span><span class="p">.</span><span class="na">Builder</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s">&quot;Deployment&quot;</span><span class="p">)</span>
+  <span class="p">.</span><span class="na">replicas</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+  <span class="p">.</span><span class="na">containers</span><span class="p">(</span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="n">ContainerProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
+    <span class="p">.</span><span class="na">image</span><span class="p">(</span><span class="s">&quot;ubuntu&quot;</span><span class="p">)</span>
+    <span class="p">.</span><span class="na">build</span><span class="p">()))</span>
+  <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+
+<span class="n">app</span><span class="p">.</span><span class="na">synth</span><span class="p">();</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><label for="__tabbed_1_4">Go</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="p">(</span>
+  <span class="s">&quot;github.com/aws/constructs-go/constructs/v3&quot;</span>
+  <span class="s">&quot;github.com/aws/jsii-runtime-go&quot;</span>
+  <span class="s">&quot;github.com/cdk8s-team/cdk8s-core-go/cdk8s&quot;</span>
+  <span class="s">&quot;github.com/cdk8s-team/cdk8s-plus-go/cdk8splus22&quot;</span>
+<span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nx">app</span> <span class="o">:=</span> <span class="nx">cdk8s</span><span class="p">.</span><span class="nx">NewApp</span><span class="p">(</span><span class="kc">nil</span><span class="p">)</span>
+<span class="nx">chart</span> <span class="o">:=</span> <span class="nx">cdk8s</span><span class="p">.</span><span class="nx">NewChart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="nx">id</span><span class="p">),</span> <span class="kc">nil</span><span class="p">)</span>
+
+<span class="nx">cdk8splus22</span><span class="p">.</span><span class="nx">NewDeployment</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span> <span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;Deployment&quot;</span><span class="p">),</span> <span class="o">&amp;</span><span class="nx">cdk8splus22</span><span class="p">.</span><span class="nx">DeploymentProps</span><span class="p">{</span>
+  <span class="nx">Replicas</span><span class="p">:</span> <span class="nx">jsii</span><span class="p">.</span><span class="nx">Number</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>
+  <span class="nx">Containers</span><span class="p">:</span> <span class="o">&amp;</span><span class="p">[]</span><span class="o">*</span><span class="nx">cdk8splus22</span><span class="p">.</span><span class="nx">ContainerProps</span><span class="p">{{</span>
+    <span class="nx">Image</span><span class="p">:</span> <span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;ubuntu&quot;</span><span class="p">),</span>
+  <span class="p">}},</span>
+<span class="p">})</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">Synth</span><span class="p">()</span>
 </code></pre></div>
 </div>
 </div>
