@@ -216,3 +216,28 @@ app.synth();
 
     app.synth();
     ```
+
+=== "Go"
+
+    ```go
+    import (
+      "github.com/aws/constructs-go/constructs/v3"
+      "github.com/aws/jsii-runtime-go"
+      "github.com/cdk8s-team/cdk8s-core-go/cdk8s"
+      "github.com/cdk8s-team/cdk8s-plus-go/cdk8splus22"
+    )
+    ```
+
+    ```go
+    app := cdk8s.NewApp(nil)
+    chart := cdk8s.NewChart(app, jsii.String(id), nil)
+
+    cdk8splus22.NewDeployment(chart, jsii.String("Deployment"), &cdk8splus22.DeploymentProps{
+      Replicas: jsii.Number(3),
+      Containers: &[]*cdk8splus22.ContainerProps{{
+        Image: jsii.String("ubuntu"),
+      }},
+    })
+
+    app.Synth()
+    ```
