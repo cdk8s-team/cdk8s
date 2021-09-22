@@ -169,7 +169,7 @@ app.synth();
     `❯ pip install --pre cdk8s-plus-22 cdk8s`
 
     ```python
-    import cdk8s_plus_17 as kplus
+    import cdk8s_plus_22 as kplus
     import cdk8s
 
     app = cdk8s.App()
@@ -183,3 +183,36 @@ app.synth();
     app.synth()
     ```
 
+=== "Java"
+
+    ```xml
+    <dependency>
+      <groupId>org.cdk8s</groupId>
+      <artifactId>cdk8s</artifactId>
+      <version>1.0.0-beta.46</version>
+    </dependency>
+    <dependency>
+      <groupId>org.cdk8s</groupId>
+      <artifactId>cdk8s-plus-22</artifactId>
+      <version>1.0.0-beta.1</version>
+    </dependency>
+    ```
+
+    ```java
+    import org.cdk8s.App;
+    import org.cdk8s.Chart;
+    import org.cdk8s.plus22.Deployment;
+    import org.cdk8s.plus22.ContainerProps;
+
+    App app = new App();
+    Chart chart = new Chart(app, "Chart");
+
+    Deployment.Builder.create(this, "Deployment")
+      .replicas(3)
+      .containers(Arrays.asList(ContainerProps.builder()
+        .image("ubuntu")
+        .build()))
+      .build();
+
+    app.synth();
+    ```
