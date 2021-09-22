@@ -18,7 +18,7 @@ and is vended as the `cdk8s-plus-22` library.
 ### Spec Compatibility
 
 Per kubernetes [compatibility guarantees](https://kubernetes.io/docs/concepts/overview/kubernetes-api/#api-groups-and-versioning), **stable** resources in this library are compatible with
-any spec version higher or equal to `1.17.0`. **Non-stable** resources are not guaranteed to be compatible, as they may be removed in future spec versions.
+any spec version higher or equal to `1.22.0`. **Non-stable** resources are not guaranteed to be compatible, as they may be removed in future spec versions.
 
 !!! notice
 

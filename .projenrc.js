@@ -30,7 +30,10 @@ const project = new NodeProject({
     'cdk8s',
     'cdk8s-cli',
     'cdk8s-plus-22',
-    'constructs@^3',
+    'cdk8s-plus-21',
+    'cdk8s-plus-20',
+    'cdk8s-plus-17',
+    'constructs',
     'lerna@^4',
     'semver',
     'ts-jest',
@@ -44,6 +47,7 @@ const project = new NodeProject({
   autoApproveUpgrades: true,
 });
 
+project.gitignore.exclude('.vscode/');
 project.gitignore.addPatterns('*.js');
 project.gitignore.addPatterns('*.d.ts');
 project.gitignore.addPatterns('dist/');

@@ -17,12 +17,23 @@
       "type": "build"
     },
     {
+      "name": "cdk8s-plus-17",
+      "type": "build"
+    },
+    {
+      "name": "cdk8s-plus-20",
+      "type": "build"
+    },
+    {
+      "name": "cdk8s-plus-21",
+      "type": "build"
+    },
+    {
       "name": "cdk8s-plus-22",
       "type": "build"
     },
     {
       "name": "constructs",
-      "version": "^3",
       "type": "build"
     },
     {
