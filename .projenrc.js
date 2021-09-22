@@ -29,7 +29,7 @@ const project = new NodeProject({
     '@types/node',
     'cdk8s',
     'cdk8s-cli',
-    'cdk8s-plus-17',
+    'cdk8s-plus-22',
     'constructs@^3',
     'lerna@^4',
     'semver',

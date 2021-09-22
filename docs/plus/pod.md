@@ -3,14 +3,14 @@
 A pod is essentially a collection of containers. It is the most fundamental computation unit that can be provisioned.
 
 !!! tip ""
-    [API Reference](../reference/cdk8s-plus-17/typescript.md#pod)
+    [API Reference](../reference/cdk8s-plus-22/typescript.md#pod)
 
 ## Adding Containers/Volumes
 
 Containers and volumes can be added to pod definition like so:
 
 ```typescript
-import * as kplus from 'cdk8s-plus-17';
+import * as kplus from 'cdk8s-plus-22';
 
 const pod = new kplus.Pod(chart, 'Pod');
 
@@ -36,7 +36,7 @@ pod.addVolume(storage);
 ## Applying a restart policy
 
 ```typescript
-import * as kplus from 'cdk8s-plus-17';
+import * as kplus from 'cdk8s-plus-22';
 
 const app = new k.App();
 const chart = new k.Chart(app, 'Chart');
@@ -49,7 +49,7 @@ const pod = new kplus.Pod(chart, 'Pod', {
 ## Assigning a ServiceAccount
 
 ```typescript
-import * as kplus from 'cdk8s-plus-17';
+import * as kplus from 'cdk8s-plus-22';
 
 const app = new k.App();
 const chart = new k.Chart(app, 'Chart');

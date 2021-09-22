@@ -3,7 +3,7 @@
 Create a deployment to govern the lifecycle and orchestration of a set of identical pods.
 
 !!! tip ""
-    [API Reference](../reference/cdk8s-plus-17/typescript.md#deployment)
+    [API Reference](../reference/cdk8s-plus-22/typescript.md#deployment)
 
 ## Automatic pod selection
 
@@ -12,7 +12,7 @@ make the deployment control the relevant pods. This construct does this automati
 
 ```typescript
 import * as k from 'cdk8s';
-import * as kplus from 'cdk8s-plus-17';
+import * as kplus from 'cdk8s-plus-22';
 
 const app = new k.App();
 const chart = new k.Chart(app, 'Chart');

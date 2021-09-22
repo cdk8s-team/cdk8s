@@ -3,7 +3,7 @@
 Volume represents a named volume in a pod that may be accessed by any container in the pod.
 
 !!! tip ""
-    [API Reference](../reference/cdk8s-plus-17/typescript.md#volume)
+    [API Reference](../reference/cdk8s-plus-22/typescript.md#volume)
 
 ## Create from a ConfigMap
 
@@ -11,7 +11,7 @@ A very useful operation is to create a volume from a `ConfigMap`. Kubernetes wil
 who's content is the value of the key.
 
 ```typescript
-import * as kplus from 'cdk8s-plus-17';
+import * as kplus from 'cdk8s-plus-22';
 
 const configMap = kplus.ConfigMap.fromConfigMapName('redis-config');
 const configVolume = kplus.Volume.fromConfigMap(configMap);
@@ -24,7 +24,7 @@ This volume, as the name suggests, is initially empty, and can be written to by 
 The data in the volume is preserved throughout the lifecycle of the pod, but is deleted forever as soon as the pod itself is removed.
 
 ```typescript
-import * as kplus from 'cdk8s-plus-17';
+import * as kplus from 'cdk8s-plus-22';
 
 const data = kplus.Volume.fromEmptyDir(configMap);
 

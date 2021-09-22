@@ -1,5 +1,5 @@
 {{- $cdk8s_core_version := getenv "CDK8S_CORE_VERSION" }}
-{{- $cdk8s_plus17_version := getenv "CDK8S_PLUS17_VERSION" }}
+{{- $cdk8s_plus22_version := getenv "CDK8S_PLUS22_VERSION" }}
 {{- $cdk8s_cli_version := getenv "CDK8S_CLI_VERSION" }}
 
 {{- $summary := .Site.Params.summary }}
@@ -23,7 +23,7 @@
 {{- $link_terms := "https://aws.amazon.com/terms/?nc1=f_pr" }}
 
 {{- $link_cdk8s_ref := (print $docs_root "/reference/cdk8s/typescript") }}
-{{- $link_plus_ref := (print $docs_root "/reference/cdk8s-plus-17/typescript") }}
+{{- $link_plus_ref := (print $docs_root "/reference/cdk8s-plus-22/typescript") }}
 {{- $link_cli := (print $docs_root "/cli") }}
 
 {{- $everywhere := .Site.Params.features.everywhere }}
@@ -115,7 +115,7 @@
                         </div>
                         <nav class="dropdown-list w-dropdown-list">
                             <a href="{{ $link_cdk8s_ref }}" class="dropdown-link w-dropdown-link">cdk8s  ({{ $cdk8s_core_version }})</a>
-                            <a href="{{ $link_plus_ref }}" class="dropdown-link w-dropdown-link">cdk8s-plus-17  ({{ $cdk8s_plus17_version }})</a>
+                            <a href="{{ $link_plus_ref }}" class="dropdown-link w-dropdown-link">cdk8s-plus-22  ({{ $cdk8s_plus22_version }})</a>
                             <a href="{{ $link_cli }}" target="_blank" class="dropdown-link w-dropdown-link">cdk8s-cli ({{ $cdk8s_cli_version }})<a>
                         </nav>
                     </div>
@@ -234,7 +234,7 @@
                 <a href="{{ $link_plus_docs }}" class="footer-link">CDK8s+</a>
 
                 <a href="{{ $link_cdk8s_ref }}" class="footer-link">cdk8s ({{ $cdk8s_core_version }})</a>
-                <a href="{{ $link_plus_ref }}" class="footer-link">cdk8s-plus-17 ({{ $cdk8s_plus17_version }})</a>
+                <a href="{{ $link_plus_ref }}" class="footer-link">cdk8s-plus-22 ({{ $cdk8s_plus22_version }})</a>
                 <a href="{{ $link_cli }}" class="footer-link">cdk8s-cli ({{ $cdk8s_cli_version }})</a>
             </div>
 

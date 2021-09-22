@@ -7,7 +7,7 @@ get_version() {
 }
 
 export CDK8S_CORE_VERSION="$(get_version cdk8s)"
-export CDK8S_PLUS17_VERSION="$(get_version cdk8s-plus-17)"
+export CDK8S_PLUS22_VERSION="$(get_version cdk8s-plus-22)"
 export CDK8S_CLI_VERSION="$(get_version cdk8s-cli)"
 
 hugo --minify $@

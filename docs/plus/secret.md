@@ -3,7 +3,7 @@
 Secrets are used to store confidential information. Never store such information on the definition of the pod itself.
 
 !!! tip ""
-    [API Reference](../reference/cdk8s-plus-17/typescript.md#secret)
+    [API Reference](../reference/cdk8s-plus-22/typescript.md#secret)
 
 ## Use an existing `Secret`
 
@@ -11,7 +11,7 @@ To reference a secret created outside of your deployment definition, use the fol
 and will therefore not be included in the resulting manifest.
 
 ```typescript
-import * as kplus from 'cdk8s-plus-17';
+import * as kplus from 'cdk8s-plus-22';
 
 const secret = kplus.Secret.fromSecretName('aws-creds');
 ```
@@ -21,7 +21,7 @@ const secret = kplus.Secret.fromSecretName('aws-creds');
 To create a new secret with some data, use:
 
 ```typescript
-import * as kplus from 'cdk8s-plus-17';
+import * as kplus from 'cdk8s-plus-22';
 import * as k from 'cdk8s';
 
 const app = new k.App();

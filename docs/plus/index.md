@@ -7,8 +7,8 @@ Built on top of the auto-generated building blocks provided by CDK8s, this
 library includes a hand crafted *construct* for each native kubernetes object,
 exposing richer API's with reduced complexity.
 
-**cdk8s+** is vended as a separate library for each kubernetes spec version. The documentation presented here represents version [1.17.0](https://github.com/kubernetes/kubernetes/tree/v1.17.0/api/openapi-spec)
-and is vended as the `cdk8s-plus-17` library.
+**cdk8s+** is vended as a separate library for each kubernetes spec version. The documentation presented here represents version [1.22.0](https://github.com/kubernetes/kubernetes/tree/v1.22.0/api/openapi-spec)
+and is vended as the `cdk8s-plus-22` library.
 
 ### Naming conventions
 
@@ -22,12 +22,12 @@ any spec version higher or equal to `1.17.0`. **Non-stable** resources are not g
 
 !!! notice
 
-    If you are deploying manifests produced by `cdk8s-plus-17` onto clusters of a lower version, you might encounter some unsupported spec properties or invalid manifests.
+    If you are deploying manifests produced by `cdk8s-plus-22` onto clusters of a lower version, you might encounter some unsupported spec properties or invalid manifests.
 
 ## At a glance
 
 ```typescript
-import * as kplus from 'cdk8s-plus-17';
+import * as kplus from 'cdk8s-plus-22';
 import * as cdk8s from 'cdk8s';
 import * as path from 'path';
 
@@ -145,10 +145,10 @@ app.synth();
 
 === "TypeScript/JavaScript"
 
-    `❯ npm install cdk8s-plus-17 cdk8s`
+    `❯ npm install cdk8s-plus-22 cdk8s`
 
     ```typescript
-    import * as kplus from 'cdk8s-plus-17';
+    import * as kplus from 'cdk8s-plus-22';
     import * as cdk8s from 'cdk8s';
 
     const app = new cdk8s.App();
@@ -164,7 +164,7 @@ app.synth();
 
 === "Python"
 
-    `❯ pip install --pre cdk8s-plus-17 cdk8s`
+    `❯ pip install --pre cdk8s-plus-22 cdk8s`
 
     ```python
     import cdk8s_plus_17 as kplus

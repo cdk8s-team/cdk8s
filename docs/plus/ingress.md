@@ -5,7 +5,7 @@ HTTP. Ingress may provide load balancing, SSL termination and name-based virtual
 hosting.
 
 !!! tip ""
-    [API Reference](../reference/cdk8s-plus-17/typescript.md#ingressv1beta1)
+    [API Reference](../reference/cdk8s-plus-22/typescript.md#ingressv1beta1)
 
 You must have an [Ingress controller] to satisfy an Ingress. Only creating an
 Ingress resource has no effect.
@@ -29,8 +29,8 @@ const helloDeployment = new kplus.Deployment(this, text, {
 
 const helloService = helloDeployment.expose(5678);
 
-const ingress = new IngressV1Beta1(this, 'ingress');
-ingress.addRule('/hello', kplus.IngressV1Beta1Backend.fromService(helloService));
+const ingress = new Ingress(this, 'ingress');
+ingress.addRule('/hello', kplus.IngressBackend.fromService(helloService));
 ```
 
 You can use `addHostRule(host, path, backend)` to define a route that will only
@@ -44,4 +44,4 @@ match any other rules.
 The TCP port used to route requests to services will be determined based on
 which ports are exposed by the service (e.g. through `serve()`). If the service
 exposes multiple ports, then a port must be specified via
-`IngressBackend.fromService(service, { port }`.
+`IngressBackend.fromService(service, { port })`.
