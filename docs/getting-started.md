@@ -10,19 +10,22 @@ This guide will walk you through the following steps:
 ## Prerequisites
 
 === "TypeScript"
-    - [Node.js >= 10.x](https://nodejs.org/en/)
+    - [Node.js >= 12.13.0](https://nodejs.org/en/)
     - Your favorite editor/IDE
     - [yarn](https://yarnpkg.com/) (optional)
 
 === "Python"
     - [Python >= 3.7.7](https://www.python.org/downloads/release/python-377/)
     - [pipenv](https://pipenv.pypa.io/en/latest) version 2018.11.26 or above.
+    - Your favorite editor/IDE
 
 === "Java"
     - [Maven >= 3.6.3](https://maven.apache.org/install.html)
+    - Your favorite editor/IDE
 
 === "Go"
     - [Go >= 1.16](https://golang.org/dl/)
+    - Your favorite editor/IDE
 
 ## Install the CLI
 
