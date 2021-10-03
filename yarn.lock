@@ -2095,10 +2095,10 @@ cdk8s-cli@1.0.0-beta.53:
     yaml "2.0.0-8"
     yargs "^15"
 
-cdk8s-cli@1.0.0-beta.60:
-  version "1.0.0-beta.60"
-  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-1.0.0-beta.60.tgz#be1be4b5dc09b3292816a505d17b183f278e66e2"
-  integrity sha512-faBmnkTrzxJCjyliU+sLvLDpyfI8KkT4U6mx99SEJm6jrzF0zUY+MsKcfl5OxPqaIHIg99nQbhKdgkFHfqo4ew==
+cdk8s-cli@1.0.0-beta.61:
+  version "1.0.0-beta.61"
+  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-1.0.0-beta.61.tgz#6bcf915a8efc25d8aa072fcd5d9c0bb83ffd48bb"
+  integrity sha512-7K4Bk8myjJTLaDtWTJPX7Y/J6fDKxsQTMlBA5oo2T91s3Zd7RHiwgB1u3AWNtp+D0o3j1E8JP/v0Qzm6LeIyaQ==
   dependencies:
     "@types/node" "^12.13.0"
     ajv "^8.6.3"
@@ -2111,7 +2111,7 @@ cdk8s-cli@1.0.0-beta.60:
     jsii-pacmak "^1.35.0"
     jsii-srcmak "^0.1.357"
     json2jsii "^0.2.33"
-    sscaff "^1.2.82"
+    sscaff "^1.2.83"
     yaml "2.0.0-8"
     yargs "^15"
 
@@ -5352,9 +5352,9 @@ node-modules-regexp@^1.0.0:
   integrity sha1-jZ2+KJZKSsVxLpExZCEHxx6Q7EA=
 
 node-releases@^1.1.76:
-  version "1.1.76"
-  resolved "https://registry.yarnpkg.com/node-releases/-/node-releases-1.1.76.tgz#df245b062b0cafbd5282ab6792f7dccc2d97f36e"
-  integrity sha512-9/IECtNr8dXNmPWmFXepT0/7o5eolGesHUa3mtr0KlgnCvnZxwh2qensKL42JJY2vQKC3nIBXetFAqR+PW1CmA==
+  version "1.1.77"
+  resolved "https://registry.yarnpkg.com/node-releases/-/node-releases-1.1.77.tgz#50b0cfede855dd374e7585bf228ff34e57c1c32e"
+  integrity sha512-rB1DUFUNAN4Gn9keO2K1efO35IDK7yKHCdCaIMvFO7yUYmmZYeDjnGKle26G4rwj+LKRQpjyUUvMkPglwGCYNQ==
 
 nopt@^4.0.1:
   version "4.0.3"
@@ -5974,10 +5974,10 @@ progress@^2.0.3:
   resolved "https://registry.yarnpkg.com/progress/-/progress-2.0.3.tgz#7e8cf8d8f5b8f239c1bc68beb4eb78567d572ef8"
   integrity sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA==
 
-projen@^0.28.33:
-  version "0.28.33"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.28.33.tgz#3f42f7ac46b5be9885d1e36b3b3b518ef36d6d4e"
-  integrity sha512-BhUBzLWy2lOdxCPnuNw8fb2idaxWWz0R4osBKcoIP3QA2j+YoK1+pzxlo+cFuVY07QZjD+P5GO6KcPnd7+rUWA==
+projen@^0.28.34:
+  version "0.28.34"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.28.34.tgz#327a436426d6afbc89a6b510329ec563c4a53937"
+  integrity sha512-ZKHRGKhitceQbKXpBwNdVemY7DDcAuK0HnIa0sgC7RdxE0fmhhF4SIcXjWvu0gpuIQM4RMRbzs1hytw+KK5LpQ==
   dependencies:
     "@iarna/toml" "^2.2.5"
     chalk "^4.1.2"
@@ -6687,10 +6687,10 @@ sprintf-js@~1.0.2:
   resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
   integrity sha1-BOaSb2YolTVPPdAVIDYzuFcpfiw=
 
-sscaff@^1.2.70, sscaff@^1.2.82:
-  version "1.2.83"
-  resolved "https://registry.yarnpkg.com/sscaff/-/sscaff-1.2.83.tgz#43b0e80922a5b427b1f7f1f0fcb677830fa33136"
-  integrity sha512-7kn8pVsYnhVjY1a+79FYa10ro1Sx63S7DRGGOYBVwoQ1koJW96SiW2Fu7EAcDhb97V+l0yeg7Xe4X/ADNekEfw==
+sscaff@^1.2.70, sscaff@^1.2.83:
+  version "1.2.84"
+  resolved "https://registry.yarnpkg.com/sscaff/-/sscaff-1.2.84.tgz#ccabc10c91b0ee4415f4530cec2f789dce405eb2"
+  integrity sha512-M2CkfbEzeatkbSX65dkqeQ0FM47h3wdefyi+LY7MP7+hREQ7vr9eDz5xyXPwga/1P5c/UPikDZuoEjo2ZVJjtQ==
 
 sshpk@^1.7.0:
   version "1.16.1"
