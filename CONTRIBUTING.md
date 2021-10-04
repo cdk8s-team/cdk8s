@@ -232,6 +232,13 @@ release. Therefore please following these guidelines to the letter:
   - If this is a breaking change, the last paragraph should describe the
     breaking change with the prefix `BREAKING CHANGE: xxxxxx`.
 
+#### Developer Certificate Of Origin (DCO)
+
+Every commit should be signed-off in compliance with the [Developer Certificate Of Origin](./DCO).
+You can sign your commits by using the `git commit -s` command.
+
+> To configure automatic signoff, see [git-hooks](./git-hooks/README.md).
+
 ## Documentation
 
 Documentation is rendered from markdown using
