@@ -37,7 +37,6 @@ junit.xml
 !/.github/workflows/build.yml
 !/.mergify.yml
 !/.github/workflows/upgrade.yml
-!/.github/pull_request_template.md
 .vscode/
 *.js
 *.d.ts
