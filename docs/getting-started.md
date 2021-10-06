@@ -55,14 +55,6 @@ Now, we'll use the `cdk8s init` command to create a new CDK8s app:
     ...
     ```
 
-    Since TypeScript is a compiled language, we will need to compile `.ts` files to
-    `.js` in order to execute our CDK app. You can do that continuously in the
-    background like this:
-
-    ```console
-    $ npm run watch
-    ```
-
 === "Python"
     ```console
     $ mkdir hello
@@ -97,7 +89,17 @@ This will perform the following:
 
 ## Apps & Charts
 
-At this point, if you will see something like this:
+Apps are structured as a tree of **constructs**, which are composable units of
+abstraction. We will learn more about constructs soon.
+
+This initial code created by `cdk8s init` defines an app with a single, empty,
+chart.
+
+When you synthesize the app, a Kubernetes manifest YAML will be produced for
+each `Chart` in your app and will write it to the `dist` directory. At this point, the YAML
+file should be empty since we haven't defined any resources yet.
+
+Let have a look at the code:
 
 === "TypeScript"
     `main.ts`
@@ -120,6 +122,19 @@ At this point, if you will see something like this:
     app.synth();
     ```
 
+    To produce and inspect the generated manifest, you can run:
+
+    ```console
+    $ npm run compile && cdk8s synth
+    dist/hello.k8s.yaml
+
+    $ cat dist/hello.k8s.yaml
+    <EMPTY>
+    ```
+
+    > Note that since TypeScript is a compiled language, we will need to compile `.ts` files to `.js` in order to execute our CDK8s app. To avoid explicitly compiling every time, you can run a watch process in the background by running: `npm run watch`
+
+
 === "Python"
     `main.py`
 
@@ -140,6 +155,16 @@ At this point, if you will see something like this:
     MyChart(app, "hello")
 
     app.synth()
+    ```
+
+    To produce and inspect the generated manifest, you can run:
+
+    ```console
+    $ cdk8s synth
+    dist/hello.k8s.yaml
+
+    $ cat dist/hello.k8s.yaml
+    <EMPTY>
     ```
 
 === "Java"
@@ -173,6 +198,16 @@ At this point, if you will see something like this:
             app.synth();
         }
     }
+    ```
+
+    To produce and inspect the generated manifest, you can run:
+
+    ```console
+    $ cdk8s synth
+    dist/hello.k8s.yaml
+
+    $ cat dist/hello.k8s.yaml
+    <EMPTY>
     ```
 
 === "Go"
@@ -210,25 +245,15 @@ At this point, if you will see something like this:
     }
     ```
 
+    To produce and inspect the generated manifest, you can run:
 
-Apps are structured as a tree of **constructs**, which are composable units of
-abstraction. We will learn more about constructs soon.
+    ```console
+    $ cdk8s synth
+    dist/hello.k8s.yaml
 
-This initial code created by `cdk8s init` defines an app with a single, empty,
-chart.
-
-When you run `cdk8s synth`, a Kubernetes manifest YAML will be synthesized for
-each `Chart` in your app and will write it to the `dist` directory.
-
-You can try:
-
-```console
-$ cdk8s synth
-dist/hello.k8s.yaml
-
-$ cat dist/hello.k8s.yaml
-<EMPTY>
-```
+    $ cat dist/hello.k8s.yaml
+    <EMPTY>
+    ```
 
 ## Importing Constructs for the Kubernetes API
 
@@ -304,6 +329,12 @@ resources inspired by [paulbouwer](https://github.com/paulbouwer)'s
     app.synth();
     ```
 
+    Now, to synthesize the app, run:
+
+    ```shell
+    npm run compile && cdk8s synth
+    ```
+
 === "Python"
     ```python
     #!/usr/bin/env python
@@ -342,6 +373,12 @@ resources inspired by [paulbouwer](https://github.com/paulbouwer)'s
     MyChart(app, "hello")
 
     app.synth()
+    ```
+
+    Now, to synthesize the app, run:
+
+    ```shell
+    cdk8s synth
     ```
 
 === "Java"
@@ -449,8 +486,14 @@ resources inspired by [paulbouwer](https://github.com/paulbouwer)'s
     }
     ```
 
+    Now, to synthesize the app, run:
+
+    ```shell
+    cdk8s synth
+    ```
+
 === "Go"
-    
+
     ```go
     package main
 
@@ -516,15 +559,11 @@ resources inspired by [paulbouwer](https://github.com/paulbouwer)'s
     }
     ```
 
-Now, compile & synth this project:
+    Now, to synthesize the app, run:
 
-```shell
-cdk8s synth
-```
-
-!!! notice
-    In compiled languages, like Java and TypeScript, you'll need to compile your program
-    before running `cdk8s synth`.
+    ```shell
+    cdk8s synth
+    ```
 
 This will be contents of `hello.k8s.yaml`:
 
