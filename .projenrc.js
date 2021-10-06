@@ -6,9 +6,7 @@ const mainBranch = 'master';
 const project = new NodeProject({
   name: 'root',
   defaultReleaseBranch: mainBranch,
-  pullRequestTemplateContents: [
-    '*By submitting this pull request, I confirm that my contribution is made under the terms of the Apache-2.0 license*'
-  ],
+  pullRequestTemplate: false,
   projenUpgradeSecret: 'PROJEN_GITHUB_TOKEN',
   releaseWorkflow: false,
   workflowBootstrapSteps: [
