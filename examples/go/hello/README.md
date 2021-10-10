@@ -7,17 +7,17 @@ You can apply this example into your own cluster with these step by step command
 #### Import
 
 ```console
-$ cdk8s import --language go
+cdk8s import --language go
 ```
 
 #### Synthesize the CDK into a k8s template
 
 ```console
-$ cdk8s synth
+cdk8s synth
 ```
 
 #### Apply the k8s template to your cluster
 
 ```console
-$ kubectl apply -f dist/hello-go.k8s.yaml
+kubectl apply -f dist/hello-go.k8s.yaml
 ```

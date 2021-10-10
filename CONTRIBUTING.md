@@ -251,13 +251,13 @@ docstrings during build.
 To test locally, install python3 deps:
 
 ```shell
-$ pip3 install -r docs/requirements.txt
+pip3 install -r docs/requirements.txt
 ```
 
 And then:
 
 ```shell
-$ mkdocs serve
+mkdocs serve
 ```
 
 This will serve a local web server with the website.
@@ -322,7 +322,7 @@ needing to modify multiple files and avoid merge conflicts in post-release rebas
 To release a new version of cdk8s following these steps:
 
 ```shell
-$ yarn bump
+yarn bump
 ```
 
 This will create a new CHANGELOG entry (from conventional commits), bump the version in
@@ -331,7 +331,7 @@ This will create a new CHANGELOG entry (from conventional commits), bump the ver
 Now, push to `master` (in the future we will release from a release branch, but in the meantime we release directly from master):
 
 ```shell
-$ git push origin master
+git push origin master
 ```
 
 This will trigger the [release

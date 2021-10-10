@@ -13,10 +13,10 @@ $ cdk8s import --language python
 
 #### Synthesize the CDK into a k8s template
 ```console
-$ cdk8s synth
+cdk8s synth
 ```
 
 #### Apply the k8s template to your cluster
 ```console
-$ kubectl apply -f dist/hellopython.k8s.yaml
+kubectl apply -f dist/hellopython.k8s.yaml
 ```
