@@ -7,6 +7,10 @@ Built on top of the auto-generated building blocks provided by CDK8s, this
 library includes a hand crafted *construct* for each native kubernetes object,
 exposing richer API's with reduced complexity.
 
+Here is an example of how we would deploy a simple nginx container, once with the low-level API (on the left), and once with the high level abstraction (on the right).
+
+![corevsplus](../assets/corevsplus.png)
+
 **cdk8s+** is vended as a separate library for each kubernetes spec version. The documentation presented here represents version [1.22.0](https://github.com/kubernetes/kubernetes/tree/v1.22.0/api/openapi-spec)
 and is vended as the `cdk8s-plus-22` library.
 
