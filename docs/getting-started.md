@@ -42,6 +42,9 @@ installing the CDK8s CLI globally. We have two options for this.
     - [Go >= 1.16](https://golang.org/dl/)
     - Your favorite editor/IDE
 
+!!! info
+    This Getting Started guide will help you create a Kubernetes manifest using your preferred programming language. **You do not need access to a Kubernetes cluster in order to produce a manifests using CDK8s.**
+
 ## New Project
 
 Now, we'll use the `cdk8s init` command to create a new CDK8s app:
