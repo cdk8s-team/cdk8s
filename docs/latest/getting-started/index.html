@@ -1906,6 +1906,14 @@ resources inspired by <a href="https://github.com/paulbouwer">paulbouwer</a>&lsq
 
     <span class="kd">const</span> <span class="nx">label</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">app</span><span class="o">:</span> <span class="s1">&#39;hello-k8s&#39;</span> <span class="p">};</span>
 
+    <span class="c1">// notice that there is no assigment neccesary when creating resources.</span>
+    <span class="c1">// simply instantiating the resource is enough because it adds it to the construct tree via</span>
+    <span class="c1">// the first argument, which is always the parent construct.</span>
+    <span class="c1">// its a little confusing at first glance, but this is an inherent aspect of the constructs</span>
+    <span class="c1">// programming model, and you will encounter it many times.</span>
+    <span class="c1">// you can still perform an assignment of course, if you need to access</span>
+    <span class="c1">// atrtibutes of the resource in other parts of the code.</span>
+
     <span class="ow">new</span> <span class="nx">KubeService</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;service&#39;</span><span class="p">,</span> <span class="p">{</span>
       <span class="nx">spec</span><span class="o">:</span> <span class="p">{</span>
         <span class="kr">type</span><span class="o">:</span> <span class="s1">&#39;LoadBalancer&#39;</span><span class="p">,</span>
@@ -1958,6 +1966,14 @@ resources inspired by <a href="https://github.com/paulbouwer">paulbouwer</a>&lsq
 
         <span class="c1"># define resources here</span>
         <span class="n">label</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;app&quot;</span><span class="p">:</span> <span class="s2">&quot;hello-k8s&quot;</span><span class="p">}</span>
+
+        <span class="c1"># notice that there is no assigment neccesary when creating resources.</span>
+        <span class="c1"># simply instantiating the resource is enough because it adds it to the construct tree via</span>
+        <span class="c1"># the first argument, which is always the parent construct.</span>
+        <span class="c1"># its a little confusing at first glance, but this is an inherent aspect of the constructs</span>
+        <span class="c1"># programming model, and you will encounter it many times.</span>
+        <span class="c1"># you can still perform an assignment of course, if you need to access</span>
+        <span class="c1"># atrtibutes of the resource in other parts of the code.</span>
 
         <span class="n">k8s</span><span class="o">.</span><span class="n">KubeService</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;service&#39;</span><span class="p">,</span>
                     <span class="n">spec</span><span class="o">=</span><span class="n">k8s</span><span class="o">.</span><span class="n">ServiceSpec</span><span class="p">(</span>
@@ -2045,6 +2061,14 @@ resources inspired by <a href="https://github.com/paulbouwer">paulbouwer</a>&lsq
             <span class="p">.</span><span class="na">spec</span><span class="p">(</span><span class="n">serviceSpec</span><span class="p">)</span>
             <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 
+        <span class="c1">// notice that there is no assigment neccesary when creating resources.</span>
+        <span class="c1">// simply instantiating the resource is enough because it adds it to the construct tree via</span>
+        <span class="c1">// the first argument, which is always the parent construct.</span>
+        <span class="c1">// its a little confusing at first glance, but this is an inherent aspect of the constructs</span>
+        <span class="c1">// programming model, and you will encounter it many times.</span>
+        <span class="c1">// you can still perform an assignment of course, if you need to access</span>
+        <span class="c1">// atrtibutes of the resource in other parts of the code.</span>
+
         <span class="k">new</span> <span class="n">KubeService</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s">&quot;service&quot;</span><span class="p">,</span> <span class="n">serviceProps</span><span class="p">);</span>
 
         <span class="c1">// Defining a Deployment</span>
@@ -2126,6 +2150,14 @@ resources inspired by <a href="https://github.com/paulbouwer">paulbouwer</a>&lsq
       <span class="nx">Selector</span><span class="p">:</span> <span class="o">&amp;</span><span class="nx">label</span><span class="p">,</span>
     <span class="p">},</span>
   <span class="p">})</span>
+
+  <span class="c1">// notice that there is no assigment neccesary when creating resources.</span>
+  <span class="c1">// simply instantiating the resource is enough because it adds it to the construct tree via</span>
+  <span class="c1">// the first argument, which is always the parent construct.</span>
+  <span class="c1">// its a little confusing at first glance, but this is an inherent aspect of the constructs</span>
+  <span class="c1">// programming model, and you will encounter it many times.</span>
+  <span class="c1">// you can still perform an assignment of course, if you need to access</span>
+  <span class="c1">// atrtibutes of the resource in other parts of the code.</span>
 
   <span class="nx">k8s</span><span class="p">.</span><span class="nx">NewKubeDeployment</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span> <span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;deployment&quot;</span><span class="p">),</span> <span class="o">&amp;</span><span class="nx">k8s</span><span class="p">.</span><span class="nx">KubeDeploymentProps</span><span class="p">{</span>
     <span class="nx">Spec</span><span class="p">:</span> <span class="o">&amp;</span><span class="nx">k8s</span><span class="p">.</span><span class="nx">DeploymentSpec</span><span class="p">{</span>
