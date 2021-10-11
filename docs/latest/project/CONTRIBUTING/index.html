@@ -2029,10 +2029,10 @@ the <a href="https://github.com/cdk8s-team/cdk8s/tree/master/docs"><code>docs</c
 <p>API documentation for <code>cdk8s</code> and all <code>cdk8s-plus-*</code> packages is auto-generated from inline
 docstrings during build.</p>
 <p>To test locally, install python3 deps:</p>
-<div class="highlight"><pre><span></span><code>$ pip3 install -r docs/requirements.txt
+<div class="highlight"><pre><span></span><code>pip3 install -r docs/requirements.txt
 </code></pre></div>
 <p>And then:</p>
-<div class="highlight"><pre><span></span><code>$ mkdocs serve
+<div class="highlight"><pre><span></span><code>mkdocs serve
 </code></pre></div>
 <p>This will serve a local web server with the website.</p>
 <blockquote>
@@ -2083,12 +2083,12 @@ package.json files use <code>0.0.0</code>. This allows bumping a new version wit
 needing to modify multiple files and avoid merge conflicts in post-release rebases.</p>
 <h3 id="release-protocol">Release Protocol<a class="headerlink" href="#release-protocol" title="Permanent link">&para;</a></h3>
 <p>To release a new version of cdk8s following these steps:</p>
-<div class="highlight"><pre><span></span><code>$ yarn bump
+<div class="highlight"><pre><span></span><code>yarn bump
 </code></pre></div>
 <p>This will create a new CHANGELOG entry (from conventional commits), bump the version in
 <code>package.json</code> and create a bump commit.</p>
 <p>Now, push to <code>master</code> (in the future we will release from a release branch, but in the meantime we release directly from master):</p>
-<div class="highlight"><pre><span></span><code>$ git push origin master
+<div class="highlight"><pre><span></span><code>git push origin master
 </code></pre></div>
 <p>This will trigger the <a href="https://github.com/cdk8s-team/cdk8s/blob/master/.github/workflows/release.yml">release
 workflow</a>

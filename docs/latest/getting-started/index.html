@@ -258,15 +258,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
-    Prerequisites
+  <a href="#install-the-cli" class="md-nav__link">
+    Install the CLI
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#install-the-cli" class="md-nav__link">
-    Install the CLI
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
   </a>
   
 </li>
@@ -1582,15 +1582,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
-    Prerequisites
+  <a href="#install-the-cli" class="md-nav__link">
+    Install the CLI
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#install-the-cli" class="md-nav__link">
-    Install the CLI
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
   </a>
   
 </li>
@@ -1648,45 +1648,49 @@
 <li>Define &amp; deploy your first CDK8s application.</li>
 <li>Define a custom CDK8s construct.</li>
 </ul>
+<h2 id="install-the-cli">Install the CLI<a class="headerlink" href="#install-the-cli" title="Permanent link">&para;</a></h2>
+<p>CDK8s has a cute little CLI that has a few useful commands. Let&rsquo;s start by
+installing the CDK8s CLI globally. We have two options for this.</p>
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">npm</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="go">npm install -g cdk8s-cli</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">yarn</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="go">yarn global add cdk8s-cli</span>
+</code></pre></div>
+</div>
+</div>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
-<div class="tabbed-set" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">TypeScript</label><div class="tabbed-content">
+<div class="tabbed-set" data-tabs="2:4"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">TypeScript</label><div class="tabbed-content">
 <ul>
 <li><a href="https://nodejs.org/en/">Node.js &gt;= 12.13.0</a></li>
 <li>Your favorite editor/IDE</li>
 <li><a href="https://yarnpkg.com/">yarn</a> (optional)</li>
 </ul>
 </div>
-<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Python</label><div class="tabbed-content">
+<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">Python</label><div class="tabbed-content">
 <ul>
 <li><a href="https://www.python.org/downloads/release/python-377/">Python &gt;= 3.7.7</a></li>
 <li><a href="https://pipenv.pypa.io/en/latest">pipenv</a> version 2018.11.26 or above.</li>
 <li>Your favorite editor/IDE</li>
 </ul>
 </div>
-<input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><label for="__tabbed_1_3">Java</label><div class="tabbed-content">
+<input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><label for="__tabbed_2_3">Java</label><div class="tabbed-content">
 <ul>
 <li><a href="https://maven.apache.org/install.html">Maven &gt;= 3.6.3</a></li>
 <li>Your favorite editor/IDE</li>
 </ul>
 </div>
-<input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><label for="__tabbed_1_4">Go</label><div class="tabbed-content">
+<input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><label for="__tabbed_2_4">Go</label><div class="tabbed-content">
 <ul>
 <li><a href="https://golang.org/dl/">Go &gt;= 1.16</a></li>
 <li>Your favorite editor/IDE</li>
 </ul>
 </div>
 </div>
-<h2 id="install-the-cli">Install the CLI<a class="headerlink" href="#install-the-cli" title="Permanent link">&para;</a></h2>
-<p>CDK8s has a cute little CLI that has a few useful commands. Let&rsquo;s start by
-installing the CDK8s CLI globally. We have two options for this.</p>
-<div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">npm</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>npm install -g cdk8s-cli
-</code></pre></div>
-</div>
-<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">yarn</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>yarn global add cdk8s-cli
-</code></pre></div>
-</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>This Getting Started guide will help you create a Kubernetes manifest using your preferred programming language. <strong>You do not need access to a Kubernetes cluster in order to produce a manifests using CDK8s.</strong></p>
 </div>
 <h2 id="new-project">New Project<a class="headerlink" href="#new-project" title="Permanent link">&para;</a></h2>
 <p>Now, we&rsquo;ll use the <code>cdk8s init</code> command to create a new CDK8s app:</p>
@@ -1756,10 +1760,10 @@ file should be empty since we haven&rsquo;t defined any resources yet.</p>
 <span class="nx">app</span><span class="p">.</span><span class="nx">synth</span><span class="p">();</span>
 </code></pre></div>
 <p>To produce and inspect the generated manifest, you can run:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>npm run compile <span class="o">&amp;&amp;</span> cdk8s synth
+<div class="highlight"><pre><span></span><code><span class="go">npm run compile &amp;&amp; cdk8s synth</span>
 <span class="go">dist/hello.k8s.yaml</span>
 
-<span class="gp">$ </span>cat dist/hello.k8s.yaml
+<span class="go">cat dist/hello.k8s.yaml</span>
 <span class="go">&lt;EMPTY&gt;</span>
 </code></pre></div>
 <blockquote>
@@ -1786,10 +1790,10 @@ file should be empty since we haven&rsquo;t defined any resources yet.</p>
 <span class="n">app</span><span class="o">.</span><span class="n">synth</span><span class="p">()</span>
 </code></pre></div>
 <p>To produce and inspect the generated manifest, you can run:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>cdk8s synth
+<div class="highlight"><pre><span></span><code><span class="go">cdk8s synth</span>
 <span class="go">dist/hello.k8s.yaml</span>
 
-<span class="gp">$ </span>cat dist/hello.k8s.yaml
+<span class="go">cat dist/hello.k8s.yaml</span>
 <span class="go">&lt;EMPTY&gt;</span>
 </code></pre></div>
 </div>
@@ -1824,10 +1828,10 @@ file should be empty since we haven&rsquo;t defined any resources yet.</p>
 <span class="p">}</span>
 </code></pre></div>
 <p>To produce and inspect the generated manifest, you can run:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>cdk8s synth
+<div class="highlight"><pre><span></span><code><span class="go">cdk8s synth</span>
 <span class="go">dist/hello.k8s.yaml</span>
 
-<span class="gp">$ </span>cat dist/hello.k8s.yaml
+<span class="go">cat dist/hello.k8s.yaml</span>
 <span class="go">&lt;EMPTY&gt;</span>
 </code></pre></div>
 </div>
@@ -1864,10 +1868,10 @@ file should be empty since we haven&rsquo;t defined any resources yet.</p>
 <span class="p">}</span>
 </code></pre></div>
 <p>To produce and inspect the generated manifest, you can run:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>cdk8s synth
+<div class="highlight"><pre><span></span><code><span class="go">cdk8s synth</span>
 <span class="go">dist/hello.k8s.yaml</span>
 
-<span class="gp">$ </span>cat dist/hello.k8s.yaml
+<span class="go">cat dist/hello.k8s.yaml</span>
 <span class="go">&lt;EMPTY&gt;</span>
 </code></pre></div>
 </div>
