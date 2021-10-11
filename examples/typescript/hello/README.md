@@ -14,10 +14,10 @@ $ yarn build
 
 #### Synthesize the CDK into a k8s template
 ```console
-yarn synth
+$ yarn synth
 ```
 
 #### Apply the k8s template to your cluster
 ```console
-kubectl apply -f dist/hellok8s.k8s.yaml
+$ kubectl apply -f dist/hellok8s.k8s.yaml
 ```
