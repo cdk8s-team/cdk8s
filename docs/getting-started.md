@@ -7,6 +7,21 @@ This guide will walk you through the following steps:
 - Define & deploy your first CDK8s application.
 - Define a custom CDK8s construct.
 
+## Install the CLI
+
+CDK8s has a cute little CLI that has a few useful commands. Let's start by
+installing the CDK8s CLI globally. We have two options for this.
+
+=== "npm"
+    ```console
+    npm install -g cdk8s-cli
+    ```
+
+=== "yarn"
+    ```console
+    yarn global add cdk8s-cli
+    ```
+
 ## Prerequisites
 
 === "TypeScript"
@@ -27,20 +42,8 @@ This guide will walk you through the following steps:
     - [Go >= 1.16](https://golang.org/dl/)
     - Your favorite editor/IDE
 
-## Install the CLI
-
-CDK8s has a cute little CLI that has a few useful commands. Let's start by
-installing the CDK8s CLI globally. We have two options for this.
-
-=== "npm"
-    ```console
-    $ npm install -g cdk8s-cli
-    ```
-
-=== "yarn"
-    ```console
-    $ yarn global add cdk8s-cli
-    ```
+!!! info
+    This Getting Started guide will help you create a Kubernetes manifest using your preferred programming language. **You do not need access to a Kubernetes cluster in order to produce a manifests using CDK8s.**
 
 ## New Project
 
@@ -125,10 +128,10 @@ Let have a look at the code:
     To produce and inspect the generated manifest, you can run:
 
     ```console
-    $ npm run compile && cdk8s synth
+    npm run compile && cdk8s synth
     dist/hello.k8s.yaml
 
-    $ cat dist/hello.k8s.yaml
+    cat dist/hello.k8s.yaml
     <EMPTY>
     ```
 
@@ -160,10 +163,10 @@ Let have a look at the code:
     To produce and inspect the generated manifest, you can run:
 
     ```console
-    $ cdk8s synth
+    cdk8s synth
     dist/hello.k8s.yaml
 
-    $ cat dist/hello.k8s.yaml
+    cat dist/hello.k8s.yaml
     <EMPTY>
     ```
 
@@ -203,10 +206,10 @@ Let have a look at the code:
     To produce and inspect the generated manifest, you can run:
 
     ```console
-    $ cdk8s synth
+    cdk8s synth
     dist/hello.k8s.yaml
 
-    $ cat dist/hello.k8s.yaml
+    cat dist/hello.k8s.yaml
     <EMPTY>
     ```
 
@@ -248,10 +251,10 @@ Let have a look at the code:
     To produce and inspect the generated manifest, you can run:
 
     ```console
-    $ cdk8s synth
+    cdk8s synth
     dist/hello.k8s.yaml
 
-    $ cat dist/hello.k8s.yaml
+    cat dist/hello.k8s.yaml
     <EMPTY>
     ```
 
