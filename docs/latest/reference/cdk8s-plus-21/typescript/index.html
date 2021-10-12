@@ -10,7 +10,7 @@
       
       
       <link rel="icon" href="../../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.2">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.3">
     
     
       
@@ -18,7 +18,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.24c991ad.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.5143246d.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.3f5d1f46.min.css">
@@ -1084,6 +1084,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#adddeploymentoptions" class="md-nav__link">
+    AddDeploymentOptions 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#adddirectoryoptions" class="md-nav__link">
     AddDirectoryOptions 
   </a>
@@ -1154,8 +1161,22 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#exposeoptions" class="md-nav__link">
-    ExposeOptions 
+  <a href="#exposedeploymentviaingressoptions" class="md-nav__link">
+    ExposeDeploymentViaIngressOptions 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exposedeploymentviaserviceoptions" class="md-nav__link">
+    ExposeDeploymentViaServiceOptions 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exposeserviceviaingressoptions" class="md-nav__link">
+    ExposeServiceViaIngressOptions 
   </a>
   
 </li>
@@ -2174,6 +2195,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#adddeploymentoptions" class="md-nav__link">
+    AddDeploymentOptions 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#adddirectoryoptions" class="md-nav__link">
     AddDirectoryOptions 
   </a>
@@ -2244,8 +2272,22 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#exposeoptions" class="md-nav__link">
-    ExposeOptions 
+  <a href="#exposedeploymentviaingressoptions" class="md-nav__link">
+    ExposeDeploymentViaIngressOptions 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exposedeploymentviaserviceoptions" class="md-nav__link">
+    ExposeDeploymentViaServiceOptions 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exposeserviceviaingressoptions" class="md-nav__link">
+    ExposeServiceViaIngressOptions 
   </a>
   
 </li>
@@ -2780,18 +2822,27 @@ existing Deployments and adopt all their resources with new Deployments.</p>
 <li><em>Type:</em> <a href="#cdk8s-plus-21.Volume"><code>cdk8s-plus-21.Volume</code></a></li>
 </ul>
 <hr />
-<h5 id="expose"><code>expose</code> <a name="cdk8s-plus-21.Deployment.expose"></a><a class="headerlink" href="#expose" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="nx">expose</span><span class="p">(</span><span class="nx">port</span>: <span class="kt">number</span><span class="p">,</span> <span class="nx">options?</span>: <span class="kt">ExposeOptions</span><span class="p">)</span>
+<h5 id="exposeviaingress"><code>exposeViaIngress</code> <a name="cdk8s-plus-21.Deployment.exposeViaIngress"></a><a class="headerlink" href="#exposeviaingress" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="nx">exposeViaIngress</span><span class="p">(</span><span class="nx">path</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">options?</span>: <span class="kt">ExposeDeploymentViaIngressOptions</span><span class="p">)</span>
 </code></pre></div>
-<h6 id="portrequired"><code>port</code><sup>Required</sup> <a name="cdk8s-plus-21.Deployment.parameter.port"></a><a class="headerlink" href="#portrequired" title="Permanent link">&para;</a></h6>
+<h6 id="pathrequired"><code>path</code><sup>Required</sup> <a name="cdk8s-plus-21.Deployment.parameter.path"></a><a class="headerlink" href="#pathrequired" title="Permanent link">&para;</a></h6>
 <ul>
-<li><em>Type:</em> <code>number</code></li>
+<li><em>Type:</em> <code>string</code></li>
 </ul>
-<p>The port number the service will bind to.</p>
+<p>The ingress path to register under.</p>
 <hr />
 <h6 id="optionsoptional_1"><code>options</code><sup>Optional</sup> <a name="cdk8s-plus-21.Deployment.parameter.options"></a><a class="headerlink" href="#optionsoptional_1" title="Permanent link">&para;</a></h6>
 <ul>
-<li><em>Type:</em> <a href="#cdk8s-plus-21.ExposeOptions"><code>cdk8s-plus-21.ExposeOptions</code></a></li>
+<li><em>Type:</em> <a href="#cdk8s-plus-21.ExposeDeploymentViaIngressOptions"><code>cdk8s-plus-21.ExposeDeploymentViaIngressOptions</code></a></li>
+</ul>
+<p>Additional options.</p>
+<hr />
+<h5 id="exposeviaservice"><code>exposeViaService</code> <a name="cdk8s-plus-21.Deployment.exposeViaService"></a><a class="headerlink" href="#exposeviaservice" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="nx">exposeViaService</span><span class="p">(</span><span class="nx">options?</span>: <span class="kt">ExposeDeploymentViaServiceOptions</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="optionsoptional_2"><code>options</code><sup>Optional</sup> <a name="cdk8s-plus-21.Deployment.parameter.options"></a><a class="headerlink" href="#optionsoptional_2" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <a href="#cdk8s-plus-21.ExposeDeploymentViaServiceOptions"><code>cdk8s-plus-21.ExposeDeploymentViaServiceOptions</code></a></li>
 </ul>
 <p>Options to determine details of the service and port exposed.</p>
 <hr />
@@ -2929,7 +2980,7 @@ based virtual hosting etc.</p>
 </ul>
 <p>The host name.</p>
 <hr />
-<h6 id="pathrequired"><code>path</code><sup>Required</sup> <a name="cdk8s-plus-21.IngressV1Beta1.parameter.path"></a><a class="headerlink" href="#pathrequired" title="Permanent link">&para;</a></h6>
+<h6 id="pathrequired_1"><code>path</code><sup>Required</sup> <a name="cdk8s-plus-21.IngressV1Beta1.parameter.path"></a><a class="headerlink" href="#pathrequired_1" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <code>string</code></li>
 </ul>
@@ -2944,7 +2995,7 @@ based virtual hosting etc.</p>
 <h5 id="addrule"><code>addRule</code> <a name="cdk8s-plus-21.IngressV1Beta1.addRule"></a><a class="headerlink" href="#addrule" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="nx">addRule</span><span class="p">(</span><span class="nx">path</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">backend</span>: <span class="kt">IngressV1Beta1Backend</span><span class="p">)</span>
 </code></pre></div>
-<h6 id="pathrequired_1"><code>path</code><sup>Required</sup> <a name="cdk8s-plus-21.IngressV1Beta1.parameter.path"></a><a class="headerlink" href="#pathrequired_1" title="Permanent link">&para;</a></h6>
+<h6 id="pathrequired_2"><code>path</code><sup>Required</sup> <a name="cdk8s-plus-21.IngressV1Beta1.parameter.path"></a><a class="headerlink" href="#pathrequired_2" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <code>string</code></li>
 </ul>
@@ -3194,7 +3245,7 @@ resource.</p>
 the ID includes a path separator (<code>/</code>), then it will be replaced by double
 dash <code>--</code>.</p>
 <hr />
-<h5 id="optionsoptional_2"><code>options</code><sup>Optional</sup> <a name="cdk8s-plus-21.Resource.parameter.options"></a><a class="headerlink" href="#optionsoptional_2" title="Permanent link">&para;</a></h5>
+<h5 id="optionsoptional_3"><code>options</code><sup>Optional</sup> <a name="cdk8s-plus-21.Resource.parameter.options"></a><a class="headerlink" href="#optionsoptional_3" title="Permanent link">&para;</a></h5>
 <ul>
 <li><em>Type:</em> <a href="#constructs.ConstructOptions"><code>constructs.ConstructOptions</code></a></li>
 </ul>
@@ -3317,7 +3368,7 @@ or load balancer in between your application and the backend Pods.</p>
 <hr />
 <h4 id="methods_6">Methods <a name="Methods"></a><a class="headerlink" href="#methods_6" title="Permanent link">&para;</a></h4>
 <h5 id="adddeployment"><code>addDeployment</code> <a name="cdk8s-plus-21.Service.addDeployment"></a><a class="headerlink" href="#adddeployment" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="nx">addDeployment</span><span class="p">(</span><span class="nx">deployment</span>: <span class="kt">Deployment</span><span class="p">,</span> <span class="nx">port</span>: <span class="kt">number</span><span class="p">,</span> <span class="nx">options?</span>: <span class="kt">ServicePortOptions</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="nx">addDeployment</span><span class="p">(</span><span class="nx">deployment</span>: <span class="kt">Deployment</span><span class="p">,</span> <span class="nx">options?</span>: <span class="kt">AddDeploymentOptions</span><span class="p">)</span>
 </code></pre></div>
 <h6 id="deploymentrequired"><code>deployment</code><sup>Required</sup> <a name="cdk8s-plus-21.Service.parameter.deployment"></a><a class="headerlink" href="#deploymentrequired" title="Permanent link">&para;</a></h6>
 <ul>
@@ -3325,15 +3376,9 @@ or load balancer in between your application and the backend Pods.</p>
 </ul>
 <p>The deployment to expose.</p>
 <hr />
-<h6 id="portrequired_1"><code>port</code><sup>Required</sup> <a name="cdk8s-plus-21.Service.parameter.port"></a><a class="headerlink" href="#portrequired_1" title="Permanent link">&para;</a></h6>
+<h6 id="optionsoptional_4"><code>options</code><sup>Optional</sup> <a name="cdk8s-plus-21.Service.parameter.options"></a><a class="headerlink" href="#optionsoptional_4" title="Permanent link">&para;</a></h6>
 <ul>
-<li><em>Type:</em> <code>number</code></li>
-</ul>
-<p>The external port.</p>
-<hr />
-<h6 id="optionsoptional_3"><code>options</code><sup>Optional</sup> <a name="cdk8s-plus-21.Service.parameter.options"></a><a class="headerlink" href="#optionsoptional_3" title="Permanent link">&para;</a></h6>
-<ul>
-<li><em>Type:</em> <a href="#cdk8s-plus-21.ServicePortOptions"><code>cdk8s-plus-21.ServicePortOptions</code></a></li>
+<li><em>Type:</em> <a href="#cdk8s-plus-21.AddDeploymentOptions"><code>cdk8s-plus-21.AddDeploymentOptions</code></a></li>
 </ul>
 <p>Optional settings for the port.</p>
 <hr />
@@ -3352,16 +3397,31 @@ or load balancer in between your application and the backend Pods.</p>
 </ul>
 <p>The label value.</p>
 <hr />
+<h5 id="exposeviaingress_1"><code>exposeViaIngress</code> <a name="cdk8s-plus-21.Service.exposeViaIngress"></a><a class="headerlink" href="#exposeviaingress_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="nx">exposeViaIngress</span><span class="p">(</span><span class="nx">path</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">options?</span>: <span class="kt">ExposeServiceViaIngressOptions</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="pathrequired_3"><code>path</code><sup>Required</sup> <a name="cdk8s-plus-21.Service.parameter.path"></a><a class="headerlink" href="#pathrequired_3" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <code>string</code></li>
+</ul>
+<p>The path to expose the service under.</p>
+<hr />
+<h6 id="optionsoptional_5"><code>options</code><sup>Optional</sup> <a name="cdk8s-plus-21.Service.parameter.options"></a><a class="headerlink" href="#optionsoptional_5" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <a href="#cdk8s-plus-21.ExposeServiceViaIngressOptions"><code>cdk8s-plus-21.ExposeServiceViaIngressOptions</code></a></li>
+</ul>
+<p>Additional options.</p>
+<hr />
 <h5 id="serve"><code>serve</code> <a name="cdk8s-plus-21.Service.serve"></a><a class="headerlink" href="#serve" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="nx">serve</span><span class="p">(</span><span class="nx">port</span>: <span class="kt">number</span><span class="p">,</span> <span class="nx">options?</span>: <span class="kt">ServicePortOptions</span><span class="p">)</span>
 </code></pre></div>
-<h6 id="portrequired_2"><code>port</code><sup>Required</sup> <a name="cdk8s-plus-21.Service.parameter.port"></a><a class="headerlink" href="#portrequired_2" title="Permanent link">&para;</a></h6>
+<h6 id="portrequired"><code>port</code><sup>Required</sup> <a name="cdk8s-plus-21.Service.parameter.port"></a><a class="headerlink" href="#portrequired" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <code>number</code></li>
 </ul>
 <p>The port definition.</p>
 <hr />
-<h6 id="optionsoptional_4"><code>options</code><sup>Optional</sup> <a name="cdk8s-plus-21.Service.parameter.options"></a><a class="headerlink" href="#optionsoptional_4" title="Permanent link">&para;</a></h6>
+<h6 id="optionsoptional_6"><code>options</code><sup>Optional</sup> <a name="cdk8s-plus-21.Service.parameter.options"></a><a class="headerlink" href="#optionsoptional_6" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-21.ServicePortOptions"><code>cdk8s-plus-21.ServicePortOptions</code></a></li>
 </ul>
@@ -3619,9 +3679,72 @@ volumes to the new Pods that replace any that have failed.</p>
 <p>The service account used to run this pod.</p>
 <hr />
 <h2 id="structs">Structs <a name="Structs"></a><a class="headerlink" href="#structs" title="Permanent link">&para;</a></h2>
+<h3 id="adddeploymentoptions">AddDeploymentOptions <a name="cdk8s-plus-21.AddDeploymentOptions"></a><a class="headerlink" href="#adddeploymentoptions" title="Permanent link">&para;</a></h3>
+<p>Options to add a deployment to a service.</p>
+<h4 id="initializer">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">AddDeploymentOptions</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-21&#39;</span>
+
+<span class="kd">const</span> <span class="nx">addDeploymentOptions</span>: <span class="kt">AddDeploymentOptions</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
+</code></pre></div>
+<h5 id="nameoptional"><code>name</code><sup>Optional</sup> <a name="cdk8s-plus-21.AddDeploymentOptions.property.name"></a><a class="headerlink" href="#nameoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">name</span>: <span class="kt">string</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>string</code></li>
+</ul>
+<p>The name of this port within the service.</p>
+<p>This must be a DNS_LABEL. All
+ports within a ServiceSpec must have unique names. This maps to the &lsquo;Name&rsquo;
+field in EndpointPort objects. Optional if only one ServicePort is defined
+on this service.</p>
+<hr />
+<h5 id="nodeportoptional"><code>nodePort</code><sup>Optional</sup> <a name="cdk8s-plus-21.AddDeploymentOptions.property.nodePort"></a><a class="headerlink" href="#nodeportoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">nodePort</span>: <span class="kt">number</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>number</code></li>
+<li><em>Default:</em> auto-allocate a port if the ServiceType of this Service requires one.</li>
+</ul>
+<p>The port on each node on which this service is exposed when type=NodePort or LoadBalancer.</p>
+<p>Usually assigned by the system. If specified, it will be
+allocated to the service if unused or else creation of the service will
+fail. Default is to auto-allocate a port if the ServiceType of this Service
+requires one.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport</p>
+</blockquote>
+<hr />
+<h5 id="protocoloptional"><code>protocol</code><sup>Optional</sup> <a name="cdk8s-plus-21.AddDeploymentOptions.property.protocol"></a><a class="headerlink" href="#protocoloptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">protocol</span>: <span class="kt">Protocol</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <a href="#cdk8s-plus-21.Protocol"><code>cdk8s-plus-21.Protocol</code></a></li>
+<li><em>Default:</em> Protocol.TCP</li>
+</ul>
+<p>The IP protocol for this port.</p>
+<p>Supports &ldquo;TCP&rdquo;, &ldquo;UDP&rdquo;, and &ldquo;SCTP&rdquo;. Default is TCP.</p>
+<hr />
+<h5 id="targetportoptional"><code>targetPort</code><sup>Optional</sup> <a name="cdk8s-plus-21.AddDeploymentOptions.property.targetPort"></a><a class="headerlink" href="#targetportoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">targetPort</span>: <span class="kt">number</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>number</code></li>
+<li><em>Default:</em> The value of <code>port</code> will be used.</li>
+</ul>
+<p>The port number the service will redirect to.</p>
+<hr />
+<h5 id="portoptional"><code>port</code><sup>Optional</sup> <a name="cdk8s-plus-21.AddDeploymentOptions.property.port"></a><a class="headerlink" href="#portoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">port</span>: <span class="kt">number</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>number</code></li>
+<li><em>Default:</em> Copied from the first container of the deployment.</li>
+</ul>
+<p>The port number the service will bind to.</p>
+<hr />
 <h3 id="adddirectoryoptions">AddDirectoryOptions <a name="cdk8s-plus-21.AddDirectoryOptions"></a><a class="headerlink" href="#adddirectoryoptions" title="Permanent link">&para;</a></h3>
 <p>Options for <code>configmap.addDirectory()</code>.</p>
-<h4 id="initializer">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_1">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_1" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">AddDirectoryOptions</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-21&#39;</span>
 
 <span class="kd">const</span> <span class="nx">addDirectoryOptions</span>: <span class="kt">AddDirectoryOptions</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
@@ -3646,7 +3769,7 @@ volumes to the new Pods that replace any that have failed.</p>
 <hr />
 <h3 id="commandprobeoptions">CommandProbeOptions <a name="cdk8s-plus-21.CommandProbeOptions"></a><a class="headerlink" href="#commandprobeoptions" title="Permanent link">&para;</a></h3>
 <p>Options for <code>Probe.fromCommand()</code>.</p>
-<h4 id="initializer_1">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_1" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_2">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_2" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">CommandProbeOptions</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-21&#39;</span>
 
 <span class="kd">const</span> <span class="nx">commandProbeOptions</span>: <span class="kt">CommandProbeOptions</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
@@ -3708,7 +3831,7 @@ volumes to the new Pods that replace any that have failed.</p>
 <hr />
 <h3 id="configmapprops">ConfigMapProps <a name="cdk8s-plus-21.ConfigMapProps"></a><a class="headerlink" href="#configmapprops" title="Permanent link">&para;</a></h3>
 <p>Properties for initialization of <code>ConfigMap</code>.</p>
-<h4 id="initializer_2">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_2" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_3">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_3" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">ConfigMapProps</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-21&#39;</span>
 
 <span class="kd">const</span> <span class="nx">configMapProps</span>: <span class="kt">ConfigMapProps</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
@@ -3750,7 +3873,7 @@ is enforced during validation process.</p>
 <hr />
 <h3 id="configmapvolumeoptions">ConfigMapVolumeOptions <a name="cdk8s-plus-21.ConfigMapVolumeOptions"></a><a class="headerlink" href="#configmapvolumeoptions" title="Permanent link">&para;</a></h3>
 <p>Options for the ConfigMap-based volume.</p>
-<h4 id="initializer_3">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_3" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_4">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_4" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">ConfigMapVolumeOptions</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-21&#39;</span>
 
 <span class="kd">const</span> <span class="nx">configMapVolumeOptions</span>: <span class="kt">ConfigMapVolumeOptions</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
@@ -3784,7 +3907,7 @@ is specified which is not present in the ConfigMap, the volume setup will
 error unless it is marked optional. Paths must be relative and may not
 contain the &lsquo;..&rsquo; path or start with &lsquo;..&rsquo;.</p>
 <hr />
-<h5 id="nameoptional"><code>name</code><sup>Optional</sup> <a name="cdk8s-plus-21.ConfigMapVolumeOptions.property.name"></a><a class="headerlink" href="#nameoptional" title="Permanent link">&para;</a></h5>
+<h5 id="nameoptional_1"><code>name</code><sup>Optional</sup> <a name="cdk8s-plus-21.ConfigMapVolumeOptions.property.name"></a><a class="headerlink" href="#nameoptional_1" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">name</span>: <span class="kt">string</span><span class="p">;</span>
 </code></pre></div>
 <ul>
@@ -3804,7 +3927,7 @@ contain the &lsquo;..&rsquo; path or start with &lsquo;..&rsquo;.</p>
 <hr />
 <h3 id="containerprops">ContainerProps <a name="cdk8s-plus-21.ContainerProps"></a><a class="headerlink" href="#containerprops" title="Permanent link">&para;</a></h3>
 <p>Properties for creating a container.</p>
-<h4 id="initializer_4">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_4" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_5">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_5" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">ContainerProps</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-21&#39;</span>
 
 <span class="kd">const</span> <span class="nx">containerProps</span>: <span class="kt">ContainerProps</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
@@ -3877,7 +4000,7 @@ More info: https://kubernetes.io/docs/tasks/inject-data-application/define-comma
 <p>Periodic probe of container liveness.</p>
 <p>Container will be restarted if the probe fails.</p>
 <hr />
-<h5 id="nameoptional_1"><code>name</code><sup>Optional</sup> <a name="cdk8s-plus-21.ContainerProps.property.name"></a><a class="headerlink" href="#nameoptional_1" title="Permanent link">&para;</a></h5>
+<h5 id="nameoptional_2"><code>name</code><sup>Optional</sup> <a name="cdk8s-plus-21.ContainerProps.property.name"></a><a class="headerlink" href="#nameoptional_2" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">name</span>: <span class="kt">string</span><span class="p">;</span>
 </code></pre></div>
 <ul>
@@ -3887,7 +4010,7 @@ More info: https://kubernetes.io/docs/tasks/inject-data-application/define-comma
 <p>Name of the container specified as a DNS_LABEL.</p>
 <p>Each container in a pod must have a unique name (DNS_LABEL). Cannot be updated.</p>
 <hr />
-<h5 id="portoptional"><code>port</code><sup>Optional</sup> <a name="cdk8s-plus-21.ContainerProps.property.port"></a><a class="headerlink" href="#portoptional" title="Permanent link">&para;</a></h5>
+<h5 id="portoptional_1"><code>port</code><sup>Optional</sup> <a name="cdk8s-plus-21.ContainerProps.property.port"></a><a class="headerlink" href="#portoptional_1" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">port</span>: <span class="kt">number</span><span class="p">;</span>
 </code></pre></div>
 <ul>
@@ -3937,7 +4060,7 @@ More info: https://kubernetes.io/docs/tasks/inject-data-application/define-comma
 <hr />
 <h3 id="deploymentprops">DeploymentProps <a name="cdk8s-plus-21.DeploymentProps"></a><a class="headerlink" href="#deploymentprops" title="Permanent link">&para;</a></h3>
 <p>Properties for initialization of <code>Deployment</code>.</p>
-<h4 id="initializer_5">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_5" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_6">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_6" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">DeploymentProps</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-21&#39;</span>
 
 <span class="kd">const</span> <span class="nx">deploymentProps</span>: <span class="kt">DeploymentProps</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
@@ -4035,7 +4158,7 @@ Account (for example, default).</p>
 <hr />
 <h3 id="emptydirvolumeoptions">EmptyDirVolumeOptions <a name="cdk8s-plus-21.EmptyDirVolumeOptions"></a><a class="headerlink" href="#emptydirvolumeoptions" title="Permanent link">&para;</a></h3>
 <p>Options for volumes populated with an empty directory.</p>
-<h4 id="initializer_6">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_6" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_7">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_7" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">EmptyDirVolumeOptions</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-21&#39;</span>
 
 <span class="kd">const</span> <span class="nx">emptyDirVolumeOptions</span>: <span class="kt">EmptyDirVolumeOptions</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
@@ -4069,7 +4192,7 @@ here and the sum of memory limits of all containers in a pod.</p>
 <hr />
 <h3 id="envvaluefromconfigmapoptions">EnvValueFromConfigMapOptions <a name="cdk8s-plus-21.EnvValueFromConfigMapOptions"></a><a class="headerlink" href="#envvaluefromconfigmapoptions" title="Permanent link">&para;</a></h3>
 <p>Options to specify an envionment variable value from a ConfigMap key.</p>
-<h4 id="initializer_7">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_7" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_8">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_8" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">EnvValueFromConfigMapOptions</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-21&#39;</span>
 
 <span class="kd">const</span> <span class="nx">envValueFromConfigMapOptions</span>: <span class="kt">EnvValueFromConfigMapOptions</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
@@ -4085,7 +4208,7 @@ here and the sum of memory limits of all containers in a pod.</p>
 <hr />
 <h3 id="envvaluefromprocessoptions">EnvValueFromProcessOptions <a name="cdk8s-plus-21.EnvValueFromProcessOptions"></a><a class="headerlink" href="#envvaluefromprocessoptions" title="Permanent link">&para;</a></h3>
 <p>Options to specify an environment variable value from the process environment.</p>
-<h4 id="initializer_8">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_8" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_9">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_9" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">EnvValueFromProcessOptions</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-21&#39;</span>
 
 <span class="kd">const</span> <span class="nx">envValueFromProcessOptions</span>: <span class="kt">EnvValueFromProcessOptions</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
@@ -4102,7 +4225,7 @@ here and the sum of memory limits of all containers in a pod.</p>
 <hr />
 <h3 id="envvaluefromsecretoptions">EnvValueFromSecretOptions <a name="cdk8s-plus-21.EnvValueFromSecretOptions"></a><a class="headerlink" href="#envvaluefromsecretoptions" title="Permanent link">&para;</a></h3>
 <p>Options to specify an environment variable value from a Secret.</p>
-<h4 id="initializer_9">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_9" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_10">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_10" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">EnvValueFromSecretOptions</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-21&#39;</span>
 
 <span class="kd">const</span> <span class="nx">envValueFromSecretOptions</span>: <span class="kt">EnvValueFromSecretOptions</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
@@ -4116,14 +4239,14 @@ here and the sum of memory limits of all containers in a pod.</p>
 </ul>
 <p>Specify whether the Secret or its key must be defined.</p>
 <hr />
-<h3 id="exposeoptions">ExposeOptions <a name="cdk8s-plus-21.ExposeOptions"></a><a class="headerlink" href="#exposeoptions" title="Permanent link">&para;</a></h3>
-<p>Options for exposing a deployment via a service.</p>
-<h4 id="initializer_10">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_10" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">ExposeOptions</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-21&#39;</span>
+<h3 id="exposedeploymentviaingressoptions">ExposeDeploymentViaIngressOptions <a name="cdk8s-plus-21.ExposeDeploymentViaIngressOptions"></a><a class="headerlink" href="#exposedeploymentviaingressoptions" title="Permanent link">&para;</a></h3>
+<p>Options for exposing a deployment via an ingress.</p>
+<h4 id="initializer_11">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_11" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">ExposeDeploymentViaIngressOptions</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-21&#39;</span>
 
-<span class="kd">const</span> <span class="nx">exposeOptions</span>: <span class="kt">ExposeOptions</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
+<span class="kd">const</span> <span class="nx">exposeDeploymentViaIngressOptions</span>: <span class="kt">ExposeDeploymentViaIngressOptions</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
 </code></pre></div>
-<h5 id="nameoptional_2"><code>name</code><sup>Optional</sup> <a name="cdk8s-plus-21.ExposeOptions.property.name"></a><a class="headerlink" href="#nameoptional_2" title="Permanent link">&para;</a></h5>
+<h5 id="nameoptional_3"><code>name</code><sup>Optional</sup> <a name="cdk8s-plus-21.ExposeDeploymentViaIngressOptions.property.name"></a><a class="headerlink" href="#nameoptional_3" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">name</span>: <span class="kt">string</span><span class="p">;</span>
 </code></pre></div>
 <ul>
@@ -4133,7 +4256,16 @@ here and the sum of memory limits of all containers in a pod.</p>
 <p>The name of the service to expose.</p>
 <p>This will be set on the Service.metadata and must be a DNS_LABEL</p>
 <hr />
-<h5 id="protocoloptional"><code>protocol</code><sup>Optional</sup> <a name="cdk8s-plus-21.ExposeOptions.property.protocol"></a><a class="headerlink" href="#protocoloptional" title="Permanent link">&para;</a></h5>
+<h5 id="portoptional_2"><code>port</code><sup>Optional</sup> <a name="cdk8s-plus-21.ExposeDeploymentViaIngressOptions.property.port"></a><a class="headerlink" href="#portoptional_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">port</span>: <span class="kt">number</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>number</code></li>
+<li><em>Default:</em> Copied from the container of the deployment. If a port could not be determined, throws an error.</li>
+</ul>
+<p>The port that the service should serve on.</p>
+<hr />
+<h5 id="protocoloptional_1"><code>protocol</code><sup>Optional</sup> <a name="cdk8s-plus-21.ExposeDeploymentViaIngressOptions.property.protocol"></a><a class="headerlink" href="#protocoloptional_1" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">protocol</span>: <span class="kt">Protocol</span><span class="p">;</span>
 </code></pre></div>
 <ul>
@@ -4143,7 +4275,7 @@ here and the sum of memory limits of all containers in a pod.</p>
 <p>The IP protocol for this port.</p>
 <p>Supports &ldquo;TCP&rdquo;, &ldquo;UDP&rdquo;, and &ldquo;SCTP&rdquo;. Default is TCP.</p>
 <hr />
-<h5 id="servicetypeoptional"><code>serviceType</code><sup>Optional</sup> <a name="cdk8s-plus-21.ExposeOptions.property.serviceType"></a><a class="headerlink" href="#servicetypeoptional" title="Permanent link">&para;</a></h5>
+<h5 id="servicetypeoptional"><code>serviceType</code><sup>Optional</sup> <a name="cdk8s-plus-21.ExposeDeploymentViaIngressOptions.property.serviceType"></a><a class="headerlink" href="#servicetypeoptional" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">serviceType</span>: <span class="kt">ServiceType</span><span class="p">;</span>
 </code></pre></div>
 <ul>
@@ -4152,7 +4284,7 @@ here and the sum of memory limits of all containers in a pod.</p>
 </ul>
 <p>The type of the exposed service.</p>
 <hr />
-<h5 id="targetportoptional"><code>targetPort</code><sup>Optional</sup> <a name="cdk8s-plus-21.ExposeOptions.property.targetPort"></a><a class="headerlink" href="#targetportoptional" title="Permanent link">&para;</a></h5>
+<h5 id="targetportoptional_1"><code>targetPort</code><sup>Optional</sup> <a name="cdk8s-plus-21.ExposeDeploymentViaIngressOptions.property.targetPort"></a><a class="headerlink" href="#targetportoptional_1" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">targetPort</span>: <span class="kt">number</span><span class="p">;</span>
 </code></pre></div>
 <ul>
@@ -4161,9 +4293,88 @@ here and the sum of memory limits of all containers in a pod.</p>
 </ul>
 <p>The port number the service will redirect to.</p>
 <hr />
+<h5 id="ingressoptional"><code>ingress</code><sup>Optional</sup> <a name="cdk8s-plus-21.ExposeDeploymentViaIngressOptions.property.ingress"></a><a class="headerlink" href="#ingressoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">ingress</span>: <span class="kt">IngressV1Beta1</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <a href="#cdk8s-plus-21.IngressV1Beta1"><code>cdk8s-plus-21.IngressV1Beta1</code></a></li>
+<li><em>Default:</em> An ingress will be automatically created.</li>
+</ul>
+<p>The ingress to add rules to.</p>
+<hr />
+<h3 id="exposedeploymentviaserviceoptions">ExposeDeploymentViaServiceOptions <a name="cdk8s-plus-21.ExposeDeploymentViaServiceOptions"></a><a class="headerlink" href="#exposedeploymentviaserviceoptions" title="Permanent link">&para;</a></h3>
+<p>Options for exposing a deployment via a service.</p>
+<h4 id="initializer_12">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_12" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">ExposeDeploymentViaServiceOptions</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-21&#39;</span>
+
+<span class="kd">const</span> <span class="nx">exposeDeploymentViaServiceOptions</span>: <span class="kt">ExposeDeploymentViaServiceOptions</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
+</code></pre></div>
+<h5 id="nameoptional_4"><code>name</code><sup>Optional</sup> <a name="cdk8s-plus-21.ExposeDeploymentViaServiceOptions.property.name"></a><a class="headerlink" href="#nameoptional_4" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">name</span>: <span class="kt">string</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>string</code></li>
+<li><em>Default:</em> undefined Uses the system generated name.</li>
+</ul>
+<p>The name of the service to expose.</p>
+<p>This will be set on the Service.metadata and must be a DNS_LABEL</p>
+<hr />
+<h5 id="portoptional_3"><code>port</code><sup>Optional</sup> <a name="cdk8s-plus-21.ExposeDeploymentViaServiceOptions.property.port"></a><a class="headerlink" href="#portoptional_3" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">port</span>: <span class="kt">number</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>number</code></li>
+<li><em>Default:</em> Copied from the container of the deployment. If a port could not be determined, throws an error.</li>
+</ul>
+<p>The port that the service should serve on.</p>
+<hr />
+<h5 id="protocoloptional_2"><code>protocol</code><sup>Optional</sup> <a name="cdk8s-plus-21.ExposeDeploymentViaServiceOptions.property.protocol"></a><a class="headerlink" href="#protocoloptional_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">protocol</span>: <span class="kt">Protocol</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <a href="#cdk8s-plus-21.Protocol"><code>cdk8s-plus-21.Protocol</code></a></li>
+<li><em>Default:</em> Protocol.TCP</li>
+</ul>
+<p>The IP protocol for this port.</p>
+<p>Supports &ldquo;TCP&rdquo;, &ldquo;UDP&rdquo;, and &ldquo;SCTP&rdquo;. Default is TCP.</p>
+<hr />
+<h5 id="servicetypeoptional_1"><code>serviceType</code><sup>Optional</sup> <a name="cdk8s-plus-21.ExposeDeploymentViaServiceOptions.property.serviceType"></a><a class="headerlink" href="#servicetypeoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">serviceType</span>: <span class="kt">ServiceType</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <a href="#cdk8s-plus-21.ServiceType"><code>cdk8s-plus-21.ServiceType</code></a></li>
+<li><em>Default:</em> ClusterIP.</li>
+</ul>
+<p>The type of the exposed service.</p>
+<hr />
+<h5 id="targetportoptional_2"><code>targetPort</code><sup>Optional</sup> <a name="cdk8s-plus-21.ExposeDeploymentViaServiceOptions.property.targetPort"></a><a class="headerlink" href="#targetportoptional_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">targetPort</span>: <span class="kt">number</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>number</code></li>
+<li><em>Default:</em> The port of the first container in the deployment (ie. containers[0].port)</li>
+</ul>
+<p>The port number the service will redirect to.</p>
+<hr />
+<h3 id="exposeserviceviaingressoptions">ExposeServiceViaIngressOptions <a name="cdk8s-plus-21.ExposeServiceViaIngressOptions"></a><a class="headerlink" href="#exposeserviceviaingressoptions" title="Permanent link">&para;</a></h3>
+<p>Options for exposing a service using an ingress.</p>
+<h4 id="initializer_13">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_13" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">ExposeServiceViaIngressOptions</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-21&#39;</span>
+
+<span class="kd">const</span> <span class="nx">exposeServiceViaIngressOptions</span>: <span class="kt">ExposeServiceViaIngressOptions</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
+</code></pre></div>
+<h5 id="ingressoptional_1"><code>ingress</code><sup>Optional</sup> <a name="cdk8s-plus-21.ExposeServiceViaIngressOptions.property.ingress"></a><a class="headerlink" href="#ingressoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">ingress</span>: <span class="kt">IngressV1Beta1</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <a href="#cdk8s-plus-21.IngressV1Beta1"><code>cdk8s-plus-21.IngressV1Beta1</code></a></li>
+<li><em>Default:</em> An ingress will be automatically created.</li>
+</ul>
+<p>The ingress to add rules to.</p>
+<hr />
 <h3 id="httpgetprobeoptions">HttpGetProbeOptions <a name="cdk8s-plus-21.HttpGetProbeOptions"></a><a class="headerlink" href="#httpgetprobeoptions" title="Permanent link">&para;</a></h3>
 <p>Options for <code>Probe.fromHttpGet()</code>.</p>
-<h4 id="initializer_11">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_11" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_14">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_14" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">HttpGetProbeOptions</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-21&#39;</span>
 
 <span class="kd">const</span> <span class="nx">httpGetProbeOptions</span>: <span class="kt">HttpGetProbeOptions</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
@@ -4223,7 +4434,7 @@ here and the sum of memory limits of all containers in a pod.</p>
 <p>https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes</p>
 </blockquote>
 <hr />
-<h5 id="portoptional_1"><code>port</code><sup>Optional</sup> <a name="cdk8s-plus-21.HttpGetProbeOptions.property.port"></a><a class="headerlink" href="#portoptional_1" title="Permanent link">&para;</a></h5>
+<h5 id="portoptional_4"><code>port</code><sup>Optional</sup> <a name="cdk8s-plus-21.HttpGetProbeOptions.property.port"></a><a class="headerlink" href="#portoptional_4" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">port</span>: <span class="kt">number</span><span class="p">;</span>
 </code></pre></div>
 <ul>
@@ -4234,7 +4445,7 @@ here and the sum of memory limits of all containers in a pod.</p>
 <hr />
 <h3 id="ingressv1beta1props">IngressV1Beta1Props <a name="cdk8s-plus-21.IngressV1Beta1Props"></a><a class="headerlink" href="#ingressv1beta1props" title="Permanent link">&para;</a></h3>
 <p>Properties for <code>Ingress</code>.</p>
-<h4 id="initializer_12">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_12" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_15">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_15" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">IngressV1Beta1Props</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-21&#39;</span>
 
 <span class="kd">const</span> <span class="nx">ingressV1Beta1Props</span>: <span class="kt">IngressV1Beta1Props</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
@@ -4287,7 +4498,7 @@ extension, if the ingress controller fulfilling the ingress supports SNI.</p>
 <p>Represents the rules mapping the paths under a specified host to the related backend services.</p>
 <p>Incoming requests are first evaluated for a host match,
 then routed to the backend associated with the matching path.</p>
-<h4 id="initializer_13">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_13" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_16">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_16" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">IngressV1Beta1Rule</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-21&#39;</span>
 
 <span class="kd">const</span> <span class="nx">ingressV1Beta1Rule</span>: <span class="kt">IngressV1Beta1Rule</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
@@ -4329,7 +4540,7 @@ to the backend.</li>
 <hr />
 <h3 id="ingressv1beta1tls">IngressV1Beta1Tls <a name="cdk8s-plus-21.IngressV1Beta1Tls"></a><a class="headerlink" href="#ingressv1beta1tls" title="Permanent link">&para;</a></h3>
 <p>Represents the TLS configuration mapping that is passed to the ingress controller for SSL termination.</p>
-<h4 id="initializer_14">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_14" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_17">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_17" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">IngressV1Beta1Tls</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-21&#39;</span>
 
 <span class="kd">const</span> <span class="nx">ingressV1Beta1Tls</span>: <span class="kt">IngressV1Beta1Tls</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
@@ -4360,7 +4571,7 @@ termination and value of the Host header is used for routing.</p>
 <hr />
 <h3 id="jobprops">JobProps <a name="cdk8s-plus-21.JobProps"></a><a class="headerlink" href="#jobprops" title="Permanent link">&para;</a></h3>
 <p>Properties for initialization of <code>Job</code>.</p>
-<h4 id="initializer_15">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_15" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_18">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_18" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">JobProps</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-21&#39;</span>
 
 <span class="kd">const</span> <span class="nx">jobProps</span>: <span class="kt">JobProps</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
@@ -4471,7 +4682,7 @@ field is alpha-level and is only honored by servers that enable the
 <hr />
 <h3 id="mountoptions">MountOptions <a name="cdk8s-plus-21.MountOptions"></a><a class="headerlink" href="#mountoptions" title="Permanent link">&para;</a></h3>
 <p>Options for mounts.</p>
-<h4 id="initializer_16">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_16" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_19">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_19" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">MountOptions</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-21&#39;</span>
 
 <span class="kd">const</span> <span class="nx">mountOptions</span>: <span class="kt">MountOptions</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
@@ -4525,12 +4736,12 @@ is beta in 1.15.</p>
 <hr />
 <h3 id="pathmapping">PathMapping <a name="cdk8s-plus-21.PathMapping"></a><a class="headerlink" href="#pathmapping" title="Permanent link">&para;</a></h3>
 <p>Maps a string key to a path within a volume.</p>
-<h4 id="initializer_17">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_17" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_20">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_20" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">PathMapping</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-21&#39;</span>
 
 <span class="kd">const</span> <span class="nx">pathMapping</span>: <span class="kt">PathMapping</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
 </code></pre></div>
-<h5 id="pathrequired_2"><code>path</code><sup>Required</sup> <a name="cdk8s-plus-21.PathMapping.property.path"></a><a class="headerlink" href="#pathrequired_2" title="Permanent link">&para;</a></h5>
+<h5 id="pathrequired_4"><code>path</code><sup>Required</sup> <a name="cdk8s-plus-21.PathMapping.property.path"></a><a class="headerlink" href="#pathrequired_4" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">path</span>: <span class="kt">string</span><span class="p">;</span>
 </code></pre></div>
 <ul>
@@ -4554,7 +4765,7 @@ the result can be other mode bits set.</p>
 <hr />
 <h3 id="podprops">PodProps <a name="cdk8s-plus-21.PodProps"></a><a class="headerlink" href="#podprops" title="Permanent link">&para;</a></h3>
 <p>Properties for initialization of <code>Pod</code>.</p>
-<h4 id="initializer_18">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_18" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_21">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_21" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">PodProps</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-21&#39;</span>
 
 <span class="kd">const</span> <span class="nx">podProps</span>: <span class="kt">PodProps</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
@@ -4624,7 +4835,7 @@ Account (for example, default).</p>
 <hr />
 <h3 id="podspecprops">PodSpecProps <a name="cdk8s-plus-21.PodSpecProps"></a><a class="headerlink" href="#podspecprops" title="Permanent link">&para;</a></h3>
 <p>Properties of a <code>PodSpec</code>.</p>
-<h4 id="initializer_19">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_19" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_22">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_22" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">PodSpecProps</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-21&#39;</span>
 
 <span class="kd">const</span> <span class="nx">podSpecProps</span>: <span class="kt">PodSpecProps</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
@@ -4687,7 +4898,7 @@ Account (for example, default).</p>
 <h3 id="podtemplateprops">PodTemplateProps <a name="cdk8s-plus-21.PodTemplateProps"></a><a class="headerlink" href="#podtemplateprops" title="Permanent link">&para;</a></h3>
 <p>Properties of a <code>PodTemplate</code>.</p>
 <p>Adds metadata information on top of the spec.</p>
-<h4 id="initializer_20">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_20" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_23">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_23" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">PodTemplateProps</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-21&#39;</span>
 
 <span class="kd">const</span> <span class="nx">podTemplateProps</span>: <span class="kt">PodTemplateProps</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
@@ -4757,7 +4968,7 @@ Account (for example, default).</p>
 <hr />
 <h3 id="probeoptions">ProbeOptions <a name="cdk8s-plus-21.ProbeOptions"></a><a class="headerlink" href="#probeoptions" title="Permanent link">&para;</a></h3>
 <p>Probe options.</p>
-<h4 id="initializer_21">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_21" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_24">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_24" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">ProbeOptions</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-21&#39;</span>
 
 <span class="kd">const</span> <span class="nx">probeOptions</span>: <span class="kt">ProbeOptions</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
@@ -4819,7 +5030,7 @@ Account (for example, default).</p>
 <hr />
 <h3 id="resourceprops">ResourceProps <a name="cdk8s-plus-21.ResourceProps"></a><a class="headerlink" href="#resourceprops" title="Permanent link">&para;</a></h3>
 <p>Initialization properties for resources.</p>
-<h4 id="initializer_22">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_22" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_25">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_25" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">ResourceProps</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-21&#39;</span>
 
 <span class="kd">const</span> <span class="nx">resourceProps</span>: <span class="kt">ResourceProps</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
@@ -4833,7 +5044,7 @@ Account (for example, default).</p>
 <p>Metadata that all persisted resources must have, which includes all objects users must create.</p>
 <hr />
 <h3 id="secretprops">SecretProps <a name="cdk8s-plus-21.SecretProps"></a><a class="headerlink" href="#secretprops" title="Permanent link">&para;</a></h3>
-<h4 id="initializer_23">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_23" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_26">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_26" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">SecretProps</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-21&#39;</span>
 
 <span class="kd">const</span> <span class="nx">secretProps</span>: <span class="kt">SecretProps</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
@@ -4871,7 +5082,7 @@ handling of secret data by various controllers.</p>
 <hr />
 <h3 id="secretvalue">SecretValue <a name="cdk8s-plus-21.SecretValue"></a><a class="headerlink" href="#secretvalue" title="Permanent link">&para;</a></h3>
 <p>Represents a specific value in JSON secret.</p>
-<h4 id="initializer_24">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_24" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_27">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_27" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">SecretValue</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-21&#39;</span>
 
 <span class="kd">const</span> <span class="nx">secretValue</span>: <span class="kt">SecretValue</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
@@ -4895,7 +5106,7 @@ handling of secret data by various controllers.</p>
 <h3 id="serviceaccountprops">ServiceAccountProps <a name="cdk8s-plus-21.ServiceAccountProps"></a><a class="headerlink" href="#serviceaccountprops" title="Permanent link">&para;</a></h3>
 <p>Properties for initialization of <code>ServiceAccount</code>.</p>
 <p>Properties for initialization of <code>ServiceAccount</code>.</p>
-<h4 id="initializer_25">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_25" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_28">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_28" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">ServiceAccountProps</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-21&#39;</span>
 
 <span class="kd">const</span> <span class="nx">serviceAccountProps</span>: <span class="kt">ServiceAccountProps</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
@@ -4921,12 +5132,12 @@ handling of secret data by various controllers.</p>
 <hr />
 <h3 id="serviceingressv1betabackendoptions">ServiceIngressV1BetaBackendOptions <a name="cdk8s-plus-21.ServiceIngressV1BetaBackendOptions"></a><a class="headerlink" href="#serviceingressv1betabackendoptions" title="Permanent link">&para;</a></h3>
 <p>Options for setting up backends for ingress rules.</p>
-<h4 id="initializer_26">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_26" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_29">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_29" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">ServiceIngressV1BetaBackendOptions</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-21&#39;</span>
 
 <span class="kd">const</span> <span class="nx">serviceIngressV1BetaBackendOptions</span>: <span class="kt">ServiceIngressV1BetaBackendOptions</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
 </code></pre></div>
-<h5 id="portoptional_2"><code>port</code><sup>Optional</sup> <a name="cdk8s-plus-21.ServiceIngressV1BetaBackendOptions.property.port"></a><a class="headerlink" href="#portoptional_2" title="Permanent link">&para;</a></h5>
+<h5 id="portoptional_5"><code>port</code><sup>Optional</sup> <a name="cdk8s-plus-21.ServiceIngressV1BetaBackendOptions.property.port"></a><a class="headerlink" href="#portoptional_5" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">port</span>: <span class="kt">number</span><span class="p">;</span>
 </code></pre></div>
 <ul>
@@ -4941,12 +5152,12 @@ handling of secret data by various controllers.</p>
 <hr />
 <h3 id="serviceport">ServicePort <a name="cdk8s-plus-21.ServicePort"></a><a class="headerlink" href="#serviceport" title="Permanent link">&para;</a></h3>
 <p>Definition of a service port.</p>
-<h4 id="initializer_27">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_27" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_30">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_30" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">ServicePort</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-21&#39;</span>
 
 <span class="kd">const</span> <span class="nx">servicePort</span>: <span class="kt">ServicePort</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
 </code></pre></div>
-<h5 id="nameoptional_3"><code>name</code><sup>Optional</sup> <a name="cdk8s-plus-21.ServicePort.property.name"></a><a class="headerlink" href="#nameoptional_3" title="Permanent link">&para;</a></h5>
+<h5 id="nameoptional_5"><code>name</code><sup>Optional</sup> <a name="cdk8s-plus-21.ServicePort.property.name"></a><a class="headerlink" href="#nameoptional_5" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">name</span>: <span class="kt">string</span><span class="p">;</span>
 </code></pre></div>
 <ul>
@@ -4958,13 +5169,12 @@ ports within a ServiceSpec must have unique names. This maps to the &lsquo;Name&
 field in EndpointPort objects. Optional if only one ServicePort is defined
 on this service.</p>
 <hr />
-<h5 id="nodeportoptional"><code>nodePort</code><sup>Optional</sup> <a name="cdk8s-plus-21.ServicePort.property.nodePort"></a><a class="headerlink" href="#nodeportoptional" title="Permanent link">&para;</a></h5>
+<h5 id="nodeportoptional_1"><code>nodePort</code><sup>Optional</sup> <a name="cdk8s-plus-21.ServicePort.property.nodePort"></a><a class="headerlink" href="#nodeportoptional_1" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">nodePort</span>: <span class="kt">number</span><span class="p">;</span>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <code>number</code></li>
-<li><em>Default:</em> to auto-allocate a port if the ServiceType of this Service
-requires one.</li>
+<li><em>Default:</em> auto-allocate a port if the ServiceType of this Service requires one.</li>
 </ul>
 <p>The port on each node on which this service is exposed when type=NodePort or LoadBalancer.</p>
 <p>Usually assigned by the system. If specified, it will be
@@ -4975,7 +5185,7 @@ requires one.</p>
 <p>https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport</p>
 </blockquote>
 <hr />
-<h5 id="protocoloptional_1"><code>protocol</code><sup>Optional</sup> <a name="cdk8s-plus-21.ServicePort.property.protocol"></a><a class="headerlink" href="#protocoloptional_1" title="Permanent link">&para;</a></h5>
+<h5 id="protocoloptional_3"><code>protocol</code><sup>Optional</sup> <a name="cdk8s-plus-21.ServicePort.property.protocol"></a><a class="headerlink" href="#protocoloptional_3" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">protocol</span>: <span class="kt">Protocol</span><span class="p">;</span>
 </code></pre></div>
 <ul>
@@ -4985,7 +5195,7 @@ requires one.</p>
 <p>The IP protocol for this port.</p>
 <p>Supports &ldquo;TCP&rdquo;, &ldquo;UDP&rdquo;, and &ldquo;SCTP&rdquo;. Default is TCP.</p>
 <hr />
-<h5 id="targetportoptional_1"><code>targetPort</code><sup>Optional</sup> <a name="cdk8s-plus-21.ServicePort.property.targetPort"></a><a class="headerlink" href="#targetportoptional_1" title="Permanent link">&para;</a></h5>
+<h5 id="targetportoptional_3"><code>targetPort</code><sup>Optional</sup> <a name="cdk8s-plus-21.ServicePort.property.targetPort"></a><a class="headerlink" href="#targetportoptional_3" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">targetPort</span>: <span class="kt">number</span><span class="p">;</span>
 </code></pre></div>
 <ul>
@@ -4994,7 +5204,7 @@ requires one.</p>
 </ul>
 <p>The port number the service will redirect to.</p>
 <hr />
-<h5 id="portrequired_3"><code>port</code><sup>Required</sup> <a name="cdk8s-plus-21.ServicePort.property.port"></a><a class="headerlink" href="#portrequired_3" title="Permanent link">&para;</a></h5>
+<h5 id="portrequired_1"><code>port</code><sup>Required</sup> <a name="cdk8s-plus-21.ServicePort.property.port"></a><a class="headerlink" href="#portrequired_1" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">port</span>: <span class="kt">number</span><span class="p">;</span>
 </code></pre></div>
 <ul>
@@ -5003,12 +5213,12 @@ requires one.</p>
 <p>The port number the service will bind to.</p>
 <hr />
 <h3 id="serviceportoptions">ServicePortOptions <a name="cdk8s-plus-21.ServicePortOptions"></a><a class="headerlink" href="#serviceportoptions" title="Permanent link">&para;</a></h3>
-<h4 id="initializer_28">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_28" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_31">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_31" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">ServicePortOptions</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-21&#39;</span>
 
 <span class="kd">const</span> <span class="nx">servicePortOptions</span>: <span class="kt">ServicePortOptions</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
 </code></pre></div>
-<h5 id="nameoptional_4"><code>name</code><sup>Optional</sup> <a name="cdk8s-plus-21.ServicePortOptions.property.name"></a><a class="headerlink" href="#nameoptional_4" title="Permanent link">&para;</a></h5>
+<h5 id="nameoptional_6"><code>name</code><sup>Optional</sup> <a name="cdk8s-plus-21.ServicePortOptions.property.name"></a><a class="headerlink" href="#nameoptional_6" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">name</span>: <span class="kt">string</span><span class="p">;</span>
 </code></pre></div>
 <ul>
@@ -5020,13 +5230,12 @@ ports within a ServiceSpec must have unique names. This maps to the &lsquo;Name&
 field in EndpointPort objects. Optional if only one ServicePort is defined
 on this service.</p>
 <hr />
-<h5 id="nodeportoptional_1"><code>nodePort</code><sup>Optional</sup> <a name="cdk8s-plus-21.ServicePortOptions.property.nodePort"></a><a class="headerlink" href="#nodeportoptional_1" title="Permanent link">&para;</a></h5>
+<h5 id="nodeportoptional_2"><code>nodePort</code><sup>Optional</sup> <a name="cdk8s-plus-21.ServicePortOptions.property.nodePort"></a><a class="headerlink" href="#nodeportoptional_2" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">nodePort</span>: <span class="kt">number</span><span class="p">;</span>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <code>number</code></li>
-<li><em>Default:</em> to auto-allocate a port if the ServiceType of this Service
-requires one.</li>
+<li><em>Default:</em> auto-allocate a port if the ServiceType of this Service requires one.</li>
 </ul>
 <p>The port on each node on which this service is exposed when type=NodePort or LoadBalancer.</p>
 <p>Usually assigned by the system. If specified, it will be
@@ -5037,7 +5246,7 @@ requires one.</p>
 <p>https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport</p>
 </blockquote>
 <hr />
-<h5 id="protocoloptional_2"><code>protocol</code><sup>Optional</sup> <a name="cdk8s-plus-21.ServicePortOptions.property.protocol"></a><a class="headerlink" href="#protocoloptional_2" title="Permanent link">&para;</a></h5>
+<h5 id="protocoloptional_4"><code>protocol</code><sup>Optional</sup> <a name="cdk8s-plus-21.ServicePortOptions.property.protocol"></a><a class="headerlink" href="#protocoloptional_4" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">protocol</span>: <span class="kt">Protocol</span><span class="p">;</span>
 </code></pre></div>
 <ul>
@@ -5047,7 +5256,7 @@ requires one.</p>
 <p>The IP protocol for this port.</p>
 <p>Supports &ldquo;TCP&rdquo;, &ldquo;UDP&rdquo;, and &ldquo;SCTP&rdquo;. Default is TCP.</p>
 <hr />
-<h5 id="targetportoptional_2"><code>targetPort</code><sup>Optional</sup> <a name="cdk8s-plus-21.ServicePortOptions.property.targetPort"></a><a class="headerlink" href="#targetportoptional_2" title="Permanent link">&para;</a></h5>
+<h5 id="targetportoptional_4"><code>targetPort</code><sup>Optional</sup> <a name="cdk8s-plus-21.ServicePortOptions.property.targetPort"></a><a class="headerlink" href="#targetportoptional_4" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">targetPort</span>: <span class="kt">number</span><span class="p">;</span>
 </code></pre></div>
 <ul>
@@ -5058,7 +5267,7 @@ requires one.</p>
 <hr />
 <h3 id="serviceprops">ServiceProps <a name="cdk8s-plus-21.ServiceProps"></a><a class="headerlink" href="#serviceprops" title="Permanent link">&para;</a></h3>
 <p>Properties for initialization of <code>Service</code>.</p>
-<h4 id="initializer_29">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_29" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_32">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_32" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">ServiceProps</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-21&#39;</span>
 
 <span class="kd">const</span> <span class="nx">serviceProps</span>: <span class="kt">ServiceProps</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
@@ -5141,7 +5350,7 @@ Kubernetes system.</p>
 <hr />
 <h3 id="statefulsetprops">StatefulSetProps <a name="cdk8s-plus-21.StatefulSetProps"></a><a class="headerlink" href="#statefulsetprops" title="Permanent link">&para;</a></h3>
 <p>Properties for initialization of <code>StatefulSet</code>.</p>
-<h4 id="initializer_30">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_30" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_33">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_33" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">StatefulSetProps</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-21&#39;</span>
 
 <span class="kd">const</span> <span class="nx">statefulSetProps</span>: <span class="kt">StatefulSetProps</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
@@ -5256,7 +5465,7 @@ Account (for example, default).</p>
 <hr />
 <h3 id="volumemount">VolumeMount <a name="cdk8s-plus-21.VolumeMount"></a><a class="headerlink" href="#volumemount" title="Permanent link">&para;</a></h3>
 <p>Mount a volume from the pod to the container.</p>
-<h4 id="initializer_31">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_31" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_34">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_34" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">VolumeMount</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-21&#39;</span>
 
 <span class="kd">const</span> <span class="nx">volumeMount</span>: <span class="kt">VolumeMount</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
@@ -5308,7 +5517,7 @@ is beta in 1.15.</p>
 <p><code>subPathExpr</code> and <code>subPath</code> are mutually exclusive. This field is beta in
 1.15.</p>
 <hr />
-<h5 id="pathrequired_3"><code>path</code><sup>Required</sup> <a name="cdk8s-plus-21.VolumeMount.property.path"></a><a class="headerlink" href="#pathrequired_3" title="Permanent link">&para;</a></h5>
+<h5 id="pathrequired_5"><code>path</code><sup>Required</sup> <a name="cdk8s-plus-21.VolumeMount.property.path"></a><a class="headerlink" href="#pathrequired_5" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">path</span>: <span class="kt">string</span><span class="p">;</span>
 </code></pre></div>
 <ul>
@@ -5358,7 +5567,7 @@ contain &lsquo;:&rsquo;.</p>
 <h5 id="mount"><code>mount</code> <a name="cdk8s-plus-21.Container.mount"></a><a class="headerlink" href="#mount" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="nx">mount</span><span class="p">(</span><span class="nx">path</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">volume</span>: <span class="kt">Volume</span><span class="p">,</span> <span class="nx">options?</span>: <span class="kt">MountOptions</span><span class="p">)</span>
 </code></pre></div>
-<h6 id="pathrequired_4"><code>path</code><sup>Required</sup> <a name="cdk8s-plus-21.Container.parameter.path"></a><a class="headerlink" href="#pathrequired_4" title="Permanent link">&para;</a></h6>
+<h6 id="pathrequired_6"><code>path</code><sup>Required</sup> <a name="cdk8s-plus-21.Container.parameter.path"></a><a class="headerlink" href="#pathrequired_6" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <code>string</code></li>
 </ul>
@@ -5370,7 +5579,7 @@ contain &lsquo;:&rsquo;.</p>
 </ul>
 <p>The volume to mount.</p>
 <hr />
-<h6 id="optionsoptional_5"><code>options</code><sup>Optional</sup> <a name="cdk8s-plus-21.Container.parameter.options"></a><a class="headerlink" href="#optionsoptional_5" title="Permanent link">&para;</a></h6>
+<h6 id="optionsoptional_7"><code>options</code><sup>Optional</sup> <a name="cdk8s-plus-21.Container.parameter.options"></a><a class="headerlink" href="#optionsoptional_7" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-21.MountOptions"><code>cdk8s-plus-21.MountOptions</code></a></li>
 </ul>
@@ -5433,7 +5642,7 @@ contain &lsquo;:&rsquo;.</p>
 </ul>
 <p>Entrypoint array (the command to execute when the container starts).</p>
 <hr />
-<h5 id="portoptional_3"><code>port</code><sup>Optional</sup> <a name="cdk8s-plus-21.Container.property.port"></a><a class="headerlink" href="#portoptional_3" title="Permanent link">&para;</a></h5>
+<h5 id="portoptional_6"><code>port</code><sup>Optional</sup> <a name="cdk8s-plus-21.Container.property.port"></a><a class="headerlink" href="#portoptional_6" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">port</span>: <span class="kt">number</span><span class="p">;</span>
 </code></pre></div>
 <ul>
@@ -5469,7 +5678,7 @@ contain &lsquo;:&rsquo;.</p>
 </ul>
 <p>The key to extract the value from.</p>
 <hr />
-<h6 id="optionsoptional_6"><code>options</code><sup>Optional</sup> <a name="cdk8s-plus-21.EnvValue.parameter.options"></a><a class="headerlink" href="#optionsoptional_6" title="Permanent link">&para;</a></h6>
+<h6 id="optionsoptional_8"><code>options</code><sup>Optional</sup> <a name="cdk8s-plus-21.EnvValue.parameter.options"></a><a class="headerlink" href="#optionsoptional_8" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-21.EnvValueFromConfigMapOptions"><code>cdk8s-plus-21.EnvValueFromConfigMapOptions</code></a></li>
 </ul>
@@ -5486,7 +5695,7 @@ contain &lsquo;:&rsquo;.</p>
 </ul>
 <p>The key to read.</p>
 <hr />
-<h6 id="optionsoptional_7"><code>options</code><sup>Optional</sup> <a name="cdk8s-plus-21.EnvValue.parameter.options"></a><a class="headerlink" href="#optionsoptional_7" title="Permanent link">&para;</a></h6>
+<h6 id="optionsoptional_9"><code>options</code><sup>Optional</sup> <a name="cdk8s-plus-21.EnvValue.parameter.options"></a><a class="headerlink" href="#optionsoptional_9" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-21.EnvValueFromProcessOptions"><code>cdk8s-plus-21.EnvValueFromProcessOptions</code></a></li>
 </ul>
@@ -5503,7 +5712,7 @@ contain &lsquo;:&rsquo;.</p>
 </ul>
 <p>The secret value (secrent + key).</p>
 <hr />
-<h6 id="optionsoptional_8"><code>options</code><sup>Optional</sup> <a name="cdk8s-plus-21.EnvValue.parameter.options"></a><a class="headerlink" href="#optionsoptional_8" title="Permanent link">&para;</a></h6>
+<h6 id="optionsoptional_10"><code>options</code><sup>Optional</sup> <a name="cdk8s-plus-21.EnvValue.parameter.options"></a><a class="headerlink" href="#optionsoptional_10" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-21.EnvValueFromSecretOptions"><code>cdk8s-plus-21.EnvValueFromSecretOptions</code></a></li>
 </ul>
@@ -5549,7 +5758,7 @@ contain &lsquo;:&rsquo;.</p>
 </ul>
 <p>The service object.</p>
 <hr />
-<h6 id="optionsoptional_9"><code>options</code><sup>Optional</sup> <a name="cdk8s-plus-21.IngressV1Beta1Backend.parameter.options"></a><a class="headerlink" href="#optionsoptional_9" title="Permanent link">&para;</a></h6>
+<h6 id="optionsoptional_11"><code>options</code><sup>Optional</sup> <a name="cdk8s-plus-21.IngressV1Beta1Backend.parameter.options"></a><a class="headerlink" href="#optionsoptional_11" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-21.ServiceIngressV1BetaBackendOptions"><code>cdk8s-plus-21.ServiceIngressV1BetaBackendOptions</code></a></li>
 </ul>
@@ -5664,7 +5873,7 @@ contain &lsquo;:&rsquo;.</p>
 </ul>
 <p>The command to execute.</p>
 <hr />
-<h6 id="optionsoptional_10"><code>options</code><sup>Optional</sup> <a name="cdk8s-plus-21.Probe.parameter.options"></a><a class="headerlink" href="#optionsoptional_10" title="Permanent link">&para;</a></h6>
+<h6 id="optionsoptional_12"><code>options</code><sup>Optional</sup> <a name="cdk8s-plus-21.Probe.parameter.options"></a><a class="headerlink" href="#optionsoptional_12" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-21.CommandProbeOptions"><code>cdk8s-plus-21.CommandProbeOptions</code></a></li>
 </ul>
@@ -5675,13 +5884,13 @@ contain &lsquo;:&rsquo;.</p>
 
 <span class="nx">Probe</span><span class="p">.</span><span class="nx">fromHttpGet</span><span class="p">(</span><span class="nx">path</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">options?</span>: <span class="kt">HttpGetProbeOptions</span><span class="p">)</span>
 </code></pre></div>
-<h6 id="pathrequired_5"><code>path</code><sup>Required</sup> <a name="cdk8s-plus-21.Probe.parameter.path"></a><a class="headerlink" href="#pathrequired_5" title="Permanent link">&para;</a></h6>
+<h6 id="pathrequired_7"><code>path</code><sup>Required</sup> <a name="cdk8s-plus-21.Probe.parameter.path"></a><a class="headerlink" href="#pathrequired_7" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <code>string</code></li>
 </ul>
 <p>The URL path to hit.</p>
 <hr />
-<h6 id="optionsoptional_11"><code>options</code><sup>Optional</sup> <a name="cdk8s-plus-21.Probe.parameter.options"></a><a class="headerlink" href="#optionsoptional_11" title="Permanent link">&para;</a></h6>
+<h6 id="optionsoptional_13"><code>options</code><sup>Optional</sup> <a name="cdk8s-plus-21.Probe.parameter.options"></a><a class="headerlink" href="#optionsoptional_13" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-21.HttpGetProbeOptions"><code>cdk8s-plus-21.HttpGetProbeOptions</code></a></li>
 </ul>
@@ -5740,7 +5949,7 @@ image. Volumes can not mount onto other volumes</p>
 </ul>
 <p>The config map to use to populate the volume.</p>
 <hr />
-<h6 id="optionsoptional_12"><code>options</code><sup>Optional</sup> <a name="cdk8s-plus-21.Volume.parameter.options"></a><a class="headerlink" href="#optionsoptional_12" title="Permanent link">&para;</a></h6>
+<h6 id="optionsoptional_14"><code>options</code><sup>Optional</sup> <a name="cdk8s-plus-21.Volume.parameter.options"></a><a class="headerlink" href="#optionsoptional_14" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-21.ConfigMapVolumeOptions"><code>cdk8s-plus-21.ConfigMapVolumeOptions</code></a></li>
 </ul>
@@ -5756,7 +5965,7 @@ image. Volumes can not mount onto other volumes</p>
 <li><em>Type:</em> <code>string</code></li>
 </ul>
 <hr />
-<h6 id="optionsoptional_13"><code>options</code><sup>Optional</sup> <a name="cdk8s-plus-21.Volume.parameter.options"></a><a class="headerlink" href="#optionsoptional_13" title="Permanent link">&para;</a></h6>
+<h6 id="optionsoptional_15"><code>options</code><sup>Optional</sup> <a name="cdk8s-plus-21.Volume.parameter.options"></a><a class="headerlink" href="#optionsoptional_15" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-21.EmptyDirVolumeOptions"><code>cdk8s-plus-21.EmptyDirVolumeOptions</code></a></li>
 </ul>
@@ -6171,10 +6380,10 @@ are automatically created.</p>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "header.autohide"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.e99e714c.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "header.autohide"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.bc35569b.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.f89c2efe.min.js"></script>
       
     
   </body>

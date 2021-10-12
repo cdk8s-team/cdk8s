@@ -10,7 +10,7 @@
       
       
       <link rel="icon" href="../../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.2">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.3">
     
     
       
@@ -18,7 +18,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.24c991ad.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.5143246d.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.3f5d1f46.min.css">
@@ -1023,6 +1023,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#adddeploymentoptions" class="md-nav__link">
+    AddDeploymentOptions 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#adddirectoryoptions" class="md-nav__link">
     AddDirectoryOptions 
   </a>
@@ -1093,8 +1100,22 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#exposeoptions" class="md-nav__link">
-    ExposeOptions 
+  <a href="#exposedeploymentviaingressoptions" class="md-nav__link">
+    ExposeDeploymentViaIngressOptions 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exposedeploymentviaserviceoptions" class="md-nav__link">
+    ExposeDeploymentViaServiceOptions 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exposeserviceviaingressoptions" class="md-nav__link">
+    ExposeServiceViaIngressOptions 
   </a>
   
 </li>
@@ -2181,6 +2202,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#adddeploymentoptions" class="md-nav__link">
+    AddDeploymentOptions 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#adddirectoryoptions" class="md-nav__link">
     AddDirectoryOptions 
   </a>
@@ -2251,8 +2279,22 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#exposeoptions" class="md-nav__link">
-    ExposeOptions 
+  <a href="#exposedeploymentviaingressoptions" class="md-nav__link">
+    ExposeDeploymentViaIngressOptions 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exposedeploymentviaserviceoptions" class="md-nav__link">
+    ExposeDeploymentViaServiceOptions 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exposeserviceviaingressoptions" class="md-nav__link">
+    ExposeServiceViaIngressOptions 
   </a>
   
 </li>
@@ -2903,19 +2945,29 @@ Account (for example, default).</p>
 <li><em>Type:</em> <a href="#org.cdk8s.plus22.Volume"><code>org.cdk8s.plus22.Volume</code></a></li>
 </ul>
 <hr />
-<h5 id="expose"><code>expose</code> <a name="org.cdk8s.plus22.Deployment.expose"></a><a class="headerlink" href="#expose" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">expose</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="n">port</span><span class="p">)</span>
-<span class="kd">public</span> <span class="nf">expose</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="n">port</span><span class="p">,</span> <span class="n">ExposeOptions</span> <span class="n">options</span><span class="p">)</span>
+<h5 id="exposeviaingress"><code>exposeViaIngress</code> <a name="org.cdk8s.plus22.Deployment.exposeViaIngress"></a><a class="headerlink" href="#exposeviaingress" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">exposeViaIngress</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="n">path</span><span class="p">)</span>
+<span class="kd">public</span> <span class="nf">exposeViaIngress</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="n">path</span><span class="p">,</span> <span class="n">ExposeDeploymentViaIngressOptions</span> <span class="n">options</span><span class="p">)</span>
 </code></pre></div>
-<h6 id="portrequired"><code>port</code><sup>Required</sup> <a name="org.cdk8s.plus22.Deployment.parameter.port"></a><a class="headerlink" href="#portrequired" title="Permanent link">&para;</a></h6>
+<h6 id="pathrequired"><code>path</code><sup>Required</sup> <a name="org.cdk8s.plus22.Deployment.parameter.path"></a><a class="headerlink" href="#pathrequired" title="Permanent link">&para;</a></h6>
 <ul>
-<li><em>Type:</em> <code>java.lang.Number</code></li>
+<li><em>Type:</em> <code>java.lang.String</code></li>
 </ul>
-<p>The port number the service will bind to.</p>
+<p>The ingress path to register under.</p>
 <hr />
 <h6 id="optionsoptional_1"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus22.Deployment.parameter.options"></a><a class="headerlink" href="#optionsoptional_1" title="Permanent link">&para;</a></h6>
 <ul>
-<li><em>Type:</em> <a href="#org.cdk8s.plus22.ExposeOptions"><code>org.cdk8s.plus22.ExposeOptions</code></a></li>
+<li><em>Type:</em> <a href="#org.cdk8s.plus22.ExposeDeploymentViaIngressOptions"><code>org.cdk8s.plus22.ExposeDeploymentViaIngressOptions</code></a></li>
+</ul>
+<p>Additional options.</p>
+<hr />
+<h5 id="exposeviaservice"><code>exposeViaService</code> <a name="org.cdk8s.plus22.Deployment.exposeViaService"></a><a class="headerlink" href="#exposeviaservice" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">exposeViaService</span><span class="p">()</span>
+<span class="kd">public</span> <span class="nf">exposeViaService</span><span class="p">(</span><span class="n">ExposeDeploymentViaServiceOptions</span> <span class="n">options</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="optionsoptional_2"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus22.Deployment.parameter.options"></a><a class="headerlink" href="#optionsoptional_2" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.plus22.ExposeDeploymentViaServiceOptions"><code>org.cdk8s.plus22.ExposeDeploymentViaServiceOptions</code></a></li>
 </ul>
 <p>Options to determine details of the service and port exposed.</p>
 <hr />
@@ -3090,7 +3142,7 @@ extension, if the ingress controller fulfilling the ingress supports SNI.</p>
 </ul>
 <p>The host name.</p>
 <hr />
-<h6 id="pathrequired"><code>path</code><sup>Required</sup> <a name="org.cdk8s.plus22.Ingress.parameter.path"></a><a class="headerlink" href="#pathrequired" title="Permanent link">&para;</a></h6>
+<h6 id="pathrequired_1"><code>path</code><sup>Required</sup> <a name="org.cdk8s.plus22.Ingress.parameter.path"></a><a class="headerlink" href="#pathrequired_1" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 </ul>
@@ -3112,7 +3164,7 @@ extension, if the ingress controller fulfilling the ingress supports SNI.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">addRule</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="n">path</span><span class="p">,</span> <span class="n">IngressBackend</span> <span class="n">backend</span><span class="p">)</span>
 <span class="kd">public</span> <span class="nf">addRule</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="n">path</span><span class="p">,</span> <span class="n">IngressBackend</span> <span class="n">backend</span><span class="p">,</span> <span class="n">HttpIngressPathType</span> <span class="n">pathType</span><span class="p">)</span>
 </code></pre></div>
-<h6 id="pathrequired_1"><code>path</code><sup>Required</sup> <a name="org.cdk8s.plus22.Ingress.parameter.path"></a><a class="headerlink" href="#pathrequired_1" title="Permanent link">&para;</a></h6>
+<h6 id="pathrequired_2"><code>path</code><sup>Required</sup> <a name="org.cdk8s.plus22.Ingress.parameter.path"></a><a class="headerlink" href="#pathrequired_2" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 </ul>
@@ -3728,8 +3780,8 @@ Kubernetes system.</p>
 <hr />
 <h4 id="methods_6">Methods <a name="Methods"></a><a class="headerlink" href="#methods_6" title="Permanent link">&para;</a></h4>
 <h5 id="adddeployment"><code>addDeployment</code> <a name="org.cdk8s.plus22.Service.addDeployment"></a><a class="headerlink" href="#adddeployment" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">addDeployment</span><span class="p">(</span><span class="n">Deployment</span> <span class="n">deployment</span><span class="p">,</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="n">port</span><span class="p">)</span>
-<span class="kd">public</span> <span class="nf">addDeployment</span><span class="p">(</span><span class="n">Deployment</span> <span class="n">deployment</span><span class="p">,</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="n">port</span><span class="p">,</span> <span class="n">ServicePortOptions</span> <span class="n">options</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">addDeployment</span><span class="p">(</span><span class="n">Deployment</span> <span class="n">deployment</span><span class="p">)</span>
+<span class="kd">public</span> <span class="nf">addDeployment</span><span class="p">(</span><span class="n">Deployment</span> <span class="n">deployment</span><span class="p">,</span> <span class="n">AddDeploymentOptions</span> <span class="n">options</span><span class="p">)</span>
 </code></pre></div>
 <h6 id="deploymentrequired"><code>deployment</code><sup>Required</sup> <a name="org.cdk8s.plus22.Service.parameter.deployment"></a><a class="headerlink" href="#deploymentrequired" title="Permanent link">&para;</a></h6>
 <ul>
@@ -3737,15 +3789,9 @@ Kubernetes system.</p>
 </ul>
 <p>The deployment to expose.</p>
 <hr />
-<h6 id="portrequired_1"><code>port</code><sup>Required</sup> <a name="org.cdk8s.plus22.Service.parameter.port"></a><a class="headerlink" href="#portrequired_1" title="Permanent link">&para;</a></h6>
+<h6 id="optionsoptional_3"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus22.Service.parameter.options"></a><a class="headerlink" href="#optionsoptional_3" title="Permanent link">&para;</a></h6>
 <ul>
-<li><em>Type:</em> <code>java.lang.Number</code></li>
-</ul>
-<p>The external port.</p>
-<hr />
-<h6 id="optionsoptional_2"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus22.Service.parameter.options"></a><a class="headerlink" href="#optionsoptional_2" title="Permanent link">&para;</a></h6>
-<ul>
-<li><em>Type:</em> <a href="#org.cdk8s.plus22.ServicePortOptions"><code>org.cdk8s.plus22.ServicePortOptions</code></a></li>
+<li><em>Type:</em> <a href="#org.cdk8s.plus22.AddDeploymentOptions"><code>org.cdk8s.plus22.AddDeploymentOptions</code></a></li>
 </ul>
 <p>Optional settings for the port.</p>
 <hr />
@@ -3764,17 +3810,33 @@ Kubernetes system.</p>
 </ul>
 <p>The label value.</p>
 <hr />
+<h5 id="exposeviaingress_1"><code>exposeViaIngress</code> <a name="org.cdk8s.plus22.Service.exposeViaIngress"></a><a class="headerlink" href="#exposeviaingress_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">exposeViaIngress</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="n">path</span><span class="p">)</span>
+<span class="kd">public</span> <span class="nf">exposeViaIngress</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="n">path</span><span class="p">,</span> <span class="n">ExposeServiceViaIngressOptions</span> <span class="n">options</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="pathrequired_3"><code>path</code><sup>Required</sup> <a name="org.cdk8s.plus22.Service.parameter.path"></a><a class="headerlink" href="#pathrequired_3" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+</ul>
+<p>The path to expose the service under.</p>
+<hr />
+<h6 id="optionsoptional_4"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus22.Service.parameter.options"></a><a class="headerlink" href="#optionsoptional_4" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.plus22.ExposeServiceViaIngressOptions"><code>org.cdk8s.plus22.ExposeServiceViaIngressOptions</code></a></li>
+</ul>
+<p>Additional options.</p>
+<hr />
 <h5 id="serve"><code>serve</code> <a name="org.cdk8s.plus22.Service.serve"></a><a class="headerlink" href="#serve" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">serve</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="n">port</span><span class="p">)</span>
 <span class="kd">public</span> <span class="nf">serve</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="n">port</span><span class="p">,</span> <span class="n">ServicePortOptions</span> <span class="n">options</span><span class="p">)</span>
 </code></pre></div>
-<h6 id="portrequired_2"><code>port</code><sup>Required</sup> <a name="org.cdk8s.plus22.Service.parameter.port"></a><a class="headerlink" href="#portrequired_2" title="Permanent link">&para;</a></h6>
+<h6 id="portrequired"><code>port</code><sup>Required</sup> <a name="org.cdk8s.plus22.Service.parameter.port"></a><a class="headerlink" href="#portrequired" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <code>java.lang.Number</code></li>
 </ul>
 <p>The port definition.</p>
 <hr />
-<h6 id="optionsoptional_3"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus22.Service.parameter.options"></a><a class="headerlink" href="#optionsoptional_3" title="Permanent link">&para;</a></h6>
+<h6 id="optionsoptional_5"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus22.Service.parameter.options"></a><a class="headerlink" href="#optionsoptional_5" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus22.ServicePortOptions"><code>org.cdk8s.plus22.ServicePortOptions</code></a></li>
 </ul>
@@ -4139,9 +4201,78 @@ Account (for example, default).</p>
 <p>The service account used to run this pod.</p>
 <hr />
 <h2 id="structs">Structs <a name="Structs"></a><a class="headerlink" href="#structs" title="Permanent link">&para;</a></h2>
+<h3 id="adddeploymentoptions">AddDeploymentOptions <a name="org.cdk8s.plus22.AddDeploymentOptions"></a><a class="headerlink" href="#adddeploymentoptions" title="Permanent link">&para;</a></h3>
+<p>Options to add a deployment to a service.</p>
+<h4 id="initializer">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.plus22.AddDeploymentOptions</span><span class="p">;</span>
+
+<span class="n">AddDeploymentOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
+<span class="c1">//  .name(java.lang.String)</span>
+<span class="c1">//  .nodePort(java.lang.Number)</span>
+<span class="c1">//  .protocol(Protocol)</span>
+<span class="c1">//  .targetPort(java.lang.Number)</span>
+<span class="c1">//  .port(java.lang.Number)</span>
+    <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+</code></pre></div>
+<h5 id="nameoptional"><code>name</code><sup>Optional</sup> <a name="org.cdk8s.plus22.AddDeploymentOptions.property.name"></a><a class="headerlink" href="#nameoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getName</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+</ul>
+<p>The name of this port within the service.</p>
+<p>This must be a DNS_LABEL. All
+ports within a ServiceSpec must have unique names. This maps to the &lsquo;Name&rsquo;
+field in EndpointPort objects. Optional if only one ServicePort is defined
+on this service.</p>
+<hr />
+<h5 id="nodeportoptional"><code>nodePort</code><sup>Optional</sup> <a name="org.cdk8s.plus22.AddDeploymentOptions.property.nodePort"></a><a class="headerlink" href="#nodeportoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="nf">getNodePort</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.Number</code></li>
+<li><em>Default:</em> auto-allocate a port if the ServiceType of this Service requires one.</li>
+</ul>
+<p>The port on each node on which this service is exposed when type=NodePort or LoadBalancer.</p>
+<p>Usually assigned by the system. If specified, it will be
+allocated to the service if unused or else creation of the service will
+fail. Default is to auto-allocate a port if the ServiceType of this Service
+requires one.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport</p>
+</blockquote>
+<hr />
+<h5 id="protocoloptional"><code>protocol</code><sup>Optional</sup> <a name="org.cdk8s.plus22.AddDeploymentOptions.property.protocol"></a><a class="headerlink" href="#protocoloptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">Protocol</span> <span class="nf">getProtocol</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.plus22.Protocol"><code>org.cdk8s.plus22.Protocol</code></a></li>
+<li><em>Default:</em> Protocol.TCP</li>
+</ul>
+<p>The IP protocol for this port.</p>
+<p>Supports &ldquo;TCP&rdquo;, &ldquo;UDP&rdquo;, and &ldquo;SCTP&rdquo;. Default is TCP.</p>
+<hr />
+<h5 id="targetportoptional"><code>targetPort</code><sup>Optional</sup> <a name="org.cdk8s.plus22.AddDeploymentOptions.property.targetPort"></a><a class="headerlink" href="#targetportoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="nf">getTargetPort</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.Number</code></li>
+<li><em>Default:</em> The value of <code>port</code> will be used.</li>
+</ul>
+<p>The port number the service will redirect to.</p>
+<hr />
+<h5 id="portoptional"><code>port</code><sup>Optional</sup> <a name="org.cdk8s.plus22.AddDeploymentOptions.property.port"></a><a class="headerlink" href="#portoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="nf">getPort</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.Number</code></li>
+<li><em>Default:</em> Copied from the first container of the deployment.</li>
+</ul>
+<p>The port number the service will bind to.</p>
+<hr />
 <h3 id="adddirectoryoptions">AddDirectoryOptions <a name="org.cdk8s.plus22.AddDirectoryOptions"></a><a class="headerlink" href="#adddirectoryoptions" title="Permanent link">&para;</a></h3>
 <p>Options for <code>configmap.addDirectory()</code>.</p>
-<h4 id="initializer">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_1">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_1" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.plus22.AddDirectoryOptions</span><span class="p">;</span>
 
 <span class="n">AddDirectoryOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -4169,7 +4300,7 @@ Account (for example, default).</p>
 <hr />
 <h3 id="commandprobeoptions">CommandProbeOptions <a name="org.cdk8s.plus22.CommandProbeOptions"></a><a class="headerlink" href="#commandprobeoptions" title="Permanent link">&para;</a></h3>
 <p>Options for <code>Probe.fromCommand()</code>.</p>
-<h4 id="initializer_1">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_1" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_2">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_2" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.plus22.CommandProbeOptions</span><span class="p">;</span>
 
 <span class="n">CommandProbeOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -4237,7 +4368,7 @@ Account (for example, default).</p>
 <hr />
 <h3 id="configmapprops">ConfigMapProps <a name="org.cdk8s.plus22.ConfigMapProps"></a><a class="headerlink" href="#configmapprops" title="Permanent link">&para;</a></h3>
 <p>Properties for initialization of <code>ConfigMap</code>.</p>
-<h4 id="initializer_2">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_2" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_3">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_3" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.plus22.ConfigMapProps</span><span class="p">;</span>
 
 <span class="n">ConfigMapProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -4283,7 +4414,7 @@ is enforced during validation process.</p>
 <hr />
 <h3 id="configmapvolumeoptions">ConfigMapVolumeOptions <a name="org.cdk8s.plus22.ConfigMapVolumeOptions"></a><a class="headerlink" href="#configmapvolumeoptions" title="Permanent link">&para;</a></h3>
 <p>Options for the ConfigMap-based volume.</p>
-<h4 id="initializer_3">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_3" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_4">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_4" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.plus22.ConfigMapVolumeOptions</span><span class="p">;</span>
 
 <span class="n">ConfigMapVolumeOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -4312,7 +4443,7 @@ file mode, like fsGroup, and the result can be other mode bits set.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span> <span class="n">PathMapping</span><span class="o">&gt;</span> <span class="nf">getItems</span><span class="p">();</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus22.PathMapping">klzzwxh:3223</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus22.PathMapping">klzzwxh:3362</a>></li>
 <li><em>Default:</em> no mapping</li>
 </ul>
 <p>If unspecified, each key-value pair in the Data field of the referenced ConfigMap will be projected into the volume as a file whose name is the key and content is the value.</p>
@@ -4322,7 +4453,7 @@ is specified which is not present in the ConfigMap, the volume setup will
 error unless it is marked optional. Paths must be relative and may not
 contain the &lsquo;..&rsquo; path or start with &lsquo;..&rsquo;.</p>
 <hr />
-<h5 id="nameoptional"><code>name</code><sup>Optional</sup> <a name="org.cdk8s.plus22.ConfigMapVolumeOptions.property.name"></a><a class="headerlink" href="#nameoptional" title="Permanent link">&para;</a></h5>
+<h5 id="nameoptional_1"><code>name</code><sup>Optional</sup> <a name="org.cdk8s.plus22.ConfigMapVolumeOptions.property.name"></a><a class="headerlink" href="#nameoptional_1" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getName</span><span class="p">();</span>
 </code></pre></div>
 <ul>
@@ -4342,7 +4473,7 @@ contain the &lsquo;..&rsquo; path or start with &lsquo;..&rsquo;.</p>
 <hr />
 <h3 id="containerprops">ContainerProps <a name="org.cdk8s.plus22.ContainerProps"></a><a class="headerlink" href="#containerprops" title="Permanent link">&para;</a></h3>
 <p>Properties for creating a container.</p>
-<h4 id="initializer_4">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_4" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_5">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_5" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.plus22.ContainerProps</span><span class="p">;</span>
 
 <span class="n">ContainerProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -4403,7 +4534,7 @@ More info: https://kubernetes.io/docs/tasks/inject-data-application/define-comma
 <div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span> <span class="n">EnvValue</span><span class="o">&gt;</span> <span class="nf">getEnv</span><span class="p">();</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus22.EnvValue">klzzwxh:3204</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus22.EnvValue">klzzwxh:3343</a>></li>
 <li><em>Default:</em> No environment variables.</li>
 </ul>
 <p>List of environment variables to set in the container.</p>
@@ -4428,7 +4559,7 @@ More info: https://kubernetes.io/docs/tasks/inject-data-application/define-comma
 <p>Periodic probe of container liveness.</p>
 <p>Container will be restarted if the probe fails.</p>
 <hr />
-<h5 id="nameoptional_1"><code>name</code><sup>Optional</sup> <a name="org.cdk8s.plus22.ContainerProps.property.name"></a><a class="headerlink" href="#nameoptional_1" title="Permanent link">&para;</a></h5>
+<h5 id="nameoptional_2"><code>name</code><sup>Optional</sup> <a name="org.cdk8s.plus22.ContainerProps.property.name"></a><a class="headerlink" href="#nameoptional_2" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getName</span><span class="p">();</span>
 </code></pre></div>
 <ul>
@@ -4438,7 +4569,7 @@ More info: https://kubernetes.io/docs/tasks/inject-data-application/define-comma
 <p>Name of the container specified as a DNS_LABEL.</p>
 <p>Each container in a pod must have a unique name (DNS_LABEL). Cannot be updated.</p>
 <hr />
-<h5 id="portoptional"><code>port</code><sup>Optional</sup> <a name="org.cdk8s.plus22.ContainerProps.property.port"></a><a class="headerlink" href="#portoptional" title="Permanent link">&para;</a></h5>
+<h5 id="portoptional_1"><code>port</code><sup>Optional</sup> <a name="org.cdk8s.plus22.ContainerProps.property.port"></a><a class="headerlink" href="#portoptional_1" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="nf">getPort</span><span class="p">();</span>
 </code></pre></div>
 <ul>
@@ -4488,7 +4619,7 @@ More info: https://kubernetes.io/docs/tasks/inject-data-application/define-comma
 <hr />
 <h3 id="deploymentprops">DeploymentProps <a name="org.cdk8s.plus22.DeploymentProps"></a><a class="headerlink" href="#deploymentprops" title="Permanent link">&para;</a></h3>
 <p>Properties for initialization of <code>Deployment</code>.</p>
-<h4 id="initializer_5">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_5" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_6">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_6" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.plus22.DeploymentProps</span><span class="p">;</span>
 
 <span class="n">DeploymentProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -4595,7 +4726,7 @@ Account (for example, default).</p>
 <hr />
 <h3 id="emptydirvolumeoptions">EmptyDirVolumeOptions <a name="org.cdk8s.plus22.EmptyDirVolumeOptions"></a><a class="headerlink" href="#emptydirvolumeoptions" title="Permanent link">&para;</a></h3>
 <p>Options for volumes populated with an empty directory.</p>
-<h4 id="initializer_6">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_6" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_7">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_7" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.plus22.EmptyDirVolumeOptions</span><span class="p">;</span>
 
 <span class="n">EmptyDirVolumeOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -4632,7 +4763,7 @@ here and the sum of memory limits of all containers in a pod.</p>
 <hr />
 <h3 id="envvaluefromconfigmapoptions">EnvValueFromConfigMapOptions <a name="org.cdk8s.plus22.EnvValueFromConfigMapOptions"></a><a class="headerlink" href="#envvaluefromconfigmapoptions" title="Permanent link">&para;</a></h3>
 <p>Options to specify an envionment variable value from a ConfigMap key.</p>
-<h4 id="initializer_7">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_7" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_8">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_8" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.plus22.EnvValueFromConfigMapOptions</span><span class="p">;</span>
 
 <span class="n">EnvValueFromConfigMapOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -4650,7 +4781,7 @@ here and the sum of memory limits of all containers in a pod.</p>
 <hr />
 <h3 id="envvaluefromprocessoptions">EnvValueFromProcessOptions <a name="org.cdk8s.plus22.EnvValueFromProcessOptions"></a><a class="headerlink" href="#envvaluefromprocessoptions" title="Permanent link">&para;</a></h3>
 <p>Options to specify an environment variable value from the process environment.</p>
-<h4 id="initializer_8">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_8" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_9">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_9" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.plus22.EnvValueFromProcessOptions</span><span class="p">;</span>
 
 <span class="n">EnvValueFromProcessOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -4669,7 +4800,7 @@ here and the sum of memory limits of all containers in a pod.</p>
 <hr />
 <h3 id="envvaluefromsecretoptions">EnvValueFromSecretOptions <a name="org.cdk8s.plus22.EnvValueFromSecretOptions"></a><a class="headerlink" href="#envvaluefromsecretoptions" title="Permanent link">&para;</a></h3>
 <p>Options to specify an environment variable value from a Secret.</p>
-<h4 id="initializer_9">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_9" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_10">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_10" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.plus22.EnvValueFromSecretOptions</span><span class="p">;</span>
 
 <span class="n">EnvValueFromSecretOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -4685,19 +4816,22 @@ here and the sum of memory limits of all containers in a pod.</p>
 </ul>
 <p>Specify whether the Secret or its key must be defined.</p>
 <hr />
-<h3 id="exposeoptions">ExposeOptions <a name="org.cdk8s.plus22.ExposeOptions"></a><a class="headerlink" href="#exposeoptions" title="Permanent link">&para;</a></h3>
-<p>Options for exposing a deployment via a service.</p>
-<h4 id="initializer_10">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_10" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.plus22.ExposeOptions</span><span class="p">;</span>
+<h3 id="exposedeploymentviaingressoptions">ExposeDeploymentViaIngressOptions <a name="org.cdk8s.plus22.ExposeDeploymentViaIngressOptions"></a><a class="headerlink" href="#exposedeploymentviaingressoptions" title="Permanent link">&para;</a></h3>
+<p>Options for exposing a deployment via an ingress.</p>
+<h4 id="initializer_11">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_11" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.plus22.ExposeDeploymentViaIngressOptions</span><span class="p">;</span>
 
-<span class="n">ExposeOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
+<span class="n">ExposeDeploymentViaIngressOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
 <span class="c1">//  .name(java.lang.String)</span>
+<span class="c1">//  .port(java.lang.Number)</span>
 <span class="c1">//  .protocol(Protocol)</span>
 <span class="c1">//  .serviceType(ServiceType)</span>
 <span class="c1">//  .targetPort(java.lang.Number)</span>
+<span class="c1">//  .ingress(Ingress)</span>
+<span class="c1">//  .pathType(HttpIngressPathType)</span>
     <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
-<h5 id="nameoptional_2"><code>name</code><sup>Optional</sup> <a name="org.cdk8s.plus22.ExposeOptions.property.name"></a><a class="headerlink" href="#nameoptional_2" title="Permanent link">&para;</a></h5>
+<h5 id="nameoptional_3"><code>name</code><sup>Optional</sup> <a name="org.cdk8s.plus22.ExposeDeploymentViaIngressOptions.property.name"></a><a class="headerlink" href="#nameoptional_3" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getName</span><span class="p">();</span>
 </code></pre></div>
 <ul>
@@ -4707,7 +4841,16 @@ here and the sum of memory limits of all containers in a pod.</p>
 <p>The name of the service to expose.</p>
 <p>This will be set on the Service.metadata and must be a DNS_LABEL</p>
 <hr />
-<h5 id="protocoloptional"><code>protocol</code><sup>Optional</sup> <a name="org.cdk8s.plus22.ExposeOptions.property.protocol"></a><a class="headerlink" href="#protocoloptional" title="Permanent link">&para;</a></h5>
+<h5 id="portoptional_2"><code>port</code><sup>Optional</sup> <a name="org.cdk8s.plus22.ExposeDeploymentViaIngressOptions.property.port"></a><a class="headerlink" href="#portoptional_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="nf">getPort</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.Number</code></li>
+<li><em>Default:</em> Copied from the container of the deployment. If a port could not be determined, throws an error.</li>
+</ul>
+<p>The port that the service should serve on.</p>
+<hr />
+<h5 id="protocoloptional_1"><code>protocol</code><sup>Optional</sup> <a name="org.cdk8s.plus22.ExposeDeploymentViaIngressOptions.property.protocol"></a><a class="headerlink" href="#protocoloptional_1" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">Protocol</span> <span class="nf">getProtocol</span><span class="p">();</span>
 </code></pre></div>
 <ul>
@@ -4717,7 +4860,7 @@ here and the sum of memory limits of all containers in a pod.</p>
 <p>The IP protocol for this port.</p>
 <p>Supports &ldquo;TCP&rdquo;, &ldquo;UDP&rdquo;, and &ldquo;SCTP&rdquo;. Default is TCP.</p>
 <hr />
-<h5 id="servicetypeoptional"><code>serviceType</code><sup>Optional</sup> <a name="org.cdk8s.plus22.ExposeOptions.property.serviceType"></a><a class="headerlink" href="#servicetypeoptional" title="Permanent link">&para;</a></h5>
+<h5 id="servicetypeoptional"><code>serviceType</code><sup>Optional</sup> <a name="org.cdk8s.plus22.ExposeDeploymentViaIngressOptions.property.serviceType"></a><a class="headerlink" href="#servicetypeoptional" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">ServiceType</span> <span class="nf">getServiceType</span><span class="p">();</span>
 </code></pre></div>
 <ul>
@@ -4726,7 +4869,7 @@ here and the sum of memory limits of all containers in a pod.</p>
 </ul>
 <p>The type of the exposed service.</p>
 <hr />
-<h5 id="targetportoptional"><code>targetPort</code><sup>Optional</sup> <a name="org.cdk8s.plus22.ExposeOptions.property.targetPort"></a><a class="headerlink" href="#targetportoptional" title="Permanent link">&para;</a></h5>
+<h5 id="targetportoptional_1"><code>targetPort</code><sup>Optional</sup> <a name="org.cdk8s.plus22.ExposeDeploymentViaIngressOptions.property.targetPort"></a><a class="headerlink" href="#targetportoptional_1" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="nf">getTargetPort</span><span class="p">();</span>
 </code></pre></div>
 <ul>
@@ -4735,9 +4878,115 @@ here and the sum of memory limits of all containers in a pod.</p>
 </ul>
 <p>The port number the service will redirect to.</p>
 <hr />
+<h5 id="ingressoptional"><code>ingress</code><sup>Optional</sup> <a name="org.cdk8s.plus22.ExposeDeploymentViaIngressOptions.property.ingress"></a><a class="headerlink" href="#ingressoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">Ingress</span> <span class="nf">getIngress</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.plus22.Ingress"><code>org.cdk8s.plus22.Ingress</code></a></li>
+<li><em>Default:</em> An ingress will be automatically created.</li>
+</ul>
+<p>The ingress to add rules to.</p>
+<hr />
+<h5 id="pathtypeoptional_2"><code>pathType</code><sup>Optional</sup> <a name="org.cdk8s.plus22.ExposeDeploymentViaIngressOptions.property.pathType"></a><a class="headerlink" href="#pathtypeoptional_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">HttpIngressPathType</span> <span class="nf">getPathType</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.plus22.HttpIngressPathType"><code>org.cdk8s.plus22.HttpIngressPathType</code></a></li>
+<li><em>Default:</em> HttpIngressPathType.PREFIX</li>
+</ul>
+<p>The type of the path.</p>
+<hr />
+<h3 id="exposedeploymentviaserviceoptions">ExposeDeploymentViaServiceOptions <a name="org.cdk8s.plus22.ExposeDeploymentViaServiceOptions"></a><a class="headerlink" href="#exposedeploymentviaserviceoptions" title="Permanent link">&para;</a></h3>
+<p>Options for exposing a deployment via a service.</p>
+<h4 id="initializer_12">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_12" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.plus22.ExposeDeploymentViaServiceOptions</span><span class="p">;</span>
+
+<span class="n">ExposeDeploymentViaServiceOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
+<span class="c1">//  .name(java.lang.String)</span>
+<span class="c1">//  .port(java.lang.Number)</span>
+<span class="c1">//  .protocol(Protocol)</span>
+<span class="c1">//  .serviceType(ServiceType)</span>
+<span class="c1">//  .targetPort(java.lang.Number)</span>
+    <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+</code></pre></div>
+<h5 id="nameoptional_4"><code>name</code><sup>Optional</sup> <a name="org.cdk8s.plus22.ExposeDeploymentViaServiceOptions.property.name"></a><a class="headerlink" href="#nameoptional_4" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getName</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+<li><em>Default:</em> undefined Uses the system generated name.</li>
+</ul>
+<p>The name of the service to expose.</p>
+<p>This will be set on the Service.metadata and must be a DNS_LABEL</p>
+<hr />
+<h5 id="portoptional_3"><code>port</code><sup>Optional</sup> <a name="org.cdk8s.plus22.ExposeDeploymentViaServiceOptions.property.port"></a><a class="headerlink" href="#portoptional_3" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="nf">getPort</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.Number</code></li>
+<li><em>Default:</em> Copied from the container of the deployment. If a port could not be determined, throws an error.</li>
+</ul>
+<p>The port that the service should serve on.</p>
+<hr />
+<h5 id="protocoloptional_2"><code>protocol</code><sup>Optional</sup> <a name="org.cdk8s.plus22.ExposeDeploymentViaServiceOptions.property.protocol"></a><a class="headerlink" href="#protocoloptional_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">Protocol</span> <span class="nf">getProtocol</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.plus22.Protocol"><code>org.cdk8s.plus22.Protocol</code></a></li>
+<li><em>Default:</em> Protocol.TCP</li>
+</ul>
+<p>The IP protocol for this port.</p>
+<p>Supports &ldquo;TCP&rdquo;, &ldquo;UDP&rdquo;, and &ldquo;SCTP&rdquo;. Default is TCP.</p>
+<hr />
+<h5 id="servicetypeoptional_1"><code>serviceType</code><sup>Optional</sup> <a name="org.cdk8s.plus22.ExposeDeploymentViaServiceOptions.property.serviceType"></a><a class="headerlink" href="#servicetypeoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">ServiceType</span> <span class="nf">getServiceType</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.plus22.ServiceType"><code>org.cdk8s.plus22.ServiceType</code></a></li>
+<li><em>Default:</em> ClusterIP.</li>
+</ul>
+<p>The type of the exposed service.</p>
+<hr />
+<h5 id="targetportoptional_2"><code>targetPort</code><sup>Optional</sup> <a name="org.cdk8s.plus22.ExposeDeploymentViaServiceOptions.property.targetPort"></a><a class="headerlink" href="#targetportoptional_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="nf">getTargetPort</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.Number</code></li>
+<li><em>Default:</em> The port of the first container in the deployment (ie. containers[0].port)</li>
+</ul>
+<p>The port number the service will redirect to.</p>
+<hr />
+<h3 id="exposeserviceviaingressoptions">ExposeServiceViaIngressOptions <a name="org.cdk8s.plus22.ExposeServiceViaIngressOptions"></a><a class="headerlink" href="#exposeserviceviaingressoptions" title="Permanent link">&para;</a></h3>
+<p>Options for exposing a service using an ingress.</p>
+<h4 id="initializer_13">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_13" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.plus22.ExposeServiceViaIngressOptions</span><span class="p">;</span>
+
+<span class="n">ExposeServiceViaIngressOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
+<span class="c1">//  .ingress(Ingress)</span>
+<span class="c1">//  .pathType(HttpIngressPathType)</span>
+    <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+</code></pre></div>
+<h5 id="ingressoptional_1"><code>ingress</code><sup>Optional</sup> <a name="org.cdk8s.plus22.ExposeServiceViaIngressOptions.property.ingress"></a><a class="headerlink" href="#ingressoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">Ingress</span> <span class="nf">getIngress</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.plus22.Ingress"><code>org.cdk8s.plus22.Ingress</code></a></li>
+<li><em>Default:</em> An ingress will be automatically created.</li>
+</ul>
+<p>The ingress to add rules to.</p>
+<hr />
+<h5 id="pathtypeoptional_3"><code>pathType</code><sup>Optional</sup> <a name="org.cdk8s.plus22.ExposeServiceViaIngressOptions.property.pathType"></a><a class="headerlink" href="#pathtypeoptional_3" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">HttpIngressPathType</span> <span class="nf">getPathType</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.plus22.HttpIngressPathType"><code>org.cdk8s.plus22.HttpIngressPathType</code></a></li>
+<li><em>Default:</em> HttpIngressPathType.PREFIX</li>
+</ul>
+<p>The type of the path.</p>
+<hr />
 <h3 id="httpgetprobeoptions">HttpGetProbeOptions <a name="org.cdk8s.plus22.HttpGetProbeOptions"></a><a class="headerlink" href="#httpgetprobeoptions" title="Permanent link">&para;</a></h3>
 <p>Options for <code>Probe.fromHttpGet()</code>.</p>
-<h4 id="initializer_11">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_11" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_14">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_14" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.plus22.HttpGetProbeOptions</span><span class="p">;</span>
 
 <span class="n">HttpGetProbeOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -4804,7 +5053,7 @@ here and the sum of memory limits of all containers in a pod.</p>
 <p>https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes</p>
 </blockquote>
 <hr />
-<h5 id="portoptional_1"><code>port</code><sup>Optional</sup> <a name="org.cdk8s.plus22.HttpGetProbeOptions.property.port"></a><a class="headerlink" href="#portoptional_1" title="Permanent link">&para;</a></h5>
+<h5 id="portoptional_4"><code>port</code><sup>Optional</sup> <a name="org.cdk8s.plus22.HttpGetProbeOptions.property.port"></a><a class="headerlink" href="#portoptional_4" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="nf">getPort</span><span class="p">();</span>
 </code></pre></div>
 <ul>
@@ -4815,7 +5064,7 @@ here and the sum of memory limits of all containers in a pod.</p>
 <hr />
 <h3 id="ingressprops">IngressProps <a name="org.cdk8s.plus22.IngressProps"></a><a class="headerlink" href="#ingressprops" title="Permanent link">&para;</a></h3>
 <p>Properties for <code>Ingress</code>.</p>
-<h4 id="initializer_12">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_12" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_15">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_15" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.plus22.IngressProps</span><span class="p">;</span>
 
 <span class="n">IngressProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -4873,7 +5122,7 @@ extension, if the ingress controller fulfilling the ingress supports SNI.</p>
 <p>Represents the rules mapping the paths under a specified host to the related backend services.</p>
 <p>Incoming requests are first evaluated for a host match,
 then routed to the backend associated with the matching path.</p>
-<h4 id="initializer_13">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_13" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_16">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_16" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.plus22.IngressRule</span><span class="p">;</span>
 
 <span class="n">IngressRule</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -4918,7 +5167,7 @@ to the backend.</li>
 </ul>
 <p>Path is an extended POSIX regex as defined by IEEE Std 1003.1, (i.e this follows the egrep/unix syntax, not the perl syntax) matched against the path of an incoming request. Currently it can contain characters disallowed from the conventional &ldquo;path&rdquo; part of a URL as defined by RFC 3986. Paths must begin with a &lsquo;/&rsquo;.</p>
 <hr />
-<h5 id="pathtypeoptional_2"><code>pathType</code><sup>Optional</sup> <a name="org.cdk8s.plus22.IngressRule.property.pathType"></a><a class="headerlink" href="#pathtypeoptional_2" title="Permanent link">&para;</a></h5>
+<h5 id="pathtypeoptional_4"><code>pathType</code><sup>Optional</sup> <a name="org.cdk8s.plus22.IngressRule.property.pathType"></a><a class="headerlink" href="#pathtypeoptional_4" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">HttpIngressPathType</span> <span class="nf">getPathType</span><span class="p">();</span>
 </code></pre></div>
 <ul>
@@ -4933,7 +5182,7 @@ types will be matched by prefix.</p>
 <hr />
 <h3 id="ingresstls">IngressTls <a name="org.cdk8s.plus22.IngressTls"></a><a class="headerlink" href="#ingresstls" title="Permanent link">&para;</a></h3>
 <p>Represents the TLS configuration mapping that is passed to the ingress controller for SSL termination.</p>
-<h4 id="initializer_14">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_14" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_17">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_17" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.plus22.IngressTls</span><span class="p">;</span>
 
 <span class="n">IngressTls</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -4967,7 +5216,7 @@ termination and value of the Host header is used for routing.</p>
 <hr />
 <h3 id="jobprops">JobProps <a name="org.cdk8s.plus22.JobProps"></a><a class="headerlink" href="#jobprops" title="Permanent link">&para;</a></h3>
 <p>Properties for initialization of <code>Job</code>.</p>
-<h4 id="initializer_15">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_15" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_18">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_18" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.plus22.JobProps</span><span class="p">;</span>
 
 <span class="n">JobProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -5088,7 +5337,7 @@ field is alpha-level and is only honored by servers that enable the
 <hr />
 <h3 id="mountoptions">MountOptions <a name="org.cdk8s.plus22.MountOptions"></a><a class="headerlink" href="#mountoptions" title="Permanent link">&para;</a></h3>
 <p>Options for mounts.</p>
-<h4 id="initializer_16">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_16" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_19">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_19" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.plus22.MountOptions</span><span class="p">;</span>
 
 <span class="n">MountOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -5147,7 +5396,7 @@ is beta in 1.15.</p>
 <hr />
 <h3 id="pathmapping">PathMapping <a name="org.cdk8s.plus22.PathMapping"></a><a class="headerlink" href="#pathmapping" title="Permanent link">&para;</a></h3>
 <p>Maps a string key to a path within a volume.</p>
-<h4 id="initializer_17">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_17" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_20">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_20" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.plus22.PathMapping</span><span class="p">;</span>
 
 <span class="n">PathMapping</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -5155,7 +5404,7 @@ is beta in 1.15.</p>
 <span class="c1">//  .mode(java.lang.Number)</span>
     <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
-<h5 id="pathrequired_2"><code>path</code><sup>Required</sup> <a name="org.cdk8s.plus22.PathMapping.property.path"></a><a class="headerlink" href="#pathrequired_2" title="Permanent link">&para;</a></h5>
+<h5 id="pathrequired_4"><code>path</code><sup>Required</sup> <a name="org.cdk8s.plus22.PathMapping.property.path"></a><a class="headerlink" href="#pathrequired_4" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getPath</span><span class="p">();</span>
 </code></pre></div>
 <ul>
@@ -5179,7 +5428,7 @@ the result can be other mode bits set.</p>
 <hr />
 <h3 id="podprops">PodProps <a name="org.cdk8s.plus22.PodProps"></a><a class="headerlink" href="#podprops" title="Permanent link">&para;</a></h3>
 <p>Properties for initialization of <code>Pod</code>.</p>
-<h4 id="initializer_18">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_18" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_21">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_21" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.plus22.PodProps</span><span class="p">;</span>
 
 <span class="n">PodProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -5255,7 +5504,7 @@ Account (for example, default).</p>
 <hr />
 <h3 id="podspecprops">PodSpecProps <a name="org.cdk8s.plus22.PodSpecProps"></a><a class="headerlink" href="#podspecprops" title="Permanent link">&para;</a></h3>
 <p>Properties of a <code>PodSpec</code>.</p>
-<h4 id="initializer_19">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_19" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_22">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_22" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.plus22.PodSpecProps</span><span class="p">;</span>
 
 <span class="n">PodSpecProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -5323,7 +5572,7 @@ Account (for example, default).</p>
 <h3 id="podtemplateprops">PodTemplateProps <a name="org.cdk8s.plus22.PodTemplateProps"></a><a class="headerlink" href="#podtemplateprops" title="Permanent link">&para;</a></h3>
 <p>Properties of a <code>PodTemplate</code>.</p>
 <p>Adds metadata information on top of the spec.</p>
-<h4 id="initializer_20">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_20" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_23">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_23" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.plus22.PodTemplateProps</span><span class="p">;</span>
 
 <span class="n">PodTemplateProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -5399,7 +5648,7 @@ Account (for example, default).</p>
 <hr />
 <h3 id="probeoptions">ProbeOptions <a name="org.cdk8s.plus22.ProbeOptions"></a><a class="headerlink" href="#probeoptions" title="Permanent link">&para;</a></h3>
 <p>Probe options.</p>
-<h4 id="initializer_21">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_21" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_24">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_24" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.plus22.ProbeOptions</span><span class="p">;</span>
 
 <span class="n">ProbeOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -5467,7 +5716,7 @@ Account (for example, default).</p>
 <hr />
 <h3 id="resourceprops">ResourceProps <a name="org.cdk8s.plus22.ResourceProps"></a><a class="headerlink" href="#resourceprops" title="Permanent link">&para;</a></h3>
 <p>Initialization properties for resources.</p>
-<h4 id="initializer_22">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_22" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_25">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_25" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.plus22.ResourceProps</span><span class="p">;</span>
 
 <span class="n">ResourceProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -5483,7 +5732,7 @@ Account (for example, default).</p>
 <p>Metadata that all persisted resources must have, which includes all objects users must create.</p>
 <hr />
 <h3 id="secretprops">SecretProps <a name="org.cdk8s.plus22.SecretProps"></a><a class="headerlink" href="#secretprops" title="Permanent link">&para;</a></h3>
-<h4 id="initializer_23">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_23" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_26">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_26" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.plus22.SecretProps</span><span class="p">;</span>
 
 <span class="n">SecretProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -5525,7 +5774,7 @@ handling of secret data by various controllers.</p>
 <hr />
 <h3 id="secretvalue">SecretValue <a name="org.cdk8s.plus22.SecretValue"></a><a class="headerlink" href="#secretvalue" title="Permanent link">&para;</a></h3>
 <p>Represents a specific value in JSON secret.</p>
-<h4 id="initializer_24">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_24" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_27">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_27" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.plus22.SecretValue</span><span class="p">;</span>
 
 <span class="n">SecretValue</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -5552,7 +5801,7 @@ handling of secret data by various controllers.</p>
 <h3 id="serviceaccountprops">ServiceAccountProps <a name="org.cdk8s.plus22.ServiceAccountProps"></a><a class="headerlink" href="#serviceaccountprops" title="Permanent link">&para;</a></h3>
 <p>Properties for initialization of <code>ServiceAccount</code>.</p>
 <p>Properties for initialization of <code>ServiceAccount</code>.</p>
-<h4 id="initializer_25">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_25" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_28">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_28" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.plus22.ServiceAccountProps</span><span class="p">;</span>
 
 <span class="n">ServiceAccountProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -5581,14 +5830,14 @@ handling of secret data by various controllers.</p>
 <hr />
 <h3 id="serviceingressbackendoptions">ServiceIngressBackendOptions <a name="org.cdk8s.plus22.ServiceIngressBackendOptions"></a><a class="headerlink" href="#serviceingressbackendoptions" title="Permanent link">&para;</a></h3>
 <p>Options for setting up backends for ingress rules.</p>
-<h4 id="initializer_26">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_26" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_29">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_29" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.plus22.ServiceIngressBackendOptions</span><span class="p">;</span>
 
 <span class="n">ServiceIngressBackendOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
 <span class="c1">//  .port(java.lang.Number)</span>
     <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
-<h5 id="portoptional_2"><code>port</code><sup>Optional</sup> <a name="org.cdk8s.plus22.ServiceIngressBackendOptions.property.port"></a><a class="headerlink" href="#portoptional_2" title="Permanent link">&para;</a></h5>
+<h5 id="portoptional_5"><code>port</code><sup>Optional</sup> <a name="org.cdk8s.plus22.ServiceIngressBackendOptions.property.port"></a><a class="headerlink" href="#portoptional_5" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="nf">getPort</span><span class="p">();</span>
 </code></pre></div>
 <ul>
@@ -5603,7 +5852,7 @@ handling of secret data by various controllers.</p>
 <hr />
 <h3 id="serviceport">ServicePort <a name="org.cdk8s.plus22.ServicePort"></a><a class="headerlink" href="#serviceport" title="Permanent link">&para;</a></h3>
 <p>Definition of a service port.</p>
-<h4 id="initializer_27">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_27" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_30">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_30" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.plus22.ServicePort</span><span class="p">;</span>
 
 <span class="n">ServicePort</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -5614,7 +5863,7 @@ handling of secret data by various controllers.</p>
     <span class="p">.</span><span class="na">port</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span><span class="p">)</span>
     <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
-<h5 id="nameoptional_3"><code>name</code><sup>Optional</sup> <a name="org.cdk8s.plus22.ServicePort.property.name"></a><a class="headerlink" href="#nameoptional_3" title="Permanent link">&para;</a></h5>
+<h5 id="nameoptional_5"><code>name</code><sup>Optional</sup> <a name="org.cdk8s.plus22.ServicePort.property.name"></a><a class="headerlink" href="#nameoptional_5" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getName</span><span class="p">();</span>
 </code></pre></div>
 <ul>
@@ -5626,13 +5875,12 @@ ports within a ServiceSpec must have unique names. This maps to the &lsquo;Name&
 field in EndpointPort objects. Optional if only one ServicePort is defined
 on this service.</p>
 <hr />
-<h5 id="nodeportoptional"><code>nodePort</code><sup>Optional</sup> <a name="org.cdk8s.plus22.ServicePort.property.nodePort"></a><a class="headerlink" href="#nodeportoptional" title="Permanent link">&para;</a></h5>
+<h5 id="nodeportoptional_1"><code>nodePort</code><sup>Optional</sup> <a name="org.cdk8s.plus22.ServicePort.property.nodePort"></a><a class="headerlink" href="#nodeportoptional_1" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="nf">getNodePort</span><span class="p">();</span>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.Number</code></li>
-<li><em>Default:</em> to auto-allocate a port if the ServiceType of this Service
-requires one.</li>
+<li><em>Default:</em> auto-allocate a port if the ServiceType of this Service requires one.</li>
 </ul>
 <p>The port on each node on which this service is exposed when type=NodePort or LoadBalancer.</p>
 <p>Usually assigned by the system. If specified, it will be
@@ -5643,7 +5891,7 @@ requires one.</p>
 <p>https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport</p>
 </blockquote>
 <hr />
-<h5 id="protocoloptional_1"><code>protocol</code><sup>Optional</sup> <a name="org.cdk8s.plus22.ServicePort.property.protocol"></a><a class="headerlink" href="#protocoloptional_1" title="Permanent link">&para;</a></h5>
+<h5 id="protocoloptional_3"><code>protocol</code><sup>Optional</sup> <a name="org.cdk8s.plus22.ServicePort.property.protocol"></a><a class="headerlink" href="#protocoloptional_3" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">Protocol</span> <span class="nf">getProtocol</span><span class="p">();</span>
 </code></pre></div>
 <ul>
@@ -5653,7 +5901,7 @@ requires one.</p>
 <p>The IP protocol for this port.</p>
 <p>Supports &ldquo;TCP&rdquo;, &ldquo;UDP&rdquo;, and &ldquo;SCTP&rdquo;. Default is TCP.</p>
 <hr />
-<h5 id="targetportoptional_1"><code>targetPort</code><sup>Optional</sup> <a name="org.cdk8s.plus22.ServicePort.property.targetPort"></a><a class="headerlink" href="#targetportoptional_1" title="Permanent link">&para;</a></h5>
+<h5 id="targetportoptional_3"><code>targetPort</code><sup>Optional</sup> <a name="org.cdk8s.plus22.ServicePort.property.targetPort"></a><a class="headerlink" href="#targetportoptional_3" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="nf">getTargetPort</span><span class="p">();</span>
 </code></pre></div>
 <ul>
@@ -5662,7 +5910,7 @@ requires one.</p>
 </ul>
 <p>The port number the service will redirect to.</p>
 <hr />
-<h5 id="portrequired_3"><code>port</code><sup>Required</sup> <a name="org.cdk8s.plus22.ServicePort.property.port"></a><a class="headerlink" href="#portrequired_3" title="Permanent link">&para;</a></h5>
+<h5 id="portrequired_1"><code>port</code><sup>Required</sup> <a name="org.cdk8s.plus22.ServicePort.property.port"></a><a class="headerlink" href="#portrequired_1" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="nf">getPort</span><span class="p">();</span>
 </code></pre></div>
 <ul>
@@ -5671,7 +5919,7 @@ requires one.</p>
 <p>The port number the service will bind to.</p>
 <hr />
 <h3 id="serviceportoptions">ServicePortOptions <a name="org.cdk8s.plus22.ServicePortOptions"></a><a class="headerlink" href="#serviceportoptions" title="Permanent link">&para;</a></h3>
-<h4 id="initializer_28">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_28" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_31">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_31" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.plus22.ServicePortOptions</span><span class="p">;</span>
 
 <span class="n">ServicePortOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -5681,7 +5929,7 @@ requires one.</p>
 <span class="c1">//  .targetPort(java.lang.Number)</span>
     <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
-<h5 id="nameoptional_4"><code>name</code><sup>Optional</sup> <a name="org.cdk8s.plus22.ServicePortOptions.property.name"></a><a class="headerlink" href="#nameoptional_4" title="Permanent link">&para;</a></h5>
+<h5 id="nameoptional_6"><code>name</code><sup>Optional</sup> <a name="org.cdk8s.plus22.ServicePortOptions.property.name"></a><a class="headerlink" href="#nameoptional_6" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getName</span><span class="p">();</span>
 </code></pre></div>
 <ul>
@@ -5693,13 +5941,12 @@ ports within a ServiceSpec must have unique names. This maps to the &lsquo;Name&
 field in EndpointPort objects. Optional if only one ServicePort is defined
 on this service.</p>
 <hr />
-<h5 id="nodeportoptional_1"><code>nodePort</code><sup>Optional</sup> <a name="org.cdk8s.plus22.ServicePortOptions.property.nodePort"></a><a class="headerlink" href="#nodeportoptional_1" title="Permanent link">&para;</a></h5>
+<h5 id="nodeportoptional_2"><code>nodePort</code><sup>Optional</sup> <a name="org.cdk8s.plus22.ServicePortOptions.property.nodePort"></a><a class="headerlink" href="#nodeportoptional_2" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="nf">getNodePort</span><span class="p">();</span>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.Number</code></li>
-<li><em>Default:</em> to auto-allocate a port if the ServiceType of this Service
-requires one.</li>
+<li><em>Default:</em> auto-allocate a port if the ServiceType of this Service requires one.</li>
 </ul>
 <p>The port on each node on which this service is exposed when type=NodePort or LoadBalancer.</p>
 <p>Usually assigned by the system. If specified, it will be
@@ -5710,7 +5957,7 @@ requires one.</p>
 <p>https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport</p>
 </blockquote>
 <hr />
-<h5 id="protocoloptional_2"><code>protocol</code><sup>Optional</sup> <a name="org.cdk8s.plus22.ServicePortOptions.property.protocol"></a><a class="headerlink" href="#protocoloptional_2" title="Permanent link">&para;</a></h5>
+<h5 id="protocoloptional_4"><code>protocol</code><sup>Optional</sup> <a name="org.cdk8s.plus22.ServicePortOptions.property.protocol"></a><a class="headerlink" href="#protocoloptional_4" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">Protocol</span> <span class="nf">getProtocol</span><span class="p">();</span>
 </code></pre></div>
 <ul>
@@ -5720,7 +5967,7 @@ requires one.</p>
 <p>The IP protocol for this port.</p>
 <p>Supports &ldquo;TCP&rdquo;, &ldquo;UDP&rdquo;, and &ldquo;SCTP&rdquo;. Default is TCP.</p>
 <hr />
-<h5 id="targetportoptional_2"><code>targetPort</code><sup>Optional</sup> <a name="org.cdk8s.plus22.ServicePortOptions.property.targetPort"></a><a class="headerlink" href="#targetportoptional_2" title="Permanent link">&para;</a></h5>
+<h5 id="targetportoptional_4"><code>targetPort</code><sup>Optional</sup> <a name="org.cdk8s.plus22.ServicePortOptions.property.targetPort"></a><a class="headerlink" href="#targetportoptional_4" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="nf">getTargetPort</span><span class="p">();</span>
 </code></pre></div>
 <ul>
@@ -5731,7 +5978,7 @@ requires one.</p>
 <hr />
 <h3 id="serviceprops">ServiceProps <a name="org.cdk8s.plus22.ServiceProps"></a><a class="headerlink" href="#serviceprops" title="Permanent link">&para;</a></h3>
 <p>Properties for initialization of <code>Service</code>.</p>
-<h4 id="initializer_29">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_29" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_32">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_32" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.plus22.ServiceProps</span><span class="p">;</span>
 
 <span class="n">ServiceProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -5822,7 +6069,7 @@ Kubernetes system.</p>
 <hr />
 <h3 id="statefulsetprops">StatefulSetProps <a name="org.cdk8s.plus22.StatefulSetProps"></a><a class="headerlink" href="#statefulsetprops" title="Permanent link">&para;</a></h3>
 <p>Properties for initialization of <code>StatefulSet</code>.</p>
-<h4 id="initializer_30">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_30" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_33">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_33" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.plus22.StatefulSetProps</span><span class="p">;</span>
 
 <span class="n">StatefulSetProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -5948,7 +6195,7 @@ Account (for example, default).</p>
 <hr />
 <h3 id="volumemount">VolumeMount <a name="org.cdk8s.plus22.VolumeMount"></a><a class="headerlink" href="#volumemount" title="Permanent link">&para;</a></h3>
 <p>Mount a volume from the pod to the container.</p>
-<h4 id="initializer_31">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_31" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_34">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_34" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.plus22.VolumeMount</span><span class="p">;</span>
 
 <span class="n">VolumeMount</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -6007,7 +6254,7 @@ is beta in 1.15.</p>
 <p><code>subPathExpr</code> and <code>subPath</code> are mutually exclusive. This field is beta in
 1.15.</p>
 <hr />
-<h5 id="pathrequired_3"><code>path</code><sup>Required</sup> <a name="org.cdk8s.plus22.VolumeMount.property.path"></a><a class="headerlink" href="#pathrequired_3" title="Permanent link">&para;</a></h5>
+<h5 id="pathrequired_5"><code>path</code><sup>Required</sup> <a name="org.cdk8s.plus22.VolumeMount.property.path"></a><a class="headerlink" href="#pathrequired_5" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getPath</span><span class="p">();</span>
 </code></pre></div>
 <ul>
@@ -6081,7 +6328,7 @@ More info: https://kubernetes.io/docs/tasks/inject-data-application/define-comma
 <hr />
 <h5 id="envoptional_1"><code>env</code><sup>Optional</sup> <a name="org.cdk8s.plus22.ContainerProps.parameter.env"></a><a class="headerlink" href="#envoptional_1" title="Permanent link">&para;</a></h5>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus22.EnvValue">klzzwxh:2801</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus22.EnvValue">klzzwxh:2904</a>></li>
 <li><em>Default:</em> No environment variables.</li>
 </ul>
 <p>List of environment variables to set in the container.</p>
@@ -6102,7 +6349,7 @@ More info: https://kubernetes.io/docs/tasks/inject-data-application/define-comma
 <p>Periodic probe of container liveness.</p>
 <p>Container will be restarted if the probe fails.</p>
 <hr />
-<h5 id="nameoptional_5"><code>name</code><sup>Optional</sup> <a name="org.cdk8s.plus22.ContainerProps.parameter.name"></a><a class="headerlink" href="#nameoptional_5" title="Permanent link">&para;</a></h5>
+<h5 id="nameoptional_7"><code>name</code><sup>Optional</sup> <a name="org.cdk8s.plus22.ContainerProps.parameter.name"></a><a class="headerlink" href="#nameoptional_7" title="Permanent link">&para;</a></h5>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 <li><em>Default:</em> &lsquo;main&rsquo;</li>
@@ -6110,7 +6357,7 @@ More info: https://kubernetes.io/docs/tasks/inject-data-application/define-comma
 <p>Name of the container specified as a DNS_LABEL.</p>
 <p>Each container in a pod must have a unique name (DNS_LABEL). Cannot be updated.</p>
 <hr />
-<h5 id="portoptional_3"><code>port</code><sup>Optional</sup> <a name="org.cdk8s.plus22.ContainerProps.parameter.port"></a><a class="headerlink" href="#portoptional_3" title="Permanent link">&para;</a></h5>
+<h5 id="portoptional_6"><code>port</code><sup>Optional</sup> <a name="org.cdk8s.plus22.ContainerProps.parameter.port"></a><a class="headerlink" href="#portoptional_6" title="Permanent link">&para;</a></h5>
 <ul>
 <li><em>Type:</em> <code>java.lang.Number</code></li>
 <li><em>Default:</em> No port is exposed.</li>
@@ -6168,7 +6415,7 @@ More info: https://kubernetes.io/docs/tasks/inject-data-application/define-comma
 <div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">mount</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="n">path</span><span class="p">,</span> <span class="n">Volume</span> <span class="n">volume</span><span class="p">)</span>
 <span class="kd">public</span> <span class="nf">mount</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="n">path</span><span class="p">,</span> <span class="n">Volume</span> <span class="n">volume</span><span class="p">,</span> <span class="n">MountOptions</span> <span class="n">options</span><span class="p">)</span>
 </code></pre></div>
-<h6 id="pathrequired_4"><code>path</code><sup>Required</sup> <a name="org.cdk8s.plus22.Container.parameter.path"></a><a class="headerlink" href="#pathrequired_4" title="Permanent link">&para;</a></h6>
+<h6 id="pathrequired_6"><code>path</code><sup>Required</sup> <a name="org.cdk8s.plus22.Container.parameter.path"></a><a class="headerlink" href="#pathrequired_6" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 </ul>
@@ -6180,7 +6427,7 @@ More info: https://kubernetes.io/docs/tasks/inject-data-application/define-comma
 </ul>
 <p>The volume to mount.</p>
 <hr />
-<h6 id="optionsoptional_4"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus22.Container.parameter.options"></a><a class="headerlink" href="#optionsoptional_4" title="Permanent link">&para;</a></h6>
+<h6 id="optionsoptional_6"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus22.Container.parameter.options"></a><a class="headerlink" href="#optionsoptional_6" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus22.MountOptions"><code>org.cdk8s.plus22.MountOptions</code></a></li>
 </ul>
@@ -6190,7 +6437,7 @@ More info: https://kubernetes.io/docs/tasks/inject-data-application/define-comma
 <div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span> <span class="n">EnvValue</span><span class="o">&gt;</span> <span class="nf">getEnv</span><span class="p">();</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus22.EnvValue">klzzwxh:2756</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus22.EnvValue">klzzwxh:2859</a>></li>
 </ul>
 <p>The environment variables for this container.</p>
 <p>Returns a copy. To add environment variables use <code>addEnv()</code>.</p>
@@ -6243,7 +6490,7 @@ More info: https://kubernetes.io/docs/tasks/inject-data-application/define-comma
 </ul>
 <p>Entrypoint array (the command to execute when the container starts).</p>
 <hr />
-<h5 id="portoptional_4"><code>port</code><sup>Optional</sup> <a name="org.cdk8s.plus22.Container.property.port"></a><a class="headerlink" href="#portoptional_4" title="Permanent link">&para;</a></h5>
+<h5 id="portoptional_7"><code>port</code><sup>Optional</sup> <a name="org.cdk8s.plus22.Container.property.port"></a><a class="headerlink" href="#portoptional_7" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="nf">getPort</span><span class="p">();</span>
 </code></pre></div>
 <ul>
@@ -6280,7 +6527,7 @@ More info: https://kubernetes.io/docs/tasks/inject-data-application/define-comma
 </ul>
 <p>The key to extract the value from.</p>
 <hr />
-<h6 id="optionsoptional_5"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus22.EnvValue.parameter.options"></a><a class="headerlink" href="#optionsoptional_5" title="Permanent link">&para;</a></h6>
+<h6 id="optionsoptional_7"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus22.EnvValue.parameter.options"></a><a class="headerlink" href="#optionsoptional_7" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus22.EnvValueFromConfigMapOptions"><code>org.cdk8s.plus22.EnvValueFromConfigMapOptions</code></a></li>
 </ul>
@@ -6298,7 +6545,7 @@ More info: https://kubernetes.io/docs/tasks/inject-data-application/define-comma
 </ul>
 <p>The key to read.</p>
 <hr />
-<h6 id="optionsoptional_6"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus22.EnvValue.parameter.options"></a><a class="headerlink" href="#optionsoptional_6" title="Permanent link">&para;</a></h6>
+<h6 id="optionsoptional_8"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus22.EnvValue.parameter.options"></a><a class="headerlink" href="#optionsoptional_8" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus22.EnvValueFromProcessOptions"><code>org.cdk8s.plus22.EnvValueFromProcessOptions</code></a></li>
 </ul>
@@ -6316,7 +6563,7 @@ More info: https://kubernetes.io/docs/tasks/inject-data-application/define-comma
 </ul>
 <p>The secret value (secrent + key).</p>
 <hr />
-<h6 id="optionsoptional_7"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus22.EnvValue.parameter.options"></a><a class="headerlink" href="#optionsoptional_7" title="Permanent link">&para;</a></h6>
+<h6 id="optionsoptional_9"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus22.EnvValue.parameter.options"></a><a class="headerlink" href="#optionsoptional_9" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus22.EnvValueFromSecretOptions"><code>org.cdk8s.plus22.EnvValueFromSecretOptions</code></a></li>
 </ul>
@@ -6363,7 +6610,7 @@ More info: https://kubernetes.io/docs/tasks/inject-data-application/define-comma
 </ul>
 <p>The service object.</p>
 <hr />
-<h6 id="optionsoptional_8"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus22.IngressBackend.parameter.options"></a><a class="headerlink" href="#optionsoptional_8" title="Permanent link">&para;</a></h6>
+<h6 id="optionsoptional_10"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus22.IngressBackend.parameter.options"></a><a class="headerlink" href="#optionsoptional_10" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus22.ServiceIngressBackendOptions"><code>org.cdk8s.plus22.ServiceIngressBackendOptions</code></a></li>
 </ul>
@@ -6580,7 +6827,7 @@ Account (for example, default).</p>
 </ul>
 <p>The command to execute.</p>
 <hr />
-<h6 id="optionsoptional_9"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus22.Probe.parameter.options"></a><a class="headerlink" href="#optionsoptional_9" title="Permanent link">&para;</a></h6>
+<h6 id="optionsoptional_11"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus22.Probe.parameter.options"></a><a class="headerlink" href="#optionsoptional_11" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus22.CommandProbeOptions"><code>org.cdk8s.plus22.CommandProbeOptions</code></a></li>
 </ul>
@@ -6592,13 +6839,13 @@ Account (for example, default).</p>
 <span class="n">Probe</span><span class="p">.</span><span class="na">fromHttpGet</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="n">path</span><span class="p">)</span>
 <span class="n">Probe</span><span class="p">.</span><span class="na">fromHttpGet</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="n">path</span><span class="p">,</span> <span class="n">HttpGetProbeOptions</span> <span class="n">options</span><span class="p">)</span>
 </code></pre></div>
-<h6 id="pathrequired_5"><code>path</code><sup>Required</sup> <a name="org.cdk8s.plus22.Probe.parameter.path"></a><a class="headerlink" href="#pathrequired_5" title="Permanent link">&para;</a></h6>
+<h6 id="pathrequired_7"><code>path</code><sup>Required</sup> <a name="org.cdk8s.plus22.Probe.parameter.path"></a><a class="headerlink" href="#pathrequired_7" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 </ul>
 <p>The URL path to hit.</p>
 <hr />
-<h6 id="optionsoptional_10"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus22.Probe.parameter.options"></a><a class="headerlink" href="#optionsoptional_10" title="Permanent link">&para;</a></h6>
+<h6 id="optionsoptional_12"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus22.Probe.parameter.options"></a><a class="headerlink" href="#optionsoptional_12" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus22.HttpGetProbeOptions"><code>org.cdk8s.plus22.HttpGetProbeOptions</code></a></li>
 </ul>
@@ -6658,7 +6905,7 @@ image. Volumes can not mount onto other volumes</p>
 </ul>
 <p>The config map to use to populate the volume.</p>
 <hr />
-<h6 id="optionsoptional_11"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus22.Volume.parameter.options"></a><a class="headerlink" href="#optionsoptional_11" title="Permanent link">&para;</a></h6>
+<h6 id="optionsoptional_13"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus22.Volume.parameter.options"></a><a class="headerlink" href="#optionsoptional_13" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus22.ConfigMapVolumeOptions"><code>org.cdk8s.plus22.ConfigMapVolumeOptions</code></a></li>
 </ul>
@@ -6675,7 +6922,7 @@ image. Volumes can not mount onto other volumes</p>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 </ul>
 <hr />
-<h6 id="optionsoptional_12"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus22.Volume.parameter.options"></a><a class="headerlink" href="#optionsoptional_12" title="Permanent link">&para;</a></h6>
+<h6 id="optionsoptional_14"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus22.Volume.parameter.options"></a><a class="headerlink" href="#optionsoptional_14" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus22.EmptyDirVolumeOptions"><code>org.cdk8s.plus22.EmptyDirVolumeOptions</code></a></li>
 </ul>
@@ -7104,10 +7351,10 @@ are automatically created.</p>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "header.autohide"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.e99e714c.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "header.autohide"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.bc35569b.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.f89c2efe.min.js"></script>
       
     
   </body>
