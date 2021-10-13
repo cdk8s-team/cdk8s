@@ -10,7 +10,7 @@
       
       
       <link rel="icon" href="../../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.3">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.3">
     
     
       
@@ -916,6 +916,13 @@
           <li class="md-nav__item">
   <a href="#nameoptions" class="md-nav__link">
     NameOptions 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ownerreference" class="md-nav__link">
+    OwnerReference 
   </a>
   
 </li>
@@ -1917,6 +1924,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#ownerreference" class="md-nav__link">
+    OwnerReference 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#sizeconversionoptions" class="md-nav__link">
     SizeConversionOptions 
   </a>
@@ -2481,9 +2495,11 @@ from the manifest.</p>
 
 <span class="n">cdk8s</span><span class="o">.</span><span class="n">ApiObjectMetadata</span><span class="p">(</span>
   <span class="n">annotations</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">finalizers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">labels</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-  <span class="n">namespace</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span>
+  <span class="n">namespace</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">owner_references</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">OwnerReference</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="p">)</span>
 </code></pre></div>
 <h5 id="annotationsoptional"><code>annotations</code><sup>Optional</sup> <a name="cdk8s.ApiObjectMetadata.property.annotations"></a><a class="headerlink" href="#annotationsoptional" title="Permanent link">&para;</a></h5>
@@ -2498,6 +2514,31 @@ from the manifest.</p>
 preserved when modifying objects.</p>
 <blockquote>
 <p>http://kubernetes.io/docs/user-guide/annotations</p>
+</blockquote>
+<hr />
+<h5 id="finalizersoptional"><code>finalizers</code><sup>Optional</sup> <a name="cdk8s.ApiObjectMetadata.property.finalizers"></a><a class="headerlink" href="#finalizersoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">finalizers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> typing.List[<code>str</code>]</li>
+<li><em>Default:</em> No finalizers.</li>
+</ul>
+<p>Namespaced keys that tell Kubernetes to wait until specific conditions are met before it fully deletes resources marked for deletion.</p>
+<p>Must be empty before the object is deleted from the registry. Each entry is
+an identifier for the responsible component that will remove the entry from
+the list. If the deletionTimestamp of the object is non-nil, entries in
+this list can only be removed. Finalizers may be processed and removed in
+any order.  Order is NOT enforced because it introduces significant risk of
+stuck finalizers. finalizers is a shared field, any actor with permission
+can reorder it. If the finalizer list is processed in order, then this can
+lead to a situation in which the component responsible for the first
+finalizer in the list is waiting for a signal (field value, external
+system, or other) produced by a component responsible for a finalizer later
+in the list, resulting in a deadlock. Without enforced ordering finalizers
+are free to order amongst themselves and are not vulnerable to ordering
+changes in the list.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/overview/working-with-objects/finalizers/</p>
 </blockquote>
 <hr />
 <h5 id="labelsoptional_1"><code>labels</code><sup>Optional</sup> <a name="cdk8s.ApiObjectMetadata.property.labels"></a><a class="headerlink" href="#labelsoptional_1" title="Permanent link">&para;</a></h5>
@@ -2542,6 +2583,29 @@ leave this unspecified.</p>
 <p>Namespace defines the space within each name must be unique.</p>
 <p>An empty namespace is equivalent to the &ldquo;default&rdquo; namespace, but &ldquo;default&rdquo; is the canonical representation.
 Not all objects are required to be scoped to a namespace - the value of this field for those objects will be empty. Must be a DNS_LABEL. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/namespaces</p>
+<hr />
+<h5 id="owner_referencesoptional"><code>owner_references</code><sup>Optional</sup> <a name="cdk8s.ApiObjectMetadata.property.owner_references"></a><a class="headerlink" href="#owner_referencesoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">owner_references</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">OwnerReference</span><span class="p">]</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> typing.List[<a href="#cdk8s.OwnerReference"><code>cdk8s.OwnerReference</code></a>]</li>
+<li><em>Default:</em> automatically set by Kubernetes</li>
+</ul>
+<p>List of objects depended by this object.</p>
+<p>If ALL objects in the list have
+been deleted, this object will be garbage collected. If this object is
+managed by a controller, then an entry in this list will point to this
+controller, with the controller field set to true. There cannot be more
+than one managing controller.</p>
+<p>Kubernetes sets the value of this field automatically for objects that are
+dependents of other objects like ReplicaSets, DaemonSets, Deployments, Jobs
+and CronJobs, and ReplicationControllers. You can also configure these
+relationships manually by changing the value of this field. However, you
+usually don&rsquo;t need to and can allow Kubernetes to automatically manage the
+relationships.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/overview/working-with-objects/owners-dependents/</p>
+</blockquote>
 <hr />
 <h3 id="apiobjectprops">ApiObjectProps <a name="cdk8s.ApiObjectProps"></a><a class="headerlink" href="#apiobjectprops" title="Permanent link">&para;</a></h3>
 <p>Options for defining API objects.</p>
@@ -2786,9 +2850,87 @@ framework based on the path of the construct within thes construct tree.</p>
 </ul>
 <p>Maximum allowed length for the name.</p>
 <hr />
+<h3 id="ownerreference">OwnerReference <a name="cdk8s.OwnerReference"></a><a class="headerlink" href="#ownerreference" title="Permanent link">&para;</a></h3>
+<p>OwnerReference contains enough information to let you identify an owning object.</p>
+<p>An owning object must be in the same namespace as the dependent, or
+be cluster-scoped, so there is no namespace field.</p>
+<h4 id="initializer_8">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_8" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s</span>
+
+<span class="n">cdk8s</span><span class="o">.</span><span class="n">OwnerReference</span><span class="p">(</span>
+  <span class="n">api_version</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+  <span class="n">kind</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+  <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+  <span class="n">uid</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+  <span class="n">block_owner_deletion</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">controller</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="p">)</span>
+</code></pre></div>
+<h5 id="api_versionrequired_4"><code>api_version</code><sup>Required</sup> <a name="cdk8s.OwnerReference.property.api_version"></a><a class="headerlink" href="#api_versionrequired_4" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">api_version</span><span class="p">:</span> <span class="nb">str</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>str</code></li>
+</ul>
+<p>API version of the referent.</p>
+<hr />
+<h5 id="kindrequired_4"><code>kind</code><sup>Required</sup> <a name="cdk8s.OwnerReference.property.kind"></a><a class="headerlink" href="#kindrequired_4" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">kind</span><span class="p">:</span> <span class="nb">str</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>str</code></li>
+</ul>
+<p>Kind of the referent.</p>
+<blockquote>
+<p>https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds</p>
+</blockquote>
+<hr />
+<h5 id="namerequired_1"><code>name</code><sup>Required</sup> <a name="cdk8s.OwnerReference.property.name"></a><a class="headerlink" href="#namerequired_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>str</code></li>
+</ul>
+<p>Name of the referent.</p>
+<blockquote>
+<p>http://kubernetes.io/docs/user-guide/identifiers#names</p>
+</blockquote>
+<hr />
+<h5 id="uidrequired"><code>uid</code><sup>Required</sup> <a name="cdk8s.OwnerReference.property.uid"></a><a class="headerlink" href="#uidrequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">uid</span><span class="p">:</span> <span class="nb">str</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>str</code></li>
+</ul>
+<p>UID of the referent.</p>
+<blockquote>
+<p>http://kubernetes.io/docs/user-guide/identifiers#uids</p>
+</blockquote>
+<hr />
+<h5 id="block_owner_deletionoptional"><code>block_owner_deletion</code><sup>Optional</sup> <a name="cdk8s.OwnerReference.property.block_owner_deletion"></a><a class="headerlink" href="#block_owner_deletionoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">block_owner_deletion</span><span class="p">:</span> <span class="nb">bool</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>bool</code></li>
+<li><em>Default:</em> false. To set this field, a user needs &ldquo;delete&rdquo; permission of the
+owner, otherwise 422 (Unprocessable Entity) will be returned.</li>
+</ul>
+<p>If true, AND if the owner has the &ldquo;foregroundDeletion&rdquo; finalizer, then the owner cannot be deleted from the key-value store until this reference is removed.</p>
+<p>Defaults to false. To set this field, a user needs &ldquo;delete&rdquo;
+permission of the owner, otherwise 422 (Unprocessable Entity) will be
+returned.</p>
+<hr />
+<h5 id="controlleroptional"><code>controller</code><sup>Optional</sup> <a name="cdk8s.OwnerReference.property.controller"></a><a class="headerlink" href="#controlleroptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">controller</span><span class="p">:</span> <span class="nb">bool</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>bool</code></li>
+</ul>
+<p>If true, this reference points to the managing controller.</p>
+<hr />
 <h3 id="sizeconversionoptions">SizeConversionOptions <a name="cdk8s.SizeConversionOptions"></a><a class="headerlink" href="#sizeconversionoptions" title="Permanent link">&para;</a></h3>
 <p>Options for how to convert time to a different unit.</p>
-<h4 id="initializer_8">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_8" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_9">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_9" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s</span>
 
 <span class="n">cdk8s</span><span class="o">.</span><span class="n">SizeConversionOptions</span><span class="p">(</span>
@@ -2806,7 +2948,7 @@ framework based on the path of the construct within thes construct tree.</p>
 <hr />
 <h3 id="timeconversionoptions">TimeConversionOptions <a name="cdk8s.TimeConversionOptions"></a><a class="headerlink" href="#timeconversionoptions" title="Permanent link">&para;</a></h3>
 <p>Options for how to convert time to a different unit.</p>
-<h4 id="initializer_9">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_9" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_10">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_10" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s</span>
 
 <span class="n">cdk8s</span><span class="o">.</span><span class="n">TimeConversionOptions</span><span class="p">(</span>
@@ -2830,9 +2972,11 @@ framework based on the path of the construct within thes construct tree.</p>
 
 <span class="n">cdk8s</span><span class="o">.</span><span class="n">ApiObjectMetadataDefinition</span><span class="p">(</span>
   <span class="n">annotations</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">finalizers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">labels</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-  <span class="n">namespace</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span>
+  <span class="n">namespace</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">owner_references</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">OwnerReference</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="p">)</span>
 </code></pre></div>
 <h5 id="annotationsoptional_1"><code>annotations</code><sup>Optional</sup> <a name="cdk8s.ApiObjectMetadata.parameter.annotations"></a><a class="headerlink" href="#annotationsoptional_1" title="Permanent link">&para;</a></h5>
@@ -2845,6 +2989,29 @@ framework based on the path of the construct within thes construct tree.</p>
 preserved when modifying objects.</p>
 <blockquote>
 <p>http://kubernetes.io/docs/user-guide/annotations</p>
+</blockquote>
+<hr />
+<h5 id="finalizersoptional_1"><code>finalizers</code><sup>Optional</sup> <a name="cdk8s.ApiObjectMetadata.parameter.finalizers"></a><a class="headerlink" href="#finalizersoptional_1" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> typing.List[<code>str</code>]</li>
+<li><em>Default:</em> No finalizers.</li>
+</ul>
+<p>Namespaced keys that tell Kubernetes to wait until specific conditions are met before it fully deletes resources marked for deletion.</p>
+<p>Must be empty before the object is deleted from the registry. Each entry is
+an identifier for the responsible component that will remove the entry from
+the list. If the deletionTimestamp of the object is non-nil, entries in
+this list can only be removed. Finalizers may be processed and removed in
+any order.  Order is NOT enforced because it introduces significant risk of
+stuck finalizers. finalizers is a shared field, any actor with permission
+can reorder it. If the finalizer list is processed in order, then this can
+lead to a situation in which the component responsible for the first
+finalizer in the list is waiting for a signal (field value, external
+system, or other) produced by a component responsible for a finalizer later
+in the list, resulting in a deadlock. Without enforced ordering finalizers
+are free to order amongst themselves and are not vulnerable to ordering
+changes in the list.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/overview/working-with-objects/finalizers/</p>
 </blockquote>
 <hr />
 <h5 id="labelsoptional_3"><code>labels</code><sup>Optional</sup> <a name="cdk8s.ApiObjectMetadata.parameter.labels"></a><a class="headerlink" href="#labelsoptional_3" title="Permanent link">&para;</a></h5>
@@ -2884,6 +3051,27 @@ leave this unspecified.</p>
 <p>An empty namespace is equivalent to the &ldquo;default&rdquo; namespace, but &ldquo;default&rdquo; is the canonical representation.
 Not all objects are required to be scoped to a namespace - the value of this field for those objects will be empty. Must be a DNS_LABEL. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/namespaces</p>
 <hr />
+<h5 id="owner_referencesoptional_1"><code>owner_references</code><sup>Optional</sup> <a name="cdk8s.ApiObjectMetadata.parameter.owner_references"></a><a class="headerlink" href="#owner_referencesoptional_1" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> typing.List[<a href="#cdk8s.OwnerReference"><code>cdk8s.OwnerReference</code></a>]</li>
+<li><em>Default:</em> automatically set by Kubernetes</li>
+</ul>
+<p>List of objects depended by this object.</p>
+<p>If ALL objects in the list have
+been deleted, this object will be garbage collected. If this object is
+managed by a controller, then an entry in this list will point to this
+controller, with the controller field set to true. There cannot be more
+than one managing controller.</p>
+<p>Kubernetes sets the value of this field automatically for objects that are
+dependents of other objects like ReplicaSets, DaemonSets, Deployments, Jobs
+and CronJobs, and ReplicationControllers. You can also configure these
+relationships manually by changing the value of this field. However, you
+usually don&rsquo;t need to and can allow Kubernetes to automatically manage the
+relationships.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/overview/working-with-objects/owners-dependents/</p>
+</blockquote>
+<hr />
 <h4 id="methods_3">Methods <a name="Methods"></a><a class="headerlink" href="#methods_3" title="Permanent link">&para;</a></h4>
 <h5 id="add"><code>add</code> <a name="cdk8s.ApiObjectMetadataDefinition.add"></a><a class="headerlink" href="#add" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">add</span><span class="p">(</span>
@@ -2921,6 +3109,17 @@ Not all objects are required to be scoped to a namespace - the value of this fie
 </ul>
 <p>The value.</p>
 <hr />
+<h5 id="add_finalizers"><code>add_finalizers</code> <a name="cdk8s.ApiObjectMetadataDefinition.add_finalizers"></a><a class="headerlink" href="#add_finalizers" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">add_finalizers</span><span class="p">(</span>
+  <span class="n">finalizers</span><span class="p">:</span> <span class="nb">str</span>
+<span class="p">)</span>
+</code></pre></div>
+<h6 id="finalizersrequired"><code>finalizers</code><sup>Required</sup> <a name="cdk8s.ApiObjectMetadataDefinition.parameter.finalizers"></a><a class="headerlink" href="#finalizersrequired" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <code>str</code></li>
+</ul>
+<p>the finalizers.</p>
+<hr />
 <h5 id="add_label"><code>add_label</code> <a name="cdk8s.ApiObjectMetadataDefinition.add_label"></a><a class="headerlink" href="#add_label" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">add_label</span><span class="p">(</span>
   <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
@@ -2938,6 +3137,66 @@ Not all objects are required to be scoped to a namespace - the value of this fie
 <li><em>Type:</em> <code>str</code></li>
 </ul>
 <p>The value.</p>
+<hr />
+<h5 id="add_owner_reference"><code>add_owner_reference</code> <a name="cdk8s.ApiObjectMetadataDefinition.add_owner_reference"></a><a class="headerlink" href="#add_owner_reference" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">add_owner_reference</span><span class="p">(</span>
+  <span class="n">api_version</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+  <span class="n">kind</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+  <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+  <span class="n">uid</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+  <span class="n">block_owner_deletion</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">controller</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="p">)</span>
+</code></pre></div>
+<h6 id="api_versionrequired_5"><code>api_version</code><sup>Required</sup> <a name="cdk8s.OwnerReference.parameter.api_version"></a><a class="headerlink" href="#api_versionrequired_5" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <code>str</code></li>
+</ul>
+<p>API version of the referent.</p>
+<hr />
+<h6 id="kindrequired_5"><code>kind</code><sup>Required</sup> <a name="cdk8s.OwnerReference.parameter.kind"></a><a class="headerlink" href="#kindrequired_5" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <code>str</code></li>
+</ul>
+<p>Kind of the referent.</p>
+<blockquote>
+<p>https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds</p>
+</blockquote>
+<hr />
+<h6 id="namerequired_2"><code>name</code><sup>Required</sup> <a name="cdk8s.OwnerReference.parameter.name"></a><a class="headerlink" href="#namerequired_2" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <code>str</code></li>
+</ul>
+<p>Name of the referent.</p>
+<blockquote>
+<p>http://kubernetes.io/docs/user-guide/identifiers#names</p>
+</blockquote>
+<hr />
+<h6 id="uidrequired_1"><code>uid</code><sup>Required</sup> <a name="cdk8s.OwnerReference.parameter.uid"></a><a class="headerlink" href="#uidrequired_1" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <code>str</code></li>
+</ul>
+<p>UID of the referent.</p>
+<blockquote>
+<p>http://kubernetes.io/docs/user-guide/identifiers#uids</p>
+</blockquote>
+<hr />
+<h6 id="block_owner_deletionoptional_1"><code>block_owner_deletion</code><sup>Optional</sup> <a name="cdk8s.OwnerReference.parameter.block_owner_deletion"></a><a class="headerlink" href="#block_owner_deletionoptional_1" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <code>bool</code></li>
+<li><em>Default:</em> false. To set this field, a user needs &ldquo;delete&rdquo; permission of the
+owner, otherwise 422 (Unprocessable Entity) will be returned.</li>
+</ul>
+<p>If true, AND if the owner has the &ldquo;foregroundDeletion&rdquo; finalizer, then the owner cannot be deleted from the key-value store until this reference is removed.</p>
+<p>Defaults to false. To set this field, a user needs &ldquo;delete&rdquo;
+permission of the owner, otherwise 422 (Unprocessable Entity) will be
+returned.</p>
+<hr />
+<h6 id="controlleroptional_1"><code>controller</code><sup>Optional</sup> <a name="cdk8s.OwnerReference.parameter.controller"></a><a class="headerlink" href="#controlleroptional_1" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <code>bool</code></li>
+</ul>
+<p>If true, this reference points to the managing controller.</p>
 <hr />
 <h5 id="get_label"><code>get_label</code> <a name="cdk8s.ApiObjectMetadataDefinition.get_label"></a><a class="headerlink" href="#get_label" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_label</span><span class="p">(</span>

@@ -10,7 +10,7 @@
       
       
       <link rel="icon" href="../../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.3">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.3">
     
     
       
@@ -930,6 +930,13 @@
           <li class="md-nav__item">
   <a href="#nameoptions" class="md-nav__link">
     NameOptions 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ownerreference" class="md-nav__link">
+    OwnerReference 
   </a>
   
 </li>
@@ -1917,6 +1924,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#ownerreference" class="md-nav__link">
+    OwnerReference 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#sizeconversionoptions" class="md-nav__link">
     SizeConversionOptions 
   </a>
@@ -2461,9 +2475,11 @@ from the manifest.</p>
 
 <span class="n">ApiObjectMetadata</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
 <span class="c1">//  .annotations(java.util.Map&lt;java.lang.String, java.lang.String&gt;)</span>
+<span class="c1">//  .finalizers(java.util.List&lt;java.lang.String&gt;)</span>
 <span class="c1">//  .labels(java.util.Map&lt;java.lang.String, java.lang.String&gt;)</span>
 <span class="c1">//  .name(java.lang.String)</span>
 <span class="c1">//  .namespace(java.lang.String)</span>
+<span class="c1">//  .ownerReferences(java.util.List&lt;OwnerReference&gt;)</span>
     <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
 <h5 id="annotationsoptional"><code>annotations</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectMetadata.property.annotations"></a><a class="headerlink" href="#annotationsoptional" title="Permanent link">&para;</a></h5>
@@ -2478,6 +2494,31 @@ from the manifest.</p>
 preserved when modifying objects.</p>
 <blockquote>
 <p>http://kubernetes.io/docs/user-guide/annotations</p>
+</blockquote>
+<hr />
+<h5 id="finalizersoptional"><code>finalizers</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectMetadata.property.finalizers"></a><a class="headerlink" href="#finalizersoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="o">&gt;</span> <span class="nf">getFinalizers</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> java.util.List&lt;<code>java.lang.String</code>&gt;</li>
+<li><em>Default:</em> No finalizers.</li>
+</ul>
+<p>Namespaced keys that tell Kubernetes to wait until specific conditions are met before it fully deletes resources marked for deletion.</p>
+<p>Must be empty before the object is deleted from the registry. Each entry is
+an identifier for the responsible component that will remove the entry from
+the list. If the deletionTimestamp of the object is non-nil, entries in
+this list can only be removed. Finalizers may be processed and removed in
+any order.  Order is NOT enforced because it introduces significant risk of
+stuck finalizers. finalizers is a shared field, any actor with permission
+can reorder it. If the finalizer list is processed in order, then this can
+lead to a situation in which the component responsible for the first
+finalizer in the list is waiting for a signal (field value, external
+system, or other) produced by a component responsible for a finalizer later
+in the list, resulting in a deadlock. Without enforced ordering finalizers
+are free to order amongst themselves and are not vulnerable to ordering
+changes in the list.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/overview/working-with-objects/finalizers/</p>
 </blockquote>
 <hr />
 <h5 id="labelsoptional_1"><code>labels</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectMetadata.property.labels"></a><a class="headerlink" href="#labelsoptional_1" title="Permanent link">&para;</a></h5>
@@ -2522,6 +2563,29 @@ leave this unspecified.</p>
 <p>Namespace defines the space within each name must be unique.</p>
 <p>An empty namespace is equivalent to the &ldquo;default&rdquo; namespace, but &ldquo;default&rdquo; is the canonical representation.
 Not all objects are required to be scoped to a namespace - the value of this field for those objects will be empty. Must be a DNS_LABEL. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/namespaces</p>
+<hr />
+<h5 id="ownerreferencesoptional"><code>ownerReferences</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectMetadata.property.ownerReferences"></a><a class="headerlink" href="#ownerreferencesoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">OwnerReference</span><span class="o">&gt;</span> <span class="nf">getOwnerReferences</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.OwnerReference"><code>org.cdk8s.OwnerReference</code></a>&gt;</li>
+<li><em>Default:</em> automatically set by Kubernetes</li>
+</ul>
+<p>List of objects depended by this object.</p>
+<p>If ALL objects in the list have
+been deleted, this object will be garbage collected. If this object is
+managed by a controller, then an entry in this list will point to this
+controller, with the controller field set to true. There cannot be more
+than one managing controller.</p>
+<p>Kubernetes sets the value of this field automatically for objects that are
+dependents of other objects like ReplicaSets, DaemonSets, Deployments, Jobs
+and CronJobs, and ReplicationControllers. You can also configure these
+relationships manually by changing the value of this field. However, you
+usually don&rsquo;t need to and can allow Kubernetes to automatically manage the
+relationships.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/overview/working-with-objects/owners-dependents/</p>
+</blockquote>
 <hr />
 <h3 id="apiobjectprops">ApiObjectProps <a name="org.cdk8s.ApiObjectProps"></a><a class="headerlink" href="#apiobjectprops" title="Permanent link">&para;</a></h3>
 <p>Options for defining API objects.</p>
@@ -2766,9 +2830,87 @@ framework based on the path of the construct within thes construct tree.</p>
 </ul>
 <p>Maximum allowed length for the name.</p>
 <hr />
+<h3 id="ownerreference">OwnerReference <a name="org.cdk8s.OwnerReference"></a><a class="headerlink" href="#ownerreference" title="Permanent link">&para;</a></h3>
+<p>OwnerReference contains enough information to let you identify an owning object.</p>
+<p>An owning object must be in the same namespace as the dependent, or
+be cluster-scoped, so there is no namespace field.</p>
+<h4 id="initializer_8">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_8" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.OwnerReference</span><span class="p">;</span>
+
+<span class="n">OwnerReference</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
+    <span class="p">.</span><span class="na">apiVersion</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">)</span>
+    <span class="p">.</span><span class="na">kind</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">)</span>
+    <span class="p">.</span><span class="na">name</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">)</span>
+    <span class="p">.</span><span class="na">uid</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">)</span>
+<span class="c1">//  .blockOwnerDeletion(java.lang.Boolean)</span>
+<span class="c1">//  .controller(java.lang.Boolean)</span>
+    <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+</code></pre></div>
+<h5 id="apiversionrequired_4"><code>apiVersion</code><sup>Required</sup> <a name="org.cdk8s.OwnerReference.property.apiVersion"></a><a class="headerlink" href="#apiversionrequired_4" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getApiVersion</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+</ul>
+<p>API version of the referent.</p>
+<hr />
+<h5 id="kindrequired_4"><code>kind</code><sup>Required</sup> <a name="org.cdk8s.OwnerReference.property.kind"></a><a class="headerlink" href="#kindrequired_4" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getKind</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+</ul>
+<p>Kind of the referent.</p>
+<blockquote>
+<p>https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds</p>
+</blockquote>
+<hr />
+<h5 id="namerequired_1"><code>name</code><sup>Required</sup> <a name="org.cdk8s.OwnerReference.property.name"></a><a class="headerlink" href="#namerequired_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getName</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+</ul>
+<p>Name of the referent.</p>
+<blockquote>
+<p>http://kubernetes.io/docs/user-guide/identifiers#names</p>
+</blockquote>
+<hr />
+<h5 id="uidrequired"><code>uid</code><sup>Required</sup> <a name="org.cdk8s.OwnerReference.property.uid"></a><a class="headerlink" href="#uidrequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getUid</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+</ul>
+<p>UID of the referent.</p>
+<blockquote>
+<p>http://kubernetes.io/docs/user-guide/identifiers#uids</p>
+</blockquote>
+<hr />
+<h5 id="blockownerdeletionoptional"><code>blockOwnerDeletion</code><sup>Optional</sup> <a name="org.cdk8s.OwnerReference.property.blockOwnerDeletion"></a><a class="headerlink" href="#blockownerdeletionoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span> <span class="nf">getBlockOwnerDeletion</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> false. To set this field, a user needs &ldquo;delete&rdquo; permission of the
+owner, otherwise 422 (Unprocessable Entity) will be returned.</li>
+</ul>
+<p>If true, AND if the owner has the &ldquo;foregroundDeletion&rdquo; finalizer, then the owner cannot be deleted from the key-value store until this reference is removed.</p>
+<p>Defaults to false. To set this field, a user needs &ldquo;delete&rdquo;
+permission of the owner, otherwise 422 (Unprocessable Entity) will be
+returned.</p>
+<hr />
+<h5 id="controlleroptional"><code>controller</code><sup>Optional</sup> <a name="org.cdk8s.OwnerReference.property.controller"></a><a class="headerlink" href="#controlleroptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span> <span class="nf">getController</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+</ul>
+<p>If true, this reference points to the managing controller.</p>
+<hr />
 <h3 id="sizeconversionoptions">SizeConversionOptions <a name="org.cdk8s.SizeConversionOptions"></a><a class="headerlink" href="#sizeconversionoptions" title="Permanent link">&para;</a></h3>
 <p>Options for how to convert time to a different unit.</p>
-<h4 id="initializer_8">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_8" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_9">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_9" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.SizeConversionOptions</span><span class="p">;</span>
 
 <span class="n">SizeConversionOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -2786,7 +2928,7 @@ framework based on the path of the construct within thes construct tree.</p>
 <hr />
 <h3 id="timeconversionoptions">TimeConversionOptions <a name="org.cdk8s.TimeConversionOptions"></a><a class="headerlink" href="#timeconversionoptions" title="Permanent link">&para;</a></h3>
 <p>Options for how to convert time to a different unit.</p>
-<h4 id="initializer_9">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_9" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_10">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_10" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.TimeConversionOptions</span><span class="p">;</span>
 
 <span class="n">TimeConversionOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -2810,9 +2952,11 @@ framework based on the path of the construct within thes construct tree.</p>
 
 <span class="n">ApiObjectMetadataDefinition</span><span class="p">.</span><span class="na">Builder</span><span class="p">.</span><span class="na">create</span><span class="p">()</span>
 <span class="c1">//  .annotations(java.util.Map&lt;java.lang.String, java.lang.String&gt;)</span>
+<span class="c1">//  .finalizers(java.util.List&lt;java.lang.String&gt;)</span>
 <span class="c1">//  .labels(java.util.Map&lt;java.lang.String, java.lang.String&gt;)</span>
 <span class="c1">//  .name(java.lang.String)</span>
 <span class="c1">//  .namespace(java.lang.String)</span>
+<span class="c1">//  .ownerReferences(java.util.List&lt;OwnerReference&gt;)</span>
     <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
 <h5 id="annotationsoptional_1"><code>annotations</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectMetadata.parameter.annotations"></a><a class="headerlink" href="#annotationsoptional_1" title="Permanent link">&para;</a></h5>
@@ -2825,6 +2969,29 @@ framework based on the path of the construct within thes construct tree.</p>
 preserved when modifying objects.</p>
 <blockquote>
 <p>http://kubernetes.io/docs/user-guide/annotations</p>
+</blockquote>
+<hr />
+<h5 id="finalizersoptional_1"><code>finalizers</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectMetadata.parameter.finalizers"></a><a class="headerlink" href="#finalizersoptional_1" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> java.util.List&lt;<code>java.lang.String</code>&gt;</li>
+<li><em>Default:</em> No finalizers.</li>
+</ul>
+<p>Namespaced keys that tell Kubernetes to wait until specific conditions are met before it fully deletes resources marked for deletion.</p>
+<p>Must be empty before the object is deleted from the registry. Each entry is
+an identifier for the responsible component that will remove the entry from
+the list. If the deletionTimestamp of the object is non-nil, entries in
+this list can only be removed. Finalizers may be processed and removed in
+any order.  Order is NOT enforced because it introduces significant risk of
+stuck finalizers. finalizers is a shared field, any actor with permission
+can reorder it. If the finalizer list is processed in order, then this can
+lead to a situation in which the component responsible for the first
+finalizer in the list is waiting for a signal (field value, external
+system, or other) produced by a component responsible for a finalizer later
+in the list, resulting in a deadlock. Without enforced ordering finalizers
+are free to order amongst themselves and are not vulnerable to ordering
+changes in the list.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/overview/working-with-objects/finalizers/</p>
 </blockquote>
 <hr />
 <h5 id="labelsoptional_3"><code>labels</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectMetadata.parameter.labels"></a><a class="headerlink" href="#labelsoptional_3" title="Permanent link">&para;</a></h5>
@@ -2864,6 +3031,27 @@ leave this unspecified.</p>
 <p>An empty namespace is equivalent to the &ldquo;default&rdquo; namespace, but &ldquo;default&rdquo; is the canonical representation.
 Not all objects are required to be scoped to a namespace - the value of this field for those objects will be empty. Must be a DNS_LABEL. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/namespaces</p>
 <hr />
+<h5 id="ownerreferencesoptional_1"><code>ownerReferences</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectMetadata.parameter.ownerReferences"></a><a class="headerlink" href="#ownerreferencesoptional_1" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.OwnerReference"><code>org.cdk8s.OwnerReference</code></a>&gt;</li>
+<li><em>Default:</em> automatically set by Kubernetes</li>
+</ul>
+<p>List of objects depended by this object.</p>
+<p>If ALL objects in the list have
+been deleted, this object will be garbage collected. If this object is
+managed by a controller, then an entry in this list will point to this
+controller, with the controller field set to true. There cannot be more
+than one managing controller.</p>
+<p>Kubernetes sets the value of this field automatically for objects that are
+dependents of other objects like ReplicaSets, DaemonSets, Deployments, Jobs
+and CronJobs, and ReplicationControllers. You can also configure these
+relationships manually by changing the value of this field. However, you
+usually don&rsquo;t need to and can allow Kubernetes to automatically manage the
+relationships.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/overview/working-with-objects/owners-dependents/</p>
+</blockquote>
+<hr />
 <h4 id="methods_3">Methods <a name="Methods"></a><a class="headerlink" href="#methods_3" title="Permanent link">&para;</a></h4>
 <h5 id="add"><code>add</code> <a name="org.cdk8s.ApiObjectMetadataDefinition.add"></a><a class="headerlink" href="#add" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">add</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="n">key</span><span class="p">,</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Object</span> <span class="n">value</span><span class="p">)</span>
@@ -2895,6 +3083,15 @@ Not all objects are required to be scoped to a namespace - the value of this fie
 </ul>
 <p>The value.</p>
 <hr />
+<h5 id="addfinalizers"><code>addFinalizers</code> <a name="org.cdk8s.ApiObjectMetadataDefinition.addFinalizers"></a><a class="headerlink" href="#addfinalizers" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">addFinalizers</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="n">finalizers</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="finalizersrequired"><code>finalizers</code><sup>Required</sup> <a name="org.cdk8s.ApiObjectMetadataDefinition.parameter.finalizers"></a><a class="headerlink" href="#finalizersrequired" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+</ul>
+<p>the finalizers.</p>
+<hr />
 <h5 id="addlabel"><code>addLabel</code> <a name="org.cdk8s.ApiObjectMetadataDefinition.addLabel"></a><a class="headerlink" href="#addlabel" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">addLabel</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="n">key</span><span class="p">,</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="n">value</span><span class="p">)</span>
 </code></pre></div>
@@ -2909,6 +3106,15 @@ Not all objects are required to be scoped to a namespace - the value of this fie
 <li><em>Type:</em> <code>java.lang.String</code></li>
 </ul>
 <p>The value.</p>
+<hr />
+<h5 id="addownerreference"><code>addOwnerReference</code> <a name="org.cdk8s.ApiObjectMetadataDefinition.addOwnerReference"></a><a class="headerlink" href="#addownerreference" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">addOwnerReference</span><span class="p">(</span><span class="n">OwnerReference</span> <span class="n">owner</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="ownerrequired"><code>owner</code><sup>Required</sup> <a name="org.cdk8s.ApiObjectMetadataDefinition.parameter.owner"></a><a class="headerlink" href="#ownerrequired" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.OwnerReference"><code>org.cdk8s.OwnerReference</code></a></li>
+</ul>
+<p>the owner.</p>
 <hr />
 <h5 id="getlabel"><code>getLabel</code> <a name="org.cdk8s.ApiObjectMetadataDefinition.getLabel"></a><a class="headerlink" href="#getlabel" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">getLabel</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="n">key</span><span class="p">)</span>
