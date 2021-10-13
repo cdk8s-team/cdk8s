@@ -7,7 +7,6 @@
 [![cdk8s-cli](https://img.shields.io/github/workflow/status/cdk8s-team/cdk8s-cli/release?label=cdk8s-cli&logo=GitHub)](https://github.com/cdk8s-team/cdk8s-cli/actions/workflows/release.yml)
 [![npm version](https://badge.fury.io/js/cdk8s.svg)](https://badge.fury.io/js/cdk8s)
 [![PyPI version](https://badge.fury.io/py/cdk8s.svg)](https://badge.fury.io/py/cdk8s)
-[![NuGet version](https://badge.fury.io/nu/Org.Cdk8s.svg)](https://badge.fury.io/nu/Org.Cdk8s)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.cdk8s/cdk8s/badge.svg?style=plastic)](https://maven-badges.herokuapp.com/maven-central/org.cdk8s/cdk8s)
 
 **cdk8s** is a software development framework for defining Kubernetes
