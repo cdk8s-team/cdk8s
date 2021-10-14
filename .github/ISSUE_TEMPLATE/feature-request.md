@@ -4,6 +4,10 @@ about: Request a new feature
 labels: feature-request, needs-triage
 ---
 
+<!--Please make sure to read the "Reporting Issues" section of the contribution guide before submitting an issue
+https://github.com/cdk8s-team/cdk8s/blob/master/CONTRIBUTING.md#reporting-issues
+-->
+
 ### Description of the feature or enhancement:
 <!-- short description of the feature you are proposing: -->
 
@@ -26,8 +30,8 @@ labels: feature-request, needs-triage
 
 
 ### Other:
-<!-- 
-e.g. detailed explanation, stacktraces, related issues, suggestions on how to fix, 
+<!--
+e.g. detailed explanation, stacktraces, related issues, suggestions on how to fix,
 links for us to have context, eg. associated pull-request, stackoverflow, gitter, etc
 -->
 
