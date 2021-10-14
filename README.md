@@ -12,10 +12,9 @@
 [![PyPI version](https://badge.fury.io/py/cdk8s.svg)](https://badge.fury.io/py/cdk8s)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.cdk8s/cdk8s/badge.svg?style=plastic)](https://maven-badges.herokuapp.com/maven-central/org.cdk8s/cdk8s)
 
-**cdk8s** is a software development framework for defining Kubernetes
-applications and reusable abstractions using familiar programming languages and
-rich object-oriented APIs. cdk8s generates pure Kubernetes YAML - you can use
-cdk8s to define applications for any Kubernetes cluster running anywhere.
+**cdk8s** is an open-source software development framework for defining Kubernetes applications and reusable abstractions using familiar
+programming languages and rich object-oriented APIs. cdk8s apps synthesize into standard Kubernetes
+manifests which can be applied to any Kubernetes cluster.
 
 CDK8s is a [Cloud Native Computing Foundation](https://www.cncf.io) Sandbox Project, built with ❤️ at AWS. We encourage you to [try it out](#getting-started), [leave feedback](#help--feedback), and [jump in to help](#contributing)!
 
@@ -34,13 +33,13 @@ Contents:
 
 ## Repositories
 
-This project consists of multiple modules, maintained and released via the following repositories:
+This project consists of multiple packages, maintained and released via the following repositories:
 
-- [cdk8s](https://github.com/cdk8s-team/cdk8s-core) - Core library. Note that, for historical reason, the [`cdk8s`](https://www.npmjs.com/package/cdk8s) package is maintained in the `cdk8s-team/cdk8s-core` repository.
+- [cdk8s](https://github.com/cdk8s-team/cdk8s-core) - Core library. For historical reasons note that the [`cdk8s`](https://www.npmjs.com/package/cdk8s) package is maintained in the `cdk8s-team/cdk8s-core` repository.
 - [cdk8s-cli](https://github.com/cdk8s-team/cdk8s-cli) - Command-Line interface.
 - [cdk8s-plus](https://github.com/cdk8s-team/cdk8s-plus) - High-Level constructs for Kubernetes core.
 
-The current repository acts as ubmrella repository for cross module concerns as well as the deployment of [`cdk8s.io`](https://cdk8s.io)
+The current repository acts as an umbrella repository for cross module concerns, as well as the deployment of [`cdk8s.io`](https://cdk8s.io)
 
 ## Overview
 
