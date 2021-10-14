@@ -1422,8 +1422,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#suggestions" class="md-nav__link">
-    Suggestions
+  <a href="#feature-requests" class="md-nav__link">
+    Feature Requests
   </a>
   
 </li>
@@ -1513,33 +1513,6 @@
   <a href="#community-meeting" class="md-nav__link">
     Community Meeting
   </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#for-maintainers" class="md-nav__link">
-    For Maintainers
-  </a>
-  
-    <nav class="md-nav" aria-label="For Maintainers">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#version" class="md-nav__link">
-    Version
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#release-protocol" class="md-nav__link">
-    Release Protocol
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1694,8 +1667,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#suggestions" class="md-nav__link">
-    Suggestions
+  <a href="#feature-requests" class="md-nav__link">
+    Feature Requests
   </a>
   
 </li>
@@ -1788,33 +1761,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#for-maintainers" class="md-nav__link">
-    For Maintainers
-  </a>
-  
-    <nav class="md-nav" aria-label="For Maintainers">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#version" class="md-nav__link">
-    Version
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#release-protocol" class="md-nav__link">
-    Release Protocol
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1843,16 +1789,20 @@ welcome and celebrated:</p>
 <li><a href="#reporting-issues">Reporting Issues</a></li>
 <li><a href="#code-contributions">Code Contributions</a></li>
 <li><a href="#rfcs">RFCs</a></li>
-<li><a href="#for-maintainers">For Maintainers</a></li>
 </ul>
 <p>We follows the <a href="https://github.com/cncf/foundation/blob/master/code-of-conduct.md">CNCF Community Code of
 Conduct</a></p>
 <h2 id="reporting-issues">Reporting Issues<a class="headerlink" href="#reporting-issues" title="Permanent link">&para;</a></h2>
 <p>If any part of the project has bugs or documentation mistakes, please let us
-know by <a href="./issues/new/choose">raising an issue</a>. We treat bugs and mistakes very seriously
+know by raising an issue. We treat bugs and mistakes very seriously
 and believe no issue is too small. Before creating a bug report, please check
 that an issue reporting the same problem does not already exist.</p>
-<p>An issue can either be a <strong>bug report</strong> or a <strong>suggestion</strong>. If you wish to ask
+<p>In addition, make sure you are submitting the issue to the correct repository.
+If you know your issue petains to a specific CDK8s package, it better belongs in the respective repository.</p>
+<blockquote>
+<p>For a list of the repositories, see <a href="https://github.com/cdk8s-team/cdk8s#repositories">Repositories</a></p>
+</blockquote>
+<p>An issue can either be a <strong>bug report</strong> or a <strong>feature-request</strong>. If you wish to ask
 a question or seek guidance, please consider one of the other <a href="#getting-help">support
 channels</a>.</p>
 <h3 id="bug-reports">Bug reports<a class="headerlink" href="#bug-reports" title="Permanent link">&para;</a></h3>
@@ -1875,7 +1825,7 @@ reports that are:</p>
 <p>We might ask for further information to locate a bug. A duplicated bug report
 will be closed.</p>
 <p>Submit a bug report <a href="new-issue">here</a>.</p>
-<h3 id="suggestions">Suggestions<a class="headerlink" href="#suggestions" title="Permanent link">&para;</a></h3>
+<h3 id="feature-requests">Feature Requests<a class="headerlink" href="#feature-requests" title="Permanent link">&para;</a></h3>
 <p>We also accept suggestions for new features or missing capabilities as GitHub
 issues. The most important aspect of a suggestion issue is to provide as many
 details as possible about your <strong>use case</strong> and less focus on the solution. It
@@ -2054,7 +2004,7 @@ for discussion and oversight about the future of cdk8s from contributors and
 users. It is an open forum for suggestions, questions, and feedback.</p>
 <p>To create an RFC follow this process:</p>
 <ol>
-<li>Create an <a href="./issues/new/choose">issue</a> which will be the tracking issue for this RFC.</li>
+<li>Create an [issue][https://github.com/cdk8s-team/cdk8s/issues/new?assignees=&amp;labels=enhancement&amp;template=rfc.md&amp;title=%5BRFC%5D+describe+your+RFC] which will be the tracking issue for this RFC.</li>
 <li>Title should represent the title of the RFC.</li>
 <li>Description should provide the motivation for the RFC.</li>
 <li>Create a markdown file based off of
@@ -2075,25 +2025,6 @@ Time</a>.</p>
 <li>Meeting link: <a href="https://chime.aws/7929414778">https://chime.aws/7929414778</a></li>
 <li><a href="https://docs.google.com/document/d/1QmZS2_cphxbs2VPfDCkrUVcoDwiawryh704hEfAyrBk/edit?usp=sharing">Agenda</a></li>
 </ul>
-<h2 id="for-maintainers">For Maintainers<a class="headerlink" href="#for-maintainers" title="Permanent link">&para;</a></h2>
-<p>This section includes information that is relevant for the maintainers of the project.</p>
-<h3 id="version">Version<a class="headerlink" href="#version" title="Permanent link">&para;</a></h3>
-<p>The current version of the project is mastered in the root <code>lerna.json</code> file. All other
-package.json files use <code>0.0.0</code>. This allows bumping a new version without
-needing to modify multiple files and avoid merge conflicts in post-release rebases.</p>
-<h3 id="release-protocol">Release Protocol<a class="headerlink" href="#release-protocol" title="Permanent link">&para;</a></h3>
-<p>To release a new version of cdk8s following these steps:</p>
-<div class="highlight"><pre><span></span><code>yarn bump
-</code></pre></div>
-<p>This will create a new CHANGELOG entry (from conventional commits), bump the version in
-<code>package.json</code> and create a bump commit.</p>
-<p>Now, push to <code>master</code> (in the future we will release from a release branch, but in the meantime we release directly from master):</p>
-<div class="highlight"><pre><span></span><code>git push origin master
-</code></pre></div>
-<p>This will trigger the <a href="https://github.com/cdk8s-team/cdk8s/blob/master/.github/workflows/release.yml">release
-workflow</a>
-which will release to all package managers and will also create a GitHub release
-with a tag.</p>
 <hr />
 <p>Portions of this guide were adopted from the contribution guides of the <a href="https://github.com/aws/aws-cdk">AWS
 CDK</a> and <a href="https://github.com/etcd-io/etcd">etcd</a>.</p>
