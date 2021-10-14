@@ -1,10 +1,13 @@
 # Cloud Development Kit for Kubernetes
 
-![](./website/static/images/opengraph.jpg)
+![](./website/static/images/animation.gif)
 
 [![Website](https://github.com/cdk8s-team/cdk8s/workflows/website/badge.svg)](https://github.com/cdk8s-team/cdk8s/actions/workflows/website.yml)
-[![cdk8s-core](https://img.shields.io/github/workflow/status/cdk8s-team/cdk8s-core/release?label=cdk8s-core&logo=GitHub)](https://github.com/cdk8s-team/cdk8s-core/actions/workflows/release.yml)
+[![cdk8s](https://img.shields.io/github/workflow/status/cdk8s-team/cdk8s-core/release?label=cdk8s&logo=GitHub)](https://github.com/cdk8s-team/cdk8s-core/actions/workflows/release.yml)
 [![cdk8s-cli](https://img.shields.io/github/workflow/status/cdk8s-team/cdk8s-cli/release?label=cdk8s-cli&logo=GitHub)](https://github.com/cdk8s-team/cdk8s-cli/actions/workflows/release.yml)
+[![cdk8s-plus-22](https://img.shields.io/github/workflow/status/cdk8s-team/cdk8s-plus/release-k8s.22?label=cdk8s-plus-22&logo=GitHub)](https://github.com/cdk8s-team/cdk8s-plus/actions/workflows/release-k8s.22.yml)
+[![cdk8s-plus-21](https://img.shields.io/github/workflow/status/cdk8s-team/cdk8s-plus/release-k8s.21?label=cdk8s-plus-21&logo=GitHub)](https://github.com/cdk8s-team/cdk8s-plus/actions/workflows/release-k8s.21.yml)
+[![cdk8s-plus-20](https://img.shields.io/github/workflow/status/cdk8s-team/cdk8s-plus/release-k8s.20?label=cdk8s-plus-21&logo=GitHub)](https://github.com/cdk8s-team/cdk8s-plus/actions/workflows/release-k8s.20.yml)
 [![npm version](https://badge.fury.io/js/cdk8s.svg)](https://badge.fury.io/js/cdk8s)
 [![PyPI version](https://badge.fury.io/py/cdk8s.svg)](https://badge.fury.io/py/cdk8s)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.cdk8s/cdk8s/badge.svg?style=plastic)](https://maven-badges.herokuapp.com/maven-central/org.cdk8s/cdk8s)
@@ -18,8 +21,8 @@ CDK8s is a [Cloud Native Computing Foundation](https://www.cncf.io) Sandbox Proj
 
 Contents:
 
+- [Repositories](#repositories)
 - [Overview](#overview)
-- [At a glance](#at-a-glance)
 - [Getting Started](#getting-started)
 - [Help & Feedback](#help--feedback)
 - [Documentation](#documentation)
@@ -28,6 +31,16 @@ Contents:
 - [Community](#community)
 - [Contributing](#contributing)
 - [License](#license)
+
+## Repositories
+
+This project consists of multiple modules, maintained and released via the following repositories:
+
+- [cdk8s](https://github.com/cdk8s-team/cdk8s-core) - Core library. Note that, for historical reason, the [`cdk8s`](https://www.npmjs.com/package/cdk8s) package is maintained in the `cdk8s-team/cdk8s-core` repository.
+- [cdk8s-cli](https://github.com/cdk8s-team/cdk8s-cli) - Command-Line interface.
+- [cdk8s-plus](https://github.com/cdk8s-team/cdk8s-plus) - High-Level constructs for Kubernetes core.
+
+The current repository acts as ubmrella repository for cross module concerns as well as the deployment of [`cdk8s.io`](https://cdk8s.io)
 
 ## Overview
 
@@ -53,10 +66,6 @@ AWS CDK constructs to define cloud-native applications that include both
 Kubernetes resources and other CDK constructs as first class citizens.
 
 Read [our blog](https://aws.amazon.com/blogs/containers/introducing-cdk-for-kubernetes/) or [watch our CNCF webinar](https://www.cncf.io/webinars/end-yaml-engineering-with-cdk8s/) to learn more and see a live demo of cdk8s in action.
-
-## At a glance
-
-![](./website/static/images/animation.gif)
 
 ## Getting Started
 
@@ -98,13 +107,6 @@ Conduct](https://github.com/cncf/foundation/blob/master/code-of-conduct.md).
 We welcome community contributions and pull requests. See our [contribution
 guide](./CONTRIBUTING.md) for more information on how to report issues, set up a
 development environment and submit code.
-
-This project consists of multiple modules, maintained and released via the following repositories:
-
-- [cdk8s-cli](https://github.com/cdk8s-team/cdk8s-cli): command-line interface
-- [cdk8s-core](https://github.com/cdk8s-team/cdk8s-core): core library
-- [cdk8s-plus](https://github.com/cdk8s-team/cdk8s-plus): high-level constructs for Kubernetes core.
-
 
 Join us for the cdk8s community meeting which takes place the [2nd Tuesday of the month at 9:00am Pacific Time](https://www.thetimezoneconverter.com/?t=9:00&tz=PT%20%28Pacific%20Time%29).
 
