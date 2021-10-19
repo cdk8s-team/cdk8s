@@ -11,7 +11,6 @@ welcome and celebrated:
 - [Reporting Issues](#reporting-issues)
 - [Code Contributions](#code-contributions)
 - [RFCs](#rfcs)
-- [For Maintainers](#for-maintainers)
 
 We follows the [CNCF Community Code of
 Conduct](https://github.com/cncf/foundation/blob/master/code-of-conduct.md)
@@ -19,15 +18,18 @@ Conduct](https://github.com/cncf/foundation/blob/master/code-of-conduct.md)
 ## Reporting Issues
 
 If any part of the project has bugs or documentation mistakes, please let us
-know by [raising an issue][new-issue]. We treat bugs and mistakes very seriously
+know by raising an issue. We treat bugs and mistakes very seriously
 and believe no issue is too small. Before creating a bug report, please check
 that an issue reporting the same problem does not already exist.
 
-An issue can either be a **bug report** or a **suggestion**. If you wish to ask
+In addition, make sure you are submitting the issue to the correct repository.
+If you know your issue petains to a specific CDK8s package, it better belongs in the respective repository.
+
+> For a list of the repositories, see [Repositories](https://github.com/cdk8s-team/cdk8s#repositories)
+
+An issue can either be a **bug report** or a **feature-request**. If you wish to ask
 a question or seek guidance, please consider one of the other [support
 channels](#getting-help).
-
-[new-issue]: ./issues/new/choose
 
 ### Bug reports
 
@@ -52,7 +54,7 @@ will be closed.
 
 Submit a bug report [here](new-issue).
 
-### Suggestions
+### Feature Requests
 
 We also accept suggestions for new features or missing capabilities as GitHub
 issues. The most important aspect of a suggestion issue is to provide as many
@@ -251,13 +253,13 @@ docstrings during build.
 To test locally, install python3 deps:
 
 ```shell
-$ pip3 install -r docs/requirements.txt
+pip3 install -r docs/requirements.txt
 ```
 
 And then:
 
 ```shell
-$ mkdocs serve
+mkdocs serve
 ```
 
 This will serve a local web server with the website.
@@ -285,7 +287,7 @@ users. It is an open forum for suggestions, questions, and feedback.
 
 To create an RFC follow this process:
 
-1. Create an [issue][new-issue] which will be the tracking issue for this RFC.
+1. Create an [issue][https://github.com/cdk8s-team/cdk8s/issues/new?assignees=&labels=enhancement&template=rfc.md&title=%5BRFC%5D+describe+your+RFC] which will be the tracking issue for this RFC.
    - Title should represent the title of the RFC.
    - Description should provide the motivation for the RFC.
 2. Create a markdown file based off of
@@ -306,38 +308,6 @@ Time](https://www.thetimezoneconverter.com/?t=9:00&tz=PT%20%28Pacific%20Time%29)
 
 - Meeting link: [https://chime.aws/7929414778](https://chime.aws/7929414778)
 - [Agenda](https://docs.google.com/document/d/1QmZS2_cphxbs2VPfDCkrUVcoDwiawryh704hEfAyrBk/edit?usp=sharing)
-
-## For Maintainers
-
-This section includes information that is relevant for the maintainers of the project.
-
-### Version
-
-The current version of the project is mastered in the root `lerna.json` file. All other
-package.json files use `0.0.0`. This allows bumping a new version without
-needing to modify multiple files and avoid merge conflicts in post-release rebases.
-
-### Release Protocol
-
-To release a new version of cdk8s following these steps:
-
-```shell
-$ yarn bump
-```
-
-This will create a new CHANGELOG entry (from conventional commits), bump the version in
-`package.json` and create a bump commit.
-
-Now, push to `master` (in the future we will release from a release branch, but in the meantime we release directly from master):
-
-```shell
-$ git push origin master
-```
-
-This will trigger the [release
-workflow](https://github.com/cdk8s-team/cdk8s/blob/master/.github/workflows/release.yml)
-which will release to all package managers and will also create a GitHub release
-with a tag.
 
 ---
 

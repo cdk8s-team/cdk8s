@@ -7,6 +7,21 @@ This guide will walk you through the following steps:
 - Define & deploy your first CDK8s application.
 - Define a custom CDK8s construct.
 
+## Install the CLI
+
+CDK8s has a cute little CLI that has a few useful commands. Let's start by
+installing the CDK8s CLI globally. We have two options for this.
+
+=== "npm"
+    ```console
+    npm install -g cdk8s-cli
+    ```
+
+=== "yarn"
+    ```console
+    yarn global add cdk8s-cli
+    ```
+
 ## Prerequisites
 
 === "TypeScript"
@@ -27,20 +42,8 @@ This guide will walk you through the following steps:
     - [Go >= 1.16](https://golang.org/dl/)
     - Your favorite editor/IDE
 
-## Install the CLI
-
-CDK8s has a cute little CLI that has a few useful commands. Let's start by
-installing the CDK8s CLI globally. We have two options for this.
-
-=== "npm"
-    ```console
-    $ npm install -g cdk8s-cli
-    ```
-
-=== "yarn"
-    ```console
-    $ yarn global add cdk8s-cli
-    ```
+!!! info
+    This Getting Started guide will help you create a Kubernetes manifest using your preferred programming language. **You do not need access to a Kubernetes cluster in order to produce a manifests using CDK8s.**
 
 ## New Project
 
@@ -125,10 +128,10 @@ Let have a look at the code:
     To produce and inspect the generated manifest, you can run:
 
     ```console
-    $ npm run compile && cdk8s synth
+    npm run compile && cdk8s synth
     dist/hello.k8s.yaml
 
-    $ cat dist/hello.k8s.yaml
+    cat dist/hello.k8s.yaml
     <EMPTY>
     ```
 
@@ -160,10 +163,10 @@ Let have a look at the code:
     To produce and inspect the generated manifest, you can run:
 
     ```console
-    $ cdk8s synth
+    cdk8s synth
     dist/hello.k8s.yaml
 
-    $ cat dist/hello.k8s.yaml
+    cat dist/hello.k8s.yaml
     <EMPTY>
     ```
 
@@ -203,10 +206,10 @@ Let have a look at the code:
     To produce and inspect the generated manifest, you can run:
 
     ```console
-    $ cdk8s synth
+    cdk8s synth
     dist/hello.k8s.yaml
 
-    $ cat dist/hello.k8s.yaml
+    cat dist/hello.k8s.yaml
     <EMPTY>
     ```
 
@@ -248,10 +251,10 @@ Let have a look at the code:
     To produce and inspect the generated manifest, you can run:
 
     ```console
-    $ cdk8s synth
+    cdk8s synth
     dist/hello.k8s.yaml
 
-    $ cat dist/hello.k8s.yaml
+    cat dist/hello.k8s.yaml
     <EMPTY>
     ```
 
@@ -292,6 +295,14 @@ resources inspired by [paulbouwer](https://github.com/paulbouwer)'s
         super(scope, id, props);
 
         const label = { app: 'hello-k8s' };
+
+        // notice that there is no assigment neccesary when creating resources.
+        // simply instantiating the resource is enough because it adds it to the construct tree via
+        // the first argument, which is always the parent construct.
+        // its a little confusing at first glance, but this is an inherent aspect of the constructs
+        // programming model, and you will encounter it many times.
+        // you can still perform an assignment of course, if you need to access
+        // atrtibutes of the resource in other parts of the code.
 
         new KubeService(this, 'service', {
           spec: {
@@ -349,6 +360,14 @@ resources inspired by [paulbouwer](https://github.com/paulbouwer)'s
 
             # define resources here
             label = {"app": "hello-k8s"}
+
+            # notice that there is no assigment neccesary when creating resources.
+            # simply instantiating the resource is enough because it adds it to the construct tree via
+            # the first argument, which is always the parent construct.
+            # its a little confusing at first glance, but this is an inherent aspect of the constructs
+            # programming model, and you will encounter it many times.
+            # you can still perform an assignment of course, if you need to access
+            # atrtibutes of the resource in other parts of the code.
 
             k8s.KubeService(self, 'service',
                         spec=k8s.ServiceSpec(
@@ -441,6 +460,14 @@ resources inspired by [paulbouwer](https://github.com/paulbouwer)'s
                 .spec(serviceSpec)
                 .build();
 
+            // notice that there is no assigment neccesary when creating resources.
+            // simply instantiating the resource is enough because it adds it to the construct tree via
+            // the first argument, which is always the parent construct.
+            // its a little confusing at first glance, but this is an inherent aspect of the constructs
+            // programming model, and you will encounter it many times.
+            // you can still perform an assignment of course, if you need to access
+            // atrtibutes of the resource in other parts of the code.
+
             new KubeService(this, "service", serviceProps);
 
             // Defining a Deployment
@@ -527,6 +554,14 @@ resources inspired by [paulbouwer](https://github.com/paulbouwer)'s
           Selector: &label,
         },
       })
+
+      // notice that there is no assigment neccesary when creating resources.
+      // simply instantiating the resource is enough because it adds it to the construct tree via
+      // the first argument, which is always the parent construct.
+      // its a little confusing at first glance, but this is an inherent aspect of the constructs
+      // programming model, and you will encounter it many times.
+      // you can still perform an assignment of course, if you need to access
+      // atrtibutes of the resource in other parts of the code.
 
       k8s.NewKubeDeployment(chart, jsii.String("deployment"), &k8s.KubeDeploymentProps{
         Spec: &k8s.DeploymentSpec{

@@ -4,7 +4,7 @@
   display: -ms-flexbox;
   display: flex;
   height: auto;
-  padding-top: 260px;
+  padding-top: 85px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
@@ -99,7 +99,7 @@
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  padding-top: 200px;
+  padding-top: 80px;
   padding-bottom: 98px;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
