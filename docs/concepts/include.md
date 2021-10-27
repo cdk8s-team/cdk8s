@@ -12,7 +12,7 @@ class MyChart extends Chart {
     super(scope, id);
 
     const dashboard = new Include(this, 'dashboard', {
-      url: 'https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0/aio/deploy/recommended.yaml',
+      url: 'https://raw.githubusercontent.com/kubernetes/dashboard/v2.4.0/aio/deploy/recommended.yaml',
       // or
       url: 'dashboard.yaml'
     });
