@@ -2808,12 +2808,12 @@ existing Deployments and adopt all their resources with new Deployments.</p>
 <p>The following are typical use cases for Deployments:</p>
 <ul>
 <li>Create a Deployment to rollout a ReplicaSet. The ReplicaSet creates Pods in the background.
-   Check the status of the rollout to see if it succeeds or not.</li>
+  Check the status of the rollout to see if it succeeds or not.</li>
 <li>Declare the new state of the Pods by updating the PodTemplateSpec of the Deployment.
-   A new ReplicaSet is created and the Deployment manages moving the Pods from the old ReplicaSet to the new one at a controlled rate.
-   Each new ReplicaSet updates the revision of the Deployment.</li>
+  A new ReplicaSet is created and the Deployment manages moving the Pods from the old ReplicaSet to the new one at a controlled rate.
+  Each new ReplicaSet updates the revision of the Deployment.</li>
 <li>Rollback to an earlier Deployment revision if the current state of the Deployment is not stable.
-   Each rollback updates the revision of the Deployment.</li>
+  Each rollback updates the revision of the Deployment.</li>
 <li>Scale up the Deployment to facilitate more load.</li>
 <li>Pause the Deployment to apply multiple fixes to its PodTemplateSpec and then resume it to start a new rollout.</li>
 <li>Use the status of the Deployment as an indicator that a rollout has stuck.</li>
@@ -5787,10 +5787,12 @@ handling of secret data by various controllers.</p>
 <li><em>Default:</em> if the service exposes a single port, this port will be used.</li>
 </ul>
 <p>The port to use to access the service.</p>
-<p>This option will fail if the service does not expose any ports.
-- If the service exposes multiple ports, this option must be specified.
-- If the service exposes a single port, this option is optional and if
-   specified, it must be the same port exposed by the service.</p>
+<ul>
+<li>This option will fail if the service does not expose any ports.</li>
+<li>If the service exposes multiple ports, this option must be specified.</li>
+<li>If the service exposes a single port, this option is optional and if
+  specified, it must be the same port exposed by the service.</li>
+</ul>
 <hr />
 <h3 id="serviceport">ServicePort <a name="org.cdk8s.plus20.ServicePort"></a><a class="headerlink" href="#serviceport" title="Permanent link">&para;</a></h3>
 <p>Definition of a service port.</p>
