@@ -1,5 +1,23 @@
 {
   "tasks": {
+    "build": {
+      "name": "build",
+      "description": "Full release build (test+compile)",
+      "steps": [
+        {
+          "exec": "npx projen"
+        },
+        {
+          "exec": "lerna run build"
+        },
+        {
+          "spawn": "test"
+        },
+        {
+          "spawn": "integ:update"
+        }
+      ]
+    },
     "clobber": {
       "name": "clobber",
       "description": "hard resets to HEAD of origin and cleans the local repo",
@@ -32,33 +50,6 @@
       ],
       "condition": "git diff --exit-code > /dev/null"
     },
-    "test": {
-      "name": "test",
-      "description": "Run tests",
-      "steps": [
-        {
-          "exec": "lerna run test -- -u"
-        }
-      ]
-    },
-    "build": {
-      "name": "build",
-      "description": "Full release build (test+compile)",
-      "steps": [
-        {
-          "exec": "npx projen"
-        },
-        {
-          "exec": "lerna run build"
-        },
-        {
-          "spawn": "test"
-        },
-        {
-          "spawn": "integ:update"
-        }
-      ]
-    },
     "default": {
       "name": "default",
       "steps": [
@@ -83,6 +74,15 @@
       "steps": [
         {
           "exec": "bash test/test-all.sh"
+        }
+      ]
+    },
+    "test": {
+      "name": "test",
+      "description": "Run tests",
+      "steps": [
+        {
+          "exec": "lerna run test -- -u"
         }
       ]
     },
