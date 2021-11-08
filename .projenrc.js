@@ -72,12 +72,8 @@ const integUpdate = project.addTask('integ:update', {
 });
 
 // construct the build task
-project.buildTask.exec('lerna run build');
-project.buildTask.spawn(project.testTask);
-project.buildTask.spawn(integUpdate);
-
-// remove unused commands
-project.tasks.removeTask('compile');
+project.compileTask.exec('lerna run build');
+project.testTask.spawn(integUpdate);
 
 // deploy website
 const workflow = project.github.addWorkflow('website');

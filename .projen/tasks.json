@@ -2,19 +2,25 @@
   "tasks": {
     "build": {
       "name": "build",
-      "description": "Full release build (test+compile)",
+      "description": "Full release build",
       "steps": [
         {
-          "exec": "npx projen"
+          "spawn": "default"
         },
         {
-          "exec": "lerna run build"
+          "spawn": "pre-compile"
+        },
+        {
+          "spawn": "compile"
+        },
+        {
+          "spawn": "post-compile"
         },
         {
           "spawn": "test"
         },
         {
-          "spawn": "integ:update"
+          "spawn": "package"
         }
       ]
     },
@@ -50,8 +56,18 @@
       ],
       "condition": "git diff --exit-code > /dev/null"
     },
+    "compile": {
+      "name": "compile",
+      "description": "Only compile",
+      "steps": [
+        {
+          "exec": "lerna run build"
+        }
+      ]
+    },
     "default": {
       "name": "default",
+      "description": "Synthesize project files",
       "steps": [
         {
           "exec": "node .projenrc.js"
@@ -77,12 +93,27 @@
         }
       ]
     },
+    "package": {
+      "name": "package",
+      "description": "Creates the distribution package"
+    },
+    "post-compile": {
+      "name": "post-compile",
+      "description": "Runs after successful compilation"
+    },
+    "pre-compile": {
+      "name": "pre-compile",
+      "description": "Prepare the project for compilation"
+    },
     "test": {
       "name": "test",
       "description": "Run tests",
       "steps": [
         {
           "exec": "lerna run test -- -u"
+        },
+        {
+          "spawn": "integ:update"
         }
       ]
     },
