@@ -1875,7 +1875,7 @@ manifests.</p>
 
 <span class="n">kplus</span><span class="o">.</span><span class="n">Deployment</span><span class="p">(</span><span class="n">chart</span><span class="p">,</span> <span class="s1">&#39;Deployment&#39;</span><span class="p">,</span>
   <span class="n">replicas</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-  <span class="n">containers</span><span class="o">=</span><span class="p">[</span><span class="n">kplus</span><span class="o">.</span><span class="n">Container</span><span class="p">(</span><span class="n">image</span><span class="o">=</span><span class="s1">&#39;ubuntu&#39;</span><span class="p">)]</span>
+  <span class="n">containers</span><span class="o">=</span><span class="p">[</span><span class="n">kplus</span><span class="o">.</span><span class="n">ContainerProps</span><span class="p">(</span><span class="n">image</span><span class="o">=</span><span class="s1">&#39;ubuntu&#39;</span><span class="p">)]</span>
 <span class="p">)</span>
 
 <span class="n">app</span><span class="o">.</span><span class="n">synth</span><span class="p">()</span>
