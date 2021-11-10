@@ -217,7 +217,7 @@ app.synth();
 
     kplus.Deployment(chart, 'Deployment',
       replicas=1,
-      containers=[kplus.Container(image='ubuntu')]
+      containers=[kplus.ContainerProps(image='ubuntu')]
     )
 
     app.synth()
