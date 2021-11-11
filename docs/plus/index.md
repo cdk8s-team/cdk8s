@@ -270,7 +270,7 @@ app.synth();
 
     ```go
     app := cdk8s.NewApp(nil)
-    chart := cdk8s.NewChart(app, jsii.String(id), nil)
+    chart := cdk8s.NewChart(app, jsii.String("ubuntu"), nil)
 
     cdk8splus22.NewDeployment(chart, jsii.String("Deployment"), &cdk8splus22.DeploymentProps{
       Replicas: jsii.Number(3),
