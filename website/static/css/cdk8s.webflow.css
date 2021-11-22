@@ -444,7 +444,7 @@
   top: 0%;
   right: 0%;
   bottom: auto;
-  padding-top: 23px;
+  padding-top: 15px;
   padding-bottom: 0px;
   background-color: transparent;
 }
@@ -477,7 +477,7 @@
   width: 43px;
   height: 40px;
   padding-right: 0px;
-  padding-left: 0px;
+  padding-left: 10px;
 }
 
 .cncf-logo {

@@ -16,6 +16,7 @@
 {{- $link_concepts := (print $docs_root "/concepts") }}
 {{- $link_examples := (print $docs_root "/examples") }}
 {{- $link_contrib := (print $docs_root "/project/CONTRIBUTING") }}
+{{- $link_constructs := "https://constructs.dev/search?q=&cdk=cdk8s&offset=0" }}
 {{- $link_roadmap := "https://github.com/cdk8s-team/cdk8s/projects/1" }}
 {{- $link_github := "https://github.com/cdk8s-team/cdk8s" }}
 {{- $link_slack := "https://cdk.dev" }}
@@ -112,6 +113,7 @@
                             <a href="{{ $link_examples }}" target="_blank" class="dropdown-link w-dropdown-link">Examples</a>
                             <a href="{{ $link_roadmap }}" target="_blank" class="dropdown-link w-dropdown-link">Roadmap</a>
                             <a href="{{ $link_contrib }}" target="_blank" class="dropdown-link w-dropdown-link">Contributors</a>
+                            <a href="{{ $link_constructs }}" target="_blank" class="dropdown-link w-dropdown-link">More CDK8s libraries</a>
                         </nav>
                     </div>
                     <div data-hover="" data-delay="0" class="w-dropdown">
