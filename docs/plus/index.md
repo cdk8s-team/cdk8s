@@ -3,7 +3,7 @@
 **cdk8s+** is a library with high level abstractions for authoring Kubernetes
 applications.
 
-Built on top of the auto-generated building blocks provided by CDK8s, this
+Built on top of the auto-generated building blocks provided by cdk8s, this
 library includes a hand crafted *construct* for each native kubernetes object,
 exposing richer API's with reduced complexity.
 

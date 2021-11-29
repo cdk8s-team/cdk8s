@@ -1,6 +1,6 @@
 # Overview
 
-This section includes API reference for the various components of CDK8s:
+This section includes API reference for the various components of cdk8s:
 
 - **cdk8s**: Core library
     - [TypeScript](./cdk8s/typescript.md)

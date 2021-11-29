@@ -1,4 +1,4 @@
-# CDK8s+ Ingress Example
+# cdk8s+ Ingress Example
 
 This example demonstrates how to use the [Ingress] resource in cdk8s+.
 

@@ -3,7 +3,7 @@ nav:
   - getting-started.md
   - concepts
   - CLI: cli
-  - CDK8s+: plus
+  - cdk8s+: plus
   - API Reference: reference
   - examples
   - support.md

@@ -16,7 +16,7 @@
 programming languages and rich object-oriented APIs. cdk8s apps synthesize into standard Kubernetes
 manifests which can be applied to any Kubernetes cluster.
 
-CDK8s is a [Cloud Native Computing Foundation](https://www.cncf.io) Sandbox Project, built with ❤️ at AWS. We encourage you to [try it out](#getting-started), [leave feedback](#help--feedback), and [jump in to help](#contributing)!
+cdk8s is a [Cloud Native Computing Foundation](https://www.cncf.io) Sandbox Project, built with ❤️ at AWS. We encourage you to [try it out](#getting-started), [leave feedback](#help--feedback), and [jump in to help](#contributing)!
 
 Contents:
 
@@ -69,7 +69,7 @@ Read [our blog](https://aws.amazon.com/blogs/containers/introducing-cdk-for-kube
 ## Getting Started
 
 See the [Getting Started](https://cdk8s.io/docs/latest/getting-started) guide in
-[CDK8s Documentation](https://cdk8s.io/docs/).
+[cdk8s Documentation](https://cdk8s.io/docs/).
 
 ## Help & Feedback
 
@@ -84,7 +84,7 @@ contribute to the project. Please consider the following venues (in order):
 
 ## Documentation
 
-See [CDK8s Documentation](https://cdk8s.io/docs).
+See [cdk8s Documentation](https://cdk8s.io/docs).
 
 ## Examples
 
