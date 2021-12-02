@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.0.1">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.0.2">
     
     
       
@@ -2261,7 +2261,18 @@ construct path to generate a DNS-compatible name for the resource.</p>
 <h5 id="synth"><code>synth</code> <a name="cdk8s.App.synth"></a><a class="headerlink" href="#synth" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">synth</span><span class="p">()</span>
 </code></pre></div>
+<h5 id="synth_yaml"><code>synth_yaml</code> <a name="cdk8s.App.synth_yaml"></a><a class="headerlink" href="#synth_yaml" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">synth_yaml</span><span class="p">()</span>
+</code></pre></div>
 <h4 id="properties_1">Properties <a name="Properties"></a><a class="headerlink" href="#properties_1" title="Permanent link">&para;</a></h4>
+<h5 id="chartsrequired"><code>charts</code><sup>Required</sup> <a name="cdk8s.App.property.charts"></a><a class="headerlink" href="#chartsrequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">charts</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">Chart</span><span class="p">]</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> typing.List[<a href="#cdk8s.Chart"><code>cdk8s.Chart</code></a>]</li>
+</ul>
+<p>Returns all the charts in this app, sorted topologically.</p>
+<hr />
 <h5 id="outdirrequired"><code>outdir</code><sup>Required</sup> <a name="cdk8s.App.property.outdir"></a><a class="headerlink" href="#outdirrequired" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="n">outdir</span><span class="p">:</span> <span class="nb">str</span>
 </code></pre></div>
@@ -3884,6 +3895,19 @@ cannot be negative.</p>
 <h3 id="yaml">Yaml <a name="cdk8s.Yaml"></a><a class="headerlink" href="#yaml" title="Permanent link">&para;</a></h3>
 <p>YAML utilities.</p>
 <h4 id="static-functions_8">Static Functions <a name="Static Functions"></a><a class="headerlink" href="#static-functions_8" title="Permanent link">&para;</a></h4>
+<h5 id="format_objects"><code>format_objects</code> <a name="cdk8s.Yaml.format_objects"></a><a class="headerlink" href="#format_objects" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s</span>
+
+<span class="n">cdk8s</span><span class="o">.</span><span class="n">Yaml</span><span class="o">.</span><span class="n">format_objects</span><span class="p">(</span>
+  <span class="n">docs</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">typing</span><span class="o">.</span><span class="n">Any</span><span class="p">]</span>
+<span class="p">)</span>
+</code></pre></div>
+<h6 id="docsrequired"><code>docs</code><sup>Required</sup> <a name="cdk8s.Yaml.parameter.docs"></a><a class="headerlink" href="#docsrequired" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> typing.List[<code>typing.Any</code>]</li>
+</ul>
+<p>The set of objects.</p>
+<hr />
 <h5 id="load"><code>load</code> <a name="cdk8s.Yaml.load"></a><a class="headerlink" href="#load" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s</span>
 
@@ -3911,7 +3935,7 @@ cannot be negative.</p>
 </ul>
 <p>The output path.</p>
 <hr />
-<h6 id="docsrequired"><code>docs</code><sup>Required</sup> <a name="cdk8s.Yaml.parameter.docs"></a><a class="headerlink" href="#docsrequired" title="Permanent link">&para;</a></h6>
+<h6 id="docsrequired_1"><code>docs</code><sup>Required</sup> <a name="cdk8s.Yaml.parameter.docs"></a><a class="headerlink" href="#docsrequired_1" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> typing.List[<code>typing.Any</code>]</li>
 </ul>
@@ -3937,7 +3961,7 @@ cannot be negative.</p>
   <span class="n">docs</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">typing</span><span class="o">.</span><span class="n">Any</span><span class="p">]</span>
 <span class="p">)</span>
 </code></pre></div>
-<h6 id="docsrequired_1"><code>docs</code><sup>Required</sup> <a name="cdk8s.Yaml.parameter.docs"></a><a class="headerlink" href="#docsrequired_1" title="Permanent link">&para;</a></h6>
+<h6 id="docsrequired_2"><code>docs</code><sup>Required</sup> <a name="cdk8s.Yaml.parameter.docs"></a><a class="headerlink" href="#docsrequired_2" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> typing.List[<code>typing.Any</code>]</li>
 </ul>
@@ -4070,7 +4094,7 @@ cannot be negative.</p>
     <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "header.autohide"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.01824240.min.js"}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.a87c2adc.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.ff0eccb3.min.js"></script>
       
     
   </body>

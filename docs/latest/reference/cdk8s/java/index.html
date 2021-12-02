@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.0.1">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.0.2">
     
     
       
@@ -2253,7 +2253,18 @@ construct path to generate a DNS-compatible name for the resource.</p>
 <h5 id="synth"><code>synth</code> <a name="org.cdk8s.App.synth"></a><a class="headerlink" href="#synth" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">synth</span><span class="p">()</span>
 </code></pre></div>
+<h5 id="synthyaml"><code>synthYaml</code> <a name="org.cdk8s.App.synthYaml"></a><a class="headerlink" href="#synthyaml" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">synthYaml</span><span class="p">()</span>
+</code></pre></div>
 <h4 id="properties_1">Properties <a name="Properties"></a><a class="headerlink" href="#properties_1" title="Permanent link">&para;</a></h4>
+<h5 id="chartsrequired"><code>charts</code><sup>Required</sup> <a name="org.cdk8s.App.property.charts"></a><a class="headerlink" href="#chartsrequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">Chart</span><span class="o">&gt;</span> <span class="nf">getCharts</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.Chart"><code>org.cdk8s.Chart</code></a>&gt;</li>
+</ul>
+<p>Returns all the charts in this app, sorted topologically.</p>
+<hr />
 <h5 id="outdirrequired"><code>outdir</code><sup>Required</sup> <a name="org.cdk8s.App.property.outdir"></a><a class="headerlink" href="#outdirrequired" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getOutdir</span><span class="p">();</span>
 </code></pre></div>
@@ -3654,6 +3665,17 @@ cannot be negative.</p>
 <h3 id="yaml">Yaml <a name="org.cdk8s.Yaml"></a><a class="headerlink" href="#yaml" title="Permanent link">&para;</a></h3>
 <p>YAML utilities.</p>
 <h4 id="static-functions_8">Static Functions <a name="Static Functions"></a><a class="headerlink" href="#static-functions_8" title="Permanent link">&para;</a></h4>
+<h5 id="formatobjects"><code>formatObjects</code> <a name="org.cdk8s.Yaml.formatObjects"></a><a class="headerlink" href="#formatobjects" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.Yaml</span><span class="p">;</span>
+
+<span class="n">Yaml</span><span class="p">.</span><span class="na">formatObjects</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Object</span><span class="o">&gt;</span> <span class="n">docs</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="docsrequired"><code>docs</code><sup>Required</sup> <a name="org.cdk8s.Yaml.parameter.docs"></a><a class="headerlink" href="#docsrequired" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> java.util.List&lt;<code>java.lang.Object</code>&gt;</li>
+</ul>
+<p>The set of objects.</p>
+<hr />
 <h5 id="load"><code>load</code> <a name="org.cdk8s.Yaml.load"></a><a class="headerlink" href="#load" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.Yaml</span><span class="p">;</span>
 
@@ -3676,7 +3698,7 @@ cannot be negative.</p>
 </ul>
 <p>The output path.</p>
 <hr />
-<h6 id="docsrequired"><code>docs</code><sup>Required</sup> <a name="org.cdk8s.Yaml.parameter.docs"></a><a class="headerlink" href="#docsrequired" title="Permanent link">&para;</a></h6>
+<h6 id="docsrequired_1"><code>docs</code><sup>Required</sup> <a name="org.cdk8s.Yaml.parameter.docs"></a><a class="headerlink" href="#docsrequired_1" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<code>java.lang.Object</code>&gt;</li>
 </ul>
@@ -3698,7 +3720,7 @@ cannot be negative.</p>
 
 <span class="n">Yaml</span><span class="p">.</span><span class="na">tmp</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Object</span><span class="o">&gt;</span> <span class="n">docs</span><span class="p">)</span>
 </code></pre></div>
-<h6 id="docsrequired_1"><code>docs</code><sup>Required</sup> <a name="org.cdk8s.Yaml.parameter.docs"></a><a class="headerlink" href="#docsrequired_1" title="Permanent link">&para;</a></h6>
+<h6 id="docsrequired_2"><code>docs</code><sup>Required</sup> <a name="org.cdk8s.Yaml.parameter.docs"></a><a class="headerlink" href="#docsrequired_2" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<code>java.lang.Object</code>&gt;</li>
 </ul>
@@ -3831,7 +3853,7 @@ cannot be negative.</p>
     <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "header.autohide"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.01824240.min.js"}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.a87c2adc.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.ff0eccb3.min.js"></script>
       
     
   </body>
