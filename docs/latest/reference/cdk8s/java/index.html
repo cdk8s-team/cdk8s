@@ -3664,7 +3664,7 @@ cannot be negative.</p>
 <h3 id="yaml">Yaml <a name="org.cdk8s.Yaml"></a><a class="headerlink" href="#yaml" title="Permanent link">&para;</a></h3>
 <p>YAML utilities.</p>
 <h4 id="static-functions_8">Static Functions <a name="Static Functions"></a><a class="headerlink" href="#static-functions_8" title="Permanent link">&para;</a></h4>
-<h5 id="formatobjects"><code>formatObjects</code> <a name="org.cdk8s.Yaml.formatObjects"></a><a class="headerlink" href="#formatobjects" title="Permanent link">&para;</a></h5>
+<h5 id="formatobjects">~~<code>formatObjects</code>~~ <a name="org.cdk8s.Yaml.formatObjects"></a><a class="headerlink" href="#formatobjects" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.Yaml</span><span class="p">;</span>
 
 <span class="n">Yaml</span><span class="p">.</span><span class="na">formatObjects</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Object</span><span class="o">&gt;</span> <span class="n">docs</span><span class="p">)</span>
@@ -3673,7 +3673,6 @@ cannot be negative.</p>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<code>java.lang.Object</code>&gt;</li>
 </ul>
-<p>The set of objects.</p>
 <hr />
 <h5 id="load"><code>load</code> <a name="org.cdk8s.Yaml.load"></a><a class="headerlink" href="#load" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.Yaml</span><span class="p">;</span>
@@ -3706,20 +3705,20 @@ cannot be negative.</p>
 <h5 id="stringify"><code>stringify</code> <a name="org.cdk8s.Yaml.stringify"></a><a class="headerlink" href="#stringify" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.Yaml</span><span class="p">;</span>
 
-<span class="n">Yaml</span><span class="p">.</span><span class="na">stringify</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Object</span> <span class="n">doc</span><span class="p">)</span>
+<span class="n">Yaml</span><span class="p">.</span><span class="na">stringify</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Object</span> <span class="n">docs</span><span class="p">)</span>
 </code></pre></div>
-<h6 id="docrequired"><code>doc</code><sup>Required</sup> <a name="org.cdk8s.Yaml.parameter.doc"></a><a class="headerlink" href="#docrequired" title="Permanent link">&para;</a></h6>
+<h6 id="docsrequired_2"><code>docs</code><sup>Required</sup> <a name="org.cdk8s.Yaml.parameter.docs"></a><a class="headerlink" href="#docsrequired_2" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <code>java.lang.Object</code></li>
 </ul>
-<p>An object.</p>
+<p>A set of objects to convert to YAML.</p>
 <hr />
 <h5 id="tmp"><code>tmp</code> <a name="org.cdk8s.Yaml.tmp"></a><a class="headerlink" href="#tmp" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.Yaml</span><span class="p">;</span>
 
 <span class="n">Yaml</span><span class="p">.</span><span class="na">tmp</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Object</span><span class="o">&gt;</span> <span class="n">docs</span><span class="p">)</span>
 </code></pre></div>
-<h6 id="docsrequired_2"><code>docs</code><sup>Required</sup> <a name="org.cdk8s.Yaml.parameter.docs"></a><a class="headerlink" href="#docsrequired_2" title="Permanent link">&para;</a></h6>
+<h6 id="docsrequired_3"><code>docs</code><sup>Required</sup> <a name="org.cdk8s.Yaml.parameter.docs"></a><a class="headerlink" href="#docsrequired_3" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<code>java.lang.Object</code>&gt;</li>
 </ul>

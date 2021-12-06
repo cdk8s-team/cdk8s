@@ -3426,7 +3426,7 @@ cannot be negative.</p>
 <h3 id="yaml">Yaml <a name="cdk8s.Yaml"></a><a class="headerlink" href="#yaml" title="Permanent link">&para;</a></h3>
 <p>YAML utilities.</p>
 <h4 id="static-functions_8">Static Functions <a name="Static Functions"></a><a class="headerlink" href="#static-functions_8" title="Permanent link">&para;</a></h4>
-<h5 id="formatobjects"><code>formatObjects</code> <a name="cdk8s.Yaml.formatObjects"></a><a class="headerlink" href="#formatobjects" title="Permanent link">&para;</a></h5>
+<h5 id="formatobjects">~~<code>formatObjects</code>~~ <a name="cdk8s.Yaml.formatObjects"></a><a class="headerlink" href="#formatobjects" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Yaml</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s&#39;</span>
 
 <span class="nx">Yaml</span><span class="p">.</span><span class="nx">formatObjects</span><span class="p">(</span><span class="nx">docs</span>: <span class="kt">any</span><span class="p">[])</span>
@@ -3435,7 +3435,6 @@ cannot be negative.</p>
 <ul>
 <li><em>Type:</em> <code>any</code>[]</li>
 </ul>
-<p>The set of objects.</p>
 <hr />
 <h5 id="load"><code>load</code> <a name="cdk8s.Yaml.load"></a><a class="headerlink" href="#load" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Yaml</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s&#39;</span>
@@ -3468,20 +3467,20 @@ cannot be negative.</p>
 <h5 id="stringify"><code>stringify</code> <a name="cdk8s.Yaml.stringify"></a><a class="headerlink" href="#stringify" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Yaml</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s&#39;</span>
 
-<span class="nx">Yaml</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">doc</span>: <span class="kt">any</span><span class="p">)</span>
+<span class="nx">Yaml</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">docs</span>: <span class="kt">any</span><span class="p">)</span>
 </code></pre></div>
-<h6 id="docrequired"><code>doc</code><sup>Required</sup> <a name="cdk8s.Yaml.parameter.doc"></a><a class="headerlink" href="#docrequired" title="Permanent link">&para;</a></h6>
+<h6 id="docsrequired_2"><code>docs</code><sup>Required</sup> <a name="cdk8s.Yaml.parameter.docs"></a><a class="headerlink" href="#docsrequired_2" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <code>any</code></li>
 </ul>
-<p>An object.</p>
+<p>A set of objects to convert to YAML.</p>
 <hr />
 <h5 id="tmp"><code>tmp</code> <a name="cdk8s.Yaml.tmp"></a><a class="headerlink" href="#tmp" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Yaml</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s&#39;</span>
 
 <span class="nx">Yaml</span><span class="p">.</span><span class="nx">tmp</span><span class="p">(</span><span class="nx">docs</span>: <span class="kt">any</span><span class="p">[])</span>
 </code></pre></div>
-<h6 id="docsrequired_2"><code>docs</code><sup>Required</sup> <a name="cdk8s.Yaml.parameter.docs"></a><a class="headerlink" href="#docsrequired_2" title="Permanent link">&para;</a></h6>
+<h6 id="docsrequired_3"><code>docs</code><sup>Required</sup> <a name="cdk8s.Yaml.parameter.docs"></a><a class="headerlink" href="#docsrequired_3" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <code>any</code>[]</li>
 </ul>
