@@ -2367,3 +2367,8 @@ Each resource is output to its own file.
 
 ---
 
+#### `FOLDER_PER_CHART_FILE_PER_RESOURCE` <a name="cdk8s.YamlOutputType.FOLDER_PER_CHART_FILE_PER_RESOURCE"></a>
+
+Each chart is created as a folder. Each resource is output as a file in the appropriate folder.
+
+---
