@@ -10,7 +10,12 @@ This guide will walk you through the following steps:
 ## Install the CLI
 
 CDK8s has a cute little CLI that has a few useful commands. Let's start by
-installing the CDK8s CLI globally. We have two options for this.
+installing the CDK8s CLI globally. We have three options for this.
+
+=== "Homebrew"
+    ```console
+    brew install cdk8s
+    ```
 
 === "npm"
     ```console
@@ -23,6 +28,8 @@ installing the CDK8s CLI globally. We have two options for this.
     ```
 
 ## Prerequisites
+
+Set up pre-requisites based on the language you wish to write your cdk8s code in.
 
 === "TypeScript"
     - [Node.js >= 12.13.0](https://nodejs.org/en/)
