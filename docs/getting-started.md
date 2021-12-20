@@ -10,7 +10,12 @@ This guide will walk you through the following steps:
 ## Install the CLI
 
 cdk8s has a cute little CLI that has a few useful commands. Let's start by
-installing the cdk8s CLI globally. We have two options for this.
+installing the cdk8s CLI globally. We have three options for this.
+
+=== "Homebrew"
+    ```console
+    brew install cdk8s
+    ```
 
 === "npm"
     ```console
@@ -23,6 +28,8 @@ installing the cdk8s CLI globally. We have two options for this.
     ```
 
 ## Prerequisites
+
+Set up pre-requisites based on the language you wish to write your cdk8s code in.
 
 === "TypeScript"
     - [Node.js >= 12.13.0](https://nodejs.org/en/)
@@ -296,7 +303,7 @@ resources inspired by [paulbouwer](https://github.com/paulbouwer)'s
 
         const label = { app: 'hello-k8s' };
 
-        // notice that there is no assigment neccesary when creating resources.
+        // notice that there is no assigment necessary when creating resources.
         // simply instantiating the resource is enough because it adds it to the construct tree via
         // the first argument, which is always the parent construct.
         // its a little confusing at first glance, but this is an inherent aspect of the constructs
@@ -361,7 +368,7 @@ resources inspired by [paulbouwer](https://github.com/paulbouwer)'s
             # define resources here
             label = {"app": "hello-k8s"}
 
-            # notice that there is no assigment neccesary when creating resources.
+            # notice that there is no assigment necessary when creating resources.
             # simply instantiating the resource is enough because it adds it to the construct tree via
             # the first argument, which is always the parent construct.
             # its a little confusing at first glance, but this is an inherent aspect of the constructs

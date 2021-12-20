@@ -1,9 +1,9 @@
-const { NodeProject } = require('projen');
+const { javascript } = require('projen');
 const { JobPermission } = require('projen/lib/github/workflows-model');
 
 const mainBranch = 'master';
 
-const project = new NodeProject({
+const project = new javascript.NodeProject({
   name: 'root',
   defaultReleaseBranch: mainBranch,
   pullRequestTemplate: false,
