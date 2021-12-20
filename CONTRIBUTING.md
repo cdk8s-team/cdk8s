@@ -23,7 +23,7 @@ and believe no issue is too small. Before creating a bug report, please check
 that an issue reporting the same problem does not already exist.
 
 In addition, make sure you are submitting the issue to the correct repository.
-If you know your issue petains to a specific CDK8s package, it better belongs in the respective repository.
+If you know your issue petains to a specific cdk8s package, it better belongs in the respective repository.
 
 > For a list of the repositories, see [Repositories](https://github.com/cdk8s-team/cdk8s#repositories)
 
@@ -302,7 +302,7 @@ To create an RFC follow this process:
 
 ## Community Meeting
 
-Join us for the CDK8s community meeting which takes place the [2nd Monday of the
+Join us for the cdk8s community meeting which takes place the [2nd Monday of the
 month at 9:00am Pacific
 Time](https://www.thetimezoneconverter.com/?t=9:00&tz=PT%20%28Pacific%20Time%29).
 

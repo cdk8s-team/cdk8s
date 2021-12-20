@@ -1,6 +1,6 @@
 # Changelog
 
-CDK8s is maintained via 3 repostories, each publishing their own modules.
+cdk8s is maintained via 3 repostories, each publishing their own modules.
 
 You can see each individual module changelog by visiting the releases page of each repository:
 

@@ -1,6 +1,6 @@
-# Elasticsearch (CDK8s+)
+# Elasticsearch (cdk8s+)
 
-Creating a query service on top of Elasticsearch with CDK8s+
+Creating a query service on top of Elasticsearch with cdk8s+
 
 - [TypeScript](https://github.com/cdk8s-team/cdk8s/tree/master/examples/typescript/cdk8s-plus-elasticsearch-query)
 

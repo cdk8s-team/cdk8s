@@ -1,4 +1,4 @@
-# Elasticsearch Query service with CDK8s+
+# Elasticsearch Query service with cdk8s+
 
 This directory contains an a small query service that hits an elasticsearch endpoint to perform a free text query. It contains the following components:
 

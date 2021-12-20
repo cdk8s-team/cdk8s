@@ -1,6 +1,6 @@
 # Constructs
 
-Constructs are the basic building block of **CDK8s**. They are the instrument
+Constructs are the basic building block of **cdk8s**. They are the instrument
 that enables composition and creation of higher-level abstractions through
 normal object-oriented classes.
 

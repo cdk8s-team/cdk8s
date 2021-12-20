@@ -1,4 +1,4 @@
-# CDK8s Logos
+# cdk8s Logos
 
 <table>
     <tr>

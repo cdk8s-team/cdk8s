@@ -12,7 +12,7 @@ You may need to use an escape hatch in the following cases:
    issue with the schema or a bug in "import" which results in an invalid
    manifest or missing fields (as an example see
    [issue #140](https://github.com/cdk8s-team/cdk8s/issues/140)).
-2. You are using a high-level API (e.g. CDK8s+) which does not expose some
+2. You are using a high-level API (e.g. cdk8s+) which does not expose some
    functionality which exists in the lower-level resources.
 
 ## Patching API objects directly
@@ -40,9 +40,9 @@ The second use case for using escape hatches is when you are working against a
 higher-level construct which, for some reason, does not allow you to achieve
 what you need.
 
-For example, let's say you are using the `Pod` class from CDK8s+ and you wish to
+For example, let's say you are using the `Pod` class from cdk8s+ and you wish to
 set [`enableServiceLinks`] to `true`. This feature is currently not supported in
-the CDK8s+ `Pod` API, so you'll want to patch the underlying `KubePod` and set
+the cdk8s+ `Pod` API, so you'll want to patch the underlying `KubePod` and set
 this value.
 
 [`enableServiceLinks`]: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.19/#podspec-v1-core

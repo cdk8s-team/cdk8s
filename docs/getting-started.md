@@ -2,15 +2,15 @@
 
 This guide will walk you through the following steps:
 
-- Installing the CDK8s CLI.
-- Creating a new CDK8s project in one of the supported programming languages.
-- Define & deploy your first CDK8s application.
-- Define a custom CDK8s construct.
+- Installing the cdk8s CLI.
+- Creating a new cdk8s project in one of the supported programming languages.
+- Define & deploy your first cdk8s application.
+- Define a custom cdk8s construct.
 
 ## Install the CLI
 
-CDK8s has a cute little CLI that has a few useful commands. Let's start by
-installing the CDK8s CLI globally. We have three options for this.
+cdk8s has a cute little CLI that has a few useful commands. Let's start by
+installing the cdk8s CLI globally. We have three options for this.
 
 === "Homebrew"
     ```console
@@ -50,11 +50,11 @@ Set up pre-requisites based on the language you wish to write your cdk8s code in
     - Your favorite editor/IDE
 
 !!! info
-    This Getting Started guide will help you create a Kubernetes manifest using your preferred programming language. **You do not need access to a Kubernetes cluster in order to produce a manifests using CDK8s.**
+    This Getting Started guide will help you create a Kubernetes manifest using your preferred programming language. **You do not need access to a Kubernetes cluster in order to produce a manifests using cdk8s.**
 
 ## New Project
 
-Now, we'll use the `cdk8s init` command to create a new CDK8s app:
+Now, we'll use the `cdk8s init` command to create a new cdk8s app:
 
 === "TypeScript"
     ```console
@@ -94,7 +94,7 @@ Now, we'll use the `cdk8s init` command to create a new CDK8s app:
 This will perform the following:
 
 1. Create a new project directory
-2. Install CDK8s as a dependency
+2. Install cdk8s as a dependency
 3. Import all Kubernetes API objects
 
 ## Apps & Charts
@@ -142,7 +142,7 @@ Let have a look at the code:
     <EMPTY>
     ```
 
-    > Note that since TypeScript is a compiled language, we will need to compile `.ts` files to `.js` in order to execute our CDK8s app. To avoid explicitly compiling every time, you can run a watch process in the background by running: `npm run watch`
+    > Note that since TypeScript is a compiled language, we will need to compile `.ts` files to `.js` in order to execute our cdk8s app. To avoid explicitly compiling every time, you can run a watch process in the background by running: `npm run watch`
 
 
 === "Python"
@@ -270,7 +270,7 @@ Let have a look at the code:
 OK, now let's define some Kubernetes API objects inside our chart.
 
 Similarly to **charts** and **apps**, Kubernetes API Objects are also
-represented in CDK8s as **constructs**. These constructs are _imported_ to your
+represented in cdk8s as **constructs**. These constructs are _imported_ to your
 project using the [`cdk8s import`](./cli/import.md) command which will add
 source files to your project that include constructs that represent the
 Kubernetes API.
@@ -652,7 +652,7 @@ kubectl apply -f dist/hello.k8s.yaml
 
 ## Abstraction through Constructs
 
-Constructs are the basic building block of **CDK8s**. They are the instrument
+Constructs are the basic building block of **cdk8s**. They are the instrument
 that enables composition and creation of higher-level abstractions through
 normal object-oriented classes.
 
