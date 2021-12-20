@@ -13,7 +13,7 @@
     
     
       
-        <title>Escape Hatches - CDK8s Documentation</title>
+        <title>Escape Hatches - cdk8s Documentation</title>
       
     
     
@@ -78,7 +78,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="CDK8s Documentation" class="md-header__button md-logo" aria-label="CDK8s Documentation" data-md-component="logo">
+    <a href="../.." title="cdk8s Documentation" class="md-header__button md-logo" aria-label="cdk8s Documentation" data-md-component="logo">
       
   <img src="../../assets/logo.png" alt="logo">
 
@@ -90,7 +90,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            CDK8s Documentation
+            cdk8s Documentation
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -175,12 +175,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="CDK8s Documentation" class="md-nav__button md-logo" aria-label="CDK8s Documentation" data-md-component="logo">
+    <a href="../.." title="cdk8s Documentation" class="md-nav__button md-logo" aria-label="cdk8s Documentation" data-md-component="logo">
       
   <img src="../../assets/logo.png" alt="logo">
 
     </a>
-    CDK8s Documentation
+    cdk8s Documentation
   </label>
   
     <div class="md-nav__source">
@@ -558,14 +558,14 @@
       
       
         <label class="md-nav__link" for="__nav_5">
-          CDK8s+
+          cdk8s+
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="CDK8s+" data-md-level="1">
+      <nav class="md-nav" aria-label="cdk8s+" data-md-level="1">
         <label class="md-nav__title" for="__nav_5">
           <span class="md-nav__icon md-icon"></span>
-          CDK8s+
+          cdk8s+
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1313,7 +1313,7 @@
   
     <li class="md-nav__item">
       <a href="../../examples/plus-elasticsearch/" class="md-nav__link">
-        Elasticsearch (CDK8s+)
+        Elasticsearch (cdk8s+)
       </a>
     </li>
   
@@ -1327,7 +1327,7 @@
   
     <li class="md-nav__item">
       <a href="../../examples/plus-ingress/" class="md-nav__link">
-        Ingress (CDK8s+)
+        Ingress (cdk8s+)
       </a>
     </li>
   
@@ -1506,7 +1506,7 @@
   
     <li class="md-nav__item">
       <a href="../../assets/logos/readme/" class="md-nav__link">
-        CDK8s Logos
+        cdk8s Logos
       </a>
     </li>
   
@@ -1594,7 +1594,7 @@ synthesized output when the abstraction they use does not &ldquo;hold water&rdqu
    issue with the schema or a bug in &ldquo;import&rdquo; which results in an invalid
    manifest or missing fields (as an example see
    <a href="https://github.com/cdk8s-team/cdk8s/issues/140">issue #140</a>).</li>
-<li>You are using a high-level API (e.g. CDK8s+) which does not expose some
+<li>You are using a high-level API (e.g. cdk8s+) which does not expose some
    functionality which exists in the lower-level resources.</li>
 </ol>
 <h2 id="patching-api-objects-directly">Patching API objects directly<a class="headerlink" href="#patching-api-objects-directly" title="Permanent link">&para;</a></h2>
@@ -1614,9 +1614,9 @@ itself.</p>
 <p>The second use case for using escape hatches is when you are working against a
 higher-level construct which, for some reason, does not allow you to achieve
 what you need.</p>
-<p>For example, let&rsquo;s say you are using the <code>Pod</code> class from CDK8s+ and you wish to
+<p>For example, let&rsquo;s say you are using the <code>Pod</code> class from cdk8s+ and you wish to
 set [<code>enableServiceLinks</code>] to <code>true</code>. This feature is currently not supported in
-the CDK8s+ <code>Pod</code> API, so you&rsquo;ll want to patch the underlying <code>KubePod</code> and set
+the cdk8s+ <code>Pod</code> API, so you&rsquo;ll want to patch the underlying <code>KubePod</code> and set
 this value.</p>
 <p>To do that, you will need to &ldquo;peak&rdquo; into the construct tree and find the underlying
 API object, so you can apply the patch to it:</p>

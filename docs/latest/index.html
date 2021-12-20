@@ -13,7 +13,7 @@
     
     
       
-        <title>CDK8s Documentation</title>
+        <title>cdk8s Documentation</title>
       
     
     
@@ -78,7 +78,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="CDK8s Documentation" class="md-header__button md-logo" aria-label="CDK8s Documentation" data-md-component="logo">
+    <a href="." title="cdk8s Documentation" class="md-header__button md-logo" aria-label="cdk8s Documentation" data-md-component="logo">
       
   <img src="assets/logo.png" alt="logo">
 
@@ -90,7 +90,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            CDK8s Documentation
+            cdk8s Documentation
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -175,12 +175,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="CDK8s Documentation" class="md-nav__button md-logo" aria-label="CDK8s Documentation" data-md-component="logo">
+    <a href="." title="cdk8s Documentation" class="md-nav__button md-logo" aria-label="cdk8s Documentation" data-md-component="logo">
       
   <img src="assets/logo.png" alt="logo">
 
     </a>
-    CDK8s Documentation
+    cdk8s Documentation
   </label>
   
     <div class="md-nav__source">
@@ -549,14 +549,14 @@
       
       
         <label class="md-nav__link" for="__nav_5">
-          CDK8s+
+          cdk8s+
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="CDK8s+" data-md-level="1">
+      <nav class="md-nav" aria-label="cdk8s+" data-md-level="1">
         <label class="md-nav__title" for="__nav_5">
           <span class="md-nav__icon md-icon"></span>
-          CDK8s+
+          cdk8s+
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1304,7 +1304,7 @@
   
     <li class="md-nav__item">
       <a href="examples/plus-elasticsearch/" class="md-nav__link">
-        Elasticsearch (CDK8s+)
+        Elasticsearch (cdk8s+)
       </a>
     </li>
   
@@ -1318,7 +1318,7 @@
   
     <li class="md-nav__item">
       <a href="examples/plus-ingress/" class="md-nav__link">
-        Ingress (CDK8s+)
+        Ingress (cdk8s+)
       </a>
     </li>
   
@@ -1497,7 +1497,7 @@
   
     <li class="md-nav__item">
       <a href="assets/logos/readme/" class="md-nav__link">
-        CDK8s Logos
+        cdk8s Logos
       </a>
     </li>
   
@@ -1568,14 +1568,14 @@
 
 
 <h1 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h1>
-<p><strong>CDK8s</strong> is a software development framework for defining Kubernetes
+<p><strong>cdk8s</strong> is a software development framework for defining Kubernetes
 applications and reusable abstractions using familiar programming languages and
-rich object-oriented APIs. CDK8s generates pure Kubernetes YAML - you can use
-CDK8s to define applications for any Kubernetes cluster running anywhere.</p>
+rich object-oriented APIs. cdk8s generates pure Kubernetes YAML - you can use
+cdk8s to define applications for any Kubernetes cluster running anywhere.</p>
 <p><img alt="demo" src="assets/animation.gif" /></p>
-<p>Read <a href="https://aws.amazon.com/blogs/containers/introducing-cdk-for-kubernetes/">our blog</a> or <a href="https://www.cncf.io/webinars/end-yaml-engineering-with-cdk8s/">watch our CNCF webinar</a> to learn more and see a live demo of CDK8s in action.</p>
+<p>Read <a href="https://aws.amazon.com/blogs/containers/introducing-cdk-for-kubernetes/">our blog</a> or <a href="https://www.cncf.io/webinars/end-yaml-engineering-with-cdk8s/">watch our CNCF webinar</a> to learn more and see a live demo of cdk8s in action.</p>
 <h2 id="how-does-it-work">How does it work<a class="headerlink" href="#how-does-it-work" title="Permanent link">&para;</a></h2>
-<p><strong>CDK8s</strong> apps are programs written in one of the supported programming
+<p><strong>cdk8s</strong> apps are programs written in one of the supported programming
 languages. They are structured as a tree of
 <a href="https://github.com/aws/constructs">constructs</a>.</p>
 <p>The root of the tree is an <code>App</code> construct. Within an app, users define any
@@ -1584,12 +1584,12 @@ synthesized into a separate Kubernetes manifest file. Charts are, in turn,
 composed of any number of constructs, and eventually from resources, which
 represent any Kubernetes resource, such as <code>Pod</code>, <code>Service</code>, <code>Deployment</code>,
 <code>ReplicaSet</code>, etc.</p>
-<p>CDK8s apps only <strong><em>define</em></strong> Kubernetes applications, they don&rsquo;t actually apply
+<p>cdk8s apps only <strong><em>define</em></strong> Kubernetes applications, they don&rsquo;t actually apply
 them to the cluster. When an app is executed, it <em>synthesizes</em> all the charts
 defined within the app into the <code>dist</code> directory, and then those charts can be
 applied to any Kubernetes cluster using <code>kubectl apply -f dist/chart.k8s.yaml</code> or a GitOps tool like <a href="https://fluxcd.io/">Flux</a>.</p>
 <blockquote>
-<p><strong>CDK8s</strong> is based on the design concepts and technologies behind the <a href="https://aws.amazon.com/cdk">AWS
+<p><strong>cdk8s</strong> is based on the design concepts and technologies behind the <a href="https://aws.amazon.com/cdk">AWS
 Cloud Development Kit</a>, and can interoperate with
 AWS CDK constructs to define cloud-native applications that include both
 Kubernetes resources and other CDK constructs as first class citizens.</p>
