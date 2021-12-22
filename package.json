@@ -17,8 +17,8 @@
   "devDependencies": {
     "@types/jest": "^26.0.24",
     "@types/node": "^14.18.2",
-    "cdk8s": "1.3.6",
-    "cdk8s-cli": "1.0.56",
+    "cdk8s": "1.3.7",
+    "cdk8s-cli": "1.0.57",
     "cdk8s-plus-17": "^1.0.0-beta.84",
     "cdk8s-plus-20": "^1.0.0-beta.61",
     "cdk8s-plus-21": "^1.0.0-beta.62",
@@ -28,7 +28,7 @@
     "jest-junit": "^13",
     "lerna": "^4",
     "npm-check-updates": "^12",
-    "projen": "^0.45.3",
+    "projen": "^0.45.4",
     "semver": "^7.3.5",
     "ts-jest": "^27.1.2",
     "typescript": "^4.5.4"
