@@ -8,9 +8,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      checks: write
       contents: write
-      actions: write
+    outputs:
+      self_mutation_commit: ${{ steps.self_mutation.outputs.self_mutation_commit }}
     env:
       CI: "true"
     steps:
@@ -21,6 +21,7 @@ jobs:
           repository: ${{ github.event.pull_request.head.repo.full_name }}
       - name: Set git identity
         run: |-
+          git config --global init.defaultBranch main
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
       - name: installing dependencies
@@ -33,22 +34,32 @@ jobs:
         run: yarn install --check-files --frozen-lockfile
       - name: build
         run: npx projen build
-      - name: Check for changes
-        id: git_diff
-        run: git diff --exit-code || echo "::set-output name=has_changes::true"
-      - if: steps.git_diff.outputs.has_changes
-        name: Commit and push changes (if changed)
-        run: 'git add . && git commit -m "chore: self mutation" && git push origin
-          HEAD:${{ github.event.pull_request.head.ref }}'
-      - if: steps.git_diff.outputs.has_changes
-        name: Update status check (if changed)
+      - name: Self mutation
+        id: self_mutation
+        run: |-
+          if ! git diff --exit-code; then
+            git add .
+            git commit -m "chore: self mutation"
+            git push origin HEAD:${{ github.event.pull_request.head.ref }}
+            echo "::set-output name=self_mutation_commit::$(git rev-parse HEAD)"
+          fi
+  update-status:
+    needs:
+      - build
+    runs-on: ubuntu-latest
+    permissions:
+      checks: write
+      actions: write
+    if: ${{ needs.build.outputs.self_mutation_commit }}
+    steps:
+      - name: Update status check (if changed)
         run: gh api -X POST /repos/${{ github.event.pull_request.head.repo.full_name
-          }}/check-runs -F name="build" -F head_sha="$(git rev-parse HEAD)" -F
-          status="completed" -F conclusion="success"
+          }}/check-runs -F name="build" -F head_sha="${{
+          needs.build.outputs.self_mutation_commit }}" -F status="completed" -F
+          conclusion="success"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - if: steps.git_diff.outputs.has_changes
-        name: Cancel workflow (if changed)
+      - name: Cancel workflow (if changed)
         run: gh api -X POST /repos/${{ github.event.pull_request.head.repo.full_name
           }}/actions/runs/${{ github.run_id }}/cancel
         env:
