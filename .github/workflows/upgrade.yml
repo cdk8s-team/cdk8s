@@ -12,15 +12,10 @@ jobs:
     permissions:
       contents: read
     outputs:
-      conclusion: ${{ steps.build.outputs.conclusion }}
+      patch_created: ${{ steps.create_patch.outputs.patch_created }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Set git identity
-        run: |-
-          git config --global init.defaultBranch main
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
       - name: installing dependencies
         run: tools/install-workflow-deps.sh
       - name: Setup Go
@@ -31,19 +26,18 @@ jobs:
         run: yarn install --check-files --frozen-lockfile
       - name: Upgrade dependencies
         run: npx projen upgrade
-      - name: Build
-        id: build
-        run: npx projen build && echo "::set-output name=conclusion::success" || echo
-          "::set-output name=conclusion::failure"
-      - name: Create Patch
-        run: |-
+      - id: create_patch
+        name: Find mutations
+        run: >-
           git add .
-          git diff --patch --staged > .upgrade.tmp.patch
-      - name: Upload patch
+
+          git diff --staged --patch --exit-code > .repo.patch || echo "::set-output name=patch_created::true"
+      - if: ${{ steps.create_patch.outputs.patch_created }}
+        name: Upload patch
         uses: actions/upload-artifact@v2
         with:
-          name: .upgrade.tmp.patch
-          path: .upgrade.tmp.patch
+          name: .repo.patch
+          path: .repo.patch
   pr:
     name: Create Pull Request
     needs: upgrade
@@ -51,23 +45,24 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
-      checks: write
+    if: ${{ needs.upgrade.outputs.patch_created }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Set git identity
-        run: |-
-          git config --global init.defaultBranch main
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
+        with:
+          token: ${{ secrets.PROJEN_GITHUB_TOKEN }}
       - name: Download patch
         uses: actions/download-artifact@v2
         with:
-          name: .upgrade.tmp.patch
+          name: .repo.patch
           path: ${{ runner.temp }}
       - name: Apply patch
-        run: '[ -s ${{ runner.temp }}/.upgrade.tmp.patch ] && git apply ${{ runner.temp
-          }}/.upgrade.tmp.patch || echo "Empty patch. Skipping."'
+        run: '[ -s ${{ runner.temp }}/.repo.patch ] && git apply ${{ runner.temp
+          }}/.repo.patch || echo "Empty patch. Skipping."'
+      - name: Set git identity
+        run: |-
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
       - name: Create Pull Request
         id: create-pr
         uses: peter-evans/create-pull-request@v3
@@ -104,15 +99,3 @@ jobs:
           author: github-actions <github-actions@github.com>
           committer: github-actions <github-actions@github.com>
           signoff: true
-      - name: Update status check
-        if: steps.create-pr.outputs.pull-request-url != ''
-        run: "curl -i --fail -X POST -H \"Accept: application/vnd.github.v3+json\" -H
-          \"Authorization: token ${GITHUB_TOKEN}\"
-          https://api.github.com/repos/${{ github.repository }}/check-runs -d
-          '{\"name\":\"build\",\"head_sha\":\"github-actions/upgrade\",\"status\
-          \":\"completed\",\"conclusion\":\"${{ needs.upgrade.outputs.conclusion
-          }}\",\"output\":{\"title\":\"Created via the upgrade
-          workflow.\",\"summary\":\"Action run URL: https://github.com/${{
-          github.repository }}/actions/runs/${{ github.run_id }}\"}}'"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
