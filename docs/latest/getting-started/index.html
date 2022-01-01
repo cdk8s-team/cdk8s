@@ -1839,35 +1839,35 @@ file should be empty since we haven&rsquo;t defined any resources yet.</p>
 </div>
 <input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><label for="__tabbed_4_4">Go</label><div class="tabbed-content">
 <p><code>main.go</code></p>
-<div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nx">main</span>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span><span class="w"></span>
 
-<span class="kn">import</span> <span class="p">(</span>
-  <span class="s">&quot;github.com/aws/constructs-go/constructs/v3&quot;</span>
-  <span class="s">&quot;github.com/aws/jsii-runtime-go&quot;</span>
-  <span class="s">&quot;github.com/cdk8s-team/cdk8s-core-go/cdk8s&quot;</span>
-<span class="p">)</span>
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;github.com/aws/constructs-go/constructs/v3&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;github.com/aws/jsii-runtime-go&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;github.com/cdk8s-team/cdk8s-core-go/cdk8s&quot;</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
 
-<span class="kd">type</span> <span class="nx">MyChartProps</span> <span class="kd">struct</span> <span class="p">{</span>
-  <span class="nx">cdk8s</span><span class="p">.</span><span class="nx">ChartProps</span>
-<span class="p">}</span>
+<span class="kd">type</span><span class="w"> </span><span class="nx">MyChartProps</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">cdk8s</span><span class="p">.</span><span class="nx">ChartProps</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="kd">func</span> <span class="nx">NewMyChart</span><span class="p">(</span><span class="nx">scope</span> <span class="nx">constructs</span><span class="p">.</span><span class="nx">Construct</span><span class="p">,</span> <span class="nx">id</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">props</span> <span class="o">*</span><span class="nx">MyChartProps</span><span class="p">)</span> <span class="nx">cdk8s</span><span class="p">.</span><span class="nx">Chart</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">cprops</span> <span class="nx">cdk8s</span><span class="p">.</span><span class="nx">ChartProps</span>
-  <span class="k">if</span> <span class="nx">props</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-    <span class="nx">cprops</span> <span class="p">=</span> <span class="nx">props</span><span class="p">.</span><span class="nx">ChartProps</span>
-  <span class="p">}</span>
-  <span class="nx">chart</span> <span class="o">:=</span> <span class="nx">cdk8s</span><span class="p">.</span><span class="nx">NewChart</span><span class="p">(</span><span class="nx">scope</span><span class="p">,</span> <span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="nx">id</span><span class="p">),</span> <span class="o">&amp;</span><span class="nx">cprops</span><span class="p">)</span>
+<span class="kd">func</span><span class="w"> </span><span class="nx">NewMyChart</span><span class="p">(</span><span class="nx">scope</span><span class="w"> </span><span class="nx">constructs</span><span class="p">.</span><span class="nx">Construct</span><span class="p">,</span><span class="w"> </span><span class="nx">id</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">props</span><span class="w"> </span><span class="o">*</span><span class="nx">MyChartProps</span><span class="p">)</span><span class="w"> </span><span class="nx">cdk8s</span><span class="p">.</span><span class="nx">Chart</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">cprops</span><span class="w"> </span><span class="nx">cdk8s</span><span class="p">.</span><span class="nx">ChartProps</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="nx">props</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">cprops</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">props</span><span class="p">.</span><span class="nx">ChartProps</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="nx">chart</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">cdk8s</span><span class="p">.</span><span class="nx">NewChart</span><span class="p">(</span><span class="nx">scope</span><span class="p">,</span><span class="w"> </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="nx">id</span><span class="p">),</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">cprops</span><span class="p">)</span><span class="w"></span>
 
-  <span class="c1">// define resources here</span>
+<span class="w">  </span><span class="c1">// define resources here</span><span class="w"></span>
 
-  <span class="k">return</span> <span class="nx">chart</span>
-<span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">chart</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nx">app</span> <span class="o">:=</span> <span class="nx">cdk8s</span><span class="p">.</span><span class="nx">NewApp</span><span class="p">(</span><span class="kc">nil</span><span class="p">)</span>
-  <span class="nx">NewMyChart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s">&quot;hello&quot;</span><span class="p">,</span> <span class="kc">nil</span><span class="p">)</span>
-  <span class="nx">app</span><span class="p">.</span><span class="nx">Synth</span><span class="p">()</span>
-<span class="p">}</span>
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">app</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">cdk8s</span><span class="p">.</span><span class="nx">NewApp</span><span class="p">(</span><span class="kc">nil</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="nx">NewMyChart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;hello&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">nil</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="nx">app</span><span class="p">.</span><span class="nx">Synth</span><span class="p">()</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <p>To produce and inspect the generated manifest, you can run:</p>
 <div class="highlight"><pre><span></span><code><span class="go">cdk8s synth</span>
@@ -2124,76 +2124,76 @@ resources inspired by <a href="https://github.com/paulbouwer">paulbouwer</a>&lsq
 </code></pre></div>
 </div>
 <input id="__tabbed_5_4" name="__tabbed_5" type="radio" /><label for="__tabbed_5_4">Go</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nx">main</span>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span><span class="w"></span>
 
-<span class="kn">import</span> <span class="p">(</span>
-  <span class="s">&quot;example.com/hello-k8s/imports/k8s&quot;</span>
-  <span class="s">&quot;github.com/aws/constructs-go/constructs/v3&quot;</span>
-  <span class="s">&quot;github.com/aws/jsii-runtime-go&quot;</span>
-  <span class="s">&quot;github.com/cdk8s-team/cdk8s-core-go/cdk8s&quot;</span>
-<span class="p">)</span>
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;example.com/hello-k8s/imports/k8s&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;github.com/aws/constructs-go/constructs/v3&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;github.com/aws/jsii-runtime-go&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;github.com/cdk8s-team/cdk8s-core-go/cdk8s&quot;</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
 
-<span class="kd">type</span> <span class="nx">MyChartProps</span> <span class="kd">struct</span> <span class="p">{</span>
-  <span class="nx">cdk8s</span><span class="p">.</span><span class="nx">ChartProps</span>
-<span class="p">}</span>
+<span class="kd">type</span><span class="w"> </span><span class="nx">MyChartProps</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">cdk8s</span><span class="p">.</span><span class="nx">ChartProps</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="kd">func</span> <span class="nx">NewMyChart</span><span class="p">(</span><span class="nx">scope</span> <span class="nx">constructs</span><span class="p">.</span><span class="nx">Construct</span><span class="p">,</span> <span class="nx">id</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">props</span> <span class="o">*</span><span class="nx">MyChartProps</span><span class="p">)</span> <span class="nx">cdk8s</span><span class="p">.</span><span class="nx">Chart</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">cprops</span> <span class="nx">cdk8s</span><span class="p">.</span><span class="nx">ChartProps</span>
-  <span class="k">if</span> <span class="nx">props</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-    <span class="nx">cprops</span> <span class="p">=</span> <span class="nx">props</span><span class="p">.</span><span class="nx">ChartProps</span>
-  <span class="p">}</span>
-  <span class="nx">chart</span> <span class="o">:=</span> <span class="nx">cdk8s</span><span class="p">.</span><span class="nx">NewChart</span><span class="p">(</span><span class="nx">scope</span><span class="p">,</span> <span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="nx">id</span><span class="p">),</span> <span class="o">&amp;</span><span class="nx">cprops</span><span class="p">)</span>
+<span class="kd">func</span><span class="w"> </span><span class="nx">NewMyChart</span><span class="p">(</span><span class="nx">scope</span><span class="w"> </span><span class="nx">constructs</span><span class="p">.</span><span class="nx">Construct</span><span class="p">,</span><span class="w"> </span><span class="nx">id</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">props</span><span class="w"> </span><span class="o">*</span><span class="nx">MyChartProps</span><span class="p">)</span><span class="w"> </span><span class="nx">cdk8s</span><span class="p">.</span><span class="nx">Chart</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">cprops</span><span class="w"> </span><span class="nx">cdk8s</span><span class="p">.</span><span class="nx">ChartProps</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="nx">props</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">cprops</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">props</span><span class="p">.</span><span class="nx">ChartProps</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="nx">chart</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">cdk8s</span><span class="p">.</span><span class="nx">NewChart</span><span class="p">(</span><span class="nx">scope</span><span class="p">,</span><span class="w"> </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="nx">id</span><span class="p">),</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">cprops</span><span class="p">)</span><span class="w"></span>
 
-  <span class="nx">label</span> <span class="o">:=</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="o">*</span><span class="kt">string</span><span class="p">{</span><span class="s">&quot;app&quot;</span><span class="p">:</span> <span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;hello-k8s&quot;</span><span class="p">)}</span>
+<span class="w">  </span><span class="nx">label</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="o">*</span><span class="kt">string</span><span class="p">{</span><span class="s">&quot;app&quot;</span><span class="p">:</span><span class="w"> </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;hello-k8s&quot;</span><span class="p">)}</span><span class="w"></span>
 
-  <span class="nx">k8s</span><span class="p">.</span><span class="nx">NewKubeService</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span> <span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;service&quot;</span><span class="p">),</span> <span class="o">&amp;</span><span class="nx">k8s</span><span class="p">.</span><span class="nx">KubeServiceProps</span><span class="p">{</span>
-    <span class="nx">Spec</span><span class="p">:</span> <span class="o">&amp;</span><span class="nx">k8s</span><span class="p">.</span><span class="nx">ServiceSpec</span><span class="p">{</span>
-      <span class="nx">Type</span><span class="p">:</span> <span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;LoadBalancer&quot;</span><span class="p">),</span>
-      <span class="nx">Ports</span><span class="p">:</span> <span class="o">&amp;</span><span class="p">[]</span><span class="o">*</span><span class="nx">k8s</span><span class="p">.</span><span class="nx">ServicePort</span><span class="p">{{</span>
-        <span class="nx">Port</span><span class="p">:</span>       <span class="nx">jsii</span><span class="p">.</span><span class="nx">Number</span><span class="p">(</span><span class="mi">80</span><span class="p">),</span>
-        <span class="nx">TargetPort</span><span class="p">:</span> <span class="nx">k8s</span><span class="p">.</span><span class="nx">IntOrString_FromNumber</span><span class="p">(</span><span class="nx">jsii</span><span class="p">.</span><span class="nx">Number</span><span class="p">(</span><span class="mi">8000</span><span class="p">)),</span>
-      <span class="p">}},</span>
-      <span class="nx">Selector</span><span class="p">:</span> <span class="o">&amp;</span><span class="nx">label</span><span class="p">,</span>
-    <span class="p">},</span>
-  <span class="p">})</span>
+<span class="w">  </span><span class="nx">k8s</span><span class="p">.</span><span class="nx">NewKubeService</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;service&quot;</span><span class="p">),</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">k8s</span><span class="p">.</span><span class="nx">KubeServiceProps</span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">Spec</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">k8s</span><span class="p">.</span><span class="nx">ServiceSpec</span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nx">Type</span><span class="p">:</span><span class="w"> </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;LoadBalancer&quot;</span><span class="p">),</span><span class="w"></span>
+<span class="w">      </span><span class="nx">Ports</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="p">[]</span><span class="o">*</span><span class="nx">k8s</span><span class="p">.</span><span class="nx">ServicePort</span><span class="p">{{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">Port</span><span class="p">:</span><span class="w">       </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">Number</span><span class="p">(</span><span class="mi">80</span><span class="p">),</span><span class="w"></span>
+<span class="w">        </span><span class="nx">TargetPort</span><span class="p">:</span><span class="w"> </span><span class="nx">k8s</span><span class="p">.</span><span class="nx">IntOrString_FromNumber</span><span class="p">(</span><span class="nx">jsii</span><span class="p">.</span><span class="nx">Number</span><span class="p">(</span><span class="mi">8000</span><span class="p">)),</span><span class="w"></span>
+<span class="w">      </span><span class="p">}},</span><span class="w"></span>
+<span class="w">      </span><span class="nx">Selector</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">label</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="p">})</span><span class="w"></span>
 
-  <span class="c1">// notice that there is no assigment neccesary when creating resources.</span>
-  <span class="c1">// simply instantiating the resource is enough because it adds it to the construct tree via</span>
-  <span class="c1">// the first argument, which is always the parent construct.</span>
-  <span class="c1">// its a little confusing at first glance, but this is an inherent aspect of the constructs</span>
-  <span class="c1">// programming model, and you will encounter it many times.</span>
-  <span class="c1">// you can still perform an assignment of course, if you need to access</span>
-  <span class="c1">// atrtibutes of the resource in other parts of the code.</span>
+<span class="w">  </span><span class="c1">// notice that there is no assigment neccesary when creating resources.</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// simply instantiating the resource is enough because it adds it to the construct tree via</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// the first argument, which is always the parent construct.</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// its a little confusing at first glance, but this is an inherent aspect of the constructs</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// programming model, and you will encounter it many times.</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// you can still perform an assignment of course, if you need to access</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// atrtibutes of the resource in other parts of the code.</span><span class="w"></span>
 
-  <span class="nx">k8s</span><span class="p">.</span><span class="nx">NewKubeDeployment</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span> <span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;deployment&quot;</span><span class="p">),</span> <span class="o">&amp;</span><span class="nx">k8s</span><span class="p">.</span><span class="nx">KubeDeploymentProps</span><span class="p">{</span>
-    <span class="nx">Spec</span><span class="p">:</span> <span class="o">&amp;</span><span class="nx">k8s</span><span class="p">.</span><span class="nx">DeploymentSpec</span><span class="p">{</span>
-      <span class="nx">Replicas</span><span class="p">:</span> <span class="nx">jsii</span><span class="p">.</span><span class="nx">Number</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span>
-      <span class="nx">Selector</span><span class="p">:</span> <span class="o">&amp;</span><span class="nx">k8s</span><span class="p">.</span><span class="nx">LabelSelector</span><span class="p">{</span>
-        <span class="nx">MatchLabels</span><span class="p">:</span> <span class="o">&amp;</span><span class="nx">label</span><span class="p">,</span>
-      <span class="p">},</span>
-      <span class="nx">Template</span><span class="p">:</span> <span class="o">&amp;</span><span class="nx">k8s</span><span class="p">.</span><span class="nx">PodTemplateSpec</span><span class="p">{</span>
-        <span class="nx">Metadata</span><span class="p">:</span> <span class="o">&amp;</span><span class="nx">k8s</span><span class="p">.</span><span class="nx">ObjectMeta</span><span class="p">{</span>
-          <span class="nx">Labels</span><span class="p">:</span> <span class="o">&amp;</span><span class="nx">label</span><span class="p">,</span>
-        <span class="p">},</span>
-        <span class="nx">Spec</span><span class="p">:</span> <span class="o">&amp;</span><span class="nx">k8s</span><span class="p">.</span><span class="nx">PodSpec</span><span class="p">{</span>
-          <span class="nx">Containers</span><span class="p">:</span> <span class="o">&amp;</span><span class="p">[]</span><span class="o">*</span><span class="nx">k8s</span><span class="p">.</span><span class="nx">Container</span><span class="p">{{</span>
-            <span class="nx">Name</span><span class="p">:</span>  <span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;hello-kubernetes&quot;</span><span class="p">),</span>
-            <span class="nx">Image</span><span class="p">:</span> <span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;paulbouwer/hello-kubernetes:1.7&quot;</span><span class="p">),</span>
-            <span class="nx">Ports</span><span class="p">:</span> <span class="o">&amp;</span><span class="p">[]</span><span class="o">*</span><span class="nx">k8s</span><span class="p">.</span><span class="nx">ContainerPort</span><span class="p">{{</span><span class="nx">ContainerPort</span><span class="p">:</span> <span class="nx">jsii</span><span class="p">.</span><span class="nx">Number</span><span class="p">(</span><span class="mi">8080</span><span class="p">)}},</span>
-          <span class="p">}},</span>
-        <span class="p">},</span>
-      <span class="p">},</span>
-    <span class="p">},</span>
-  <span class="p">})</span>
+<span class="w">  </span><span class="nx">k8s</span><span class="p">.</span><span class="nx">NewKubeDeployment</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;deployment&quot;</span><span class="p">),</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">k8s</span><span class="p">.</span><span class="nx">KubeDeploymentProps</span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">Spec</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">k8s</span><span class="p">.</span><span class="nx">DeploymentSpec</span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nx">Replicas</span><span class="p">:</span><span class="w"> </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">Number</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="w"></span>
+<span class="w">      </span><span class="nx">Selector</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">k8s</span><span class="p">.</span><span class="nx">LabelSelector</span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">MatchLabels</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">label</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="p">},</span><span class="w"></span>
+<span class="w">      </span><span class="nx">Template</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">k8s</span><span class="p">.</span><span class="nx">PodTemplateSpec</span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">Metadata</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">k8s</span><span class="p">.</span><span class="nx">ObjectMeta</span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="nx">Labels</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">label</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="nx">Spec</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">k8s</span><span class="p">.</span><span class="nx">PodSpec</span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="nx">Containers</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="p">[]</span><span class="o">*</span><span class="nx">k8s</span><span class="p">.</span><span class="nx">Container</span><span class="p">{{</span><span class="w"></span>
+<span class="w">            </span><span class="nx">Name</span><span class="p">:</span><span class="w">  </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;hello-kubernetes&quot;</span><span class="p">),</span><span class="w"></span>
+<span class="w">            </span><span class="nx">Image</span><span class="p">:</span><span class="w"> </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;paulbouwer/hello-kubernetes:1.7&quot;</span><span class="p">),</span><span class="w"></span>
+<span class="w">            </span><span class="nx">Ports</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="p">[]</span><span class="o">*</span><span class="nx">k8s</span><span class="p">.</span><span class="nx">ContainerPort</span><span class="p">{{</span><span class="nx">ContainerPort</span><span class="p">:</span><span class="w"> </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">Number</span><span class="p">(</span><span class="mi">8080</span><span class="p">)}},</span><span class="w"></span>
+<span class="w">          </span><span class="p">}},</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">      </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="p">})</span><span class="w"></span>
 
-  <span class="k">return</span> <span class="nx">chart</span>
-<span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">chart</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nx">app</span> <span class="o">:=</span> <span class="nx">cdk8s</span><span class="p">.</span><span class="nx">NewApp</span><span class="p">(</span><span class="kc">nil</span><span class="p">)</span>
-  <span class="nx">NewMyChart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s">&quot;hello&quot;</span><span class="p">,</span> <span class="kc">nil</span><span class="p">)</span>
-  <span class="nx">app</span><span class="p">.</span><span class="nx">Synth</span><span class="p">()</span>
-<span class="p">}</span>
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">app</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">cdk8s</span><span class="p">.</span><span class="nx">NewApp</span><span class="p">(</span><span class="kc">nil</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="nx">NewMyChart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;hello&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">nil</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="nx">app</span><span class="p">.</span><span class="nx">Synth</span><span class="p">()</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <p>Now, to synthesize the app, run:</p>
 <div class="highlight"><pre><span></span><code>cdk8s synth
@@ -2201,37 +2201,37 @@ resources inspired by <a href="https://github.com/paulbouwer">paulbouwer</a>&lsq
 </div>
 </div>
 <p>This will be contents of <code>hello.k8s.yaml</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span> <span class="s">&quot;v1&quot;</span>
-<span class="nt">kind</span><span class="p">:</span> <span class="s">&quot;Service&quot;</span>
-<span class="nt">metadata</span><span class="p">:</span>
-  <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;hello-service-c8c17160&quot;</span>
-<span class="nt">spec</span><span class="p">:</span>
-  <span class="nt">ports</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">80</span>
-      <span class="nt">targetPort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8080</span>
-  <span class="nt">selector</span><span class="p">:</span>
-    <span class="nt">app</span><span class="p">:</span> <span class="s">&quot;hello-k8s&quot;</span>
-  <span class="nt">type</span><span class="p">:</span> <span class="s">&quot;LoadBalancer&quot;</span>
-<span class="nn">---</span>
-<span class="nt">apiVersion</span><span class="p">:</span> <span class="s">&quot;apps/v1&quot;</span>
-<span class="nt">kind</span><span class="p">:</span> <span class="s">&quot;Deployment&quot;</span>
-<span class="nt">metadata</span><span class="p">:</span>
-  <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;hello-deployment-c8c7fda7&quot;</span>
-<span class="nt">spec</span><span class="p">:</span>
-  <span class="nt">replicas</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
-  <span class="nt">selector</span><span class="p">:</span>
-    <span class="nt">matchLabels</span><span class="p">:</span>
-      <span class="nt">app</span><span class="p">:</span> <span class="s">&quot;hello-k8s&quot;</span>
-  <span class="nt">template</span><span class="p">:</span>
-    <span class="nt">metadata</span><span class="p">:</span>
-      <span class="nt">labels</span><span class="p">:</span>
-        <span class="nt">app</span><span class="p">:</span> <span class="s">&quot;hello-k8s&quot;</span>
-    <span class="nt">spec</span><span class="p">:</span>
-      <span class="nt">containers</span><span class="p">:</span>
-        <span class="p p-Indicator">-</span> <span class="nt">image</span><span class="p">:</span> <span class="s">&quot;paulbouwer/hello-kubernetes:1.7&quot;</span>
-          <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;hello-kubernetes&quot;</span>
-          <span class="nt">ports</span><span class="p">:</span>
-            <span class="p p-Indicator">-</span> <span class="nt">containerPort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8080</span>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;v1&quot;</span><span class="w"></span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Service&quot;</span><span class="w"></span>
+<span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;hello-service-c8c17160&quot;</span><span class="w"></span>
+<span class="nt">spec</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">ports</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">80</span><span class="w"></span>
+<span class="w">      </span><span class="nt">targetPort</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8080</span><span class="w"></span>
+<span class="w">  </span><span class="nt">selector</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;hello-k8s&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;LoadBalancer&quot;</span><span class="w"></span>
+<span class="nn">---</span><span class="w"></span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;apps/v1&quot;</span><span class="w"></span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Deployment&quot;</span><span class="w"></span>
+<span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;hello-deployment-c8c7fda7&quot;</span><span class="w"></span>
+<span class="nt">spec</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span><span class="w"></span>
+<span class="w">  </span><span class="nt">selector</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;hello-k8s&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">template</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">labels</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;hello-k8s&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">spec</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">containers</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;paulbouwer/hello-kubernetes:1.7&quot;</span><span class="w"></span>
+<span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;hello-kubernetes&quot;</span><span class="w"></span>
+<span class="w">          </span><span class="nt">ports</span><span class="p">:</span><span class="w"></span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8080</span><span class="w"></span>
 </code></pre></div>
 <p>The manifest synthesized by your app is ready to be applied to any Kubernetes
 cluster using standard tools like <code>kubectl apply</code>:</p>
@@ -2297,16 +2297,16 @@ actually quite useful.</p>
 </code></pre></div>
 </div>
 <input id="__tabbed_6_4" name="__tabbed_6" type="radio" /><label for="__tabbed_6_4">Go</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code><span class="nx">NewWebService</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span> <span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">),</span> <span class="o">&amp;</span><span class="nx">WebServiceProps</span><span class="p">{</span>
-  <span class="nx">Image</span><span class="p">:</span>    <span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;paulbouwer/hello-kubernetes:1.7&quot;</span><span class="p">),</span>
-<span class="p">})</span>
+<div class="highlight"><pre><span></span><code><span class="nx">NewWebService</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">),</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">WebServiceProps</span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">Image</span><span class="p">:</span><span class="w">    </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;paulbouwer/hello-kubernetes:1.7&quot;</span><span class="p">),</span><span class="w"></span>
+<span class="p">})</span><span class="w"></span>
 </code></pre></div>
 <p>It can also be customized through an API:</p>
-<div class="highlight"><pre><span></span><code><span class="nx">NewWebService</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span> <span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">),</span> <span class="o">&amp;</span><span class="nx">WebServiceProps</span><span class="p">{</span>
-  <span class="nx">Image</span><span class="p">:</span>         <span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;paulbouwer/hello-kubernetes:1.7&quot;</span><span class="p">),</span>
-  <span class="nx">ContainerPort</span><span class="p">:</span> <span class="nx">jsii</span><span class="p">.</span><span class="nx">Number</span><span class="p">(</span><span class="mi">8080</span><span class="p">),</span>
-  <span class="nx">Replicas</span><span class="p">:</span>      <span class="nx">jsii</span><span class="p">.</span><span class="nx">Number</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
-<span class="p">})</span>
+<div class="highlight"><pre><span></span><code><span class="nx">NewWebService</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">),</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">WebServiceProps</span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">Image</span><span class="p">:</span><span class="w">         </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;paulbouwer/hello-kubernetes:1.7&quot;</span><span class="p">),</span><span class="w"></span>
+<span class="w">  </span><span class="nx">ContainerPort</span><span class="p">:</span><span class="w"> </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">Number</span><span class="p">(</span><span class="mi">8080</span><span class="p">),</span><span class="w"></span>
+<span class="w">  </span><span class="nx">Replicas</span><span class="p">:</span><span class="w">      </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">Number</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span><span class="w"></span>
+<span class="p">})</span><span class="w"></span>
 </code></pre></div>
 </div>
 </div>
@@ -2666,117 +2666,117 @@ actually quite useful.</p>
 </div>
 <input id="__tabbed_7_4" name="__tabbed_7" type="radio" /><label for="__tabbed_7_4">Go</label><div class="tabbed-content">
 <p>Create a file <code>webservice.go</code> with the following content:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nx">main</span>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span><span class="w"></span>
 
-<span class="kn">import</span> <span class="p">(</span>
-  <span class="s">&quot;example.com/hello/imports/k8s&quot;</span>
-  <span class="s">&quot;github.com/aws/constructs-go/constructs/v3&quot;</span>
-  <span class="s">&quot;github.com/aws/jsii-runtime-go&quot;</span>
-<span class="p">)</span>
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;example.com/hello/imports/k8s&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;github.com/aws/constructs-go/constructs/v3&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;github.com/aws/jsii-runtime-go&quot;</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
 
-<span class="kd">type</span> <span class="nx">WebServiceProps</span> <span class="kd">struct</span> <span class="p">{</span>
-  <span class="nx">constructs</span><span class="p">.</span><span class="nx">ConstructOptions</span>
-  <span class="nx">Image</span>         <span class="o">*</span><span class="kt">string</span>
-  <span class="nx">Replicas</span>      <span class="o">*</span><span class="kt">float64</span>
-  <span class="nx">Port</span>          <span class="o">*</span><span class="kt">float64</span>
-  <span class="nx">ContainerPort</span> <span class="o">*</span><span class="kt">float64</span>
-<span class="p">}</span>
+<span class="kd">type</span><span class="w"> </span><span class="nx">WebServiceProps</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">constructs</span><span class="p">.</span><span class="nx">ConstructOptions</span><span class="w"></span>
+<span class="w">  </span><span class="nx">Image</span><span class="w">         </span><span class="o">*</span><span class="kt">string</span><span class="w"></span>
+<span class="w">  </span><span class="nx">Replicas</span><span class="w">      </span><span class="o">*</span><span class="kt">float64</span><span class="w"></span>
+<span class="w">  </span><span class="nx">Port</span><span class="w">          </span><span class="o">*</span><span class="kt">float64</span><span class="w"></span>
+<span class="w">  </span><span class="nx">ContainerPort</span><span class="w"> </span><span class="o">*</span><span class="kt">float64</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="kd">func</span> <span class="nx">NewWebService</span><span class="p">(</span><span class="nx">scope</span> <span class="nx">constructs</span><span class="p">.</span><span class="nx">Construct</span><span class="p">,</span> <span class="nx">id</span> <span class="o">*</span><span class="kt">string</span><span class="p">,</span> <span class="nx">props</span> <span class="o">*</span><span class="nx">WebServiceProps</span><span class="p">)</span> <span class="nx">constructs</span><span class="p">.</span><span class="nx">Construct</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">cprops</span> <span class="nx">constructs</span><span class="p">.</span><span class="nx">ConstructOptions</span>
-  <span class="k">if</span> <span class="nx">props</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-    <span class="nx">cprops</span> <span class="p">=</span> <span class="nx">props</span><span class="p">.</span><span class="nx">ConstructOptions</span>
-  <span class="p">}</span>
-  <span class="nx">construct</span> <span class="o">:=</span> <span class="nx">constructs</span><span class="p">.</span><span class="nx">NewConstruct</span><span class="p">(</span><span class="nx">scope</span><span class="p">,</span> <span class="nx">id</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">cprops</span><span class="p">)</span>
+<span class="kd">func</span><span class="w"> </span><span class="nx">NewWebService</span><span class="p">(</span><span class="nx">scope</span><span class="w"> </span><span class="nx">constructs</span><span class="p">.</span><span class="nx">Construct</span><span class="p">,</span><span class="w"> </span><span class="nx">id</span><span class="w"> </span><span class="o">*</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">props</span><span class="w"> </span><span class="o">*</span><span class="nx">WebServiceProps</span><span class="p">)</span><span class="w"> </span><span class="nx">constructs</span><span class="p">.</span><span class="nx">Construct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">cprops</span><span class="w"> </span><span class="nx">constructs</span><span class="p">.</span><span class="nx">ConstructOptions</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="nx">props</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">cprops</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">props</span><span class="p">.</span><span class="nx">ConstructOptions</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="nx">construct</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">constructs</span><span class="p">.</span><span class="nx">NewConstruct</span><span class="p">(</span><span class="nx">scope</span><span class="p">,</span><span class="w"> </span><span class="nx">id</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">cprops</span><span class="p">)</span><span class="w"></span>
 
-  <span class="nx">replicas</span> <span class="o">:=</span> <span class="nx">props</span><span class="p">.</span><span class="nx">Replicas</span>
-  <span class="k">if</span> <span class="nx">replicas</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
-    <span class="nx">replicas</span> <span class="p">=</span> <span class="nx">jsii</span><span class="p">.</span><span class="nx">Number</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="nx">replicas</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">props</span><span class="p">.</span><span class="nx">Replicas</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="nx">replicas</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">replicas</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">Number</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  <span class="nx">port</span> <span class="o">:=</span> <span class="nx">props</span><span class="p">.</span><span class="nx">Port</span>
-  <span class="k">if</span> <span class="nx">port</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
-    <span class="nx">port</span> <span class="p">=</span> <span class="nx">jsii</span><span class="p">.</span><span class="nx">Number</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="nx">port</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">props</span><span class="p">.</span><span class="nx">Port</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="nx">port</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">port</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">Number</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  <span class="nx">containerPort</span> <span class="o">:=</span> <span class="nx">props</span><span class="p">.</span><span class="nx">ContainerPort</span>
-  <span class="k">if</span> <span class="nx">containerPort</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
-    <span class="nx">containerPort</span> <span class="p">=</span> <span class="nx">jsii</span><span class="p">.</span><span class="nx">Number</span><span class="p">(</span><span class="mi">8080</span><span class="p">)</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="nx">containerPort</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">props</span><span class="p">.</span><span class="nx">ContainerPort</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="nx">containerPort</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">containerPort</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">Number</span><span class="p">(</span><span class="mi">8080</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  <span class="nx">label</span> <span class="o">:=</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="o">*</span><span class="kt">string</span><span class="p">{</span>
-    <span class="s">&quot;app&quot;</span><span class="p">:</span> <span class="nx">constructs</span><span class="p">.</span><span class="nx">Node_Of</span><span class="p">(</span><span class="nx">construct</span><span class="p">).</span><span class="nx">Id</span><span class="p">(),</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="nx">label</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="o">*</span><span class="kt">string</span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;app&quot;</span><span class="p">:</span><span class="w"> </span><span class="nx">constructs</span><span class="p">.</span><span class="nx">Node_Of</span><span class="p">(</span><span class="nx">construct</span><span class="p">).</span><span class="nx">Id</span><span class="p">(),</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  <span class="nx">k8s</span><span class="p">.</span><span class="nx">NewKubeService</span><span class="p">(</span><span class="nx">construct</span><span class="p">,</span> <span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;service&quot;</span><span class="p">),</span> <span class="o">&amp;</span><span class="nx">k8s</span><span class="p">.</span><span class="nx">KubeServiceProps</span><span class="p">{</span>
-    <span class="nx">Spec</span><span class="p">:</span> <span class="o">&amp;</span><span class="nx">k8s</span><span class="p">.</span><span class="nx">ServiceSpec</span><span class="p">{</span>
-      <span class="nx">Type</span><span class="p">:</span> <span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;LoadBalancer&quot;</span><span class="p">),</span>
-      <span class="nx">Ports</span><span class="p">:</span> <span class="o">&amp;</span><span class="p">[]</span><span class="o">*</span><span class="nx">k8s</span><span class="p">.</span><span class="nx">ServicePort</span><span class="p">{{</span>
-        <span class="nx">Port</span><span class="p">:</span>       <span class="nx">port</span><span class="p">,</span>
-        <span class="nx">TargetPort</span><span class="p">:</span> <span class="nx">k8s</span><span class="p">.</span><span class="nx">IntOrString_FromNumber</span><span class="p">(</span><span class="nx">containerPort</span><span class="p">),</span>
-      <span class="p">}},</span>
-      <span class="nx">Selector</span><span class="p">:</span> <span class="o">&amp;</span><span class="nx">label</span><span class="p">,</span>
-    <span class="p">},</span>
-  <span class="p">})</span>
+<span class="w">  </span><span class="nx">k8s</span><span class="p">.</span><span class="nx">NewKubeService</span><span class="p">(</span><span class="nx">construct</span><span class="p">,</span><span class="w"> </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;service&quot;</span><span class="p">),</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">k8s</span><span class="p">.</span><span class="nx">KubeServiceProps</span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">Spec</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">k8s</span><span class="p">.</span><span class="nx">ServiceSpec</span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nx">Type</span><span class="p">:</span><span class="w"> </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;LoadBalancer&quot;</span><span class="p">),</span><span class="w"></span>
+<span class="w">      </span><span class="nx">Ports</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="p">[]</span><span class="o">*</span><span class="nx">k8s</span><span class="p">.</span><span class="nx">ServicePort</span><span class="p">{{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">Port</span><span class="p">:</span><span class="w">       </span><span class="nx">port</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">TargetPort</span><span class="p">:</span><span class="w"> </span><span class="nx">k8s</span><span class="p">.</span><span class="nx">IntOrString_FromNumber</span><span class="p">(</span><span class="nx">containerPort</span><span class="p">),</span><span class="w"></span>
+<span class="w">      </span><span class="p">}},</span><span class="w"></span>
+<span class="w">      </span><span class="nx">Selector</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">label</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="p">})</span><span class="w"></span>
 
-  <span class="nx">k8s</span><span class="p">.</span><span class="nx">NewKubeDeployment</span><span class="p">(</span><span class="nx">construct</span><span class="p">,</span> <span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;deployment&quot;</span><span class="p">),</span> <span class="o">&amp;</span><span class="nx">k8s</span><span class="p">.</span><span class="nx">KubeDeploymentProps</span><span class="p">{</span>
-    <span class="nx">Spec</span><span class="p">:</span> <span class="o">&amp;</span><span class="nx">k8s</span><span class="p">.</span><span class="nx">DeploymentSpec</span><span class="p">{</span>
-      <span class="nx">Replicas</span><span class="p">:</span> <span class="nx">replicas</span><span class="p">,</span>
-      <span class="nx">Selector</span><span class="p">:</span> <span class="o">&amp;</span><span class="nx">k8s</span><span class="p">.</span><span class="nx">LabelSelector</span><span class="p">{</span><span class="nx">MatchLabels</span><span class="p">:</span> <span class="o">&amp;</span><span class="nx">label</span><span class="p">},</span>
-      <span class="nx">Template</span><span class="p">:</span> <span class="o">&amp;</span><span class="nx">k8s</span><span class="p">.</span><span class="nx">PodTemplateSpec</span><span class="p">{</span>
-        <span class="nx">Metadata</span><span class="p">:</span> <span class="o">&amp;</span><span class="nx">k8s</span><span class="p">.</span><span class="nx">ObjectMeta</span><span class="p">{</span><span class="nx">Labels</span><span class="p">:</span> <span class="o">&amp;</span><span class="nx">label</span><span class="p">},</span>
-        <span class="nx">Spec</span><span class="p">:</span> <span class="o">&amp;</span><span class="nx">k8s</span><span class="p">.</span><span class="nx">PodSpec</span><span class="p">{</span>
-          <span class="nx">Containers</span><span class="p">:</span> <span class="o">&amp;</span><span class="p">[]</span><span class="o">*</span><span class="nx">k8s</span><span class="p">.</span><span class="nx">Container</span><span class="p">{{</span>
-            <span class="nx">Name</span><span class="p">:</span>  <span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;web&quot;</span><span class="p">),</span>
-            <span class="nx">Image</span><span class="p">:</span> <span class="nx">props</span><span class="p">.</span><span class="nx">Image</span><span class="p">,</span>
-            <span class="nx">Ports</span><span class="p">:</span> <span class="o">&amp;</span><span class="p">[]</span><span class="o">*</span><span class="nx">k8s</span><span class="p">.</span><span class="nx">ContainerPort</span><span class="p">{{</span><span class="nx">ContainerPort</span><span class="p">:</span> <span class="nx">containerPort</span><span class="p">}},</span>
-          <span class="p">}},</span>
-        <span class="p">},</span>
-      <span class="p">},</span>
-    <span class="p">},</span>
-  <span class="p">})</span>
+<span class="w">  </span><span class="nx">k8s</span><span class="p">.</span><span class="nx">NewKubeDeployment</span><span class="p">(</span><span class="nx">construct</span><span class="p">,</span><span class="w"> </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;deployment&quot;</span><span class="p">),</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">k8s</span><span class="p">.</span><span class="nx">KubeDeploymentProps</span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">Spec</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">k8s</span><span class="p">.</span><span class="nx">DeploymentSpec</span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nx">Replicas</span><span class="p">:</span><span class="w"> </span><span class="nx">replicas</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nx">Selector</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">k8s</span><span class="p">.</span><span class="nx">LabelSelector</span><span class="p">{</span><span class="nx">MatchLabels</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">label</span><span class="p">},</span><span class="w"></span>
+<span class="w">      </span><span class="nx">Template</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">k8s</span><span class="p">.</span><span class="nx">PodTemplateSpec</span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">Metadata</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">k8s</span><span class="p">.</span><span class="nx">ObjectMeta</span><span class="p">{</span><span class="nx">Labels</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">label</span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="nx">Spec</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">k8s</span><span class="p">.</span><span class="nx">PodSpec</span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="nx">Containers</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="p">[]</span><span class="o">*</span><span class="nx">k8s</span><span class="p">.</span><span class="nx">Container</span><span class="p">{{</span><span class="w"></span>
+<span class="w">            </span><span class="nx">Name</span><span class="p">:</span><span class="w">  </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;web&quot;</span><span class="p">),</span><span class="w"></span>
+<span class="w">            </span><span class="nx">Image</span><span class="p">:</span><span class="w"> </span><span class="nx">props</span><span class="p">.</span><span class="nx">Image</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nx">Ports</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="p">[]</span><span class="o">*</span><span class="nx">k8s</span><span class="p">.</span><span class="nx">ContainerPort</span><span class="p">{{</span><span class="nx">ContainerPort</span><span class="p">:</span><span class="w"> </span><span class="nx">containerPort</span><span class="p">}},</span><span class="w"></span>
+<span class="w">          </span><span class="p">}},</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">      </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="p">})</span><span class="w"></span>
 
-  <span class="k">return</span> <span class="nx">construct</span>
-<span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">construct</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <p>Now, let&rsquo;s edit <code>main.go</code> and use our new construct:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nx">main</span>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span><span class="w"></span>
 
-<span class="kn">import</span> <span class="p">(</span>
-  <span class="s">&quot;github.com/aws/constructs-go/constructs/v3&quot;</span>
-  <span class="s">&quot;github.com/aws/jsii-runtime-go&quot;</span>
-  <span class="s">&quot;github.com/cdk8s-team/cdk8s-core-go/cdk8s&quot;</span>
-<span class="p">)</span>
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;github.com/aws/constructs-go/constructs/v3&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;github.com/aws/jsii-runtime-go&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;github.com/cdk8s-team/cdk8s-core-go/cdk8s&quot;</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
 
-<span class="kd">type</span> <span class="nx">MyChartProps</span> <span class="kd">struct</span> <span class="p">{</span>
-  <span class="nx">cdk8s</span><span class="p">.</span><span class="nx">ChartProps</span>
-<span class="p">}</span>
+<span class="kd">type</span><span class="w"> </span><span class="nx">MyChartProps</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">cdk8s</span><span class="p">.</span><span class="nx">ChartProps</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="kd">func</span> <span class="nx">NewMyChart</span><span class="p">(</span><span class="nx">scope</span> <span class="nx">constructs</span><span class="p">.</span><span class="nx">Construct</span><span class="p">,</span> <span class="nx">id</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">props</span> <span class="o">*</span><span class="nx">MyChartProps</span><span class="p">)</span> <span class="nx">cdk8s</span><span class="p">.</span><span class="nx">Chart</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">cprops</span> <span class="nx">cdk8s</span><span class="p">.</span><span class="nx">ChartProps</span>
-  <span class="k">if</span> <span class="nx">props</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-    <span class="nx">cprops</span> <span class="p">=</span> <span class="nx">props</span><span class="p">.</span><span class="nx">ChartProps</span>
-  <span class="p">}</span>
-  <span class="nx">chart</span> <span class="o">:=</span> <span class="nx">cdk8s</span><span class="p">.</span><span class="nx">NewChart</span><span class="p">(</span><span class="nx">scope</span><span class="p">,</span> <span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="nx">id</span><span class="p">),</span> <span class="o">&amp;</span><span class="nx">cprops</span><span class="p">)</span>
+<span class="kd">func</span><span class="w"> </span><span class="nx">NewMyChart</span><span class="p">(</span><span class="nx">scope</span><span class="w"> </span><span class="nx">constructs</span><span class="p">.</span><span class="nx">Construct</span><span class="p">,</span><span class="w"> </span><span class="nx">id</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">props</span><span class="w"> </span><span class="o">*</span><span class="nx">MyChartProps</span><span class="p">)</span><span class="w"> </span><span class="nx">cdk8s</span><span class="p">.</span><span class="nx">Chart</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">cprops</span><span class="w"> </span><span class="nx">cdk8s</span><span class="p">.</span><span class="nx">ChartProps</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="nx">props</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">cprops</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">props</span><span class="p">.</span><span class="nx">ChartProps</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="nx">chart</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">cdk8s</span><span class="p">.</span><span class="nx">NewChart</span><span class="p">(</span><span class="nx">scope</span><span class="p">,</span><span class="w"> </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="nx">id</span><span class="p">),</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">cprops</span><span class="p">)</span><span class="w"></span>
 
-  <span class="nx">NewWebService</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span> <span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">),</span> <span class="o">&amp;</span><span class="nx">WebServiceProps</span><span class="p">{</span>
-    <span class="nx">Image</span><span class="p">:</span>    <span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;paulbouwer/hello-kubernetes:1.7&quot;</span><span class="p">),</span>
-    <span class="nx">Replicas</span><span class="p">:</span> <span class="nx">jsii</span><span class="p">.</span><span class="nx">Number</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span>
-  <span class="p">})</span>
+<span class="w">  </span><span class="nx">NewWebService</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">),</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">WebServiceProps</span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">Image</span><span class="p">:</span><span class="w">    </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;paulbouwer/hello-kubernetes:1.7&quot;</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="nx">Replicas</span><span class="p">:</span><span class="w"> </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">Number</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="w"></span>
+<span class="w">  </span><span class="p">})</span><span class="w"></span>
 
-  <span class="nx">NewWebService</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span> <span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;ghost&quot;</span><span class="p">),</span> <span class="o">&amp;</span><span class="nx">WebServiceProps</span><span class="p">{</span>
-    <span class="nx">Image</span><span class="p">:</span>         <span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;ghost&quot;</span><span class="p">),</span>
-    <span class="nx">ContainerPort</span><span class="p">:</span> <span class="nx">jsii</span><span class="p">.</span><span class="nx">Number</span><span class="p">(</span><span class="mi">2368</span><span class="p">),</span>
-  <span class="p">})</span>
+<span class="w">  </span><span class="nx">NewWebService</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;ghost&quot;</span><span class="p">),</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">WebServiceProps</span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">Image</span><span class="p">:</span><span class="w">         </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;ghost&quot;</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="nx">ContainerPort</span><span class="p">:</span><span class="w"> </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">Number</span><span class="p">(</span><span class="mi">2368</span><span class="p">),</span><span class="w"></span>
+<span class="w">  </span><span class="p">})</span><span class="w"></span>
 
-  <span class="k">return</span> <span class="nx">chart</span>
-<span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">chart</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nx">app</span> <span class="o">:=</span> <span class="nx">cdk8s</span><span class="p">.</span><span class="nx">NewApp</span><span class="p">(</span><span class="kc">nil</span><span class="p">)</span>
-  <span class="nx">NewMyChart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s">&quot;hello&quot;</span><span class="p">,</span> <span class="kc">nil</span><span class="p">)</span>
-  <span class="nx">app</span><span class="p">.</span><span class="nx">Synth</span><span class="p">()</span>
-<span class="p">}</span>
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">app</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">cdk8s</span><span class="p">.</span><span class="nx">NewApp</span><span class="p">(</span><span class="kc">nil</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="nx">NewMyChart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;hello&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">nil</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="nx">app</span><span class="p">.</span><span class="nx">Synth</span><span class="p">()</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
 </div>
 </div>

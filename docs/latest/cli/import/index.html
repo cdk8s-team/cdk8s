@@ -1701,7 +1701,7 @@ objects and Custom Resources (CRDs).</p>
 <div class="highlight"><pre><span></span><code>cdk8s import --language typescript
 </code></pre></div>
 <p><code>cdk8s.yaml</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">typescript</span>
+<div class="highlight"><pre><span></span><code><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">typescript</span><span class="w"></span>
 </code></pre></div>
 <h3 id="output-directory-output">Output directory (<code>--output</code>)<a class="headerlink" href="#output-directory-output" title="Permanent link">&para;</a></h3>
 <p>The <code>--output</code> (or <code>-o</code>) option can be used to specify the output directory for
@@ -1720,8 +1720,8 @@ kind. Here is how you do it:</p>
 <div class="highlight"><pre><span></span><code>cdk8s import example:<span class="o">=</span>my_crd.yaml
 </code></pre></div>
 <p><code>cdk8s.yaml</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">imports</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">example:=my_crd.yaml</span>
+<div class="highlight"><pre><span></span><code><span class="nt">imports</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">example:=my_crd.yaml</span><span class="w"></span>
 </code></pre></div>
 <p>If your CRD contained two kinds, <code>Cluster</code> and <code>Autoscaler</code>, you would have two
 imports. You could use them in this fashion:</p>
@@ -1760,8 +1760,8 @@ object kind (e.g. <code>KubeDeployment</code>).</p>
 <div class="highlight"><pre><span></span><code>cdk8s import k8s@1.16.0
 </code></pre></div>
 <p>Alternatively, you can specify your <code>k8s</code> import in the <code>cdk8s.yaml</code> config file:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">imports</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">k8s@1.17.0</span>
+<div class="highlight"><pre><span></span><code><span class="nt">imports</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">k8s@1.17.0</span><span class="w"></span>
 </code></pre></div>
 <h4 id="api-object-versions">API Object Versions<a class="headerlink" href="#api-object-versions" title="Permanent link">&para;</a></h4>
 <p>When importing the core Kubernetes API objects, <code>cdk8s import</code> will generate constructs
@@ -1776,8 +1776,8 @@ will also include an <code>Ingress</code> construct which represents the <code>v
 <div class="highlight"><pre><span></span><code>cdk8s import my_crd.yaml
 </code></pre></div>
 <p>Or from <code>cdk8s.yaml</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">imports</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">my_crd.yaml</span>
+<div class="highlight"><pre><span></span><code><span class="nt">imports</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my_crd.yaml</span><span class="w"></span>
 </code></pre></div>
 <p>A CRD with group <code>mygroup.io</code> and kind <code>Foo</code> will be imported to the following
 locations:</p>

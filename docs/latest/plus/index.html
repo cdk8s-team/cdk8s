@@ -1771,74 +1771,74 @@ manifests.</p>
 </code></pre></div>
 <details>
 <summary>dist/my-chart.yaml</summary>
-<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
-<span class="nt">data</span><span class="p">:</span>
-  <span class="nt">index.js</span><span class="p">:</span> <span class="p p-Indicator">|-</span>
-    <span class="no">var http = require(&#39;http&#39;);</span>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span><span class="w"></span>
+<span class="nt">data</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">index.js</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|-</span><span class="w"></span>
+<span class="w">    </span><span class="no">var http = require(&#39;http&#39;);</span><span class="w"></span>
 
-    <span class="no">var port = process.argv[2];</span>
+<span class="w">    </span><span class="no">var port = process.argv[2];</span><span class="w"></span>
 
-    <span class="no">//create a server object:</span>
-    <span class="no">http.createServer(function (req, res) {</span>
-      <span class="no">res.write(&#39;Hello World!&#39;); //write a response to the client</span>
-      <span class="no">res.end(); //end the response</span>
-    <span class="no">}).listen(port); //the server object listens on port 80</span>
-<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ConfigMap</span>
-<span class="nt">metadata</span><span class="p">:</span>
-  <span class="nt">annotations</span><span class="p">:</span> <span class="p p-Indicator">{}</span>
-  <span class="nt">labels</span><span class="p">:</span> <span class="p p-Indicator">{}</span>
-  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chart-appdata-configmap-da4c63ab</span>
-<span class="nn">---</span>
-<span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">apps/v1</span>
-<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Deployment</span>
-<span class="nt">metadata</span><span class="p">:</span>
-  <span class="nt">annotations</span><span class="p">:</span> <span class="p p-Indicator">{}</span>
-  <span class="nt">labels</span><span class="p">:</span> <span class="p p-Indicator">{}</span>
-  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chart-deployment-pod-d4285cc9</span>
-<span class="nt">spec</span><span class="p">:</span>
-  <span class="nt">replicas</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>
-  <span class="nt">selector</span><span class="p">:</span>
-    <span class="nt">matchLabels</span><span class="p">:</span>
-      <span class="nt">cdk8s.deployment</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ChartDeploymentCFC2E30C</span>
-  <span class="nt">template</span><span class="p">:</span>
-    <span class="nt">metadata</span><span class="p">:</span>
-      <span class="nt">annotations</span><span class="p">:</span> <span class="p p-Indicator">{}</span>
-      <span class="nt">labels</span><span class="p">:</span>
-        <span class="nt">cdk8s.deployment</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ChartDeploymentCFC2E30C</span>
-    <span class="nt">spec</span><span class="p">:</span>
-      <span class="nt">containers</span><span class="p">:</span>
-        <span class="p p-Indicator">-</span> <span class="nt">command</span><span class="p">:</span>
-            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">node</span>
-            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">index.js</span>
-            <span class="p p-Indicator">-</span> <span class="s">&quot;80&quot;</span>
-          <span class="nt">env</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
-          <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">node:14.4.0-alpine3.12</span>
-          <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">main</span>
-          <span class="nt">ports</span><span class="p">:</span>
-            <span class="p p-Indicator">-</span> <span class="nt">containerPort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">80</span>
-          <span class="nt">volumeMounts</span><span class="p">:</span>
-            <span class="p p-Indicator">-</span> <span class="nt">mountPath</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/var/lib/app</span>
-              <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">configmap-chart-appdata-configmap-da4c63ab</span>
-          <span class="nt">workingDir</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/var/lib/app</span>
-      <span class="nt">volumes</span><span class="p">:</span>
-        <span class="p p-Indicator">-</span> <span class="nt">configMap</span><span class="p">:</span>
-            <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chart-appdata-configmap-da4c63ab</span>
-          <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">configmap-chart-appdata-configmap-da4c63ab</span>
-<span class="nn">---</span>
-<span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
-<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Service</span>
-<span class="nt">metadata</span><span class="p">:</span>
-  <span class="nt">annotations</span><span class="p">:</span> <span class="p p-Indicator">{}</span>
-  <span class="nt">labels</span><span class="p">:</span> <span class="p p-Indicator">{}</span>
-  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chart-deployment-service-pod-42f50c26</span>
-<span class="nt">spec</span><span class="p">:</span>
-  <span class="nt">externalIPs</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
-  <span class="nt">ports</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8080</span>
-      <span class="nt">targetPort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">80</span>
-  <span class="nt">selector</span><span class="p">:</span>
-    <span class="nt">cdk8s.deployment</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ChartDeploymentCFC2E30C</span>
-  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">LoadBalancer</span>
+<span class="w">    </span><span class="no">//create a server object:</span><span class="w"></span>
+<span class="w">    </span><span class="no">http.createServer(function (req, res) {</span><span class="w"></span>
+<span class="w">      </span><span class="no">res.write(&#39;Hello World!&#39;); //write a response to the client</span><span class="w"></span>
+<span class="w">      </span><span class="no">res.end(); //end the response</span><span class="w"></span>
+<span class="w">    </span><span class="no">}).listen(port); //the server object listens on port 80</span><span class="w"></span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ConfigMap</span><span class="w"></span>
+<span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">annotations</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span><span class="w"></span>
+<span class="w">  </span><span class="nt">labels</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span><span class="w"></span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">chart-appdata-configmap-da4c63ab</span><span class="w"></span>
+<span class="nn">---</span><span class="w"></span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">apps/v1</span><span class="w"></span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deployment</span><span class="w"></span>
+<span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">annotations</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span><span class="w"></span>
+<span class="w">  </span><span class="nt">labels</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span><span class="w"></span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">chart-deployment-pod-d4285cc9</span><span class="w"></span>
+<span class="nt">spec</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span><span class="w"></span>
+<span class="w">  </span><span class="nt">selector</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">cdk8s.deployment</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ChartDeploymentCFC2E30C</span><span class="w"></span>
+<span class="w">  </span><span class="nt">template</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">annotations</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span><span class="w"></span>
+<span class="w">      </span><span class="nt">labels</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="nt">cdk8s.deployment</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ChartDeploymentCFC2E30C</span><span class="w"></span>
+<span class="w">    </span><span class="nt">spec</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">containers</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">command</span><span class="p">:</span><span class="w"></span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node</span><span class="w"></span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">index.js</span><span class="w"></span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;80&quot;</span><span class="w"></span>
+<span class="w">          </span><span class="nt">env</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span><span class="w"></span>
+<span class="w">          </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node:14.4.0-alpine3.12</span><span class="w"></span>
+<span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span><span class="w"></span>
+<span class="w">          </span><span class="nt">ports</span><span class="p">:</span><span class="w"></span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">80</span><span class="w"></span>
+<span class="w">          </span><span class="nt">volumeMounts</span><span class="p">:</span><span class="w"></span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">mountPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/lib/app</span><span class="w"></span>
+<span class="w">              </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">configmap-chart-appdata-configmap-da4c63ab</span><span class="w"></span>
+<span class="w">          </span><span class="nt">workingDir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/lib/app</span><span class="w"></span>
+<span class="w">      </span><span class="nt">volumes</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">configMap</span><span class="p">:</span><span class="w"></span>
+<span class="w">            </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">chart-appdata-configmap-da4c63ab</span><span class="w"></span>
+<span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">configmap-chart-appdata-configmap-da4c63ab</span><span class="w"></span>
+<span class="nn">---</span><span class="w"></span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span><span class="w"></span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Service</span><span class="w"></span>
+<span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">annotations</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span><span class="w"></span>
+<span class="w">  </span><span class="nt">labels</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span><span class="w"></span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">chart-deployment-service-pod-42f50c26</span><span class="w"></span>
+<span class="nt">spec</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">externalIPs</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span><span class="w"></span>
+<span class="w">  </span><span class="nt">ports</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8080</span><span class="w"></span>
+<span class="w">      </span><span class="nt">targetPort</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">80</span><span class="w"></span>
+<span class="w">  </span><span class="nt">selector</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">cdk8s.deployment</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ChartDeploymentCFC2E30C</span><span class="w"></span>
+<span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LoadBalancer</span><span class="w"></span>
 </code></pre></div>
 </details>
 <h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
@@ -1907,24 +1907,24 @@ manifests.</p>
 </code></pre></div>
 </div>
 <input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><label for="__tabbed_1_4">Go</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="p">(</span>
-  <span class="s">&quot;github.com/aws/constructs-go/constructs/v3&quot;</span>
-  <span class="s">&quot;github.com/aws/jsii-runtime-go&quot;</span>
-  <span class="s">&quot;github.com/cdk8s-team/cdk8s-core-go/cdk8s&quot;</span>
-  <span class="s">&quot;github.com/cdk8s-team/cdk8s-plus-go/cdk8splus22&quot;</span>
-<span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;github.com/aws/constructs-go/constructs/v3&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;github.com/aws/jsii-runtime-go&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;github.com/cdk8s-team/cdk8s-core-go/cdk8s&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;github.com/cdk8s-team/cdk8s-plus-go/cdk8splus22&quot;</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="nx">app</span> <span class="o">:=</span> <span class="nx">cdk8s</span><span class="p">.</span><span class="nx">NewApp</span><span class="p">(</span><span class="kc">nil</span><span class="p">)</span>
-<span class="nx">chart</span> <span class="o">:=</span> <span class="nx">cdk8s</span><span class="p">.</span><span class="nx">NewChart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;ubuntu&quot;</span><span class="p">),</span> <span class="kc">nil</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="nx">app</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">cdk8s</span><span class="p">.</span><span class="nx">NewApp</span><span class="p">(</span><span class="kc">nil</span><span class="p">)</span><span class="w"></span>
+<span class="nx">chart</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">cdk8s</span><span class="p">.</span><span class="nx">NewChart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;ubuntu&quot;</span><span class="p">),</span><span class="w"> </span><span class="kc">nil</span><span class="p">)</span><span class="w"></span>
 
-<span class="nx">cdk8splus22</span><span class="p">.</span><span class="nx">NewDeployment</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span> <span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;Deployment&quot;</span><span class="p">),</span> <span class="o">&amp;</span><span class="nx">cdk8splus22</span><span class="p">.</span><span class="nx">DeploymentProps</span><span class="p">{</span>
-  <span class="nx">Replicas</span><span class="p">:</span> <span class="nx">jsii</span><span class="p">.</span><span class="nx">Number</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>
-  <span class="nx">Containers</span><span class="p">:</span> <span class="o">&amp;</span><span class="p">[]</span><span class="o">*</span><span class="nx">cdk8splus22</span><span class="p">.</span><span class="nx">ContainerProps</span><span class="p">{{</span>
-    <span class="nx">Image</span><span class="p">:</span> <span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;ubuntu&quot;</span><span class="p">),</span>
-  <span class="p">}},</span>
-<span class="p">})</span>
+<span class="nx">cdk8splus22</span><span class="p">.</span><span class="nx">NewDeployment</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;Deployment&quot;</span><span class="p">),</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">cdk8splus22</span><span class="p">.</span><span class="nx">DeploymentProps</span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">Replicas</span><span class="p">:</span><span class="w"> </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">Number</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span><span class="w"></span>
+<span class="w">  </span><span class="nx">Containers</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="p">[]</span><span class="o">*</span><span class="nx">cdk8splus22</span><span class="p">.</span><span class="nx">ContainerProps</span><span class="p">{{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">Image</span><span class="p">:</span><span class="w"> </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;ubuntu&quot;</span><span class="p">),</span><span class="w"></span>
+<span class="w">  </span><span class="p">}},</span><span class="w"></span>
+<span class="p">})</span><span class="w"></span>
 
-<span class="nx">app</span><span class="p">.</span><span class="nx">Synth</span><span class="p">()</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">Synth</span><span class="p">()</span><span class="w"></span>
 </code></pre></div>
 </div>
 </div>
