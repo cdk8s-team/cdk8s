@@ -10,7 +10,7 @@ jobs:
     permissions:
       contents: write
     outputs:
-      self_mutation_commit: ${{ steps.self_mutation.outputs.self_mutation_commit }}
+      self_mutation_happened: ${{ steps.self_mutation.outputs.self_mutation_happened }}
     env:
       CI: "true"
     steps:
@@ -19,11 +19,6 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.head.ref }}
           repository: ${{ github.event.pull_request.head.repo.full_name }}
-      - name: Set git identity
-        run: |-
-          git config --global init.defaultBranch main
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
       - name: installing dependencies
         run: tools/install-workflow-deps.sh
       - name: Setup Go
@@ -34,33 +29,55 @@ jobs:
         run: yarn install --check-files --frozen-lockfile
       - name: build
         run: npx projen build
-      - name: Self mutation
-        id: self_mutation
+      - id: self_mutation
+        name: Find mutations
+        run: >-
+          git add .
+
+          git diff --staged --patch --exit-code > .repo.patch || echo "::set-output name=self_mutation_happened::true"
+      - if: steps.self_mutation.outputs.self_mutation_happened
+        name: Upload patch
+        uses: actions/upload-artifact@v2
+        with:
+          name: .repo.patch
+          path: .repo.patch
+      - name: Fail build on mutation
+        if: steps.self_mutation.outputs.self_mutation_happened
+        run: >-
+          echo "::error::Files were changed during build (see build log). If
+          this was triggered from a fork, you will need to update your branch."
+
+          cat .repo.patch
+
+          exit 1
+  self-mutation:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    if: always() && needs.build.outputs.self_mutation_happened &&
+      !(github.event.pull_request.head.repo.full_name != github.repository)
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.PROJEN_GITHUB_TOKEN }}
+          ref: ${{ github.event.pull_request.head.ref }}
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+      - name: Download patch
+        uses: actions/download-artifact@v2
+        with:
+          name: .repo.patch
+          path: ${{ runner.temp }}
+      - name: Apply patch
+        run: '[ -s ${{ runner.temp }}/.repo.patch ] && git apply ${{ runner.temp
+          }}/.repo.patch || echo "Empty patch. Skipping."'
+      - name: Set git identity
         run: |-
-          if ! git diff --exit-code; then
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+      - name: Push changes
+        run: |-2
             git add .
             git commit -m "chore: self mutation"
             git push origin HEAD:${{ github.event.pull_request.head.ref }}
-            echo "::set-output name=self_mutation_commit::$(git rev-parse HEAD)"
-          fi
-  update-status:
-    needs:
-      - build
-    runs-on: ubuntu-latest
-    permissions:
-      checks: write
-      actions: write
-    if: ${{ needs.build.outputs.self_mutation_commit }}
-    steps:
-      - name: Update status check (if changed)
-        run: gh api -X POST /repos/${{ github.event.pull_request.head.repo.full_name
-          }}/check-runs -F name="build" -F head_sha="${{
-          needs.build.outputs.self_mutation_commit }}" -F status="completed" -F
-          conclusion="success"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Cancel workflow (if changed)
-        run: gh api -X POST /repos/${{ github.event.pull_request.head.repo.full_name
-          }}/actions/runs/${{ github.run_id }}/cancel
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
