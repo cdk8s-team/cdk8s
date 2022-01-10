@@ -161,6 +161,13 @@ integWorkflow.addJobs({
     steps: [
       { uses: 'actions/checkout@v2' },
       {
+        name: 'Setup Node.js',
+        uses: 'actions/setup-node@v2',
+        with: {
+          'node-version': '14',
+        },
+      },
+      {
         name: 'Set up Python 3.x',
         uses: 'actions/setup-python@v2',
         with: {
