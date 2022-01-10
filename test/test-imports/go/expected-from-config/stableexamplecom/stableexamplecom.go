@@ -279,13 +279,13 @@ func (c *jsiiProxy_CronTab) ToString() *string {
 }
 
 type CronTabProps struct {
-	Metadata *cdk8s.ApiObjectMetadata `json:"metadata"`
-	Spec *CronTabSpec `json:"spec"`
+	Metadata *cdk8s.ApiObjectMetadata `json:"metadata" yaml:"metadata"`
+	Spec *CronTabSpec `json:"spec" yaml:"spec"`
 }
 
 type CronTabSpec struct {
-	CronSpec *string `json:"cronSpec"`
-	Image *string `json:"image"`
-	Replicas *float64 `json:"replicas"`
+	CronSpec *string `json:"cronSpec" yaml:"cronSpec"`
+	Image *string `json:"image" yaml:"image"`
+	Replicas *float64 `json:"replicas" yaml:"replicas"`
 }
 
