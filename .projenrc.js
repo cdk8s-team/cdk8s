@@ -63,7 +63,7 @@ project.tasks.removeTask('test:update');
 project.tasks.removeTask('test:compile');
 
 // integ tests
-const integ = project.addTask('integ', {
+const integTask = project.addTask('integ', {
   exec: 'bash test/test-all.sh',
 });
 const integUpdate = project.addTask('integ:update', {
@@ -139,86 +139,66 @@ workflow.addJobs({
   }
 });
 
-const integWorkflow = project.github.addWorkflow('integ');
+const integJob = "integ";
+const oses = ['windows-latest', 'macos-latest', 'ubuntu-latest'];
+const integWorkflow = project.github.addWorkflow(integJob);
 integWorkflow.on({
   pull_request: {},
   workflow_dispatch: {},
 });
-integWorkflow.addJobs({
-  integ: {
-    runsOn: '${{ matrix.os }}',
-    strategy: {
-      failFast: false,
-      matrix: {
-        domain: {
-          os: ['windows-latest', 'macos-latest', 'ubuntu-latest']
-        }
+integWorkflow.addJob(integJob, {
+  runsOn: '${{ matrix.os }}',
+  strategy: {
+    failFast: false,
+    matrix: {
+      domain: {
+        os: ['windows-latest', 'macos-latest', 'ubuntu-latest']
       }
-    },
-    permissions: {
-      contents: JobPermission.READ,
-    },
-    steps: [
-      { uses: 'actions/checkout@v2' },
-      {
-        name: 'Setup Node.js',
-        uses: 'actions/setup-node@v2',
-        with: {
-          'node-version': '14',
-        },
-      },
-      {
-        name: 'Set up Python 3.x',
-        uses: 'actions/setup-python@v2',
-        with: {
-          'python-version': '3.x',
-        },
-      },
-      {
-        name: 'Install pipenv',
-        run: 'pip install pipenv',
-      },
-      {
-        name: 'Set up Go',
-        uses: 'actions/setup-go@v2',
-        with: {
-          'go-version': '1.16',
-        },
-      },
-      {
-        name: 'Install dependencies',
-        run: 'yarn install --frozen-lockfile',
-      },
-      {
-        name: 'Run integration tests',
-        run: `yarn run ${integ.name}`,
-      },
-    ],
+    }
   },
+  permissions: {
+    contents: JobPermission.READ,
+  },
+  steps: [
+    { uses: 'actions/checkout@v2' },
+    {
+      name: 'Set up Node.js',
+      uses: 'actions/setup-node@v2',
+      with: {
+        'node-version': '14',
+      },
+    },
+    {
+      name: 'Set up Python 3.x',
+      uses: 'actions/setup-python@v2',
+      with: {
+        'python-version': '3.x',
+      },
+    },
+    {
+      name: 'Install pipenv',
+      run: 'pip install pipenv',
+    },
+    {
+      name: 'Set up Go',
+      uses: 'actions/setup-go@v2',
+      with: {
+        'go-version': '1.16',
+      },
+    },
+    {
+      name: 'Install dependencies',
+      run: 'yarn install --frozen-lockfile',
+    },
+    {
+      name: 'Run integration tests',
+      run: `yarn run ${integTask.name}`,
+    },
+  ],
 });
 
-project.tryFindObjectFile('.mergify.yml')
-  .addOverride('pull_request_rules', [
-    {
-      name: 'Automatic merge on approval and successful build',
-      actions: {
-        merge: {
-          method: 'squash',
-          commit_message: 'title+body',
-          strict: 'smart',
-          strict_method: 'merge',
-        },
-        delete_head_branch: {},
-      },
-      conditions: [
-        "#approved-reviews-by>=1",
-        '-label~=(do-not-merge)',
-        'status-success=build',
-        'status-success=integ (windows-latest)',
-        'status-success=integ (ubuntu-latest)',
-        'status-success=integ (macos-latest)',
-      ]
-    }
-  ]);
+for (const os of oses) {
+  project.autoMerge.addConditions(`status-success=${integJob} (${os})`);
+}
 
 project.synth();
