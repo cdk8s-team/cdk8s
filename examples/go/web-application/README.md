@@ -97,5 +97,5 @@ The files will be generated in the cdk8sgen/dist folder
 - From the application root folder:
 
 ```shell
-      Kubectl apply -f cdk8sgen/dist
+      Kubectl apply --recursive -f cdk8sgen/dist
 ```

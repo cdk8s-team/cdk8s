@@ -13,7 +13,7 @@ pushtohub:
 #K8s
 
 k8sapply:
-	kubectl apply -f cdk8sgen/dist
+	kubectl apply --recursive  -f cdk8sgen/dist
 k8sdel:
-	kubectl delete -f cdk8sgen/dist
+	kubectl delete --recursive -f cdk8sgen/dist
 

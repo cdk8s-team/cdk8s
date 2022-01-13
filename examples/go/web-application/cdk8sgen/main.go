@@ -23,7 +23,7 @@ func jn(aNumber float64) *float64 {
 func main() {
 
 	app := cdk8s.NewApp(&cdk8s.AppProps{
-		YamlOutputType: cdk8s.YamlOutputType_FILE_PER_RESOURCE,
+		YamlOutputType: cdk8s.YamlOutputType_FOLDER_PER_CHART_FILE_PER_RESOURCE,
 	})
 
 	nodeappDeployment := nodeappDefinition(&app)
