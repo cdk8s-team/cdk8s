@@ -1,0 +1,31 @@
+version: "3.7"
+
+services:
+  mariadb:
+    image: mariadb
+    restart: always
+    container_name: nodemariadb
+    env_file: MariaDB/mariaDB.env
+    volumes:
+      - ./MariaDB/Data:/var/lib/mysql
+      - ./MariaDB/init:/docker-entrypoint-initdb.d
+    ports:
+      - "3306:3306"
+  nodewithdb:
+    build: ./nodeApp
+    depends_on:
+      - mariadb
+      - redis
+    container_name: nodewithdbcont
+    env_file: ./nodeApp/docker-node.env
+#    volumes:
+#      - ./nodeApp:/code
+    ports:
+      - "3000:3000"
+  redis:
+    image: redis
+    container_name: rediscont
+    env_file: ./redis/redis.env
+    command: ["sh", "-c", "redis-server", "--requirepass", "$${REDIS_PASS}"]
+    ports:
+      - "6379:6379"

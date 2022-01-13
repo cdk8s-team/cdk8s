@@ -1,0 +1,24 @@
+doctype html
+html
+  head
+    title cdK8s Demo
+    link(rel='stylesheet', href='/css/bulma.min.css')
+    link(rel='stylesheet', href='/css/style.css')
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+  body
+    main
+      block header
+        header.header
+          h3(class="title is-3 has-text-white" ) #{title}
+      div(class="columns")
+        div(class="column is-2")
+          aside(class="menu")
+            ul(class="menu-list")
+              li
+                a(href="/") Home
+              li
+                a(href="/mariadb") Food
+              li
+                a(href="/redis") Meals
+        div(class="column is-10")
+          block content

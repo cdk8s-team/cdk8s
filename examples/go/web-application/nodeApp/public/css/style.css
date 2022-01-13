@@ -1,0 +1,31 @@
+
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit; /* [1] */
+  margin: 0;
+  padding: 0;
+}
+
+
+
+/* Header
+   ========================================================================== */
+
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  background-color: #1c2c68;
+  color: #FFFFFF;
+  margin-bottom: 50px;
+}
+
+div {
+  padding-right: 10px;
+  padding-left: 10px;
+}

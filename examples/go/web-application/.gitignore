@@ -1,0 +1,7 @@
+nodeApp/node_modules/
+.DS_Store
+MariaDB/Data/
+/doc/images/cdk8s.drawio
+cdk8sgen/dist/
+cdk8sgen/imports/
+.idea/

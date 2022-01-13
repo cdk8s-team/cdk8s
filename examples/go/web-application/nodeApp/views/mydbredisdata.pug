@@ -1,0 +1,23 @@
+extends default
+
+block content
+  div(class="columns")
+    div(class="column is-6 is-offset-2")
+      h4(class="title is-4 has-text-centered") #{tableHeader}
+      if dataList
+        table(class="table is-bordered is-fullwidth is-striped")
+          tbody
+            tr
+              th Id
+              th Name
+            each data in dataList
+              tr
+                td #{data.id}
+                td #{data.name}
+        h5(class="title is-5 has-text-centered") Source: #{source}
+        form(class="has-text-centered")
+          input(type="button" class="button" onClick="history.go(0)" VALUE="Refresh")
+      else
+        h5 No data found!
+        form
+          input(type="button" onClick="history.go(0)" VALUE="Refresh")

@@ -1,0 +1,13 @@
+# Files to be ignored when building the docker image.
+# ** indicates that it should exclude from all directories in range.
+# ! indicates exceptions.
+
+MariaDB/Data/*
+**/*.md
+.git/*
+.gitignore
+.idea/
+K8s/*
+nodeApp/node_modules/*
+npm-debug.log
+cdk8sgen/*

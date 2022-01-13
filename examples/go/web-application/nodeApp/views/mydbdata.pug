@@ -1,0 +1,18 @@
+extends default
+
+block content
+  div(class="columns")
+    div(class="column is-5 is-offset-3")
+      h4(class="title is-4 has-text-centered") #{tableHeader}
+      if dataList
+        table(class="table is-bordered is-fullwidth is-striped")
+          tbody
+            tr
+              th Id
+              th Name
+            each data in dataList
+              tr
+                td #{data.id}
+                td #{data.name}
+      else
+        h5 No data found!
