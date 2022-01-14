@@ -79,5 +79,5 @@ jobs:
       - name: Push changes
         run: |-2
             git add .
-            git commit -m "chore: self mutation"
+            git commit -s -m "chore: self mutation"
             git push origin HEAD:${{ github.event.pull_request.head.ref }}
