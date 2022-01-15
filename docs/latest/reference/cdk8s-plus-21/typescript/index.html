@@ -1276,6 +1276,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#secretvolumeoptions" class="md-nav__link">
+    SecretVolumeOptions 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#serviceaccountprops" class="md-nav__link">
     ServiceAccountProps 
   </a>
@@ -2383,6 +2390,13 @@
           <li class="md-nav__item">
   <a href="#secretvalue" class="md-nav__link">
     SecretValue 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secretvolumeoptions" class="md-nav__link">
+    SecretVolumeOptions 
   </a>
   
 </li>
@@ -5100,10 +5114,64 @@ handling of secret data by various controllers.</p>
 </ul>
 <p>The secret.</p>
 <hr />
+<h3 id="secretvolumeoptions">SecretVolumeOptions <a name="cdk8s-plus-21.SecretVolumeOptions"></a><a class="headerlink" href="#secretvolumeoptions" title="Permanent link">&para;</a></h3>
+<p>Options for the Secret-based volume.</p>
+<h4 id="initializer_28">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_28" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">SecretVolumeOptions</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-21&#39;</span>
+
+<span class="kd">const</span> <span class="nx">secretVolumeOptions</span>: <span class="kt">SecretVolumeOptions</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
+</code></pre></div>
+<h5 id="defaultmodeoptional_1"><code>defaultMode</code><sup>Optional</sup> <a name="cdk8s-plus-21.SecretVolumeOptions.property.defaultMode"></a><a class="headerlink" href="#defaultmodeoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">defaultMode</span>: <span class="kt">number</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>number</code></li>
+<li><em>Default:</em> 0644. Directories within the path are not affected by this
+setting. This might be in conflict with other options that affect the file
+mode, like fsGroup, and the result can be other mode bits set.</li>
+</ul>
+<p>Mode bits to use on created files by default.</p>
+<p>Must be a value between 0 and
+0777. Defaults to 0644. Directories within the path are not affected by
+this setting. This might be in conflict with other options that affect the
+file mode, like fsGroup, and the result can be other mode bits set.</p>
+<hr />
+<h5 id="itemsoptional_1"><code>items</code><sup>Optional</sup> <a name="cdk8s-plus-21.SecretVolumeOptions.property.items"></a><a class="headerlink" href="#itemsoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">items</span><span class="o">:</span> <span class="p">{[</span> <span class="nx">key</span>: <span class="kt">string</span> <span class="p">]</span><span class="o">:</span> <span class="nx">PathMapping</span><span class="p">};</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> {[ key: string ]: <a href="#cdk8s-plus-21.PathMapping"><code>cdk8s-plus-21.PathMapping</code></a>}</li>
+<li><em>Default:</em> no mapping</li>
+</ul>
+<p>If unspecified, each key-value pair in the Data field of the referenced secret will be projected into the volume as a file whose name is the key and content is the value.</p>
+<p>If specified, the listed keys will be projected
+into the specified paths, and unlisted keys will not be present. If a key
+is specified which is not present in the secret, the volume setup will
+error unless it is marked optional. Paths must be relative and may not
+contain the &lsquo;..&rsquo; path or start with &lsquo;..&rsquo;.</p>
+<hr />
+<h5 id="nameoptional_5"><code>name</code><sup>Optional</sup> <a name="cdk8s-plus-21.SecretVolumeOptions.property.name"></a><a class="headerlink" href="#nameoptional_5" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">name</span>: <span class="kt">string</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>string</code></li>
+<li><em>Default:</em> auto-generated</li>
+</ul>
+<p>The volume name.</p>
+<hr />
+<h5 id="optionaloptional_3"><code>optional</code><sup>Optional</sup> <a name="cdk8s-plus-21.SecretVolumeOptions.property.optional"></a><a class="headerlink" href="#optionaloptional_3" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">optional</span>: <span class="kt">boolean</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>boolean</code></li>
+<li><em>Default:</em> undocumented</li>
+</ul>
+<p>Specify whether the secret or its keys must be defined.</p>
+<hr />
 <h3 id="serviceaccountprops">ServiceAccountProps <a name="cdk8s-plus-21.ServiceAccountProps"></a><a class="headerlink" href="#serviceaccountprops" title="Permanent link">&para;</a></h3>
 <p>Properties for initialization of <code>ServiceAccount</code>.</p>
 <p>Properties for initialization of <code>ServiceAccount</code>.</p>
-<h4 id="initializer_28">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_28" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_29">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_29" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">ServiceAccountProps</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-21&#39;</span>
 
 <span class="kd">const</span> <span class="nx">serviceAccountProps</span>: <span class="kt">ServiceAccountProps</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
@@ -5129,7 +5197,7 @@ handling of secret data by various controllers.</p>
 <hr />
 <h3 id="serviceingressv1betabackendoptions">ServiceIngressV1BetaBackendOptions <a name="cdk8s-plus-21.ServiceIngressV1BetaBackendOptions"></a><a class="headerlink" href="#serviceingressv1betabackendoptions" title="Permanent link">&para;</a></h3>
 <p>Options for setting up backends for ingress rules.</p>
-<h4 id="initializer_29">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_29" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_30">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_30" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">ServiceIngressV1BetaBackendOptions</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-21&#39;</span>
 
 <span class="kd">const</span> <span class="nx">serviceIngressV1BetaBackendOptions</span>: <span class="kt">ServiceIngressV1BetaBackendOptions</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
@@ -5149,12 +5217,12 @@ handling of secret data by various controllers.</p>
 <hr />
 <h3 id="serviceport">ServicePort <a name="cdk8s-plus-21.ServicePort"></a><a class="headerlink" href="#serviceport" title="Permanent link">&para;</a></h3>
 <p>Definition of a service port.</p>
-<h4 id="initializer_30">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_30" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_31">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_31" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">ServicePort</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-21&#39;</span>
 
 <span class="kd">const</span> <span class="nx">servicePort</span>: <span class="kt">ServicePort</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
 </code></pre></div>
-<h5 id="nameoptional_5"><code>name</code><sup>Optional</sup> <a name="cdk8s-plus-21.ServicePort.property.name"></a><a class="headerlink" href="#nameoptional_5" title="Permanent link">&para;</a></h5>
+<h5 id="nameoptional_6"><code>name</code><sup>Optional</sup> <a name="cdk8s-plus-21.ServicePort.property.name"></a><a class="headerlink" href="#nameoptional_6" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">name</span>: <span class="kt">string</span><span class="p">;</span>
 </code></pre></div>
 <ul>
@@ -5210,12 +5278,12 @@ requires one.</p>
 <p>The port number the service will bind to.</p>
 <hr />
 <h3 id="serviceportoptions">ServicePortOptions <a name="cdk8s-plus-21.ServicePortOptions"></a><a class="headerlink" href="#serviceportoptions" title="Permanent link">&para;</a></h3>
-<h4 id="initializer_31">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_31" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_32">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_32" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">ServicePortOptions</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-21&#39;</span>
 
 <span class="kd">const</span> <span class="nx">servicePortOptions</span>: <span class="kt">ServicePortOptions</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
 </code></pre></div>
-<h5 id="nameoptional_6"><code>name</code><sup>Optional</sup> <a name="cdk8s-plus-21.ServicePortOptions.property.name"></a><a class="headerlink" href="#nameoptional_6" title="Permanent link">&para;</a></h5>
+<h5 id="nameoptional_7"><code>name</code><sup>Optional</sup> <a name="cdk8s-plus-21.ServicePortOptions.property.name"></a><a class="headerlink" href="#nameoptional_7" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">name</span>: <span class="kt">string</span><span class="p">;</span>
 </code></pre></div>
 <ul>
@@ -5264,7 +5332,7 @@ requires one.</p>
 <hr />
 <h3 id="serviceprops">ServiceProps <a name="cdk8s-plus-21.ServiceProps"></a><a class="headerlink" href="#serviceprops" title="Permanent link">&para;</a></h3>
 <p>Properties for initialization of <code>Service</code>.</p>
-<h4 id="initializer_32">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_32" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_33">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_33" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">ServiceProps</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-21&#39;</span>
 
 <span class="kd">const</span> <span class="nx">serviceProps</span>: <span class="kt">ServiceProps</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
@@ -5347,7 +5415,7 @@ Kubernetes system.</p>
 <hr />
 <h3 id="statefulsetprops">StatefulSetProps <a name="cdk8s-plus-21.StatefulSetProps"></a><a class="headerlink" href="#statefulsetprops" title="Permanent link">&para;</a></h3>
 <p>Properties for initialization of <code>StatefulSet</code>.</p>
-<h4 id="initializer_33">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_33" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_34">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_34" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">StatefulSetProps</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-21&#39;</span>
 
 <span class="kd">const</span> <span class="nx">statefulSetProps</span>: <span class="kt">StatefulSetProps</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
@@ -5462,7 +5530,7 @@ Account (for example, default).</p>
 <hr />
 <h3 id="volumemount">VolumeMount <a name="cdk8s-plus-21.VolumeMount"></a><a class="headerlink" href="#volumemount" title="Permanent link">&para;</a></h3>
 <p>Mount a volume from the pod to the container.</p>
-<h4 id="initializer_34">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_34" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_35">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_35" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">VolumeMount</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-21&#39;</span>
 
 <span class="kd">const</span> <span class="nx">volumeMount</span>: <span class="kt">VolumeMount</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
@@ -5967,6 +6035,23 @@ image. Volumes can not mount onto other volumes</p>
 <li><em>Type:</em> <a href="#cdk8s-plus-21.EmptyDirVolumeOptions"><code>cdk8s-plus-21.EmptyDirVolumeOptions</code></a></li>
 </ul>
 <p>Additional options.</p>
+<hr />
+<h5 id="fromsecret"><code>fromSecret</code> <a name="cdk8s-plus-21.Volume.fromSecret"></a><a class="headerlink" href="#fromsecret" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Volume</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-21&#39;</span>
+
+<span class="nx">Volume</span><span class="p">.</span><span class="nx">fromSecret</span><span class="p">(</span><span class="nx">secret</span>: <span class="kt">ISecret</span><span class="p">,</span> <span class="nx">options?</span>: <span class="kt">SecretVolumeOptions</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="secretrequired_2"><code>secret</code><sup>Required</sup> <a name="cdk8s-plus-21.Volume.parameter.secret"></a><a class="headerlink" href="#secretrequired_2" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <a href="#cdk8s-plus-21.ISecret"><code>cdk8s-plus-21.ISecret</code></a></li>
+</ul>
+<p>The secret to use to populate the volume.</p>
+<hr />
+<h6 id="optionsoptional_16"><code>options</code><sup>Optional</sup> <a name="cdk8s-plus-21.Volume.parameter.options"></a><a class="headerlink" href="#optionsoptional_16" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <a href="#cdk8s-plus-21.SecretVolumeOptions"><code>cdk8s-plus-21.SecretVolumeOptions</code></a></li>
+</ul>
+<p>Options.</p>
 <hr />
 <h4 id="properties_12">Properties <a name="Properties"></a><a class="headerlink" href="#properties_12" title="Permanent link">&para;</a></h4>
 <h5 id="namerequired_8"><code>name</code><sup>Required</sup> <a name="cdk8s-plus-21.Volume.property.name"></a><a class="headerlink" href="#namerequired_8" title="Permanent link">&para;</a></h5>
