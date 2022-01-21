@@ -28,9 +28,8 @@ jobs:
         run: npx projen upgrade
       - id: create_patch
         name: Find mutations
-        run: >-
+        run: |-
           git add .
-
           git diff --staged --patch --exit-code > .repo.patch || echo "::set-output name=patch_created::true"
       - if: steps.create_patch.outputs.patch_created
         name: Upload patch
@@ -57,8 +56,7 @@ jobs:
           name: .repo.patch
           path: ${{ runner.temp }}
       - name: Apply patch
-        run: '[ -s ${{ runner.temp }}/.repo.patch ] && git apply ${{ runner.temp
-          }}/.repo.patch || echo "Empty patch. Skipping."'
+        run: '[ -s ${{ runner.temp }}/.repo.patch ] && git apply ${{ runner.temp }}/.repo.patch || echo "Empty patch. Skipping."'
       - name: Set git identity
         run: |-
           git config user.name "github-actions"
@@ -68,32 +66,25 @@ jobs:
         uses: peter-evans/create-pull-request@v3
         with:
           token: ${{ secrets.PROJEN_GITHUB_TOKEN }}
-          commit-message: >-
+          commit-message: |-
             chore(deps): upgrade dependencies
-
 
             Upgrades project dependencies. See details in [workflow run].
 
-
             [Workflow Run]: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
 
-
             ------
-
 
             *Automatically created by projen via the "upgrade" workflow*
           branch: github-actions/upgrade
           title: "chore(deps): upgrade dependencies"
           labels: auto-approve
-          body: >-
+          body: |-
             Upgrades project dependencies. See details in [workflow run].
-
 
             [Workflow Run]: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
 
-
             ------
-
 
             *Automatically created by projen via the "upgrade" workflow*
           author: github-actions <github-actions@github.com>
