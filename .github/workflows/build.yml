@@ -31,9 +31,8 @@ jobs:
         run: npx projen build
       - id: self_mutation
         name: Find mutations
-        run: >-
+        run: |-
           git add .
-
           git diff --staged --patch --exit-code > .repo.patch || echo "::set-output name=self_mutation_happened::true"
       - if: steps.self_mutation.outputs.self_mutation_happened
         name: Upload patch
@@ -43,20 +42,16 @@ jobs:
           path: .repo.patch
       - name: Fail build on mutation
         if: steps.self_mutation.outputs.self_mutation_happened
-        run: >-
-          echo "::error::Files were changed during build (see build log). If
-          this was triggered from a fork, you will need to update your branch."
-
+        run: |-
+          echo "::error::Files were changed during build (see build log). If this was triggered from a fork, you will need to update your branch."
           cat .repo.patch
-
           exit 1
   self-mutation:
     needs: build
     runs-on: ubuntu-latest
     permissions:
       contents: write
-    if: always() && needs.build.outputs.self_mutation_happened &&
-      !(github.event.pull_request.head.repo.full_name != github.repository)
+    if: always() && needs.build.outputs.self_mutation_happened && !(github.event.pull_request.head.repo.full_name != github.repository)
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -70,14 +65,13 @@ jobs:
           name: .repo.patch
           path: ${{ runner.temp }}
       - name: Apply patch
-        run: '[ -s ${{ runner.temp }}/.repo.patch ] && git apply ${{ runner.temp
-          }}/.repo.patch || echo "Empty patch. Skipping."'
+        run: '[ -s ${{ runner.temp }}/.repo.patch ] && git apply ${{ runner.temp }}/.repo.patch || echo "Empty patch. Skipping."'
       - name: Set git identity
         run: |-
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
       - name: Push changes
-        run: |-2
+        run: |2-
             git add .
-            git commit -m "chore: self mutation"
+            git commit -s -m "chore: self mutation"
             git push origin HEAD:${{ github.event.pull_request.head.ref }}
