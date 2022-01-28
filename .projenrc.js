@@ -139,7 +139,23 @@ workflow.addJobs({
   }
 });
 
-const integJob = "integ";
+// The API reference is generated when the website is built and released
+// on the main branch, so the files should not be committed to the repo.
+// See docs/build.sh.
+const packages = [
+  'cdk8s',
+  'cdk8s-plus-17',
+  'cdk8s-plus-20',
+  'cdk8s-plus-21',
+  'cdk8s-plus-22'
+];
+for (const pkg of packages) {
+  for (const language of ['java', 'typescript', 'python']) {
+    project.gitignore.exclude(`/docs/reference/${pkg}/${language}.md`);
+  }
+}
+
+const integJob = 'integ';
 const oses = ['windows-latest', 'macos-latest', 'ubuntu-latest'];
 const integWorkflow = project.github.addWorkflow(integJob);
 integWorkflow.on({
