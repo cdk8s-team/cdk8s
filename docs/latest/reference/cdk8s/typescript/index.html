@@ -2243,6 +2243,15 @@ construct path to generate a DNS-compatible name for the resource.</p>
 </ul>
 <p>The output directory into which manifests will be synthesized.</p>
 <hr />
+<h5 id="outputfileextensionrequired"><code>outputFileExtension</code><sup>Required</sup> <a name="cdk8s.App.property.outputFileExtension"></a><a class="headerlink" href="#outputfileextensionrequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">outputFileExtension</span>: <span class="kt">string</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>string</code></li>
+<li><em>Default:</em> .k8s.yaml</li>
+</ul>
+<p>The file extension to use for rendered YAML files.</p>
+<hr />
 <h5 id="yamloutputtyperequired"><code>yamlOutputType</code><sup>Required</sup> <a name="cdk8s.App.property.yamlOutputType"></a><a class="headerlink" href="#yamloutputtyperequired" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">yamlOutputType</span>: <span class="kt">YamlOutputType</span><span class="p">;</span>
 </code></pre></div>
@@ -2550,6 +2559,15 @@ framework based on the path of the construct within thes construct tree.</p>
 <li><em>Default:</em> CDK8S_OUTDIR if defined, otherwise &ldquo;dist&rdquo;</li>
 </ul>
 <p>The directory to output Kubernetes manifests.</p>
+<hr />
+<h5 id="outputfileextensionoptional"><code>outputFileExtension</code><sup>Optional</sup> <a name="cdk8s.AppProps.property.outputFileExtension"></a><a class="headerlink" href="#outputfileextensionoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">outputFileExtension</span>: <span class="kt">string</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>string</code></li>
+<li><em>Default:</em> .k8s.yaml</li>
+</ul>
+<p>The file extension to use for rendered YAML files.</p>
 <hr />
 <h5 id="yamloutputtypeoptional"><code>yamlOutputType</code><sup>Optional</sup> <a name="cdk8s.AppProps.property.yamlOutputType"></a><a class="headerlink" href="#yamloutputtypeoptional" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">yamlOutputType</span>: <span class="kt">YamlOutputType</span><span class="p">;</span>
