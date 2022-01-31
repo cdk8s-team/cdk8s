@@ -45,3 +45,6 @@ dist/
 !/.github/workflows/website.yml
 !/.github/workflows/integ.yml
 !/.github/workflows/upgrade.yml
+
+!/examples/go/web-application/nodeApp/src/*.js
+!/examples/go/web-application/nodeApp/test/*.js
