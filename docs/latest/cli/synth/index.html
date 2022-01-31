@@ -488,9 +488,40 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          synth
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         synth
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-synth-output" class="md-nav__link">
+    Configuring synth output
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1508,6 +1539,21 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-synth-output" class="md-nav__link">
+    Configuring synth output
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1524,12 +1570,24 @@
 
 
 <h1 id="synth">synth<a class="headerlink" href="#synth" title="Permanent link">&para;</a></h1>
-<p>The <code>cdk8s synth</code> command is a convenience command which  will simply execute
+<p>The <code>cdk8s synth</code> command is a convenience command which will simply execute
 the application defined in <code>cdk8s.yaml</code> under <code>app</code>.</p>
 <p>For example, if your <code>cdk8s.yaml</code> file looks like this:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node app.js</span><span class="w"></span>
 </code></pre></div>
 <p>Then, <code>cdk8s synth</code> will execute <code>node app.js</code>.</p>
+<h2 id="configuring-synth-output">Configuring synth output<a class="headerlink" href="#configuring-synth-output" title="Permanent link">&para;</a></h2>
+<p>The properties of the synthesized YAML from <code>cdk8s synth</code> can be modified by the properties of the <code>App</code> construct. Things like file extensions, how API objects are distributed between files, and the output directory can all be configured in your <a href="https://github.com/cdk8s-team/cdk8s-core/blob/2.x/docs/typescript.md#appprops-"><code>AppProps</code></a></p>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">App</span><span class="p">({</span>
+  <span class="c1">// Instead of the default &quot;dist&quot;</span>
+  <span class="nx">outdir</span><span class="o">:</span> <span class="s2">&quot;output&quot;</span><span class="p">,</span>
+  <span class="c1">// Instead of &quot;.k8s.yaml&quot;</span>
+  <span class="nx">outputFileExtension</span><span class="o">:</span> <span class="s2">&quot;.generated.yaml&quot;</span><span class="p">,</span>
+  <span class="c1">// Divide every resource into its own file, instead of grouping by Chart</span>
+  <span class="nx">yamlOutputType</span>: <span class="kt">YamlOutputType.FILE_PER_RESOURCE</span><span class="p">,</span>
+<span class="p">});</span>
+</code></pre></div>
 
               
             </article>
