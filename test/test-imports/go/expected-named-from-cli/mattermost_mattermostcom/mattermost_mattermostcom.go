@@ -1,4 +1,4 @@
-// mattermostcom
+// mattermost_mattermostcom
 package mattermost_mattermostcom
 
 import (
@@ -101,7 +101,7 @@ func NewClusterInstallation(scope constructs.Construct, id *string, props *Clust
 	j := jsiiProxy_ClusterInstallation{}
 
 	_jsii_.Create(
-		"mattermostcom.ClusterInstallation",
+		"mattermost_mattermostcom.ClusterInstallation",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -114,7 +114,7 @@ func NewClusterInstallation_Override(c ClusterInstallation, scope constructs.Con
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"mattermostcom.ClusterInstallation",
+		"mattermost_mattermostcom.ClusterInstallation",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -129,7 +129,7 @@ func ClusterInstallation_Manifest(props *ClusterInstallationProps) interface{} {
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
-		"mattermostcom.ClusterInstallation",
+		"mattermost_mattermostcom.ClusterInstallation",
 		"manifest",
 		[]interface{}{props},
 		&returns,
@@ -149,7 +149,7 @@ func ClusterInstallation_Of(c constructs.IConstruct) cdk8s.ApiObject {
 	var returns cdk8s.ApiObject
 
 	_jsii_.StaticInvoke(
-		"mattermostcom.ClusterInstallation",
+		"mattermost_mattermostcom.ClusterInstallation",
 		"of",
 		[]interface{}{c},
 		&returns,
@@ -162,7 +162,7 @@ func ClusterInstallation_GVK() *cdk8s.GroupVersionKind {
 	_init_.Initialize()
 	var returns *cdk8s.GroupVersionKind
 	_jsii_.StaticGet(
-		"mattermostcom.ClusterInstallation",
+		"mattermost_mattermostcom.ClusterInstallation",
 		"GVK",
 		&returns,
 	)
@@ -890,7 +890,7 @@ func ClusterInstallationSpecLivenessProbeHttpGetPort_FromNumber(value *float64) 
 	var returns ClusterInstallationSpecLivenessProbeHttpGetPort
 
 	_jsii_.StaticInvoke(
-		"mattermostcom.ClusterInstallationSpecLivenessProbeHttpGetPort",
+		"mattermost_mattermostcom.ClusterInstallationSpecLivenessProbeHttpGetPort",
 		"fromNumber",
 		[]interface{}{value},
 		&returns,
@@ -905,7 +905,7 @@ func ClusterInstallationSpecLivenessProbeHttpGetPort_FromString(value *string) C
 	var returns ClusterInstallationSpecLivenessProbeHttpGetPort
 
 	_jsii_.StaticInvoke(
-		"mattermostcom.ClusterInstallationSpecLivenessProbeHttpGetPort",
+		"mattermost_mattermostcom.ClusterInstallationSpecLivenessProbeHttpGetPort",
 		"fromString",
 		[]interface{}{value},
 		&returns,
@@ -955,7 +955,7 @@ func ClusterInstallationSpecLivenessProbeTcpSocketPort_FromNumber(value *float64
 	var returns ClusterInstallationSpecLivenessProbeTcpSocketPort
 
 	_jsii_.StaticInvoke(
-		"mattermostcom.ClusterInstallationSpecLivenessProbeTcpSocketPort",
+		"mattermost_mattermostcom.ClusterInstallationSpecLivenessProbeTcpSocketPort",
 		"fromNumber",
 		[]interface{}{value},
 		&returns,
@@ -970,7 +970,7 @@ func ClusterInstallationSpecLivenessProbeTcpSocketPort_FromString(value *string)
 	var returns ClusterInstallationSpecLivenessProbeTcpSocketPort
 
 	_jsii_.StaticInvoke(
-		"mattermostcom.ClusterInstallationSpecLivenessProbeTcpSocketPort",
+		"mattermost_mattermostcom.ClusterInstallationSpecLivenessProbeTcpSocketPort",
 		"fromString",
 		[]interface{}{value},
 		&returns,
@@ -1192,7 +1192,7 @@ func ClusterInstallationSpecReadinessProbeHttpGetPort_FromNumber(value *float64)
 	var returns ClusterInstallationSpecReadinessProbeHttpGetPort
 
 	_jsii_.StaticInvoke(
-		"mattermostcom.ClusterInstallationSpecReadinessProbeHttpGetPort",
+		"mattermost_mattermostcom.ClusterInstallationSpecReadinessProbeHttpGetPort",
 		"fromNumber",
 		[]interface{}{value},
 		&returns,
@@ -1207,7 +1207,7 @@ func ClusterInstallationSpecReadinessProbeHttpGetPort_FromString(value *string) 
 	var returns ClusterInstallationSpecReadinessProbeHttpGetPort
 
 	_jsii_.StaticInvoke(
-		"mattermostcom.ClusterInstallationSpecReadinessProbeHttpGetPort",
+		"mattermost_mattermostcom.ClusterInstallationSpecReadinessProbeHttpGetPort",
 		"fromString",
 		[]interface{}{value},
 		&returns,
@@ -1257,7 +1257,7 @@ func ClusterInstallationSpecReadinessProbeTcpSocketPort_FromNumber(value *float6
 	var returns ClusterInstallationSpecReadinessProbeTcpSocketPort
 
 	_jsii_.StaticInvoke(
-		"mattermostcom.ClusterInstallationSpecReadinessProbeTcpSocketPort",
+		"mattermost_mattermostcom.ClusterInstallationSpecReadinessProbeTcpSocketPort",
 		"fromNumber",
 		[]interface{}{value},
 		&returns,
@@ -1272,7 +1272,7 @@ func ClusterInstallationSpecReadinessProbeTcpSocketPort_FromString(value *string
 	var returns ClusterInstallationSpecReadinessProbeTcpSocketPort
 
 	_jsii_.StaticInvoke(
-		"mattermostcom.ClusterInstallationSpecReadinessProbeTcpSocketPort",
+		"mattermost_mattermostcom.ClusterInstallationSpecReadinessProbeTcpSocketPort",
 		"fromString",
 		[]interface{}{value},
 		&returns,

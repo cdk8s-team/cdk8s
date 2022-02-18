@@ -17,7 +17,7 @@ import constructs
 class ClusterInstallation(
     cdk8s.ApiObject,
     metaclass=jsii.JSIIMeta,
-    jsii_type="commattermost.ClusterInstallation",
+    jsii_type="mattermost_commattermost.ClusterInstallation",
 ):
     '''ClusterInstallation is the Schema for the clusterinstallations API.
 
@@ -75,7 +75,7 @@ class ClusterInstallation(
 
 
 @jsii.data_type(
-    jsii_type="commattermost.ClusterInstallationProps",
+    jsii_type="mattermost_commattermost.ClusterInstallationProps",
     jsii_struct_bases=[],
     name_mapping={"spec": "spec", "metadata": "metadata"},
 )
@@ -136,7 +136,7 @@ class ClusterInstallationProps:
 
 
 @jsii.data_type(
-    jsii_type="commattermost.ClusterInstallationSpec",
+    jsii_type="mattermost_commattermost.ClusterInstallationSpec",
     jsii_struct_bases=[],
     name_mapping={
         "ingress_name": "ingressName",
@@ -482,7 +482,7 @@ class ClusterInstallationSpec:
 
 
 @jsii.data_type(
-    jsii_type="commattermost.ClusterInstallationSpecAffinity",
+    jsii_type="mattermost_commattermost.ClusterInstallationSpecAffinity",
     jsii_struct_bases=[],
     name_mapping={
         "node_affinity": "nodeAffinity",
@@ -566,7 +566,7 @@ class ClusterInstallationSpecAffinity:
 
 
 @jsii.data_type(
-    jsii_type="commattermost.ClusterInstallationSpecAffinityNodeAffinity",
+    jsii_type="mattermost_commattermost.ClusterInstallationSpecAffinityNodeAffinity",
     jsii_struct_bases=[],
     name_mapping={
         "preferred_during_scheduling_ignored_during_execution": "preferredDuringSchedulingIgnoredDuringExecution",
@@ -634,7 +634,7 @@ class ClusterInstallationSpecAffinityNodeAffinity:
 
 
 @jsii.data_type(
-    jsii_type="commattermost.ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution",
+    jsii_type="mattermost_commattermost.ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution",
     jsii_struct_bases=[],
     name_mapping={"preference": "preference", "weight": "weight"},
 )
@@ -694,7 +694,7 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
 
 
 @jsii.data_type(
-    jsii_type="commattermost.ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference",
+    jsii_type="mattermost_commattermost.ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference",
     jsii_struct_bases=[],
     name_mapping={
         "match_expressions": "matchExpressions",
@@ -756,7 +756,7 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
 
 
 @jsii.data_type(
-    jsii_type="commattermost.ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions",
+    jsii_type="mattermost_commattermost.ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions",
     jsii_struct_bases=[],
     name_mapping={"key": "key", "operator": "operator", "values": "values"},
 )
@@ -829,7 +829,7 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
 
 
 @jsii.data_type(
-    jsii_type="commattermost.ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchFields",
+    jsii_type="mattermost_commattermost.ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchFields",
     jsii_struct_bases=[],
     name_mapping={"key": "key", "operator": "operator", "values": "values"},
 )
@@ -902,7 +902,7 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
 
 
 @jsii.data_type(
-    jsii_type="commattermost.ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution",
+    jsii_type="mattermost_commattermost.ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution",
     jsii_struct_bases=[],
     name_mapping={"node_selector_terms": "nodeSelectorTerms"},
 )
@@ -951,7 +951,7 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
 
 
 @jsii.data_type(
-    jsii_type="commattermost.ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerms",
+    jsii_type="mattermost_commattermost.ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerms",
     jsii_struct_bases=[],
     name_mapping={
         "match_expressions": "matchExpressions",
@@ -1015,7 +1015,7 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
 
 
 @jsii.data_type(
-    jsii_type="commattermost.ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchExpressions",
+    jsii_type="mattermost_commattermost.ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchExpressions",
     jsii_struct_bases=[],
     name_mapping={"key": "key", "operator": "operator", "values": "values"},
 )
@@ -1088,7 +1088,7 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
 
 
 @jsii.data_type(
-    jsii_type="commattermost.ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchFields",
+    jsii_type="mattermost_commattermost.ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchFields",
     jsii_struct_bases=[],
     name_mapping={"key": "key", "operator": "operator", "values": "values"},
 )
@@ -1161,7 +1161,7 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
 
 
 @jsii.data_type(
-    jsii_type="commattermost.ClusterInstallationSpecAffinityPodAffinity",
+    jsii_type="mattermost_commattermost.ClusterInstallationSpecAffinityPodAffinity",
     jsii_struct_bases=[],
     name_mapping={
         "preferred_during_scheduling_ignored_during_execution": "preferredDuringSchedulingIgnoredDuringExecution",
@@ -1227,7 +1227,7 @@ class ClusterInstallationSpecAffinityPodAffinity:
 
 
 @jsii.data_type(
-    jsii_type="commattermost.ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution",
+    jsii_type="mattermost_commattermost.ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution",
     jsii_struct_bases=[],
     name_mapping={"pod_affinity_term": "podAffinityTerm", "weight": "weight"},
 )
@@ -1289,7 +1289,7 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
 
 
 @jsii.data_type(
-    jsii_type="commattermost.ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm",
+    jsii_type="mattermost_commattermost.ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm",
     jsii_struct_bases=[],
     name_mapping={
         "topology_key": "topologyKey",
@@ -1372,7 +1372,7 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
 
 
 @jsii.data_type(
-    jsii_type="commattermost.ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector",
+    jsii_type="mattermost_commattermost.ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector",
     jsii_struct_bases=[],
     name_mapping={
         "match_expressions": "matchExpressions",
@@ -1438,7 +1438,7 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
 
 
 @jsii.data_type(
-    jsii_type="commattermost.ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions",
+    jsii_type="mattermost_commattermost.ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions",
     jsii_struct_bases=[],
     name_mapping={"key": "key", "operator": "operator", "values": "values"},
 )
@@ -1511,7 +1511,7 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
 
 
 @jsii.data_type(
-    jsii_type="commattermost.ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution",
+    jsii_type="mattermost_commattermost.ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution",
     jsii_struct_bases=[],
     name_mapping={
         "topology_key": "topologyKey",
@@ -1592,7 +1592,7 @@ class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredD
 
 
 @jsii.data_type(
-    jsii_type="commattermost.ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector",
+    jsii_type="mattermost_commattermost.ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector",
     jsii_struct_bases=[],
     name_mapping={
         "match_expressions": "matchExpressions",
@@ -1658,7 +1658,7 @@ class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredD
 
 
 @jsii.data_type(
-    jsii_type="commattermost.ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions",
+    jsii_type="mattermost_commattermost.ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions",
     jsii_struct_bases=[],
     name_mapping={"key": "key", "operator": "operator", "values": "values"},
 )
@@ -1731,7 +1731,7 @@ class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredD
 
 
 @jsii.data_type(
-    jsii_type="commattermost.ClusterInstallationSpecAffinityPodAntiAffinity",
+    jsii_type="mattermost_commattermost.ClusterInstallationSpecAffinityPodAntiAffinity",
     jsii_struct_bases=[],
     name_mapping={
         "preferred_during_scheduling_ignored_during_execution": "preferredDuringSchedulingIgnoredDuringExecution",
@@ -1797,7 +1797,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinity:
 
 
 @jsii.data_type(
-    jsii_type="commattermost.ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution",
+    jsii_type="mattermost_commattermost.ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution",
     jsii_struct_bases=[],
     name_mapping={"pod_affinity_term": "podAffinityTerm", "weight": "weight"},
 )
@@ -1859,7 +1859,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
 
 
 @jsii.data_type(
-    jsii_type="commattermost.ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm",
+    jsii_type="mattermost_commattermost.ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm",
     jsii_struct_bases=[],
     name_mapping={
         "topology_key": "topologyKey",
@@ -1942,7 +1942,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
 
 
 @jsii.data_type(
-    jsii_type="commattermost.ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector",
+    jsii_type="mattermost_commattermost.ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector",
     jsii_struct_bases=[],
     name_mapping={
         "match_expressions": "matchExpressions",
@@ -2008,7 +2008,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
 
 
 @jsii.data_type(
-    jsii_type="commattermost.ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions",
+    jsii_type="mattermost_commattermost.ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions",
     jsii_struct_bases=[],
     name_mapping={"key": "key", "operator": "operator", "values": "values"},
 )
@@ -2081,7 +2081,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
 
 
 @jsii.data_type(
-    jsii_type="commattermost.ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution",
+    jsii_type="mattermost_commattermost.ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution",
     jsii_struct_bases=[],
     name_mapping={
         "topology_key": "topologyKey",
@@ -2162,7 +2162,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgno
 
 
 @jsii.data_type(
-    jsii_type="commattermost.ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector",
+    jsii_type="mattermost_commattermost.ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector",
     jsii_struct_bases=[],
     name_mapping={
         "match_expressions": "matchExpressions",
@@ -2228,7 +2228,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgno
 
 
 @jsii.data_type(
-    jsii_type="commattermost.ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions",
+    jsii_type="mattermost_commattermost.ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions",
     jsii_struct_bases=[],
     name_mapping={"key": "key", "operator": "operator", "values": "values"},
 )
@@ -2301,7 +2301,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgno
 
 
 @jsii.data_type(
-    jsii_type="commattermost.ClusterInstallationSpecBlueGreen",
+    jsii_type="mattermost_commattermost.ClusterInstallationSpecBlueGreen",
     jsii_struct_bases=[],
     name_mapping={
         "blue": "blue",
@@ -2391,7 +2391,7 @@ class ClusterInstallationSpecBlueGreen:
 
 
 @jsii.data_type(
-    jsii_type="commattermost.ClusterInstallationSpecBlueGreenBlue",
+    jsii_type="mattermost_commattermost.ClusterInstallationSpecBlueGreenBlue",
     jsii_struct_bases=[],
     name_mapping={
         "image": "image",
@@ -2483,7 +2483,7 @@ class ClusterInstallationSpecBlueGreenBlue:
 
 
 @jsii.data_type(
-    jsii_type="commattermost.ClusterInstallationSpecBlueGreenGreen",
+    jsii_type="mattermost_commattermost.ClusterInstallationSpecBlueGreenGreen",
     jsii_struct_bases=[],
     name_mapping={
         "image": "image",
@@ -2575,7 +2575,7 @@ class ClusterInstallationSpecBlueGreenGreen:
 
 
 @jsii.data_type(
-    jsii_type="commattermost.ClusterInstallationSpecCanary",
+    jsii_type="mattermost_commattermost.ClusterInstallationSpecCanary",
     jsii_struct_bases=[],
     name_mapping={"deployment": "deployment", "enable": "enable"},
 )
@@ -2632,7 +2632,7 @@ class ClusterInstallationSpecCanary:
 
 
 @jsii.data_type(
-    jsii_type="commattermost.ClusterInstallationSpecCanaryDeployment",
+    jsii_type="mattermost_commattermost.ClusterInstallationSpecCanaryDeployment",
     jsii_struct_bases=[],
     name_mapping={
         "image": "image",
@@ -2724,7 +2724,7 @@ class ClusterInstallationSpecCanaryDeployment:
 
 
 @jsii.data_type(
-    jsii_type="commattermost.ClusterInstallationSpecDatabase",
+    jsii_type="mattermost_commattermost.ClusterInstallationSpecDatabase",
     jsii_struct_bases=[],
     name_mapping={
         "backup_remote_delete_policy": "backupRemoteDeletePolicy",
@@ -2919,7 +2919,7 @@ class ClusterInstallationSpecDatabase:
 
 
 @jsii.data_type(
-    jsii_type="commattermost.ClusterInstallationSpecDatabaseResources",
+    jsii_type="mattermost_commattermost.ClusterInstallationSpecDatabaseResources",
     jsii_struct_bases=[],
     name_mapping={"limits": "limits", "requests": "requests"},
 )
@@ -2978,7 +2978,7 @@ class ClusterInstallationSpecDatabaseResources:
 
 
 @jsii.data_type(
-    jsii_type="commattermost.ClusterInstallationSpecElasticSearch",
+    jsii_type="mattermost_commattermost.ClusterInstallationSpecElasticSearch",
     jsii_struct_bases=[],
     name_mapping={"host": "host", "password": "password", "username": "username"},
 )
@@ -3043,7 +3043,7 @@ class ClusterInstallationSpecElasticSearch:
 
 
 @jsii.data_type(
-    jsii_type="commattermost.ClusterInstallationSpecLivenessProbe",
+    jsii_type="mattermost_commattermost.ClusterInstallationSpecLivenessProbe",
     jsii_struct_bases=[],
     name_mapping={
         "exec": "exec",
@@ -3217,7 +3217,7 @@ class ClusterInstallationSpecLivenessProbe:
 
 
 @jsii.data_type(
-    jsii_type="commattermost.ClusterInstallationSpecLivenessProbeExec",
+    jsii_type="mattermost_commattermost.ClusterInstallationSpecLivenessProbeExec",
     jsii_struct_bases=[],
     name_mapping={"command": "command"},
 )
@@ -3263,7 +3263,7 @@ class ClusterInstallationSpecLivenessProbeExec:
 
 
 @jsii.data_type(
-    jsii_type="commattermost.ClusterInstallationSpecLivenessProbeHttpGet",
+    jsii_type="mattermost_commattermost.ClusterInstallationSpecLivenessProbeHttpGet",
     jsii_struct_bases=[],
     name_mapping={
         "port": "port",
@@ -3376,7 +3376,7 @@ class ClusterInstallationSpecLivenessProbeHttpGet:
 
 
 @jsii.data_type(
-    jsii_type="commattermost.ClusterInstallationSpecLivenessProbeHttpGetHttpHeaders",
+    jsii_type="mattermost_commattermost.ClusterInstallationSpecLivenessProbeHttpGetHttpHeaders",
     jsii_struct_bases=[],
     name_mapping={"name": "name", "value": "value"},
 )
@@ -3428,7 +3428,7 @@ class ClusterInstallationSpecLivenessProbeHttpGetHttpHeaders:
 
 class ClusterInstallationSpecLivenessProbeHttpGetPort(
     metaclass=jsii.JSIIMeta,
-    jsii_type="commattermost.ClusterInstallationSpecLivenessProbeHttpGetPort",
+    jsii_type="mattermost_commattermost.ClusterInstallationSpecLivenessProbeHttpGetPort",
 ):
     '''Name or number of the port to access on the container.
 
@@ -3466,7 +3466,7 @@ class ClusterInstallationSpecLivenessProbeHttpGetPort(
 
 
 @jsii.data_type(
-    jsii_type="commattermost.ClusterInstallationSpecLivenessProbeTcpSocket",
+    jsii_type="mattermost_commattermost.ClusterInstallationSpecLivenessProbeTcpSocket",
     jsii_struct_bases=[],
     name_mapping={"port": "port", "host": "host"},
 )
@@ -3527,7 +3527,7 @@ class ClusterInstallationSpecLivenessProbeTcpSocket:
 
 class ClusterInstallationSpecLivenessProbeTcpSocketPort(
     metaclass=jsii.JSIIMeta,
-    jsii_type="commattermost.ClusterInstallationSpecLivenessProbeTcpSocketPort",
+    jsii_type="mattermost_commattermost.ClusterInstallationSpecLivenessProbeTcpSocketPort",
 ):
     '''Number or name of the port to access on the container.
 
@@ -3565,7 +3565,7 @@ class ClusterInstallationSpecLivenessProbeTcpSocketPort(
 
 
 @jsii.data_type(
-    jsii_type="commattermost.ClusterInstallationSpecMattermostEnv",
+    jsii_type="mattermost_commattermost.ClusterInstallationSpecMattermostEnv",
     jsii_struct_bases=[],
     name_mapping={"name": "name", "value": "value", "value_from": "valueFrom"},
 )
@@ -3646,7 +3646,7 @@ class ClusterInstallationSpecMattermostEnv:
 
 
 @jsii.data_type(
-    jsii_type="commattermost.ClusterInstallationSpecMattermostEnvValueFrom",
+    jsii_type="mattermost_commattermost.ClusterInstallationSpecMattermostEnvValueFrom",
     jsii_struct_bases=[],
     name_mapping={
         "config_map_key_ref": "configMapKeyRef",
@@ -3750,7 +3750,7 @@ class ClusterInstallationSpecMattermostEnvValueFrom:
 
 
 @jsii.data_type(
-    jsii_type="commattermost.ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef",
+    jsii_type="mattermost_commattermost.ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef",
     jsii_struct_bases=[],
     name_mapping={"key": "key", "name": "name", "optional": "optional"},
 )
@@ -3821,7 +3821,7 @@ class ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef:
 
 
 @jsii.data_type(
-    jsii_type="commattermost.ClusterInstallationSpecMattermostEnvValueFromFieldRef",
+    jsii_type="mattermost_commattermost.ClusterInstallationSpecMattermostEnvValueFromFieldRef",
     jsii_struct_bases=[],
     name_mapping={"field_path": "fieldPath", "api_version": "apiVersion"},
 )
@@ -3877,7 +3877,7 @@ class ClusterInstallationSpecMattermostEnvValueFromFieldRef:
 
 
 @jsii.data_type(
-    jsii_type="commattermost.ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef",
+    jsii_type="mattermost_commattermost.ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef",
     jsii_struct_bases=[],
     name_mapping={
         "resource": "resource",
@@ -3950,7 +3950,7 @@ class ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef:
 
 
 @jsii.data_type(
-    jsii_type="commattermost.ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef",
+    jsii_type="mattermost_commattermost.ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef",
     jsii_struct_bases=[],
     name_mapping={"key": "key", "name": "name", "optional": "optional"},
 )
@@ -4023,7 +4023,7 @@ class ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef:
 
 
 @jsii.data_type(
-    jsii_type="commattermost.ClusterInstallationSpecMinio",
+    jsii_type="mattermost_commattermost.ClusterInstallationSpecMinio",
     jsii_struct_bases=[],
     name_mapping={
         "external_bucket": "externalBucket",
@@ -4147,7 +4147,7 @@ class ClusterInstallationSpecMinio:
 
 
 @jsii.data_type(
-    jsii_type="commattermost.ClusterInstallationSpecMinioResources",
+    jsii_type="mattermost_commattermost.ClusterInstallationSpecMinioResources",
     jsii_struct_bases=[],
     name_mapping={"limits": "limits", "requests": "requests"},
 )
@@ -4206,7 +4206,7 @@ class ClusterInstallationSpecMinioResources:
 
 
 @jsii.data_type(
-    jsii_type="commattermost.ClusterInstallationSpecReadinessProbe",
+    jsii_type="mattermost_commattermost.ClusterInstallationSpecReadinessProbe",
     jsii_struct_bases=[],
     name_mapping={
         "exec": "exec",
@@ -4380,7 +4380,7 @@ class ClusterInstallationSpecReadinessProbe:
 
 
 @jsii.data_type(
-    jsii_type="commattermost.ClusterInstallationSpecReadinessProbeExec",
+    jsii_type="mattermost_commattermost.ClusterInstallationSpecReadinessProbeExec",
     jsii_struct_bases=[],
     name_mapping={"command": "command"},
 )
@@ -4426,7 +4426,7 @@ class ClusterInstallationSpecReadinessProbeExec:
 
 
 @jsii.data_type(
-    jsii_type="commattermost.ClusterInstallationSpecReadinessProbeHttpGet",
+    jsii_type="mattermost_commattermost.ClusterInstallationSpecReadinessProbeHttpGet",
     jsii_struct_bases=[],
     name_mapping={
         "port": "port",
@@ -4539,7 +4539,7 @@ class ClusterInstallationSpecReadinessProbeHttpGet:
 
 
 @jsii.data_type(
-    jsii_type="commattermost.ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders",
+    jsii_type="mattermost_commattermost.ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders",
     jsii_struct_bases=[],
     name_mapping={"name": "name", "value": "value"},
 )
@@ -4591,7 +4591,7 @@ class ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders:
 
 class ClusterInstallationSpecReadinessProbeHttpGetPort(
     metaclass=jsii.JSIIMeta,
-    jsii_type="commattermost.ClusterInstallationSpecReadinessProbeHttpGetPort",
+    jsii_type="mattermost_commattermost.ClusterInstallationSpecReadinessProbeHttpGetPort",
 ):
     '''Name or number of the port to access on the container.
 
@@ -4629,7 +4629,7 @@ class ClusterInstallationSpecReadinessProbeHttpGetPort(
 
 
 @jsii.data_type(
-    jsii_type="commattermost.ClusterInstallationSpecReadinessProbeTcpSocket",
+    jsii_type="mattermost_commattermost.ClusterInstallationSpecReadinessProbeTcpSocket",
     jsii_struct_bases=[],
     name_mapping={"port": "port", "host": "host"},
 )
@@ -4690,7 +4690,7 @@ class ClusterInstallationSpecReadinessProbeTcpSocket:
 
 class ClusterInstallationSpecReadinessProbeTcpSocketPort(
     metaclass=jsii.JSIIMeta,
-    jsii_type="commattermost.ClusterInstallationSpecReadinessProbeTcpSocketPort",
+    jsii_type="mattermost_commattermost.ClusterInstallationSpecReadinessProbeTcpSocketPort",
 ):
     '''Number or name of the port to access on the container.
 
@@ -4728,7 +4728,7 @@ class ClusterInstallationSpecReadinessProbeTcpSocketPort(
 
 
 @jsii.data_type(
-    jsii_type="commattermost.ClusterInstallationSpecResources",
+    jsii_type="mattermost_commattermost.ClusterInstallationSpecResources",
     jsii_struct_bases=[],
     name_mapping={"limits": "limits", "requests": "requests"},
 )

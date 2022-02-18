@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"mattermostcom.ClusterInstallation",
+		"mattermost_mattermostcom.ClusterInstallation",
 		reflect.TypeOf((*ClusterInstallation)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
@@ -32,167 +32,167 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"mattermostcom.ClusterInstallationProps",
+		"mattermost_mattermostcom.ClusterInstallationProps",
 		reflect.TypeOf((*ClusterInstallationProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"mattermostcom.ClusterInstallationSpec",
+		"mattermost_mattermostcom.ClusterInstallationSpec",
 		reflect.TypeOf((*ClusterInstallationSpec)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"mattermostcom.ClusterInstallationSpecAffinity",
+		"mattermost_mattermostcom.ClusterInstallationSpecAffinity",
 		reflect.TypeOf((*ClusterInstallationSpecAffinity)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"mattermostcom.ClusterInstallationSpecAffinityNodeAffinity",
+		"mattermost_mattermostcom.ClusterInstallationSpecAffinityNodeAffinity",
 		reflect.TypeOf((*ClusterInstallationSpecAffinityNodeAffinity)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"mattermostcom.ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution",
+		"mattermost_mattermostcom.ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution",
 		reflect.TypeOf((*ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"mattermostcom.ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference",
+		"mattermost_mattermostcom.ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference",
 		reflect.TypeOf((*ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"mattermostcom.ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions",
+		"mattermost_mattermostcom.ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions",
 		reflect.TypeOf((*ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"mattermostcom.ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchFields",
+		"mattermost_mattermostcom.ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchFields",
 		reflect.TypeOf((*ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchFields)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"mattermostcom.ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution",
+		"mattermost_mattermostcom.ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution",
 		reflect.TypeOf((*ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"mattermostcom.ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerms",
+		"mattermost_mattermostcom.ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerms",
 		reflect.TypeOf((*ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerms)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"mattermostcom.ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchExpressions",
+		"mattermost_mattermostcom.ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchExpressions",
 		reflect.TypeOf((*ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchExpressions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"mattermostcom.ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchFields",
+		"mattermost_mattermostcom.ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchFields",
 		reflect.TypeOf((*ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchFields)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"mattermostcom.ClusterInstallationSpecAffinityPodAffinity",
+		"mattermost_mattermostcom.ClusterInstallationSpecAffinityPodAffinity",
 		reflect.TypeOf((*ClusterInstallationSpecAffinityPodAffinity)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"mattermostcom.ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution",
+		"mattermost_mattermostcom.ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution",
 		reflect.TypeOf((*ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"mattermostcom.ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm",
+		"mattermost_mattermostcom.ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm",
 		reflect.TypeOf((*ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"mattermostcom.ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector",
+		"mattermost_mattermostcom.ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector",
 		reflect.TypeOf((*ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"mattermostcom.ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions",
+		"mattermost_mattermostcom.ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions",
 		reflect.TypeOf((*ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"mattermostcom.ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution",
+		"mattermost_mattermostcom.ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution",
 		reflect.TypeOf((*ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"mattermostcom.ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector",
+		"mattermost_mattermostcom.ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector",
 		reflect.TypeOf((*ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"mattermostcom.ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions",
+		"mattermost_mattermostcom.ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions",
 		reflect.TypeOf((*ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"mattermostcom.ClusterInstallationSpecAffinityPodAntiAffinity",
+		"mattermost_mattermostcom.ClusterInstallationSpecAffinityPodAntiAffinity",
 		reflect.TypeOf((*ClusterInstallationSpecAffinityPodAntiAffinity)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"mattermostcom.ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution",
+		"mattermost_mattermostcom.ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution",
 		reflect.TypeOf((*ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"mattermostcom.ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm",
+		"mattermost_mattermostcom.ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm",
 		reflect.TypeOf((*ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"mattermostcom.ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector",
+		"mattermost_mattermostcom.ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector",
 		reflect.TypeOf((*ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"mattermostcom.ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions",
+		"mattermost_mattermostcom.ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions",
 		reflect.TypeOf((*ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"mattermostcom.ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution",
+		"mattermost_mattermostcom.ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution",
 		reflect.TypeOf((*ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"mattermostcom.ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector",
+		"mattermost_mattermostcom.ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector",
 		reflect.TypeOf((*ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"mattermostcom.ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions",
+		"mattermost_mattermostcom.ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions",
 		reflect.TypeOf((*ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"mattermostcom.ClusterInstallationSpecBlueGreen",
+		"mattermost_mattermostcom.ClusterInstallationSpecBlueGreen",
 		reflect.TypeOf((*ClusterInstallationSpecBlueGreen)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"mattermostcom.ClusterInstallationSpecBlueGreenBlue",
+		"mattermost_mattermostcom.ClusterInstallationSpecBlueGreenBlue",
 		reflect.TypeOf((*ClusterInstallationSpecBlueGreenBlue)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"mattermostcom.ClusterInstallationSpecBlueGreenGreen",
+		"mattermost_mattermostcom.ClusterInstallationSpecBlueGreenGreen",
 		reflect.TypeOf((*ClusterInstallationSpecBlueGreenGreen)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"mattermostcom.ClusterInstallationSpecCanary",
+		"mattermost_mattermostcom.ClusterInstallationSpecCanary",
 		reflect.TypeOf((*ClusterInstallationSpecCanary)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"mattermostcom.ClusterInstallationSpecCanaryDeployment",
+		"mattermost_mattermostcom.ClusterInstallationSpecCanaryDeployment",
 		reflect.TypeOf((*ClusterInstallationSpecCanaryDeployment)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"mattermostcom.ClusterInstallationSpecDatabase",
+		"mattermost_mattermostcom.ClusterInstallationSpecDatabase",
 		reflect.TypeOf((*ClusterInstallationSpecDatabase)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"mattermostcom.ClusterInstallationSpecDatabaseResources",
+		"mattermost_mattermostcom.ClusterInstallationSpecDatabaseResources",
 		reflect.TypeOf((*ClusterInstallationSpecDatabaseResources)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"mattermostcom.ClusterInstallationSpecElasticSearch",
+		"mattermost_mattermostcom.ClusterInstallationSpecElasticSearch",
 		reflect.TypeOf((*ClusterInstallationSpecElasticSearch)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"mattermostcom.ClusterInstallationSpecLivenessProbe",
+		"mattermost_mattermostcom.ClusterInstallationSpecLivenessProbe",
 		reflect.TypeOf((*ClusterInstallationSpecLivenessProbe)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"mattermostcom.ClusterInstallationSpecLivenessProbeExec",
+		"mattermost_mattermostcom.ClusterInstallationSpecLivenessProbeExec",
 		reflect.TypeOf((*ClusterInstallationSpecLivenessProbeExec)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"mattermostcom.ClusterInstallationSpecLivenessProbeHttpGet",
+		"mattermost_mattermostcom.ClusterInstallationSpecLivenessProbeHttpGet",
 		reflect.TypeOf((*ClusterInstallationSpecLivenessProbeHttpGet)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"mattermostcom.ClusterInstallationSpecLivenessProbeHttpGetHttpHeaders",
+		"mattermost_mattermostcom.ClusterInstallationSpecLivenessProbeHttpGetHttpHeaders",
 		reflect.TypeOf((*ClusterInstallationSpecLivenessProbeHttpGetHttpHeaders)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"mattermostcom.ClusterInstallationSpecLivenessProbeHttpGetPort",
+		"mattermost_mattermostcom.ClusterInstallationSpecLivenessProbeHttpGetPort",
 		reflect.TypeOf((*ClusterInstallationSpecLivenessProbeHttpGetPort)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "value", GoGetter: "Value"},
@@ -202,11 +202,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"mattermostcom.ClusterInstallationSpecLivenessProbeTcpSocket",
+		"mattermost_mattermostcom.ClusterInstallationSpecLivenessProbeTcpSocket",
 		reflect.TypeOf((*ClusterInstallationSpecLivenessProbeTcpSocket)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"mattermostcom.ClusterInstallationSpecLivenessProbeTcpSocketPort",
+		"mattermost_mattermostcom.ClusterInstallationSpecLivenessProbeTcpSocketPort",
 		reflect.TypeOf((*ClusterInstallationSpecLivenessProbeTcpSocketPort)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "value", GoGetter: "Value"},
@@ -216,55 +216,55 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"mattermostcom.ClusterInstallationSpecMattermostEnv",
+		"mattermost_mattermostcom.ClusterInstallationSpecMattermostEnv",
 		reflect.TypeOf((*ClusterInstallationSpecMattermostEnv)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"mattermostcom.ClusterInstallationSpecMattermostEnvValueFrom",
+		"mattermost_mattermostcom.ClusterInstallationSpecMattermostEnvValueFrom",
 		reflect.TypeOf((*ClusterInstallationSpecMattermostEnvValueFrom)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"mattermostcom.ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef",
+		"mattermost_mattermostcom.ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef",
 		reflect.TypeOf((*ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"mattermostcom.ClusterInstallationSpecMattermostEnvValueFromFieldRef",
+		"mattermost_mattermostcom.ClusterInstallationSpecMattermostEnvValueFromFieldRef",
 		reflect.TypeOf((*ClusterInstallationSpecMattermostEnvValueFromFieldRef)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"mattermostcom.ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef",
+		"mattermost_mattermostcom.ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef",
 		reflect.TypeOf((*ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"mattermostcom.ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef",
+		"mattermost_mattermostcom.ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef",
 		reflect.TypeOf((*ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"mattermostcom.ClusterInstallationSpecMinio",
+		"mattermost_mattermostcom.ClusterInstallationSpecMinio",
 		reflect.TypeOf((*ClusterInstallationSpecMinio)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"mattermostcom.ClusterInstallationSpecMinioResources",
+		"mattermost_mattermostcom.ClusterInstallationSpecMinioResources",
 		reflect.TypeOf((*ClusterInstallationSpecMinioResources)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"mattermostcom.ClusterInstallationSpecReadinessProbe",
+		"mattermost_mattermostcom.ClusterInstallationSpecReadinessProbe",
 		reflect.TypeOf((*ClusterInstallationSpecReadinessProbe)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"mattermostcom.ClusterInstallationSpecReadinessProbeExec",
+		"mattermost_mattermostcom.ClusterInstallationSpecReadinessProbeExec",
 		reflect.TypeOf((*ClusterInstallationSpecReadinessProbeExec)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"mattermostcom.ClusterInstallationSpecReadinessProbeHttpGet",
+		"mattermost_mattermostcom.ClusterInstallationSpecReadinessProbeHttpGet",
 		reflect.TypeOf((*ClusterInstallationSpecReadinessProbeHttpGet)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"mattermostcom.ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders",
+		"mattermost_mattermostcom.ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders",
 		reflect.TypeOf((*ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"mattermostcom.ClusterInstallationSpecReadinessProbeHttpGetPort",
+		"mattermost_mattermostcom.ClusterInstallationSpecReadinessProbeHttpGetPort",
 		reflect.TypeOf((*ClusterInstallationSpecReadinessProbeHttpGetPort)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "value", GoGetter: "Value"},
@@ -274,11 +274,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"mattermostcom.ClusterInstallationSpecReadinessProbeTcpSocket",
+		"mattermost_mattermostcom.ClusterInstallationSpecReadinessProbeTcpSocket",
 		reflect.TypeOf((*ClusterInstallationSpecReadinessProbeTcpSocket)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"mattermostcom.ClusterInstallationSpecReadinessProbeTcpSocketPort",
+		"mattermost_mattermostcom.ClusterInstallationSpecReadinessProbeTcpSocketPort",
 		reflect.TypeOf((*ClusterInstallationSpecReadinessProbeTcpSocketPort)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "value", GoGetter: "Value"},
@@ -288,7 +288,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"mattermostcom.ClusterInstallationSpecResources",
+		"mattermost_mattermostcom.ClusterInstallationSpecResources",
 		reflect.TypeOf((*ClusterInstallationSpecResources)(nil)).Elem(),
 	)
 }
