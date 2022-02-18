@@ -12,7 +12,10 @@ import cdk8s._jsii
 import constructs._jsii
 
 __jsii_assembly__ = jsii.JSIIAssembly.load(
-    "commattermost", "0.0.0", __name__[0:-6], "commattermost@0.0.0.jsii.tgz"
+    "mattermost_commattermost",
+    "0.0.0",
+    __name__[0:-6],
+    "mattermost_commattermost@0.0.0.jsii.tgz",
 )
 
 __all__ = [
