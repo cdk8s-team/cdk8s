@@ -1251,6 +1251,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#tcpsocketprobeoptions" class="md-nav__link">
+    TcpSocketProbeOptions 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#volumemount" class="md-nav__link">
     VolumeMount 
   </a>
@@ -2489,6 +2496,13 @@
           <li class="md-nav__item">
   <a href="#statefulsetprops" class="md-nav__link">
     StatefulSetProps 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tcpsocketprobeoptions" class="md-nav__link">
+    TcpSocketProbeOptions 
   </a>
   
 </li>
@@ -5689,9 +5703,89 @@ Account (for example, default).</p>
 </ul>
 <p>Number of desired pods.</p>
 <hr />
+<h3 id="tcpsocketprobeoptions">TcpSocketProbeOptions <a name="cdk8s-plus-22.TcpSocketProbeOptions"></a><a class="headerlink" href="#tcpsocketprobeoptions" title="Permanent link">&para;</a></h3>
+<p>Options for <code>Probe.fromTcpSocket()</code>.</p>
+<h4 id="initializer_37">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_37" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">TcpSocketProbeOptions</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-22&#39;</span>
+
+<span class="kd">const</span> <span class="nx">tcpSocketProbeOptions</span>: <span class="kt">TcpSocketProbeOptions</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
+</code></pre></div>
+<h5 id="failurethresholdoptional_3"><code>failureThreshold</code><sup>Optional</sup> <a name="cdk8s-plus-22.TcpSocketProbeOptions.property.failureThreshold"></a><a class="headerlink" href="#failurethresholdoptional_3" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">failureThreshold</span>: <span class="kt">number</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>number</code></li>
+<li><em>Default:</em> 3</li>
+</ul>
+<p>Minimum consecutive failures for the probe to be considered failed after having succeeded.</p>
+<p>Defaults to 3. Minimum value is 1.</p>
+<hr />
+<h5 id="initialdelaysecondsoptional_3"><code>initialDelaySeconds</code><sup>Optional</sup> <a name="cdk8s-plus-22.TcpSocketProbeOptions.property.initialDelaySeconds"></a><a class="headerlink" href="#initialdelaysecondsoptional_3" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">initialDelaySeconds</span>: <span class="kt">Duration</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <a href="#cdk8s.Duration"><code>cdk8s.Duration</code></a></li>
+<li><em>Default:</em> immediate</li>
+</ul>
+<p>Number of seconds after the container has started before liveness probes are initiated.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes</p>
+</blockquote>
+<hr />
+<h5 id="periodsecondsoptional_3"><code>periodSeconds</code><sup>Optional</sup> <a name="cdk8s-plus-22.TcpSocketProbeOptions.property.periodSeconds"></a><a class="headerlink" href="#periodsecondsoptional_3" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">periodSeconds</span>: <span class="kt">Duration</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <a href="#cdk8s.Duration"><code>cdk8s.Duration</code></a></li>
+<li><em>Default:</em> Duration.seconds(10) Minimum value is 1.</li>
+</ul>
+<p>How often (in seconds) to perform the probe.</p>
+<p>Default to 10 seconds. Minimum value is 1.</p>
+<hr />
+<h5 id="successthresholdoptional_3"><code>successThreshold</code><sup>Optional</sup> <a name="cdk8s-plus-22.TcpSocketProbeOptions.property.successThreshold"></a><a class="headerlink" href="#successthresholdoptional_3" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">successThreshold</span>: <span class="kt">number</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>number</code></li>
+<li><em>Default:</em> 1 Must be 1 for liveness and startup. Minimum value is 1.</li>
+</ul>
+<p>Minimum consecutive successes for the probe to be considered successful after having failed. Defaults to 1.</p>
+<p>Must be 1 for liveness and startup. Minimum value is 1.</p>
+<hr />
+<h5 id="timeoutsecondsoptional_3"><code>timeoutSeconds</code><sup>Optional</sup> <a name="cdk8s-plus-22.TcpSocketProbeOptions.property.timeoutSeconds"></a><a class="headerlink" href="#timeoutsecondsoptional_3" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">timeoutSeconds</span>: <span class="kt">Duration</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <a href="#cdk8s.Duration"><code>cdk8s.Duration</code></a></li>
+<li><em>Default:</em> Duration.seconds(1)</li>
+</ul>
+<p>Number of seconds after which the probe times out.</p>
+<p>Defaults to 1 second. Minimum value is 1.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes</p>
+</blockquote>
+<hr />
+<h5 id="hostoptional_1"><code>host</code><sup>Optional</sup> <a name="cdk8s-plus-22.TcpSocketProbeOptions.property.host"></a><a class="headerlink" href="#hostoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">host</span>: <span class="kt">string</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>string</code></li>
+<li><em>Default:</em> defaults to the pod IP</li>
+</ul>
+<p>The host name to connect to on the container.</p>
+<hr />
+<h5 id="portoptional_6"><code>port</code><sup>Optional</sup> <a name="cdk8s-plus-22.TcpSocketProbeOptions.property.port"></a><a class="headerlink" href="#portoptional_6" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">port</span>: <span class="kt">number</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>number</code></li>
+<li><em>Default:</em> defaults to <code>container.port</code>.</li>
+</ul>
+<p>The TCP port to connect to on the container.</p>
+<hr />
 <h3 id="volumemount">VolumeMount <a name="cdk8s-plus-22.VolumeMount"></a><a class="headerlink" href="#volumemount" title="Permanent link">&para;</a></h3>
 <p>Mount a volume from the pod to the container.</p>
-<h4 id="initializer_37">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_37" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_38">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_38" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">VolumeMount</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-22&#39;</span>
 
 <span class="kd">const</span> <span class="nx">volumeMount</span>: <span class="kt">VolumeMount</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
@@ -5868,7 +5962,7 @@ contain &lsquo;:&rsquo;.</p>
 </ul>
 <p>Entrypoint array (the command to execute when the container starts).</p>
 <hr />
-<h5 id="portoptional_6"><code>port</code><sup>Optional</sup> <a name="cdk8s-plus-22.Container.property.port"></a><a class="headerlink" href="#portoptional_6" title="Permanent link">&para;</a></h5>
+<h5 id="portoptional_7"><code>port</code><sup>Optional</sup> <a name="cdk8s-plus-22.Container.property.port"></a><a class="headerlink" href="#portoptional_7" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">readonly</span> <span class="nx">port</span>: <span class="kt">number</span><span class="p">;</span>
 </code></pre></div>
 <ul>
@@ -6156,6 +6250,17 @@ contain &lsquo;:&rsquo;.</p>
 </ul>
 <p>Options.</p>
 <hr />
+<h5 id="fromtcpsocket"><code>fromTcpSocket</code> <a name="cdk8s-plus-22.Probe.fromTcpSocket"></a><a class="headerlink" href="#fromtcpsocket" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Probe</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-22&#39;</span>
+
+<span class="nx">Probe</span><span class="p">.</span><span class="nx">fromTcpSocket</span><span class="p">(</span><span class="nx">options?</span>: <span class="kt">TcpSocketProbeOptions</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="optionsoptional_16"><code>options</code><sup>Optional</sup> <a name="cdk8s-plus-22.Probe.parameter.options"></a><a class="headerlink" href="#optionsoptional_16" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <a href="#cdk8s-plus-22.TcpSocketProbeOptions"><code>cdk8s-plus-22.TcpSocketProbeOptions</code></a></li>
+</ul>
+<p>Options.</p>
+<hr />
 <h3 id="volume">Volume <a name="cdk8s-plus-22.Volume"></a><a class="headerlink" href="#volume" title="Permanent link">&para;</a></h3>
 <p>Volume represents a named volume in a pod that may be accessed by any container in the pod.</p>
 <p>Docker also has a concept of volumes, though it is somewhat looser and less
@@ -6209,7 +6314,7 @@ image. Volumes can not mount onto other volumes</p>
 </ul>
 <p>The config map to use to populate the volume.</p>
 <hr />
-<h6 id="optionsoptional_16"><code>options</code><sup>Optional</sup> <a name="cdk8s-plus-22.Volume.parameter.options"></a><a class="headerlink" href="#optionsoptional_16" title="Permanent link">&para;</a></h6>
+<h6 id="optionsoptional_17"><code>options</code><sup>Optional</sup> <a name="cdk8s-plus-22.Volume.parameter.options"></a><a class="headerlink" href="#optionsoptional_17" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-22.ConfigMapVolumeOptions"><code>cdk8s-plus-22.ConfigMapVolumeOptions</code></a></li>
 </ul>
@@ -6225,7 +6330,7 @@ image. Volumes can not mount onto other volumes</p>
 <li><em>Type:</em> <code>string</code></li>
 </ul>
 <hr />
-<h6 id="optionsoptional_17"><code>options</code><sup>Optional</sup> <a name="cdk8s-plus-22.Volume.parameter.options"></a><a class="headerlink" href="#optionsoptional_17" title="Permanent link">&para;</a></h6>
+<h6 id="optionsoptional_18"><code>options</code><sup>Optional</sup> <a name="cdk8s-plus-22.Volume.parameter.options"></a><a class="headerlink" href="#optionsoptional_18" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-22.EmptyDirVolumeOptions"><code>cdk8s-plus-22.EmptyDirVolumeOptions</code></a></li>
 </ul>
@@ -6242,7 +6347,7 @@ image. Volumes can not mount onto other volumes</p>
 </ul>
 <p>The secret to use to populate the volume.</p>
 <hr />
-<h6 id="optionsoptional_18"><code>options</code><sup>Optional</sup> <a name="cdk8s-plus-22.Volume.parameter.options"></a><a class="headerlink" href="#optionsoptional_18" title="Permanent link">&para;</a></h6>
+<h6 id="optionsoptional_19"><code>options</code><sup>Optional</sup> <a name="cdk8s-plus-22.Volume.parameter.options"></a><a class="headerlink" href="#optionsoptional_19" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s-plus-22.SecretVolumeOptions"><code>cdk8s-plus-22.SecretVolumeOptions</code></a></li>
 </ul>
