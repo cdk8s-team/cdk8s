@@ -2777,8 +2777,7 @@
 <p>Each key must consist of alphanumeric characters, &lsquo;-&lsquo;, &lsquo;_&rsquo; or &lsquo;.&rsquo;.
 BinaryData can contain byte sequences that are not in the UTF-8 range. The
 keys stored in BinaryData must not overlap with the ones in the Data field,
-this is enforced during validation process. Using this field will require
-1.10+ apiserver and kubelet.</p>
+this is enforced during validation process.</p>
 <p>You can also add binary data using <code>configMap.addBinaryData()</code>.</p>
 <hr />
 <h5 id="dataoptional"><code>data</code><sup>Optional</sup> <a name="org.cdk8s.plus22.ConfigMapProps.parameter.data"></a><a class="headerlink" href="#dataoptional" title="Permanent link">&para;</a></h5>
@@ -4478,8 +4477,7 @@ requires one.</p>
 <p>Each key must consist of alphanumeric characters, &lsquo;-&lsquo;, &lsquo;_&rsquo; or &lsquo;.&rsquo;.
 BinaryData can contain byte sequences that are not in the UTF-8 range. The
 keys stored in BinaryData must not overlap with the ones in the Data field,
-this is enforced during validation process. Using this field will require
-1.10+ apiserver and kubelet.</p>
+this is enforced during validation process.</p>
 <p>You can also add binary data using <code>configMap.addBinaryData()</code>.</p>
 <hr />
 <h5 id="dataoptional_1"><code>data</code><sup>Optional</sup> <a name="org.cdk8s.plus22.ConfigMapProps.property.data"></a><a class="headerlink" href="#dataoptional_1" title="Permanent link">&para;</a></h5>
@@ -5493,7 +5491,6 @@ field is alpha-level and is only honored by servers that enable the
 <p>When not set, MountPropagationNone is used.</p>
 <p>Mount propagation allows for sharing volumes mounted by a Container to
 other Containers in the same Pod, or even to other Pods on the same node.</p>
-<p>This field is beta in 1.10.</p>
 <hr />
 <h5 id="readonlyoptional"><code>readOnly</code><sup>Optional</sup> <a name="org.cdk8s.plus22.MountOptions.property.readOnly"></a><a class="headerlink" href="#readonlyoptional" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span> <span class="nf">getReadOnly</span><span class="p">();</span>
@@ -5524,10 +5521,8 @@ other Containers in the same Pod, or even to other Pods on the same node.</p>
 <p>Expanded path within the volume from which the container&rsquo;s volume should be mounted.</p>
 <p>Behaves similarly to SubPath but environment variable references
 $(VAR_NAME) are expanded using the container&rsquo;s environment. Defaults to &ldquo;&rdquo;
-(volume&rsquo;s root). SubPathExpr and SubPath are mutually exclusive. This field
-is beta in 1.15.</p>
-<p><code>subPathExpr</code> and <code>subPath</code> are mutually exclusive. This field is beta in
-1.15.</p>
+(volume&rsquo;s root).</p>
+<p><code>subPathExpr</code> and <code>subPath</code> are mutually exclusive.</p>
 <hr />
 <h3 id="pathmapping">PathMapping <a name="org.cdk8s.plus22.PathMapping"></a><a class="headerlink" href="#pathmapping" title="Permanent link">&para;</a></h3>
 <p>Maps a string key to a path within a volume.</p>
@@ -6502,7 +6497,6 @@ Account (for example, default).</p>
 <p>When not set, MountPropagationNone is used.</p>
 <p>Mount propagation allows for sharing volumes mounted by a Container to
 other Containers in the same Pod, or even to other Pods on the same node.</p>
-<p>This field is beta in 1.10.</p>
 <hr />
 <h5 id="readonlyoptional_1"><code>readOnly</code><sup>Optional</sup> <a name="org.cdk8s.plus22.VolumeMount.property.readOnly"></a><a class="headerlink" href="#readonlyoptional_1" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span> <span class="nf">getReadOnly</span><span class="p">();</span>
@@ -6533,10 +6527,8 @@ other Containers in the same Pod, or even to other Pods on the same node.</p>
 <p>Expanded path within the volume from which the container&rsquo;s volume should be mounted.</p>
 <p>Behaves similarly to SubPath but environment variable references
 $(VAR_NAME) are expanded using the container&rsquo;s environment. Defaults to &ldquo;&rdquo;
-(volume&rsquo;s root). SubPathExpr and SubPath are mutually exclusive. This field
-is beta in 1.15.</p>
-<p><code>subPathExpr</code> and <code>subPath</code> are mutually exclusive. This field is beta in
-1.15.</p>
+(volume&rsquo;s root).</p>
+<p><code>subPathExpr</code> and <code>subPath</code> are mutually exclusive.</p>
 <hr />
 <h5 id="pathrequired_5"><code>path</code><sup>Required</sup> <a name="org.cdk8s.plus22.VolumeMount.property.path"></a><a class="headerlink" href="#pathrequired_5" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getPath</span><span class="p">();</span>
