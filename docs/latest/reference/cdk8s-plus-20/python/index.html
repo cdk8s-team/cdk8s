@@ -1443,6 +1443,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#tcpsocketprobeoptions" class="md-nav__link">
+    TcpSocketProbeOptions 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#volumemount" class="md-nav__link">
     VolumeMount 
   </a>
@@ -2487,6 +2494,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#tcpsocketprobeoptions" class="md-nav__link">
+    TcpSocketProbeOptions 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#volumemount" class="md-nav__link">
     VolumeMount 
   </a>
@@ -2751,8 +2765,7 @@
 <p>Each key must consist of alphanumeric characters, &lsquo;-&lsquo;, &lsquo;_&rsquo; or &lsquo;.&rsquo;.
 BinaryData can contain byte sequences that are not in the UTF-8 range. The
 keys stored in BinaryData must not overlap with the ones in the Data field,
-this is enforced during validation process. Using this field will require
-1.10+ apiserver and kubelet.</p>
+this is enforced during validation process.</p>
 <p>You can also add binary data using <code>configMap.addBinaryData()</code>.</p>
 <hr />
 <h5 id="dataoptional"><code>data</code><sup>Optional</sup> <a name="cdk8s_plus_20.ConfigMapProps.parameter.data"></a><a class="headerlink" href="#dataoptional" title="Permanent link">&para;</a></h5>
@@ -5155,8 +5168,7 @@ requires one.</p>
 <p>Each key must consist of alphanumeric characters, &lsquo;-&lsquo;, &lsquo;_&rsquo; or &lsquo;.&rsquo;.
 BinaryData can contain byte sequences that are not in the UTF-8 range. The
 keys stored in BinaryData must not overlap with the ones in the Data field,
-this is enforced during validation process. Using this field will require
-1.10+ apiserver and kubelet.</p>
+this is enforced during validation process.</p>
 <p>You can also add binary data using <code>configMap.addBinaryData()</code>.</p>
 <hr />
 <h5 id="dataoptional_1"><code>data</code><sup>Optional</sup> <a name="cdk8s_plus_20.ConfigMapProps.property.data"></a><a class="headerlink" href="#dataoptional_1" title="Permanent link">&para;</a></h5>
@@ -6136,7 +6148,6 @@ field is alpha-level and is only honored by servers that enable the
 <p>When not set, MountPropagationNone is used.</p>
 <p>Mount propagation allows for sharing volumes mounted by a Container to
 other Containers in the same Pod, or even to other Pods on the same node.</p>
-<p>This field is beta in 1.10.</p>
 <hr />
 <h5 id="read_onlyoptional"><code>read_only</code><sup>Optional</sup> <a name="cdk8s_plus_20.MountOptions.property.read_only"></a><a class="headerlink" href="#read_onlyoptional" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="n">read_only</span><span class="p">:</span> <span class="nb">bool</span>
@@ -6167,10 +6178,8 @@ other Containers in the same Pod, or even to other Pods on the same node.</p>
 <p>Expanded path within the volume from which the container&rsquo;s volume should be mounted.</p>
 <p>Behaves similarly to SubPath but environment variable references
 $(VAR_NAME) are expanded using the container&rsquo;s environment. Defaults to &ldquo;&rdquo;
-(volume&rsquo;s root). SubPathExpr and SubPath are mutually exclusive. This field
-is beta in 1.15.</p>
-<p><code>subPathExpr</code> and <code>subPath</code> are mutually exclusive. This field is beta in
-1.15.</p>
+(volume&rsquo;s root).</p>
+<p><code>subPathExpr</code> and <code>subPath</code> are mutually exclusive.</p>
 <hr />
 <h3 id="pathmapping">PathMapping <a name="cdk8s_plus_20.PathMapping"></a><a class="headerlink" href="#pathmapping" title="Permanent link">&para;</a></h3>
 <p>Maps a string key to a path within a volume.</p>
@@ -7032,9 +7041,97 @@ Account (for example, default).</p>
 </ul>
 <p>Number of desired pods.</p>
 <hr />
+<h3 id="tcpsocketprobeoptions">TcpSocketProbeOptions <a name="cdk8s_plus_20.TcpSocketProbeOptions"></a><a class="headerlink" href="#tcpsocketprobeoptions" title="Permanent link">&para;</a></h3>
+<p>Options for <code>Probe.fromTcpSocket()</code>.</p>
+<h4 id="initializer_37">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_37" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_20</span>
+
+<span class="n">cdk8s_plus_20</span><span class="o">.</span><span class="n">TcpSocketProbeOptions</span><span class="p">(</span>
+  <span class="n">failure_threshold</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">initial_delay_seconds</span><span class="p">:</span> <span class="n">Duration</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">period_seconds</span><span class="p">:</span> <span class="n">Duration</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">success_threshold</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">timeout_seconds</span><span class="p">:</span> <span class="n">Duration</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">host</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">port</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="p">)</span>
+</code></pre></div>
+<h5 id="failure_thresholdoptional_3"><code>failure_threshold</code><sup>Optional</sup> <a name="cdk8s_plus_20.TcpSocketProbeOptions.property.failure_threshold"></a><a class="headerlink" href="#failure_thresholdoptional_3" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">failure_threshold</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>typing.Union[int, float]</code></li>
+<li><em>Default:</em> 3</li>
+</ul>
+<p>Minimum consecutive failures for the probe to be considered failed after having succeeded.</p>
+<p>Defaults to 3. Minimum value is 1.</p>
+<hr />
+<h5 id="initial_delay_secondsoptional_3"><code>initial_delay_seconds</code><sup>Optional</sup> <a name="cdk8s_plus_20.TcpSocketProbeOptions.property.initial_delay_seconds"></a><a class="headerlink" href="#initial_delay_secondsoptional_3" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">initial_delay_seconds</span><span class="p">:</span> <span class="n">Duration</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <a href="#cdk8s.Duration"><code>cdk8s.Duration</code></a></li>
+<li><em>Default:</em> immediate</li>
+</ul>
+<p>Number of seconds after the container has started before liveness probes are initiated.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes</p>
+</blockquote>
+<hr />
+<h5 id="period_secondsoptional_3"><code>period_seconds</code><sup>Optional</sup> <a name="cdk8s_plus_20.TcpSocketProbeOptions.property.period_seconds"></a><a class="headerlink" href="#period_secondsoptional_3" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">period_seconds</span><span class="p">:</span> <span class="n">Duration</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <a href="#cdk8s.Duration"><code>cdk8s.Duration</code></a></li>
+<li><em>Default:</em> Duration.seconds(10) Minimum value is 1.</li>
+</ul>
+<p>How often (in seconds) to perform the probe.</p>
+<p>Default to 10 seconds. Minimum value is 1.</p>
+<hr />
+<h5 id="success_thresholdoptional_3"><code>success_threshold</code><sup>Optional</sup> <a name="cdk8s_plus_20.TcpSocketProbeOptions.property.success_threshold"></a><a class="headerlink" href="#success_thresholdoptional_3" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">success_threshold</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>typing.Union[int, float]</code></li>
+<li><em>Default:</em> 1 Must be 1 for liveness and startup. Minimum value is 1.</li>
+</ul>
+<p>Minimum consecutive successes for the probe to be considered successful after having failed. Defaults to 1.</p>
+<p>Must be 1 for liveness and startup. Minimum value is 1.</p>
+<hr />
+<h5 id="timeout_secondsoptional_3"><code>timeout_seconds</code><sup>Optional</sup> <a name="cdk8s_plus_20.TcpSocketProbeOptions.property.timeout_seconds"></a><a class="headerlink" href="#timeout_secondsoptional_3" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">timeout_seconds</span><span class="p">:</span> <span class="n">Duration</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <a href="#cdk8s.Duration"><code>cdk8s.Duration</code></a></li>
+<li><em>Default:</em> Duration.seconds(1)</li>
+</ul>
+<p>Number of seconds after which the probe times out.</p>
+<p>Defaults to 1 second. Minimum value is 1.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes</p>
+</blockquote>
+<hr />
+<h5 id="hostoptional_2"><code>host</code><sup>Optional</sup> <a name="cdk8s_plus_20.TcpSocketProbeOptions.property.host"></a><a class="headerlink" href="#hostoptional_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">host</span><span class="p">:</span> <span class="nb">str</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>str</code></li>
+<li><em>Default:</em> defaults to the pod IP</li>
+</ul>
+<p>The host name to connect to on the container.</p>
+<hr />
+<h5 id="portoptional_13"><code>port</code><sup>Optional</sup> <a name="cdk8s_plus_20.TcpSocketProbeOptions.property.port"></a><a class="headerlink" href="#portoptional_13" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">port</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>typing.Union[int, float]</code></li>
+<li><em>Default:</em> defaults to <code>container.port</code>.</li>
+</ul>
+<p>The TCP port to connect to on the container.</p>
+<hr />
 <h3 id="volumemount">VolumeMount <a name="cdk8s_plus_20.VolumeMount"></a><a class="headerlink" href="#volumemount" title="Permanent link">&para;</a></h3>
 <p>Mount a volume from the pod to the container.</p>
-<h4 id="initializer_37">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_37" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_38">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_38" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_20</span>
 
 <span class="n">cdk8s_plus_20</span><span class="o">.</span><span class="n">VolumeMount</span><span class="p">(</span>
@@ -7057,7 +7154,6 @@ Account (for example, default).</p>
 <p>When not set, MountPropagationNone is used.</p>
 <p>Mount propagation allows for sharing volumes mounted by a Container to
 other Containers in the same Pod, or even to other Pods on the same node.</p>
-<p>This field is beta in 1.10.</p>
 <hr />
 <h5 id="read_onlyoptional_1"><code>read_only</code><sup>Optional</sup> <a name="cdk8s_plus_20.VolumeMount.property.read_only"></a><a class="headerlink" href="#read_onlyoptional_1" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="n">read_only</span><span class="p">:</span> <span class="nb">bool</span>
@@ -7088,10 +7184,8 @@ other Containers in the same Pod, or even to other Pods on the same node.</p>
 <p>Expanded path within the volume from which the container&rsquo;s volume should be mounted.</p>
 <p>Behaves similarly to SubPath but environment variable references
 $(VAR_NAME) are expanded using the container&rsquo;s environment. Defaults to &ldquo;&rdquo;
-(volume&rsquo;s root). SubPathExpr and SubPath are mutually exclusive. This field
-is beta in 1.15.</p>
-<p><code>subPathExpr</code> and <code>subPath</code> are mutually exclusive. This field is beta in
-1.15.</p>
+(volume&rsquo;s root).</p>
+<p><code>subPathExpr</code> and <code>subPath</code> are mutually exclusive.</p>
 <hr />
 <h5 id="pathrequired_5"><code>path</code><sup>Required</sup> <a name="cdk8s_plus_20.VolumeMount.property.path"></a><a class="headerlink" href="#pathrequired_5" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="n">path</span><span class="p">:</span> <span class="nb">str</span>
@@ -7196,7 +7290,7 @@ More info: https://kubernetes.io/docs/tasks/inject-data-application/define-comma
 <p>Name of the container specified as a DNS_LABEL.</p>
 <p>Each container in a pod must have a unique name (DNS_LABEL). Cannot be updated.</p>
 <hr />
-<h5 id="portoptional_13"><code>port</code><sup>Optional</sup> <a name="cdk8s_plus_20.ContainerProps.parameter.port"></a><a class="headerlink" href="#portoptional_13" title="Permanent link">&para;</a></h5>
+<h5 id="portoptional_14"><code>port</code><sup>Optional</sup> <a name="cdk8s_plus_20.ContainerProps.parameter.port"></a><a class="headerlink" href="#portoptional_14" title="Permanent link">&para;</a></h5>
 <ul>
 <li><em>Type:</em> <code>typing.Union[int, float]</code></li>
 <li><em>Default:</em> No port is exposed.</li>
@@ -7284,7 +7378,6 @@ More info: https://kubernetes.io/docs/tasks/inject-data-application/define-comma
 <p>When not set, MountPropagationNone is used.</p>
 <p>Mount propagation allows for sharing volumes mounted by a Container to
 other Containers in the same Pod, or even to other Pods on the same node.</p>
-<p>This field is beta in 1.10.</p>
 <hr />
 <h6 id="read_onlyoptional_2"><code>read_only</code><sup>Optional</sup> <a name="cdk8s_plus_20.MountOptions.parameter.read_only"></a><a class="headerlink" href="#read_onlyoptional_2" title="Permanent link">&para;</a></h6>
 <ul>
@@ -7309,10 +7402,8 @@ other Containers in the same Pod, or even to other Pods on the same node.</p>
 <p>Expanded path within the volume from which the container&rsquo;s volume should be mounted.</p>
 <p>Behaves similarly to SubPath but environment variable references
 $(VAR_NAME) are expanded using the container&rsquo;s environment. Defaults to &ldquo;&rdquo;
-(volume&rsquo;s root). SubPathExpr and SubPath are mutually exclusive. This field
-is beta in 1.15.</p>
-<p><code>subPathExpr</code> and <code>subPath</code> are mutually exclusive. This field is beta in
-1.15.</p>
+(volume&rsquo;s root).</p>
+<p><code>subPathExpr</code> and <code>subPath</code> are mutually exclusive.</p>
 <hr />
 <h4 id="properties_8">Properties <a name="Properties"></a><a class="headerlink" href="#properties_8" title="Permanent link">&para;</a></h4>
 <h5 id="envrequired"><code>env</code><sup>Required</sup> <a name="cdk8s_plus_20.Container.property.env"></a><a class="headerlink" href="#envrequired" title="Permanent link">&para;</a></h5>
@@ -7372,7 +7463,7 @@ is beta in 1.15.</p>
 </ul>
 <p>Entrypoint array (the command to execute when the container starts).</p>
 <hr />
-<h5 id="portoptional_14"><code>port</code><sup>Optional</sup> <a name="cdk8s_plus_20.Container.property.port"></a><a class="headerlink" href="#portoptional_14" title="Permanent link">&para;</a></h5>
+<h5 id="portoptional_15"><code>port</code><sup>Optional</sup> <a name="cdk8s_plus_20.Container.property.port"></a><a class="headerlink" href="#portoptional_15" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="n">port</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span>
 </code></pre></div>
 <ul>
@@ -7568,7 +7659,7 @@ is beta in 1.15.</p>
 </ul>
 <p>The service object.</p>
 <hr />
-<h6 id="portoptional_15"><code>port</code><sup>Optional</sup> <a name="cdk8s_plus_20.ServiceIngressV1BetaBackendOptions.parameter.port"></a><a class="headerlink" href="#portoptional_15" title="Permanent link">&para;</a></h6>
+<h6 id="portoptional_16"><code>port</code><sup>Optional</sup> <a name="cdk8s_plus_20.ServiceIngressV1BetaBackendOptions.parameter.port"></a><a class="headerlink" href="#portoptional_16" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <code>typing.Union[int, float]</code></li>
 <li><em>Default:</em> if the service exposes a single port, this port will be used.</li>
@@ -7724,7 +7815,7 @@ More info: https://kubernetes.io/docs/tasks/inject-data-application/define-comma
 <p>Name of the container specified as a DNS_LABEL.</p>
 <p>Each container in a pod must have a unique name (DNS_LABEL). Cannot be updated.</p>
 <hr />
-<h6 id="portoptional_16"><code>port</code><sup>Optional</sup> <a name="cdk8s_plus_20.ContainerProps.parameter.port"></a><a class="headerlink" href="#portoptional_16" title="Permanent link">&para;</a></h6>
+<h6 id="portoptional_17"><code>port</code><sup>Optional</sup> <a name="cdk8s_plus_20.ContainerProps.parameter.port"></a><a class="headerlink" href="#portoptional_17" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <code>typing.Union[int, float]</code></li>
 <li><em>Default:</em> No port is exposed.</li>
@@ -7911,7 +8002,7 @@ Account (for example, default).</p>
 </ul>
 <p>The command to execute.</p>
 <hr />
-<h6 id="failure_thresholdoptional_3"><code>failure_threshold</code><sup>Optional</sup> <a name="cdk8s_plus_20.CommandProbeOptions.parameter.failure_threshold"></a><a class="headerlink" href="#failure_thresholdoptional_3" title="Permanent link">&para;</a></h6>
+<h6 id="failure_thresholdoptional_4"><code>failure_threshold</code><sup>Optional</sup> <a name="cdk8s_plus_20.CommandProbeOptions.parameter.failure_threshold"></a><a class="headerlink" href="#failure_thresholdoptional_4" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <code>typing.Union[int, float]</code></li>
 <li><em>Default:</em> 3</li>
@@ -7919,7 +8010,7 @@ Account (for example, default).</p>
 <p>Minimum consecutive failures for the probe to be considered failed after having succeeded.</p>
 <p>Defaults to 3. Minimum value is 1.</p>
 <hr />
-<h6 id="initial_delay_secondsoptional_3"><code>initial_delay_seconds</code><sup>Optional</sup> <a name="cdk8s_plus_20.CommandProbeOptions.parameter.initial_delay_seconds"></a><a class="headerlink" href="#initial_delay_secondsoptional_3" title="Permanent link">&para;</a></h6>
+<h6 id="initial_delay_secondsoptional_4"><code>initial_delay_seconds</code><sup>Optional</sup> <a name="cdk8s_plus_20.CommandProbeOptions.parameter.initial_delay_seconds"></a><a class="headerlink" href="#initial_delay_secondsoptional_4" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s.Duration"><code>cdk8s.Duration</code></a></li>
 <li><em>Default:</em> immediate</li>
@@ -7929,7 +8020,7 @@ Account (for example, default).</p>
 <p>https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes</p>
 </blockquote>
 <hr />
-<h6 id="period_secondsoptional_3"><code>period_seconds</code><sup>Optional</sup> <a name="cdk8s_plus_20.CommandProbeOptions.parameter.period_seconds"></a><a class="headerlink" href="#period_secondsoptional_3" title="Permanent link">&para;</a></h6>
+<h6 id="period_secondsoptional_4"><code>period_seconds</code><sup>Optional</sup> <a name="cdk8s_plus_20.CommandProbeOptions.parameter.period_seconds"></a><a class="headerlink" href="#period_secondsoptional_4" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s.Duration"><code>cdk8s.Duration</code></a></li>
 <li><em>Default:</em> Duration.seconds(10) Minimum value is 1.</li>
@@ -7937,7 +8028,7 @@ Account (for example, default).</p>
 <p>How often (in seconds) to perform the probe.</p>
 <p>Default to 10 seconds. Minimum value is 1.</p>
 <hr />
-<h6 id="success_thresholdoptional_3"><code>success_threshold</code><sup>Optional</sup> <a name="cdk8s_plus_20.CommandProbeOptions.parameter.success_threshold"></a><a class="headerlink" href="#success_thresholdoptional_3" title="Permanent link">&para;</a></h6>
+<h6 id="success_thresholdoptional_4"><code>success_threshold</code><sup>Optional</sup> <a name="cdk8s_plus_20.CommandProbeOptions.parameter.success_threshold"></a><a class="headerlink" href="#success_thresholdoptional_4" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <code>typing.Union[int, float]</code></li>
 <li><em>Default:</em> 1 Must be 1 for liveness and startup. Minimum value is 1.</li>
@@ -7945,7 +8036,7 @@ Account (for example, default).</p>
 <p>Minimum consecutive successes for the probe to be considered successful after having failed. Defaults to 1.</p>
 <p>Must be 1 for liveness and startup. Minimum value is 1.</p>
 <hr />
-<h6 id="timeout_secondsoptional_3"><code>timeout_seconds</code><sup>Optional</sup> <a name="cdk8s_plus_20.CommandProbeOptions.parameter.timeout_seconds"></a><a class="headerlink" href="#timeout_secondsoptional_3" title="Permanent link">&para;</a></h6>
+<h6 id="timeout_secondsoptional_4"><code>timeout_seconds</code><sup>Optional</sup> <a name="cdk8s_plus_20.CommandProbeOptions.parameter.timeout_seconds"></a><a class="headerlink" href="#timeout_secondsoptional_4" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s.Duration"><code>cdk8s.Duration</code></a></li>
 <li><em>Default:</em> Duration.seconds(1)</li>
@@ -7975,7 +8066,7 @@ Account (for example, default).</p>
 </ul>
 <p>The URL path to hit.</p>
 <hr />
-<h6 id="failure_thresholdoptional_4"><code>failure_threshold</code><sup>Optional</sup> <a name="cdk8s_plus_20.HttpGetProbeOptions.parameter.failure_threshold"></a><a class="headerlink" href="#failure_thresholdoptional_4" title="Permanent link">&para;</a></h6>
+<h6 id="failure_thresholdoptional_5"><code>failure_threshold</code><sup>Optional</sup> <a name="cdk8s_plus_20.HttpGetProbeOptions.parameter.failure_threshold"></a><a class="headerlink" href="#failure_thresholdoptional_5" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <code>typing.Union[int, float]</code></li>
 <li><em>Default:</em> 3</li>
@@ -7983,7 +8074,7 @@ Account (for example, default).</p>
 <p>Minimum consecutive failures for the probe to be considered failed after having succeeded.</p>
 <p>Defaults to 3. Minimum value is 1.</p>
 <hr />
-<h6 id="initial_delay_secondsoptional_4"><code>initial_delay_seconds</code><sup>Optional</sup> <a name="cdk8s_plus_20.HttpGetProbeOptions.parameter.initial_delay_seconds"></a><a class="headerlink" href="#initial_delay_secondsoptional_4" title="Permanent link">&para;</a></h6>
+<h6 id="initial_delay_secondsoptional_5"><code>initial_delay_seconds</code><sup>Optional</sup> <a name="cdk8s_plus_20.HttpGetProbeOptions.parameter.initial_delay_seconds"></a><a class="headerlink" href="#initial_delay_secondsoptional_5" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s.Duration"><code>cdk8s.Duration</code></a></li>
 <li><em>Default:</em> immediate</li>
@@ -7993,7 +8084,7 @@ Account (for example, default).</p>
 <p>https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes</p>
 </blockquote>
 <hr />
-<h6 id="period_secondsoptional_4"><code>period_seconds</code><sup>Optional</sup> <a name="cdk8s_plus_20.HttpGetProbeOptions.parameter.period_seconds"></a><a class="headerlink" href="#period_secondsoptional_4" title="Permanent link">&para;</a></h6>
+<h6 id="period_secondsoptional_5"><code>period_seconds</code><sup>Optional</sup> <a name="cdk8s_plus_20.HttpGetProbeOptions.parameter.period_seconds"></a><a class="headerlink" href="#period_secondsoptional_5" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s.Duration"><code>cdk8s.Duration</code></a></li>
 <li><em>Default:</em> Duration.seconds(10) Minimum value is 1.</li>
@@ -8001,7 +8092,7 @@ Account (for example, default).</p>
 <p>How often (in seconds) to perform the probe.</p>
 <p>Default to 10 seconds. Minimum value is 1.</p>
 <hr />
-<h6 id="success_thresholdoptional_4"><code>success_threshold</code><sup>Optional</sup> <a name="cdk8s_plus_20.HttpGetProbeOptions.parameter.success_threshold"></a><a class="headerlink" href="#success_thresholdoptional_4" title="Permanent link">&para;</a></h6>
+<h6 id="success_thresholdoptional_5"><code>success_threshold</code><sup>Optional</sup> <a name="cdk8s_plus_20.HttpGetProbeOptions.parameter.success_threshold"></a><a class="headerlink" href="#success_thresholdoptional_5" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <code>typing.Union[int, float]</code></li>
 <li><em>Default:</em> 1 Must be 1 for liveness and startup. Minimum value is 1.</li>
@@ -8009,7 +8100,7 @@ Account (for example, default).</p>
 <p>Minimum consecutive successes for the probe to be considered successful after having failed. Defaults to 1.</p>
 <p>Must be 1 for liveness and startup. Minimum value is 1.</p>
 <hr />
-<h6 id="timeout_secondsoptional_4"><code>timeout_seconds</code><sup>Optional</sup> <a name="cdk8s_plus_20.HttpGetProbeOptions.parameter.timeout_seconds"></a><a class="headerlink" href="#timeout_secondsoptional_4" title="Permanent link">&para;</a></h6>
+<h6 id="timeout_secondsoptional_5"><code>timeout_seconds</code><sup>Optional</sup> <a name="cdk8s_plus_20.HttpGetProbeOptions.parameter.timeout_seconds"></a><a class="headerlink" href="#timeout_secondsoptional_5" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s.Duration"><code>cdk8s.Duration</code></a></li>
 <li><em>Default:</em> Duration.seconds(1)</li>
@@ -8020,12 +8111,84 @@ Account (for example, default).</p>
 <p>https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes</p>
 </blockquote>
 <hr />
-<h6 id="portoptional_17"><code>port</code><sup>Optional</sup> <a name="cdk8s_plus_20.HttpGetProbeOptions.parameter.port"></a><a class="headerlink" href="#portoptional_17" title="Permanent link">&para;</a></h6>
+<h6 id="portoptional_18"><code>port</code><sup>Optional</sup> <a name="cdk8s_plus_20.HttpGetProbeOptions.parameter.port"></a><a class="headerlink" href="#portoptional_18" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <code>typing.Union[int, float]</code></li>
 <li><em>Default:</em> defaults to <code>container.port</code>.</li>
 </ul>
 <p>The TCP port to use when sending the GET request.</p>
+<hr />
+<h5 id="from_tcp_socket"><code>from_tcp_socket</code> <a name="cdk8s_plus_20.Probe.from_tcp_socket"></a><a class="headerlink" href="#from_tcp_socket" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_20</span>
+
+<span class="n">cdk8s_plus_20</span><span class="o">.</span><span class="n">Probe</span><span class="o">.</span><span class="n">from_tcp_socket</span><span class="p">(</span>
+  <span class="n">failure_threshold</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">initial_delay_seconds</span><span class="p">:</span> <span class="n">Duration</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">period_seconds</span><span class="p">:</span> <span class="n">Duration</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">success_threshold</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">timeout_seconds</span><span class="p">:</span> <span class="n">Duration</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">host</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">port</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="p">)</span>
+</code></pre></div>
+<h6 id="failure_thresholdoptional_6"><code>failure_threshold</code><sup>Optional</sup> <a name="cdk8s_plus_20.TcpSocketProbeOptions.parameter.failure_threshold"></a><a class="headerlink" href="#failure_thresholdoptional_6" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <code>typing.Union[int, float]</code></li>
+<li><em>Default:</em> 3</li>
+</ul>
+<p>Minimum consecutive failures for the probe to be considered failed after having succeeded.</p>
+<p>Defaults to 3. Minimum value is 1.</p>
+<hr />
+<h6 id="initial_delay_secondsoptional_6"><code>initial_delay_seconds</code><sup>Optional</sup> <a name="cdk8s_plus_20.TcpSocketProbeOptions.parameter.initial_delay_seconds"></a><a class="headerlink" href="#initial_delay_secondsoptional_6" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <a href="#cdk8s.Duration"><code>cdk8s.Duration</code></a></li>
+<li><em>Default:</em> immediate</li>
+</ul>
+<p>Number of seconds after the container has started before liveness probes are initiated.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes</p>
+</blockquote>
+<hr />
+<h6 id="period_secondsoptional_6"><code>period_seconds</code><sup>Optional</sup> <a name="cdk8s_plus_20.TcpSocketProbeOptions.parameter.period_seconds"></a><a class="headerlink" href="#period_secondsoptional_6" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <a href="#cdk8s.Duration"><code>cdk8s.Duration</code></a></li>
+<li><em>Default:</em> Duration.seconds(10) Minimum value is 1.</li>
+</ul>
+<p>How often (in seconds) to perform the probe.</p>
+<p>Default to 10 seconds. Minimum value is 1.</p>
+<hr />
+<h6 id="success_thresholdoptional_6"><code>success_threshold</code><sup>Optional</sup> <a name="cdk8s_plus_20.TcpSocketProbeOptions.parameter.success_threshold"></a><a class="headerlink" href="#success_thresholdoptional_6" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <code>typing.Union[int, float]</code></li>
+<li><em>Default:</em> 1 Must be 1 for liveness and startup. Minimum value is 1.</li>
+</ul>
+<p>Minimum consecutive successes for the probe to be considered successful after having failed. Defaults to 1.</p>
+<p>Must be 1 for liveness and startup. Minimum value is 1.</p>
+<hr />
+<h6 id="timeout_secondsoptional_6"><code>timeout_seconds</code><sup>Optional</sup> <a name="cdk8s_plus_20.TcpSocketProbeOptions.parameter.timeout_seconds"></a><a class="headerlink" href="#timeout_secondsoptional_6" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <a href="#cdk8s.Duration"><code>cdk8s.Duration</code></a></li>
+<li><em>Default:</em> Duration.seconds(1)</li>
+</ul>
+<p>Number of seconds after which the probe times out.</p>
+<p>Defaults to 1 second. Minimum value is 1.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes</p>
+</blockquote>
+<hr />
+<h6 id="hostoptional_3"><code>host</code><sup>Optional</sup> <a name="cdk8s_plus_20.TcpSocketProbeOptions.parameter.host"></a><a class="headerlink" href="#hostoptional_3" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <code>str</code></li>
+<li><em>Default:</em> defaults to the pod IP</li>
+</ul>
+<p>The host name to connect to on the container.</p>
+<hr />
+<h6 id="portoptional_19"><code>port</code><sup>Optional</sup> <a name="cdk8s_plus_20.TcpSocketProbeOptions.parameter.port"></a><a class="headerlink" href="#portoptional_19" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <code>typing.Union[int, float]</code></li>
+<li><em>Default:</em> defaults to <code>container.port</code>.</li>
+</ul>
+<p>The TCP port to connect to on the container.</p>
 <hr />
 <h3 id="volume">Volume <a name="cdk8s_plus_20.Volume"></a><a class="headerlink" href="#volume" title="Permanent link">&para;</a></h3>
 <p>Volume represents a named volume in a pod that may be accessed by any container in the pod.</p>
@@ -8336,7 +8499,7 @@ More info: https://kubernetes.io/docs/tasks/inject-data-application/define-comma
 <p>Name of the container specified as a DNS_LABEL.</p>
 <p>Each container in a pod must have a unique name (DNS_LABEL). Cannot be updated.</p>
 <hr />
-<h6 id="portoptional_18"><code>port</code><sup>Optional</sup> <a name="cdk8s_plus_20.ContainerProps.parameter.port"></a><a class="headerlink" href="#portoptional_18" title="Permanent link">&para;</a></h6>
+<h6 id="portoptional_20"><code>port</code><sup>Optional</sup> <a name="cdk8s_plus_20.ContainerProps.parameter.port"></a><a class="headerlink" href="#portoptional_20" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <code>typing.Union[int, float]</code></li>
 <li><em>Default:</em> No port is exposed.</li>
