@@ -1,4 +1,5 @@
 # Maintainers
-* Elad Ben-Israel [@eladb](https://github.com/eladb)
+
 * Eli Polonsky [@iliapolo](https://github.com/iliapolo)
+* Chris Rybicki [@Chriscbr](https://github.com/Chriscbr)
 * Nathan Taber [@tabern](https://github.com/tabern)
