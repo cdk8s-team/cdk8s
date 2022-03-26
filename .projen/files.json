@@ -5,7 +5,6 @@
     ".github/workflows/build.yml",
     ".github/workflows/integ.yml",
     ".github/workflows/pull-request-lint.yml",
-    ".github/workflows/stale.yml",
     ".github/workflows/upgrade.yml",
     ".github/workflows/website.yml",
     ".gitignore",

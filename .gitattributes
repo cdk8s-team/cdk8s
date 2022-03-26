@@ -6,7 +6,6 @@
 /.github/workflows/build.yml linguist-generated
 /.github/workflows/integ.yml linguist-generated
 /.github/workflows/pull-request-lint.yml linguist-generated
-/.github/workflows/stale.yml linguist-generated
 /.github/workflows/upgrade.yml linguist-generated
 /.github/workflows/website.yml linguist-generated
 /.gitignore linguist-generated
