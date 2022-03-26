@@ -62,6 +62,9 @@ project.tasks.removeTask('test:watch');
 project.tasks.removeTask('test:update');
 project.tasks.removeTask('test:compile');
 
+// no package task is needed
+project.packageTask.reset();
+
 // integ tests
 const integTask = project.addTask('integ', {
   exec: 'bash test/test-all.sh',

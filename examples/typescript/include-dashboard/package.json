@@ -14,6 +14,7 @@
     "build": "tsc",
     "watch": "tsc -w",
     "synth": "node ./index.js",
-    "test": "jest"
+    "test": "jest",
+    "test:update": "jest -u"
   }
 }

@@ -11,6 +11,7 @@
     "compile": "tsc",
     "watch": "tsc -w",
     "test": "jest",
+    "test:update": "jest -u",
     "index-mock-data": "curl -H \"Content-Type: application/x-ndjson\" -XPOST -u \"elastic:$(kubectl get secret elasticsearch-query-elasticsearch-e70e9b6b-es-elastic-user -o go-template='{{.data.elastic | base64decode}}')\" \"http://127.0.0.1:9200/cdk/library/_bulk\" --data-binary @sample-data.txt",
     "build": "npm run compile && npm run test && npm run synth",
     "upgrade": "npm i cdk8s@latest cdk8s-cli@latest",
