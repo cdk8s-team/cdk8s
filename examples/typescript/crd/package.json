@@ -15,6 +15,7 @@
     "build": "yarn run import && tsc",
     "watch": "tsc -w",
     "synth": "cdk8s synth",
-    "test": "jest"
+    "test": "jest",
+    "test:update": "jest -u"
   }
 }
