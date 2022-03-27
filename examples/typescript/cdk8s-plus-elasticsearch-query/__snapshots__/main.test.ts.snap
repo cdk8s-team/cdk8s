@@ -96,6 +96,11 @@ Array [
                   "containerPort": 8000,
                 },
               ],
+              "securityContext": Object {
+                "privileged": false,
+                "readOnlyRootFilesystem": false,
+                "runAsNonRoot": false,
+              },
               "volumeMounts": Array [
                 Object {
                   "mountPath": "/root",
@@ -105,6 +110,12 @@ Array [
               "workingDir": "/root",
             },
           ],
+          "initContainers": Array [],
+          "securityContext": Object {
+            "fsGroupChangePolicy": "Always",
+            "runAsNonRoot": false,
+            "sysctls": Array [],
+          },
           "volumes": Array [
             Object {
               "configMap": Object {

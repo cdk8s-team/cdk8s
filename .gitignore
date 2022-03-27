@@ -5,7 +5,6 @@
 !/.projen/files.json
 !/.github/workflows/pull-request-lint.yml
 !/.github/workflows/auto-approve.yml
-!/.github/workflows/stale.yml
 !/package.json
 !/LICENSE
 !/.npmignore
@@ -38,6 +37,7 @@ junit.xml
 /coverage/
 !/.github/workflows/build.yml
 !/.mergify.yml
+!/.github/workflows/upgrade.yml
 .vscode/
 *.js
 *.d.ts
@@ -59,4 +59,3 @@ dist/
 /docs/reference/cdk8s-plus-22/typescript.md
 /docs/reference/cdk8s-plus-22/python.md
 !/.github/workflows/integ.yml
-!/.github/workflows/upgrade.yml
