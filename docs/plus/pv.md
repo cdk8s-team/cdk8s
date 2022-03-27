@@ -62,3 +62,15 @@ container.mount('/data', kplus.Volume.fromPersistentVolume(vol));
 ```
 
 ## Bind
+
+Binding is a part of the reservation process, but it only creates a one directional link.
+You can use it to bind a PV to an existing PVC. Note however that if the PVC is not bound to the PV,
+there's no guarantee this volume will indeed be given that specific claim.
+
+```ts
+const claim = kplus.PersistentVolumeClaim.fromClaimName('claim');
+
+// will modify the vol resource to refer to the claim.
+// but no the other way around.
+vol.bind(claim);
+```

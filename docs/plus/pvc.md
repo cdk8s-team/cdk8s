@@ -59,3 +59,19 @@ const claim = new kplus.PersistentVolumeClaim(chart, 'Claim', {
 ```
 
 ## Bind
+
+Binding is a part of the reservation process, but it only creates a one directional link.
+You can use it to bind a PVC to an existing PV. Note however that if the PV is not bound to the PVC,
+there's no guarantee this claim will indeed be given to that specific volume.
+
+```ts
+const claim = new kplus.PersistentVolumeClaim(chart, 'Claim', {
+  storage: cdk8s.Size.gibibytes(50),
+});
+
+const vol = kplus.PersistentVolume.fromPersistentVolumeName('vol');
+
+// will modify the claim resource to refer to the volume.
+// but no the other way around.
+claim.bind(vol);
+```
