@@ -5,6 +5,10 @@ A `PersistentVolume` (PV) is a piece of storage in the cluster that has been pro
 !!! tip ""
     [API Reference](../reference/cdk8s-plus-22/typescript.md#persistent-volume)
 
+PV's are used by pods via the pod's `volumes` spec, just like regular [volumes](./volume.md).
+They are not intended to be interchangable with volumes, you can think of a `PersistentVolume`
+as a specific type of volume, that is detached from a pod's lifecycle, and exist even if the pod is shutdown.
+
 The `PersistentVolume` construct represents a pre-existing volume in the cluster.
 
 ## Types
@@ -55,10 +59,12 @@ You can use the claim to mount a volume onto a container like usual:
 container.mount('/data', kplus.Volume.fromPersistentVolumeClaim(claim));
 ```
 
-You can also directly mount a persistent volume, which will implicitly reserve it:
+You can also directly mount a persistent volume, which will implicitly reserve it
+and create a volume from the created claim:
 
 ```ts
-container.mount('/data', kplus.Volume.fromPersistentVolume(vol));
+const vol = new kplus.AwsElasticBlockStorePersistentVolume(chart, 'Volume', { volumeId: 'vol1234' });
+container.mount('/data', vol);
 ```
 
 ## Bind
