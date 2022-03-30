@@ -13,7 +13,7 @@
     
     
       
-        <title>Elasticsearch (cdk8s+) - cdk8s Documentation</title>
+        <title>PersistentVolumeClaim - cdk8s Documentation</title>
       
     
     
@@ -65,7 +65,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#elasticsearch-cdk8s" class="md-skip">
+        <a href="#persistentvolumeclaim" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Elasticsearch (cdk8s+)
+              PersistentVolumeClaim
             
           </span>
         </div>
@@ -498,12 +498,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
       
       
       
@@ -526,7 +528,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plus/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         Overview
       </a>
     </li>
@@ -540,7 +542,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plus/config-map/" class="md-nav__link">
+      <a href="../config-map/" class="md-nav__link">
         ConfigMap
       </a>
     </li>
@@ -554,7 +556,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plus/container/" class="md-nav__link">
+      <a href="../container/" class="md-nav__link">
         Container
       </a>
     </li>
@@ -568,7 +570,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plus/deployment/" class="md-nav__link">
+      <a href="../deployment/" class="md-nav__link">
         Deployment
       </a>
     </li>
@@ -582,7 +584,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plus/ingress/" class="md-nav__link">
+      <a href="../ingress/" class="md-nav__link">
         Ingress
       </a>
     </li>
@@ -596,7 +598,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plus/job/" class="md-nav__link">
+      <a href="../job/" class="md-nav__link">
         Job
       </a>
     </li>
@@ -610,7 +612,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plus/pod/" class="md-nav__link">
+      <a href="../pod/" class="md-nav__link">
         Pod
       </a>
     </li>
@@ -624,7 +626,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plus/pv/" class="md-nav__link">
+      <a href="../pv/" class="md-nav__link">
         PersistentVolume
       </a>
     </li>
@@ -636,11 +638,59 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../plus/pvc/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          PersistentVolumeClaim
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         PersistentVolumeClaim
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#storage-class" class="md-nav__link">
+    Storage Class
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bind" class="md-nav__link">
+    Bind
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -652,7 +702,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plus/secret/" class="md-nav__link">
+      <a href="../secret/" class="md-nav__link">
         Secret
       </a>
     </li>
@@ -666,7 +716,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plus/service-account/" class="md-nav__link">
+      <a href="../service-account/" class="md-nav__link">
         ServiceAccount
       </a>
     </li>
@@ -680,7 +730,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plus/service/" class="md-nav__link">
+      <a href="../service/" class="md-nav__link">
         Service
       </a>
     </li>
@@ -694,7 +744,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plus/volume/" class="md-nav__link">
+      <a href="../volume/" class="md-nav__link">
         Volume
       </a>
     </li>
@@ -1207,14 +1257,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
       
       
       
@@ -1237,7 +1285,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../examples/" class="md-nav__link">
         Overview
       </a>
     </li>
@@ -1251,7 +1299,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../hello/" class="md-nav__link">
+      <a href="../../examples/hello/" class="md-nav__link">
         Hello, Kubernetes!
       </a>
     </li>
@@ -1265,7 +1313,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../web-service/" class="md-nav__link">
+      <a href="../../examples/web-service/" class="md-nav__link">
         WebService Abstraction
       </a>
     </li>
@@ -1279,7 +1327,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../crd/" class="md-nav__link">
+      <a href="../../examples/crd/" class="md-nav__link">
         CRDs
       </a>
     </li>
@@ -1291,21 +1339,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../examples/plus-elasticsearch/" class="md-nav__link">
         Elasticsearch (cdk8s+)
       </a>
-      
     </li>
   
 
@@ -1317,7 +1355,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../plus-ingress/" class="md-nav__link">
+      <a href="../../examples/plus-ingress/" class="md-nav__link">
         Ingress (cdk8s+)
       </a>
     </li>
@@ -1331,7 +1369,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../podinfo/" class="md-nav__link">
+      <a href="../../examples/podinfo/" class="md-nav__link">
         Podinfo
       </a>
     </li>
@@ -1537,6 +1575,28 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#storage-class" class="md-nav__link">
+    Storage Class
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bind" class="md-nav__link">
+    Bind
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1547,22 +1607,74 @@
             <article class="md-content__inner md-typeset">
               
                 
-<a href="https://github.com/cdk8s-team/cdk8s/blob/master/docs/examples/plus-elasticsearch.md" title="Edit this page" class="md-content__button md-icon">
+<a href="https://github.com/cdk8s-team/cdk8s/blob/master/docs/plus/pvc.md" title="Edit this page" class="md-content__button md-icon">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
 </a>
 
 
 
-<h1 id="elasticsearch-cdk8s">Elasticsearch (cdk8s+)<a class="headerlink" href="#elasticsearch-cdk8s" title="Permanent link">&para;</a></h1>
-<p>Creating a query service on top of Elasticsearch with cdk8s+</p>
-<ul>
-<li><a href="https://github.com/cdk8s-team/cdk8s/tree/master/examples/typescript/cdk8s-plus-elasticsearch-query">TypeScript</a></li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>We try to maintain the same set of examples in all supported languages.
-<strong><a href="../../project/CONTRIBUTING/">Help us!</a></strong></p>
+<h1 id="persistentvolumeclaim">PersistentVolumeClaim<a class="headerlink" href="#persistentvolumeclaim" title="Permanent link">&para;</a></h1>
+<p>A <code>PersistentVolumeClaim</code> (PVC) is a request for storage by a pod.</p>
+<div class="admonition tip">
+<p><a href="../../reference/cdk8s-plus-22/typescript/#persistent-volume-claim">API Reference</a></p>
 </div>
+<p>A <code>PersistentVolumeClaim</code> contains the requirements of the request, and the Kubernetes control plane is responsible providing a physical volume that satisfies the claim&rsquo;s requirements.</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">kplus</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-22&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">cdk8s</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">pod</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">kplus</span><span class="p">.</span><span class="nx">Pod</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span> <span class="s1">&#39;Pod&#39;</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">container</span> <span class="o">=</span> <span class="nx">pod</span><span class="p">.</span><span class="nx">addContainer</span><span class="p">({</span> <span class="nx">image</span><span class="o">:</span> <span class="s1">&#39;node&#39;</span> <span class="p">});</span>
+
+<span class="c1">// create the storage request</span>
+<span class="kd">const</span> <span class="nx">claim</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">kplus</span><span class="p">.</span><span class="nx">PersistentVolumeClaim</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span> <span class="s1">&#39;Claim&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">storage</span>: <span class="kt">cdk8s.Size.gibibytes</span><span class="p">(</span><span class="mf">50</span><span class="p">),</span>
+<span class="p">});</span>
+
+<span class="c1">// mount a volume based on the request to the container</span>
+<span class="c1">// this will also add the volume itself to the pod spec.</span>
+<span class="nx">container</span><span class="p">.</span><span class="nx">mount</span><span class="p">(</span><span class="s1">&#39;/data&#39;</span><span class="p">,</span> <span class="nx">kplus</span><span class="p">.</span><span class="nx">Volume</span><span class="p">.</span><span class="nx">fromPersistentVolumeClaim</span><span class="p">(</span><span class="nx">claim</span><span class="p">));</span>
+</code></pre></div>
+<h2 id="storage-class">Storage Class<a class="headerlink" href="#storage-class" title="Permanent link">&para;</a></h2>
+<p>By default, the <code>storageClassName</code> property of a claim is not set.
+This means that the backing volume can be provided by one of two methods:</p>
+<ol>
+<li>Dynamically provision a volume with the default storage class.</li>
+<li>If a default storage class is not configured in the cluster, the backing
+volume must pre-exist and not be assigned to any storage class.</li>
+</ol>
+<blockquote>
+<p>See <a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes/#provisioning">Provisioning</a> for more details.</p>
+</blockquote>
+<p>You can also provide an explicit storage class name,</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">claim</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">kplus</span><span class="p">.</span><span class="nx">PersistentVolumeClaim</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span> <span class="s1">&#39;Claim&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">storage</span>: <span class="kt">cdk8s.Size.gibibytes</span><span class="p">(</span><span class="mf">50</span><span class="p">),</span>
+  <span class="nx">storageClassName</span><span class="o">:</span> <span class="s1">&#39;large-ebs&#39;</span><span class="p">,</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>In this case, Kubernetes control plane will either locate an existing volume with the <code>larg-ebs</code> storage class, or dynamically provision a new using the appropriate provisioner.</p>
+<p>You can also pass in a special <code>""</code> value, this means the volume must not be assigned to any storage class.
+Since all dynamically provisioend volumes belong to a storage class, setting this value effectively disables
+dynamic provisioning for this claim.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">claim</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">kplus</span><span class="p">.</span><span class="nx">PersistentVolumeClaim</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span> <span class="s1">&#39;Claim&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">storage</span>: <span class="kt">cdk8s.Size.gibibytes</span><span class="p">(</span><span class="mf">50</span><span class="p">),</span>
+  <span class="c1">// disable dynamic provisioning</span>
+  <span class="nx">storageClassName</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="p">});</span>
+</code></pre></div>
+<h2 id="bind">Bind<a class="headerlink" href="#bind" title="Permanent link">&para;</a></h2>
+<p>Binding is a part of the reservation process, but it only creates a one directional link.
+You can use it to bind a PVC to an existing PV. Note however that if the PV is not bound to the PVC,
+there&rsquo;s no guarantee this claim will indeed be given to that specific volume.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">claim</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">kplus</span><span class="p">.</span><span class="nx">PersistentVolumeClaim</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span> <span class="s1">&#39;Claim&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">storage</span>: <span class="kt">cdk8s.Size.gibibytes</span><span class="p">(</span><span class="mf">50</span><span class="p">),</span>
+<span class="p">});</span>
+
+<span class="kd">const</span> <span class="nx">vol</span> <span class="o">=</span> <span class="nx">kplus</span><span class="p">.</span><span class="nx">PersistentVolume</span><span class="p">.</span><span class="nx">fromPersistentVolumeName</span><span class="p">(</span><span class="s1">&#39;vol&#39;</span><span class="p">);</span>
+
+<span class="c1">// will modify the claim resource to refer to the volume.</span>
+<span class="c1">// but no the other way around.</span>
+<span class="nx">claim</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">vol</span><span class="p">);</span>
+</code></pre></div>
 
               
             </article>
@@ -1576,7 +1688,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../crd/" class="md-footer__link md-footer__link--prev" aria-label="Previous: CRDs" rel="prev">
+        <a href="../pv/" class="md-footer__link md-footer__link--prev" aria-label="Previous: PersistentVolume" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1585,20 +1697,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              CRDs
+              PersistentVolume
             </div>
           </div>
         </a>
       
       
         
-        <a href="../plus-ingress/" class="md-footer__link md-footer__link--next" aria-label="Next: Ingress (cdk8s+)" rel="next">
+        <a href="../secret/" class="md-footer__link md-footer__link--next" aria-label="Next: Secret" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Ingress (cdk8s+)
+              Secret
             </div>
           </div>
           <div class="md-footer__button md-icon">
