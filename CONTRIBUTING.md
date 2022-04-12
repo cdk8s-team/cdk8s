@@ -302,6 +302,8 @@ To create an RFC follow this process:
 
 ## Community Meeting
 
+> Note: Community meetings are currently on hold. We will be back soon. Keep an eye out for announcements on the #cdk8s channel in [cdk.dev](https://cdk.dev/) workspace.
+
 Join us for the cdk8s community meeting which takes place the [2nd Monday of the
 month at 9:00am Pacific
 Time](https://www.thetimezoneconverter.com/?t=9:00&tz=PT%20%28Pacific%20Time%29).
