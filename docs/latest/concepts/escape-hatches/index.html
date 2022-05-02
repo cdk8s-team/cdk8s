@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.9">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.13">
     
     
       
@@ -17,10 +17,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.120efc48.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e411adfe.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.9647289d.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cc9b2e1e.min.css">
         
           
           
@@ -1632,9 +1632,9 @@ synthesized output when the abstraction they use does not &ldquo;hold water&rdqu
 synthesized into a Kubernetes manifest offers an API for patching the
 synthesized output at the wire level using JSON Patch
 (<a href="http://tools.ietf.org/html/rfc6902">RFC-6902</a>):</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">JsonPatch</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span>
-<span class="nx">apiObject</span><span class="p">.</span><span class="nx">addJsonPatch</span><span class="p">(</span><span class="nx">JsonPatch</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s1">&#39;/foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">));</span>
-<span class="nx">apiObject</span><span class="p">.</span><span class="nx">addJsonPatch</span><span class="p">(</span><span class="nx">JsonPatch</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;/foo/bar/0&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">bar</span>: <span class="kt">123</span> <span class="p">}));</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">JsonPatch</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="nx">apiObject</span><span class="p">.</span><span class="nx">addJsonPatch</span><span class="p">(</span><span class="nx">JsonPatch</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s1">&#39;/foo&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;bar&#39;</span><span class="p">));</span><span class="w"></span>
+<span class="nx">apiObject</span><span class="p">.</span><span class="nx">addJsonPatch</span><span class="p">(</span><span class="nx">JsonPatch</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;/foo/bar/0&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">bar</span><span class="o">:</span><span class="w"> </span><span class="kt">123</span><span class="w"> </span><span class="p">}));</span><span class="w"></span>
 </code></pre></div>
 <p>During synthesis, patches are applied in-order after the API object synthesized
 itself.</p>
@@ -1650,12 +1650,12 @@ the cdk8s+ <code>Pod</code> API, so you&rsquo;ll want to patch the underlying <c
 this value.</p>
 <p>To do that, you will need to &ldquo;peak&rdquo; into the construct tree and find the underlying
 API object, so you can apply the patch to it:</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Pod</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-22&#39;</span><span class="p">;</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">ApiObject</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Pod</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-22&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ApiObject</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span><span class="w"></span>
 
-<span class="kd">const</span> <span class="nx">pod</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Pod</span><span class="p">(...);</span>
-<span class="kd">const</span> <span class="nx">kubePod</span> <span class="o">=</span> <span class="nx">ApiObject</span><span class="p">.</span><span class="k">of</span><span class="p">(</span><span class="nx">pod</span><span class="p">);</span>
-<span class="nx">kubePod</span><span class="p">.</span><span class="nx">addJsonPatch</span><span class="p">(...);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">pod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Pod</span><span class="p">(...);</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">kubePod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ApiObject</span><span class="p">.</span><span class="k">of</span><span class="p">(</span><span class="nx">pod</span><span class="p">);</span><span class="w"></span>
+<span class="nx">kubePod</span><span class="p">.</span><span class="nx">addJsonPatch</span><span class="p">(...);</span><span class="w"></span>
 </code></pre></div>
 <p>The <code>ApiObject.of()</code> method uses capabilities of the <a href="../constructs/">constructs programming
 model</a> to find the &ldquo;default child&rdquo; of a construct
@@ -1769,7 +1769,7 @@ retrieve any child by its ID.</p>
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "header.autohide"], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.6e54b5cd.min.js"></script>
+      <script src="../../assets/javascripts/bundle.ed9748b7.min.js"></script>
       
     
   </body>

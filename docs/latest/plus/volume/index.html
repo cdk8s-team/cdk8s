@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.9">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.13">
     
     
       
@@ -17,10 +17,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.120efc48.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e411adfe.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.9647289d.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cc9b2e1e.min.css">
         
           
           
@@ -1621,26 +1621,26 @@
 <h2 id="create-from-a-configmap">Create from a ConfigMap<a class="headerlink" href="#create-from-a-configmap" title="Permanent link">&para;</a></h2>
 <p>A very useful operation is to create a volume from a <code>ConfigMap</code>. Kubernetes will translate every key in the config map to a file,
 who&rsquo;s content is the value of the key.</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">kplus</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-22&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-22&#39;</span><span class="p">;</span><span class="w"></span>
 
-<span class="kd">const</span> <span class="nx">configMap</span> <span class="o">=</span> <span class="nx">kplus</span><span class="p">.</span><span class="nx">ConfigMap</span><span class="p">.</span><span class="nx">fromConfigMapName</span><span class="p">(</span><span class="s1">&#39;redis-config&#39;</span><span class="p">);</span>
-<span class="kd">const</span> <span class="nx">configVolume</span> <span class="o">=</span> <span class="nx">kplus</span><span class="p">.</span><span class="nx">Volume</span><span class="p">.</span><span class="nx">fromConfigMap</span><span class="p">(</span><span class="nx">configMap</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">configMap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">ConfigMap</span><span class="p">.</span><span class="nx">fromConfigMapName</span><span class="p">(</span><span class="s1">&#39;redis-config&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">configVolume</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Volume</span><span class="p">.</span><span class="nx">fromConfigMap</span><span class="p">(</span><span class="nx">configMap</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
 <h2 id="create-from-an-emptydir">Create from an EmptyDir<a class="headerlink" href="#create-from-an-emptydir" title="Permanent link">&para;</a></h2>
 <p>The easiest way to allocate some persistent storage to your container is to create a volume from an empty directory.
 This volume, as the name suggests, is initially empty, and can be written to by containers who mount it.
 The data in the volume is preserved throughout the lifecycle of the pod, but is deleted forever as soon as the pod itself is removed.</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">kplus</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-22&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-22&#39;</span><span class="p">;</span><span class="w"></span>
 
-<span class="kd">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">kplus</span><span class="p">.</span><span class="nx">Volume</span><span class="p">.</span><span class="nx">fromEmptyDir</span><span class="p">(</span><span class="nx">configMap</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Volume</span><span class="p">.</span><span class="nx">fromEmptyDir</span><span class="p">(</span><span class="nx">configMap</span><span class="p">);</span><span class="w"></span>
 
-<span class="kd">const</span> <span class="nx">pod</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">kplus</span><span class="p">.</span><span class="nx">Pod</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;Pod&#39;</span><span class="p">);</span>
-<span class="kd">const</span> <span class="nx">redis</span> <span class="o">=</span> <span class="nx">pod</span><span class="p">.</span><span class="nx">addContainer</span><span class="p">({</span>
-  <span class="nx">image</span><span class="o">:</span> <span class="s1">&#39;redis&#39;</span>
-<span class="p">})</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">pod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Pod</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Pod&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">redis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">pod</span><span class="p">.</span><span class="nx">addContainer</span><span class="p">({</span><span class="w"></span>
+<span class="w">  </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;redis&#39;</span><span class="w"></span>
+<span class="p">})</span><span class="w"></span>
 
-<span class="c1">// mount to the redis container.</span>
-<span class="nx">redis</span><span class="p">.</span><span class="nx">mount</span><span class="p">(</span><span class="s1">&#39;/var/lib/redis&#39;</span><span class="p">,</span> <span class="nx">data</span><span class="p">);</span>
+<span class="c1">// mount to the redis container.</span><span class="w"></span>
+<span class="nx">redis</span><span class="p">.</span><span class="nx">mount</span><span class="p">(</span><span class="s1">&#39;/var/lib/redis&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
 
               
@@ -1736,7 +1736,7 @@ The data in the volume is preserved throughout the lifecycle of the pod, but is 
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "header.autohide"], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.6e54b5cd.min.js"></script>
+      <script src="../../assets/javascripts/bundle.ed9748b7.min.js"></script>
       
     
   </body>

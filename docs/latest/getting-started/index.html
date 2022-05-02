@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.9">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.13">
     
     
       
@@ -17,10 +17,10 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.120efc48.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.e411adfe.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.9647289d.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cc9b2e1e.min.css">
         
           
           
@@ -1775,21 +1775,21 @@ file should be empty since we haven&rsquo;t defined any resources yet.</p>
 <p>Let have a look at the code:</p>
 <div class="tabbed-set" data-tabs="4:4"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">TypeScript</label><div class="tabbed-content">
 <p><code>main.ts</code></p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Construct</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;constructs&#39;</span><span class="p">;</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">App</span><span class="p">,</span> <span class="nx">Chart</span><span class="p">,</span> <span class="nx">ChartProps</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Construct</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;constructs&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">App</span><span class="p">,</span><span class="w"> </span><span class="nx">Chart</span><span class="p">,</span><span class="w"> </span><span class="nx">ChartProps</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span><span class="w"></span>
 
-<span class="k">export</span> <span class="kd">class</span> <span class="nx">MyChart</span> <span class="k">extends</span> <span class="nx">Chart</span> <span class="p">{</span>
-  <span class="kr">constructor</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">id</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">props</span>: <span class="kt">ChartProps</span> <span class="o">=</span> <span class="p">{</span> <span class="p">})</span> <span class="p">{</span>
-    <span class="k">super</span><span class="p">(</span><span class="nx">scope</span><span class="p">,</span> <span class="nx">id</span><span class="p">,</span> <span class="nx">props</span><span class="p">);</span>
+<span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">MyChart</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Chart</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">scope</span><span class="o">:</span><span class="w"> </span><span class="kt">Construct</span><span class="p">,</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">props</span><span class="o">:</span><span class="w"> </span><span class="kt">ChartProps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">super</span><span class="p">(</span><span class="nx">scope</span><span class="p">,</span><span class="w"> </span><span class="nx">id</span><span class="p">,</span><span class="w"> </span><span class="nx">props</span><span class="p">);</span><span class="w"></span>
 
-    <span class="c1">// define resources here</span>
+<span class="w">    </span><span class="c1">// define resources here</span><span class="w"></span>
 
-  <span class="p">}</span>
-<span class="p">}</span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">App</span><span class="p">();</span>
-<span class="ow">new</span> <span class="nx">MyChart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;hello&#39;</span><span class="p">);</span>
-<span class="nx">app</span><span class="p">.</span><span class="nx">synth</span><span class="p">();</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">App</span><span class="p">();</span><span class="w"></span>
+<span class="ow">new</span><span class="w"> </span><span class="nx">MyChart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;hello&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">synth</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <p>To produce and inspect the generated manifest, you can run:</p>
 <div class="highlight"><pre><span></span><code><span class="go">npm run compile &amp;&amp; cdk8s synth</span>
@@ -1831,33 +1831,33 @@ file should be empty since we haven&rsquo;t defined any resources yet.</p>
 </div>
 <input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><label for="__tabbed_4_3">Java</label><div class="tabbed-content">
 <p><code>src/main/java/com/mycompany/app/Main.java</code></p>
-<div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">com.mycompany.app</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">com.mycompany.app</span><span class="p">;</span><span class="w"></span>
 
-<span class="kn">import</span> <span class="nn">software.constructs.Construct</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">software.constructs.Construct</span><span class="p">;</span><span class="w"></span>
 
-<span class="kn">import</span> <span class="nn">org.cdk8s.App</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">org.cdk8s.Chart</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">org.cdk8s.ChartProps</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.App</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.Chart</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.ChartProps</span><span class="p">;</span><span class="w"></span>
 
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="kd">extends</span> <span class="n">Chart</span>
-<span class="p">{</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Chart</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
 
-    <span class="kd">public</span> <span class="nf">Main</span><span class="p">(</span><span class="kd">final</span> <span class="n">Construct</span> <span class="n">scope</span><span class="p">,</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">id</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span> <span class="n">id</span><span class="p">,</span> <span class="kc">null</span><span class="p">);</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Main</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">Construct</span><span class="w"> </span><span class="n">scope</span><span class="p">,</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-    <span class="kd">public</span> <span class="nf">Main</span><span class="p">(</span><span class="kd">final</span> <span class="n">Construct</span> <span class="n">scope</span><span class="p">,</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">id</span><span class="p">,</span> <span class="kd">final</span> <span class="n">ChartProps</span> <span class="n">options</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kd">super</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span> <span class="n">id</span><span class="p">,</span> <span class="n">options</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Main</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">Construct</span><span class="w"> </span><span class="n">scope</span><span class="p">,</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">ChartProps</span><span class="w"> </span><span class="n">options</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kd">super</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">options</span><span class="p">);</span><span class="w"></span>
 
-        <span class="c1">// define resources here</span>
-    <span class="p">}</span>
+<span class="w">        </span><span class="c1">// define resources here</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kd">final</span> <span class="n">App</span> <span class="n">app</span> <span class="o">=</span> <span class="k">new</span> <span class="n">App</span><span class="p">();</span>
-        <span class="k">new</span> <span class="n">Main</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="s">&quot;hello&quot;</span><span class="p">);</span>
-        <span class="n">app</span><span class="p">.</span><span class="na">synth</span><span class="p">();</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">App</span><span class="w"> </span><span class="n">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">App</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="n">Main</span><span class="p">(</span><span class="n">app</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;hello&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">app</span><span class="p">.</span><span class="na">synth</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <p>To produce and inspect the generated manifest, you can run:</p>
 <div class="highlight"><pre><span></span><code><span class="go">cdk8s synth</span>
@@ -1929,61 +1929,61 @@ contains
 resources inspired by <a href="https://github.com/paulbouwer">paulbouwer</a>&lsquo;s
 <a href="https://github.com/paulbouwer/hello-kubernetes">hello-kubernetes</a> project.</p>
 <div class="tabbed-set" data-tabs="5:4"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><label for="__tabbed_5_1">TypeScript</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Construct</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;constructs&#39;</span><span class="p">;</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">App</span><span class="p">,</span> <span class="nx">Chart</span><span class="p">,</span> <span class="nx">ChartProps</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Construct</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;constructs&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">App</span><span class="p">,</span><span class="w"> </span><span class="nx">Chart</span><span class="p">,</span><span class="w"> </span><span class="nx">ChartProps</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span><span class="w"></span>
 
-<span class="c1">// imported constructs</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">KubeDeployment</span><span class="p">,</span> <span class="nx">KubeService</span><span class="p">,</span> <span class="nx">IntOrString</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;./imports/k8s&#39;</span><span class="p">;</span>
+<span class="c1">// imported constructs</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">KubeDeployment</span><span class="p">,</span><span class="w"> </span><span class="nx">KubeService</span><span class="p">,</span><span class="w"> </span><span class="nx">IntOrString</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./imports/k8s&#39;</span><span class="p">;</span><span class="w"></span>
 
 
-<span class="k">export</span> <span class="kd">class</span> <span class="nx">MyChart</span> <span class="k">extends</span> <span class="nx">Chart</span> <span class="p">{</span>
-  <span class="kr">constructor</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">id</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">props</span>: <span class="kt">ChartProps</span> <span class="o">=</span> <span class="p">{</span> <span class="p">})</span> <span class="p">{</span>
-    <span class="k">super</span><span class="p">(</span><span class="nx">scope</span><span class="p">,</span> <span class="nx">id</span><span class="p">,</span> <span class="nx">props</span><span class="p">);</span>
+<span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">MyChart</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Chart</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">scope</span><span class="o">:</span><span class="w"> </span><span class="kt">Construct</span><span class="p">,</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">props</span><span class="o">:</span><span class="w"> </span><span class="kt">ChartProps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">super</span><span class="p">(</span><span class="nx">scope</span><span class="p">,</span><span class="w"> </span><span class="nx">id</span><span class="p">,</span><span class="w"> </span><span class="nx">props</span><span class="p">);</span><span class="w"></span>
 
-    <span class="kd">const</span> <span class="nx">label</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">app</span><span class="o">:</span> <span class="s1">&#39;hello-k8s&#39;</span> <span class="p">};</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">app</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;hello-k8s&#39;</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
 
-    <span class="c1">// notice that there is no assigment necessary when creating resources.</span>
-    <span class="c1">// simply instantiating the resource is enough because it adds it to the construct tree via</span>
-    <span class="c1">// the first argument, which is always the parent construct.</span>
-    <span class="c1">// its a little confusing at first glance, but this is an inherent aspect of the constructs</span>
-    <span class="c1">// programming model, and you will encounter it many times.</span>
-    <span class="c1">// you can still perform an assignment of course, if you need to access</span>
-    <span class="c1">// atrtibutes of the resource in other parts of the code.</span>
+<span class="w">    </span><span class="c1">// notice that there is no assigment necessary when creating resources.</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// simply instantiating the resource is enough because it adds it to the construct tree via</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// the first argument, which is always the parent construct.</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// its a little confusing at first glance, but this is an inherent aspect of the constructs</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// programming model, and you will encounter it many times.</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// you can still perform an assignment of course, if you need to access</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// atrtibutes of the resource in other parts of the code.</span><span class="w"></span>
 
-    <span class="ow">new</span> <span class="nx">KubeService</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;service&#39;</span><span class="p">,</span> <span class="p">{</span>
-      <span class="nx">spec</span><span class="o">:</span> <span class="p">{</span>
-        <span class="kr">type</span><span class="o">:</span> <span class="s1">&#39;LoadBalancer&#39;</span><span class="p">,</span>
-        <span class="nx">ports</span><span class="o">:</span> <span class="p">[</span> <span class="p">{</span> <span class="nx">port</span>: <span class="kt">80</span><span class="p">,</span> <span class="nx">targetPort</span>: <span class="kt">IntOrString.fromNumber</span><span class="p">(</span><span class="mf">8080</span><span class="p">)</span> <span class="p">}</span> <span class="p">],</span>
-        <span class="nx">selector</span>: <span class="kt">label</span>
-      <span class="p">}</span>
-    <span class="p">});</span>
+<span class="w">    </span><span class="ow">new</span><span class="w"> </span><span class="nx">KubeService</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;service&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nx">spec</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kr">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;LoadBalancer&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">ports</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">port</span><span class="o">:</span><span class="w"> </span><span class="kt">80</span><span class="p">,</span><span class="w"> </span><span class="nx">targetPort</span><span class="o">:</span><span class="w"> </span><span class="kt">IntOrString.fromNumber</span><span class="p">(</span><span class="mf">8080</span><span class="p">)</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">],</span><span class="w"></span>
+<span class="w">        </span><span class="nx">selector</span><span class="o">:</span><span class="w"> </span><span class="kt">label</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">});</span><span class="w"></span>
 
-    <span class="ow">new</span> <span class="nx">KubeDeployment</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;deployment&#39;</span><span class="p">,</span> <span class="p">{</span>
-      <span class="nx">spec</span><span class="o">:</span> <span class="p">{</span>
-        <span class="nx">replicas</span>: <span class="kt">2</span><span class="p">,</span>
-        <span class="nx">selector</span><span class="o">:</span> <span class="p">{</span>
-          <span class="nx">matchLabels</span>: <span class="kt">label</span>
-        <span class="p">},</span>
-        <span class="nx">template</span><span class="o">:</span> <span class="p">{</span>
-          <span class="nx">metadata</span><span class="o">:</span> <span class="p">{</span> <span class="nx">labels</span>: <span class="kt">label</span> <span class="p">},</span>
-          <span class="nx">spec</span><span class="o">:</span> <span class="p">{</span>
-            <span class="nx">containers</span><span class="o">:</span> <span class="p">[</span>
-              <span class="p">{</span>
-                <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;hello-kubernetes&#39;</span><span class="p">,</span>
-                <span class="nx">image</span><span class="o">:</span> <span class="s1">&#39;paulbouwer/hello-kubernetes:1.7&#39;</span><span class="p">,</span>
-                <span class="nx">ports</span><span class="o">:</span> <span class="p">[</span> <span class="p">{</span> <span class="nx">containerPort</span>: <span class="kt">8080</span> <span class="p">}</span> <span class="p">]</span>
-              <span class="p">}</span>
-            <span class="p">]</span>
-          <span class="p">}</span>
-        <span class="p">}</span>
-      <span class="p">}</span>
-    <span class="p">});</span>
-  <span class="p">}</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="ow">new</span><span class="w"> </span><span class="nx">KubeDeployment</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;deployment&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nx">spec</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">replicas</span><span class="o">:</span><span class="w"> </span><span class="kt">2</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">selector</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="nx">matchLabels</span><span class="o">:</span><span class="w"> </span><span class="kt">label</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="nx">template</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="nx">metadata</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">labels</span><span class="o">:</span><span class="w"> </span><span class="kt">label</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">          </span><span class="nx">spec</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nx">containers</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">              </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;hello-kubernetes&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;paulbouwer/hello-kubernetes:1.7&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="nx">ports</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">containerPort</span><span class="o">:</span><span class="w"> </span><span class="kt">8080</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">]</span><span class="w"></span>
+<span class="w">              </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">]</span><span class="w"></span>
+<span class="w">          </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">});</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">App</span><span class="p">();</span>
-<span class="ow">new</span> <span class="nx">MyChart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;hello&#39;</span><span class="p">);</span>
-<span class="nx">app</span><span class="p">.</span><span class="nx">synth</span><span class="p">();</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">App</span><span class="p">();</span><span class="w"></span>
+<span class="ow">new</span><span class="w"> </span><span class="nx">MyChart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;hello&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">synth</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <p>Now, to synthesize the app, run:</p>
 <div class="highlight"><pre><span></span><code>npm run compile <span class="o">&amp;&amp;</span> cdk8s synth
@@ -2040,114 +2040,114 @@ resources inspired by <a href="https://github.com/paulbouwer">paulbouwer</a>&lsq
 </code></pre></div>
 </div>
 <input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><label for="__tabbed_5_3">Java</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">com.mycompany.app</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">com.mycompany.app</span><span class="p">;</span><span class="w"></span>
 
-<span class="kn">import</span> <span class="nn">software.constructs.Construct</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">software.constructs.Construct</span><span class="p">;</span><span class="w"></span>
 
-<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">java.util.List</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.ArrayList</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.List</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.HashMap</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Map</span><span class="p">;</span><span class="w"></span>
 
-<span class="kn">import</span> <span class="nn">org.cdk8s.App</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">org.cdk8s.Chart</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">org.cdk8s.ChartProps</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.App</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.Chart</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.ChartProps</span><span class="p">;</span><span class="w"></span>
 
-<span class="kn">import</span> <span class="nn">imports.k8s.IntOrString</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">imports.k8s.LabelSelector</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">imports.k8s.ObjectMeta</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">imports.k8s.PodTemplateSpec</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">imports.k8s.KubeService</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">imports.k8s.KubeServiceProps</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">imports.k8s.ServicePort</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">imports.k8s.ServiceSpec</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">imports.k8s.DeploymentSpec</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">imports.k8s.PodSpec</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">imports.k8s.Container</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">imports.k8s.ContainerPort</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">imports.k8s.KubeDeployment</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">imports.k8s.KubeDeploymentProps</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">imports.k8s.IntOrString</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">imports.k8s.LabelSelector</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">imports.k8s.ObjectMeta</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">imports.k8s.PodTemplateSpec</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">imports.k8s.KubeService</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">imports.k8s.KubeServiceProps</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">imports.k8s.ServicePort</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">imports.k8s.ServiceSpec</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">imports.k8s.DeploymentSpec</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">imports.k8s.PodSpec</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">imports.k8s.Container</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">imports.k8s.ContainerPort</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">imports.k8s.KubeDeployment</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">imports.k8s.KubeDeploymentProps</span><span class="p">;</span><span class="w"></span>
 
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="kd">extends</span> <span class="n">Chart</span>
-<span class="p">{</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Chart</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
 
-    <span class="kd">public</span> <span class="nf">Main</span><span class="p">(</span><span class="kd">final</span> <span class="n">Construct</span> <span class="n">scope</span><span class="p">,</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">id</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span> <span class="n">id</span><span class="p">,</span> <span class="kc">null</span><span class="p">);</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Main</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">Construct</span><span class="w"> </span><span class="n">scope</span><span class="p">,</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-    <span class="kd">public</span> <span class="nf">Main</span><span class="p">(</span><span class="kd">final</span> <span class="n">Construct</span> <span class="n">scope</span><span class="p">,</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">id</span><span class="p">,</span> <span class="kd">final</span> <span class="n">ChartProps</span> <span class="n">options</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kd">super</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span> <span class="n">id</span><span class="p">,</span> <span class="n">options</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Main</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">Construct</span><span class="w"> </span><span class="n">scope</span><span class="p">,</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">ChartProps</span><span class="w"> </span><span class="n">options</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kd">super</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">options</span><span class="p">);</span><span class="w"></span>
 
-        <span class="c1">// Defining a LoadBalancer Service</span>
-        <span class="kd">final</span> <span class="n">String</span> <span class="n">serviceType</span> <span class="o">=</span> <span class="s">&quot;LoadBalancer&quot;</span><span class="p">;</span>
-        <span class="kd">final</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">selector</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
-        <span class="n">selector</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;app&quot;</span><span class="p">,</span> <span class="s">&quot;hello-k8s&quot;</span><span class="p">);</span>
-        <span class="kd">final</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">ServicePort</span><span class="o">&gt;</span> <span class="n">servicePorts</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
-        <span class="kd">final</span> <span class="n">ServicePort</span> <span class="n">servicePort</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ServicePort</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span>
-            <span class="p">.</span><span class="na">port</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span>
-            <span class="p">.</span><span class="na">targetPort</span><span class="p">(</span><span class="n">IntOrString</span><span class="p">.</span><span class="na">fromNumber</span><span class="p">(</span><span class="mi">8080</span><span class="p">))</span>
-            <span class="p">.</span><span class="na">build</span><span class="p">();</span>
-        <span class="n">servicePorts</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">servicePort</span><span class="p">);</span>
-        <span class="kd">final</span> <span class="n">ServiceSpec</span> <span class="n">serviceSpec</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ServiceSpec</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span>
-            <span class="p">.</span><span class="na">type</span><span class="p">(</span><span class="n">serviceType</span><span class="p">)</span>
-            <span class="p">.</span><span class="na">selector</span><span class="p">(</span><span class="n">selector</span><span class="p">)</span>
-            <span class="p">.</span><span class="na">ports</span><span class="p">(</span><span class="n">servicePorts</span><span class="p">)</span>
-            <span class="p">.</span><span class="na">build</span><span class="p">();</span>
-        <span class="kd">final</span> <span class="n">KubeServiceProps</span> <span class="n">serviceProps</span> <span class="o">=</span> <span class="k">new</span> <span class="n">KubeServiceProps</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span>
-            <span class="p">.</span><span class="na">spec</span><span class="p">(</span><span class="n">serviceSpec</span><span class="p">)</span>
-            <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+<span class="w">        </span><span class="c1">// Defining a LoadBalancer Service</span><span class="w"></span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">serviceType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;LoadBalancer&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">selector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="n">selector</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;app&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;hello-k8s&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">ServicePort</span><span class="o">&gt;</span><span class="w"> </span><span class="n">servicePorts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">ServicePort</span><span class="w"> </span><span class="n">servicePort</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ServicePort</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="na">port</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="na">targetPort</span><span class="p">(</span><span class="n">IntOrString</span><span class="p">.</span><span class="na">fromNumber</span><span class="p">(</span><span class="mi">8080</span><span class="p">))</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="n">servicePorts</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">servicePort</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">ServiceSpec</span><span class="w"> </span><span class="n">serviceSpec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ServiceSpec</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="na">type</span><span class="p">(</span><span class="n">serviceType</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="na">selector</span><span class="p">(</span><span class="n">selector</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="na">ports</span><span class="p">(</span><span class="n">servicePorts</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">KubeServiceProps</span><span class="w"> </span><span class="n">serviceProps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">KubeServiceProps</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="na">spec</span><span class="p">(</span><span class="n">serviceSpec</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w"></span>
 
-        <span class="c1">// notice that there is no assigment neccesary when creating resources.</span>
-        <span class="c1">// simply instantiating the resource is enough because it adds it to the construct tree via</span>
-        <span class="c1">// the first argument, which is always the parent construct.</span>
-        <span class="c1">// its a little confusing at first glance, but this is an inherent aspect of the constructs</span>
-        <span class="c1">// programming model, and you will encounter it many times.</span>
-        <span class="c1">// you can still perform an assignment of course, if you need to access</span>
-        <span class="c1">// atrtibutes of the resource in other parts of the code.</span>
+<span class="w">        </span><span class="c1">// notice that there is no assigment neccesary when creating resources.</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// simply instantiating the resource is enough because it adds it to the construct tree via</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// the first argument, which is always the parent construct.</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// its a little confusing at first glance, but this is an inherent aspect of the constructs</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// programming model, and you will encounter it many times.</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// you can still perform an assignment of course, if you need to access</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// atrtibutes of the resource in other parts of the code.</span><span class="w"></span>
 
-        <span class="k">new</span> <span class="n">KubeService</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s">&quot;service&quot;</span><span class="p">,</span> <span class="n">serviceProps</span><span class="p">);</span>
+<span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="n">KubeService</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;service&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">serviceProps</span><span class="p">);</span><span class="w"></span>
 
-        <span class="c1">// Defining a Deployment</span>
-        <span class="kd">final</span> <span class="n">LabelSelector</span> <span class="n">labelSelector</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LabelSelector</span><span class="p">.</span><span class="na">Builder</span><span class="p">().</span><span class="na">matchLabels</span><span class="p">(</span><span class="n">selector</span><span class="p">).</span><span class="na">build</span><span class="p">();</span>
-        <span class="kd">final</span> <span class="n">ObjectMeta</span> <span class="n">objectMeta</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ObjectMeta</span><span class="p">.</span><span class="na">Builder</span><span class="p">().</span><span class="na">labels</span><span class="p">(</span><span class="n">selector</span><span class="p">).</span><span class="na">build</span><span class="p">();</span>
-        <span class="kd">final</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">ContainerPort</span><span class="o">&gt;</span> <span class="n">containerPorts</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
-        <span class="kd">final</span> <span class="n">ContainerPort</span> <span class="n">containerPort</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ContainerPort</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span>
-            <span class="p">.</span><span class="na">containerPort</span><span class="p">(</span><span class="mi">8080</span><span class="p">)</span>
-            <span class="p">.</span><span class="na">build</span><span class="p">();</span>
-        <span class="n">containerPorts</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">containerPort</span><span class="p">);</span>
-        <span class="kd">final</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Container</span><span class="o">&gt;</span> <span class="n">containers</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
-        <span class="kd">final</span> <span class="n">Container</span> <span class="n">container</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Container</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span>
-            <span class="p">.</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;hello-kubernetes&quot;</span><span class="p">)</span>
-            <span class="p">.</span><span class="na">image</span><span class="p">(</span><span class="s">&quot;paulbouwer/hello-kubernetes:1.7&quot;</span><span class="p">)</span>
-            <span class="p">.</span><span class="na">ports</span><span class="p">(</span><span class="n">containerPorts</span><span class="p">)</span>
-            <span class="p">.</span><span class="na">build</span><span class="p">();</span>
-        <span class="n">containers</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">container</span><span class="p">);</span>
-        <span class="kd">final</span> <span class="n">PodSpec</span> <span class="n">podSpec</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PodSpec</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span>
-            <span class="p">.</span><span class="na">containers</span><span class="p">(</span><span class="n">containers</span><span class="p">)</span>
-            <span class="p">.</span><span class="na">build</span><span class="p">();</span>
-        <span class="kd">final</span> <span class="n">PodTemplateSpec</span> <span class="n">podTemplateSpec</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PodTemplateSpec</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span>
-            <span class="p">.</span><span class="na">metadata</span><span class="p">(</span><span class="n">objectMeta</span><span class="p">)</span>
-            <span class="p">.</span><span class="na">spec</span><span class="p">(</span><span class="n">podSpec</span><span class="p">)</span>
-            <span class="p">.</span><span class="na">build</span><span class="p">();</span>
-        <span class="kd">final</span> <span class="n">DeploymentSpec</span> <span class="n">deploymentSpec</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DeploymentSpec</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span>
-            <span class="p">.</span><span class="na">replicas</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-            <span class="p">.</span><span class="na">selector</span><span class="p">(</span><span class="n">labelSelector</span><span class="p">)</span>
-            <span class="p">.</span><span class="na">template</span><span class="p">(</span><span class="n">podTemplateSpec</span><span class="p">)</span>
-            <span class="p">.</span><span class="na">build</span><span class="p">();</span>
-        <span class="kd">final</span> <span class="n">KubeDeploymentProps</span> <span class="n">deploymentProps</span> <span class="o">=</span> <span class="k">new</span> <span class="n">KubeDeploymentProps</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span>
-            <span class="p">.</span><span class="na">spec</span><span class="p">(</span><span class="n">deploymentSpec</span><span class="p">)</span>
-            <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+<span class="w">        </span><span class="c1">// Defining a Deployment</span><span class="w"></span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">LabelSelector</span><span class="w"> </span><span class="n">labelSelector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LabelSelector</span><span class="p">.</span><span class="na">Builder</span><span class="p">().</span><span class="na">matchLabels</span><span class="p">(</span><span class="n">selector</span><span class="p">).</span><span class="na">build</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">ObjectMeta</span><span class="w"> </span><span class="n">objectMeta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ObjectMeta</span><span class="p">.</span><span class="na">Builder</span><span class="p">().</span><span class="na">labels</span><span class="p">(</span><span class="n">selector</span><span class="p">).</span><span class="na">build</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">ContainerPort</span><span class="o">&gt;</span><span class="w"> </span><span class="n">containerPorts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">ContainerPort</span><span class="w"> </span><span class="n">containerPort</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ContainerPort</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="na">containerPort</span><span class="p">(</span><span class="mi">8080</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="n">containerPorts</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">containerPort</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Container</span><span class="o">&gt;</span><span class="w"> </span><span class="n">containers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">Container</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Container</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;hello-kubernetes&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="na">image</span><span class="p">(</span><span class="s">&quot;paulbouwer/hello-kubernetes:1.7&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="na">ports</span><span class="p">(</span><span class="n">containerPorts</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="n">containers</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">container</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">PodSpec</span><span class="w"> </span><span class="n">podSpec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PodSpec</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="na">containers</span><span class="p">(</span><span class="n">containers</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">PodTemplateSpec</span><span class="w"> </span><span class="n">podTemplateSpec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PodTemplateSpec</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="na">metadata</span><span class="p">(</span><span class="n">objectMeta</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="na">spec</span><span class="p">(</span><span class="n">podSpec</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">DeploymentSpec</span><span class="w"> </span><span class="n">deploymentSpec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DeploymentSpec</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="na">replicas</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="na">selector</span><span class="p">(</span><span class="n">labelSelector</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="na">template</span><span class="p">(</span><span class="n">podTemplateSpec</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">KubeDeploymentProps</span><span class="w"> </span><span class="n">deploymentProps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">KubeDeploymentProps</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="na">spec</span><span class="p">(</span><span class="n">deploymentSpec</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w"></span>
 
-        <span class="k">new</span> <span class="n">KubeDeployment</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s">&quot;deployment&quot;</span><span class="p">,</span> <span class="n">deploymentProps</span><span class="p">);</span>
+<span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="n">KubeDeployment</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;deployment&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">deploymentProps</span><span class="p">);</span><span class="w"></span>
 
-    <span class="p">}</span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kd">final</span> <span class="n">App</span> <span class="n">app</span> <span class="o">=</span> <span class="k">new</span> <span class="n">App</span><span class="p">();</span>
-        <span class="k">new</span> <span class="n">Main</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="s">&quot;hello&quot;</span><span class="p">);</span>
-        <span class="n">app</span><span class="p">.</span><span class="na">synth</span><span class="p">();</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">App</span><span class="w"> </span><span class="n">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">App</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="n">Main</span><span class="p">(</span><span class="n">app</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;hello&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">app</span><span class="p">.</span><span class="na">synth</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <p>Now, to synthesize the app, run:</p>
 <div class="highlight"><pre><span></span><code>cdk8s synth
@@ -2291,16 +2291,16 @@ it will basically be a generalization of the <strong>hello world</strong> progra
 actually quite useful.</p>
 <p>For example, this one line will add a hello world service to our chart:</p>
 <div class="tabbed-set" data-tabs="6:4"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><label for="__tabbed_6_1">TypeScript</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code><span class="ow">new</span> <span class="nx">WebService</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;hello-k8s&#39;</span><span class="p">,</span> <span class="p">{</span>
-  <span class="nx">image</span><span class="o">:</span> <span class="s1">&#39;paulbouwer/hello-kubernetes:1.7&#39;</span>
-<span class="p">});</span>
+<div class="highlight"><pre><span></span><code><span class="ow">new</span><span class="w"> </span><span class="nx">WebService</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;hello-k8s&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;paulbouwer/hello-kubernetes:1.7&#39;</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
 </code></pre></div>
 <p>It can also be customized through an API:</p>
-<div class="highlight"><pre><span></span><code><span class="ow">new</span> <span class="nx">WebService</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;hello-k8s&#39;</span><span class="p">,</span> <span class="p">{</span>
-  <span class="nx">image</span><span class="o">:</span> <span class="s1">&#39;paulbouwer/hello-kubernetes:1.7&#39;</span><span class="p">,</span>
-  <span class="nx">containerPort</span>: <span class="kt">8080</span><span class="p">,</span>
-  <span class="nx">replicas</span>: <span class="kt">10</span>
-<span class="p">});</span>
+<div class="highlight"><pre><span></span><code><span class="ow">new</span><span class="w"> </span><span class="nx">WebService</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;hello-k8s&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;paulbouwer/hello-kubernetes:1.7&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">containerPort</span><span class="o">:</span><span class="w"> </span><span class="kt">8080</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">replicas</span><span class="o">:</span><span class="w"> </span><span class="kt">10</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
 </code></pre></div>
 </div>
 <input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><label for="__tabbed_6_2">Python</label><div class="tabbed-content">
@@ -2315,15 +2315,15 @@ actually quite useful.</p>
 </code></pre></div>
 </div>
 <input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><label for="__tabbed_6_3">Java</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="n">WebService</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s">&quot;hello-k8s&quot;</span><span class="p">,</span> <span class="k">new</span> <span class="n">WebServiceProps</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span>
-  <span class="p">.</span><span class="na">image</span><span class="p">(</span><span class="s">&quot;paulbouwer/hello-kubernetes:1.7&quot;</span><span class="p">)</span>
-  <span class="p">.</span><span class="na">build</span><span class="p">());</span>
+<div class="highlight"><pre><span></span><code><span class="k">new</span><span class="w"> </span><span class="n">WebService</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;hello-k8s&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">WebServiceProps</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span><span class="w"></span>
+<span class="w">  </span><span class="p">.</span><span class="na">image</span><span class="p">(</span><span class="s">&quot;paulbouwer/hello-kubernetes:1.7&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">.</span><span class="na">build</span><span class="p">());</span><span class="w"></span>
 </code></pre></div>
 <p>It can also be customized through an API:</p>
-<div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="n">WebService</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s">&quot;hello-k8s&quot;</span><span class="p">,</span> <span class="k">new</span> <span class="n">WebServiceProps</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span>
-  <span class="p">.</span><span class="na">image</span><span class="p">(</span><span class="s">&quot;paulbouwer/hello-kubernetes:1.7&quot;</span><span class="p">)</span>
-  <span class="p">.</span><span class="na">replicas</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-  <span class="p">.</span><span class="na">build</span><span class="p">());</span>
+<div class="highlight"><pre><span></span><code><span class="k">new</span><span class="w"> </span><span class="n">WebService</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;hello-k8s&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">WebServiceProps</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span><span class="w"></span>
+<span class="w">  </span><span class="p">.</span><span class="na">image</span><span class="p">(</span><span class="s">&quot;paulbouwer/hello-kubernetes:1.7&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">.</span><span class="na">replicas</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">.</span><span class="na">build</span><span class="p">());</span><span class="w"></span>
 </code></pre></div>
 </div>
 <input id="__tabbed_6_4" name="__tabbed_6" type="radio" /><label for="__tabbed_6_4">Go</label><div class="tabbed-content">
@@ -2343,97 +2343,97 @@ actually quite useful.</p>
 <p>Here&rsquo;s how to implement <code>WebService</code>:</p>
 <div class="tabbed-set" data-tabs="7:4"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><label for="__tabbed_7_1">TypeScript</label><div class="tabbed-content">
 <p>Create a file <code>lib/web-service.ts</code> (the convention is to use <code>lib</code> for reusable components):</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Construct</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;constructs&#39;</span><span class="p">;</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">Names</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">KubeDeployment</span><span class="p">,</span> <span class="nx">KubeService</span><span class="p">,</span> <span class="nx">IntOrString</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;../imports/k8s&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Construct</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;constructs&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Names</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">KubeDeployment</span><span class="p">,</span><span class="w"> </span><span class="nx">KubeService</span><span class="p">,</span><span class="w"> </span><span class="nx">IntOrString</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;../imports/k8s&#39;</span><span class="p">;</span><span class="w"></span>
 
-<span class="k">export</span> <span class="kd">interface</span> <span class="nx">WebServiceProps</span> <span class="p">{</span>
-  <span class="cm">/**</span>
+<span class="k">export</span><span class="w"> </span><span class="kd">interface</span><span class="w"> </span><span class="nx">WebServiceProps</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="cm">/**</span>
 <span class="cm">   * The Docker image to use for this service.</span>
-<span class="cm">   */</span>
-  <span class="k">readonly</span> <span class="nx">image</span>: <span class="kt">string</span><span class="p">;</span>
+<span class="cm">   */</span><span class="w"></span>
+<span class="w">  </span><span class="k">readonly</span><span class="w"> </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span><span class="w"></span>
 
-  <span class="cm">/**</span>
+<span class="w">  </span><span class="cm">/**</span>
 <span class="cm">   * Number of replicas.</span>
 <span class="cm">   *</span>
 <span class="cm">   * @default 1</span>
-<span class="cm">   */</span>
-  <span class="k">readonly</span> <span class="nx">replicas?</span>: <span class="kt">number</span><span class="p">;</span>
+<span class="cm">   */</span><span class="w"></span>
+<span class="w">  </span><span class="k">readonly</span><span class="w"> </span><span class="nx">replicas?</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span><span class="w"></span>
 
-  <span class="cm">/**</span>
+<span class="w">  </span><span class="cm">/**</span>
 <span class="cm">   * External port.</span>
 <span class="cm">   *</span>
 <span class="cm">   * @default 80</span>
-<span class="cm">   */</span>
-  <span class="k">readonly</span> <span class="nx">port?</span>: <span class="kt">number</span><span class="p">;</span>
+<span class="cm">   */</span><span class="w"></span>
+<span class="w">  </span><span class="k">readonly</span><span class="w"> </span><span class="nx">port?</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span><span class="w"></span>
 
-  <span class="cm">/**</span>
+<span class="w">  </span><span class="cm">/**</span>
 <span class="cm">   * Internal port.</span>
 <span class="cm">   *</span>
 <span class="cm">   * @default 8080</span>
-<span class="cm">   */</span>
-  <span class="k">readonly</span> <span class="nx">containerPort?</span>: <span class="kt">number</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="cm">   */</span><span class="w"></span>
+<span class="w">  </span><span class="k">readonly</span><span class="w"> </span><span class="nx">containerPort?</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="k">export</span> <span class="kd">class</span> <span class="nx">WebService</span> <span class="k">extends</span> <span class="nx">Construct</span> <span class="p">{</span>
-  <span class="kr">constructor</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">id</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">props</span>: <span class="kt">WebServiceProps</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">super</span><span class="p">(</span><span class="nx">scope</span><span class="p">,</span> <span class="nx">id</span><span class="p">);</span>
+<span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">WebService</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Construct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">scope</span><span class="o">:</span><span class="w"> </span><span class="kt">Construct</span><span class="p">,</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">props</span><span class="o">:</span><span class="w"> </span><span class="kt">WebServiceProps</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">super</span><span class="p">(</span><span class="nx">scope</span><span class="p">,</span><span class="w"> </span><span class="nx">id</span><span class="p">);</span><span class="w"></span>
 
-    <span class="kd">const</span> <span class="nx">port</span> <span class="o">=</span> <span class="nx">props</span><span class="p">.</span><span class="nx">port</span> <span class="o">||</span> <span class="mf">80</span><span class="p">;</span>
-    <span class="kd">const</span> <span class="nx">containerPort</span> <span class="o">=</span> <span class="nx">props</span><span class="p">.</span><span class="nx">containerPort</span> <span class="o">||</span> <span class="mf">8080</span><span class="p">;</span>
-    <span class="kd">const</span> <span class="nx">label</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">app</span>: <span class="kt">Names.toDnsLabel</span><span class="p">(</span><span class="k">this</span><span class="p">)</span> <span class="p">};</span>
-    <span class="kd">const</span> <span class="nx">replicas</span> <span class="o">=</span> <span class="nx">props</span><span class="p">.</span><span class="nx">replicas</span> <span class="o">??</span> <span class="mf">1</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">props</span><span class="p">.</span><span class="nx">port</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="mf">80</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">containerPort</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">props</span><span class="p">.</span><span class="nx">containerPort</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="mf">8080</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">app</span><span class="o">:</span><span class="w"> </span><span class="kt">Names.toDnsLabel</span><span class="p">(</span><span class="k">this</span><span class="p">)</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">replicas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">props</span><span class="p">.</span><span class="nx">replicas</span><span class="w"> </span><span class="o">??</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span><span class="w"></span>
 
-    <span class="ow">new</span> <span class="nx">KubeService</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;service&#39;</span><span class="p">,</span> <span class="p">{</span>
-      <span class="nx">spec</span><span class="o">:</span> <span class="p">{</span>
-        <span class="kr">type</span><span class="o">:</span> <span class="s1">&#39;LoadBalancer&#39;</span><span class="p">,</span>
-        <span class="nx">ports</span><span class="o">:</span> <span class="p">[</span> <span class="p">{</span> <span class="nx">port</span><span class="p">,</span> <span class="nx">targetPort</span>: <span class="kt">IntOrString.fromNumber</span><span class="p">(</span><span class="nx">containerPort</span><span class="p">)</span> <span class="p">}</span> <span class="p">],</span>
-        <span class="nx">selector</span>: <span class="kt">label</span>
-      <span class="p">}</span>
-    <span class="p">});</span>
+<span class="w">    </span><span class="ow">new</span><span class="w"> </span><span class="nx">KubeService</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;service&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nx">spec</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kr">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;LoadBalancer&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">ports</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">port</span><span class="p">,</span><span class="w"> </span><span class="nx">targetPort</span><span class="o">:</span><span class="w"> </span><span class="kt">IntOrString.fromNumber</span><span class="p">(</span><span class="nx">containerPort</span><span class="p">)</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">],</span><span class="w"></span>
+<span class="w">        </span><span class="nx">selector</span><span class="o">:</span><span class="w"> </span><span class="kt">label</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">});</span><span class="w"></span>
 
-    <span class="ow">new</span> <span class="nx">KubeDeployment</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;deployment&#39;</span><span class="p">,</span> <span class="p">{</span>
-      <span class="nx">spec</span><span class="o">:</span> <span class="p">{</span>
-        <span class="nx">replicas</span><span class="p">,</span>
-        <span class="nx">selector</span><span class="o">:</span> <span class="p">{</span>
-          <span class="nx">matchLabels</span>: <span class="kt">label</span>
-        <span class="p">},</span>
-        <span class="nx">template</span><span class="o">:</span> <span class="p">{</span>
-          <span class="nx">metadata</span><span class="o">:</span> <span class="p">{</span> <span class="nx">labels</span>: <span class="kt">label</span> <span class="p">},</span>
-          <span class="nx">spec</span><span class="o">:</span> <span class="p">{</span>
-            <span class="nx">containers</span><span class="o">:</span> <span class="p">[</span>
-              <span class="p">{</span>
-                <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;app&#39;</span><span class="p">,</span>
-                <span class="nx">image</span>: <span class="kt">props.image</span><span class="p">,</span>
-                <span class="nx">ports</span><span class="o">:</span> <span class="p">[</span> <span class="p">{</span> <span class="nx">containerPort</span> <span class="p">}</span> <span class="p">]</span>
-              <span class="p">}</span>
-            <span class="p">]</span>
-          <span class="p">}</span>
-        <span class="p">}</span>
-      <span class="p">}</span>
-    <span class="p">});</span>
-  <span class="p">}</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="ow">new</span><span class="w"> </span><span class="nx">KubeDeployment</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;deployment&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nx">spec</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">replicas</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">selector</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="nx">matchLabels</span><span class="o">:</span><span class="w"> </span><span class="kt">label</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="nx">template</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="nx">metadata</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">labels</span><span class="o">:</span><span class="w"> </span><span class="kt">label</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">          </span><span class="nx">spec</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nx">containers</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">              </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;app&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="kt">props.image</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="nx">ports</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">containerPort</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">]</span><span class="w"></span>
+<span class="w">              </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">]</span><span class="w"></span>
+<span class="w">          </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">});</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <p>Now, let&rsquo;s edit <code>main.ts</code> and use our new construct:</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Construct</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;constructs&#39;</span><span class="p">;</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">App</span><span class="p">,</span> <span class="nx">Chart</span><span class="p">,</span> <span class="nx">ChartProps</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">WebService</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;./lib/web-service&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Construct</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;constructs&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">App</span><span class="p">,</span><span class="w"> </span><span class="nx">Chart</span><span class="p">,</span><span class="w"> </span><span class="nx">ChartProps</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">WebService</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./lib/web-service&#39;</span><span class="p">;</span><span class="w"></span>
 
 
-<span class="k">export</span> <span class="kd">class</span> <span class="nx">MyChart</span> <span class="k">extends</span> <span class="nx">Chart</span> <span class="p">{</span>
-  <span class="kr">constructor</span><span class="p">(</span><span class="nx">scope</span>: <span class="kt">Construct</span><span class="p">,</span> <span class="nx">id</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">props</span>: <span class="kt">ChartProps</span> <span class="o">=</span> <span class="p">{</span> <span class="p">})</span> <span class="p">{</span>
-    <span class="k">super</span><span class="p">(</span><span class="nx">scope</span><span class="p">,</span> <span class="nx">id</span><span class="p">,</span> <span class="nx">props</span><span class="p">);</span>
+<span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">MyChart</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Chart</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">scope</span><span class="o">:</span><span class="w"> </span><span class="kt">Construct</span><span class="p">,</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">props</span><span class="o">:</span><span class="w"> </span><span class="kt">ChartProps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">super</span><span class="p">(</span><span class="nx">scope</span><span class="p">,</span><span class="w"> </span><span class="nx">id</span><span class="p">,</span><span class="w"> </span><span class="nx">props</span><span class="p">);</span><span class="w"></span>
 
-    <span class="ow">new</span> <span class="nx">WebService</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">image</span><span class="o">:</span> <span class="s1">&#39;paulbouwer/hello-kubernetes:1.7&#39;</span><span class="p">,</span> <span class="nx">replicas</span>: <span class="kt">2</span> <span class="p">});</span>
-    <span class="ow">new</span> <span class="nx">WebService</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;ghost&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">image</span><span class="o">:</span> <span class="s1">&#39;ghost&#39;</span><span class="p">,</span> <span class="nx">containerPort</span>: <span class="kt">2368</span> <span class="p">});</span>
+<span class="w">    </span><span class="ow">new</span><span class="w"> </span><span class="nx">WebService</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;hello&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;paulbouwer/hello-kubernetes:1.7&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">replicas</span><span class="o">:</span><span class="w"> </span><span class="kt">2</span><span class="w"> </span><span class="p">});</span><span class="w"></span>
+<span class="w">    </span><span class="ow">new</span><span class="w"> </span><span class="nx">WebService</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;ghost&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;ghost&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">containerPort</span><span class="o">:</span><span class="w"> </span><span class="kt">2368</span><span class="w"> </span><span class="p">});</span><span class="w"></span>
 
-  <span class="p">}</span>
-<span class="p">}</span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">App</span><span class="p">();</span>
-<span class="ow">new</span> <span class="nx">MyChart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;hello&#39;</span><span class="p">);</span>
-<span class="nx">app</span><span class="p">.</span><span class="nx">synth</span><span class="p">();</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">App</span><span class="p">();</span><span class="w"></span>
+<span class="ow">new</span><span class="w"> </span><span class="nx">MyChart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;hello&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">synth</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 </div>
 <input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><label for="__tabbed_7_2">Python</label><div class="tabbed-content">
@@ -2495,203 +2495,203 @@ actually quite useful.</p>
 </div>
 <input id="__tabbed_7_3" name="__tabbed_7" type="radio" /><label for="__tabbed_7_3">Java</label><div class="tabbed-content">
 <p><code>src/main/java/com/mycompany/app/WebService.java</code></p>
-<div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">com.mycompany.app</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">com.mycompany.app</span><span class="p">;</span><span class="w"></span>
 
-<span class="kn">import</span> <span class="nn">software.constructs.Construct</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">software.constructs.Construct</span><span class="p">;</span><span class="w"></span>
 
-<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">java.util.List</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Optional</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.ArrayList</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.List</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.HashMap</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Map</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Optional</span><span class="p">;</span><span class="w"></span>
 
-<span class="kn">import</span> <span class="nn">imports.k8s.IntOrString</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">imports.k8s.LabelSelector</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">imports.k8s.ObjectMeta</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">imports.k8s.PodTemplateSpec</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">imports.k8s.KubeService</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">imports.k8s.KubeServiceProps</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">imports.k8s.ServicePort</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">imports.k8s.ServiceSpec</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">imports.k8s.DeploymentSpec</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">imports.k8s.PodSpec</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">imports.k8s.Container</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">imports.k8s.ContainerPort</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">imports.k8s.KubeDeployment</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">imports.k8s.KubeDeploymentProps</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">imports.k8s.IntOrString</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">imports.k8s.LabelSelector</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">imports.k8s.ObjectMeta</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">imports.k8s.PodTemplateSpec</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">imports.k8s.KubeService</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">imports.k8s.KubeServiceProps</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">imports.k8s.ServicePort</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">imports.k8s.ServiceSpec</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">imports.k8s.DeploymentSpec</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">imports.k8s.PodSpec</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">imports.k8s.Container</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">imports.k8s.ContainerPort</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">imports.k8s.KubeDeployment</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">imports.k8s.KubeDeploymentProps</span><span class="p">;</span><span class="w"></span>
 
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">WebService</span> <span class="kd">extends</span> <span class="n">Construct</span>
-<span class="p">{</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">WebService</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Construct</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
 
-    <span class="kd">public</span> <span class="nf">WebService</span><span class="p">(</span><span class="kd">final</span> <span class="n">Construct</span> <span class="n">scope</span><span class="p">,</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">id</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span> <span class="n">id</span><span class="p">,</span> <span class="kc">null</span><span class="p">);</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">WebService</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">Construct</span><span class="w"> </span><span class="n">scope</span><span class="p">,</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-    <span class="kd">public</span> <span class="nf">WebService</span><span class="p">(</span><span class="kd">final</span> <span class="n">Construct</span> <span class="n">scope</span><span class="p">,</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">id</span><span class="p">,</span> <span class="kd">final</span> <span class="n">WebServiceProps</span> <span class="n">options</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kd">super</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span> <span class="n">id</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">WebService</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">Construct</span><span class="w"> </span><span class="n">scope</span><span class="p">,</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">WebServiceProps</span><span class="w"> </span><span class="n">options</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kd">super</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">);</span><span class="w"></span>
 
-        <span class="kd">final</span> <span class="kt">int</span> <span class="n">portNumber</span> <span class="o">=</span> <span class="n">Optional</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">options</span><span class="p">.</span><span class="na">getPort</span><span class="p">()).</span><span class="na">orElse</span><span class="p">(</span><span class="mi">80</span><span class="p">);</span>
-        <span class="kd">final</span> <span class="kt">int</span> <span class="n">containerPortNumber</span> <span class="o">=</span> <span class="n">Optional</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">options</span><span class="p">.</span><span class="na">getContainerPort</span><span class="p">()).</span><span class="na">orElse</span><span class="p">(</span><span class="mi">8080</span><span class="p">);</span>
-        <span class="kd">final</span> <span class="kt">int</span> <span class="n">replicas</span> <span class="o">=</span> <span class="n">Optional</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">options</span><span class="p">.</span><span class="na">getReplicas</span><span class="p">()).</span><span class="na">orElse</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-        <span class="kd">final</span> <span class="n">String</span> <span class="n">image</span> <span class="o">=</span> <span class="n">options</span><span class="p">.</span><span class="na">getImage</span><span class="p">();</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">portNumber</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Optional</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">options</span><span class="p">.</span><span class="na">getPort</span><span class="p">()).</span><span class="na">orElse</span><span class="p">(</span><span class="mi">80</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">containerPortNumber</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Optional</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">options</span><span class="p">.</span><span class="na">getContainerPort</span><span class="p">()).</span><span class="na">orElse</span><span class="p">(</span><span class="mi">8080</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">replicas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Optional</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">options</span><span class="p">.</span><span class="na">getReplicas</span><span class="p">()).</span><span class="na">orElse</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">options</span><span class="p">.</span><span class="na">getImage</span><span class="p">();</span><span class="w"></span>
 
-        <span class="c1">// Defining a LoadBalancer Service</span>
-        <span class="kd">final</span> <span class="n">String</span> <span class="n">serviceType</span> <span class="o">=</span> <span class="s">&quot;LoadBalancer&quot;</span><span class="p">;</span>
-        <span class="kd">final</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">selector</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
-        <span class="n">selector</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;app&quot;</span><span class="p">,</span> <span class="s">&quot;hello-k8s&quot;</span><span class="p">);</span>
-        <span class="kd">final</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">ServicePort</span><span class="o">&gt;</span> <span class="n">servicePorts</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
-        <span class="kd">final</span> <span class="n">ServicePort</span> <span class="n">servicePort</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ServicePort</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span>
-            <span class="p">.</span><span class="na">port</span><span class="p">(</span><span class="n">portNumber</span><span class="p">)</span>
-            <span class="p">.</span><span class="na">targetPort</span><span class="p">(</span><span class="n">IntOrString</span><span class="p">.</span><span class="na">fromNumber</span><span class="p">(</span><span class="n">containerPortNumber</span><span class="p">))</span>
-            <span class="p">.</span><span class="na">build</span><span class="p">();</span>
-        <span class="n">servicePorts</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">servicePort</span><span class="p">);</span>
-        <span class="kd">final</span> <span class="n">ServiceSpec</span> <span class="n">serviceSpec</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ServiceSpec</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span>
-            <span class="p">.</span><span class="na">type</span><span class="p">(</span><span class="n">serviceType</span><span class="p">)</span>
-            <span class="p">.</span><span class="na">selector</span><span class="p">(</span><span class="n">selector</span><span class="p">)</span>
-            <span class="p">.</span><span class="na">ports</span><span class="p">(</span><span class="n">servicePorts</span><span class="p">)</span>
-            <span class="p">.</span><span class="na">build</span><span class="p">();</span>
-        <span class="kd">final</span> <span class="n">KubeServiceProps</span> <span class="n">serviceProps</span> <span class="o">=</span> <span class="k">new</span> <span class="n">KubeServiceProps</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span>
-            <span class="p">.</span><span class="na">spec</span><span class="p">(</span><span class="n">serviceSpec</span><span class="p">)</span>
-            <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+<span class="w">        </span><span class="c1">// Defining a LoadBalancer Service</span><span class="w"></span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">serviceType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;LoadBalancer&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">selector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="n">selector</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;app&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;hello-k8s&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">ServicePort</span><span class="o">&gt;</span><span class="w"> </span><span class="n">servicePorts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">ServicePort</span><span class="w"> </span><span class="n">servicePort</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ServicePort</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="na">port</span><span class="p">(</span><span class="n">portNumber</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="na">targetPort</span><span class="p">(</span><span class="n">IntOrString</span><span class="p">.</span><span class="na">fromNumber</span><span class="p">(</span><span class="n">containerPortNumber</span><span class="p">))</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="n">servicePorts</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">servicePort</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">ServiceSpec</span><span class="w"> </span><span class="n">serviceSpec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ServiceSpec</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="na">type</span><span class="p">(</span><span class="n">serviceType</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="na">selector</span><span class="p">(</span><span class="n">selector</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="na">ports</span><span class="p">(</span><span class="n">servicePorts</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">KubeServiceProps</span><span class="w"> </span><span class="n">serviceProps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">KubeServiceProps</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="na">spec</span><span class="p">(</span><span class="n">serviceSpec</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w"></span>
 
-        <span class="k">new</span> <span class="n">KubeService</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s">&quot;service&quot;</span><span class="p">,</span> <span class="n">serviceProps</span><span class="p">);</span>
+<span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="n">KubeService</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;service&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">serviceProps</span><span class="p">);</span><span class="w"></span>
 
-        <span class="c1">// Defining a Deployment</span>
-        <span class="kd">final</span> <span class="n">LabelSelector</span> <span class="n">labelSelector</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LabelSelector</span><span class="p">.</span><span class="na">Builder</span><span class="p">().</span><span class="na">matchLabels</span><span class="p">(</span><span class="n">selector</span><span class="p">).</span><span class="na">build</span><span class="p">();</span>
-        <span class="kd">final</span> <span class="n">ObjectMeta</span> <span class="n">objectMeta</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ObjectMeta</span><span class="p">.</span><span class="na">Builder</span><span class="p">().</span><span class="na">labels</span><span class="p">(</span><span class="n">selector</span><span class="p">).</span><span class="na">build</span><span class="p">();</span>
-        <span class="kd">final</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">ContainerPort</span><span class="o">&gt;</span> <span class="n">containerPorts</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
-        <span class="kd">final</span> <span class="n">ContainerPort</span> <span class="n">containerPort</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ContainerPort</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span>
-            <span class="p">.</span><span class="na">containerPort</span><span class="p">(</span><span class="n">containerPortNumber</span><span class="p">)</span>
-            <span class="p">.</span><span class="na">build</span><span class="p">();</span>
-        <span class="n">containerPorts</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">containerPort</span><span class="p">);</span>
-        <span class="kd">final</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Container</span><span class="o">&gt;</span> <span class="n">containers</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
-        <span class="kd">final</span> <span class="n">Container</span> <span class="n">container</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Container</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span>
-            <span class="p">.</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;web&quot;</span><span class="p">)</span>
-            <span class="p">.</span><span class="na">image</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
-            <span class="p">.</span><span class="na">ports</span><span class="p">(</span><span class="n">containerPorts</span><span class="p">)</span>
-            <span class="p">.</span><span class="na">build</span><span class="p">();</span>
-        <span class="n">containers</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">container</span><span class="p">);</span>
-        <span class="kd">final</span> <span class="n">PodSpec</span> <span class="n">podSpec</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PodSpec</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span>
-            <span class="p">.</span><span class="na">containers</span><span class="p">(</span><span class="n">containers</span><span class="p">)</span>
-            <span class="p">.</span><span class="na">build</span><span class="p">();</span>
-        <span class="kd">final</span> <span class="n">PodTemplateSpec</span> <span class="n">podTemplateSpec</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PodTemplateSpec</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span>
-            <span class="p">.</span><span class="na">metadata</span><span class="p">(</span><span class="n">objectMeta</span><span class="p">)</span>
-            <span class="p">.</span><span class="na">spec</span><span class="p">(</span><span class="n">podSpec</span><span class="p">)</span>
-            <span class="p">.</span><span class="na">build</span><span class="p">();</span>
-        <span class="kd">final</span> <span class="n">DeploymentSpec</span> <span class="n">deploymentSpec</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DeploymentSpec</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span>
-            <span class="p">.</span><span class="na">replicas</span><span class="p">(</span><span class="n">replicas</span><span class="p">)</span>
-            <span class="p">.</span><span class="na">selector</span><span class="p">(</span><span class="n">labelSelector</span><span class="p">)</span>
-            <span class="p">.</span><span class="na">template</span><span class="p">(</span><span class="n">podTemplateSpec</span><span class="p">)</span>
-            <span class="p">.</span><span class="na">build</span><span class="p">();</span>
-        <span class="kd">final</span> <span class="n">KubeDeploymentProps</span> <span class="n">deploymentProps</span> <span class="o">=</span> <span class="k">new</span> <span class="n">KubeDeploymentProps</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span>
-            <span class="p">.</span><span class="na">spec</span><span class="p">(</span><span class="n">deploymentSpec</span><span class="p">)</span>
-            <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+<span class="w">        </span><span class="c1">// Defining a Deployment</span><span class="w"></span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">LabelSelector</span><span class="w"> </span><span class="n">labelSelector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LabelSelector</span><span class="p">.</span><span class="na">Builder</span><span class="p">().</span><span class="na">matchLabels</span><span class="p">(</span><span class="n">selector</span><span class="p">).</span><span class="na">build</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">ObjectMeta</span><span class="w"> </span><span class="n">objectMeta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ObjectMeta</span><span class="p">.</span><span class="na">Builder</span><span class="p">().</span><span class="na">labels</span><span class="p">(</span><span class="n">selector</span><span class="p">).</span><span class="na">build</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">ContainerPort</span><span class="o">&gt;</span><span class="w"> </span><span class="n">containerPorts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">ContainerPort</span><span class="w"> </span><span class="n">containerPort</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ContainerPort</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="na">containerPort</span><span class="p">(</span><span class="n">containerPortNumber</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="n">containerPorts</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">containerPort</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Container</span><span class="o">&gt;</span><span class="w"> </span><span class="n">containers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">Container</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Container</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;web&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="na">image</span><span class="p">(</span><span class="n">image</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="na">ports</span><span class="p">(</span><span class="n">containerPorts</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="n">containers</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">container</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">PodSpec</span><span class="w"> </span><span class="n">podSpec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PodSpec</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="na">containers</span><span class="p">(</span><span class="n">containers</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">PodTemplateSpec</span><span class="w"> </span><span class="n">podTemplateSpec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PodTemplateSpec</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="na">metadata</span><span class="p">(</span><span class="n">objectMeta</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="na">spec</span><span class="p">(</span><span class="n">podSpec</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">DeploymentSpec</span><span class="w"> </span><span class="n">deploymentSpec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DeploymentSpec</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="na">replicas</span><span class="p">(</span><span class="n">replicas</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="na">selector</span><span class="p">(</span><span class="n">labelSelector</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="na">template</span><span class="p">(</span><span class="n">podTemplateSpec</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">KubeDeploymentProps</span><span class="w"> </span><span class="n">deploymentProps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">KubeDeploymentProps</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="na">spec</span><span class="p">(</span><span class="n">deploymentSpec</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w"></span>
 
-        <span class="k">new</span> <span class="n">KubeDeployment</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s">&quot;deployment&quot;</span><span class="p">,</span> <span class="n">deploymentProps</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+<span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="n">KubeDeployment</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;deployment&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">deploymentProps</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <p><code>src/main/java/com/mycompany/app/WebServiceProps.java</code></p>
-<div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">com.mycompany.app</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">com.mycompany.app</span><span class="p">;</span><span class="w"></span>
 
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">WebServiceProps</span>
-<span class="p">{</span>
-    <span class="kd">private</span> <span class="n">String</span> <span class="n">image</span><span class="p">;</span>
-    <span class="kd">private</span> <span class="kt">int</span> <span class="n">replicas</span><span class="p">;</span>
-    <span class="kd">private</span> <span class="kt">int</span> <span class="n">port</span><span class="p">;</span>
-    <span class="kd">private</span> <span class="kt">int</span> <span class="n">containerPort</span><span class="p">;</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">WebServiceProps</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">image</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">replicas</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">port</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">containerPort</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kd">public</span> <span class="nf">WebServiceProps</span><span class="p">(</span><span class="kd">final</span> <span class="n">String</span> <span class="n">image</span><span class="p">,</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">replicas</span><span class="p">,</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">port</span><span class="p">,</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">containerPort</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="na">image</span> <span class="o">=</span> <span class="n">image</span><span class="p">;</span>
-        <span class="k">this</span><span class="p">.</span><span class="na">replicas</span> <span class="o">=</span> <span class="n">replicas</span><span class="p">;</span>
-        <span class="k">this</span><span class="p">.</span><span class="na">port</span> <span class="o">=</span> <span class="n">port</span><span class="p">;</span>
-        <span class="k">this</span><span class="p">.</span><span class="na">containerPort</span> <span class="o">=</span> <span class="n">containerPort</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">WebServiceProps</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">image</span><span class="p">,</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">replicas</span><span class="p">,</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">port</span><span class="p">,</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">containerPort</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">image</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">image</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">replicas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">replicas</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">port</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">containerPort</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">containerPort</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getImage</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">image</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getImage</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">image</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getReplicas</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">replicas</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getReplicas</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">replicas</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getPort</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">port</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getPort</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">port</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getContainerPort</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">containerPort</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getContainerPort</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">containerPort</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kd">class</span> <span class="nc">Builder</span> <span class="p">{</span>
-        <span class="kd">private</span> <span class="n">String</span> <span class="n">image</span><span class="p">;</span>
-        <span class="kd">private</span> <span class="kt">int</span> <span class="n">replicas</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-        <span class="kd">private</span> <span class="kt">int</span> <span class="n">port</span> <span class="o">=</span> <span class="mi">80</span><span class="p">;</span>
-        <span class="kd">private</span> <span class="kt">int</span> <span class="n">containerPort</span> <span class="o">=</span> <span class="mi">8080</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Builder</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">image</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">replicas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">80</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">containerPort</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8080</span><span class="p">;</span><span class="w"></span>
 
-        <span class="kd">public</span> <span class="n">Builder</span> <span class="nf">image</span><span class="p">(</span><span class="n">String</span> <span class="n">image</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">this</span><span class="p">.</span><span class="na">image</span> <span class="o">=</span> <span class="n">image</span><span class="p">;</span>
-            <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
-        <span class="p">}</span>
+<span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="n">Builder</span><span class="w"> </span><span class="nf">image</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">image</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="na">image</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">image</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
 
-        <span class="kd">public</span> <span class="n">Builder</span> <span class="nf">replicas</span><span class="p">(</span><span class="kt">int</span> <span class="n">replicas</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">this</span><span class="p">.</span><span class="na">replicas</span> <span class="o">=</span> <span class="n">replicas</span><span class="p">;</span>
-            <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
-        <span class="p">}</span>
+<span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="n">Builder</span><span class="w"> </span><span class="nf">replicas</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">replicas</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="na">replicas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">replicas</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
 
-        <span class="kd">public</span> <span class="n">Builder</span> <span class="nf">port</span><span class="p">(</span><span class="kt">int</span> <span class="n">port</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">this</span><span class="p">.</span><span class="na">port</span> <span class="o">=</span> <span class="n">port</span><span class="p">;</span>
-            <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
-        <span class="p">}</span>
+<span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="n">Builder</span><span class="w"> </span><span class="nf">port</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">port</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="na">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">port</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
 
-        <span class="kd">public</span> <span class="n">Builder</span> <span class="nf">containerPort</span><span class="p">(</span><span class="kt">int</span> <span class="n">containerPort</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">this</span><span class="p">.</span><span class="na">containerPort</span> <span class="o">=</span> <span class="n">containerPort</span><span class="p">;</span>
-            <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
-        <span class="p">}</span>
+<span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="n">Builder</span><span class="w"> </span><span class="nf">containerPort</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">containerPort</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="na">containerPort</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">containerPort</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
 
-        <span class="kd">public</span> <span class="n">WebServiceProps</span> <span class="nf">build</span><span class="p">()</span> <span class="p">{</span>
-            <span class="k">return</span> <span class="k">new</span> <span class="n">WebServiceProps</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">replicas</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">containerPort</span><span class="p">);</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+<span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="n">WebServiceProps</span><span class="w"> </span><span class="nf">build</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">WebServiceProps</span><span class="p">(</span><span class="n">image</span><span class="p">,</span><span class="w"> </span><span class="n">replicas</span><span class="p">,</span><span class="w"> </span><span class="n">port</span><span class="p">,</span><span class="w"> </span><span class="n">containerPort</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <p><code>src/main/java/com/mycompany/app/Main.java</code></p>
-<div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">com.mycompany.app</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">com.mycompany.app</span><span class="p">;</span><span class="w"></span>
 
-<span class="kn">import</span> <span class="nn">software.constructs.Construct</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">software.constructs.Construct</span><span class="p">;</span><span class="w"></span>
 
-<span class="kn">import</span> <span class="nn">org.cdk8s.App</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">org.cdk8s.Chart</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">org.cdk8s.ChartProps</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.App</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.Chart</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.ChartProps</span><span class="p">;</span><span class="w"></span>
 
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="kd">extends</span> <span class="n">Chart</span>
-<span class="p">{</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Chart</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
 
-    <span class="kd">public</span> <span class="nf">Main</span><span class="p">(</span><span class="kd">final</span> <span class="n">Construct</span> <span class="n">scope</span><span class="p">,</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">id</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span> <span class="n">id</span><span class="p">,</span> <span class="kc">null</span><span class="p">);</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Main</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">Construct</span><span class="w"> </span><span class="n">scope</span><span class="p">,</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-    <span class="kd">public</span> <span class="nf">Main</span><span class="p">(</span><span class="kd">final</span> <span class="n">Construct</span> <span class="n">scope</span><span class="p">,</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">id</span><span class="p">,</span> <span class="kd">final</span> <span class="n">ChartProps</span> <span class="n">options</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kd">super</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span> <span class="n">id</span><span class="p">,</span> <span class="n">options</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Main</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">Construct</span><span class="w"> </span><span class="n">scope</span><span class="p">,</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">ChartProps</span><span class="w"> </span><span class="n">options</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kd">super</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">options</span><span class="p">);</span><span class="w"></span>
 
-        <span class="k">new</span> <span class="n">WebService</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s">&quot;hello&quot;</span><span class="p">,</span> <span class="k">new</span> <span class="n">WebServiceProps</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span>
-          <span class="p">.</span><span class="na">image</span><span class="p">(</span><span class="s">&quot;paulbouwer/hello-kubernetes:1.7&quot;</span><span class="p">)</span>
-          <span class="p">.</span><span class="na">replicas</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-          <span class="p">.</span><span class="na">build</span><span class="p">());</span>
+<span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="n">WebService</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;hello&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">WebServiceProps</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span><span class="w"></span>
+<span class="w">          </span><span class="p">.</span><span class="na">image</span><span class="p">(</span><span class="s">&quot;paulbouwer/hello-kubernetes:1.7&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">          </span><span class="p">.</span><span class="na">replicas</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="w">          </span><span class="p">.</span><span class="na">build</span><span class="p">());</span><span class="w"></span>
 
-        <span class="k">new</span> <span class="n">WebService</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s">&quot;ghost&quot;</span><span class="p">,</span> <span class="k">new</span> <span class="n">WebServiceProps</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span>
-          <span class="p">.</span><span class="na">image</span><span class="p">(</span><span class="s">&quot;ghost&quot;</span><span class="p">)</span>
-          <span class="p">.</span><span class="na">containerPort</span><span class="p">(</span><span class="mi">2368</span><span class="p">)</span>
-          <span class="p">.</span><span class="na">build</span><span class="p">());</span>
-    <span class="p">}</span>
+<span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="n">WebService</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ghost&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">WebServiceProps</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span><span class="w"></span>
+<span class="w">          </span><span class="p">.</span><span class="na">image</span><span class="p">(</span><span class="s">&quot;ghost&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">          </span><span class="p">.</span><span class="na">containerPort</span><span class="p">(</span><span class="mi">2368</span><span class="p">)</span><span class="w"></span>
+<span class="w">          </span><span class="p">.</span><span class="na">build</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kd">final</span> <span class="n">App</span> <span class="n">app</span> <span class="o">=</span> <span class="k">new</span> <span class="n">App</span><span class="p">();</span>
-        <span class="k">new</span> <span class="n">Main</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="s">&quot;web-service-java&quot;</span><span class="p">);</span>
-        <span class="n">app</span><span class="p">.</span><span class="na">synth</span><span class="p">();</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">App</span><span class="w"> </span><span class="n">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">App</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="n">Main</span><span class="p">(</span><span class="n">app</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;web-service-java&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">app</span><span class="p">.</span><span class="na">synth</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
 </div>
 <input id="__tabbed_7_4" name="__tabbed_7" type="radio" /><label for="__tabbed_7_4">Go</label><div class="tabbed-content">
@@ -2907,7 +2907,7 @@ of <a href="https://hub.docker.com/_/ghost/">ghost</a>.</p>
     <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "header.autohide"], "search": "../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.6e54b5cd.min.js"></script>
+      <script src="../assets/javascripts/bundle.ed9748b7.min.js"></script>
       
     
   </body>

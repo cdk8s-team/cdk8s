@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.9">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.13">
     
     
       
@@ -17,10 +17,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.120efc48.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e411adfe.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.9647289d.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cc9b2e1e.min.css">
         
           
           
@@ -1609,14 +1609,14 @@ the application defined in <code>cdk8s.yaml</code> under <code>app</code>.</p>
 <h2 id="configuring-synth-output">Configuring synth output<a class="headerlink" href="#configuring-synth-output" title="Permanent link">&para;</a></h2>
 <p>The properties of the synthesized YAML from <code>cdk8s synth</code> can be modified by the properties of the <code>App</code> construct. Things like file extensions, how API objects are distributed between files, and the output directory can all be configured in your <a href="https://github.com/cdk8s-team/cdk8s-core/blob/2.x/docs/typescript.md#appprops-"><code>AppProps</code></a></p>
 <p>For example:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">App</span><span class="p">({</span>
-  <span class="c1">// Instead of the default &quot;dist&quot;</span>
-  <span class="nx">outdir</span><span class="o">:</span> <span class="s2">&quot;output&quot;</span><span class="p">,</span>
-  <span class="c1">// Instead of &quot;.k8s.yaml&quot;</span>
-  <span class="nx">outputFileExtension</span><span class="o">:</span> <span class="s2">&quot;.generated.yaml&quot;</span><span class="p">,</span>
-  <span class="c1">// Divide every resource into its own file, instead of grouping by Chart</span>
-  <span class="nx">yamlOutputType</span>: <span class="kt">YamlOutputType.FILE_PER_RESOURCE</span><span class="p">,</span>
-<span class="p">});</span>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">App</span><span class="p">({</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// Instead of the default &quot;dist&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nx">outdir</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;output&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// Instead of &quot;.k8s.yaml&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nx">outputFileExtension</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;.generated.yaml&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// Divide every resource into its own file, instead of grouping by Chart</span><span class="w"></span>
+<span class="w">  </span><span class="nx">yamlOutputType</span><span class="o">:</span><span class="w"> </span><span class="kt">YamlOutputType.FILE_PER_RESOURCE</span><span class="p">,</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
 </code></pre></div>
 
               
@@ -1712,7 +1712,7 @@ the application defined in <code>cdk8s.yaml</code> under <code>app</code>.</p>
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "header.autohide"], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.6e54b5cd.min.js"></script>
+      <script src="../../assets/javascripts/bundle.ed9748b7.min.js"></script>
       
     
   </body>

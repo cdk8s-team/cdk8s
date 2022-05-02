@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.9">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.13">
     
     
       
@@ -17,10 +17,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.120efc48.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.e411adfe.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.9647289d.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cc9b2e1e.min.css">
         
           
           
@@ -2127,13 +2127,13 @@
 <h2 id="constructs">Constructs <a name="Constructs"></a><a class="headerlink" href="#constructs" title="Permanent link">&para;</a></h2>
 <h3 id="apiobject">ApiObject <a name="org.cdk8s.ApiObject"></a><a class="headerlink" href="#apiobject" title="Permanent link">&para;</a></h3>
 <h4 id="initializers">Initializers <a name="org.cdk8s.ApiObject.Initializer"></a><a class="headerlink" href="#initializers" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.ApiObject</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.ApiObject</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">ApiObject</span><span class="p">.</span><span class="na">Builder</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="n">Construct</span> <span class="n">scope</span><span class="p">,</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="n">id</span><span class="p">)</span>
-    <span class="p">.</span><span class="na">apiVersion</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">)</span>
-    <span class="p">.</span><span class="na">kind</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">)</span>
-<span class="c1">//  .metadata(ApiObjectMetadata)</span>
-    <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+<span class="n">ApiObject</span><span class="p">.</span><span class="na">Builder</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="n">Construct</span><span class="w"> </span><span class="n">scope</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="n">id</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="na">apiVersion</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="na">kind</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">)</span><span class="w"></span>
+<span class="c1">//  .metadata(ApiObjectMetadata)</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <h5 id="scoperequired"><code>scope</code><sup>Required</sup> <a name="org.cdk8s.ApiObject.parameter.scope"></a><a class="headerlink" href="#scoperequired" title="Permanent link">&para;</a></h5>
 <ul>
@@ -2169,7 +2169,7 @@ framework based on the path of the construct within thes construct tree.</p>
 <hr />
 <h4 id="methods">Methods <a name="Methods"></a><a class="headerlink" href="#methods" title="Permanent link">&para;</a></h4>
 <h5 id="adddependency"><code>addDependency</code> <a name="org.cdk8s.ApiObject.addDependency"></a><a class="headerlink" href="#adddependency" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">addDependency</span><span class="p">(</span><span class="n">IConstruct</span> <span class="n">dependencies</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="nf">addDependency</span><span class="p">(</span><span class="n">IConstruct</span><span class="w"> </span><span class="n">dependencies</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 <h6 id="dependenciesrequired"><code>dependencies</code><sup>Required</sup> <a name="org.cdk8s.ApiObject.parameter.dependencies"></a><a class="headerlink" href="#dependenciesrequired" title="Permanent link">&para;</a></h6>
 <ul>
@@ -2178,7 +2178,7 @@ framework based on the path of the construct within thes construct tree.</p>
 <p>the dependencies to add.</p>
 <hr />
 <h5 id="addjsonpatch"><code>addJsonPatch</code> <a name="org.cdk8s.ApiObject.addJsonPatch"></a><a class="headerlink" href="#addjsonpatch" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">addJsonPatch</span><span class="p">(</span><span class="n">JsonPatch</span> <span class="n">ops</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="nf">addJsonPatch</span><span class="p">(</span><span class="n">JsonPatch</span><span class="w"> </span><span class="n">ops</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 <h6 id="opsrequired"><code>ops</code><sup>Required</sup> <a name="org.cdk8s.ApiObject.parameter.ops"></a><a class="headerlink" href="#opsrequired" title="Permanent link">&para;</a></h6>
 <ul>
@@ -2187,13 +2187,13 @@ framework based on the path of the construct within thes construct tree.</p>
 <p>The JSON-Patch operations to apply.</p>
 <hr />
 <h5 id="tojson"><code>toJson</code> <a name="org.cdk8s.ApiObject.toJson"></a><a class="headerlink" href="#tojson" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">toJson</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="nf">toJson</span><span class="p">()</span><span class="w"></span>
 </code></pre></div>
 <h4 id="static-functions">Static Functions <a name="Static Functions"></a><a class="headerlink" href="#static-functions" title="Permanent link">&para;</a></h4>
 <h5 id="of"><code>of</code> <a name="org.cdk8s.ApiObject.of"></a><a class="headerlink" href="#of" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.ApiObject</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.ApiObject</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">ApiObject</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">IConstruct</span> <span class="n">c</span><span class="p">)</span>
+<span class="n">ApiObject</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">IConstruct</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 <h6 id="crequired"><code>c</code><sup>Required</sup> <a name="org.cdk8s.ApiObject.parameter.c"></a><a class="headerlink" href="#crequired" title="Permanent link">&para;</a></h6>
 <ul>
@@ -2203,7 +2203,7 @@ framework based on the path of the construct within thes construct tree.</p>
 <hr />
 <h4 id="properties">Properties <a name="Properties"></a><a class="headerlink" href="#properties" title="Permanent link">&para;</a></h4>
 <h5 id="apigrouprequired"><code>apiGroup</code><sup>Required</sup> <a name="org.cdk8s.ApiObject.property.apiGroup"></a><a class="headerlink" href="#apigrouprequired" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getApiGroup</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getApiGroup</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
@@ -2211,7 +2211,7 @@ framework based on the path of the construct within thes construct tree.</p>
 <p>The group portion of the API version (e.g. <code>authorization.k8s.io</code>).</p>
 <hr />
 <h5 id="apiversionrequired_1"><code>apiVersion</code><sup>Required</sup> <a name="org.cdk8s.ApiObject.property.apiVersion"></a><a class="headerlink" href="#apiversionrequired_1" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getApiVersion</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getApiVersion</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
@@ -2219,7 +2219,7 @@ framework based on the path of the construct within thes construct tree.</p>
 <p>The object&rsquo;s API version (e.g. <code>authorization.k8s.io/v1</code>).</p>
 <hr />
 <h5 id="chartrequired"><code>chart</code><sup>Required</sup> <a name="org.cdk8s.ApiObject.property.chart"></a><a class="headerlink" href="#chartrequired" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">Chart</span> <span class="nf">getChart</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">Chart</span><span class="w"> </span><span class="nf">getChart</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.Chart"><code>org.cdk8s.Chart</code></a></li>
@@ -2227,7 +2227,7 @@ framework based on the path of the construct within thes construct tree.</p>
 <p>The chart in which this object is defined.</p>
 <hr />
 <h5 id="kindrequired_1"><code>kind</code><sup>Required</sup> <a name="org.cdk8s.ApiObject.property.kind"></a><a class="headerlink" href="#kindrequired_1" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getKind</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getKind</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
@@ -2235,7 +2235,7 @@ framework based on the path of the construct within thes construct tree.</p>
 <p>The object kind.</p>
 <hr />
 <h5 id="metadatarequired"><code>metadata</code><sup>Required</sup> <a name="org.cdk8s.ApiObject.property.metadata"></a><a class="headerlink" href="#metadatarequired" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">ApiObjectMetadataDefinition</span> <span class="nf">getMetadata</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">ApiObjectMetadataDefinition</span><span class="w"> </span><span class="nf">getMetadata</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.ApiObjectMetadataDefinition"><code>org.cdk8s.ApiObjectMetadataDefinition</code></a></li>
@@ -2243,7 +2243,7 @@ framework based on the path of the construct within thes construct tree.</p>
 <p>Metadata associated with this API object.</p>
 <hr />
 <h5 id="namerequired"><code>name</code><sup>Required</sup> <a name="org.cdk8s.ApiObject.property.name"></a><a class="headerlink" href="#namerequired" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getName</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getName</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
@@ -2257,13 +2257,13 @@ construct path to generate a DNS-compatible name for the resource.</p>
 <h3 id="app">App <a name="org.cdk8s.App"></a><a class="headerlink" href="#app" title="Permanent link">&para;</a></h3>
 <p>Represents a cdk8s application.</p>
 <h4 id="initializers_1">Initializers <a name="org.cdk8s.App.Initializer"></a><a class="headerlink" href="#initializers_1" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.App</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.App</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">App</span><span class="p">.</span><span class="na">Builder</span><span class="p">.</span><span class="na">create</span><span class="p">()</span>
-<span class="c1">//  .outdir(java.lang.String)</span>
-<span class="c1">//  .outputFileExtension(java.lang.String)</span>
-<span class="c1">//  .yamlOutputType(YamlOutputType)</span>
-    <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+<span class="n">App</span><span class="p">.</span><span class="na">Builder</span><span class="p">.</span><span class="na">create</span><span class="p">()</span><span class="w"></span>
+<span class="c1">//  .outdir(java.lang.String)</span><span class="w"></span>
+<span class="c1">//  .outputFileExtension(java.lang.String)</span><span class="w"></span>
+<span class="c1">//  .yamlOutputType(YamlOutputType)</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <h5 id="outdiroptional"><code>outdir</code><sup>Optional</sup> <a name="org.cdk8s.AppProps.parameter.outdir"></a><a class="headerlink" href="#outdiroptional" title="Permanent link">&para;</a></h5>
 <ul>
@@ -2288,14 +2288,14 @@ construct path to generate a DNS-compatible name for the resource.</p>
 <hr />
 <h4 id="methods_1">Methods <a name="Methods"></a><a class="headerlink" href="#methods_1" title="Permanent link">&para;</a></h4>
 <h5 id="synth"><code>synth</code> <a name="org.cdk8s.App.synth"></a><a class="headerlink" href="#synth" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">synth</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="nf">synth</span><span class="p">()</span><span class="w"></span>
 </code></pre></div>
 <h5 id="synthyaml"><code>synthYaml</code> <a name="org.cdk8s.App.synthYaml"></a><a class="headerlink" href="#synthyaml" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">synthYaml</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="nf">synthYaml</span><span class="p">()</span><span class="w"></span>
 </code></pre></div>
 <h4 id="properties_1">Properties <a name="Properties"></a><a class="headerlink" href="#properties_1" title="Permanent link">&para;</a></h4>
 <h5 id="chartsrequired"><code>charts</code><sup>Required</sup> <a name="org.cdk8s.App.property.charts"></a><a class="headerlink" href="#chartsrequired" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">Chart</span><span class="o">&gt;</span> <span class="nf">getCharts</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">Chart</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getCharts</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.Chart"><code>org.cdk8s.Chart</code></a>&gt;</li>
@@ -2303,7 +2303,7 @@ construct path to generate a DNS-compatible name for the resource.</p>
 <p>Returns all the charts in this app, sorted topologically.</p>
 <hr />
 <h5 id="outdirrequired"><code>outdir</code><sup>Required</sup> <a name="org.cdk8s.App.property.outdir"></a><a class="headerlink" href="#outdirrequired" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getOutdir</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getOutdir</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
@@ -2311,7 +2311,7 @@ construct path to generate a DNS-compatible name for the resource.</p>
 <p>The output directory into which manifests will be synthesized.</p>
 <hr />
 <h5 id="outputfileextensionrequired"><code>outputFileExtension</code><sup>Required</sup> <a name="org.cdk8s.App.property.outputFileExtension"></a><a class="headerlink" href="#outputfileextensionrequired" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getOutputFileExtension</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getOutputFileExtension</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
@@ -2320,7 +2320,7 @@ construct path to generate a DNS-compatible name for the resource.</p>
 <p>The file extension to use for rendered YAML files.</p>
 <hr />
 <h5 id="yamloutputtyperequired"><code>yamlOutputType</code><sup>Required</sup> <a name="org.cdk8s.App.property.yamlOutputType"></a><a class="headerlink" href="#yamloutputtyperequired" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">YamlOutputType</span> <span class="nf">getYamlOutputType</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">YamlOutputType</span><span class="w"> </span><span class="nf">getYamlOutputType</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.YamlOutputType"><code>org.cdk8s.YamlOutputType</code></a></li>
@@ -2330,12 +2330,12 @@ construct path to generate a DNS-compatible name for the resource.</p>
 <hr />
 <h3 id="chart">Chart <a name="org.cdk8s.Chart"></a><a class="headerlink" href="#chart" title="Permanent link">&para;</a></h3>
 <h4 id="initializers_2">Initializers <a name="org.cdk8s.Chart.Initializer"></a><a class="headerlink" href="#initializers_2" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.Chart</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.Chart</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">Chart</span><span class="p">.</span><span class="na">Builder</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="n">Construct</span> <span class="n">scope</span><span class="p">,</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="n">id</span><span class="p">)</span>
-<span class="c1">//  .labels(java.util.Map&lt;java.lang.String, java.lang.String&gt;)</span>
-<span class="c1">//  .namespace(java.lang.String)</span>
-    <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+<span class="n">Chart</span><span class="p">.</span><span class="na">Builder</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="n">Construct</span><span class="w"> </span><span class="n">scope</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="n">id</span><span class="p">)</span><span class="w"></span>
+<span class="c1">//  .labels(java.util.Map&lt;java.lang.String, java.lang.String&gt;)</span><span class="w"></span>
+<span class="c1">//  .namespace(java.lang.String)</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <h5 id="scoperequired_1"><code>scope</code><sup>Required</sup> <a name="org.cdk8s.Chart.parameter.scope"></a><a class="headerlink" href="#scoperequired_1" title="Permanent link">&para;</a></h5>
 <ul>
@@ -2365,7 +2365,7 @@ construct path to generate a DNS-compatible name for the resource.</p>
 <hr />
 <h4 id="methods_2">Methods <a name="Methods"></a><a class="headerlink" href="#methods_2" title="Permanent link">&para;</a></h4>
 <h5 id="adddependency_1"><code>addDependency</code> <a name="org.cdk8s.Chart.addDependency"></a><a class="headerlink" href="#adddependency_1" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">addDependency</span><span class="p">(</span><span class="n">IConstruct</span> <span class="n">dependencies</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="nf">addDependency</span><span class="p">(</span><span class="n">IConstruct</span><span class="w"> </span><span class="n">dependencies</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 <h6 id="dependenciesrequired_1"><code>dependencies</code><sup>Required</sup> <a name="org.cdk8s.Chart.parameter.dependencies"></a><a class="headerlink" href="#dependenciesrequired_1" title="Permanent link">&para;</a></h6>
 <ul>
@@ -2374,7 +2374,7 @@ construct path to generate a DNS-compatible name for the resource.</p>
 <p>the dependencies to add.</p>
 <hr />
 <h5 id="generateobjectname"><code>generateObjectName</code> <a name="org.cdk8s.Chart.generateObjectName"></a><a class="headerlink" href="#generateobjectname" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">generateObjectName</span><span class="p">(</span><span class="n">ApiObject</span> <span class="n">apiObject</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="nf">generateObjectName</span><span class="p">(</span><span class="n">ApiObject</span><span class="w"> </span><span class="n">apiObject</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 <h6 id="apiobjectrequired"><code>apiObject</code><sup>Required</sup> <a name="org.cdk8s.Chart.parameter.apiObject"></a><a class="headerlink" href="#apiobjectrequired" title="Permanent link">&para;</a></h6>
 <ul>
@@ -2383,13 +2383,13 @@ construct path to generate a DNS-compatible name for the resource.</p>
 <p>The API object to generate a name for.</p>
 <hr />
 <h5 id="tojson_1"><code>toJson</code> <a name="org.cdk8s.Chart.toJson"></a><a class="headerlink" href="#tojson_1" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">toJson</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="nf">toJson</span><span class="p">()</span><span class="w"></span>
 </code></pre></div>
 <h4 id="static-functions_1">Static Functions <a name="Static Functions"></a><a class="headerlink" href="#static-functions_1" title="Permanent link">&para;</a></h4>
 <h5 id="ischart"><code>isChart</code> <a name="org.cdk8s.Chart.isChart"></a><a class="headerlink" href="#ischart" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.Chart</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.Chart</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">Chart</span><span class="p">.</span><span class="na">isChart</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Object</span> <span class="n">x</span><span class="p">)</span>
+<span class="n">Chart</span><span class="p">.</span><span class="na">isChart</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Object</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 <h6 id="xrequired"><code>x</code><sup>Required</sup> <a name="org.cdk8s.Chart.parameter.x"></a><a class="headerlink" href="#xrequired" title="Permanent link">&para;</a></h6>
 <ul>
@@ -2397,9 +2397,9 @@ construct path to generate a DNS-compatible name for the resource.</p>
 </ul>
 <hr />
 <h5 id="of_1"><code>of</code> <a name="org.cdk8s.Chart.of"></a><a class="headerlink" href="#of_1" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.Chart</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.Chart</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">Chart</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">IConstruct</span> <span class="n">c</span><span class="p">)</span>
+<span class="n">Chart</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">IConstruct</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 <h6 id="crequired_1"><code>c</code><sup>Required</sup> <a name="org.cdk8s.Chart.parameter.c"></a><a class="headerlink" href="#crequired_1" title="Permanent link">&para;</a></h6>
 <ul>
@@ -2409,7 +2409,7 @@ construct path to generate a DNS-compatible name for the resource.</p>
 <hr />
 <h4 id="properties_2">Properties <a name="Properties"></a><a class="headerlink" href="#properties_2" title="Permanent link">&para;</a></h4>
 <h5 id="labelsrequired"><code>labels</code><sup>Required</sup> <a name="org.cdk8s.Chart.property.labels"></a><a class="headerlink" href="#labelsrequired" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="o">&gt;</span> <span class="nf">getLabels</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getLabels</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.Map<java.lang.String, <code>java.lang.String</code>></li>
@@ -2418,7 +2418,7 @@ construct path to generate a DNS-compatible name for the resource.</p>
 <p>This is an immutable copy.</p>
 <hr />
 <h5 id="namespaceoptional_1"><code>namespace</code><sup>Optional</sup> <a name="org.cdk8s.Chart.property.namespace"></a><a class="headerlink" href="#namespaceoptional_1" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getNamespace</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getNamespace</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
@@ -2429,15 +2429,15 @@ construct path to generate a DNS-compatible name for the resource.</p>
 <p>Represents a Helm deployment.</p>
 <p>Use this construct to import an existing Helm chart and incorporate it into your constructs.</p>
 <h4 id="initializers_3">Initializers <a name="org.cdk8s.Helm.Initializer"></a><a class="headerlink" href="#initializers_3" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.Helm</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.Helm</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">Helm</span><span class="p">.</span><span class="na">Builder</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="n">Construct</span> <span class="n">scope</span><span class="p">,</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="n">id</span><span class="p">)</span>
-    <span class="p">.</span><span class="na">chart</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">)</span>
-<span class="c1">//  .helmExecutable(java.lang.String)</span>
-<span class="c1">//  .helmFlags(java.util.List&lt;java.lang.String&gt;)</span>
-<span class="c1">//  .releaseName(java.lang.String)</span>
-<span class="c1">//  .values(java.util.Map&lt;java.lang.String, java.lang.Object&gt;)</span>
-    <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+<span class="n">Helm</span><span class="p">.</span><span class="na">Builder</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="n">Construct</span><span class="w"> </span><span class="n">scope</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="n">id</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="na">chart</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">)</span><span class="w"></span>
+<span class="c1">//  .helmExecutable(java.lang.String)</span><span class="w"></span>
+<span class="c1">//  .helmFlags(java.util.List&lt;java.lang.String&gt;)</span><span class="w"></span>
+<span class="c1">//  .releaseName(java.lang.String)</span><span class="w"></span>
+<span class="c1">//  .values(java.util.Map&lt;java.lang.String, java.lang.Object&gt;)</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <h5 id="scoperequired_2"><code>scope</code><sup>Required</sup> <a name="org.cdk8s.Helm.parameter.scope"></a><a class="headerlink" href="#scoperequired_2" title="Permanent link">&para;</a></h5>
 <ul>
@@ -2489,7 +2489,7 @@ construct path to generate a DNS-compatible name for the resource.</p>
 <hr />
 <h4 id="properties_3">Properties <a name="Properties"></a><a class="headerlink" href="#properties_3" title="Permanent link">&para;</a></h4>
 <h5 id="releasenamerequired"><code>releaseName</code><sup>Required</sup> <a name="org.cdk8s.Helm.property.releaseName"></a><a class="headerlink" href="#releasenamerequired" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getReleaseName</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getReleaseName</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
@@ -2501,11 +2501,11 @@ construct path to generate a DNS-compatible name for the resource.</p>
 <p>The names (<code>metadata.name</code>) of imported resources will be preserved as-is
 from the manifest.</p>
 <h4 id="initializers_4">Initializers <a name="org.cdk8s.Include.Initializer"></a><a class="headerlink" href="#initializers_4" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.Include</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.Include</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">Include</span><span class="p">.</span><span class="na">Builder</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="n">Construct</span> <span class="n">scope</span><span class="p">,</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="n">id</span><span class="p">)</span>
-    <span class="p">.</span><span class="na">url</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">)</span>
-    <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+<span class="n">Include</span><span class="p">.</span><span class="na">Builder</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="n">Construct</span><span class="w"> </span><span class="n">scope</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="n">id</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="na">url</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <h5 id="scoperequired_3"><code>scope</code><sup>Required</sup> <a name="org.cdk8s.Include.parameter.scope"></a><a class="headerlink" href="#scoperequired_3" title="Permanent link">&para;</a></h5>
 <ul>
@@ -2525,7 +2525,7 @@ from the manifest.</p>
 <hr />
 <h4 id="properties_4">Properties <a name="Properties"></a><a class="headerlink" href="#properties_4" title="Permanent link">&para;</a></h4>
 <h5 id="apiobjectsrequired"><code>apiObjects</code><sup>Required</sup> <a name="org.cdk8s.Include.property.apiObjects"></a><a class="headerlink" href="#apiobjectsrequired" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">ApiObject</span><span class="o">&gt;</span> <span class="nf">getApiObjects</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">ApiObject</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getApiObjects</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.ApiObject"><code>org.cdk8s.ApiObject</code></a>&gt;</li>
@@ -2536,19 +2536,19 @@ from the manifest.</p>
 <h3 id="apiobjectmetadata">ApiObjectMetadata <a name="org.cdk8s.ApiObjectMetadata"></a><a class="headerlink" href="#apiobjectmetadata" title="Permanent link">&para;</a></h3>
 <p>Metadata associated with this object.</p>
 <h4 id="initializer">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.ApiObjectMetadata</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.ApiObjectMetadata</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">ApiObjectMetadata</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
-<span class="c1">//  .annotations(java.util.Map&lt;java.lang.String, java.lang.String&gt;)</span>
-<span class="c1">//  .finalizers(java.util.List&lt;java.lang.String&gt;)</span>
-<span class="c1">//  .labels(java.util.Map&lt;java.lang.String, java.lang.String&gt;)</span>
-<span class="c1">//  .name(java.lang.String)</span>
-<span class="c1">//  .namespace(java.lang.String)</span>
-<span class="c1">//  .ownerReferences(java.util.List&lt;OwnerReference&gt;)</span>
-    <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+<span class="n">ApiObjectMetadata</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span><span class="w"></span>
+<span class="c1">//  .annotations(java.util.Map&lt;java.lang.String, java.lang.String&gt;)</span><span class="w"></span>
+<span class="c1">//  .finalizers(java.util.List&lt;java.lang.String&gt;)</span><span class="w"></span>
+<span class="c1">//  .labels(java.util.Map&lt;java.lang.String, java.lang.String&gt;)</span><span class="w"></span>
+<span class="c1">//  .name(java.lang.String)</span><span class="w"></span>
+<span class="c1">//  .namespace(java.lang.String)</span><span class="w"></span>
+<span class="c1">//  .ownerReferences(java.util.List&lt;OwnerReference&gt;)</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <h5 id="annotationsoptional"><code>annotations</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectMetadata.property.annotations"></a><a class="headerlink" href="#annotationsoptional" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="o">&gt;</span> <span class="nf">getAnnotations</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getAnnotations</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.Map<java.lang.String, <code>java.lang.String</code>></li>
@@ -2562,7 +2562,7 @@ preserved when modifying objects.</p>
 </blockquote>
 <hr />
 <h5 id="finalizersoptional"><code>finalizers</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectMetadata.property.finalizers"></a><a class="headerlink" href="#finalizersoptional" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="o">&gt;</span> <span class="nf">getFinalizers</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getFinalizers</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<code>java.lang.String</code>&gt;</li>
@@ -2587,7 +2587,7 @@ changes in the list.</p>
 </blockquote>
 <hr />
 <h5 id="labelsoptional_1"><code>labels</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectMetadata.property.labels"></a><a class="headerlink" href="#labelsoptional_1" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="o">&gt;</span> <span class="nf">getLabels</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getLabels</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.Map<java.lang.String, <code>java.lang.String</code>></li>
@@ -2600,7 +2600,7 @@ changes in the list.</p>
 </blockquote>
 <hr />
 <h5 id="nameoptional"><code>name</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectMetadata.property.name"></a><a class="headerlink" href="#nameoptional" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getName</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getName</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
@@ -2619,7 +2619,7 @@ more than one instance in any app. Therefore it is highly recommended to
 leave this unspecified.</p>
 <hr />
 <h5 id="namespaceoptional_2"><code>namespace</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectMetadata.property.namespace"></a><a class="headerlink" href="#namespaceoptional_2" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getNamespace</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getNamespace</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
@@ -2630,7 +2630,7 @@ leave this unspecified.</p>
 Not all objects are required to be scoped to a namespace - the value of this field for those objects will be empty. Must be a DNS_LABEL. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/namespaces</p>
 <hr />
 <h5 id="ownerreferencesoptional"><code>ownerReferences</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectMetadata.property.ownerReferences"></a><a class="headerlink" href="#ownerreferencesoptional" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">OwnerReference</span><span class="o">&gt;</span> <span class="nf">getOwnerReferences</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">OwnerReference</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getOwnerReferences</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.OwnerReference"><code>org.cdk8s.OwnerReference</code></a>&gt;</li>
@@ -2655,16 +2655,16 @@ relationships.</p>
 <h3 id="apiobjectprops">ApiObjectProps <a name="org.cdk8s.ApiObjectProps"></a><a class="headerlink" href="#apiobjectprops" title="Permanent link">&para;</a></h3>
 <p>Options for defining API objects.</p>
 <h4 id="initializer_1">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_1" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.ApiObjectProps</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.ApiObjectProps</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">ApiObjectProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
-    <span class="p">.</span><span class="na">apiVersion</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">)</span>
-    <span class="p">.</span><span class="na">kind</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">)</span>
-<span class="c1">//  .metadata(ApiObjectMetadata)</span>
-    <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+<span class="n">ApiObjectProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="na">apiVersion</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="na">kind</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">)</span><span class="w"></span>
+<span class="c1">//  .metadata(ApiObjectMetadata)</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <h5 id="apiversionrequired_2"><code>apiVersion</code><sup>Required</sup> <a name="org.cdk8s.ApiObjectProps.property.apiVersion"></a><a class="headerlink" href="#apiversionrequired_2" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getApiVersion</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getApiVersion</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
@@ -2672,7 +2672,7 @@ relationships.</p>
 <p>API version.</p>
 <hr />
 <h5 id="kindrequired_2"><code>kind</code><sup>Required</sup> <a name="org.cdk8s.ApiObjectProps.property.kind"></a><a class="headerlink" href="#kindrequired_2" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getKind</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getKind</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
@@ -2680,7 +2680,7 @@ relationships.</p>
 <p>Resource kind.</p>
 <hr />
 <h5 id="metadataoptional_1"><code>metadata</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectProps.property.metadata"></a><a class="headerlink" href="#metadataoptional_1" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">ApiObjectMetadata</span> <span class="nf">getMetadata</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">ApiObjectMetadata</span><span class="w"> </span><span class="nf">getMetadata</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.ApiObjectMetadata"><code>org.cdk8s.ApiObjectMetadata</code></a></li>
@@ -2691,16 +2691,16 @@ framework based on the path of the construct within thes construct tree.</p>
 <hr />
 <h3 id="appprops">AppProps <a name="org.cdk8s.AppProps"></a><a class="headerlink" href="#appprops" title="Permanent link">&para;</a></h3>
 <h4 id="initializer_2">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_2" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.AppProps</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.AppProps</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">AppProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
-<span class="c1">//  .outdir(java.lang.String)</span>
-<span class="c1">//  .outputFileExtension(java.lang.String)</span>
-<span class="c1">//  .yamlOutputType(YamlOutputType)</span>
-    <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+<span class="n">AppProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span><span class="w"></span>
+<span class="c1">//  .outdir(java.lang.String)</span><span class="w"></span>
+<span class="c1">//  .outputFileExtension(java.lang.String)</span><span class="w"></span>
+<span class="c1">//  .yamlOutputType(YamlOutputType)</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <h5 id="outdiroptional_1"><code>outdir</code><sup>Optional</sup> <a name="org.cdk8s.AppProps.property.outdir"></a><a class="headerlink" href="#outdiroptional_1" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getOutdir</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getOutdir</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
@@ -2709,7 +2709,7 @@ framework based on the path of the construct within thes construct tree.</p>
 <p>The directory to output Kubernetes manifests.</p>
 <hr />
 <h5 id="outputfileextensionoptional_1"><code>outputFileExtension</code><sup>Optional</sup> <a name="org.cdk8s.AppProps.property.outputFileExtension"></a><a class="headerlink" href="#outputfileextensionoptional_1" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getOutputFileExtension</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getOutputFileExtension</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
@@ -2718,7 +2718,7 @@ framework based on the path of the construct within thes construct tree.</p>
 <p>The file extension to use for rendered YAML files.</p>
 <hr />
 <h5 id="yamloutputtypeoptional_1"><code>yamlOutputType</code><sup>Optional</sup> <a name="org.cdk8s.AppProps.property.yamlOutputType"></a><a class="headerlink" href="#yamloutputtypeoptional_1" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">YamlOutputType</span> <span class="nf">getYamlOutputType</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">YamlOutputType</span><span class="w"> </span><span class="nf">getYamlOutputType</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.YamlOutputType"><code>org.cdk8s.YamlOutputType</code></a></li>
@@ -2728,15 +2728,15 @@ framework based on the path of the construct within thes construct tree.</p>
 <hr />
 <h3 id="chartprops">ChartProps <a name="org.cdk8s.ChartProps"></a><a class="headerlink" href="#chartprops" title="Permanent link">&para;</a></h3>
 <h4 id="initializer_3">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_3" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.ChartProps</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.ChartProps</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">ChartProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
-<span class="c1">//  .labels(java.util.Map&lt;java.lang.String, java.lang.String&gt;)</span>
-<span class="c1">//  .namespace(java.lang.String)</span>
-    <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+<span class="n">ChartProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span><span class="w"></span>
+<span class="c1">//  .labels(java.util.Map&lt;java.lang.String, java.lang.String&gt;)</span><span class="w"></span>
+<span class="c1">//  .namespace(java.lang.String)</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <h5 id="labelsoptional_2"><code>labels</code><sup>Optional</sup> <a name="org.cdk8s.ChartProps.property.labels"></a><a class="headerlink" href="#labelsoptional_2" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="o">&gt;</span> <span class="nf">getLabels</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getLabels</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.Map<java.lang.String, <code>java.lang.String</code>></li>
@@ -2745,7 +2745,7 @@ framework based on the path of the construct within thes construct tree.</p>
 <p>Labels to apply to all resources in this chart.</p>
 <hr />
 <h5 id="namespaceoptional_3"><code>namespace</code><sup>Optional</sup> <a name="org.cdk8s.ChartProps.property.namespace"></a><a class="headerlink" href="#namespaceoptional_3" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getNamespace</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getNamespace</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
@@ -2757,15 +2757,15 @@ framework based on the path of the construct within thes construct tree.</p>
 <hr />
 <h3 id="groupversionkind">GroupVersionKind <a name="org.cdk8s.GroupVersionKind"></a><a class="headerlink" href="#groupversionkind" title="Permanent link">&para;</a></h3>
 <h4 id="initializer_4">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_4" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.GroupVersionKind</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.GroupVersionKind</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">GroupVersionKind</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
-    <span class="p">.</span><span class="na">apiVersion</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">)</span>
-    <span class="p">.</span><span class="na">kind</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">)</span>
-    <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+<span class="n">GroupVersionKind</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="na">apiVersion</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="na">kind</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <h5 id="apiversionrequired_3"><code>apiVersion</code><sup>Required</sup> <a name="org.cdk8s.GroupVersionKind.property.apiVersion"></a><a class="headerlink" href="#apiversionrequired_3" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getApiVersion</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getApiVersion</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
@@ -2773,7 +2773,7 @@ framework based on the path of the construct within thes construct tree.</p>
 <p>The object&rsquo;s API version (e.g. <code>authorization.k8s.io/v1</code>).</p>
 <hr />
 <h5 id="kindrequired_3"><code>kind</code><sup>Required</sup> <a name="org.cdk8s.GroupVersionKind.property.kind"></a><a class="headerlink" href="#kindrequired_3" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getKind</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getKind</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
@@ -2783,18 +2783,18 @@ framework based on the path of the construct within thes construct tree.</p>
 <h3 id="helmprops">HelmProps <a name="org.cdk8s.HelmProps"></a><a class="headerlink" href="#helmprops" title="Permanent link">&para;</a></h3>
 <p>Options for <code>Helm</code>.</p>
 <h4 id="initializer_5">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_5" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.HelmProps</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.HelmProps</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">HelmProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
-    <span class="p">.</span><span class="na">chart</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">)</span>
-<span class="c1">//  .helmExecutable(java.lang.String)</span>
-<span class="c1">//  .helmFlags(java.util.List&lt;java.lang.String&gt;)</span>
-<span class="c1">//  .releaseName(java.lang.String)</span>
-<span class="c1">//  .values(java.util.Map&lt;java.lang.String, java.lang.Object&gt;)</span>
-    <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+<span class="n">HelmProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="na">chart</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">)</span><span class="w"></span>
+<span class="c1">//  .helmExecutable(java.lang.String)</span><span class="w"></span>
+<span class="c1">//  .helmFlags(java.util.List&lt;java.lang.String&gt;)</span><span class="w"></span>
+<span class="c1">//  .releaseName(java.lang.String)</span><span class="w"></span>
+<span class="c1">//  .values(java.util.Map&lt;java.lang.String, java.lang.Object&gt;)</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <h5 id="chartrequired_2"><code>chart</code><sup>Required</sup> <a name="org.cdk8s.HelmProps.property.chart"></a><a class="headerlink" href="#chartrequired_2" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getChart</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getChart</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
@@ -2803,7 +2803,7 @@ framework based on the path of the construct within thes construct tree.</p>
 <p>This name is passed to <code>helm template</code> and has all the relevant semantics.</p>
 <hr />
 <h5 id="helmexecutableoptional_1"><code>helmExecutable</code><sup>Optional</sup> <a name="org.cdk8s.HelmProps.property.helmExecutable"></a><a class="headerlink" href="#helmexecutableoptional_1" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getHelmExecutable</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getHelmExecutable</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
@@ -2812,7 +2812,7 @@ framework based on the path of the construct within thes construct tree.</p>
 <p>The local helm executable to use in order to create the manifest the chart.</p>
 <hr />
 <h5 id="helmflagsoptional_1"><code>helmFlags</code><sup>Optional</sup> <a name="org.cdk8s.HelmProps.property.helmFlags"></a><a class="headerlink" href="#helmflagsoptional_1" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="o">&gt;</span> <span class="nf">getHelmFlags</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getHelmFlags</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<code>java.lang.String</code>&gt;</li>
@@ -2821,7 +2821,7 @@ framework based on the path of the construct within thes construct tree.</p>
 <p>Additional flags to add to the <code>helm</code> execution.</p>
 <hr />
 <h5 id="releasenameoptional_1"><code>releaseName</code><sup>Optional</sup> <a name="org.cdk8s.HelmProps.property.releaseName"></a><a class="headerlink" href="#releasenameoptional_1" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getReleaseName</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getReleaseName</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
@@ -2833,7 +2833,7 @@ framework based on the path of the construct within thes construct tree.</p>
 </blockquote>
 <hr />
 <h5 id="valuesoptional_1"><code>values</code><sup>Optional</sup> <a name="org.cdk8s.HelmProps.property.values"></a><a class="headerlink" href="#valuesoptional_1" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Object</span><span class="o">&gt;</span> <span class="nf">getValues</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getValues</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.Map<java.lang.String, <code>java.lang.Object</code>></li>
@@ -2843,14 +2843,14 @@ framework based on the path of the construct within thes construct tree.</p>
 <hr />
 <h3 id="includeprops">IncludeProps <a name="org.cdk8s.IncludeProps"></a><a class="headerlink" href="#includeprops" title="Permanent link">&para;</a></h3>
 <h4 id="initializer_6">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_6" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.IncludeProps</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.IncludeProps</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">IncludeProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
-    <span class="p">.</span><span class="na">url</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">)</span>
-    <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+<span class="n">IncludeProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="na">url</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <h5 id="urlrequired_1"><code>url</code><sup>Required</sup> <a name="org.cdk8s.IncludeProps.property.url"></a><a class="headerlink" href="#urlrequired_1" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getUrl</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getUrl</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
@@ -2860,17 +2860,17 @@ framework based on the path of the construct within thes construct tree.</p>
 <h3 id="nameoptions">NameOptions <a name="org.cdk8s.NameOptions"></a><a class="headerlink" href="#nameoptions" title="Permanent link">&para;</a></h3>
 <p>Options for name generation.</p>
 <h4 id="initializer_7">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_7" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.NameOptions</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.NameOptions</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">NameOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
-<span class="c1">//  .delimiter(java.lang.String)</span>
-<span class="c1">//  .extra(java.util.List&lt;java.lang.String&gt;)</span>
-<span class="c1">//  .includeHash(java.lang.Boolean)</span>
-<span class="c1">//  .maxLen(java.lang.Number)</span>
-    <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+<span class="n">NameOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span><span class="w"></span>
+<span class="c1">//  .delimiter(java.lang.String)</span><span class="w"></span>
+<span class="c1">//  .extra(java.util.List&lt;java.lang.String&gt;)</span><span class="w"></span>
+<span class="c1">//  .includeHash(java.lang.Boolean)</span><span class="w"></span>
+<span class="c1">//  .maxLen(java.lang.Number)</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <h5 id="delimiteroptional"><code>delimiter</code><sup>Optional</sup> <a name="org.cdk8s.NameOptions.property.delimiter"></a><a class="headerlink" href="#delimiteroptional" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getDelimiter</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getDelimiter</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
@@ -2879,7 +2879,7 @@ framework based on the path of the construct within thes construct tree.</p>
 <p>Delimiter to use between components.</p>
 <hr />
 <h5 id="extraoptional"><code>extra</code><sup>Optional</sup> <a name="org.cdk8s.NameOptions.property.extra"></a><a class="headerlink" href="#extraoptional" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="o">&gt;</span> <span class="nf">getExtra</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getExtra</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<code>java.lang.String</code>&gt;</li>
@@ -2888,7 +2888,7 @@ framework based on the path of the construct within thes construct tree.</p>
 <p>Extra components to include in the name.</p>
 <hr />
 <h5 id="includehashoptional"><code>includeHash</code><sup>Optional</sup> <a name="org.cdk8s.NameOptions.property.includeHash"></a><a class="headerlink" href="#includehashoptional" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span> <span class="nf">getIncludeHash</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span><span class="w"> </span><span class="nf">getIncludeHash</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.Boolean</code></li>
@@ -2897,7 +2897,7 @@ framework based on the path of the construct within thes construct tree.</p>
 <p>Include a short hash as last part of the name.</p>
 <hr />
 <h5 id="maxlenoptional"><code>maxLen</code><sup>Optional</sup> <a name="org.cdk8s.NameOptions.property.maxLen"></a><a class="headerlink" href="#maxlenoptional" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="nf">getMaxLen</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span><span class="w"> </span><span class="nf">getMaxLen</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.Number</code></li>
@@ -2910,19 +2910,19 @@ framework based on the path of the construct within thes construct tree.</p>
 <p>An owning object must be in the same namespace as the dependent, or
 be cluster-scoped, so there is no namespace field.</p>
 <h4 id="initializer_8">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_8" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.OwnerReference</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.OwnerReference</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">OwnerReference</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
-    <span class="p">.</span><span class="na">apiVersion</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">)</span>
-    <span class="p">.</span><span class="na">kind</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">)</span>
-    <span class="p">.</span><span class="na">name</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">)</span>
-    <span class="p">.</span><span class="na">uid</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">)</span>
-<span class="c1">//  .blockOwnerDeletion(java.lang.Boolean)</span>
-<span class="c1">//  .controller(java.lang.Boolean)</span>
-    <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+<span class="n">OwnerReference</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="na">apiVersion</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="na">kind</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="na">name</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="na">uid</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">)</span><span class="w"></span>
+<span class="c1">//  .blockOwnerDeletion(java.lang.Boolean)</span><span class="w"></span>
+<span class="c1">//  .controller(java.lang.Boolean)</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <h5 id="apiversionrequired_4"><code>apiVersion</code><sup>Required</sup> <a name="org.cdk8s.OwnerReference.property.apiVersion"></a><a class="headerlink" href="#apiversionrequired_4" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getApiVersion</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getApiVersion</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
@@ -2930,7 +2930,7 @@ be cluster-scoped, so there is no namespace field.</p>
 <p>API version of the referent.</p>
 <hr />
 <h5 id="kindrequired_4"><code>kind</code><sup>Required</sup> <a name="org.cdk8s.OwnerReference.property.kind"></a><a class="headerlink" href="#kindrequired_4" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getKind</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getKind</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
@@ -2941,7 +2941,7 @@ be cluster-scoped, so there is no namespace field.</p>
 </blockquote>
 <hr />
 <h5 id="namerequired_1"><code>name</code><sup>Required</sup> <a name="org.cdk8s.OwnerReference.property.name"></a><a class="headerlink" href="#namerequired_1" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getName</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getName</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
@@ -2952,7 +2952,7 @@ be cluster-scoped, so there is no namespace field.</p>
 </blockquote>
 <hr />
 <h5 id="uidrequired"><code>uid</code><sup>Required</sup> <a name="org.cdk8s.OwnerReference.property.uid"></a><a class="headerlink" href="#uidrequired" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getUid</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getUid</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
@@ -2963,7 +2963,7 @@ be cluster-scoped, so there is no namespace field.</p>
 </blockquote>
 <hr />
 <h5 id="blockownerdeletionoptional"><code>blockOwnerDeletion</code><sup>Optional</sup> <a name="org.cdk8s.OwnerReference.property.blockOwnerDeletion"></a><a class="headerlink" href="#blockownerdeletionoptional" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span> <span class="nf">getBlockOwnerDeletion</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span><span class="w"> </span><span class="nf">getBlockOwnerDeletion</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.Boolean</code></li>
@@ -2976,7 +2976,7 @@ permission of the owner, otherwise 422 (Unprocessable Entity) will be
 returned.</p>
 <hr />
 <h5 id="controlleroptional"><code>controller</code><sup>Optional</sup> <a name="org.cdk8s.OwnerReference.property.controller"></a><a class="headerlink" href="#controlleroptional" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span> <span class="nf">getController</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span><span class="w"> </span><span class="nf">getController</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.Boolean</code></li>
@@ -2986,14 +2986,14 @@ returned.</p>
 <h3 id="sizeconversionoptions">SizeConversionOptions <a name="org.cdk8s.SizeConversionOptions"></a><a class="headerlink" href="#sizeconversionoptions" title="Permanent link">&para;</a></h3>
 <p>Options for how to convert time to a different unit.</p>
 <h4 id="initializer_9">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_9" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.SizeConversionOptions</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.SizeConversionOptions</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">SizeConversionOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
-<span class="c1">//  .rounding(SizeRoundingBehavior)</span>
-    <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+<span class="n">SizeConversionOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span><span class="w"></span>
+<span class="c1">//  .rounding(SizeRoundingBehavior)</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <h5 id="roundingoptional"><code>rounding</code><sup>Optional</sup> <a name="org.cdk8s.SizeConversionOptions.property.rounding"></a><a class="headerlink" href="#roundingoptional" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">SizeRoundingBehavior</span> <span class="nf">getRounding</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">SizeRoundingBehavior</span><span class="w"> </span><span class="nf">getRounding</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.SizeRoundingBehavior"><code>org.cdk8s.SizeRoundingBehavior</code></a></li>
@@ -3004,14 +3004,14 @@ returned.</p>
 <h3 id="timeconversionoptions">TimeConversionOptions <a name="org.cdk8s.TimeConversionOptions"></a><a class="headerlink" href="#timeconversionoptions" title="Permanent link">&para;</a></h3>
 <p>Options for how to convert time to a different unit.</p>
 <h4 id="initializer_10">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_10" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.TimeConversionOptions</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.TimeConversionOptions</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">TimeConversionOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
-<span class="c1">//  .integral(java.lang.Boolean)</span>
-    <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+<span class="n">TimeConversionOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span><span class="w"></span>
+<span class="c1">//  .integral(java.lang.Boolean)</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <h5 id="integraloptional"><code>integral</code><sup>Optional</sup> <a name="org.cdk8s.TimeConversionOptions.property.integral"></a><a class="headerlink" href="#integraloptional" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span> <span class="nf">getIntegral</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span><span class="w"> </span><span class="nf">getIntegral</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.Boolean</code></li>
@@ -3023,16 +3023,16 @@ returned.</p>
 <h3 id="apiobjectmetadatadefinition">ApiObjectMetadataDefinition <a name="org.cdk8s.ApiObjectMetadataDefinition"></a><a class="headerlink" href="#apiobjectmetadatadefinition" title="Permanent link">&para;</a></h3>
 <p>Object metadata.</p>
 <h4 id="initializers_5">Initializers <a name="org.cdk8s.ApiObjectMetadataDefinition.Initializer"></a><a class="headerlink" href="#initializers_5" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.ApiObjectMetadataDefinition</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.ApiObjectMetadataDefinition</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">ApiObjectMetadataDefinition</span><span class="p">.</span><span class="na">Builder</span><span class="p">.</span><span class="na">create</span><span class="p">()</span>
-<span class="c1">//  .annotations(java.util.Map&lt;java.lang.String, java.lang.String&gt;)</span>
-<span class="c1">//  .finalizers(java.util.List&lt;java.lang.String&gt;)</span>
-<span class="c1">//  .labels(java.util.Map&lt;java.lang.String, java.lang.String&gt;)</span>
-<span class="c1">//  .name(java.lang.String)</span>
-<span class="c1">//  .namespace(java.lang.String)</span>
-<span class="c1">//  .ownerReferences(java.util.List&lt;OwnerReference&gt;)</span>
-    <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+<span class="n">ApiObjectMetadataDefinition</span><span class="p">.</span><span class="na">Builder</span><span class="p">.</span><span class="na">create</span><span class="p">()</span><span class="w"></span>
+<span class="c1">//  .annotations(java.util.Map&lt;java.lang.String, java.lang.String&gt;)</span><span class="w"></span>
+<span class="c1">//  .finalizers(java.util.List&lt;java.lang.String&gt;)</span><span class="w"></span>
+<span class="c1">//  .labels(java.util.Map&lt;java.lang.String, java.lang.String&gt;)</span><span class="w"></span>
+<span class="c1">//  .name(java.lang.String)</span><span class="w"></span>
+<span class="c1">//  .namespace(java.lang.String)</span><span class="w"></span>
+<span class="c1">//  .ownerReferences(java.util.List&lt;OwnerReference&gt;)</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <h5 id="annotationsoptional_1"><code>annotations</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectMetadata.parameter.annotations"></a><a class="headerlink" href="#annotationsoptional_1" title="Permanent link">&para;</a></h5>
 <ul>
@@ -3129,7 +3129,7 @@ relationships.</p>
 <hr />
 <h4 id="methods_3">Methods <a name="Methods"></a><a class="headerlink" href="#methods_3" title="Permanent link">&para;</a></h4>
 <h5 id="add"><code>add</code> <a name="org.cdk8s.ApiObjectMetadataDefinition.add"></a><a class="headerlink" href="#add" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">add</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="n">key</span><span class="p">,</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Object</span> <span class="n">value</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Object</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 <h6 id="keyrequired"><code>key</code><sup>Required</sup> <a name="org.cdk8s.ApiObjectMetadataDefinition.parameter.key"></a><a class="headerlink" href="#keyrequired" title="Permanent link">&para;</a></h6>
 <ul>
@@ -3144,7 +3144,7 @@ relationships.</p>
 <p>Metadata value.</p>
 <hr />
 <h5 id="addannotation"><code>addAnnotation</code> <a name="org.cdk8s.ApiObjectMetadataDefinition.addAnnotation"></a><a class="headerlink" href="#addannotation" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">addAnnotation</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="n">key</span><span class="p">,</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="n">value</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="nf">addAnnotation</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 <h6 id="keyrequired_1"><code>key</code><sup>Required</sup> <a name="org.cdk8s.ApiObjectMetadataDefinition.parameter.key"></a><a class="headerlink" href="#keyrequired_1" title="Permanent link">&para;</a></h6>
 <ul>
@@ -3159,7 +3159,7 @@ relationships.</p>
 <p>The value.</p>
 <hr />
 <h5 id="addfinalizers"><code>addFinalizers</code> <a name="org.cdk8s.ApiObjectMetadataDefinition.addFinalizers"></a><a class="headerlink" href="#addfinalizers" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">addFinalizers</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="n">finalizers</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="nf">addFinalizers</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="n">finalizers</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 <h6 id="finalizersrequired"><code>finalizers</code><sup>Required</sup> <a name="org.cdk8s.ApiObjectMetadataDefinition.parameter.finalizers"></a><a class="headerlink" href="#finalizersrequired" title="Permanent link">&para;</a></h6>
 <ul>
@@ -3168,7 +3168,7 @@ relationships.</p>
 <p>the finalizers.</p>
 <hr />
 <h5 id="addlabel"><code>addLabel</code> <a name="org.cdk8s.ApiObjectMetadataDefinition.addLabel"></a><a class="headerlink" href="#addlabel" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">addLabel</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="n">key</span><span class="p">,</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="n">value</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="nf">addLabel</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 <h6 id="keyrequired_2"><code>key</code><sup>Required</sup> <a name="org.cdk8s.ApiObjectMetadataDefinition.parameter.key"></a><a class="headerlink" href="#keyrequired_2" title="Permanent link">&para;</a></h6>
 <ul>
@@ -3183,7 +3183,7 @@ relationships.</p>
 <p>The value.</p>
 <hr />
 <h5 id="addownerreference"><code>addOwnerReference</code> <a name="org.cdk8s.ApiObjectMetadataDefinition.addOwnerReference"></a><a class="headerlink" href="#addownerreference" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">addOwnerReference</span><span class="p">(</span><span class="n">OwnerReference</span> <span class="n">owner</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="nf">addOwnerReference</span><span class="p">(</span><span class="n">OwnerReference</span><span class="w"> </span><span class="n">owner</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 <h6 id="ownerrequired"><code>owner</code><sup>Required</sup> <a name="org.cdk8s.ApiObjectMetadataDefinition.parameter.owner"></a><a class="headerlink" href="#ownerrequired" title="Permanent link">&para;</a></h6>
 <ul>
@@ -3192,7 +3192,7 @@ relationships.</p>
 <p>the owner.</p>
 <hr />
 <h5 id="getlabel"><code>getLabel</code> <a name="org.cdk8s.ApiObjectMetadataDefinition.getLabel"></a><a class="headerlink" href="#getlabel" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">getLabel</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="n">key</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="nf">getLabel</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 <h6 id="keyrequired_3"><code>key</code><sup>Required</sup> <a name="org.cdk8s.ApiObjectMetadataDefinition.parameter.key"></a><a class="headerlink" href="#keyrequired_3" title="Permanent link">&para;</a></h6>
 <ul>
@@ -3201,11 +3201,11 @@ relationships.</p>
 <p>the label.</p>
 <hr />
 <h5 id="tojson_2"><code>toJson</code> <a name="org.cdk8s.ApiObjectMetadataDefinition.toJson"></a><a class="headerlink" href="#tojson_2" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">toJson</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="nf">toJson</span><span class="p">()</span><span class="w"></span>
 </code></pre></div>
 <h4 id="properties_5">Properties <a name="Properties"></a><a class="headerlink" href="#properties_5" title="Permanent link">&para;</a></h4>
 <h5 id="nameoptional_2"><code>name</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectMetadataDefinition.property.name"></a><a class="headerlink" href="#nameoptional_2" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getName</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getName</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
@@ -3217,7 +3217,7 @@ Otherwise, a name will be generated by calling
 construct path to generate a DNS-compatible name for the resource.</p>
 <hr />
 <h5 id="namespaceoptional_5"><code>namespace</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectMetadataDefinition.property.namespace"></a><a class="headerlink" href="#namespaceoptional_5" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="nf">getNamespace</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getNamespace</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
@@ -3233,9 +3233,9 @@ childless children of the root node of the graph.</p>
 <p>The graph does not include cross-scope dependencies. That is, if a child on the current scope depends on a node
 from a different scope, that relationship is not represented in this graph.</p>
 <h4 id="initializers_6">Initializers <a name="org.cdk8s.DependencyGraph.Initializer"></a><a class="headerlink" href="#initializers_6" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.DependencyGraph</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.DependencyGraph</span><span class="p">;</span><span class="w"></span>
 
-<span class="k">new</span> <span class="n">DependencyGraph</span><span class="p">(</span><span class="n">Node</span> <span class="n">node</span><span class="p">);</span>
+<span class="k">new</span><span class="w"> </span><span class="n">DependencyGraph</span><span class="p">(</span><span class="n">Node</span><span class="w"> </span><span class="n">node</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
 <h5 id="noderequired"><code>node</code><sup>Required</sup> <a name="org.cdk8s.DependencyGraph.parameter.node"></a><a class="headerlink" href="#noderequired" title="Permanent link">&para;</a></h5>
 <ul>
@@ -3244,11 +3244,11 @@ from a different scope, that relationship is not represented in this graph.</p>
 <hr />
 <h4 id="methods_4">Methods <a name="Methods"></a><a class="headerlink" href="#methods_4" title="Permanent link">&para;</a></h4>
 <h5 id="topology"><code>topology</code> <a name="org.cdk8s.DependencyGraph.topology"></a><a class="headerlink" href="#topology" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">topology</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="nf">topology</span><span class="p">()</span><span class="w"></span>
 </code></pre></div>
 <h4 id="properties_6">Properties <a name="Properties"></a><a class="headerlink" href="#properties_6" title="Permanent link">&para;</a></h4>
 <h5 id="rootrequired"><code>root</code><sup>Required</sup> <a name="org.cdk8s.DependencyGraph.property.root"></a><a class="headerlink" href="#rootrequired" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">DependencyVertex</span> <span class="nf">getRoot</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">DependencyVertex</span><span class="w"> </span><span class="nf">getRoot</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.DependencyVertex"><code>org.cdk8s.DependencyVertex</code></a></li>
@@ -3261,10 +3261,10 @@ that binds all the connected spaces of the graph.</p>
 <p>Represents a vertex in the graph.</p>
 <p>The value of each vertex is an <code>IConstruct</code> that is accessible via the <code>.value</code> getter.</p>
 <h4 id="initializers_7">Initializers <a name="org.cdk8s.DependencyVertex.Initializer"></a><a class="headerlink" href="#initializers_7" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.DependencyVertex</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.DependencyVertex</span><span class="p">;</span><span class="w"></span>
 
-<span class="k">new</span> <span class="n">DependencyVertex</span><span class="p">();</span>
-<span class="k">new</span> <span class="n">DependencyVertex</span><span class="p">(</span><span class="n">IConstruct</span> <span class="n">value</span><span class="p">);</span>
+<span class="k">new</span><span class="w"> </span><span class="n">DependencyVertex</span><span class="p">();</span><span class="w"></span>
+<span class="k">new</span><span class="w"> </span><span class="n">DependencyVertex</span><span class="p">(</span><span class="n">IConstruct</span><span class="w"> </span><span class="n">value</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
 <h5 id="valueoptional"><code>value</code><sup>Optional</sup> <a name="org.cdk8s.DependencyVertex.parameter.value"></a><a class="headerlink" href="#valueoptional" title="Permanent link">&para;</a></h5>
 <ul>
@@ -3273,7 +3273,7 @@ that binds all the connected spaces of the graph.</p>
 <hr />
 <h4 id="methods_5">Methods <a name="Methods"></a><a class="headerlink" href="#methods_5" title="Permanent link">&para;</a></h4>
 <h5 id="addchild"><code>addChild</code> <a name="org.cdk8s.DependencyVertex.addChild"></a><a class="headerlink" href="#addchild" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">addChild</span><span class="p">(</span><span class="n">DependencyVertex</span> <span class="n">dep</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="nf">addChild</span><span class="p">(</span><span class="n">DependencyVertex</span><span class="w"> </span><span class="n">dep</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 <h6 id="deprequired"><code>dep</code><sup>Required</sup> <a name="org.cdk8s.DependencyVertex.parameter.dep"></a><a class="headerlink" href="#deprequired" title="Permanent link">&para;</a></h6>
 <ul>
@@ -3282,11 +3282,11 @@ that binds all the connected spaces of the graph.</p>
 <p>The dependency.</p>
 <hr />
 <h5 id="topology_1"><code>topology</code> <a name="org.cdk8s.DependencyVertex.topology"></a><a class="headerlink" href="#topology_1" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">topology</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="nf">topology</span><span class="p">()</span><span class="w"></span>
 </code></pre></div>
 <h4 id="properties_7">Properties <a name="Properties"></a><a class="headerlink" href="#properties_7" title="Permanent link">&para;</a></h4>
 <h5 id="inboundrequired"><code>inbound</code><sup>Required</sup> <a name="org.cdk8s.DependencyVertex.property.inbound"></a><a class="headerlink" href="#inboundrequired" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">DependencyVertex</span><span class="o">&gt;</span> <span class="nf">getInbound</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">DependencyVertex</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getInbound</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.DependencyVertex"><code>org.cdk8s.DependencyVertex</code></a>&gt;</li>
@@ -3294,7 +3294,7 @@ that binds all the connected spaces of the graph.</p>
 <p>Returns the parents of the vertex (i.e dependants).</p>
 <hr />
 <h5 id="outboundrequired"><code>outbound</code><sup>Required</sup> <a name="org.cdk8s.DependencyVertex.property.outbound"></a><a class="headerlink" href="#outboundrequired" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">DependencyVertex</span><span class="o">&gt;</span> <span class="nf">getOutbound</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">DependencyVertex</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getOutbound</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.DependencyVertex"><code>org.cdk8s.DependencyVertex</code></a>&gt;</li>
@@ -3302,7 +3302,7 @@ that binds all the connected spaces of the graph.</p>
 <p>Returns the children of the vertex (i.e dependencies).</p>
 <hr />
 <h5 id="valueoptional_1"><code>value</code><sup>Optional</sup> <a name="org.cdk8s.DependencyVertex.property.value"></a><a class="headerlink" href="#valueoptional_1" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">IConstruct</span> <span class="nf">getValue</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">IConstruct</span><span class="w"> </span><span class="nf">getValue</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#software.constructs.IConstruct"><code>software.constructs.IConstruct</code></a></li>
@@ -3316,8 +3316,8 @@ that binds all the connected spaces of the graph.</p>
 cannot be negative.</p>
 <h4 id="methods_6">Methods <a name="Methods"></a><a class="headerlink" href="#methods_6" title="Permanent link">&para;</a></h4>
 <h5 id="todays"><code>toDays</code> <a name="org.cdk8s.Duration.toDays"></a><a class="headerlink" href="#todays" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">toDays</span><span class="p">()</span>
-<span class="kd">public</span> <span class="nf">toDays</span><span class="p">(</span><span class="n">TimeConversionOptions</span> <span class="n">opts</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="nf">toDays</span><span class="p">()</span><span class="w"></span>
+<span class="kd">public</span><span class="w"> </span><span class="nf">toDays</span><span class="p">(</span><span class="n">TimeConversionOptions</span><span class="w"> </span><span class="n">opts</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 <h6 id="optsoptional"><code>opts</code><sup>Optional</sup> <a name="org.cdk8s.Duration.parameter.opts"></a><a class="headerlink" href="#optsoptional" title="Permanent link">&para;</a></h6>
 <ul>
@@ -3325,8 +3325,8 @@ cannot be negative.</p>
 </ul>
 <hr />
 <h5 id="tohours"><code>toHours</code> <a name="org.cdk8s.Duration.toHours"></a><a class="headerlink" href="#tohours" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">toHours</span><span class="p">()</span>
-<span class="kd">public</span> <span class="nf">toHours</span><span class="p">(</span><span class="n">TimeConversionOptions</span> <span class="n">opts</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="nf">toHours</span><span class="p">()</span><span class="w"></span>
+<span class="kd">public</span><span class="w"> </span><span class="nf">toHours</span><span class="p">(</span><span class="n">TimeConversionOptions</span><span class="w"> </span><span class="n">opts</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 <h6 id="optsoptional_1"><code>opts</code><sup>Optional</sup> <a name="org.cdk8s.Duration.parameter.opts"></a><a class="headerlink" href="#optsoptional_1" title="Permanent link">&para;</a></h6>
 <ul>
@@ -3334,14 +3334,14 @@ cannot be negative.</p>
 </ul>
 <hr />
 <h5 id="tohumanstring"><code>toHumanString</code> <a name="org.cdk8s.Duration.toHumanString"></a><a class="headerlink" href="#tohumanstring" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">toHumanString</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="nf">toHumanString</span><span class="p">()</span><span class="w"></span>
 </code></pre></div>
 <h5 id="toisostring"><code>toIsoString</code> <a name="org.cdk8s.Duration.toIsoString"></a><a class="headerlink" href="#toisostring" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">toIsoString</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="nf">toIsoString</span><span class="p">()</span><span class="w"></span>
 </code></pre></div>
 <h5 id="tomilliseconds"><code>toMilliseconds</code> <a name="org.cdk8s.Duration.toMilliseconds"></a><a class="headerlink" href="#tomilliseconds" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">toMilliseconds</span><span class="p">()</span>
-<span class="kd">public</span> <span class="nf">toMilliseconds</span><span class="p">(</span><span class="n">TimeConversionOptions</span> <span class="n">opts</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="nf">toMilliseconds</span><span class="p">()</span><span class="w"></span>
+<span class="kd">public</span><span class="w"> </span><span class="nf">toMilliseconds</span><span class="p">(</span><span class="n">TimeConversionOptions</span><span class="w"> </span><span class="n">opts</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 <h6 id="optsoptional_2"><code>opts</code><sup>Optional</sup> <a name="org.cdk8s.Duration.parameter.opts"></a><a class="headerlink" href="#optsoptional_2" title="Permanent link">&para;</a></h6>
 <ul>
@@ -3349,8 +3349,8 @@ cannot be negative.</p>
 </ul>
 <hr />
 <h5 id="tominutes"><code>toMinutes</code> <a name="org.cdk8s.Duration.toMinutes"></a><a class="headerlink" href="#tominutes" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">toMinutes</span><span class="p">()</span>
-<span class="kd">public</span> <span class="nf">toMinutes</span><span class="p">(</span><span class="n">TimeConversionOptions</span> <span class="n">opts</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="nf">toMinutes</span><span class="p">()</span><span class="w"></span>
+<span class="kd">public</span><span class="w"> </span><span class="nf">toMinutes</span><span class="p">(</span><span class="n">TimeConversionOptions</span><span class="w"> </span><span class="n">opts</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 <h6 id="optsoptional_3"><code>opts</code><sup>Optional</sup> <a name="org.cdk8s.Duration.parameter.opts"></a><a class="headerlink" href="#optsoptional_3" title="Permanent link">&para;</a></h6>
 <ul>
@@ -3358,8 +3358,8 @@ cannot be negative.</p>
 </ul>
 <hr />
 <h5 id="toseconds"><code>toSeconds</code> <a name="org.cdk8s.Duration.toSeconds"></a><a class="headerlink" href="#toseconds" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">toSeconds</span><span class="p">()</span>
-<span class="kd">public</span> <span class="nf">toSeconds</span><span class="p">(</span><span class="n">TimeConversionOptions</span> <span class="n">opts</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="nf">toSeconds</span><span class="p">()</span><span class="w"></span>
+<span class="kd">public</span><span class="w"> </span><span class="nf">toSeconds</span><span class="p">(</span><span class="n">TimeConversionOptions</span><span class="w"> </span><span class="n">opts</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 <h6 id="optsoptional_4"><code>opts</code><sup>Optional</sup> <a name="org.cdk8s.Duration.parameter.opts"></a><a class="headerlink" href="#optsoptional_4" title="Permanent link">&para;</a></h6>
 <ul>
@@ -3368,9 +3368,9 @@ cannot be negative.</p>
 <hr />
 <h4 id="static-functions_2">Static Functions <a name="Static Functions"></a><a class="headerlink" href="#static-functions_2" title="Permanent link">&para;</a></h4>
 <h5 id="days"><code>days</code> <a name="org.cdk8s.Duration.days"></a><a class="headerlink" href="#days" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.Duration</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.Duration</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">Duration</span><span class="p">.</span><span class="na">days</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="n">amount</span><span class="p">)</span>
+<span class="n">Duration</span><span class="p">.</span><span class="na">days</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span><span class="w"> </span><span class="n">amount</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 <h6 id="amountrequired"><code>amount</code><sup>Required</sup> <a name="org.cdk8s.Duration.parameter.amount"></a><a class="headerlink" href="#amountrequired" title="Permanent link">&para;</a></h6>
 <ul>
@@ -3379,9 +3379,9 @@ cannot be negative.</p>
 <p>the amount of Days the <code>Duration</code> will represent.</p>
 <hr />
 <h5 id="hours"><code>hours</code> <a name="org.cdk8s.Duration.hours"></a><a class="headerlink" href="#hours" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.Duration</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.Duration</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">Duration</span><span class="p">.</span><span class="na">hours</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="n">amount</span><span class="p">)</span>
+<span class="n">Duration</span><span class="p">.</span><span class="na">hours</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span><span class="w"> </span><span class="n">amount</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 <h6 id="amountrequired_1"><code>amount</code><sup>Required</sup> <a name="org.cdk8s.Duration.parameter.amount"></a><a class="headerlink" href="#amountrequired_1" title="Permanent link">&para;</a></h6>
 <ul>
@@ -3390,9 +3390,9 @@ cannot be negative.</p>
 <p>the amount of Hours the <code>Duration</code> will represent.</p>
 <hr />
 <h5 id="millis"><code>millis</code> <a name="org.cdk8s.Duration.millis"></a><a class="headerlink" href="#millis" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.Duration</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.Duration</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">Duration</span><span class="p">.</span><span class="na">millis</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="n">amount</span><span class="p">)</span>
+<span class="n">Duration</span><span class="p">.</span><span class="na">millis</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span><span class="w"> </span><span class="n">amount</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 <h6 id="amountrequired_2"><code>amount</code><sup>Required</sup> <a name="org.cdk8s.Duration.parameter.amount"></a><a class="headerlink" href="#amountrequired_2" title="Permanent link">&para;</a></h6>
 <ul>
@@ -3401,9 +3401,9 @@ cannot be negative.</p>
 <p>the amount of Milliseconds the <code>Duration</code> will represent.</p>
 <hr />
 <h5 id="minutes"><code>minutes</code> <a name="org.cdk8s.Duration.minutes"></a><a class="headerlink" href="#minutes" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.Duration</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.Duration</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">Duration</span><span class="p">.</span><span class="na">minutes</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="n">amount</span><span class="p">)</span>
+<span class="n">Duration</span><span class="p">.</span><span class="na">minutes</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span><span class="w"> </span><span class="n">amount</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 <h6 id="amountrequired_3"><code>amount</code><sup>Required</sup> <a name="org.cdk8s.Duration.parameter.amount"></a><a class="headerlink" href="#amountrequired_3" title="Permanent link">&para;</a></h6>
 <ul>
@@ -3412,9 +3412,9 @@ cannot be negative.</p>
 <p>the amount of Minutes the <code>Duration</code> will represent.</p>
 <hr />
 <h5 id="parse"><code>parse</code> <a name="org.cdk8s.Duration.parse"></a><a class="headerlink" href="#parse" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.Duration</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.Duration</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">Duration</span><span class="p">.</span><span class="na">parse</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="n">duration</span><span class="p">)</span>
+<span class="n">Duration</span><span class="p">.</span><span class="na">parse</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="n">duration</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 <h6 id="durationrequired"><code>duration</code><sup>Required</sup> <a name="org.cdk8s.Duration.parameter.duration"></a><a class="headerlink" href="#durationrequired" title="Permanent link">&para;</a></h6>
 <ul>
@@ -3423,9 +3423,9 @@ cannot be negative.</p>
 <p>an ISO-formtted duration to be parsed.</p>
 <hr />
 <h5 id="seconds"><code>seconds</code> <a name="org.cdk8s.Duration.seconds"></a><a class="headerlink" href="#seconds" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.Duration</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.Duration</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">Duration</span><span class="p">.</span><span class="na">seconds</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="n">amount</span><span class="p">)</span>
+<span class="n">Duration</span><span class="p">.</span><span class="na">seconds</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span><span class="w"> </span><span class="n">amount</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 <h6 id="amountrequired_4"><code>amount</code><sup>Required</sup> <a name="org.cdk8s.Duration.parameter.amount"></a><a class="headerlink" href="#amountrequired_4" title="Permanent link">&para;</a></h6>
 <ul>
@@ -3441,9 +3441,9 @@ operations to a JSON document and return the result.</p>
 <code>JsonPatch.remove()</code>, etc.</p>
 <h4 id="static-functions_3">Static Functions <a name="Static Functions"></a><a class="headerlink" href="#static-functions_3" title="Permanent link">&para;</a></h4>
 <h5 id="add_1"><code>add</code> <a name="org.cdk8s.JsonPatch.add"></a><a class="headerlink" href="#add_1" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.JsonPatch</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.JsonPatch</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">JsonPatch</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="n">path</span><span class="p">,</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Object</span> <span class="n">value</span><span class="p">)</span>
+<span class="n">JsonPatch</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Object</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 <h6 id="pathrequired"><code>path</code><sup>Required</sup> <a name="org.cdk8s.JsonPatch.parameter.path"></a><a class="headerlink" href="#pathrequired" title="Permanent link">&para;</a></h6>
 <ul>
@@ -3456,9 +3456,9 @@ operations to a JSON document and return the result.</p>
 </ul>
 <hr />
 <h5 id="apply"><code>apply</code> <a name="org.cdk8s.JsonPatch.apply"></a><a class="headerlink" href="#apply" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.JsonPatch</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.JsonPatch</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">JsonPatch</span><span class="p">.</span><span class="na">apply</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Object</span> <span class="n">document</span><span class="p">,</span> <span class="n">JsonPatch</span> <span class="n">ops</span><span class="p">)</span>
+<span class="n">JsonPatch</span><span class="p">.</span><span class="na">apply</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Object</span><span class="w"> </span><span class="n">document</span><span class="p">,</span><span class="w"> </span><span class="n">JsonPatch</span><span class="w"> </span><span class="n">ops</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 <h6 id="documentrequired"><code>document</code><sup>Required</sup> <a name="org.cdk8s.JsonPatch.parameter.document"></a><a class="headerlink" href="#documentrequired" title="Permanent link">&para;</a></h6>
 <ul>
@@ -3473,9 +3473,9 @@ operations to a JSON document and return the result.</p>
 <p>The operations to apply.</p>
 <hr />
 <h5 id="copy"><code>copy</code> <a name="org.cdk8s.JsonPatch.copy"></a><a class="headerlink" href="#copy" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.JsonPatch</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.JsonPatch</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">JsonPatch</span><span class="p">.</span><span class="na">copy</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="n">from</span><span class="p">,</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="n">path</span><span class="p">)</span>
+<span class="n">JsonPatch</span><span class="p">.</span><span class="na">copy</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="n">from</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="n">path</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 <h6 id="fromrequired"><code>from</code><sup>Required</sup> <a name="org.cdk8s.JsonPatch.parameter.from"></a><a class="headerlink" href="#fromrequired" title="Permanent link">&para;</a></h6>
 <ul>
@@ -3488,9 +3488,9 @@ operations to a JSON document and return the result.</p>
 </ul>
 <hr />
 <h5 id="move"><code>move</code> <a name="org.cdk8s.JsonPatch.move"></a><a class="headerlink" href="#move" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.JsonPatch</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.JsonPatch</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">JsonPatch</span><span class="p">.</span><span class="na">move</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="n">from</span><span class="p">,</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="n">path</span><span class="p">)</span>
+<span class="n">JsonPatch</span><span class="p">.</span><span class="na">move</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="n">from</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="n">path</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 <h6 id="fromrequired_1"><code>from</code><sup>Required</sup> <a name="org.cdk8s.JsonPatch.parameter.from"></a><a class="headerlink" href="#fromrequired_1" title="Permanent link">&para;</a></h6>
 <ul>
@@ -3503,9 +3503,9 @@ operations to a JSON document and return the result.</p>
 </ul>
 <hr />
 <h5 id="remove"><code>remove</code> <a name="org.cdk8s.JsonPatch.remove"></a><a class="headerlink" href="#remove" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.JsonPatch</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.JsonPatch</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">JsonPatch</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="n">path</span><span class="p">)</span>
+<span class="n">JsonPatch</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="n">path</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 <h6 id="pathrequired_3"><code>path</code><sup>Required</sup> <a name="org.cdk8s.JsonPatch.parameter.path"></a><a class="headerlink" href="#pathrequired_3" title="Permanent link">&para;</a></h6>
 <ul>
@@ -3513,9 +3513,9 @@ operations to a JSON document and return the result.</p>
 </ul>
 <hr />
 <h5 id="replace"><code>replace</code> <a name="org.cdk8s.JsonPatch.replace"></a><a class="headerlink" href="#replace" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.JsonPatch</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.JsonPatch</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">JsonPatch</span><span class="p">.</span><span class="na">replace</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="n">path</span><span class="p">,</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Object</span> <span class="n">value</span><span class="p">)</span>
+<span class="n">JsonPatch</span><span class="p">.</span><span class="na">replace</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Object</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 <h6 id="pathrequired_4"><code>path</code><sup>Required</sup> <a name="org.cdk8s.JsonPatch.parameter.path"></a><a class="headerlink" href="#pathrequired_4" title="Permanent link">&para;</a></h6>
 <ul>
@@ -3528,9 +3528,9 @@ operations to a JSON document and return the result.</p>
 </ul>
 <hr />
 <h5 id="test"><code>test</code> <a name="org.cdk8s.JsonPatch.test"></a><a class="headerlink" href="#test" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.JsonPatch</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.JsonPatch</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">JsonPatch</span><span class="p">.</span><span class="na">test</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="n">path</span><span class="p">,</span> <span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Object</span> <span class="n">value</span><span class="p">)</span>
+<span class="n">JsonPatch</span><span class="p">.</span><span class="na">test</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Object</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 <h6 id="pathrequired_5"><code>path</code><sup>Required</sup> <a name="org.cdk8s.JsonPatch.parameter.path"></a><a class="headerlink" href="#pathrequired_5" title="Permanent link">&para;</a></h6>
 <ul>
@@ -3545,13 +3545,13 @@ operations to a JSON document and return the result.</p>
 <h3 id="lazy">Lazy <a name="org.cdk8s.Lazy"></a><a class="headerlink" href="#lazy" title="Permanent link">&para;</a></h3>
 <h4 id="methods_7">Methods <a name="Methods"></a><a class="headerlink" href="#methods_7" title="Permanent link">&para;</a></h4>
 <h5 id="produce"><code>produce</code> <a name="org.cdk8s.Lazy.produce"></a><a class="headerlink" href="#produce" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">produce</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="nf">produce</span><span class="p">()</span><span class="w"></span>
 </code></pre></div>
 <h4 id="static-functions_4">Static Functions <a name="Static Functions"></a><a class="headerlink" href="#static-functions_4" title="Permanent link">&para;</a></h4>
 <h5 id="any"><code>any</code> <a name="org.cdk8s.Lazy.any"></a><a class="headerlink" href="#any" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.Lazy</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.Lazy</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">Lazy</span><span class="p">.</span><span class="na">any</span><span class="p">(</span><span class="n">IAnyProducer</span> <span class="n">producer</span><span class="p">)</span>
+<span class="n">Lazy</span><span class="p">.</span><span class="na">any</span><span class="p">(</span><span class="n">IAnyProducer</span><span class="w"> </span><span class="n">producer</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 <h6 id="producerrequired"><code>producer</code><sup>Required</sup> <a name="org.cdk8s.Lazy.parameter.producer"></a><a class="headerlink" href="#producerrequired" title="Permanent link">&para;</a></h6>
 <ul>
@@ -3562,10 +3562,10 @@ operations to a JSON document and return the result.</p>
 <p>Utilities for generating unique and stable names.</p>
 <h4 id="static-functions_5">Static Functions <a name="Static Functions"></a><a class="headerlink" href="#static-functions_5" title="Permanent link">&para;</a></h4>
 <h5 id="todnslabel"><code>toDnsLabel</code> <a name="org.cdk8s.Names.toDnsLabel"></a><a class="headerlink" href="#todnslabel" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.Names</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.Names</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">Names</span><span class="p">.</span><span class="na">toDnsLabel</span><span class="p">(</span><span class="n">Construct</span> <span class="n">scope</span><span class="p">)</span>
-<span class="n">Names</span><span class="p">.</span><span class="na">toDnsLabel</span><span class="p">(</span><span class="n">Construct</span> <span class="n">scope</span><span class="p">,</span> <span class="n">NameOptions</span> <span class="n">options</span><span class="p">)</span>
+<span class="n">Names</span><span class="p">.</span><span class="na">toDnsLabel</span><span class="p">(</span><span class="n">Construct</span><span class="w"> </span><span class="n">scope</span><span class="p">)</span><span class="w"></span>
+<span class="n">Names</span><span class="p">.</span><span class="na">toDnsLabel</span><span class="p">(</span><span class="n">Construct</span><span class="w"> </span><span class="n">scope</span><span class="p">,</span><span class="w"> </span><span class="n">NameOptions</span><span class="w"> </span><span class="n">options</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 <h6 id="scoperequired_4"><code>scope</code><sup>Required</sup> <a name="org.cdk8s.Names.parameter.scope"></a><a class="headerlink" href="#scoperequired_4" title="Permanent link">&para;</a></h6>
 <ul>
@@ -3580,10 +3580,10 @@ operations to a JSON document and return the result.</p>
 <p>Name options.</p>
 <hr />
 <h5 id="tolabelvalue"><code>toLabelValue</code> <a name="org.cdk8s.Names.toLabelValue"></a><a class="headerlink" href="#tolabelvalue" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.Names</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.Names</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">Names</span><span class="p">.</span><span class="na">toLabelValue</span><span class="p">(</span><span class="n">Construct</span> <span class="n">scope</span><span class="p">)</span>
-<span class="n">Names</span><span class="p">.</span><span class="na">toLabelValue</span><span class="p">(</span><span class="n">Construct</span> <span class="n">scope</span><span class="p">,</span> <span class="n">NameOptions</span> <span class="n">options</span><span class="p">)</span>
+<span class="n">Names</span><span class="p">.</span><span class="na">toLabelValue</span><span class="p">(</span><span class="n">Construct</span><span class="w"> </span><span class="n">scope</span><span class="p">)</span><span class="w"></span>
+<span class="n">Names</span><span class="p">.</span><span class="na">toLabelValue</span><span class="p">(</span><span class="n">Construct</span><span class="w"> </span><span class="n">scope</span><span class="p">,</span><span class="w"> </span><span class="n">NameOptions</span><span class="w"> </span><span class="n">options</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 <h6 id="scoperequired_5"><code>scope</code><sup>Required</sup> <a name="org.cdk8s.Names.parameter.scope"></a><a class="headerlink" href="#scoperequired_5" title="Permanent link">&para;</a></h6>
 <ul>
@@ -3604,8 +3604,8 @@ cannot be negative.</p>
 <p>When the amount is passed as a token, unit conversion is not possible.</p>
 <h4 id="methods_8">Methods <a name="Methods"></a><a class="headerlink" href="#methods_8" title="Permanent link">&para;</a></h4>
 <h5 id="togibibytes"><code>toGibibytes</code> <a name="org.cdk8s.Size.toGibibytes"></a><a class="headerlink" href="#togibibytes" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">toGibibytes</span><span class="p">()</span>
-<span class="kd">public</span> <span class="nf">toGibibytes</span><span class="p">(</span><span class="n">SizeConversionOptions</span> <span class="n">opts</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="nf">toGibibytes</span><span class="p">()</span><span class="w"></span>
+<span class="kd">public</span><span class="w"> </span><span class="nf">toGibibytes</span><span class="p">(</span><span class="n">SizeConversionOptions</span><span class="w"> </span><span class="n">opts</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 <h6 id="optsoptional_5"><code>opts</code><sup>Optional</sup> <a name="org.cdk8s.Size.parameter.opts"></a><a class="headerlink" href="#optsoptional_5" title="Permanent link">&para;</a></h6>
 <ul>
@@ -3613,8 +3613,8 @@ cannot be negative.</p>
 </ul>
 <hr />
 <h5 id="tokibibytes"><code>toKibibytes</code> <a name="org.cdk8s.Size.toKibibytes"></a><a class="headerlink" href="#tokibibytes" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">toKibibytes</span><span class="p">()</span>
-<span class="kd">public</span> <span class="nf">toKibibytes</span><span class="p">(</span><span class="n">SizeConversionOptions</span> <span class="n">opts</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="nf">toKibibytes</span><span class="p">()</span><span class="w"></span>
+<span class="kd">public</span><span class="w"> </span><span class="nf">toKibibytes</span><span class="p">(</span><span class="n">SizeConversionOptions</span><span class="w"> </span><span class="n">opts</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 <h6 id="optsoptional_6"><code>opts</code><sup>Optional</sup> <a name="org.cdk8s.Size.parameter.opts"></a><a class="headerlink" href="#optsoptional_6" title="Permanent link">&para;</a></h6>
 <ul>
@@ -3622,8 +3622,8 @@ cannot be negative.</p>
 </ul>
 <hr />
 <h5 id="tomebibytes"><code>toMebibytes</code> <a name="org.cdk8s.Size.toMebibytes"></a><a class="headerlink" href="#tomebibytes" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">toMebibytes</span><span class="p">()</span>
-<span class="kd">public</span> <span class="nf">toMebibytes</span><span class="p">(</span><span class="n">SizeConversionOptions</span> <span class="n">opts</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="nf">toMebibytes</span><span class="p">()</span><span class="w"></span>
+<span class="kd">public</span><span class="w"> </span><span class="nf">toMebibytes</span><span class="p">(</span><span class="n">SizeConversionOptions</span><span class="w"> </span><span class="n">opts</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 <h6 id="optsoptional_7"><code>opts</code><sup>Optional</sup> <a name="org.cdk8s.Size.parameter.opts"></a><a class="headerlink" href="#optsoptional_7" title="Permanent link">&para;</a></h6>
 <ul>
@@ -3631,8 +3631,8 @@ cannot be negative.</p>
 </ul>
 <hr />
 <h5 id="topebibytes"><code>toPebibytes</code> <a name="org.cdk8s.Size.toPebibytes"></a><a class="headerlink" href="#topebibytes" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">toPebibytes</span><span class="p">()</span>
-<span class="kd">public</span> <span class="nf">toPebibytes</span><span class="p">(</span><span class="n">SizeConversionOptions</span> <span class="n">opts</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="nf">toPebibytes</span><span class="p">()</span><span class="w"></span>
+<span class="kd">public</span><span class="w"> </span><span class="nf">toPebibytes</span><span class="p">(</span><span class="n">SizeConversionOptions</span><span class="w"> </span><span class="n">opts</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 <h6 id="optsoptional_8"><code>opts</code><sup>Optional</sup> <a name="org.cdk8s.Size.parameter.opts"></a><a class="headerlink" href="#optsoptional_8" title="Permanent link">&para;</a></h6>
 <ul>
@@ -3640,8 +3640,8 @@ cannot be negative.</p>
 </ul>
 <hr />
 <h5 id="totebibytes"><code>toTebibytes</code> <a name="org.cdk8s.Size.toTebibytes"></a><a class="headerlink" href="#totebibytes" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">toTebibytes</span><span class="p">()</span>
-<span class="kd">public</span> <span class="nf">toTebibytes</span><span class="p">(</span><span class="n">SizeConversionOptions</span> <span class="n">opts</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="nf">toTebibytes</span><span class="p">()</span><span class="w"></span>
+<span class="kd">public</span><span class="w"> </span><span class="nf">toTebibytes</span><span class="p">(</span><span class="n">SizeConversionOptions</span><span class="w"> </span><span class="n">opts</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 <h6 id="optsoptional_9"><code>opts</code><sup>Optional</sup> <a name="org.cdk8s.Size.parameter.opts"></a><a class="headerlink" href="#optsoptional_9" title="Permanent link">&para;</a></h6>
 <ul>
@@ -3650,9 +3650,9 @@ cannot be negative.</p>
 <hr />
 <h4 id="static-functions_6">Static Functions <a name="Static Functions"></a><a class="headerlink" href="#static-functions_6" title="Permanent link">&para;</a></h4>
 <h5 id="gibibytes"><code>gibibytes</code> <a name="org.cdk8s.Size.gibibytes"></a><a class="headerlink" href="#gibibytes" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.Size</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.Size</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">Size</span><span class="p">.</span><span class="na">gibibytes</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="n">amount</span><span class="p">)</span>
+<span class="n">Size</span><span class="p">.</span><span class="na">gibibytes</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span><span class="w"> </span><span class="n">amount</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 <h6 id="amountrequired_5"><code>amount</code><sup>Required</sup> <a name="org.cdk8s.Size.parameter.amount"></a><a class="headerlink" href="#amountrequired_5" title="Permanent link">&para;</a></h6>
 <ul>
@@ -3660,9 +3660,9 @@ cannot be negative.</p>
 </ul>
 <hr />
 <h5 id="kibibytes"><code>kibibytes</code> <a name="org.cdk8s.Size.kibibytes"></a><a class="headerlink" href="#kibibytes" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.Size</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.Size</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">Size</span><span class="p">.</span><span class="na">kibibytes</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="n">amount</span><span class="p">)</span>
+<span class="n">Size</span><span class="p">.</span><span class="na">kibibytes</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span><span class="w"> </span><span class="n">amount</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 <h6 id="amountrequired_6"><code>amount</code><sup>Required</sup> <a name="org.cdk8s.Size.parameter.amount"></a><a class="headerlink" href="#amountrequired_6" title="Permanent link">&para;</a></h6>
 <ul>
@@ -3670,9 +3670,9 @@ cannot be negative.</p>
 </ul>
 <hr />
 <h5 id="mebibytes"><code>mebibytes</code> <a name="org.cdk8s.Size.mebibytes"></a><a class="headerlink" href="#mebibytes" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.Size</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.Size</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">Size</span><span class="p">.</span><span class="na">mebibytes</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="n">amount</span><span class="p">)</span>
+<span class="n">Size</span><span class="p">.</span><span class="na">mebibytes</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span><span class="w"> </span><span class="n">amount</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 <h6 id="amountrequired_7"><code>amount</code><sup>Required</sup> <a name="org.cdk8s.Size.parameter.amount"></a><a class="headerlink" href="#amountrequired_7" title="Permanent link">&para;</a></h6>
 <ul>
@@ -3680,9 +3680,9 @@ cannot be negative.</p>
 </ul>
 <hr />
 <h5 id="pebibyte"><code>pebibyte</code> <a name="org.cdk8s.Size.pebibyte"></a><a class="headerlink" href="#pebibyte" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.Size</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.Size</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">Size</span><span class="p">.</span><span class="na">pebibyte</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="n">amount</span><span class="p">)</span>
+<span class="n">Size</span><span class="p">.</span><span class="na">pebibyte</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span><span class="w"> </span><span class="n">amount</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 <h6 id="amountrequired_8"><code>amount</code><sup>Required</sup> <a name="org.cdk8s.Size.parameter.amount"></a><a class="headerlink" href="#amountrequired_8" title="Permanent link">&para;</a></h6>
 <ul>
@@ -3690,9 +3690,9 @@ cannot be negative.</p>
 </ul>
 <hr />
 <h5 id="tebibytes"><code>tebibytes</code> <a name="org.cdk8s.Size.tebibytes"></a><a class="headerlink" href="#tebibytes" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.Size</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.Size</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">Size</span><span class="p">.</span><span class="na">tebibytes</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span> <span class="n">amount</span><span class="p">)</span>
+<span class="n">Size</span><span class="p">.</span><span class="na">tebibytes</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span><span class="w"> </span><span class="n">amount</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 <h6 id="amountrequired_9"><code>amount</code><sup>Required</sup> <a name="org.cdk8s.Size.parameter.amount"></a><a class="headerlink" href="#amountrequired_9" title="Permanent link">&para;</a></h6>
 <ul>
@@ -3703,10 +3703,10 @@ cannot be negative.</p>
 <p>Testing utilities for cdk8s applications.</p>
 <h4 id="static-functions_7">Static Functions <a name="Static Functions"></a><a class="headerlink" href="#static-functions_7" title="Permanent link">&para;</a></h4>
 <h5 id="app_1"><code>app</code> <a name="org.cdk8s.Testing.app"></a><a class="headerlink" href="#app_1" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.Testing</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.Testing</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">Testing</span><span class="p">.</span><span class="na">app</span><span class="p">()</span>
-<span class="n">Testing</span><span class="p">.</span><span class="na">app</span><span class="p">(</span><span class="n">AppProps</span> <span class="n">props</span><span class="p">)</span>
+<span class="n">Testing</span><span class="p">.</span><span class="na">app</span><span class="p">()</span><span class="w"></span>
+<span class="n">Testing</span><span class="p">.</span><span class="na">app</span><span class="p">(</span><span class="n">AppProps</span><span class="w"> </span><span class="n">props</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 <h6 id="propsoptional"><code>props</code><sup>Optional</sup> <a name="org.cdk8s.Testing.parameter.props"></a><a class="headerlink" href="#propsoptional" title="Permanent link">&para;</a></h6>
 <ul>
@@ -3714,14 +3714,14 @@ cannot be negative.</p>
 </ul>
 <hr />
 <h5 id="chart_1"><code>chart</code> <a name="org.cdk8s.Testing.chart"></a><a class="headerlink" href="#chart_1" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.Testing</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.Testing</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">Testing</span><span class="p">.</span><span class="na">chart</span><span class="p">()</span>
+<span class="n">Testing</span><span class="p">.</span><span class="na">chart</span><span class="p">()</span><span class="w"></span>
 </code></pre></div>
 <h5 id="synth_1"><code>synth</code> <a name="org.cdk8s.Testing.synth"></a><a class="headerlink" href="#synth_1" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.Testing</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.Testing</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">Testing</span><span class="p">.</span><span class="na">synth</span><span class="p">(</span><span class="n">Chart</span> <span class="n">chart</span><span class="p">)</span>
+<span class="n">Testing</span><span class="p">.</span><span class="na">synth</span><span class="p">(</span><span class="n">Chart</span><span class="w"> </span><span class="n">chart</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 <h6 id="chartrequired_3"><code>chart</code><sup>Required</sup> <a name="org.cdk8s.Testing.parameter.chart"></a><a class="headerlink" href="#chartrequired_3" title="Permanent link">&para;</a></h6>
 <ul>
@@ -3732,9 +3732,9 @@ cannot be negative.</p>
 <p>YAML utilities.</p>
 <h4 id="static-functions_8">Static Functions <a name="Static Functions"></a><a class="headerlink" href="#static-functions_8" title="Permanent link">&para;</a></h4>
 <h5 id="formatobjects">~~<code>formatObjects</code>~~ <a name="org.cdk8s.Yaml.formatObjects"></a><a class="headerlink" href="#formatobjects" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.Yaml</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.Yaml</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">Yaml</span><span class="p">.</span><span class="na">formatObjects</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Object</span><span class="o">&gt;</span> <span class="n">docs</span><span class="p">)</span>
+<span class="n">Yaml</span><span class="p">.</span><span class="na">formatObjects</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">docs</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 <h6 id="docsrequired"><code>docs</code><sup>Required</sup> <a name="org.cdk8s.Yaml.parameter.docs"></a><a class="headerlink" href="#docsrequired" title="Permanent link">&para;</a></h6>
 <ul>
@@ -3742,9 +3742,9 @@ cannot be negative.</p>
 </ul>
 <hr />
 <h5 id="load"><code>load</code> <a name="org.cdk8s.Yaml.load"></a><a class="headerlink" href="#load" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.Yaml</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.Yaml</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">Yaml</span><span class="p">.</span><span class="na">load</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="n">urlOrFile</span><span class="p">)</span>
+<span class="n">Yaml</span><span class="p">.</span><span class="na">load</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="n">urlOrFile</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 <h6 id="urlorfilerequired"><code>urlOrFile</code><sup>Required</sup> <a name="org.cdk8s.Yaml.parameter.urlOrFile"></a><a class="headerlink" href="#urlorfilerequired" title="Permanent link">&para;</a></h6>
 <ul>
@@ -3753,9 +3753,9 @@ cannot be negative.</p>
 <p>a URL of a file path to load from.</p>
 <hr />
 <h5 id="save"><code>save</code> <a name="org.cdk8s.Yaml.save"></a><a class="headerlink" href="#save" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.Yaml</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.Yaml</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">Yaml</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span> <span class="n">filePath</span><span class="p">,</span> <span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Object</span><span class="o">&gt;</span> <span class="n">docs</span><span class="p">)</span>
+<span class="n">Yaml</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="n">filePath</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">docs</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 <h6 id="filepathrequired"><code>filePath</code><sup>Required</sup> <a name="org.cdk8s.Yaml.parameter.filePath"></a><a class="headerlink" href="#filepathrequired" title="Permanent link">&para;</a></h6>
 <ul>
@@ -3770,9 +3770,9 @@ cannot be negative.</p>
 <p>The set of objects.</p>
 <hr />
 <h5 id="stringify"><code>stringify</code> <a name="org.cdk8s.Yaml.stringify"></a><a class="headerlink" href="#stringify" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.Yaml</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.Yaml</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">Yaml</span><span class="p">.</span><span class="na">stringify</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Object</span> <span class="n">docs</span><span class="p">)</span>
+<span class="n">Yaml</span><span class="p">.</span><span class="na">stringify</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Object</span><span class="w"> </span><span class="n">docs</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 <h6 id="docsrequired_2"><code>docs</code><sup>Required</sup> <a name="org.cdk8s.Yaml.parameter.docs"></a><a class="headerlink" href="#docsrequired_2" title="Permanent link">&para;</a></h6>
 <ul>
@@ -3781,9 +3781,9 @@ cannot be negative.</p>
 <p>A set of objects to convert to YAML.</p>
 <hr />
 <h5 id="tmp"><code>tmp</code> <a name="org.cdk8s.Yaml.tmp"></a><a class="headerlink" href="#tmp" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.cdk8s.Yaml</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.Yaml</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">Yaml</span><span class="p">.</span><span class="na">tmp</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Object</span><span class="o">&gt;</span> <span class="n">docs</span><span class="p">)</span>
+<span class="n">Yaml</span><span class="p">.</span><span class="na">tmp</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">docs</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 <h6 id="docsrequired_3"><code>docs</code><sup>Required</sup> <a name="org.cdk8s.Yaml.parameter.docs"></a><a class="headerlink" href="#docsrequired_3" title="Permanent link">&para;</a></h6>
 <ul>
@@ -3798,7 +3798,7 @@ cannot be negative.</p>
 </ul>
 <h4 id="methods_9">Methods <a name="Methods"></a><a class="headerlink" href="#methods_9" title="Permanent link">&para;</a></h4>
 <h5 id="produce_1"><code>produce</code> <a name="org.cdk8s.IAnyProducer.produce"></a><a class="headerlink" href="#produce_1" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="nf">produce</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="nf">produce</span><span class="p">()</span><span class="w"></span>
 </code></pre></div>
 <h2 id="enums">Enums <a name="Enums"></a><a class="headerlink" href="#enums" title="Permanent link">&para;</a></h2>
 <h3 id="sizeroundingbehavior">SizeRoundingBehavior <a name="SizeRoundingBehavior"></a><a class="headerlink" href="#sizeroundingbehavior" title="Permanent link">&para;</a></h3>
@@ -3921,7 +3921,7 @@ cannot be negative.</p>
     <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "header.autohide"], "search": "../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.6e54b5cd.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.ed9748b7.min.js"></script>
       
     
   </body>

@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.9">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.13">
     
     
       
@@ -17,10 +17,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.120efc48.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e411adfe.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.9647289d.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cc9b2e1e.min.css">
         
           
           
@@ -1609,22 +1609,22 @@ additional properties.</p>
 </div>
 <h2 id="delete-a-job-after-its-finished">Delete a Job after its finished<a class="headerlink" href="#delete-a-job-after-its-finished" title="Permanent link">&para;</a></h2>
 <p>You can configure a TTL for the job after it finished its execution successfully.</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">k</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span>
-<span class="k">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">kplus</span> <span class="kr">from</span> <span class="s1">&#39;cdk8s-plus-22&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">k</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-22&#39;</span><span class="p">;</span><span class="w"></span>
 
-<span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">k</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span>
-<span class="kd">const</span> <span class="nx">chart</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">k</span><span class="p">.</span><span class="nx">Chart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s1">&#39;Chart&#39;</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">k</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">chart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">k</span><span class="p">.</span><span class="nx">Chart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Chart&#39;</span><span class="p">);</span><span class="w"></span>
 
-<span class="c1">// let&#39;s define a job spec, and set a 1 second TTL.</span>
-<span class="kd">const</span> <span class="nx">load</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">kplus</span><span class="p">.</span><span class="nx">Job</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span> <span class="s1">&#39;LoadData&#39;</span><span class="p">,</span> <span class="p">{</span>
-  <span class="nx">ttlAfterFinished</span>: <span class="kt">kplus.Duration.seconds</span><span class="p">(</span><span class="mf">1</span><span class="p">)</span>
- <span class="p">});</span>
+<span class="c1">// let&#39;s define a job spec, and set a 1 second TTL.</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">load</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Job</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;LoadData&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">ttlAfterFinished</span><span class="o">:</span><span class="w"> </span><span class="kt">kplus.Duration.seconds</span><span class="p">(</span><span class="mf">1</span><span class="p">)</span><span class="w"></span>
+<span class="w"> </span><span class="p">});</span><span class="w"></span>
 
 
-<span class="c1">// now add a container to all the pods created by this job</span>
-<span class="nx">job</span><span class="p">.</span><span class="nx">addContainer</span><span class="p">({</span>
-  <span class="nx">image</span><span class="o">:</span> <span class="s1">&#39;loader&#39;</span>
-<span class="p">});</span>
+<span class="c1">// now add a container to all the pods created by this job</span><span class="w"></span>
+<span class="nx">job</span><span class="p">.</span><span class="nx">addContainer</span><span class="p">({</span><span class="w"></span>
+<span class="w">  </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;loader&#39;</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
 </code></pre></div>
 
               
@@ -1720,7 +1720,7 @@ additional properties.</p>
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "header.autohide"], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.6e54b5cd.min.js"></script>
+      <script src="../../assets/javascripts/bundle.ed9748b7.min.js"></script>
       
     
   </body>
