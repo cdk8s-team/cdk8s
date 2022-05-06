@@ -9,7 +9,7 @@ additional properties.
 !!! tip ""
     [API Reference](../reference/cdk8s-plus-22/typescript.md#job)
 
-## Delete a Job after its finished
+### Delete a Job after its finished
 
 You can configure a TTL for the job after it finished its execution successfully.
 
@@ -31,3 +31,7 @@ job.addContainer({
   image: 'loader'
 });
 ```
+
+## Scheduling
+
+See [Deployment scheduling](./deployment.md#scheduling).

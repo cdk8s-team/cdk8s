@@ -5,7 +5,7 @@ Create a deployment to govern the lifecycle and orchestration of a set of identi
 !!! tip ""
     [API Reference](../reference/cdk8s-plus-22/typescript.md#deployment)
 
-## Automatic pod selection
+### Automatic pod selection
 
 When you specify pods in a deployment, you normally have to configure the appropriate labels and selectors to
 make the deployment control the relevant pods. This construct does this automatically.
@@ -44,7 +44,7 @@ spec:
         cdk8s.deployment: ChartFrontEndsDD8A97CE
 ```
 
-## Exposing via a service
+### Exposing via a service
 
 Following up on pod selection, you can also easily create a service that will select the pods relevant to the deployment.
 
@@ -74,4 +74,64 @@ spec:
   selector:
     cdk8s.deployment: ChartFrontEndsDD8A97CE
   type: ClusterIP
+```
+
+## Scheduling
+
+In addition to the scheduling capabilities provided by [pod scheduling](./pod.md#scheduling),
+a Deployment offers the following:
+
+### Spreading
+
+A spread is a [separation](./pod.md#pod-separation) of pods from themselves.
+It can be used to ensure replicas of the same workload are scheduled on different topologies.
+
+> The same API is also available on all workload resources (i.e `Deployment`, `StatefulSet`, `Job`, `DaemonSet`).
+
+```ts
+import * as k from 'cdk8s-plus-22';
+import * as kplus from 'cdk8s-plus-22';
+
+const app = new k.App();
+const chart = new k.Chart(app, 'Chart');
+
+const redis = new kplus.Deployment(chart, 'Redis', {
+  containers: [{ image: 'redis' }],
+  replicas: 3,
+});
+
+deployment.scheduling.spread(kplus.TopologyKey.HOSTNAME);
+```
+
+This example ensures that each replica of the `Redis` deployment
+will be scheduled on a different node.
+
+Take, for [example](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#more-practical-use-cases), a three-node cluster running a web application with an in-memory cache like redis. You'd like to co-locate the web servers with the cache as much as possible, while still maintaining node failure resistance. (i.e not all pods are on the same node).
+
+Here is how you can accomplish that:
+
+```ts
+import * as k from 'cdk8s-plus-22';
+import * as kplus from 'cdk8s-plus-22';
+
+const app = new k.App();
+const chart = new k.Chart(app, 'Chart');
+
+const redis = new kplus.Deployment(chart, 'Redis', {
+  containers: [{ image: 'redis' }],
+  replicas: 3,
+});
+const web = new kplus.Deployment(chart, 'Web', {
+  containers: [{ image: 'web' }],
+  replicas: 3,
+});
+
+// ensure redis is spread across all nodes
+redis.scheduling.spread(kplus.TopologyKey.HOSTNAME);
+
+// ensure web app is spread across all nodes
+web.scheduling.spread(kplus.TopologyKey.HOSTNAME);
+
+// ensure a web app pod always runs along side a cache instance
+web.scheduling.colocate(redis);
 ```
