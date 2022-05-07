@@ -89,7 +89,7 @@ It can be used to ensure replicas of the same workload are scheduled on differen
 > The same API is also available on all workload resources (i.e `Deployment`, `StatefulSet`, `Job`, `DaemonSet`).
 
 ```ts
-import * as k from 'cdk8s-plus-22';
+import * as k from 'cdk8s';
 import * as kplus from 'cdk8s-plus-22';
 
 const app = new k.App();
@@ -111,7 +111,7 @@ Take, for [example](https://kubernetes.io/docs/concepts/scheduling-eviction/assi
 Here is how you can accomplish that:
 
 ```ts
-import * as k from 'cdk8s-plus-22';
+import * as k from 'cdk8s';
 import * as kplus from 'cdk8s-plus-22';
 
 const app = new k.App();
