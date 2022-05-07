@@ -79,7 +79,7 @@ CDK8s+ collapses all these different features and exposes them under one unified
 You can statically assign a pod to specific node, by using the node's name.
 
 ```ts
-import * as k from 'cdk8s-plus-22';
+import * as k from 'cdk8s';
 import * as kplus from 'cdk8s-plus-22';
 
 const app = new k.App();
@@ -100,7 +100,7 @@ an attraction can be made to a **set** of nodes, specified by node selectors.
 An attraction can be either required, or preferred.
 
 ```ts
-import * as k from 'cdk8s-plus-22';
+import * as k from 'cdk8s';
 import * as kplus from 'cdk8s-plus-22';
 
 const app = new k.App();
@@ -109,7 +109,7 @@ const chart = new k.Chart(app, 'Chart');
 const redis = new kplus.Pod(chart, 'Redis', {
   containers: [{ image: 'redis' }]
 });
-const highMemoryNodes = kplus.Node.select(kplus.NodeLabelQuery.is('memory', 'high'));
+const highMemoryNodes = kplus.Node.labeled(kplus.NodeLabelQuery.is('memory', 'high'));
 redis.scheduling.attract(highMemoryNodes);
 ```
 
@@ -131,7 +131,7 @@ schedule onto nodes with matching taints.
 Taints and tolerations work together to ensure that pods are not scheduled onto inappropriate nodes. One or more taints are applied to a node; this marks that the node should not accept any pods that do not tolerate the taints.
 
 ```ts
-import * as k from 'cdk8s-plus-22';
+import * as k from 'cdk8s';
 import * as kplus from 'cdk8s-plus-22';
 
 const app = new k.App();
@@ -141,7 +141,10 @@ const redis = new kplus.Pod(chart, 'Redis', {
   containers: [{ image: 'redis' }]
 });
 
-redis.scheduling.tolerate(kplus.Toleration.noSchedule('key1', 'value1'));
+const node = kplus.Node.tainted(kplus.NodeTaintQuery.is('key1', 'value1', {
+  effect: kplus.TainEffect.NO_SCHEDULE
+}));
+redis.scheduling.tolerate(node);
 ```
 
 This example says the the `Redis` pod is able to tolerate
@@ -152,18 +155,18 @@ nodes tainted with `key1=value1:NoSchedule`.
 Pod co-location is a way to tell the scheduler to place a pod in a *topology*
 that already hosts other pods that meet some criteria.
 
-A topology is expressed via the `topologyKey` property, and
+A topology is expressed via the `topology` property, and
 represents a failure domain that Kubernetes is aware of. It can be one of:
 
-- `kplus.TopologyKey.HOSTNAME`: A single node. This is the default value.
-- `kplus.TopologyKey.ZONE`: Multiple nodes in a single availability zone.
-- `kplus.TopologyKey.REGION`: Multiple nodes in a single region.
-- `kplus.TopologyKey.custom`: Any other configurable value.
+- `kplus.Topology.HOSTNAME`: A single node. This is the default value.
+- `kplus.Topology.ZONE`: Multiple nodes in a single availability zone.
+- `kplus.Topology.REGION`: Multiple nodes in a single region.
+- `kplus.Topology.custom`: Any other configurable value.
 
 Similarly to node attractions, co-location can also be either required, or preferred.
 
 ```ts
-import * as k from 'cdk8s-plus-22';
+import * as k from 'cdk8s';
 import * as kplus from 'cdk8s-plus-22';
 
 const app = new k.App();
@@ -186,10 +189,10 @@ the `Redis` pod. To request a **preference**, specify the [`weight`](https://kub
 web.scheduling.colocate(redis, { weight: 50 });
 ```
 
-To use a different topology, specify the `topologyKey` property:
+To use a different topology, specify the `topology` property:
 
 ```ts
-web.scheduling.colocate(redis, { weight: 50, topologyKey: kplus.TopologyKey.ZONE });
+web.scheduling.colocate(redis, { weight: 50, topology: kplus.Topology.ZONE });
 ```
 
 This scenario configures co-location between two pods that are defined and managed
@@ -216,7 +219,7 @@ pod in a *topology* that already hosts other pods that meet some criteria.
 Similarly to co-location, separation can also be either required, or preferred.
 
 ```ts
-import * as k from 'cdk8s-plus-22';
+import * as k from 'cdk8s';
 import * as kplus from 'cdk8s-plus-22';
 
 const app = new k.App();
@@ -240,10 +243,10 @@ To request a **preference**, specify the [`weight`](https://kubernetes.io/docs/c
 web.scheduling.separate(redis, { weight: 50 });
 ```
 
-To use a different topology, specify the `topologyKey` property:
+To use a different topology, specify the `topology` property:
 
 ```ts
-web.scheduling.separate(redis, { weight: 50, topologyKey: kplus.TopologyKey.ZONE });
+web.scheduling.separate(redis, { weight: 50, topology: kplus.Topology.ZONE });
 ```
 
 This scenario configures separation between two pods that are defined and managed
