@@ -15,11 +15,11 @@ import (
 // Affinity is a group of affinity scheduling rules.
 type Affinity struct {
 	// Describes node affinity scheduling rules for the pod.
-	NodeAffinity *NodeAffinity `json:"nodeAffinity" yaml:"nodeAffinity"`
+	NodeAffinity *NodeAffinity `field:"optional" json:"nodeAffinity" yaml:"nodeAffinity"`
 	// Describes pod affinity scheduling rules (e.g. co-locate this pod in the same node, zone, etc. as some other pod(s)).
-	PodAffinity *PodAffinity `json:"podAffinity" yaml:"podAffinity"`
+	PodAffinity *PodAffinity `field:"optional" json:"podAffinity" yaml:"podAffinity"`
 	// Describes pod anti-affinity scheduling rules (e.g. avoid putting this pod in the same node, zone, etc. as some other pod(s)).
-	PodAntiAffinity *PodAntiAffinity `json:"podAntiAffinity" yaml:"podAntiAffinity"`
+	PodAntiAffinity *PodAntiAffinity `field:"optional" json:"podAntiAffinity" yaml:"podAntiAffinity"`
 }
 
 // AggregationRule describes how to locate ClusterRoles to aggregate into the ClusterRole.
@@ -27,7 +27,7 @@ type AggregationRule struct {
 	// ClusterRoleSelectors holds a list of selectors which will be used to find ClusterRoles and create the rules.
 	//
 	// If any of the selectors match, then the ClusterRole's permissions will be added.
-	ClusterRoleSelectors *[]*LabelSelector `json:"clusterRoleSelectors" yaml:"clusterRoleSelectors"`
+	ClusterRoleSelectors *[]*LabelSelector `field:"optional" json:"clusterRoleSelectors" yaml:"clusterRoleSelectors"`
 }
 
 // AggregationRule describes how to locate ClusterRoles to aggregate into the ClusterRole.
@@ -35,7 +35,7 @@ type AggregationRuleV1Alpha1 struct {
 	// ClusterRoleSelectors holds a list of selectors which will be used to find ClusterRoles and create the rules.
 	//
 	// If any of the selectors match, then the ClusterRole's permissions will be added.
-	ClusterRoleSelectors *[]*LabelSelector `json:"clusterRoleSelectors" yaml:"clusterRoleSelectors"`
+	ClusterRoleSelectors *[]*LabelSelector `field:"optional" json:"clusterRoleSelectors" yaml:"clusterRoleSelectors"`
 }
 
 // AggregationRule describes how to locate ClusterRoles to aggregate into the ClusterRole.
@@ -43,19 +43,19 @@ type AggregationRuleV1Beta1 struct {
 	// ClusterRoleSelectors holds a list of selectors which will be used to find ClusterRoles and create the rules.
 	//
 	// If any of the selectors match, then the ClusterRole's permissions will be added.
-	ClusterRoleSelectors *[]*LabelSelector `json:"clusterRoleSelectors" yaml:"clusterRoleSelectors"`
+	ClusterRoleSelectors *[]*LabelSelector `field:"optional" json:"clusterRoleSelectors" yaml:"clusterRoleSelectors"`
 }
 
 // AllowedCSIDriver represents a single inline CSI Driver that is allowed to be used.
 type AllowedCsiDriverV1Beta1 struct {
 	// Name is the registered name of the CSI driver.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 }
 
 // AllowedFlexVolume represents a single Flexvolume that is allowed to be used.
 type AllowedFlexVolumeV1Beta1 struct {
 	// driver is the name of the Flexvolume driver.
-	Driver *string `json:"driver" yaml:"driver"`
+	Driver *string `field:"required" json:"driver" yaml:"driver"`
 }
 
 // AllowedHostPath defines the host volume conditions that will be enabled by a policy for pods to use.
@@ -67,9 +67,9 @@ type AllowedHostPathV1Beta1 struct {
 	// It does not support `*`. Trailing slashes are trimmed when validating the path prefix with a host path.
 	//
 	// Examples: `/foo` would allow `/foo`, `/foo/` and `/foo/bar` `/foo` would not allow `/food` or `/etc/foo`.
-	PathPrefix *string `json:"pathPrefix" yaml:"pathPrefix"`
+	PathPrefix *string `field:"optional" json:"pathPrefix" yaml:"pathPrefix"`
 	// when set to true, will allow host volumes matching the pathPrefix only if all volume mounts are readOnly.
-	ReadOnly *bool `json:"readOnly" yaml:"readOnly"`
+	ReadOnly *bool `field:"optional" json:"readOnly" yaml:"readOnly"`
 }
 
 // APIServiceSpec contains information for locating and communicating with a server.
@@ -79,29 +79,29 @@ type ApiServiceSpec struct {
 	// GroupPriorityMininum is the priority this group should have at least.
 	//
 	// Higher priority means that the group is preferred by clients over lower priority ones. Note that other versions of this group might specify even higher GroupPriorityMininum values such that the whole group gets a higher priority. The primary sort is based on GroupPriorityMinimum, ordered highest number to lowest (20 before 10). The secondary sort is based on the alphabetical comparison of the name of the object.  (v1.bar before v1.foo) We'd recommend something like: *.k8s.io (except extensions) at 18000 and PaaSes (OpenShift, Deis) are recommended to be in the 2000s
-	GroupPriorityMinimum *float64 `json:"groupPriorityMinimum" yaml:"groupPriorityMinimum"`
+	GroupPriorityMinimum *float64 `field:"required" json:"groupPriorityMinimum" yaml:"groupPriorityMinimum"`
 	// Service is a reference to the service for this API server.
 	//
 	// It must communicate on port 443 If the Service is nil, that means the handling for the API groupversion is handled locally on this server. The call will simply delegate to the normal handler chain to be fulfilled.
-	Service *ServiceReference `json:"service" yaml:"service"`
+	Service *ServiceReference `field:"required" json:"service" yaml:"service"`
 	// VersionPriority controls the ordering of this API version inside of its group.
 	//
 	// Must be greater than zero. The primary sort is based on VersionPriority, ordered highest to lowest (20 before 10). Since it's inside of a group, the number can be small, probably in the 10s. In case of equal version priorities, the version string will be used to compute the order inside a group. If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version), then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first by GA > beta > alpha (where GA is a version with no suffix such as beta or alpha), and then by comparing major version, then minor version. An example sorted list of versions: v10, v2, v1, v11beta2, v10beta3, v3beta1, v12alpha1, v11alpha2, foo1, foo10.
-	VersionPriority *float64 `json:"versionPriority" yaml:"versionPriority"`
+	VersionPriority *float64 `field:"required" json:"versionPriority" yaml:"versionPriority"`
 	// CABundle is a PEM encoded CA bundle which will be used to validate an API server's serving certificate.
 	//
 	// If unspecified, system trust roots on the apiserver are used.
-	CaBundle *string `json:"caBundle" yaml:"caBundle"`
+	CaBundle *string `field:"optional" json:"caBundle" yaml:"caBundle"`
 	// Group is the API group name this server hosts.
-	Group *string `json:"group" yaml:"group"`
+	Group *string `field:"optional" json:"group" yaml:"group"`
 	// InsecureSkipTLSVerify disables TLS certificate verification when communicating with this server.
 	//
 	// This is strongly discouraged.  You should use the CABundle instead.
-	InsecureSkipTlsVerify *bool `json:"insecureSkipTlsVerify" yaml:"insecureSkipTlsVerify"`
+	InsecureSkipTlsVerify *bool `field:"optional" json:"insecureSkipTlsVerify" yaml:"insecureSkipTlsVerify"`
 	// Version is the API version this server hosts.
 	//
 	// For example, "v1".
-	Version *string `json:"version" yaml:"version"`
+	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 
 // APIServiceSpec contains information for locating and communicating with a server.
@@ -111,37 +111,37 @@ type ApiServiceSpecV1Beta1 struct {
 	// GroupPriorityMininum is the priority this group should have at least.
 	//
 	// Higher priority means that the group is preferred by clients over lower priority ones. Note that other versions of this group might specify even higher GroupPriorityMininum values such that the whole group gets a higher priority. The primary sort is based on GroupPriorityMinimum, ordered highest number to lowest (20 before 10). The secondary sort is based on the alphabetical comparison of the name of the object.  (v1.bar before v1.foo) We'd recommend something like: *.k8s.io (except extensions) at 18000 and PaaSes (OpenShift, Deis) are recommended to be in the 2000s
-	GroupPriorityMinimum *float64 `json:"groupPriorityMinimum" yaml:"groupPriorityMinimum"`
+	GroupPriorityMinimum *float64 `field:"required" json:"groupPriorityMinimum" yaml:"groupPriorityMinimum"`
 	// Service is a reference to the service for this API server.
 	//
 	// It must communicate on port 443 If the Service is nil, that means the handling for the API groupversion is handled locally on this server. The call will simply delegate to the normal handler chain to be fulfilled.
-	Service *ServiceReferenceV1Beta1 `json:"service" yaml:"service"`
+	Service *ServiceReferenceV1Beta1 `field:"required" json:"service" yaml:"service"`
 	// VersionPriority controls the ordering of this API version inside of its group.
 	//
 	// Must be greater than zero. The primary sort is based on VersionPriority, ordered highest to lowest (20 before 10). Since it's inside of a group, the number can be small, probably in the 10s. In case of equal version priorities, the version string will be used to compute the order inside a group. If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version), then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first by GA > beta > alpha (where GA is a version with no suffix such as beta or alpha), and then by comparing major version, then minor version. An example sorted list of versions: v10, v2, v1, v11beta2, v10beta3, v3beta1, v12alpha1, v11alpha2, foo1, foo10.
-	VersionPriority *float64 `json:"versionPriority" yaml:"versionPriority"`
+	VersionPriority *float64 `field:"required" json:"versionPriority" yaml:"versionPriority"`
 	// CABundle is a PEM encoded CA bundle which will be used to validate an API server's serving certificate.
 	//
 	// If unspecified, system trust roots on the apiserver are used.
-	CaBundle *string `json:"caBundle" yaml:"caBundle"`
+	CaBundle *string `field:"optional" json:"caBundle" yaml:"caBundle"`
 	// Group is the API group name this server hosts.
-	Group *string `json:"group" yaml:"group"`
+	Group *string `field:"optional" json:"group" yaml:"group"`
 	// InsecureSkipTLSVerify disables TLS certificate verification when communicating with this server.
 	//
 	// This is strongly discouraged.  You should use the CABundle instead.
-	InsecureSkipTlsVerify *bool `json:"insecureSkipTlsVerify" yaml:"insecureSkipTlsVerify"`
+	InsecureSkipTlsVerify *bool `field:"optional" json:"insecureSkipTlsVerify" yaml:"insecureSkipTlsVerify"`
 	// Version is the API version this server hosts.
 	//
 	// For example, "v1".
-	Version *string `json:"version" yaml:"version"`
+	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 
 // AuditSinkSpec holds the spec for the audit sink.
 type AuditSinkSpecV1Alpha1 struct {
 	// Policy defines the policy for selecting which events should be sent to the webhook required.
-	Policy *PolicyV1Alpha1 `json:"policy" yaml:"policy"`
+	Policy *PolicyV1Alpha1 `field:"required" json:"policy" yaml:"policy"`
 	// Webhook to send events required.
-	Webhook *WebhookV1Alpha1 `json:"webhook" yaml:"webhook"`
+	Webhook *WebhookV1Alpha1 `field:"required" json:"webhook" yaml:"webhook"`
 }
 
 // Represents a Persistent Disk resource in AWS.
@@ -151,129 +151,129 @@ type AwsElasticBlockStoreVolumeSource struct {
 	// Unique ID of the persistent disk resource in AWS (Amazon EBS volume).
 	//
 	// More info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore
-	VolumeId *string `json:"volumeId" yaml:"volumeId"`
+	VolumeId *string `field:"required" json:"volumeId" yaml:"volumeId"`
 	// Filesystem type of the volume that you want to mount.
 	//
 	// Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore
-	FsType *string `json:"fsType" yaml:"fsType"`
+	FsType *string `field:"optional" json:"fsType" yaml:"fsType"`
 	// The partition in the volume that you want to mount.
 	//
 	// If omitted, the default is to mount by volume name. Examples: For volume /dev/sda1, you specify the partition as "1". Similarly, the volume partition for /dev/sda is "0" (or you can leave the property empty).
-	Partition *float64 `json:"partition" yaml:"partition"`
+	Partition *float64 `field:"optional" json:"partition" yaml:"partition"`
 	// Specify "true" to force and set the ReadOnly property in VolumeMounts to "true".
 	//
 	// If omitted, the default is "false". More info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore
-	ReadOnly *bool `json:"readOnly" yaml:"readOnly"`
+	ReadOnly *bool `field:"optional" json:"readOnly" yaml:"readOnly"`
 }
 
 // AzureDisk represents an Azure Data Disk mount on the host and bind mount to the pod.
 type AzureDiskVolumeSource struct {
 	// The Name of the data disk in the blob storage.
-	DiskName *string `json:"diskName" yaml:"diskName"`
+	DiskName *string `field:"required" json:"diskName" yaml:"diskName"`
 	// The URI the data disk in the blob storage.
-	DiskUri *string `json:"diskUri" yaml:"diskUri"`
+	DiskUri *string `field:"required" json:"diskUri" yaml:"diskUri"`
 	// Host Caching mode: None, Read Only, Read Write.
-	CachingMode *string `json:"cachingMode" yaml:"cachingMode"`
+	CachingMode *string `field:"optional" json:"cachingMode" yaml:"cachingMode"`
 	// Filesystem type to mount.
 	//
 	// Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
-	FsType *string `json:"fsType" yaml:"fsType"`
+	FsType *string `field:"optional" json:"fsType" yaml:"fsType"`
 	// Expected values Shared: multiple blob disks per storage account  Dedicated: single blob disk per storage account  Managed: azure managed data disk (only in managed availability set).
 	//
 	// defaults to shared.
-	Kind *string `json:"kind" yaml:"kind"`
+	Kind *string `field:"optional" json:"kind" yaml:"kind"`
 	// Defaults to false (read/write).
 	//
 	// ReadOnly here will force the ReadOnly setting in VolumeMounts.
-	ReadOnly *bool `json:"readOnly" yaml:"readOnly"`
+	ReadOnly *bool `field:"optional" json:"readOnly" yaml:"readOnly"`
 }
 
 // AzureFile represents an Azure File Service mount on the host and bind mount to the pod.
 type AzureFilePersistentVolumeSource struct {
 	// the name of secret that contains Azure Storage Account Name and Key.
-	SecretName *string `json:"secretName" yaml:"secretName"`
+	SecretName *string `field:"required" json:"secretName" yaml:"secretName"`
 	// Share Name.
-	ShareName *string `json:"shareName" yaml:"shareName"`
+	ShareName *string `field:"required" json:"shareName" yaml:"shareName"`
 	// Defaults to false (read/write).
 	//
 	// ReadOnly here will force the ReadOnly setting in VolumeMounts.
-	ReadOnly *bool `json:"readOnly" yaml:"readOnly"`
+	ReadOnly *bool `field:"optional" json:"readOnly" yaml:"readOnly"`
 	// the namespace of the secret that contains Azure Storage Account Name and Key default is the same as the Pod.
-	SecretNamespace *string `json:"secretNamespace" yaml:"secretNamespace"`
+	SecretNamespace *string `field:"optional" json:"secretNamespace" yaml:"secretNamespace"`
 }
 
 // AzureFile represents an Azure File Service mount on the host and bind mount to the pod.
 type AzureFileVolumeSource struct {
 	// the name of secret that contains Azure Storage Account Name and Key.
-	SecretName *string `json:"secretName" yaml:"secretName"`
+	SecretName *string `field:"required" json:"secretName" yaml:"secretName"`
 	// Share Name.
-	ShareName *string `json:"shareName" yaml:"shareName"`
+	ShareName *string `field:"required" json:"shareName" yaml:"shareName"`
 	// Defaults to false (read/write).
 	//
 	// ReadOnly here will force the ReadOnly setting in VolumeMounts.
-	ReadOnly *bool `json:"readOnly" yaml:"readOnly"`
+	ReadOnly *bool `field:"optional" json:"readOnly" yaml:"readOnly"`
 }
 
 // BoundObjectReference is a reference to an object that a token is bound to.
 type BoundObjectReference struct {
 	// API version of the referent.
-	ApiVersion *string `json:"apiVersion" yaml:"apiVersion"`
+	ApiVersion *string `field:"optional" json:"apiVersion" yaml:"apiVersion"`
 	// Kind of the referent.
 	//
 	// Valid kinds are 'Pod' and 'Secret'.
-	Kind *string `json:"kind" yaml:"kind"`
+	Kind *string `field:"optional" json:"kind" yaml:"kind"`
 	// Name of the referent.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// UID of the referent.
-	Uid *string `json:"uid" yaml:"uid"`
+	Uid *string `field:"optional" json:"uid" yaml:"uid"`
 }
 
 // Adds and removes POSIX capabilities from running containers.
 type Capabilities struct {
 	// Added capabilities.
-	Add *[]*string `json:"add" yaml:"add"`
+	Add *[]*string `field:"optional" json:"add" yaml:"add"`
 	// Removed capabilities.
-	Drop *[]*string `json:"drop" yaml:"drop"`
+	Drop *[]*string `field:"optional" json:"drop" yaml:"drop"`
 }
 
 // Represents a Ceph Filesystem mount that lasts the lifetime of a pod Cephfs volumes do not support ownership management or SELinux relabeling.
 type CephFsPersistentVolumeSource struct {
 	// Required: Monitors is a collection of Ceph monitors More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it.
-	Monitors *[]*string `json:"monitors" yaml:"monitors"`
+	Monitors *[]*string `field:"required" json:"monitors" yaml:"monitors"`
 	// Optional: Used as the mounted root, rather than the full Ceph tree, default is /.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"optional" json:"path" yaml:"path"`
 	// Optional: Defaults to false (read/write).
 	//
 	// ReadOnly here will force the ReadOnly setting in VolumeMounts. More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it
-	ReadOnly *bool `json:"readOnly" yaml:"readOnly"`
+	ReadOnly *bool `field:"optional" json:"readOnly" yaml:"readOnly"`
 	// Optional: SecretFile is the path to key ring for User, default is /etc/ceph/user.secret More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it.
-	SecretFile *string `json:"secretFile" yaml:"secretFile"`
+	SecretFile *string `field:"optional" json:"secretFile" yaml:"secretFile"`
 	// Optional: SecretRef is reference to the authentication secret for User, default is empty.
 	//
 	// More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it
-	SecretRef *SecretReference `json:"secretRef" yaml:"secretRef"`
+	SecretRef *SecretReference `field:"optional" json:"secretRef" yaml:"secretRef"`
 	// Optional: User is the rados user name, default is admin More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it.
-	User *string `json:"user" yaml:"user"`
+	User *string `field:"optional" json:"user" yaml:"user"`
 }
 
 // Represents a Ceph Filesystem mount that lasts the lifetime of a pod Cephfs volumes do not support ownership management or SELinux relabeling.
 type CephFsVolumeSource struct {
 	// Required: Monitors is a collection of Ceph monitors More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it.
-	Monitors *[]*string `json:"monitors" yaml:"monitors"`
+	Monitors *[]*string `field:"required" json:"monitors" yaml:"monitors"`
 	// Optional: Used as the mounted root, rather than the full Ceph tree, default is /.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"optional" json:"path" yaml:"path"`
 	// Optional: Defaults to false (read/write).
 	//
 	// ReadOnly here will force the ReadOnly setting in VolumeMounts. More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it
-	ReadOnly *bool `json:"readOnly" yaml:"readOnly"`
+	ReadOnly *bool `field:"optional" json:"readOnly" yaml:"readOnly"`
 	// Optional: SecretFile is the path to key ring for User, default is /etc/ceph/user.secret More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it.
-	SecretFile *string `json:"secretFile" yaml:"secretFile"`
+	SecretFile *string `field:"optional" json:"secretFile" yaml:"secretFile"`
 	// Optional: SecretRef is reference to the authentication secret for User, default is empty.
 	//
 	// More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it
-	SecretRef *LocalObjectReference `json:"secretRef" yaml:"secretRef"`
+	SecretRef *LocalObjectReference `field:"optional" json:"secretRef" yaml:"secretRef"`
 	// Optional: User is the rados user name, default is admin More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it.
-	User *string `json:"user" yaml:"user"`
+	User *string `field:"optional" json:"user" yaml:"user"`
 }
 
 // This information is immutable after the request is created.
@@ -281,28 +281,28 @@ type CephFsVolumeSource struct {
 // Only the Request and Usages fields can be set on creation, other fields are derived by Kubernetes and cannot be modified by users.
 type CertificateSigningRequestSpecV1Beta1 struct {
 	// Base64-encoded PKCS#10 CSR data.
-	Request *string `json:"request" yaml:"request"`
+	Request *string `field:"required" json:"request" yaml:"request"`
 	// Extra information about the requesting user.
 	//
 	// See user.Info interface for details.
-	Extra *map[string]*[]*string `json:"extra" yaml:"extra"`
+	Extra *map[string]*[]*string `field:"optional" json:"extra" yaml:"extra"`
 	// Group information about the requesting user.
 	//
 	// See user.Info interface for details.
-	Groups *[]*string `json:"groups" yaml:"groups"`
+	Groups *[]*string `field:"optional" json:"groups" yaml:"groups"`
 	// UID information about the requesting user.
 	//
 	// See user.Info interface for details.
-	Uid *string `json:"uid" yaml:"uid"`
+	Uid *string `field:"optional" json:"uid" yaml:"uid"`
 	// allowedUsages specifies a set of usage contexts the key will be valid for.
 	//
 	// See: https://tools.ietf.org/html/rfc5280#section-4.2.1.3
 	// https://tools.ietf.org/html/rfc5280#section-4.2.1.12
-	Usages *[]*string `json:"usages" yaml:"usages"`
+	Usages *[]*string `field:"optional" json:"usages" yaml:"usages"`
 	// Information about the requesting user.
 	//
 	// See user.Info interface for details.
-	Username *string `json:"username" yaml:"username"`
+	Username *string `field:"optional" json:"username" yaml:"username"`
 }
 
 // Represents a cinder volume resource in Openstack.
@@ -312,17 +312,17 @@ type CinderPersistentVolumeSource struct {
 	// volume id used to identify the volume in cinder.
 	//
 	// More info: https://examples.k8s.io/mysql-cinder-pd/README.md
-	VolumeId *string `json:"volumeId" yaml:"volumeId"`
+	VolumeId *string `field:"required" json:"volumeId" yaml:"volumeId"`
 	// Filesystem type to mount.
 	//
 	// Must be a filesystem type supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: https://examples.k8s.io/mysql-cinder-pd/README.md
-	FsType *string `json:"fsType" yaml:"fsType"`
+	FsType *string `field:"optional" json:"fsType" yaml:"fsType"`
 	// Optional: Defaults to false (read/write).
 	//
 	// ReadOnly here will force the ReadOnly setting in VolumeMounts. More info: https://examples.k8s.io/mysql-cinder-pd/README.md
-	ReadOnly *bool `json:"readOnly" yaml:"readOnly"`
+	ReadOnly *bool `field:"optional" json:"readOnly" yaml:"readOnly"`
 	// Optional: points to a secret object containing parameters used to connect to OpenStack.
-	SecretRef *SecretReference `json:"secretRef" yaml:"secretRef"`
+	SecretRef *SecretReference `field:"optional" json:"secretRef" yaml:"secretRef"`
 }
 
 // Represents a cinder volume resource in Openstack.
@@ -332,17 +332,17 @@ type CinderVolumeSource struct {
 	// volume id used to identify the volume in cinder.
 	//
 	// More info: https://examples.k8s.io/mysql-cinder-pd/README.md
-	VolumeId *string `json:"volumeId" yaml:"volumeId"`
+	VolumeId *string `field:"required" json:"volumeId" yaml:"volumeId"`
 	// Filesystem type to mount.
 	//
 	// Must be a filesystem type supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: https://examples.k8s.io/mysql-cinder-pd/README.md
-	FsType *string `json:"fsType" yaml:"fsType"`
+	FsType *string `field:"optional" json:"fsType" yaml:"fsType"`
 	// Optional: Defaults to false (read/write).
 	//
 	// ReadOnly here will force the ReadOnly setting in VolumeMounts. More info: https://examples.k8s.io/mysql-cinder-pd/README.md
-	ReadOnly *bool `json:"readOnly" yaml:"readOnly"`
+	ReadOnly *bool `field:"optional" json:"readOnly" yaml:"readOnly"`
 	// Optional: points to a secret object containing parameters used to connect to OpenStack.
-	SecretRef *LocalObjectReference `json:"secretRef" yaml:"secretRef"`
+	SecretRef *LocalObjectReference `field:"optional" json:"secretRef" yaml:"secretRef"`
 }
 
 // ClientIPConfig represents the configurations of Client IP based session affinity.
@@ -350,7 +350,7 @@ type ClientIpConfig struct {
 	// timeoutSeconds specifies the seconds of ClientIP type session sticky time.
 	//
 	// The value must be >0 && <=86400(for 1 day) if ServiceAffinity == "ClientIP". Default value is 10800(for 3 hours).
-	TimeoutSeconds *float64 `json:"timeoutSeconds" yaml:"timeoutSeconds"`
+	TimeoutSeconds *float64 `field:"optional" json:"timeoutSeconds" yaml:"timeoutSeconds"`
 }
 
 // Information about the condition of a component.
@@ -358,19 +358,19 @@ type ComponentCondition struct {
 	// Status of the condition for a component.
 	//
 	// Valid values for "Healthy": "True", "False", or "Unknown".
-	Status *string `json:"status" yaml:"status"`
+	Status *string `field:"required" json:"status" yaml:"status"`
 	// Type of condition for a component.
 	//
 	// Valid value: "Healthy".
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// Condition error code for a component.
 	//
 	// For example, a health check error code.
-	Error *string `json:"error" yaml:"error"`
+	Error *string `field:"optional" json:"error" yaml:"error"`
 	// Message about the condition for a component.
 	//
 	// For example, information about a health check.
-	Message *string `json:"message" yaml:"message"`
+	Message *string `field:"optional" json:"message" yaml:"message"`
 }
 
 // ConfigMapEnvSource selects a ConfigMap to populate the environment variables with.
@@ -380,35 +380,35 @@ type ConfigMapEnvSource struct {
 	// Name of the referent.
 	//
 	// More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// Specify whether the ConfigMap must be defined.
-	Optional *bool `json:"optional" yaml:"optional"`
+	Optional *bool `field:"optional" json:"optional" yaml:"optional"`
 }
 
 // Selects a key from a ConfigMap.
 type ConfigMapKeySelector struct {
 	// The key to select.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"required" json:"key" yaml:"key"`
 	// Name of the referent.
 	//
 	// More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// Specify whether the ConfigMap or its key must be defined.
-	Optional *bool `json:"optional" yaml:"optional"`
+	Optional *bool `field:"optional" json:"optional" yaml:"optional"`
 }
 
 // ConfigMapNodeConfigSource contains the information to reference a ConfigMap as a config source for the Node.
 type ConfigMapNodeConfigSource struct {
 	// KubeletConfigKey declares which key of the referenced ConfigMap corresponds to the KubeletConfiguration structure This field is required in all cases.
-	KubeletConfigKey *string `json:"kubeletConfigKey" yaml:"kubeletConfigKey"`
+	KubeletConfigKey *string `field:"required" json:"kubeletConfigKey" yaml:"kubeletConfigKey"`
 	// Name is the metadata.name of the referenced ConfigMap. This field is required in all cases.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// Namespace is the metadata.namespace of the referenced ConfigMap. This field is required in all cases.
-	Namespace *string `json:"namespace" yaml:"namespace"`
+	Namespace *string `field:"required" json:"namespace" yaml:"namespace"`
 	// ResourceVersion is the metadata.ResourceVersion of the referenced ConfigMap. This field is forbidden in Node.Spec, and required in Node.Status.
-	ResourceVersion *string `json:"resourceVersion" yaml:"resourceVersion"`
+	ResourceVersion *string `field:"optional" json:"resourceVersion" yaml:"resourceVersion"`
 	// UID is the metadata.UID of the referenced ConfigMap. This field is forbidden in Node.Spec, and required in Node.Status.
-	Uid *string `json:"uid" yaml:"uid"`
+	Uid *string `field:"optional" json:"uid" yaml:"uid"`
 }
 
 // Adapts a ConfigMap into a projected volume.
@@ -418,13 +418,13 @@ type ConfigMapProjection struct {
 	// If unspecified, each key-value pair in the Data field of the referenced ConfigMap will be projected into the volume as a file whose name is the key and content is the value.
 	//
 	// If specified, the listed keys will be projected into the specified paths, and unlisted keys will not be present. If a key is specified which is not present in the ConfigMap, the volume setup will error unless it is marked optional. Paths must be relative and may not contain the '..' path or start with '..'.
-	Items *[]*KeyToPath `json:"items" yaml:"items"`
+	Items *[]*KeyToPath `field:"optional" json:"items" yaml:"items"`
 	// Name of the referent.
 	//
 	// More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// Specify whether the ConfigMap or its keys must be defined.
-	Optional *bool `json:"optional" yaml:"optional"`
+	Optional *bool `field:"optional" json:"optional" yaml:"optional"`
 }
 
 // Adapts a ConfigMap into a volume.
@@ -434,17 +434,17 @@ type ConfigMapVolumeSource struct {
 	// Optional: mode bits to use on created files by default.
 	//
 	// Must be a value between 0 and 0777. Defaults to 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
-	DefaultMode *float64 `json:"defaultMode" yaml:"defaultMode"`
+	DefaultMode *float64 `field:"optional" json:"defaultMode" yaml:"defaultMode"`
 	// If unspecified, each key-value pair in the Data field of the referenced ConfigMap will be projected into the volume as a file whose name is the key and content is the value.
 	//
 	// If specified, the listed keys will be projected into the specified paths, and unlisted keys will not be present. If a key is specified which is not present in the ConfigMap, the volume setup will error unless it is marked optional. Paths must be relative and may not contain the '..' path or start with '..'.
-	Items *[]*KeyToPath `json:"items" yaml:"items"`
+	Items *[]*KeyToPath `field:"optional" json:"items" yaml:"items"`
 	// Name of the referent.
 	//
 	// More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// Specify whether the ConfigMap or its keys must be defined.
-	Optional *bool `json:"optional" yaml:"optional"`
+	Optional *bool `field:"optional" json:"optional" yaml:"optional"`
 }
 
 // A single application container that you want to run within a pod.
@@ -452,91 +452,91 @@ type Container struct {
 	// Name of the container specified as a DNS_LABEL.
 	//
 	// Each container in a pod must have a unique name (DNS_LABEL). Cannot be updated.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// Arguments to the entrypoint.
 	//
 	// The docker image's CMD is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell
-	Args *[]*string `json:"args" yaml:"args"`
+	Args *[]*string `field:"optional" json:"args" yaml:"args"`
 	// Entrypoint array.
 	//
 	// Not executed within a shell. The docker image's ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell
-	Command *[]*string `json:"command" yaml:"command"`
+	Command *[]*string `field:"optional" json:"command" yaml:"command"`
 	// List of environment variables to set in the container.
 	//
 	// Cannot be updated.
-	Env *[]*EnvVar `json:"env" yaml:"env"`
+	Env *[]*EnvVar `field:"optional" json:"env" yaml:"env"`
 	// List of sources to populate environment variables in the container.
 	//
 	// The keys defined within a source must be a C_IDENTIFIER. All invalid keys will be reported as an event when the container is starting. When a key exists in multiple sources, the value associated with the last source will take precedence. Values defined by an Env with a duplicate key will take precedence. Cannot be updated.
-	EnvFrom *[]*EnvFromSource `json:"envFrom" yaml:"envFrom"`
+	EnvFrom *[]*EnvFromSource `field:"optional" json:"envFrom" yaml:"envFrom"`
 	// Docker image name.
 	//
 	// More info: https://kubernetes.io/docs/concepts/containers/images This field is optional to allow higher level config management to default or override container images in workload controllers like Deployments and StatefulSets.
-	Image *string `json:"image" yaml:"image"`
+	Image *string `field:"optional" json:"image" yaml:"image"`
 	// Image pull policy.
 	//
 	// One of Always, Never, IfNotPresent. Defaults to Always if :latest tag is specified, or IfNotPresent otherwise. Cannot be updated. More info: https://kubernetes.io/docs/concepts/containers/images#updating-images
-	ImagePullPolicy *string `json:"imagePullPolicy" yaml:"imagePullPolicy"`
+	ImagePullPolicy *string `field:"optional" json:"imagePullPolicy" yaml:"imagePullPolicy"`
 	// Actions that the management system should take in response to container lifecycle events.
 	//
 	// Cannot be updated.
-	Lifecycle *Lifecycle `json:"lifecycle" yaml:"lifecycle"`
+	Lifecycle *Lifecycle `field:"optional" json:"lifecycle" yaml:"lifecycle"`
 	// Periodic probe of container liveness.
 	//
 	// Container will be restarted if the probe fails. Cannot be updated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
-	LivenessProbe *Probe `json:"livenessProbe" yaml:"livenessProbe"`
+	LivenessProbe *Probe `field:"optional" json:"livenessProbe" yaml:"livenessProbe"`
 	// List of ports to expose from the container.
 	//
 	// Exposing a port here gives the system additional information about the network connections a container uses, but is primarily informational. Not specifying a port here DOES NOT prevent that port from being exposed. Any port which is listening on the default "0.0.0.0" address inside a container will be accessible from the network. Cannot be updated.
-	Ports *[]*ContainerPort `json:"ports" yaml:"ports"`
+	Ports *[]*ContainerPort `field:"optional" json:"ports" yaml:"ports"`
 	// Periodic probe of container service readiness.
 	//
 	// Container will be removed from service endpoints if the probe fails. Cannot be updated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
-	ReadinessProbe *Probe `json:"readinessProbe" yaml:"readinessProbe"`
+	ReadinessProbe *Probe `field:"optional" json:"readinessProbe" yaml:"readinessProbe"`
 	// Compute Resources required by this container.
 	//
 	// Cannot be updated. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
-	Resources *ResourceRequirements `json:"resources" yaml:"resources"`
+	Resources *ResourceRequirements `field:"optional" json:"resources" yaml:"resources"`
 	// Security options the pod should run with.
 	//
 	// More info: https://kubernetes.io/docs/concepts/policy/security-context/ More info: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
-	SecurityContext *SecurityContext `json:"securityContext" yaml:"securityContext"`
+	SecurityContext *SecurityContext `field:"optional" json:"securityContext" yaml:"securityContext"`
 	// StartupProbe indicates that the Pod has successfully initialized.
 	//
 	// If specified, no other probes are executed until this completes successfully. If this probe fails, the Pod will be restarted, just as if the livenessProbe failed. This can be used to provide different probe parameters at the beginning of a Pod's lifecycle, when it might take a long time to load data or warm a cache, than during steady-state operation. This cannot be updated. This is an alpha feature enabled by the StartupProbe feature flag. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
-	StartupProbe *Probe `json:"startupProbe" yaml:"startupProbe"`
+	StartupProbe *Probe `field:"optional" json:"startupProbe" yaml:"startupProbe"`
 	// Whether this container should allocate a buffer for stdin in the container runtime.
 	//
 	// If this is not set, reads from stdin in the container will always result in EOF. Default is false.
-	Stdin *bool `json:"stdin" yaml:"stdin"`
+	Stdin *bool `field:"optional" json:"stdin" yaml:"stdin"`
 	// Whether the container runtime should close the stdin channel after it has been opened by a single attach.
 	//
 	// When stdin is true the stdin stream will remain open across multiple attach sessions. If stdinOnce is set to true, stdin is opened on container start, is empty until the first client attaches to stdin, and then remains open and accepts data until the client disconnects, at which time stdin is closed and remains closed until the container is restarted. If this flag is false, a container processes that reads from stdin will never receive an EOF. Default is false
-	StdinOnce *bool `json:"stdinOnce" yaml:"stdinOnce"`
+	StdinOnce *bool `field:"optional" json:"stdinOnce" yaml:"stdinOnce"`
 	// Optional: Path at which the file to which the container's termination message will be written is mounted into the container's filesystem.
 	//
 	// Message written is intended to be brief final status, such as an assertion failure message. Will be truncated by the node if greater than 4096 bytes. The total message length across all containers will be limited to 12kb. Defaults to /dev/termination-log. Cannot be updated.
-	TerminationMessagePath *string `json:"terminationMessagePath" yaml:"terminationMessagePath"`
+	TerminationMessagePath *string `field:"optional" json:"terminationMessagePath" yaml:"terminationMessagePath"`
 	// Indicate how the termination message should be populated.
 	//
 	// File will use the contents of terminationMessagePath to populate the container status message on both success and failure. FallbackToLogsOnError will use the last chunk of container log output if the termination message file is empty and the container exited with an error. The log output is limited to 2048 bytes or 80 lines, whichever is smaller. Defaults to File. Cannot be updated.
-	TerminationMessagePolicy *string `json:"terminationMessagePolicy" yaml:"terminationMessagePolicy"`
+	TerminationMessagePolicy *string `field:"optional" json:"terminationMessagePolicy" yaml:"terminationMessagePolicy"`
 	// Whether this container should allocate a TTY for itself, also requires 'stdin' to be true.
 	//
 	// Default is false.
-	Tty *bool `json:"tty" yaml:"tty"`
+	Tty *bool `field:"optional" json:"tty" yaml:"tty"`
 	// volumeDevices is the list of block devices to be used by the container.
 	//
 	// This is a beta feature.
-	VolumeDevices *[]*VolumeDevice `json:"volumeDevices" yaml:"volumeDevices"`
+	VolumeDevices *[]*VolumeDevice `field:"optional" json:"volumeDevices" yaml:"volumeDevices"`
 	// Pod volumes to mount into the container's filesystem.
 	//
 	// Cannot be updated.
-	VolumeMounts *[]*VolumeMount `json:"volumeMounts" yaml:"volumeMounts"`
+	VolumeMounts *[]*VolumeMount `field:"optional" json:"volumeMounts" yaml:"volumeMounts"`
 	// Container's working directory.
 	//
 	// If not specified, the container runtime's default will be used, which might be configured in the container image. Cannot be updated.
-	WorkingDir *string `json:"workingDir" yaml:"workingDir"`
+	WorkingDir *string `field:"optional" json:"workingDir" yaml:"workingDir"`
 }
 
 // ContainerPort represents a network port in a single container.
@@ -544,77 +544,77 @@ type ContainerPort struct {
 	// Number of port to expose on the pod's IP address.
 	//
 	// This must be a valid port number, 0 < x < 65536.
-	ContainerPort *float64 `json:"containerPort" yaml:"containerPort"`
+	ContainerPort *float64 `field:"required" json:"containerPort" yaml:"containerPort"`
 	// What host IP to bind the external port to.
-	HostIp *string `json:"hostIp" yaml:"hostIp"`
+	HostIp *string `field:"optional" json:"hostIp" yaml:"hostIp"`
 	// Number of port to expose on the host.
 	//
 	// If specified, this must be a valid port number, 0 < x < 65536. If HostNetwork is specified, this must match ContainerPort. Most containers do not need this.
-	HostPort *float64 `json:"hostPort" yaml:"hostPort"`
+	HostPort *float64 `field:"optional" json:"hostPort" yaml:"hostPort"`
 	// If specified, this must be an IANA_SVC_NAME and unique within the pod.
 	//
 	// Each named port in a pod must have a unique name. Name for the port that can be referred to by services.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// Protocol for port.
 	//
 	// Must be UDP, TCP, or SCTP. Defaults to "TCP".
-	Protocol *string `json:"protocol" yaml:"protocol"`
+	Protocol *string `field:"optional" json:"protocol" yaml:"protocol"`
 }
 
 // CronJobSpec describes how the job execution will look like and when it will actually run.
 type CronJobSpecV1Beta1 struct {
 	// Specifies the job that will be created when executing a CronJob.
-	JobTemplate *JobTemplateSpecV1Beta1 `json:"jobTemplate" yaml:"jobTemplate"`
+	JobTemplate *JobTemplateSpecV1Beta1 `field:"required" json:"jobTemplate" yaml:"jobTemplate"`
 	// The schedule in Cron format, see https://en.wikipedia.org/wiki/Cron.
-	Schedule *string `json:"schedule" yaml:"schedule"`
+	Schedule *string `field:"required" json:"schedule" yaml:"schedule"`
 	// Specifies how to treat concurrent executions of a Job.
 	//
 	// Valid values are: - "Allow" (default): allows CronJobs to run concurrently; - "Forbid": forbids concurrent runs, skipping next run if previous run hasn't finished yet; - "Replace": cancels currently running job and replaces it with a new one.
-	ConcurrencyPolicy *string `json:"concurrencyPolicy" yaml:"concurrencyPolicy"`
+	ConcurrencyPolicy *string `field:"optional" json:"concurrencyPolicy" yaml:"concurrencyPolicy"`
 	// The number of failed finished jobs to retain.
 	//
 	// This is a pointer to distinguish between explicit zero and not specified. Defaults to 1.
-	FailedJobsHistoryLimit *float64 `json:"failedJobsHistoryLimit" yaml:"failedJobsHistoryLimit"`
+	FailedJobsHistoryLimit *float64 `field:"optional" json:"failedJobsHistoryLimit" yaml:"failedJobsHistoryLimit"`
 	// Optional deadline in seconds for starting the job if it misses scheduled time for any reason.
 	//
 	// Missed jobs executions will be counted as failed ones.
-	StartingDeadlineSeconds *float64 `json:"startingDeadlineSeconds" yaml:"startingDeadlineSeconds"`
+	StartingDeadlineSeconds *float64 `field:"optional" json:"startingDeadlineSeconds" yaml:"startingDeadlineSeconds"`
 	// The number of successful finished jobs to retain.
 	//
 	// This is a pointer to distinguish between explicit zero and not specified. Defaults to 3.
-	SuccessfulJobsHistoryLimit *float64 `json:"successfulJobsHistoryLimit" yaml:"successfulJobsHistoryLimit"`
+	SuccessfulJobsHistoryLimit *float64 `field:"optional" json:"successfulJobsHistoryLimit" yaml:"successfulJobsHistoryLimit"`
 	// This flag tells the controller to suspend subsequent executions, it does not apply to already started executions.
 	//
 	// Defaults to false.
-	Suspend *bool `json:"suspend" yaml:"suspend"`
+	Suspend *bool `field:"optional" json:"suspend" yaml:"suspend"`
 }
 
 // CronJobSpec describes how the job execution will look like and when it will actually run.
 type CronJobSpecV2Alpha1 struct {
 	// Specifies the job that will be created when executing a CronJob.
-	JobTemplate *JobTemplateSpecV2Alpha1 `json:"jobTemplate" yaml:"jobTemplate"`
+	JobTemplate *JobTemplateSpecV2Alpha1 `field:"required" json:"jobTemplate" yaml:"jobTemplate"`
 	// The schedule in Cron format, see https://en.wikipedia.org/wiki/Cron.
-	Schedule *string `json:"schedule" yaml:"schedule"`
+	Schedule *string `field:"required" json:"schedule" yaml:"schedule"`
 	// Specifies how to treat concurrent executions of a Job.
 	//
 	// Valid values are: - "Allow" (default): allows CronJobs to run concurrently; - "Forbid": forbids concurrent runs, skipping next run if previous run hasn't finished yet; - "Replace": cancels currently running job and replaces it with a new one.
-	ConcurrencyPolicy *string `json:"concurrencyPolicy" yaml:"concurrencyPolicy"`
+	ConcurrencyPolicy *string `field:"optional" json:"concurrencyPolicy" yaml:"concurrencyPolicy"`
 	// The number of failed finished jobs to retain.
 	//
 	// This is a pointer to distinguish between explicit zero and not specified.
-	FailedJobsHistoryLimit *float64 `json:"failedJobsHistoryLimit" yaml:"failedJobsHistoryLimit"`
+	FailedJobsHistoryLimit *float64 `field:"optional" json:"failedJobsHistoryLimit" yaml:"failedJobsHistoryLimit"`
 	// Optional deadline in seconds for starting the job if it misses scheduled time for any reason.
 	//
 	// Missed jobs executions will be counted as failed ones.
-	StartingDeadlineSeconds *float64 `json:"startingDeadlineSeconds" yaml:"startingDeadlineSeconds"`
+	StartingDeadlineSeconds *float64 `field:"optional" json:"startingDeadlineSeconds" yaml:"startingDeadlineSeconds"`
 	// The number of successful finished jobs to retain.
 	//
 	// This is a pointer to distinguish between explicit zero and not specified.
-	SuccessfulJobsHistoryLimit *float64 `json:"successfulJobsHistoryLimit" yaml:"successfulJobsHistoryLimit"`
+	SuccessfulJobsHistoryLimit *float64 `field:"optional" json:"successfulJobsHistoryLimit" yaml:"successfulJobsHistoryLimit"`
 	// This flag tells the controller to suspend subsequent executions, it does not apply to already started executions.
 	//
 	// Defaults to false.
-	Suspend *bool `json:"suspend" yaml:"suspend"`
+	Suspend *bool `field:"optional" json:"suspend" yaml:"suspend"`
 }
 
 // CrossVersionObjectReference contains enough information to let you identify the referred resource.
@@ -622,13 +622,13 @@ type CrossVersionObjectReference struct {
 	// Kind of the referent;
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds"
-	Kind *string `json:"kind" yaml:"kind"`
+	Kind *string `field:"required" json:"kind" yaml:"kind"`
 	// Name of the referent;
 	//
 	// More info: http://kubernetes.io/docs/user-guide/identifiers#names
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// API version of the referent.
-	ApiVersion *string `json:"apiVersion" yaml:"apiVersion"`
+	ApiVersion *string `field:"optional" json:"apiVersion" yaml:"apiVersion"`
 }
 
 // CrossVersionObjectReference contains enough information to let you identify the referred resource.
@@ -636,13 +636,13 @@ type CrossVersionObjectReferenceV2Beta1 struct {
 	// Kind of the referent;
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds"
-	Kind *string `json:"kind" yaml:"kind"`
+	Kind *string `field:"required" json:"kind" yaml:"kind"`
 	// Name of the referent;
 	//
 	// More info: http://kubernetes.io/docs/user-guide/identifiers#names
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// API version of the referent.
-	ApiVersion *string `json:"apiVersion" yaml:"apiVersion"`
+	ApiVersion *string `field:"optional" json:"apiVersion" yaml:"apiVersion"`
 }
 
 // CrossVersionObjectReference contains enough information to let you identify the referred resource.
@@ -650,13 +650,13 @@ type CrossVersionObjectReferenceV2Beta2 struct {
 	// Kind of the referent;
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds"
-	Kind *string `json:"kind" yaml:"kind"`
+	Kind *string `field:"required" json:"kind" yaml:"kind"`
 	// Name of the referent;
 	//
 	// More info: http://kubernetes.io/docs/user-guide/identifiers#names
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// API version of the referent.
-	ApiVersion *string `json:"apiVersion" yaml:"apiVersion"`
+	ApiVersion *string `field:"optional" json:"apiVersion" yaml:"apiVersion"`
 }
 
 // CSIDriverSpec is the specification of a CSIDriver.
@@ -664,15 +664,15 @@ type CsiDriverSpecV1Beta1 struct {
 	// attachRequired indicates this CSI volume driver requires an attach operation (because it implements the CSI ControllerPublishVolume() method), and that the Kubernetes attach detach controller should call the attach volume interface which checks the volumeattachment status and waits until the volume is attached before proceeding to mounting.
 	//
 	// The CSI external-attacher coordinates with CSI volume driver and updates the volumeattachment status when the attach operation is complete. If the CSIDriverRegistry feature gate is enabled and the value is specified to false, the attach operation will be skipped. Otherwise the attach operation will be called.
-	AttachRequired *bool `json:"attachRequired" yaml:"attachRequired"`
+	AttachRequired *bool `field:"optional" json:"attachRequired" yaml:"attachRequired"`
 	// If set to true, podInfoOnMount indicates this CSI volume driver requires additional pod information (like podName, podUID, etc.) during mount operations. If set to false, pod information will not be passed on mount. Default is false. The CSI driver specifies podInfoOnMount as part of driver deployment. If true, Kubelet will pass pod information as VolumeContext in the CSI NodePublishVolume() calls. The CSI driver is responsible for parsing and validating the information passed in as VolumeContext. The following VolumeConext will be passed if podInfoOnMount is set to true. This list might grow, but the prefix will be used. "csi.storage.k8s.io/pod.name": pod.Name "csi.storage.k8s.io/pod.namespace": pod.Namespace "csi.storage.k8s.io/pod.uid": string(pod.UID) "csi.storage.k8s.io/ephemeral": "true" iff the volume is an ephemeral inline volume defined by a CSIVolumeSource, otherwise "false".
 	//
 	// "csi.storage.k8s.io/ephemeral" is a new feature in Kubernetes 1.16. It is only required for drivers which support both the "Persistent" and "Ephemeral" VolumeLifecycleMode. Other drivers can leave pod info disabled and/or ignore this field. As Kubernetes 1.15 doesn't support this field, drivers can only support one mode when deployed on such a cluster and the deployment determines which mode that is, for example via a command line parameter of the driver.
-	PodInfoOnMount *bool `json:"podInfoOnMount" yaml:"podInfoOnMount"`
+	PodInfoOnMount *bool `field:"optional" json:"podInfoOnMount" yaml:"podInfoOnMount"`
 	// VolumeLifecycleModes defines what kind of volumes this CSI volume driver supports.
 	//
 	// The default if the list is empty is "Persistent", which is the usage defined by the CSI specification and implemented in Kubernetes via the usual PV/PVC mechanism. The other mode is "Ephemeral". In this mode, volumes are defined inline inside the pod spec with CSIVolumeSource and their lifecycle is tied to the lifecycle of that pod. A driver has to be aware of this because it is only going to get a NodePublishVolume call for such a volume. For more information about implementing this mode, see https://kubernetes-csi.github.io/docs/ephemeral-local-volumes.html A driver can support one or more of these modes and more modes may be added in the future.
-	VolumeLifecycleModes *[]*string `json:"volumeLifecycleModes" yaml:"volumeLifecycleModes"`
+	VolumeLifecycleModes *[]*string `field:"optional" json:"volumeLifecycleModes" yaml:"volumeLifecycleModes"`
 }
 
 // CSINodeDriver holds information about the specification of one CSI driver installed on a node.
@@ -680,19 +680,19 @@ type CsiNodeDriver struct {
 	// This is the name of the CSI driver that this object refers to.
 	//
 	// This MUST be the same name returned by the CSI GetPluginName() call for that driver.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// nodeID of the node from the driver point of view.
 	//
 	// This field enables Kubernetes to communicate with storage systems that do not share the same nomenclature for nodes. For example, Kubernetes may refer to a given node as "node1", but the storage system may refer to the same node as "nodeA". When Kubernetes issues a command to the storage system to attach a volume to a specific node, it can use this field to refer to the node name using the ID that the storage system will understand, e.g. "nodeA" instead of "node1". This field is required.
-	NodeId *string `json:"nodeId" yaml:"nodeId"`
+	NodeId *string `field:"required" json:"nodeId" yaml:"nodeId"`
 	// allocatable represents the volume resources of a node that are available for scheduling.
 	//
 	// This field is beta.
-	Allocatable *VolumeNodeResources `json:"allocatable" yaml:"allocatable"`
+	Allocatable *VolumeNodeResources `field:"optional" json:"allocatable" yaml:"allocatable"`
 	// topologyKeys is the list of keys supported by the driver.
 	//
 	// When a driver is initialized on a cluster, it provides a set of topology keys that it understands (e.g. "company.com/zone", "company.com/region"). When a driver is initialized on a node, it provides the same topology keys along with values. Kubelet will expose these topology keys as labels on its own node object. When Kubernetes does topology aware provisioning, it can use this list to determine which labels it should retrieve from the node object and pass back to the driver. It is possible for different nodes to use different topology keys. This can be empty if driver does not support topology.
-	TopologyKeys *[]*string `json:"topologyKeys" yaml:"topologyKeys"`
+	TopologyKeys *[]*string `field:"optional" json:"topologyKeys" yaml:"topologyKeys"`
 }
 
 // CSINodeDriver holds information about the specification of one CSI driver installed on a node.
@@ -700,17 +700,17 @@ type CsiNodeDriverV1Beta1 struct {
 	// This is the name of the CSI driver that this object refers to.
 	//
 	// This MUST be the same name returned by the CSI GetPluginName() call for that driver.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// nodeID of the node from the driver point of view.
 	//
 	// This field enables Kubernetes to communicate with storage systems that do not share the same nomenclature for nodes. For example, Kubernetes may refer to a given node as "node1", but the storage system may refer to the same node as "nodeA". When Kubernetes issues a command to the storage system to attach a volume to a specific node, it can use this field to refer to the node name using the ID that the storage system will understand, e.g. "nodeA" instead of "node1". This field is required.
-	NodeId *string `json:"nodeId" yaml:"nodeId"`
+	NodeId *string `field:"required" json:"nodeId" yaml:"nodeId"`
 	// allocatable represents the volume resources of a node that are available for scheduling.
-	Allocatable *VolumeNodeResourcesV1Beta1 `json:"allocatable" yaml:"allocatable"`
+	Allocatable *VolumeNodeResourcesV1Beta1 `field:"optional" json:"allocatable" yaml:"allocatable"`
 	// topologyKeys is the list of keys supported by the driver.
 	//
 	// When a driver is initialized on a cluster, it provides a set of topology keys that it understands (e.g. "company.com/zone", "company.com/region"). When a driver is initialized on a node, it provides the same topology keys along with values. Kubelet will expose these topology keys as labels on its own node object. When Kubernetes does topology aware provisioning, it can use this list to determine which labels it should retrieve from the node object and pass back to the driver. It is possible for different nodes to use different topology keys. This can be empty if driver does not support topology.
-	TopologyKeys *[]*string `json:"topologyKeys" yaml:"topologyKeys"`
+	TopologyKeys *[]*string `field:"optional" json:"topologyKeys" yaml:"topologyKeys"`
 }
 
 // CSINodeSpec holds information about the specification of all CSI drivers installed on a node.
@@ -718,7 +718,7 @@ type CsiNodeSpec struct {
 	// drivers is a list of information of all CSI Drivers existing on a node.
 	//
 	// If all drivers in the list are uninstalled, this can become empty.
-	Drivers *[]*CsiNodeDriver `json:"drivers" yaml:"drivers"`
+	Drivers *[]*CsiNodeDriver `field:"required" json:"drivers" yaml:"drivers"`
 }
 
 // CSINodeSpec holds information about the specification of all CSI drivers installed on a node.
@@ -726,7 +726,7 @@ type CsiNodeSpecV1Beta1 struct {
 	// drivers is a list of information of all CSI Drivers existing on a node.
 	//
 	// If all drivers in the list are uninstalled, this can become empty.
-	Drivers *[]*CsiNodeDriverV1Beta1 `json:"drivers" yaml:"drivers"`
+	Drivers *[]*CsiNodeDriverV1Beta1 `field:"required" json:"drivers" yaml:"drivers"`
 }
 
 // Represents storage that is managed by an external CSI volume driver (Beta feature).
@@ -734,37 +734,37 @@ type CsiPersistentVolumeSource struct {
 	// Driver is the name of the driver to use for this volume.
 	//
 	// Required.
-	Driver *string `json:"driver" yaml:"driver"`
+	Driver *string `field:"required" json:"driver" yaml:"driver"`
 	// VolumeHandle is the unique volume name returned by the CSI volume plugin’s CreateVolume to refer to the volume on all subsequent calls.
 	//
 	// Required.
-	VolumeHandle *string `json:"volumeHandle" yaml:"volumeHandle"`
+	VolumeHandle *string `field:"required" json:"volumeHandle" yaml:"volumeHandle"`
 	// ControllerExpandSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI ControllerExpandVolume call.
 	//
 	// This is an alpha field and requires enabling ExpandCSIVolumes feature gate. This field is optional, and may be empty if no secret is required. If the secret object contains more than one secret, all secrets are passed.
-	ControllerExpandSecretRef *SecretReference `json:"controllerExpandSecretRef" yaml:"controllerExpandSecretRef"`
+	ControllerExpandSecretRef *SecretReference `field:"optional" json:"controllerExpandSecretRef" yaml:"controllerExpandSecretRef"`
 	// ControllerPublishSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI ControllerPublishVolume and ControllerUnpublishVolume calls.
 	//
 	// This field is optional, and may be empty if no secret is required. If the secret object contains more than one secret, all secrets are passed.
-	ControllerPublishSecretRef *SecretReference `json:"controllerPublishSecretRef" yaml:"controllerPublishSecretRef"`
+	ControllerPublishSecretRef *SecretReference `field:"optional" json:"controllerPublishSecretRef" yaml:"controllerPublishSecretRef"`
 	// Filesystem type to mount.
 	//
 	// Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs".
-	FsType *string `json:"fsType" yaml:"fsType"`
+	FsType *string `field:"optional" json:"fsType" yaml:"fsType"`
 	// NodePublishSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI NodePublishVolume and NodeUnpublishVolume calls.
 	//
 	// This field is optional, and may be empty if no secret is required. If the secret object contains more than one secret, all secrets are passed.
-	NodePublishSecretRef *SecretReference `json:"nodePublishSecretRef" yaml:"nodePublishSecretRef"`
+	NodePublishSecretRef *SecretReference `field:"optional" json:"nodePublishSecretRef" yaml:"nodePublishSecretRef"`
 	// NodeStageSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI NodeStageVolume and NodeStageVolume and NodeUnstageVolume calls.
 	//
 	// This field is optional, and may be empty if no secret is required. If the secret object contains more than one secret, all secrets are passed.
-	NodeStageSecretRef *SecretReference `json:"nodeStageSecretRef" yaml:"nodeStageSecretRef"`
+	NodeStageSecretRef *SecretReference `field:"optional" json:"nodeStageSecretRef" yaml:"nodeStageSecretRef"`
 	// Optional: The value to pass to ControllerPublishVolumeRequest.
 	//
 	// Defaults to false (read/write).
-	ReadOnly *bool `json:"readOnly" yaml:"readOnly"`
+	ReadOnly *bool `field:"optional" json:"readOnly" yaml:"readOnly"`
 	// Attributes of the volume to publish.
-	VolumeAttributes *map[string]*string `json:"volumeAttributes" yaml:"volumeAttributes"`
+	VolumeAttributes *map[string]*string `field:"optional" json:"volumeAttributes" yaml:"volumeAttributes"`
 }
 
 // Represents a source location of a volume to mount, managed by an external CSI driver.
@@ -772,67 +772,67 @@ type CsiVolumeSource struct {
 	// Driver is the name of the CSI driver that handles this volume.
 	//
 	// Consult with your admin for the correct name as registered in the cluster.
-	Driver *string `json:"driver" yaml:"driver"`
+	Driver *string `field:"required" json:"driver" yaml:"driver"`
 	// Filesystem type to mount.
 	//
 	// Ex. "ext4", "xfs", "ntfs". If not provided, the empty value is passed to the associated CSI driver which will determine the default filesystem to apply.
-	FsType *string `json:"fsType" yaml:"fsType"`
+	FsType *string `field:"optional" json:"fsType" yaml:"fsType"`
 	// NodePublishSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI NodePublishVolume and NodeUnpublishVolume calls.
 	//
 	// This field is optional, and  may be empty if no secret is required. If the secret object contains more than one secret, all secret references are passed.
-	NodePublishSecretRef *LocalObjectReference `json:"nodePublishSecretRef" yaml:"nodePublishSecretRef"`
+	NodePublishSecretRef *LocalObjectReference `field:"optional" json:"nodePublishSecretRef" yaml:"nodePublishSecretRef"`
 	// Specifies a read-only configuration for the volume.
 	//
 	// Defaults to false (read/write).
-	ReadOnly *bool `json:"readOnly" yaml:"readOnly"`
+	ReadOnly *bool `field:"optional" json:"readOnly" yaml:"readOnly"`
 	// VolumeAttributes stores driver-specific properties that are passed to the CSI driver.
 	//
 	// Consult your driver's documentation for supported values.
-	VolumeAttributes *map[string]*string `json:"volumeAttributes" yaml:"volumeAttributes"`
+	VolumeAttributes *map[string]*string `field:"optional" json:"volumeAttributes" yaml:"volumeAttributes"`
 }
 
 // CustomResourceColumnDefinition specifies a column for server side printing.
 type CustomResourceColumnDefinition struct {
 	// jsonPath is a simple JSON path (i.e. with array notation) which is evaluated against each custom resource to produce the value for this column.
-	JsonPath *string `json:"jsonPath" yaml:"jsonPath"`
+	JsonPath *string `field:"required" json:"jsonPath" yaml:"jsonPath"`
 	// name is a human readable name for the column.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// type is an OpenAPI type definition for this column.
 	//
 	// See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for details.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// description is a human readable description of this column.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// format is an optional OpenAPI type definition for this column.
 	//
 	// The 'name' format is applied to the primary identifier column to assist in clients identifying column is the resource name. See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for details.
-	Format *string `json:"format" yaml:"format"`
+	Format *string `field:"optional" json:"format" yaml:"format"`
 	// priority is an integer defining the relative importance of this column compared to others.
 	//
 	// Lower numbers are considered higher priority. Columns that may be omitted in limited space scenarios should be given a priority greater than 0.
-	Priority *float64 `json:"priority" yaml:"priority"`
+	Priority *float64 `field:"optional" json:"priority" yaml:"priority"`
 }
 
 // CustomResourceColumnDefinition specifies a column for server side printing.
 type CustomResourceColumnDefinitionV1Beta1 struct {
 	// JSONPath is a simple JSON path (i.e. with array notation) which is evaluated against each custom resource to produce the value for this column.
-	JsonPath *string `json:"jsonPath" yaml:"jsonPath"`
+	JsonPath *string `field:"required" json:"jsonPath" yaml:"jsonPath"`
 	// name is a human readable name for the column.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// type is an OpenAPI type definition for this column.
 	//
 	// See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for details.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// description is a human readable description of this column.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// format is an optional OpenAPI type definition for this column.
 	//
 	// The 'name' format is applied to the primary identifier column to assist in clients identifying column is the resource name. See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for details.
-	Format *string `json:"format" yaml:"format"`
+	Format *string `field:"optional" json:"format" yaml:"format"`
 	// priority is an integer defining the relative importance of this column compared to others.
 	//
 	// Lower numbers are considered higher priority. Columns that may be omitted in limited space scenarios should be given a priority greater than 0.
-	Priority *float64 `json:"priority" yaml:"priority"`
+	Priority *float64 `field:"optional" json:"priority" yaml:"priority"`
 }
 
 // CustomResourceConversion describes how to convert different versions of a CR.
@@ -841,11 +841,11 @@ type CustomResourceConversion struct {
 	//
 	// Allowed values are: - `None`: The converter only change the apiVersion and would not touch any other field in the custom resource. - `Webhook`: API Server will call to an external webhook to do the conversion. Additional information
 	// is needed for this option. This requires spec.preserveUnknownFields to be false, and spec.conversion.webhook to be set.
-	Strategy *string `json:"strategy" yaml:"strategy"`
+	Strategy *string `field:"required" json:"strategy" yaml:"strategy"`
 	// webhook describes how to call the conversion webhook.
 	//
 	// Required when `strategy` is set to `Webhook`.
-	Webhook *WebhookConversion `json:"webhook" yaml:"webhook"`
+	Webhook *WebhookConversion `field:"optional" json:"webhook" yaml:"webhook"`
 }
 
 // CustomResourceConversion describes how to convert different versions of a CR.
@@ -854,15 +854,15 @@ type CustomResourceConversionV1Beta1 struct {
 	//
 	// Allowed values are: - `None`: The converter only change the apiVersion and would not touch any other field in the custom resource. - `Webhook`: API Server will call to an external webhook to do the conversion. Additional information
 	// is needed for this option. This requires spec.preserveUnknownFields to be false, and spec.conversion.webhookClientConfig to be set.
-	Strategy *string `json:"strategy" yaml:"strategy"`
+	Strategy *string `field:"required" json:"strategy" yaml:"strategy"`
 	// conversionReviewVersions is an ordered list of preferred `ConversionReview` versions the Webhook expects.
 	//
 	// The API server will use the first version in the list which it supports. If none of the versions specified in this list are supported by API server, conversion will fail for the custom resource. If a persisted Webhook configuration specifies allowed versions and does not include any versions known to the API Server, calls to the webhook will fail. Defaults to `["v1beta1"]`.
-	ConversionReviewVersions *[]*string `json:"conversionReviewVersions" yaml:"conversionReviewVersions"`
+	ConversionReviewVersions *[]*string `field:"optional" json:"conversionReviewVersions" yaml:"conversionReviewVersions"`
 	// webhookClientConfig is the instructions for how to call the webhook if strategy is `Webhook`.
 	//
 	// Required when `strategy` is set to `Webhook`.
-	WebhookClientConfig *WebhookClientConfigV1Beta1 `json:"webhookClientConfig" yaml:"webhookClientConfig"`
+	WebhookClientConfig *WebhookClientConfigV1Beta1 `field:"optional" json:"webhookClientConfig" yaml:"webhookClientConfig"`
 }
 
 // CustomResourceDefinitionNames indicates the names to serve this CustomResourceDefinition.
@@ -870,25 +870,25 @@ type CustomResourceDefinitionNames struct {
 	// kind is the serialized kind of the resource.
 	//
 	// It is normally CamelCase and singular. Custom resource instances will use this value as the `kind` attribute in API calls.
-	Kind *string `json:"kind" yaml:"kind"`
+	Kind *string `field:"required" json:"kind" yaml:"kind"`
 	// plural is the plural name of the resource to serve.
 	//
 	// The custom resources are served under `/apis/<group>/<version>/.../<plural>`. Must match the name of the CustomResourceDefinition (in the form `<names.plural>.<group>`). Must be all lowercase.
-	Plural *string `json:"plural" yaml:"plural"`
+	Plural *string `field:"required" json:"plural" yaml:"plural"`
 	// categories is a list of grouped resources this custom resource belongs to (e.g. 'all'). This is published in API discovery documents, and used by clients to support invocations like `kubectl get all`.
-	Categories *[]*string `json:"categories" yaml:"categories"`
+	Categories *[]*string `field:"optional" json:"categories" yaml:"categories"`
 	// listKind is the serialized kind of the list for this resource.
 	//
 	// Defaults to "`kind`List".
-	ListKind *string `json:"listKind" yaml:"listKind"`
+	ListKind *string `field:"optional" json:"listKind" yaml:"listKind"`
 	// shortNames are short names for the resource, exposed in API discovery documents, and used by clients to support invocations like `kubectl get <shortname>`.
 	//
 	// It must be all lowercase.
-	ShortNames *[]*string `json:"shortNames" yaml:"shortNames"`
+	ShortNames *[]*string `field:"optional" json:"shortNames" yaml:"shortNames"`
 	// singular is the singular name of the resource.
 	//
 	// It must be all lowercase. Defaults to lowercased `kind`.
-	Singular *string `json:"singular" yaml:"singular"`
+	Singular *string `field:"optional" json:"singular" yaml:"singular"`
 }
 
 // CustomResourceDefinitionNames indicates the names to serve this CustomResourceDefinition.
@@ -896,25 +896,25 @@ type CustomResourceDefinitionNamesV1Beta1 struct {
 	// kind is the serialized kind of the resource.
 	//
 	// It is normally CamelCase and singular. Custom resource instances will use this value as the `kind` attribute in API calls.
-	Kind *string `json:"kind" yaml:"kind"`
+	Kind *string `field:"required" json:"kind" yaml:"kind"`
 	// plural is the plural name of the resource to serve.
 	//
 	// The custom resources are served under `/apis/<group>/<version>/.../<plural>`. Must match the name of the CustomResourceDefinition (in the form `<names.plural>.<group>`). Must be all lowercase.
-	Plural *string `json:"plural" yaml:"plural"`
+	Plural *string `field:"required" json:"plural" yaml:"plural"`
 	// categories is a list of grouped resources this custom resource belongs to (e.g. 'all'). This is published in API discovery documents, and used by clients to support invocations like `kubectl get all`.
-	Categories *[]*string `json:"categories" yaml:"categories"`
+	Categories *[]*string `field:"optional" json:"categories" yaml:"categories"`
 	// listKind is the serialized kind of the list for this resource.
 	//
 	// Defaults to "`kind`List".
-	ListKind *string `json:"listKind" yaml:"listKind"`
+	ListKind *string `field:"optional" json:"listKind" yaml:"listKind"`
 	// shortNames are short names for the resource, exposed in API discovery documents, and used by clients to support invocations like `kubectl get <shortname>`.
 	//
 	// It must be all lowercase.
-	ShortNames *[]*string `json:"shortNames" yaml:"shortNames"`
+	ShortNames *[]*string `field:"optional" json:"shortNames" yaml:"shortNames"`
 	// singular is the singular name of the resource.
 	//
 	// It must be all lowercase. Defaults to lowercased `kind`.
-	Singular *string `json:"singular" yaml:"singular"`
+	Singular *string `field:"optional" json:"singular" yaml:"singular"`
 }
 
 // CustomResourceDefinitionSpec describes how a user wants their resource to appear.
@@ -922,23 +922,23 @@ type CustomResourceDefinitionSpec struct {
 	// group is the API group of the defined custom resource.
 	//
 	// The custom resources are served under `/apis/<group>/...`. Must match the name of the CustomResourceDefinition (in the form `<names.plural>.<group>`).
-	Group *string `json:"group" yaml:"group"`
+	Group *string `field:"required" json:"group" yaml:"group"`
 	// names specify the resource and kind names for the custom resource.
-	Names *CustomResourceDefinitionNames `json:"names" yaml:"names"`
+	Names *CustomResourceDefinitionNames `field:"required" json:"names" yaml:"names"`
 	// scope indicates whether the defined custom resource is cluster- or namespace-scoped.
 	//
 	// Allowed values are `Cluster` and `Namespaced`.
-	Scope *string `json:"scope" yaml:"scope"`
+	Scope *string `field:"required" json:"scope" yaml:"scope"`
 	// versions is the list of all API versions of the defined custom resource.
 	//
 	// Version names are used to compute the order in which served versions are listed in API discovery. If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version), then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first by GA > beta > alpha (where GA is a version with no suffix such as beta or alpha), and then by comparing major version, then minor version. An example sorted list of versions: v10, v2, v1, v11beta2, v10beta3, v3beta1, v12alpha1, v11alpha2, foo1, foo10.
-	Versions *[]*CustomResourceDefinitionVersion `json:"versions" yaml:"versions"`
+	Versions *[]*CustomResourceDefinitionVersion `field:"required" json:"versions" yaml:"versions"`
 	// conversion defines conversion settings for the CRD.
-	Conversion *CustomResourceConversion `json:"conversion" yaml:"conversion"`
+	Conversion *CustomResourceConversion `field:"optional" json:"conversion" yaml:"conversion"`
 	// preserveUnknownFields indicates that object fields which are not specified in the OpenAPI schema should be preserved when persisting to storage.
 	//
 	// apiVersion, kind, metadata and known fields inside metadata are always preserved. This field is deprecated in favor of setting `x-preserve-unknown-fields` to true in `spec.versions[*].schema.openAPIV3Schema`. See https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/#pruning-versus-preserving-unknown-fields for details.
-	PreserveUnknownFields *bool `json:"preserveUnknownFields" yaml:"preserveUnknownFields"`
+	PreserveUnknownFields *bool `field:"optional" json:"preserveUnknownFields" yaml:"preserveUnknownFields"`
 }
 
 // CustomResourceDefinitionSpec describes how a user wants their resource to appear.
@@ -946,135 +946,135 @@ type CustomResourceDefinitionSpecV1Beta1 struct {
 	// group is the API group of the defined custom resource.
 	//
 	// The custom resources are served under `/apis/<group>/...`. Must match the name of the CustomResourceDefinition (in the form `<names.plural>.<group>`).
-	Group *string `json:"group" yaml:"group"`
+	Group *string `field:"required" json:"group" yaml:"group"`
 	// names specify the resource and kind names for the custom resource.
-	Names *CustomResourceDefinitionNamesV1Beta1 `json:"names" yaml:"names"`
+	Names *CustomResourceDefinitionNamesV1Beta1 `field:"required" json:"names" yaml:"names"`
 	// scope indicates whether the defined custom resource is cluster- or namespace-scoped.
 	//
 	// Allowed values are `Cluster` and `Namespaced`. Default is `Namespaced`.
-	Scope *string `json:"scope" yaml:"scope"`
+	Scope *string `field:"required" json:"scope" yaml:"scope"`
 	// additionalPrinterColumns specifies additional columns returned in Table output.
 	//
 	// See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details. If present, this field configures columns for all versions. Top-level and per-version columns are mutually exclusive. If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
-	AdditionalPrinterColumns *[]*CustomResourceColumnDefinitionV1Beta1 `json:"additionalPrinterColumns" yaml:"additionalPrinterColumns"`
+	AdditionalPrinterColumns *[]*CustomResourceColumnDefinitionV1Beta1 `field:"optional" json:"additionalPrinterColumns" yaml:"additionalPrinterColumns"`
 	// conversion defines conversion settings for the CRD.
-	Conversion *CustomResourceConversionV1Beta1 `json:"conversion" yaml:"conversion"`
+	Conversion *CustomResourceConversionV1Beta1 `field:"optional" json:"conversion" yaml:"conversion"`
 	// preserveUnknownFields indicates that object fields which are not specified in the OpenAPI schema should be preserved when persisting to storage.
 	//
 	// apiVersion, kind, metadata and known fields inside metadata are always preserved. If false, schemas must be defined for all versions. Defaults to true in v1beta for backwards compatibility. Deprecated: will be required to be false in v1. Preservation of unknown fields can be specified in the validation schema using the `x-kubernetes-preserve-unknown-fields: true` extension. See https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/#pruning-versus-preserving-unknown-fields for details.
-	PreserveUnknownFields *bool `json:"preserveUnknownFields" yaml:"preserveUnknownFields"`
+	PreserveUnknownFields *bool `field:"optional" json:"preserveUnknownFields" yaml:"preserveUnknownFields"`
 	// subresources specify what subresources the defined custom resource has.
 	//
 	// If present, this field configures subresources for all versions. Top-level and per-version subresources are mutually exclusive.
-	Subresources *CustomResourceSubresourcesV1Beta1 `json:"subresources" yaml:"subresources"`
+	Subresources *CustomResourceSubresourcesV1Beta1 `field:"optional" json:"subresources" yaml:"subresources"`
 	// validation describes the schema used for validation and pruning of the custom resource.
 	//
 	// If present, this validation schema is used to validate all versions. Top-level and per-version schemas are mutually exclusive.
-	Validation *CustomResourceValidationV1Beta1 `json:"validation" yaml:"validation"`
+	Validation *CustomResourceValidationV1Beta1 `field:"optional" json:"validation" yaml:"validation"`
 	// version is the API version of the defined custom resource.
 	//
 	// The custom resources are served under `/apis/<group>/<version>/...`. Must match the name of the first item in the `versions` list if `version` and `versions` are both specified. Optional if `versions` is specified. Deprecated: use `versions` instead.
-	Version *string `json:"version" yaml:"version"`
+	Version *string `field:"optional" json:"version" yaml:"version"`
 	// versions is the list of all API versions of the defined custom resource.
 	//
 	// Optional if `version` is specified. The name of the first item in the `versions` list must match the `version` field if `version` and `versions` are both specified. Version names are used to compute the order in which served versions are listed in API discovery. If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version), then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first by GA > beta > alpha (where GA is a version with no suffix such as beta or alpha), and then by comparing major version, then minor version. An example sorted list of versions: v10, v2, v1, v11beta2, v10beta3, v3beta1, v12alpha1, v11alpha2, foo1, foo10.
-	Versions *[]*CustomResourceDefinitionVersionV1Beta1 `json:"versions" yaml:"versions"`
+	Versions *[]*CustomResourceDefinitionVersionV1Beta1 `field:"optional" json:"versions" yaml:"versions"`
 }
 
 // CustomResourceDefinitionVersion describes a version for CRD.
 type CustomResourceDefinitionVersion struct {
 	// name is the version name, e.g. “v1”, “v2beta1”, etc. The custom resources are served under this version at `/apis/<group>/<version>/...` if `served` is true.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// served is a flag enabling/disabling this version from being served via REST APIs.
-	Served *bool `json:"served" yaml:"served"`
+	Served *bool `field:"required" json:"served" yaml:"served"`
 	// storage indicates this version should be used when persisting custom resources to storage.
 	//
 	// There must be exactly one version with storage=true.
-	Storage *bool `json:"storage" yaml:"storage"`
+	Storage *bool `field:"required" json:"storage" yaml:"storage"`
 	// additionalPrinterColumns specifies additional columns returned in Table output.
 	//
 	// See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details. If no columns are specified, a single column displaying the age of the custom resource is used.
-	AdditionalPrinterColumns *[]*CustomResourceColumnDefinition `json:"additionalPrinterColumns" yaml:"additionalPrinterColumns"`
+	AdditionalPrinterColumns *[]*CustomResourceColumnDefinition `field:"optional" json:"additionalPrinterColumns" yaml:"additionalPrinterColumns"`
 	// schema describes the schema used for validation, pruning, and defaulting of this version of the custom resource.
-	Schema *CustomResourceValidation `json:"schema" yaml:"schema"`
+	Schema *CustomResourceValidation `field:"optional" json:"schema" yaml:"schema"`
 	// subresources specify what subresources this version of the defined custom resource have.
-	Subresources *CustomResourceSubresources `json:"subresources" yaml:"subresources"`
+	Subresources *CustomResourceSubresources `field:"optional" json:"subresources" yaml:"subresources"`
 }
 
 // CustomResourceDefinitionVersion describes a version for CRD.
 type CustomResourceDefinitionVersionV1Beta1 struct {
 	// name is the version name, e.g. “v1”, “v2beta1”, etc. The custom resources are served under this version at `/apis/<group>/<version>/...` if `served` is true.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// served is a flag enabling/disabling this version from being served via REST APIs.
-	Served *bool `json:"served" yaml:"served"`
+	Served *bool `field:"required" json:"served" yaml:"served"`
 	// storage indicates this version should be used when persisting custom resources to storage.
 	//
 	// There must be exactly one version with storage=true.
-	Storage *bool `json:"storage" yaml:"storage"`
+	Storage *bool `field:"required" json:"storage" yaml:"storage"`
 	// additionalPrinterColumns specifies additional columns returned in Table output.
 	//
 	// See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details. Top-level and per-version columns are mutually exclusive. Per-version columns must not all be set to identical values (top-level columns should be used instead). If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
-	AdditionalPrinterColumns *[]*CustomResourceColumnDefinitionV1Beta1 `json:"additionalPrinterColumns" yaml:"additionalPrinterColumns"`
+	AdditionalPrinterColumns *[]*CustomResourceColumnDefinitionV1Beta1 `field:"optional" json:"additionalPrinterColumns" yaml:"additionalPrinterColumns"`
 	// schema describes the schema used for validation and pruning of this version of the custom resource.
 	//
 	// Top-level and per-version schemas are mutually exclusive. Per-version schemas must not all be set to identical values (top-level validation schema should be used instead).
-	Schema *CustomResourceValidationV1Beta1 `json:"schema" yaml:"schema"`
+	Schema *CustomResourceValidationV1Beta1 `field:"optional" json:"schema" yaml:"schema"`
 	// subresources specify what subresources this version of the defined custom resource have.
 	//
 	// Top-level and per-version subresources are mutually exclusive. Per-version subresources must not all be set to identical values (top-level subresources should be used instead).
-	Subresources *CustomResourceSubresourcesV1Beta1 `json:"subresources" yaml:"subresources"`
+	Subresources *CustomResourceSubresourcesV1Beta1 `field:"optional" json:"subresources" yaml:"subresources"`
 }
 
 // CustomResourceSubresourceScale defines how to serve the scale subresource for CustomResources.
 type CustomResourceSubresourceScale struct {
 	// specReplicasPath defines the JSON path inside of a custom resource that corresponds to Scale `spec.replicas`. Only JSON paths without the array notation are allowed. Must be a JSON Path under `.spec`. If there is no value under the given path in the custom resource, the `/scale` subresource will return an error on GET.
-	SpecReplicasPath *string `json:"specReplicasPath" yaml:"specReplicasPath"`
+	SpecReplicasPath *string `field:"required" json:"specReplicasPath" yaml:"specReplicasPath"`
 	// statusReplicasPath defines the JSON path inside of a custom resource that corresponds to Scale `status.replicas`. Only JSON paths without the array notation are allowed. Must be a JSON Path under `.status`. If there is no value under the given path in the custom resource, the `status.replicas` value in the `/scale` subresource will default to 0.
-	StatusReplicasPath *string `json:"statusReplicasPath" yaml:"statusReplicasPath"`
+	StatusReplicasPath *string `field:"required" json:"statusReplicasPath" yaml:"statusReplicasPath"`
 	// labelSelectorPath defines the JSON path inside of a custom resource that corresponds to Scale `status.selector`. Only JSON paths without the array notation are allowed. Must be a JSON Path under `.status` or `.spec`. Must be set to work with HorizontalPodAutoscaler. The field pointed by this JSON path must be a string field (not a complex selector struct) which contains a serialized label selector in string form. More info: https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions#scale-subresource If there is no value under the given path in the custom resource, the `status.selector` value in the `/scale` subresource will default to the empty string.
-	LabelSelectorPath *string `json:"labelSelectorPath" yaml:"labelSelectorPath"`
+	LabelSelectorPath *string `field:"optional" json:"labelSelectorPath" yaml:"labelSelectorPath"`
 }
 
 // CustomResourceSubresourceScale defines how to serve the scale subresource for CustomResources.
 type CustomResourceSubresourceScaleV1Beta1 struct {
 	// specReplicasPath defines the JSON path inside of a custom resource that corresponds to Scale `spec.replicas`. Only JSON paths without the array notation are allowed. Must be a JSON Path under `.spec`. If there is no value under the given path in the custom resource, the `/scale` subresource will return an error on GET.
-	SpecReplicasPath *string `json:"specReplicasPath" yaml:"specReplicasPath"`
+	SpecReplicasPath *string `field:"required" json:"specReplicasPath" yaml:"specReplicasPath"`
 	// statusReplicasPath defines the JSON path inside of a custom resource that corresponds to Scale `status.replicas`. Only JSON paths without the array notation are allowed. Must be a JSON Path under `.status`. If there is no value under the given path in the custom resource, the `status.replicas` value in the `/scale` subresource will default to 0.
-	StatusReplicasPath *string `json:"statusReplicasPath" yaml:"statusReplicasPath"`
+	StatusReplicasPath *string `field:"required" json:"statusReplicasPath" yaml:"statusReplicasPath"`
 	// labelSelectorPath defines the JSON path inside of a custom resource that corresponds to Scale `status.selector`. Only JSON paths without the array notation are allowed. Must be a JSON Path under `.status` or `.spec`. Must be set to work with HorizontalPodAutoscaler. The field pointed by this JSON path must be a string field (not a complex selector struct) which contains a serialized label selector in string form. More info: https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions#scale-subresource If there is no value under the given path in the custom resource, the `status.selector` value in the `/scale` subresource will default to the empty string.
-	LabelSelectorPath *string `json:"labelSelectorPath" yaml:"labelSelectorPath"`
+	LabelSelectorPath *string `field:"optional" json:"labelSelectorPath" yaml:"labelSelectorPath"`
 }
 
 // CustomResourceSubresources defines the status and scale subresources for CustomResources.
 type CustomResourceSubresources struct {
 	// scale indicates the custom resource should serve a `/scale` subresource that returns an `autoscaling/v1` Scale object.
-	Scale *CustomResourceSubresourceScale `json:"scale" yaml:"scale"`
+	Scale *CustomResourceSubresourceScale `field:"optional" json:"scale" yaml:"scale"`
 	// status indicates the custom resource should serve a `/status` subresource.
 	//
 	// When enabled: 1. requests to the custom resource primary endpoint ignore changes to the `status` stanza of the object. 2. requests to the custom resource `/status` subresource ignore changes to anything other than the `status` stanza of the object.
-	Status interface{} `json:"status" yaml:"status"`
+	Status interface{} `field:"optional" json:"status" yaml:"status"`
 }
 
 // CustomResourceSubresources defines the status and scale subresources for CustomResources.
 type CustomResourceSubresourcesV1Beta1 struct {
 	// scale indicates the custom resource should serve a `/scale` subresource that returns an `autoscaling/v1` Scale object.
-	Scale *CustomResourceSubresourceScaleV1Beta1 `json:"scale" yaml:"scale"`
+	Scale *CustomResourceSubresourceScaleV1Beta1 `field:"optional" json:"scale" yaml:"scale"`
 	// status indicates the custom resource should serve a `/status` subresource.
 	//
 	// When enabled: 1. requests to the custom resource primary endpoint ignore changes to the `status` stanza of the object. 2. requests to the custom resource `/status` subresource ignore changes to anything other than the `status` stanza of the object.
-	Status interface{} `json:"status" yaml:"status"`
+	Status interface{} `field:"optional" json:"status" yaml:"status"`
 }
 
 // CustomResourceValidation is a list of validation methods for CustomResources.
 type CustomResourceValidation struct {
 	// openAPIV3Schema is the OpenAPI v3 schema to use for validation and pruning.
-	OpenApiv3Schema *JsonSchemaProps `json:"openApiv3Schema" yaml:"openApiv3Schema"`
+	OpenApiv3Schema *JsonSchemaProps `field:"optional" json:"openApiv3Schema" yaml:"openApiv3Schema"`
 }
 
 // CustomResourceValidation is a list of validation methods for CustomResources.
 type CustomResourceValidationV1Beta1 struct {
 	// openAPIV3Schema is the OpenAPI v3 schema to use for validation and pruning.
-	OpenApiv3Schema *JsonSchemaPropsV1Beta1 `json:"openApiv3Schema" yaml:"openApiv3Schema"`
+	OpenApiv3Schema *JsonSchemaPropsV1Beta1 `field:"optional" json:"openApiv3Schema" yaml:"openApiv3Schema"`
 }
 
 // DaemonSetSpec is the specification of a daemon set.
@@ -1082,21 +1082,21 @@ type DaemonSetSpec struct {
 	// A label query over pods that are managed by the daemon set.
 	//
 	// Must match in order to be controlled. It must match the pod template's labels. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
-	Selector *LabelSelector `json:"selector" yaml:"selector"`
+	Selector *LabelSelector `field:"required" json:"selector" yaml:"selector"`
 	// An object that describes the pod that will be created.
 	//
 	// The DaemonSet will create exactly one copy of this pod on every node that matches the template's node selector (or on every node if no node selector is specified). More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller#pod-template
-	Template *PodTemplateSpec `json:"template" yaml:"template"`
+	Template *PodTemplateSpec `field:"required" json:"template" yaml:"template"`
 	// The minimum number of seconds for which a newly created DaemonSet pod should be ready without any of its container crashing, for it to be considered available.
 	//
 	// Defaults to 0 (pod will be considered available as soon as it is ready).
-	MinReadySeconds *float64 `json:"minReadySeconds" yaml:"minReadySeconds"`
+	MinReadySeconds *float64 `field:"optional" json:"minReadySeconds" yaml:"minReadySeconds"`
 	// The number of old history to retain to allow rollback.
 	//
 	// This is a pointer to distinguish between explicit zero and not specified. Defaults to 10.
-	RevisionHistoryLimit *float64 `json:"revisionHistoryLimit" yaml:"revisionHistoryLimit"`
+	RevisionHistoryLimit *float64 `field:"optional" json:"revisionHistoryLimit" yaml:"revisionHistoryLimit"`
 	// An update strategy to replace existing DaemonSet pods with new pods.
-	UpdateStrategy *DaemonSetUpdateStrategy `json:"updateStrategy" yaml:"updateStrategy"`
+	UpdateStrategy *DaemonSetUpdateStrategy `field:"optional" json:"updateStrategy" yaml:"updateStrategy"`
 }
 
 // DaemonSetSpec is the specification of a daemon set.
@@ -1104,25 +1104,25 @@ type DaemonSetSpecV1Beta1 struct {
 	// An object that describes the pod that will be created.
 	//
 	// The DaemonSet will create exactly one copy of this pod on every node that matches the template's node selector (or on every node if no node selector is specified). More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller#pod-template
-	Template *PodTemplateSpec `json:"template" yaml:"template"`
+	Template *PodTemplateSpec `field:"required" json:"template" yaml:"template"`
 	// The minimum number of seconds for which a newly created DaemonSet pod should be ready without any of its container crashing, for it to be considered available.
 	//
 	// Defaults to 0 (pod will be considered available as soon as it is ready).
-	MinReadySeconds *float64 `json:"minReadySeconds" yaml:"minReadySeconds"`
+	MinReadySeconds *float64 `field:"optional" json:"minReadySeconds" yaml:"minReadySeconds"`
 	// The number of old history to retain to allow rollback.
 	//
 	// This is a pointer to distinguish between explicit zero and not specified. Defaults to 10.
-	RevisionHistoryLimit *float64 `json:"revisionHistoryLimit" yaml:"revisionHistoryLimit"`
+	RevisionHistoryLimit *float64 `field:"optional" json:"revisionHistoryLimit" yaml:"revisionHistoryLimit"`
 	// A label query over pods that are managed by the daemon set.
 	//
 	// Must match in order to be controlled. If empty, defaulted to labels on Pod template. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
-	Selector *LabelSelector `json:"selector" yaml:"selector"`
+	Selector *LabelSelector `field:"optional" json:"selector" yaml:"selector"`
 	// DEPRECATED.
 	//
 	// A sequence number representing a specific generation of the template. Populated by the system. It can be set only during the creation.
-	TemplateGeneration *float64 `json:"templateGeneration" yaml:"templateGeneration"`
+	TemplateGeneration *float64 `field:"optional" json:"templateGeneration" yaml:"templateGeneration"`
 	// An update strategy to replace existing DaemonSet pods with new pods.
-	UpdateStrategy *DaemonSetUpdateStrategyV1Beta1 `json:"updateStrategy" yaml:"updateStrategy"`
+	UpdateStrategy *DaemonSetUpdateStrategyV1Beta1 `field:"optional" json:"updateStrategy" yaml:"updateStrategy"`
 }
 
 // DaemonSetSpec is the specification of a daemon set.
@@ -1130,21 +1130,21 @@ type DaemonSetSpecV1Beta2 struct {
 	// A label query over pods that are managed by the daemon set.
 	//
 	// Must match in order to be controlled. It must match the pod template's labels. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
-	Selector *LabelSelector `json:"selector" yaml:"selector"`
+	Selector *LabelSelector `field:"required" json:"selector" yaml:"selector"`
 	// An object that describes the pod that will be created.
 	//
 	// The DaemonSet will create exactly one copy of this pod on every node that matches the template's node selector (or on every node if no node selector is specified). More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller#pod-template
-	Template *PodTemplateSpec `json:"template" yaml:"template"`
+	Template *PodTemplateSpec `field:"required" json:"template" yaml:"template"`
 	// The minimum number of seconds for which a newly created DaemonSet pod should be ready without any of its container crashing, for it to be considered available.
 	//
 	// Defaults to 0 (pod will be considered available as soon as it is ready).
-	MinReadySeconds *float64 `json:"minReadySeconds" yaml:"minReadySeconds"`
+	MinReadySeconds *float64 `field:"optional" json:"minReadySeconds" yaml:"minReadySeconds"`
 	// The number of old history to retain to allow rollback.
 	//
 	// This is a pointer to distinguish between explicit zero and not specified. Defaults to 10.
-	RevisionHistoryLimit *float64 `json:"revisionHistoryLimit" yaml:"revisionHistoryLimit"`
+	RevisionHistoryLimit *float64 `field:"optional" json:"revisionHistoryLimit" yaml:"revisionHistoryLimit"`
 	// An update strategy to replace existing DaemonSet pods with new pods.
-	UpdateStrategy *DaemonSetUpdateStrategyV1Beta2 `json:"updateStrategy" yaml:"updateStrategy"`
+	UpdateStrategy *DaemonSetUpdateStrategyV1Beta2 `field:"optional" json:"updateStrategy" yaml:"updateStrategy"`
 }
 
 // DaemonSetUpdateStrategy is a struct used to control the update strategy for a DaemonSet.
@@ -1152,22 +1152,22 @@ type DaemonSetUpdateStrategy struct {
 	// Rolling update config params.
 	//
 	// Present only if type = "RollingUpdate".
-	RollingUpdate *RollingUpdateDaemonSet `json:"rollingUpdate" yaml:"rollingUpdate"`
+	RollingUpdate *RollingUpdateDaemonSet `field:"optional" json:"rollingUpdate" yaml:"rollingUpdate"`
 	// Type of daemon set update.
 	//
 	// Can be "RollingUpdate" or "OnDelete". Default is RollingUpdate.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 
 type DaemonSetUpdateStrategyV1Beta1 struct {
 	// Rolling update config params.
 	//
 	// Present only if type = "RollingUpdate".
-	RollingUpdate *RollingUpdateDaemonSetV1Beta1 `json:"rollingUpdate" yaml:"rollingUpdate"`
+	RollingUpdate *RollingUpdateDaemonSetV1Beta1 `field:"optional" json:"rollingUpdate" yaml:"rollingUpdate"`
 	// Type of daemon set update.
 	//
 	// Can be "RollingUpdate" or "OnDelete". Default is OnDelete.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 
 // DaemonSetUpdateStrategy is a struct used to control the update strategy for a DaemonSet.
@@ -1175,11 +1175,11 @@ type DaemonSetUpdateStrategyV1Beta2 struct {
 	// Rolling update config params.
 	//
 	// Present only if type = "RollingUpdate".
-	RollingUpdate *RollingUpdateDaemonSetV1Beta2 `json:"rollingUpdate" yaml:"rollingUpdate"`
+	RollingUpdate *RollingUpdateDaemonSetV1Beta2 `field:"optional" json:"rollingUpdate" yaml:"rollingUpdate"`
 	// Type of daemon set update.
 	//
 	// Can be "RollingUpdate" or "OnDelete". Default is RollingUpdate.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 
 // DeleteOptions may be provided when deleting an API object.
@@ -1187,29 +1187,29 @@ type DeleteOptions struct {
 	// APIVersion defines the versioned schema of this representation of an object.
 	//
 	// Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
-	ApiVersion *string `json:"apiVersion" yaml:"apiVersion"`
+	ApiVersion *string `field:"optional" json:"apiVersion" yaml:"apiVersion"`
 	// When present, indicates that modifications should not be persisted.
 	//
 	// An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
-	DryRun *[]*string `json:"dryRun" yaml:"dryRun"`
+	DryRun *[]*string `field:"optional" json:"dryRun" yaml:"dryRun"`
 	// The duration in seconds before the object should be deleted.
 	//
 	// Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
-	GracePeriodSeconds *float64 `json:"gracePeriodSeconds" yaml:"gracePeriodSeconds"`
+	GracePeriodSeconds *float64 `field:"optional" json:"gracePeriodSeconds" yaml:"gracePeriodSeconds"`
 	// Kind is a string value representing the REST resource this object represents.
 	//
 	// Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
-	Kind IoK8SApimachineryPkgApisMetaV1DeleteOptionsKind `json:"kind" yaml:"kind"`
+	Kind IoK8SApimachineryPkgApisMetaV1DeleteOptionsKind `field:"optional" json:"kind" yaml:"kind"`
 	// Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the "orphan" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
-	OrphanDependents *bool `json:"orphanDependents" yaml:"orphanDependents"`
+	OrphanDependents *bool `field:"optional" json:"orphanDependents" yaml:"orphanDependents"`
 	// Must be fulfilled before a deletion is carried out.
 	//
 	// If not possible, a 409 Conflict status will be returned.
-	Preconditions *Preconditions `json:"preconditions" yaml:"preconditions"`
+	Preconditions *Preconditions `field:"optional" json:"preconditions" yaml:"preconditions"`
 	// Whether and how garbage collection will be performed.
 	//
 	// Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: 'Orphan' - orphan the dependents; 'Background' - allow the garbage collector to delete the dependents in the background; 'Foreground' - a cascading policy that deletes all dependents in the foreground.
-	PropagationPolicy *string `json:"propagationPolicy" yaml:"propagationPolicy"`
+	PropagationPolicy *string `field:"optional" json:"propagationPolicy" yaml:"propagationPolicy"`
 }
 
 // DeploymentSpec is the specification of the desired behavior of the Deployment.
@@ -1217,63 +1217,63 @@ type DeploymentSpec struct {
 	// Label selector for pods.
 	//
 	// Existing ReplicaSets whose pods are selected by this will be the ones affected by this deployment. It must match the pod template's labels.
-	Selector *LabelSelector `json:"selector" yaml:"selector"`
+	Selector *LabelSelector `field:"required" json:"selector" yaml:"selector"`
 	// Template describes the pods that will be created.
-	Template *PodTemplateSpec `json:"template" yaml:"template"`
+	Template *PodTemplateSpec `field:"required" json:"template" yaml:"template"`
 	// Minimum number of seconds for which a newly created pod should be ready without any of its container crashing, for it to be considered available.
 	//
 	// Defaults to 0 (pod will be considered available as soon as it is ready).
-	MinReadySeconds *float64 `json:"minReadySeconds" yaml:"minReadySeconds"`
+	MinReadySeconds *float64 `field:"optional" json:"minReadySeconds" yaml:"minReadySeconds"`
 	// Indicates that the deployment is paused.
-	Paused *bool `json:"paused" yaml:"paused"`
+	Paused *bool `field:"optional" json:"paused" yaml:"paused"`
 	// The maximum time in seconds for a deployment to make progress before it is considered to be failed.
 	//
 	// The deployment controller will continue to process failed deployments and a condition with a ProgressDeadlineExceeded reason will be surfaced in the deployment status. Note that progress will not be estimated during the time a deployment is paused. Defaults to 600s.
-	ProgressDeadlineSeconds *float64 `json:"progressDeadlineSeconds" yaml:"progressDeadlineSeconds"`
+	ProgressDeadlineSeconds *float64 `field:"optional" json:"progressDeadlineSeconds" yaml:"progressDeadlineSeconds"`
 	// Number of desired pods.
 	//
 	// This is a pointer to distinguish between explicit zero and not specified. Defaults to 1.
-	Replicas *float64 `json:"replicas" yaml:"replicas"`
+	Replicas *float64 `field:"optional" json:"replicas" yaml:"replicas"`
 	// The number of old ReplicaSets to retain to allow rollback.
 	//
 	// This is a pointer to distinguish between explicit zero and not specified. Defaults to 10.
-	RevisionHistoryLimit *float64 `json:"revisionHistoryLimit" yaml:"revisionHistoryLimit"`
+	RevisionHistoryLimit *float64 `field:"optional" json:"revisionHistoryLimit" yaml:"revisionHistoryLimit"`
 	// The deployment strategy to use to replace existing pods with new ones.
-	Strategy *DeploymentStrategy `json:"strategy" yaml:"strategy"`
+	Strategy *DeploymentStrategy `field:"optional" json:"strategy" yaml:"strategy"`
 }
 
 // DeploymentSpec is the specification of the desired behavior of the Deployment.
 type DeploymentSpecV1Beta1 struct {
 	// Template describes the pods that will be created.
-	Template *PodTemplateSpec `json:"template" yaml:"template"`
+	Template *PodTemplateSpec `field:"required" json:"template" yaml:"template"`
 	// Minimum number of seconds for which a newly created pod should be ready without any of its container crashing, for it to be considered available.
 	//
 	// Defaults to 0 (pod will be considered available as soon as it is ready).
-	MinReadySeconds *float64 `json:"minReadySeconds" yaml:"minReadySeconds"`
+	MinReadySeconds *float64 `field:"optional" json:"minReadySeconds" yaml:"minReadySeconds"`
 	// Indicates that the deployment is paused and will not be processed by the deployment controller.
-	Paused *bool `json:"paused" yaml:"paused"`
+	Paused *bool `field:"optional" json:"paused" yaml:"paused"`
 	// The maximum time in seconds for a deployment to make progress before it is considered to be failed.
 	//
 	// The deployment controller will continue to process failed deployments and a condition with a ProgressDeadlineExceeded reason will be surfaced in the deployment status. Note that progress will not be estimated during the time a deployment is paused. This is set to the max value of int32 (i.e. 2147483647) by default, which means "no deadline".
-	ProgressDeadlineSeconds *float64 `json:"progressDeadlineSeconds" yaml:"progressDeadlineSeconds"`
+	ProgressDeadlineSeconds *float64 `field:"optional" json:"progressDeadlineSeconds" yaml:"progressDeadlineSeconds"`
 	// Number of desired pods.
 	//
 	// This is a pointer to distinguish between explicit zero and not specified. Defaults to 1.
-	Replicas *float64 `json:"replicas" yaml:"replicas"`
+	Replicas *float64 `field:"optional" json:"replicas" yaml:"replicas"`
 	// The number of old ReplicaSets to retain to allow rollback.
 	//
 	// This is a pointer to distinguish between explicit zero and not specified. This is set to the max value of int32 (i.e. 2147483647) by default, which means "retaining all old RelicaSets".
-	RevisionHistoryLimit *float64 `json:"revisionHistoryLimit" yaml:"revisionHistoryLimit"`
+	RevisionHistoryLimit *float64 `field:"optional" json:"revisionHistoryLimit" yaml:"revisionHistoryLimit"`
 	// DEPRECATED.
 	//
 	// The config this deployment is rolling back to. Will be cleared after rollback is done.
-	RollbackTo *RollbackConfigV1Beta1 `json:"rollbackTo" yaml:"rollbackTo"`
+	RollbackTo *RollbackConfigV1Beta1 `field:"optional" json:"rollbackTo" yaml:"rollbackTo"`
 	// Label selector for pods.
 	//
 	// Existing ReplicaSets whose pods are selected by this will be the ones affected by this deployment.
-	Selector *LabelSelector `json:"selector" yaml:"selector"`
+	Selector *LabelSelector `field:"optional" json:"selector" yaml:"selector"`
 	// The deployment strategy to use to replace existing pods with new ones.
-	Strategy *DeploymentStrategyV1Beta1 `json:"strategy" yaml:"strategy"`
+	Strategy *DeploymentStrategyV1Beta1 `field:"optional" json:"strategy" yaml:"strategy"`
 }
 
 // DeploymentSpec is the specification of the desired behavior of the Deployment.
@@ -1281,29 +1281,29 @@ type DeploymentSpecV1Beta2 struct {
 	// Label selector for pods.
 	//
 	// Existing ReplicaSets whose pods are selected by this will be the ones affected by this deployment. It must match the pod template's labels.
-	Selector *LabelSelector `json:"selector" yaml:"selector"`
+	Selector *LabelSelector `field:"required" json:"selector" yaml:"selector"`
 	// Template describes the pods that will be created.
-	Template *PodTemplateSpec `json:"template" yaml:"template"`
+	Template *PodTemplateSpec `field:"required" json:"template" yaml:"template"`
 	// Minimum number of seconds for which a newly created pod should be ready without any of its container crashing, for it to be considered available.
 	//
 	// Defaults to 0 (pod will be considered available as soon as it is ready).
-	MinReadySeconds *float64 `json:"minReadySeconds" yaml:"minReadySeconds"`
+	MinReadySeconds *float64 `field:"optional" json:"minReadySeconds" yaml:"minReadySeconds"`
 	// Indicates that the deployment is paused.
-	Paused *bool `json:"paused" yaml:"paused"`
+	Paused *bool `field:"optional" json:"paused" yaml:"paused"`
 	// The maximum time in seconds for a deployment to make progress before it is considered to be failed.
 	//
 	// The deployment controller will continue to process failed deployments and a condition with a ProgressDeadlineExceeded reason will be surfaced in the deployment status. Note that progress will not be estimated during the time a deployment is paused. Defaults to 600s.
-	ProgressDeadlineSeconds *float64 `json:"progressDeadlineSeconds" yaml:"progressDeadlineSeconds"`
+	ProgressDeadlineSeconds *float64 `field:"optional" json:"progressDeadlineSeconds" yaml:"progressDeadlineSeconds"`
 	// Number of desired pods.
 	//
 	// This is a pointer to distinguish between explicit zero and not specified. Defaults to 1.
-	Replicas *float64 `json:"replicas" yaml:"replicas"`
+	Replicas *float64 `field:"optional" json:"replicas" yaml:"replicas"`
 	// The number of old ReplicaSets to retain to allow rollback.
 	//
 	// This is a pointer to distinguish between explicit zero and not specified. Defaults to 10.
-	RevisionHistoryLimit *float64 `json:"revisionHistoryLimit" yaml:"revisionHistoryLimit"`
+	RevisionHistoryLimit *float64 `field:"optional" json:"revisionHistoryLimit" yaml:"revisionHistoryLimit"`
 	// The deployment strategy to use to replace existing pods with new ones.
-	Strategy *DeploymentStrategyV1Beta2 `json:"strategy" yaml:"strategy"`
+	Strategy *DeploymentStrategyV1Beta2 `field:"optional" json:"strategy" yaml:"strategy"`
 }
 
 // DeploymentStrategy describes how to replace existing pods with new ones.
@@ -1311,11 +1311,11 @@ type DeploymentStrategy struct {
 	// Rolling update config params.
 	//
 	// Present only if DeploymentStrategyType = RollingUpdate.
-	RollingUpdate *RollingUpdateDeployment `json:"rollingUpdate" yaml:"rollingUpdate"`
+	RollingUpdate *RollingUpdateDeployment `field:"optional" json:"rollingUpdate" yaml:"rollingUpdate"`
 	// Type of deployment.
 	//
 	// Can be "Recreate" or "RollingUpdate". Default is RollingUpdate.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 
 // DeploymentStrategy describes how to replace existing pods with new ones.
@@ -1323,11 +1323,11 @@ type DeploymentStrategyV1Beta1 struct {
 	// Rolling update config params.
 	//
 	// Present only if DeploymentStrategyType = RollingUpdate.
-	RollingUpdate *RollingUpdateDeploymentV1Beta1 `json:"rollingUpdate" yaml:"rollingUpdate"`
+	RollingUpdate *RollingUpdateDeploymentV1Beta1 `field:"optional" json:"rollingUpdate" yaml:"rollingUpdate"`
 	// Type of deployment.
 	//
 	// Can be "Recreate" or "RollingUpdate". Default is RollingUpdate.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 
 // DeploymentStrategy describes how to replace existing pods with new ones.
@@ -1335,11 +1335,11 @@ type DeploymentStrategyV1Beta2 struct {
 	// Rolling update config params.
 	//
 	// Present only if DeploymentStrategyType = RollingUpdate.
-	RollingUpdate *RollingUpdateDeploymentV1Beta2 `json:"rollingUpdate" yaml:"rollingUpdate"`
+	RollingUpdate *RollingUpdateDeploymentV1Beta2 `field:"optional" json:"rollingUpdate" yaml:"rollingUpdate"`
 	// Type of deployment.
 	//
 	// Can be "Recreate" or "RollingUpdate". Default is RollingUpdate.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 
 // Represents downward API info for projecting into a projected volume.
@@ -1347,7 +1347,7 @@ type DeploymentStrategyV1Beta2 struct {
 // Note that this is identical to a downwardAPI volume source without the default mode.
 type DownwardApiProjection struct {
 	// Items is a list of DownwardAPIVolume file.
-	Items *[]*DownwardApiVolumeFile `json:"items" yaml:"items"`
+	Items *[]*DownwardApiVolumeFile `field:"optional" json:"items" yaml:"items"`
 }
 
 // DownwardAPIVolumeFile represents information to create the file containing the pod field.
@@ -1355,15 +1355,15 @@ type DownwardApiVolumeFile struct {
 	// Required: Path is  the relative path name of the file to be created.
 	//
 	// Must not be absolute or contain the '..' path. Must be utf-8 encoded. The first item of the relative path must not start with '..'
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"required" json:"path" yaml:"path"`
 	// Required: Selects a field of the pod: only annotations, labels, name and namespace are supported.
-	FieldRef *ObjectFieldSelector `json:"fieldRef" yaml:"fieldRef"`
+	FieldRef *ObjectFieldSelector `field:"optional" json:"fieldRef" yaml:"fieldRef"`
 	// Optional: mode bits to use on this file, must be a value between 0 and 0777.
 	//
 	// If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
-	Mode *float64 `json:"mode" yaml:"mode"`
+	Mode *float64 `field:"optional" json:"mode" yaml:"mode"`
 	// Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, requests.cpu and requests.memory) are currently supported.
-	ResourceFieldRef *ResourceFieldSelector `json:"resourceFieldRef" yaml:"resourceFieldRef"`
+	ResourceFieldRef *ResourceFieldSelector `field:"optional" json:"resourceFieldRef" yaml:"resourceFieldRef"`
 }
 
 // DownwardAPIVolumeSource represents a volume containing downward API info.
@@ -1373,9 +1373,9 @@ type DownwardApiVolumeSource struct {
 	// Optional: mode bits to use on created files by default.
 	//
 	// Must be a value between 0 and 0777. Defaults to 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
-	DefaultMode *float64 `json:"defaultMode" yaml:"defaultMode"`
+	DefaultMode *float64 `field:"optional" json:"defaultMode" yaml:"defaultMode"`
 	// Items is a list of downward API volume file.
-	Items *[]*DownwardApiVolumeFile `json:"items" yaml:"items"`
+	Items *[]*DownwardApiVolumeFile `field:"optional" json:"items" yaml:"items"`
 }
 
 // Represents an empty directory for a pod.
@@ -1385,11 +1385,11 @@ type EmptyDirVolumeSource struct {
 	// What type of storage medium should back this directory.
 	//
 	// The default is "" which means to use the node's default medium. Must be an empty string (default) or Memory. More info: https://kubernetes.io/docs/concepts/storage/volumes#emptydir
-	Medium *string `json:"medium" yaml:"medium"`
+	Medium *string `field:"optional" json:"medium" yaml:"medium"`
 	// Total amount of local storage required for this EmptyDir volume.
 	//
 	// The size limit is also applicable for memory medium. The maximum usage on memory medium EmptyDir would be the minimum value between the SizeLimit specified here and the sum of memory limits of all containers in a pod. The default is nil which means that the limit is undefined. More info: http://kubernetes.io/docs/user-guide/volumes#emptydir
-	SizeLimit Quantity `json:"sizeLimit" yaml:"sizeLimit"`
+	SizeLimit Quantity `field:"optional" json:"sizeLimit" yaml:"sizeLimit"`
 }
 
 // EndpointAddress is a tuple that describes single IP address.
@@ -1397,15 +1397,15 @@ type EndpointAddress struct {
 	// The IP of this endpoint.
 	//
 	// May not be loopback (127.0.0.0/8), link-local (169.254.0.0/16), or link-local multicast ((224.0.0.0/24). IPv6 is also accepted but not fully supported on all platforms. Also, certain kubernetes components, like kube-proxy, are not IPv6 ready.
-	Ip *string `json:"ip" yaml:"ip"`
+	Ip *string `field:"required" json:"ip" yaml:"ip"`
 	// The Hostname of this endpoint.
-	Hostname *string `json:"hostname" yaml:"hostname"`
+	Hostname *string `field:"optional" json:"hostname" yaml:"hostname"`
 	// Optional: Node hosting this endpoint.
 	//
 	// This can be used to determine endpoints local to a node.
-	NodeName *string `json:"nodeName" yaml:"nodeName"`
+	NodeName *string `field:"optional" json:"nodeName" yaml:"nodeName"`
 	// Reference to object providing the endpoint.
-	TargetRef *ObjectReference `json:"targetRef" yaml:"targetRef"`
+	TargetRef *ObjectReference `field:"optional" json:"targetRef" yaml:"targetRef"`
 }
 
 // EndpointConditions represents the current condition of an endpoint.
@@ -1413,21 +1413,21 @@ type EndpointConditionsV1Beta1 struct {
 	// ready indicates that this endpoint is prepared to receive traffic, according to whatever system is managing the endpoint.
 	//
 	// A nil value indicates an unknown state. In most cases consumers should interpret this unknown state as ready.
-	Ready *bool `json:"ready" yaml:"ready"`
+	Ready *bool `field:"optional" json:"ready" yaml:"ready"`
 }
 
 // EndpointPort is a tuple that describes a single port.
 type EndpointPort struct {
 	// The port number of the endpoint.
-	Port *float64 `json:"port" yaml:"port"`
+	Port *float64 `field:"required" json:"port" yaml:"port"`
 	// The name of this port.
 	//
 	// This must match the 'name' field in the corresponding ServicePort. Must be a DNS_LABEL. Optional only if one port is defined.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The IP protocol for this port.
 	//
 	// Must be UDP, TCP, or SCTP. Default is TCP.
-	Protocol *string `json:"protocol" yaml:"protocol"`
+	Protocol *string `field:"optional" json:"protocol" yaml:"protocol"`
 }
 
 // EndpointPort represents a Port used by an EndpointSlice.
@@ -1435,19 +1435,19 @@ type EndpointPortV1Beta1 struct {
 	// The application protocol for this port.
 	//
 	// This field follows standard Kubernetes label syntax. Un-prefixed names are reserved for IANA standard service names (as per RFC-6335 and http://www.iana.org/assignments/service-names). Non-standard protocols should use prefixed names. Default is empty string.
-	AppProtocol *string `json:"appProtocol" yaml:"appProtocol"`
+	AppProtocol *string `field:"optional" json:"appProtocol" yaml:"appProtocol"`
 	// The name of this port.
 	//
 	// All ports in an EndpointSlice must have a unique name. If the EndpointSlice is dervied from a Kubernetes service, this corresponds to the Service.ports[].name. Name must either be an empty string or pass DNS_LABEL validation: * must be no more than 63 characters long. * must consist of lower case alphanumeric characters or '-'. * must start and end with an alphanumeric character. Default is empty string.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The port number of the endpoint.
 	//
 	// If this is not specified, ports are not restricted and must be interpreted in the context of the specific consumer.
-	Port *float64 `json:"port" yaml:"port"`
+	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// The IP protocol for this port.
 	//
 	// Must be UDP, TCP, or SCTP. Default is TCP.
-	Protocol *string `json:"protocol" yaml:"protocol"`
+	Protocol *string `field:"optional" json:"protocol" yaml:"protocol"`
 }
 
 // EndpointSubset is a group of addresses with a common set of ports.
@@ -1464,11 +1464,11 @@ type EndpointSubset struct {
 	// IP addresses which offer the related ports that are marked as ready.
 	//
 	// These endpoints should be considered safe for load balancers and clients to utilize.
-	Addresses *[]*EndpointAddress `json:"addresses" yaml:"addresses"`
+	Addresses *[]*EndpointAddress `field:"optional" json:"addresses" yaml:"addresses"`
 	// IP addresses which offer the related ports but are not currently marked as ready because they have not yet finished starting, have recently failed a readiness check, or have recently failed a liveness check.
-	NotReadyAddresses *[]*EndpointAddress `json:"notReadyAddresses" yaml:"notReadyAddresses"`
+	NotReadyAddresses *[]*EndpointAddress `field:"optional" json:"notReadyAddresses" yaml:"notReadyAddresses"`
 	// Port numbers available on the related IP addresses.
-	Ports *[]*EndpointPort `json:"ports" yaml:"ports"`
+	Ports *[]*EndpointPort `field:"optional" json:"ports" yaml:"ports"`
 }
 
 // Endpoint represents a single logical "backend" implementing a service.
@@ -1476,15 +1476,15 @@ type EndpointV1Beta1 struct {
 	// addresses of this endpoint.
 	//
 	// The contents of this field are interpreted according to the corresponding EndpointSlice addressType field. Consumers must handle different types of addresses in the context of their own capabilities. This must contain at least one address but no more than 100.
-	Addresses *[]*string `json:"addresses" yaml:"addresses"`
+	Addresses *[]*string `field:"required" json:"addresses" yaml:"addresses"`
 	// conditions contains information about the current status of the endpoint.
-	Conditions *EndpointConditionsV1Beta1 `json:"conditions" yaml:"conditions"`
+	Conditions *EndpointConditionsV1Beta1 `field:"optional" json:"conditions" yaml:"conditions"`
 	// hostname of this endpoint.
 	//
 	// This field may be used by consumers of endpoints to distinguish endpoints from each other (e.g. in DNS names). Multiple endpoints which use the same hostname should be considered fungible (e.g. multiple A values in DNS). Must pass DNS Label (RFC 1123) validation.
-	Hostname *string `json:"hostname" yaml:"hostname"`
+	Hostname *string `field:"optional" json:"hostname" yaml:"hostname"`
 	// targetRef is a reference to a Kubernetes object that represents this endpoint.
-	TargetRef *ObjectReference `json:"targetRef" yaml:"targetRef"`
+	TargetRef *ObjectReference `field:"optional" json:"targetRef" yaml:"targetRef"`
 	// topology contains arbitrary topology information associated with the endpoint.
 	//
 	// These key/value pairs must conform with the label format. https://kubernetes.io/docs/concepts/overview/working-with-objects/labels Topology may include a maximum of 16 key/value pairs. This includes, but is not limited to the following well known keys: * kubernetes.io/hostname: the value indicates the hostname of the node
@@ -1494,19 +1494,19 @@ type EndpointV1Beta1 struct {
 	// endpoint is located. This should match the corresponding node label.
 	// * topology.kubernetes.io/region: the value indicates the region where the
 	// endpoint is located. This should match the corresponding node label.
-	Topology *map[string]*string `json:"topology" yaml:"topology"`
+	Topology *map[string]*string `field:"optional" json:"topology" yaml:"topology"`
 }
 
 // EnvFromSource represents the source of a set of ConfigMaps.
 type EnvFromSource struct {
 	// The ConfigMap to select from.
-	ConfigMapRef *ConfigMapEnvSource `json:"configMapRef" yaml:"configMapRef"`
+	ConfigMapRef *ConfigMapEnvSource `field:"optional" json:"configMapRef" yaml:"configMapRef"`
 	// An optional identifier to prepend to each key in the ConfigMap.
 	//
 	// Must be a C_IDENTIFIER.
-	Prefix *string `json:"prefix" yaml:"prefix"`
+	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 	// The Secret to select from.
-	SecretRef *SecretEnvSource `json:"secretRef" yaml:"secretRef"`
+	SecretRef *SecretEnvSource `field:"optional" json:"secretRef" yaml:"secretRef"`
 }
 
 // EnvVar represents an environment variable present in a Container.
@@ -1514,27 +1514,27 @@ type EnvVar struct {
 	// Name of the environment variable.
 	//
 	// Must be a C_IDENTIFIER.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// Variable references $(VAR_NAME) are expanded using the previous defined environment variables in the container and any service environment variables.
 	//
 	// If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Defaults to "".
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"optional" json:"value" yaml:"value"`
 	// Source for the environment variable's value.
 	//
 	// Cannot be used if value is not empty.
-	ValueFrom *EnvVarSource `json:"valueFrom" yaml:"valueFrom"`
+	ValueFrom *EnvVarSource `field:"optional" json:"valueFrom" yaml:"valueFrom"`
 }
 
 // EnvVarSource represents a source for the value of an EnvVar.
 type EnvVarSource struct {
 	// Selects a key of a ConfigMap.
-	ConfigMapKeyRef *ConfigMapKeySelector `json:"configMapKeyRef" yaml:"configMapKeyRef"`
+	ConfigMapKeyRef *ConfigMapKeySelector `field:"optional" json:"configMapKeyRef" yaml:"configMapKeyRef"`
 	// Selects a field of the pod: supports metadata.name, metadata.namespace, metadata.labels, metadata.annotations, spec.nodeName, spec.serviceAccountName, status.hostIP, status.podIP, status.podIPs.
-	FieldRef *ObjectFieldSelector `json:"fieldRef" yaml:"fieldRef"`
+	FieldRef *ObjectFieldSelector `field:"optional" json:"fieldRef" yaml:"fieldRef"`
 	// Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, limits.ephemeral-storage, requests.cpu, requests.memory and requests.ephemeral-storage) are currently supported.
-	ResourceFieldRef *ResourceFieldSelector `json:"resourceFieldRef" yaml:"resourceFieldRef"`
+	ResourceFieldRef *ResourceFieldSelector `field:"optional" json:"resourceFieldRef" yaml:"resourceFieldRef"`
 	// Selects a key of a secret in the pod's namespace.
-	SecretKeyRef *SecretKeySelector `json:"secretKeyRef" yaml:"secretKeyRef"`
+	SecretKeyRef *SecretKeySelector `field:"optional" json:"secretKeyRef" yaml:"secretKeyRef"`
 }
 
 // An EphemeralContainer is a container that may be added temporarily to an existing pod for user-initiated activities such as debugging.
@@ -1544,115 +1544,115 @@ type EphemeralContainer struct {
 	// Name of the ephemeral container specified as a DNS_LABEL.
 	//
 	// This name must be unique among all containers, init containers and ephemeral containers.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// Arguments to the entrypoint.
 	//
 	// The docker image's CMD is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell
-	Args *[]*string `json:"args" yaml:"args"`
+	Args *[]*string `field:"optional" json:"args" yaml:"args"`
 	// Entrypoint array.
 	//
 	// Not executed within a shell. The docker image's ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell
-	Command *[]*string `json:"command" yaml:"command"`
+	Command *[]*string `field:"optional" json:"command" yaml:"command"`
 	// List of environment variables to set in the container.
 	//
 	// Cannot be updated.
-	Env *[]*EnvVar `json:"env" yaml:"env"`
+	Env *[]*EnvVar `field:"optional" json:"env" yaml:"env"`
 	// List of sources to populate environment variables in the container.
 	//
 	// The keys defined within a source must be a C_IDENTIFIER. All invalid keys will be reported as an event when the container is starting. When a key exists in multiple sources, the value associated with the last source will take precedence. Values defined by an Env with a duplicate key will take precedence. Cannot be updated.
-	EnvFrom *[]*EnvFromSource `json:"envFrom" yaml:"envFrom"`
+	EnvFrom *[]*EnvFromSource `field:"optional" json:"envFrom" yaml:"envFrom"`
 	// Docker image name.
 	//
 	// More info: https://kubernetes.io/docs/concepts/containers/images
-	Image *string `json:"image" yaml:"image"`
+	Image *string `field:"optional" json:"image" yaml:"image"`
 	// Image pull policy.
 	//
 	// One of Always, Never, IfNotPresent. Defaults to Always if :latest tag is specified, or IfNotPresent otherwise. Cannot be updated. More info: https://kubernetes.io/docs/concepts/containers/images#updating-images
-	ImagePullPolicy *string `json:"imagePullPolicy" yaml:"imagePullPolicy"`
+	ImagePullPolicy *string `field:"optional" json:"imagePullPolicy" yaml:"imagePullPolicy"`
 	// Lifecycle is not allowed for ephemeral containers.
-	Lifecycle *Lifecycle `json:"lifecycle" yaml:"lifecycle"`
+	Lifecycle *Lifecycle `field:"optional" json:"lifecycle" yaml:"lifecycle"`
 	// Probes are not allowed for ephemeral containers.
-	LivenessProbe *Probe `json:"livenessProbe" yaml:"livenessProbe"`
+	LivenessProbe *Probe `field:"optional" json:"livenessProbe" yaml:"livenessProbe"`
 	// Ports are not allowed for ephemeral containers.
-	Ports *[]*ContainerPort `json:"ports" yaml:"ports"`
+	Ports *[]*ContainerPort `field:"optional" json:"ports" yaml:"ports"`
 	// Probes are not allowed for ephemeral containers.
-	ReadinessProbe *Probe `json:"readinessProbe" yaml:"readinessProbe"`
+	ReadinessProbe *Probe `field:"optional" json:"readinessProbe" yaml:"readinessProbe"`
 	// Resources are not allowed for ephemeral containers.
 	//
 	// Ephemeral containers use spare resources already allocated to the pod.
-	Resources *ResourceRequirements `json:"resources" yaml:"resources"`
+	Resources *ResourceRequirements `field:"optional" json:"resources" yaml:"resources"`
 	// SecurityContext is not allowed for ephemeral containers.
-	SecurityContext *SecurityContext `json:"securityContext" yaml:"securityContext"`
+	SecurityContext *SecurityContext `field:"optional" json:"securityContext" yaml:"securityContext"`
 	// Probes are not allowed for ephemeral containers.
-	StartupProbe *Probe `json:"startupProbe" yaml:"startupProbe"`
+	StartupProbe *Probe `field:"optional" json:"startupProbe" yaml:"startupProbe"`
 	// Whether this container should allocate a buffer for stdin in the container runtime.
 	//
 	// If this is not set, reads from stdin in the container will always result in EOF. Default is false.
-	Stdin *bool `json:"stdin" yaml:"stdin"`
+	Stdin *bool `field:"optional" json:"stdin" yaml:"stdin"`
 	// Whether the container runtime should close the stdin channel after it has been opened by a single attach.
 	//
 	// When stdin is true the stdin stream will remain open across multiple attach sessions. If stdinOnce is set to true, stdin is opened on container start, is empty until the first client attaches to stdin, and then remains open and accepts data until the client disconnects, at which time stdin is closed and remains closed until the container is restarted. If this flag is false, a container processes that reads from stdin will never receive an EOF. Default is false
-	StdinOnce *bool `json:"stdinOnce" yaml:"stdinOnce"`
+	StdinOnce *bool `field:"optional" json:"stdinOnce" yaml:"stdinOnce"`
 	// If set, the name of the container from PodSpec that this ephemeral container targets.
 	//
 	// The ephemeral container will be run in the namespaces (IPC, PID, etc) of this container. If not set then the ephemeral container is run in whatever namespaces are shared for the pod. Note that the container runtime must support this feature.
-	TargetContainerName *string `json:"targetContainerName" yaml:"targetContainerName"`
+	TargetContainerName *string `field:"optional" json:"targetContainerName" yaml:"targetContainerName"`
 	// Optional: Path at which the file to which the container's termination message will be written is mounted into the container's filesystem.
 	//
 	// Message written is intended to be brief final status, such as an assertion failure message. Will be truncated by the node if greater than 4096 bytes. The total message length across all containers will be limited to 12kb. Defaults to /dev/termination-log. Cannot be updated.
-	TerminationMessagePath *string `json:"terminationMessagePath" yaml:"terminationMessagePath"`
+	TerminationMessagePath *string `field:"optional" json:"terminationMessagePath" yaml:"terminationMessagePath"`
 	// Indicate how the termination message should be populated.
 	//
 	// File will use the contents of terminationMessagePath to populate the container status message on both success and failure. FallbackToLogsOnError will use the last chunk of container log output if the termination message file is empty and the container exited with an error. The log output is limited to 2048 bytes or 80 lines, whichever is smaller. Defaults to File. Cannot be updated.
-	TerminationMessagePolicy *string `json:"terminationMessagePolicy" yaml:"terminationMessagePolicy"`
+	TerminationMessagePolicy *string `field:"optional" json:"terminationMessagePolicy" yaml:"terminationMessagePolicy"`
 	// Whether this container should allocate a TTY for itself, also requires 'stdin' to be true.
 	//
 	// Default is false.
-	Tty *bool `json:"tty" yaml:"tty"`
+	Tty *bool `field:"optional" json:"tty" yaml:"tty"`
 	// volumeDevices is the list of block devices to be used by the container.
 	//
 	// This is a beta feature.
-	VolumeDevices *[]*VolumeDevice `json:"volumeDevices" yaml:"volumeDevices"`
+	VolumeDevices *[]*VolumeDevice `field:"optional" json:"volumeDevices" yaml:"volumeDevices"`
 	// Pod volumes to mount into the container's filesystem.
 	//
 	// Cannot be updated.
-	VolumeMounts *[]*VolumeMount `json:"volumeMounts" yaml:"volumeMounts"`
+	VolumeMounts *[]*VolumeMount `field:"optional" json:"volumeMounts" yaml:"volumeMounts"`
 	// Container's working directory.
 	//
 	// If not specified, the container runtime's default will be used, which might be configured in the container image. Cannot be updated.
-	WorkingDir *string `json:"workingDir" yaml:"workingDir"`
+	WorkingDir *string `field:"optional" json:"workingDir" yaml:"workingDir"`
 }
 
 // EventSeries contain information on series of events, i.e. thing that was/is happening continuously for some time.
 type EventSeries struct {
 	// Number of occurrences in this series up to the last heartbeat time.
-	Count *float64 `json:"count" yaml:"count"`
+	Count *float64 `field:"optional" json:"count" yaml:"count"`
 	// Time of the last occurrence observed.
-	LastObservedTime *time.Time `json:"lastObservedTime" yaml:"lastObservedTime"`
+	LastObservedTime *time.Time `field:"optional" json:"lastObservedTime" yaml:"lastObservedTime"`
 	// State of this Series: Ongoing or Finished Deprecated.
 	//
 	// Planned removal for 1.18
-	State *string `json:"state" yaml:"state"`
+	State *string `field:"optional" json:"state" yaml:"state"`
 }
 
 // EventSeries contain information on series of events, i.e. thing that was/is happening continuously for some time.
 type EventSeriesV1Beta1 struct {
 	// Number of occurrences in this series up to the last heartbeat time.
-	Count *float64 `json:"count" yaml:"count"`
+	Count *float64 `field:"required" json:"count" yaml:"count"`
 	// Time when last Event from the series was seen before last heartbeat.
-	LastObservedTime *time.Time `json:"lastObservedTime" yaml:"lastObservedTime"`
+	LastObservedTime *time.Time `field:"required" json:"lastObservedTime" yaml:"lastObservedTime"`
 	// Information whether this series is ongoing or finished.
 	//
 	// Deprecated. Planned removal for 1.18
-	State *string `json:"state" yaml:"state"`
+	State *string `field:"required" json:"state" yaml:"state"`
 }
 
 // EventSource contains information for an event.
 type EventSource struct {
 	// Component from which the event is generated.
-	Component *string `json:"component" yaml:"component"`
+	Component *string `field:"optional" json:"component" yaml:"component"`
 	// Node name on which the event is generated.
-	Host *string `json:"host" yaml:"host"`
+	Host *string `field:"optional" json:"host" yaml:"host"`
 }
 
 // ExecAction describes a "run in container" action.
@@ -1660,19 +1660,19 @@ type ExecAction struct {
 	// Command is the command line to execute inside the container, the working directory for the command  is root ('/') in the container's filesystem.
 	//
 	// The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
-	Command *[]*string `json:"command" yaml:"command"`
+	Command *[]*string `field:"optional" json:"command" yaml:"command"`
 }
 
 // ExternalDocumentation allows referencing an external resource for extended documentation.
 type ExternalDocumentation struct {
-	Description *string `json:"description" yaml:"description"`
-	Url *string `json:"url" yaml:"url"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
+	Url *string `field:"optional" json:"url" yaml:"url"`
 }
 
 // ExternalDocumentation allows referencing an external resource for extended documentation.
 type ExternalDocumentationV1Beta1 struct {
-	Description *string `json:"description" yaml:"description"`
-	Url *string `json:"url" yaml:"url"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
+	Url *string `field:"optional" json:"url" yaml:"url"`
 }
 
 // ExternalMetricSource indicates how to scale on a metric not associated with any Kubernetes object (for example length of queue in cloud messaging service, or QPS from loadbalancer running outside of cluster).
@@ -1680,25 +1680,25 @@ type ExternalDocumentationV1Beta1 struct {
 // Exactly one "target" type should be set.
 type ExternalMetricSourceV2Beta1 struct {
 	// metricName is the name of the metric in question.
-	MetricName *string `json:"metricName" yaml:"metricName"`
+	MetricName *string `field:"required" json:"metricName" yaml:"metricName"`
 	// metricSelector is used to identify a specific time series within a given metric.
-	MetricSelector *LabelSelector `json:"metricSelector" yaml:"metricSelector"`
+	MetricSelector *LabelSelector `field:"optional" json:"metricSelector" yaml:"metricSelector"`
 	// targetAverageValue is the target per-pod value of global metric (as a quantity).
 	//
 	// Mutually exclusive with TargetValue.
-	TargetAverageValue Quantity `json:"targetAverageValue" yaml:"targetAverageValue"`
+	TargetAverageValue Quantity `field:"optional" json:"targetAverageValue" yaml:"targetAverageValue"`
 	// targetValue is the target value of the metric (as a quantity).
 	//
 	// Mutually exclusive with TargetAverageValue.
-	TargetValue Quantity `json:"targetValue" yaml:"targetValue"`
+	TargetValue Quantity `field:"optional" json:"targetValue" yaml:"targetValue"`
 }
 
 // ExternalMetricSource indicates how to scale on a metric not associated with any Kubernetes object (for example length of queue in cloud messaging service, or QPS from loadbalancer running outside of cluster).
 type ExternalMetricSourceV2Beta2 struct {
 	// metric identifies the target metric by name and selector.
-	Metric *MetricIdentifierV2Beta2 `json:"metric" yaml:"metric"`
+	Metric *MetricIdentifierV2Beta2 `field:"required" json:"metric" yaml:"metric"`
 	// target specifies the target value for the given metric.
-	Target *MetricTargetV2Beta2 `json:"target" yaml:"target"`
+	Target *MetricTargetV2Beta2 `field:"required" json:"target" yaml:"target"`
 }
 
 // Represents a Fibre Channel volume.
@@ -1708,57 +1708,57 @@ type FcVolumeSource struct {
 	// Filesystem type to mount.
 	//
 	// Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
-	FsType *string `json:"fsType" yaml:"fsType"`
+	FsType *string `field:"optional" json:"fsType" yaml:"fsType"`
 	// Optional: FC target lun number.
-	Lun *float64 `json:"lun" yaml:"lun"`
+	Lun *float64 `field:"optional" json:"lun" yaml:"lun"`
 	// Optional: Defaults to false (read/write).
 	//
 	// ReadOnly here will force the ReadOnly setting in VolumeMounts.
-	ReadOnly *bool `json:"readOnly" yaml:"readOnly"`
+	ReadOnly *bool `field:"optional" json:"readOnly" yaml:"readOnly"`
 	// Optional: FC target worldwide names (WWNs).
-	TargetWwNs *[]*string `json:"targetWwNs" yaml:"targetWwNs"`
+	TargetWwNs *[]*string `field:"optional" json:"targetWwNs" yaml:"targetWwNs"`
 	// Optional: FC volume world wide identifiers (wwids) Either wwids or combination of targetWWNs and lun must be set, but not both simultaneously.
-	Wwids *[]*string `json:"wwids" yaml:"wwids"`
+	Wwids *[]*string `field:"optional" json:"wwids" yaml:"wwids"`
 }
 
 // FlexPersistentVolumeSource represents a generic persistent volume resource that is provisioned/attached using an exec based plugin.
 type FlexPersistentVolumeSource struct {
 	// Driver is the name of the driver to use for this volume.
-	Driver *string `json:"driver" yaml:"driver"`
+	Driver *string `field:"required" json:"driver" yaml:"driver"`
 	// Filesystem type to mount.
 	//
 	// Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". The default filesystem depends on FlexVolume script.
-	FsType *string `json:"fsType" yaml:"fsType"`
+	FsType *string `field:"optional" json:"fsType" yaml:"fsType"`
 	// Optional: Extra command options if any.
-	Options *map[string]*string `json:"options" yaml:"options"`
+	Options *map[string]*string `field:"optional" json:"options" yaml:"options"`
 	// Optional: Defaults to false (read/write).
 	//
 	// ReadOnly here will force the ReadOnly setting in VolumeMounts.
-	ReadOnly *bool `json:"readOnly" yaml:"readOnly"`
+	ReadOnly *bool `field:"optional" json:"readOnly" yaml:"readOnly"`
 	// Optional: SecretRef is reference to the secret object containing sensitive information to pass to the plugin scripts.
 	//
 	// This may be empty if no secret object is specified. If the secret object contains more than one secret, all secrets are passed to the plugin scripts.
-	SecretRef *SecretReference `json:"secretRef" yaml:"secretRef"`
+	SecretRef *SecretReference `field:"optional" json:"secretRef" yaml:"secretRef"`
 }
 
 // FlexVolume represents a generic volume resource that is provisioned/attached using an exec based plugin.
 type FlexVolumeSource struct {
 	// Driver is the name of the driver to use for this volume.
-	Driver *string `json:"driver" yaml:"driver"`
+	Driver *string `field:"required" json:"driver" yaml:"driver"`
 	// Filesystem type to mount.
 	//
 	// Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". The default filesystem depends on FlexVolume script.
-	FsType *string `json:"fsType" yaml:"fsType"`
+	FsType *string `field:"optional" json:"fsType" yaml:"fsType"`
 	// Optional: Extra command options if any.
-	Options *map[string]*string `json:"options" yaml:"options"`
+	Options *map[string]*string `field:"optional" json:"options" yaml:"options"`
 	// Optional: Defaults to false (read/write).
 	//
 	// ReadOnly here will force the ReadOnly setting in VolumeMounts.
-	ReadOnly *bool `json:"readOnly" yaml:"readOnly"`
+	ReadOnly *bool `field:"optional" json:"readOnly" yaml:"readOnly"`
 	// Optional: SecretRef is reference to the secret object containing sensitive information to pass to the plugin scripts.
 	//
 	// This may be empty if no secret object is specified. If the secret object contains more than one secret, all secrets are passed to the plugin scripts.
-	SecretRef *LocalObjectReference `json:"secretRef" yaml:"secretRef"`
+	SecretRef *LocalObjectReference `field:"optional" json:"secretRef" yaml:"secretRef"`
 }
 
 // Represents a Flocker volume mounted by the Flocker agent.
@@ -1766,11 +1766,11 @@ type FlexVolumeSource struct {
 // One and only one of datasetName and datasetUUID should be set. Flocker volumes do not support ownership management or SELinux relabeling.
 type FlockerVolumeSource struct {
 	// Name of the dataset stored as metadata -> name on the dataset for Flocker should be considered as deprecated.
-	DatasetName *string `json:"datasetName" yaml:"datasetName"`
+	DatasetName *string `field:"optional" json:"datasetName" yaml:"datasetName"`
 	// UUID of the dataset.
 	//
 	// This is unique identifier of a Flocker dataset.
-	DatasetUuid *string `json:"datasetUuid" yaml:"datasetUuid"`
+	DatasetUuid *string `field:"optional" json:"datasetUuid" yaml:"datasetUuid"`
 }
 
 // FlowDistinguisherMethod specifies the method of a flow distinguisher.
@@ -1778,7 +1778,7 @@ type FlowDistinguisherMethodV1Alpha1 struct {
 	// `type` is the type of flow distinguisher method The supported types are "ByUser" and "ByNamespace".
 	//
 	// Required.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 }
 
 // FlowSchemaSpec describes how the FlowSchema's specification looks like.
@@ -1786,19 +1786,19 @@ type FlowSchemaSpecV1Alpha1 struct {
 	// `priorityLevelConfiguration` should reference a PriorityLevelConfiguration in the cluster.
 	//
 	// If the reference cannot be resolved, the FlowSchema will be ignored and marked as invalid in its status. Required.
-	PriorityLevelConfiguration *PriorityLevelConfigurationReferenceV1Alpha1 `json:"priorityLevelConfiguration" yaml:"priorityLevelConfiguration"`
+	PriorityLevelConfiguration *PriorityLevelConfigurationReferenceV1Alpha1 `field:"required" json:"priorityLevelConfiguration" yaml:"priorityLevelConfiguration"`
 	// `distinguisherMethod` defines how to compute the flow distinguisher for requests that match this schema.
 	//
 	// `nil` specifies that the distinguisher is disabled and thus will always be the empty string.
-	DistinguisherMethod *FlowDistinguisherMethodV1Alpha1 `json:"distinguisherMethod" yaml:"distinguisherMethod"`
+	DistinguisherMethod *FlowDistinguisherMethodV1Alpha1 `field:"optional" json:"distinguisherMethod" yaml:"distinguisherMethod"`
 	// `matchingPrecedence` is used to choose among the FlowSchemas that match a given request.
 	//
 	// The chosen FlowSchema is among those with the numerically lowest (which we take to be logically highest) MatchingPrecedence.  Each MatchingPrecedence value must be non-negative. Note that if the precedence is not specified or zero, it will be set to 1000 as default.
-	MatchingPrecedence *float64 `json:"matchingPrecedence" yaml:"matchingPrecedence"`
+	MatchingPrecedence *float64 `field:"optional" json:"matchingPrecedence" yaml:"matchingPrecedence"`
 	// `rules` describes which requests will match this flow schema.
 	//
 	// This FlowSchema matches a request if and only if at least one member of rules matches the request. if it is an empty slice, there will be no requests matching the FlowSchema.
-	Rules *[]*PolicyRulesWithSubjectsV1Alpha1 `json:"rules" yaml:"rules"`
+	Rules *[]*PolicyRulesWithSubjectsV1Alpha1 `field:"optional" json:"rules" yaml:"rules"`
 }
 
 // FSGroupStrategyOptions defines the strategy type and options used to create the strategy.
@@ -1806,9 +1806,9 @@ type FsGroupStrategyOptionsV1Beta1 struct {
 	// ranges are the allowed ranges of fs groups.
 	//
 	// If you would like to force a single fs group then supply a single range with the same start and end. Required for MustRunAs.
-	Ranges *[]*IdRangeV1Beta1 `json:"ranges" yaml:"ranges"`
+	Ranges *[]*IdRangeV1Beta1 `field:"optional" json:"ranges" yaml:"ranges"`
 	// rule is the strategy that will dictate what FSGroup is used in the SecurityContext.
-	Rule *string `json:"rule" yaml:"rule"`
+	Rule *string `field:"optional" json:"rule" yaml:"rule"`
 }
 
 // Represents a Persistent Disk resource in Google Compute Engine.
@@ -1818,19 +1818,19 @@ type GcePersistentDiskVolumeSource struct {
 	// Unique name of the PD resource in GCE.
 	//
 	// Used to identify the disk in GCE. More info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk
-	PdName *string `json:"pdName" yaml:"pdName"`
+	PdName *string `field:"required" json:"pdName" yaml:"pdName"`
 	// Filesystem type of the volume that you want to mount.
 	//
 	// Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk
-	FsType *string `json:"fsType" yaml:"fsType"`
+	FsType *string `field:"optional" json:"fsType" yaml:"fsType"`
 	// The partition in the volume that you want to mount.
 	//
 	// If omitted, the default is to mount by volume name. Examples: For volume /dev/sda1, you specify the partition as "1". Similarly, the volume partition for /dev/sda is "0" (or you can leave the property empty). More info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk
-	Partition *float64 `json:"partition" yaml:"partition"`
+	Partition *float64 `field:"optional" json:"partition" yaml:"partition"`
 	// ReadOnly here will force the ReadOnly setting in VolumeMounts.
 	//
 	// Defaults to false. More info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk
-	ReadOnly *bool `json:"readOnly" yaml:"readOnly"`
+	ReadOnly *bool `field:"optional" json:"readOnly" yaml:"readOnly"`
 }
 
 // Represents a volume that is populated with the contents of a git repository.
@@ -1840,13 +1840,13 @@ type GcePersistentDiskVolumeSource struct {
 // DEPRECATED: GitRepo is deprecated. To provision a container with a git repo, mount an EmptyDir into an InitContainer that clones the repo using git, then mount the EmptyDir into the Pod's container.
 type GitRepoVolumeSource struct {
 	// Repository URL.
-	Repository *string `json:"repository" yaml:"repository"`
+	Repository *string `field:"required" json:"repository" yaml:"repository"`
 	// Target directory name.
 	//
 	// Must not contain or start with '..'.  If '.' is supplied, the volume directory will be the git repository.  Otherwise, if specified, the volume will contain the git repository in the subdirectory with the given name.
-	Directory *string `json:"directory" yaml:"directory"`
+	Directory *string `field:"optional" json:"directory" yaml:"directory"`
 	// Commit hash for the specified revision.
-	Revision *string `json:"revision" yaml:"revision"`
+	Revision *string `field:"optional" json:"revision" yaml:"revision"`
 }
 
 // Represents a Glusterfs mount that lasts the lifetime of a pod.
@@ -1856,19 +1856,19 @@ type GlusterfsPersistentVolumeSource struct {
 	// EndpointsName is the endpoint name that details Glusterfs topology.
 	//
 	// More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
-	Endpoints *string `json:"endpoints" yaml:"endpoints"`
+	Endpoints *string `field:"required" json:"endpoints" yaml:"endpoints"`
 	// Path is the Glusterfs volume path.
 	//
 	// More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"required" json:"path" yaml:"path"`
 	// EndpointsNamespace is the namespace that contains Glusterfs endpoint.
 	//
 	// If this field is empty, the EndpointNamespace defaults to the same namespace as the bound PVC. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
-	EndpointsNamespace *string `json:"endpointsNamespace" yaml:"endpointsNamespace"`
+	EndpointsNamespace *string `field:"optional" json:"endpointsNamespace" yaml:"endpointsNamespace"`
 	// ReadOnly here will force the Glusterfs volume to be mounted with read-only permissions.
 	//
 	// Defaults to false. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
-	ReadOnly *bool `json:"readOnly" yaml:"readOnly"`
+	ReadOnly *bool `field:"optional" json:"readOnly" yaml:"readOnly"`
 }
 
 // Represents a Glusterfs mount that lasts the lifetime of a pod.
@@ -1878,15 +1878,15 @@ type GlusterfsVolumeSource struct {
 	// EndpointsName is the endpoint name that details Glusterfs topology.
 	//
 	// More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
-	Endpoints *string `json:"endpoints" yaml:"endpoints"`
+	Endpoints *string `field:"required" json:"endpoints" yaml:"endpoints"`
 	// Path is the Glusterfs volume path.
 	//
 	// More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"required" json:"path" yaml:"path"`
 	// ReadOnly here will force the Glusterfs volume to be mounted with read-only permissions.
 	//
 	// Defaults to false. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
-	ReadOnly *bool `json:"readOnly" yaml:"readOnly"`
+	ReadOnly *bool `field:"optional" json:"readOnly" yaml:"readOnly"`
 }
 
 // Handler defines a specific action that should be taken.
@@ -1894,13 +1894,13 @@ type Handler struct {
 	// One and only one of the following should be specified.
 	//
 	// Exec specifies the action to take.
-	Exec *ExecAction `json:"exec" yaml:"exec"`
+	Exec *ExecAction `field:"optional" json:"exec" yaml:"exec"`
 	// HTTPGet specifies the http request to perform.
-	HttpGet *HttpGetAction `json:"httpGet" yaml:"httpGet"`
+	HttpGet *HttpGetAction `field:"optional" json:"httpGet" yaml:"httpGet"`
 	// TCPSocket specifies an action involving a TCP port.
 	//
 	// TCP hooks not yet supported.
-	TcpSocket *TcpSocketAction `json:"tcpSocket" yaml:"tcpSocket"`
+	TcpSocket *TcpSocketAction `field:"optional" json:"tcpSocket" yaml:"tcpSocket"`
 }
 
 // specification of a horizontal pod autoscaler.
@@ -1908,19 +1908,19 @@ type HorizontalPodAutoscalerSpec struct {
 	// upper limit for the number of pods that can be set by the autoscaler;
 	//
 	// cannot be smaller than MinReplicas.
-	MaxReplicas *float64 `json:"maxReplicas" yaml:"maxReplicas"`
+	MaxReplicas *float64 `field:"required" json:"maxReplicas" yaml:"maxReplicas"`
 	// reference to scaled resource;
 	//
 	// horizontal pod autoscaler will learn the current resource consumption and will set the desired number of pods by using its Scale subresource.
-	ScaleTargetRef *CrossVersionObjectReference `json:"scaleTargetRef" yaml:"scaleTargetRef"`
+	ScaleTargetRef *CrossVersionObjectReference `field:"required" json:"scaleTargetRef" yaml:"scaleTargetRef"`
 	// minReplicas is the lower limit for the number of replicas to which the autoscaler can scale down.
 	//
 	// It defaults to 1 pod.  minReplicas is allowed to be 0 if the alpha feature gate HPAScaleToZero is enabled and at least one Object or External metric is configured.  Scaling is active as long as at least one metric value is available.
-	MinReplicas *float64 `json:"minReplicas" yaml:"minReplicas"`
+	MinReplicas *float64 `field:"optional" json:"minReplicas" yaml:"minReplicas"`
 	// target average CPU utilization (represented as a percentage of requested CPU) over all the pods;
 	//
 	// if not specified the default autoscaling policy will be used.
-	TargetCpuUtilizationPercentage *float64 `json:"targetCpuUtilizationPercentage" yaml:"targetCpuUtilizationPercentage"`
+	TargetCpuUtilizationPercentage *float64 `field:"optional" json:"targetCpuUtilizationPercentage" yaml:"targetCpuUtilizationPercentage"`
 }
 
 // HorizontalPodAutoscalerSpec describes the desired functionality of the HorizontalPodAutoscaler.
@@ -1928,17 +1928,17 @@ type HorizontalPodAutoscalerSpecV2Beta1 struct {
 	// maxReplicas is the upper limit for the number of replicas to which the autoscaler can scale up.
 	//
 	// It cannot be less that minReplicas.
-	MaxReplicas *float64 `json:"maxReplicas" yaml:"maxReplicas"`
+	MaxReplicas *float64 `field:"required" json:"maxReplicas" yaml:"maxReplicas"`
 	// scaleTargetRef points to the target resource to scale, and is used to the pods for which metrics should be collected, as well as to actually change the replica count.
-	ScaleTargetRef *CrossVersionObjectReferenceV2Beta1 `json:"scaleTargetRef" yaml:"scaleTargetRef"`
+	ScaleTargetRef *CrossVersionObjectReferenceV2Beta1 `field:"required" json:"scaleTargetRef" yaml:"scaleTargetRef"`
 	// metrics contains the specifications for which to use to calculate the desired replica count (the maximum replica count across all metrics will be used).
 	//
 	// The desired replica count is calculated multiplying the ratio between the target value and the current value by the current number of pods.  Ergo, metrics used must decrease as the pod count is increased, and vice-versa.  See the individual metric source types for more information about how each type of metric must respond.
-	Metrics *[]*MetricSpecV2Beta1 `json:"metrics" yaml:"metrics"`
+	Metrics *[]*MetricSpecV2Beta1 `field:"optional" json:"metrics" yaml:"metrics"`
 	// minReplicas is the lower limit for the number of replicas to which the autoscaler can scale down.
 	//
 	// It defaults to 1 pod.  minReplicas is allowed to be 0 if the alpha feature gate HPAScaleToZero is enabled and at least one Object or External metric is configured.  Scaling is active as long as at least one metric value is available.
-	MinReplicas *float64 `json:"minReplicas" yaml:"minReplicas"`
+	MinReplicas *float64 `field:"optional" json:"minReplicas" yaml:"minReplicas"`
 }
 
 // HorizontalPodAutoscalerSpec describes the desired functionality of the HorizontalPodAutoscaler.
@@ -1946,25 +1946,25 @@ type HorizontalPodAutoscalerSpecV2Beta2 struct {
 	// maxReplicas is the upper limit for the number of replicas to which the autoscaler can scale up.
 	//
 	// It cannot be less that minReplicas.
-	MaxReplicas *float64 `json:"maxReplicas" yaml:"maxReplicas"`
+	MaxReplicas *float64 `field:"required" json:"maxReplicas" yaml:"maxReplicas"`
 	// scaleTargetRef points to the target resource to scale, and is used to the pods for which metrics should be collected, as well as to actually change the replica count.
-	ScaleTargetRef *CrossVersionObjectReferenceV2Beta2 `json:"scaleTargetRef" yaml:"scaleTargetRef"`
+	ScaleTargetRef *CrossVersionObjectReferenceV2Beta2 `field:"required" json:"scaleTargetRef" yaml:"scaleTargetRef"`
 	// metrics contains the specifications for which to use to calculate the desired replica count (the maximum replica count across all metrics will be used).
 	//
 	// The desired replica count is calculated multiplying the ratio between the target value and the current value by the current number of pods.  Ergo, metrics used must decrease as the pod count is increased, and vice-versa.  See the individual metric source types for more information about how each type of metric must respond. If not set, the default metric will be set to 80% average CPU utilization.
-	Metrics *[]*MetricSpecV2Beta2 `json:"metrics" yaml:"metrics"`
+	Metrics *[]*MetricSpecV2Beta2 `field:"optional" json:"metrics" yaml:"metrics"`
 	// minReplicas is the lower limit for the number of replicas to which the autoscaler can scale down.
 	//
 	// It defaults to 1 pod.  minReplicas is allowed to be 0 if the alpha feature gate HPAScaleToZero is enabled and at least one Object or External metric is configured.  Scaling is active as long as at least one metric value is available.
-	MinReplicas *float64 `json:"minReplicas" yaml:"minReplicas"`
+	MinReplicas *float64 `field:"optional" json:"minReplicas" yaml:"minReplicas"`
 }
 
 // HostAlias holds the mapping between IP and hostnames that will be injected as an entry in the pod's hosts file.
 type HostAlias struct {
 	// Hostnames for the above IP address.
-	Hostnames *[]*string `json:"hostnames" yaml:"hostnames"`
+	Hostnames *[]*string `field:"optional" json:"hostnames" yaml:"hostnames"`
 	// IP address of the host file entry.
-	Ip *string `json:"ip" yaml:"ip"`
+	Ip *string `field:"optional" json:"ip" yaml:"ip"`
 }
 
 // Represents a host path mapped into a pod.
@@ -1974,9 +1974,9 @@ type HostPathVolumeSource struct {
 	// Path of the directory on the host.
 	//
 	// If the path is a symlink, it will follow the link to the real path. More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"required" json:"path" yaml:"path"`
 	// Type for HostPath Volume Defaults to "" More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 
 // HostPortRange defines a range of host ports that will be enabled by a policy for pods to use.
@@ -1984,9 +1984,9 @@ type HostPathVolumeSource struct {
 // It requires both the start and end to be defined.
 type HostPortRangeV1Beta1 struct {
 	// max is the end of the range, inclusive.
-	Max *float64 `json:"max" yaml:"max"`
+	Max *float64 `field:"required" json:"max" yaml:"max"`
 	// min is the start of the range, inclusive.
-	Min *float64 `json:"min" yaml:"min"`
+	Min *float64 `field:"required" json:"min" yaml:"min"`
 }
 
 // HTTPGetAction describes an action based on HTTP Get requests.
@@ -1994,29 +1994,29 @@ type HttpGetAction struct {
 	// Name or number of the port to access on the container.
 	//
 	// Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
-	Port IntOrString `json:"port" yaml:"port"`
+	Port IntOrString `field:"required" json:"port" yaml:"port"`
 	// Host name to connect to, defaults to the pod IP.
 	//
 	// You probably want to set "Host" in httpHeaders instead.
-	Host *string `json:"host" yaml:"host"`
+	Host *string `field:"optional" json:"host" yaml:"host"`
 	// Custom headers to set in the request.
 	//
 	// HTTP allows repeated headers.
-	HttpHeaders *[]*HttpHeader `json:"httpHeaders" yaml:"httpHeaders"`
+	HttpHeaders *[]*HttpHeader `field:"optional" json:"httpHeaders" yaml:"httpHeaders"`
 	// Path to access on the HTTP server.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"optional" json:"path" yaml:"path"`
 	// Scheme to use for connecting to the host.
 	//
 	// Defaults to HTTP.
-	Scheme *string `json:"scheme" yaml:"scheme"`
+	Scheme *string `field:"optional" json:"scheme" yaml:"scheme"`
 }
 
 // HTTPHeader describes a custom header to be used in HTTP probes.
 type HttpHeader struct {
 	// The header field name.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The header field value.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 }
 
 // HTTPIngressPath associates a path regex with a backend.
@@ -2024,9 +2024,9 @@ type HttpHeader struct {
 // Incoming urls matching the path are forwarded to the backend.
 type HttpIngressPathV1Beta1 struct {
 	// Backend defines the referenced service endpoint to which the traffic will be forwarded to.
-	Backend *IngressBackendV1Beta1 `json:"backend" yaml:"backend"`
+	Backend *IngressBackendV1Beta1 `field:"required" json:"backend" yaml:"backend"`
 	// Path is an extended POSIX regex as defined by IEEE Std 1003.1, (i.e this follows the egrep/unix syntax, not the perl syntax) matched against the path of an incoming request. Currently it can contain characters disallowed from the conventional "path" part of a URL as defined by RFC 3986. Paths must begin with a '/'. If unspecified, the path defaults to a catch all sending traffic to the backend.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"optional" json:"path" yaml:"path"`
 }
 
 // HTTPIngressRuleValue is a list of http selectors pointing to backends.
@@ -2034,23 +2034,23 @@ type HttpIngressPathV1Beta1 struct {
 // In the example: http://<host>/<path>?<searchpart> -> backend where where parts of the url correspond to RFC 3986, this resource will be used to match against everything after the last '/' and before the first '?' or '#'.
 type HttpIngressRuleValueV1Beta1 struct {
 	// A collection of paths that map requests to backends.
-	Paths *[]*HttpIngressPathV1Beta1 `json:"paths" yaml:"paths"`
+	Paths *[]*HttpIngressPathV1Beta1 `field:"required" json:"paths" yaml:"paths"`
 }
 
 // IDRange provides a min/max of an allowed range of IDs.
 type IdRangeV1Beta1 struct {
 	// max is the end of the range, inclusive.
-	Max *float64 `json:"max" yaml:"max"`
+	Max *float64 `field:"required" json:"max" yaml:"max"`
 	// min is the start of the range, inclusive.
-	Min *float64 `json:"min" yaml:"min"`
+	Min *float64 `field:"required" json:"min" yaml:"min"`
 }
 
 // IngressBackend describes all endpoints for a given service and port.
 type IngressBackendV1Beta1 struct {
 	// Specifies the name of the referenced service.
-	ServiceName *string `json:"serviceName" yaml:"serviceName"`
+	ServiceName *string `field:"required" json:"serviceName" yaml:"serviceName"`
 	// Specifies the port of the referenced service.
-	ServicePort IntOrString `json:"servicePort" yaml:"servicePort"`
+	ServicePort IntOrString `field:"required" json:"servicePort" yaml:"servicePort"`
 }
 
 // IngressRule represents the rules mapping the paths under a specified host to the related backend services.
@@ -2065,8 +2065,8 @@ type IngressRuleV1Beta1 struct {
 	// Currently the port of an Ingress is implicitly :80 for http and
 	// :443 for https.
 	// Both these may change in the future. Incoming requests are matched against the host before the IngressRuleValue. If the host is unspecified, the Ingress routes all traffic based on the specified IngressRuleValue.
-	Host *string `json:"host" yaml:"host"`
-	Http *HttpIngressRuleValueV1Beta1 `json:"http" yaml:"http"`
+	Host *string `field:"optional" json:"host" yaml:"host"`
+	Http *HttpIngressRuleValueV1Beta1 `field:"optional" json:"http" yaml:"http"`
 }
 
 // IngressSpec describes the Ingress the user wishes to exist.
@@ -2074,15 +2074,15 @@ type IngressSpecV1Beta1 struct {
 	// A default backend capable of servicing requests that don't match any rule.
 	//
 	// At least one of 'backend' or 'rules' must be specified. This field is optional to allow the loadbalancer controller or defaulting logic to specify a global default.
-	Backend *IngressBackendV1Beta1 `json:"backend" yaml:"backend"`
+	Backend *IngressBackendV1Beta1 `field:"optional" json:"backend" yaml:"backend"`
 	// A list of host rules used to configure the Ingress.
 	//
 	// If unspecified, or no rule matches, all traffic is sent to the default backend.
-	Rules *[]*IngressRuleV1Beta1 `json:"rules" yaml:"rules"`
+	Rules *[]*IngressRuleV1Beta1 `field:"optional" json:"rules" yaml:"rules"`
 	// TLS configuration.
 	//
 	// Currently the Ingress only supports a single TLS port, 443. If multiple members of this list specify different hosts, they will be multiplexed on the same port according to the hostname specified through the SNI TLS extension, if the ingress controller fulfilling the ingress supports SNI.
-	Tls *[]*IngressTlsv1Beta1 `json:"tls" yaml:"tls"`
+	Tls *[]*IngressTlsv1Beta1 `field:"optional" json:"tls" yaml:"tls"`
 }
 
 // IngressTLS describes the transport layer security associated with an Ingress.
@@ -2090,11 +2090,11 @@ type IngressTlsv1Beta1 struct {
 	// Hosts are a list of hosts included in the TLS certificate.
 	//
 	// The values in this list must match the name/s used in the tlsSecret. Defaults to the wildcard host setting for the loadbalancer controller fulfilling this Ingress, if left unspecified.
-	Hosts *[]*string `json:"hosts" yaml:"hosts"`
+	Hosts *[]*string `field:"optional" json:"hosts" yaml:"hosts"`
 	// SecretName is the name of the secret used to terminate SSL traffic on 443.
 	//
 	// Field is left optional to allow SSL routing based on SNI hostname alone. If the SNI host in a listener conflicts with the "Host" header field used by an IngressRule, the SNI host is used for termination and value of the Host header is used for routing.
-	SecretName *string `json:"secretName" yaml:"secretName"`
+	SecretName *string `field:"optional" json:"secretName" yaml:"secretName"`
 }
 
 type IntOrString interface {
@@ -2162,17 +2162,17 @@ const (
 // "192.168.1.1/24") that is allowed to the pods matched by a NetworkPolicySpec's podSelector. The except entry describes CIDRs that should not be included within this rule.
 type IpBlock struct {
 	// CIDR is a string representing the IP Block Valid examples are "192.168.1.1/24".
-	Cidr *string `json:"cidr" yaml:"cidr"`
+	Cidr *string `field:"required" json:"cidr" yaml:"cidr"`
 	// Except is a slice of CIDRs that should not be included within an IP Block Valid examples are "192.168.1.1/24" Except values will be rejected if they are outside the CIDR range.
-	Except *[]*string `json:"except" yaml:"except"`
+	Except *[]*string `field:"optional" json:"except" yaml:"except"`
 }
 
 // DEPRECATED 1.9 - This group version of IPBlock is deprecated by networking/v1/IPBlock. IPBlock describes a particular CIDR (Ex. "192.168.1.1/24") that is allowed to the pods matched by a NetworkPolicySpec's podSelector. The except entry describes CIDRs that should not be included within this rule.
 type IpBlockV1Beta1 struct {
 	// CIDR is a string representing the IP Block Valid examples are "192.168.1.1/24".
-	Cidr *string `json:"cidr" yaml:"cidr"`
+	Cidr *string `field:"required" json:"cidr" yaml:"cidr"`
 	// Except is a slice of CIDRs that should not be included within an IP Block Valid examples are "192.168.1.1/24" Except values will be rejected if they are outside the CIDR range.
-	Except *[]*string `json:"except" yaml:"except"`
+	Except *[]*string `field:"optional" json:"except" yaml:"except"`
 }
 
 // ISCSIPersistentVolumeSource represents an ISCSI disk.
@@ -2180,39 +2180,39 @@ type IpBlockV1Beta1 struct {
 // ISCSI volumes can only be mounted as read/write once. ISCSI volumes support ownership management and SELinux relabeling.
 type IscsiPersistentVolumeSource struct {
 	// Target iSCSI Qualified Name.
-	Iqn *string `json:"iqn" yaml:"iqn"`
+	Iqn *string `field:"required" json:"iqn" yaml:"iqn"`
 	// iSCSI Target Lun number.
-	Lun *float64 `json:"lun" yaml:"lun"`
+	Lun *float64 `field:"required" json:"lun" yaml:"lun"`
 	// iSCSI Target Portal.
 	//
 	// The Portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260).
-	TargetPortal *string `json:"targetPortal" yaml:"targetPortal"`
+	TargetPortal *string `field:"required" json:"targetPortal" yaml:"targetPortal"`
 	// whether support iSCSI Discovery CHAP authentication.
-	ChapAuthDiscovery *bool `json:"chapAuthDiscovery" yaml:"chapAuthDiscovery"`
+	ChapAuthDiscovery *bool `field:"optional" json:"chapAuthDiscovery" yaml:"chapAuthDiscovery"`
 	// whether support iSCSI Session CHAP authentication.
-	ChapAuthSession *bool `json:"chapAuthSession" yaml:"chapAuthSession"`
+	ChapAuthSession *bool `field:"optional" json:"chapAuthSession" yaml:"chapAuthSession"`
 	// Filesystem type of the volume that you want to mount.
 	//
 	// Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#iscsi
-	FsType *string `json:"fsType" yaml:"fsType"`
+	FsType *string `field:"optional" json:"fsType" yaml:"fsType"`
 	// Custom iSCSI Initiator Name.
 	//
 	// If initiatorName is specified with iscsiInterface simultaneously, new iSCSI interface <target portal>:<volume name> will be created for the connection.
-	InitiatorName *string `json:"initiatorName" yaml:"initiatorName"`
+	InitiatorName *string `field:"optional" json:"initiatorName" yaml:"initiatorName"`
 	// iSCSI Interface Name that uses an iSCSI transport.
 	//
 	// Defaults to 'default' (tcp).
-	IscsiInterface *string `json:"iscsiInterface" yaml:"iscsiInterface"`
+	IscsiInterface *string `field:"optional" json:"iscsiInterface" yaml:"iscsiInterface"`
 	// iSCSI Target Portal List.
 	//
 	// The Portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260).
-	Portals *[]*string `json:"portals" yaml:"portals"`
+	Portals *[]*string `field:"optional" json:"portals" yaml:"portals"`
 	// ReadOnly here will force the ReadOnly setting in VolumeMounts.
 	//
 	// Defaults to false.
-	ReadOnly *bool `json:"readOnly" yaml:"readOnly"`
+	ReadOnly *bool `field:"optional" json:"readOnly" yaml:"readOnly"`
 	// CHAP Secret for iSCSI target and initiator authentication.
-	SecretRef *SecretReference `json:"secretRef" yaml:"secretRef"`
+	SecretRef *SecretReference `field:"optional" json:"secretRef" yaml:"secretRef"`
 }
 
 // Represents an ISCSI disk.
@@ -2220,39 +2220,39 @@ type IscsiPersistentVolumeSource struct {
 // ISCSI volumes can only be mounted as read/write once. ISCSI volumes support ownership management and SELinux relabeling.
 type IscsiVolumeSource struct {
 	// Target iSCSI Qualified Name.
-	Iqn *string `json:"iqn" yaml:"iqn"`
+	Iqn *string `field:"required" json:"iqn" yaml:"iqn"`
 	// iSCSI Target Lun number.
-	Lun *float64 `json:"lun" yaml:"lun"`
+	Lun *float64 `field:"required" json:"lun" yaml:"lun"`
 	// iSCSI Target Portal.
 	//
 	// The Portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260).
-	TargetPortal *string `json:"targetPortal" yaml:"targetPortal"`
+	TargetPortal *string `field:"required" json:"targetPortal" yaml:"targetPortal"`
 	// whether support iSCSI Discovery CHAP authentication.
-	ChapAuthDiscovery *bool `json:"chapAuthDiscovery" yaml:"chapAuthDiscovery"`
+	ChapAuthDiscovery *bool `field:"optional" json:"chapAuthDiscovery" yaml:"chapAuthDiscovery"`
 	// whether support iSCSI Session CHAP authentication.
-	ChapAuthSession *bool `json:"chapAuthSession" yaml:"chapAuthSession"`
+	ChapAuthSession *bool `field:"optional" json:"chapAuthSession" yaml:"chapAuthSession"`
 	// Filesystem type of the volume that you want to mount.
 	//
 	// Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#iscsi
-	FsType *string `json:"fsType" yaml:"fsType"`
+	FsType *string `field:"optional" json:"fsType" yaml:"fsType"`
 	// Custom iSCSI Initiator Name.
 	//
 	// If initiatorName is specified with iscsiInterface simultaneously, new iSCSI interface <target portal>:<volume name> will be created for the connection.
-	InitiatorName *string `json:"initiatorName" yaml:"initiatorName"`
+	InitiatorName *string `field:"optional" json:"initiatorName" yaml:"initiatorName"`
 	// iSCSI Interface Name that uses an iSCSI transport.
 	//
 	// Defaults to 'default' (tcp).
-	IscsiInterface *string `json:"iscsiInterface" yaml:"iscsiInterface"`
+	IscsiInterface *string `field:"optional" json:"iscsiInterface" yaml:"iscsiInterface"`
 	// iSCSI Target Portal List.
 	//
 	// The portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260).
-	Portals *[]*string `json:"portals" yaml:"portals"`
+	Portals *[]*string `field:"optional" json:"portals" yaml:"portals"`
 	// ReadOnly here will force the ReadOnly setting in VolumeMounts.
 	//
 	// Defaults to false.
-	ReadOnly *bool `json:"readOnly" yaml:"readOnly"`
+	ReadOnly *bool `field:"optional" json:"readOnly" yaml:"readOnly"`
 	// CHAP Secret for iSCSI target and initiator authentication.
-	SecretRef *LocalObjectReference `json:"secretRef" yaml:"secretRef"`
+	SecretRef *LocalObjectReference `field:"optional" json:"secretRef" yaml:"secretRef"`
 }
 
 // JobSpec describes how the job execution will look like.
@@ -2260,35 +2260,35 @@ type JobSpec struct {
 	// Describes the pod that will be created when executing a job.
 	//
 	// More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
-	Template *PodTemplateSpec `json:"template" yaml:"template"`
+	Template *PodTemplateSpec `field:"required" json:"template" yaml:"template"`
 	// Specifies the duration in seconds relative to the startTime that the job may be active before the system tries to terminate it;
 	//
 	// value must be positive integer.
-	ActiveDeadlineSeconds *float64 `json:"activeDeadlineSeconds" yaml:"activeDeadlineSeconds"`
+	ActiveDeadlineSeconds *float64 `field:"optional" json:"activeDeadlineSeconds" yaml:"activeDeadlineSeconds"`
 	// Specifies the number of retries before marking this job failed.
 	//
 	// Defaults to 6.
-	BackoffLimit *float64 `json:"backoffLimit" yaml:"backoffLimit"`
+	BackoffLimit *float64 `field:"optional" json:"backoffLimit" yaml:"backoffLimit"`
 	// Specifies the desired number of successfully finished pods the job should be run with.
 	//
 	// Setting to nil means that the success of any pod signals the success of all pods, and allows parallelism to have any positive value.  Setting to 1 means that parallelism is limited to 1 and the success of that pod signals the success of the job. More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
-	Completions *float64 `json:"completions" yaml:"completions"`
+	Completions *float64 `field:"optional" json:"completions" yaml:"completions"`
 	// manualSelector controls generation of pod labels and pod selectors.
 	//
 	// Leave `manualSelector` unset unless you are certain what you are doing. When false or unset, the system pick labels unique to this job and appends those labels to the pod template.  When true, the user is responsible for picking unique labels and specifying the selector.  Failure to pick a unique label may cause this and other jobs to not function correctly.  However, You may see `manualSelector=true` in jobs that were created with the old `extensions/v1beta1` API. More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/#specifying-your-own-pod-selector
-	ManualSelector *bool `json:"manualSelector" yaml:"manualSelector"`
+	ManualSelector *bool `field:"optional" json:"manualSelector" yaml:"manualSelector"`
 	// Specifies the maximum desired number of pods the job should run at any given time.
 	//
 	// The actual number of pods running in steady state will be less than this number when ((.spec.completions - .status.successful) < .spec.parallelism), i.e. when the work left to do is less than max parallelism. More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
-	Parallelism *float64 `json:"parallelism" yaml:"parallelism"`
+	Parallelism *float64 `field:"optional" json:"parallelism" yaml:"parallelism"`
 	// A label query over pods that should match the pod count.
 	//
 	// Normally, the system sets this field for you. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
-	Selector *LabelSelector `json:"selector" yaml:"selector"`
+	Selector *LabelSelector `field:"optional" json:"selector" yaml:"selector"`
 	// ttlSecondsAfterFinished limits the lifetime of a Job that has finished execution (either Complete or Failed).
 	//
 	// If this field is set, ttlSecondsAfterFinished after the Job finishes, it is eligible to be automatically deleted. When the Job is being deleted, its lifecycle guarantees (e.g. finalizers) will be honored. If this field is unset, the Job won't be automatically deleted. If this field is set to zero, the Job becomes eligible to be deleted immediately after it finishes. This field is alpha-level and is only honored by servers that enable the TTLAfterFinished feature.
-	TtlSecondsAfterFinished *float64 `json:"ttlSecondsAfterFinished" yaml:"ttlSecondsAfterFinished"`
+	TtlSecondsAfterFinished *float64 `field:"optional" json:"ttlSecondsAfterFinished" yaml:"ttlSecondsAfterFinished"`
 }
 
 // JobTemplateSpec describes the data a Job should have when created from a template.
@@ -2296,11 +2296,11 @@ type JobTemplateSpecV1Beta1 struct {
 	// Standard object's metadata of the jobs created from this template.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// Specification of the desired behavior of the job.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-	Spec *JobSpec `json:"spec" yaml:"spec"`
+	Spec *JobSpec `field:"optional" json:"spec" yaml:"spec"`
 }
 
 // JobTemplateSpec describes the data a Job should have when created from a template.
@@ -2308,60 +2308,60 @@ type JobTemplateSpecV2Alpha1 struct {
 	// Standard object's metadata of the jobs created from this template.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// Specification of the desired behavior of the job.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-	Spec *JobSpec `json:"spec" yaml:"spec"`
+	Spec *JobSpec `field:"optional" json:"spec" yaml:"spec"`
 }
 
 // JSONSchemaProps is a JSON-Schema following Specification Draft 4 (http://json-schema.org/).
 type JsonSchemaProps struct {
-	AdditionalItems interface{} `json:"additionalItems" yaml:"additionalItems"`
-	AdditionalProperties interface{} `json:"additionalProperties" yaml:"additionalProperties"`
-	AllOf *[]*JsonSchemaProps `json:"allOf" yaml:"allOf"`
-	AnyOf *[]*JsonSchemaProps `json:"anyOf" yaml:"anyOf"`
+	AdditionalItems interface{} `field:"optional" json:"additionalItems" yaml:"additionalItems"`
+	AdditionalProperties interface{} `field:"optional" json:"additionalProperties" yaml:"additionalProperties"`
+	AllOf *[]*JsonSchemaProps `field:"optional" json:"allOf" yaml:"allOf"`
+	AnyOf *[]*JsonSchemaProps `field:"optional" json:"anyOf" yaml:"anyOf"`
 	// default is a default value for undefined object fields.
 	//
 	// Defaulting is a beta feature under the CustomResourceDefaulting feature gate. Defaulting requires spec.preserveUnknownFields to be false.
-	Default interface{} `json:"default" yaml:"default"`
-	Definitions *map[string]*JsonSchemaProps `json:"definitions" yaml:"definitions"`
-	Dependencies *map[string]interface{} `json:"dependencies" yaml:"dependencies"`
-	Description *string `json:"description" yaml:"description"`
-	Enum *[]interface{} `json:"enum" yaml:"enum"`
-	Example interface{} `json:"example" yaml:"example"`
-	ExclusiveMaximum *bool `json:"exclusiveMaximum" yaml:"exclusiveMaximum"`
-	ExclusiveMinimum *bool `json:"exclusiveMinimum" yaml:"exclusiveMinimum"`
-	ExternalDocs *ExternalDocumentation `json:"externalDocs" yaml:"externalDocs"`
+	Default interface{} `field:"optional" json:"default" yaml:"default"`
+	Definitions *map[string]*JsonSchemaProps `field:"optional" json:"definitions" yaml:"definitions"`
+	Dependencies *map[string]interface{} `field:"optional" json:"dependencies" yaml:"dependencies"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
+	Enum *[]interface{} `field:"optional" json:"enum" yaml:"enum"`
+	Example interface{} `field:"optional" json:"example" yaml:"example"`
+	ExclusiveMaximum *bool `field:"optional" json:"exclusiveMaximum" yaml:"exclusiveMaximum"`
+	ExclusiveMinimum *bool `field:"optional" json:"exclusiveMinimum" yaml:"exclusiveMinimum"`
+	ExternalDocs *ExternalDocumentation `field:"optional" json:"externalDocs" yaml:"externalDocs"`
 	// format is an OpenAPI v3 format string. Unknown formats are ignored. The following formats are validated:.
 	//
 	// - bsonobjectid: a bson object ID, i.e. a 24 characters hex string - uri: an URI as parsed by Golang net/url.ParseRequestURI - email: an email address as parsed by Golang net/mail.ParseAddress - hostname: a valid representation for an Internet host name, as defined by RFC 1034, section 3.1 [RFC1034]. - ipv4: an IPv4 IP as parsed by Golang net.ParseIP - ipv6: an IPv6 IP as parsed by Golang net.ParseIP - cidr: a CIDR as parsed by Golang net.ParseCIDR - mac: a MAC address as parsed by Golang net.ParseMAC - uuid: an UUID that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{12}$ - uuid3: an UUID3 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?3[0-9a-f]{3}-?[0-9a-f]{4}-?[0-9a-f]{12}$ - uuid4: an UUID4 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?4[0-9a-f]{3}-?[89ab][0-9a-f]{3}-?[0-9a-f]{12}$ - uuid5: an UUID5 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?5[0-9a-f]{3}-?[89ab][0-9a-f]{3}-?[0-9a-f]{12}$ - isbn: an ISBN10 or ISBN13 number string like "0321751043" or "978-0321751041" - isbn10: an ISBN10 number string like "0321751043" - isbn13: an ISBN13 number string like "978-0321751041" - creditcard: a credit card number defined by the regex ^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$ with any non digit characters mixed in - ssn: a U.S. social security number following the regex ^\d{3}[- ]?\d{2}[- ]?\d{4}$ - hexcolor: an hexadecimal color code like "#FFFFFF: following the regex ^#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$ - rgbcolor: an RGB color code like rgb like "rgb(255,255,2559" - byte: base64 encoded binary data - password: any kind of string - date: a date string like "2006-01-02" as defined by full-date in RFC3339 - duration: a duration string like "22 ns" as parsed by Golang time.ParseDuration or compatible with Scala duration format - datetime: a date time string like "2014-12-15T19:30:20.000Z" as defined by date-time in RFC3339.
-	Format *string `json:"format" yaml:"format"`
-	Id *string `json:"id" yaml:"id"`
-	Items interface{} `json:"items" yaml:"items"`
-	Maximum *float64 `json:"maximum" yaml:"maximum"`
-	MaxItems *float64 `json:"maxItems" yaml:"maxItems"`
-	MaxLength *float64 `json:"maxLength" yaml:"maxLength"`
-	MaxProperties *float64 `json:"maxProperties" yaml:"maxProperties"`
-	Minimum *float64 `json:"minimum" yaml:"minimum"`
-	MinItems *float64 `json:"minItems" yaml:"minItems"`
-	MinLength *float64 `json:"minLength" yaml:"minLength"`
-	MinProperties *float64 `json:"minProperties" yaml:"minProperties"`
-	MultipleOf *float64 `json:"multipleOf" yaml:"multipleOf"`
-	Not **JsonSchemaProps `json:"not" yaml:"not"`
-	Nullable *bool `json:"nullable" yaml:"nullable"`
-	OneOf *[]*JsonSchemaProps `json:"oneOf" yaml:"oneOf"`
-	Pattern *string `json:"pattern" yaml:"pattern"`
-	PatternProperties *map[string]*JsonSchemaProps `json:"patternProperties" yaml:"patternProperties"`
-	Properties *map[string]*JsonSchemaProps `json:"properties" yaml:"properties"`
-	Ref *string `json:"ref" yaml:"ref"`
-	Required *[]*string `json:"required" yaml:"required"`
-	Schema *string `json:"schema" yaml:"schema"`
-	Title *string `json:"title" yaml:"title"`
-	Type *string `json:"type" yaml:"type"`
-	UniqueItems *bool `json:"uniqueItems" yaml:"uniqueItems"`
+	Format *string `field:"optional" json:"format" yaml:"format"`
+	Id *string `field:"optional" json:"id" yaml:"id"`
+	Items interface{} `field:"optional" json:"items" yaml:"items"`
+	Maximum *float64 `field:"optional" json:"maximum" yaml:"maximum"`
+	MaxItems *float64 `field:"optional" json:"maxItems" yaml:"maxItems"`
+	MaxLength *float64 `field:"optional" json:"maxLength" yaml:"maxLength"`
+	MaxProperties *float64 `field:"optional" json:"maxProperties" yaml:"maxProperties"`
+	Minimum *float64 `field:"optional" json:"minimum" yaml:"minimum"`
+	MinItems *float64 `field:"optional" json:"minItems" yaml:"minItems"`
+	MinLength *float64 `field:"optional" json:"minLength" yaml:"minLength"`
+	MinProperties *float64 `field:"optional" json:"minProperties" yaml:"minProperties"`
+	MultipleOf *float64 `field:"optional" json:"multipleOf" yaml:"multipleOf"`
+	Not **JsonSchemaProps `field:"optional" json:"not" yaml:"not"`
+	Nullable *bool `field:"optional" json:"nullable" yaml:"nullable"`
+	OneOf *[]*JsonSchemaProps `field:"optional" json:"oneOf" yaml:"oneOf"`
+	Pattern *string `field:"optional" json:"pattern" yaml:"pattern"`
+	PatternProperties *map[string]*JsonSchemaProps `field:"optional" json:"patternProperties" yaml:"patternProperties"`
+	Properties *map[string]*JsonSchemaProps `field:"optional" json:"properties" yaml:"properties"`
+	Ref *string `field:"optional" json:"ref" yaml:"ref"`
+	Required *[]*string `field:"optional" json:"required" yaml:"required"`
+	Schema *string `field:"optional" json:"schema" yaml:"schema"`
+	Title *string `field:"optional" json:"title" yaml:"title"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
+	UniqueItems *bool `field:"optional" json:"uniqueItems" yaml:"uniqueItems"`
 	// x-kubernetes-embedded-resource defines that the value is an embedded Kubernetes runtime.Object, with TypeMeta and ObjectMeta. The type must be object. It is allowed to further restrict the embedded object. kind, apiVersion and metadata are validated automatically. x-kubernetes-preserve-unknown-fields is allowed to be true, but does not have to be if the object is fully specified (up to kind, apiVersion, metadata).
-	XKubernetesEmbeddedResource *bool `json:"xKubernetesEmbeddedResource" yaml:"xKubernetesEmbeddedResource"`
+	XKubernetesEmbeddedResource *bool `field:"optional" json:"xKubernetesEmbeddedResource" yaml:"xKubernetesEmbeddedResource"`
 	// x-kubernetes-int-or-string specifies that this value is either an integer or a string.
 	//
 	// If this is true, an empty type is allowed and type as child of anyOf is permitted if following one of the following patterns:
@@ -2374,11 +2374,11 @@ type JsonSchemaProps struct {
 	// - type: integer
 	// - type: string
 	// - ... zero or more
-	XKubernetesIntOrString *bool `json:"xKubernetesIntOrString" yaml:"xKubernetesIntOrString"`
+	XKubernetesIntOrString *bool `field:"optional" json:"xKubernetesIntOrString" yaml:"xKubernetesIntOrString"`
 	// x-kubernetes-list-map-keys annotates an array with the x-kubernetes-list-type `map` by specifying the keys used as the index of the map.
 	//
 	// This tag MUST only be used on lists that have the "x-kubernetes-list-type" extension set to "map". Also, the values specified for this attribute must be a scalar typed field of the child structure (no nesting is supported).
-	XKubernetesListMapKeys *[]*string `json:"xKubernetesListMapKeys" yaml:"xKubernetesListMapKeys"`
+	XKubernetesListMapKeys *[]*string `field:"optional" json:"xKubernetesListMapKeys" yaml:"xKubernetesListMapKeys"`
 	// x-kubernetes-list-type annotates an array to further describe its topology.
 	//
 	// This extension must only be used on lists and may have 3 possible values:
@@ -2395,7 +2395,7 @@ type JsonSchemaProps struct {
 	// used to identify them. Order is preserved upon merge. The map tag
 	// must only be used on a list with elements of type object.
 	// Defaults to atomic for arrays.
-	XKubernetesListType *string `json:"xKubernetesListType" yaml:"xKubernetesListType"`
+	XKubernetesListType *string `field:"optional" json:"xKubernetesListType" yaml:"xKubernetesListType"`
 	// x-kubernetes-map-type annotates an object to further describe its topology.
 	//
 	// This extension must only be used when type is object and may have 2 possible values:
@@ -2406,60 +2406,60 @@ type JsonSchemaProps struct {
 	// the default behaviour for all maps.
 	// 2) `atomic`: the list is treated as a single entity, like a scalar.
 	// Atomic maps will be entirely replaced when updated.
-	XKubernetesMapType *string `json:"xKubernetesMapType" yaml:"xKubernetesMapType"`
+	XKubernetesMapType *string `field:"optional" json:"xKubernetesMapType" yaml:"xKubernetesMapType"`
 	// x-kubernetes-preserve-unknown-fields stops the API server decoding step from pruning fields which are not specified in the validation schema.
 	//
 	// This affects fields recursively, but switches back to normal pruning behaviour if nested properties or additionalProperties are specified in the schema. This can either be true or undefined. False is forbidden.
-	XKubernetesPreserveUnknownFields *bool `json:"xKubernetesPreserveUnknownFields" yaml:"xKubernetesPreserveUnknownFields"`
+	XKubernetesPreserveUnknownFields *bool `field:"optional" json:"xKubernetesPreserveUnknownFields" yaml:"xKubernetesPreserveUnknownFields"`
 }
 
 // JSONSchemaProps is a JSON-Schema following Specification Draft 4 (http://json-schema.org/).
 type JsonSchemaPropsV1Beta1 struct {
-	AdditionalItems interface{} `json:"additionalItems" yaml:"additionalItems"`
-	AdditionalProperties interface{} `json:"additionalProperties" yaml:"additionalProperties"`
-	AllOf *[]*JsonSchemaPropsV1Beta1 `json:"allOf" yaml:"allOf"`
-	AnyOf *[]*JsonSchemaPropsV1Beta1 `json:"anyOf" yaml:"anyOf"`
+	AdditionalItems interface{} `field:"optional" json:"additionalItems" yaml:"additionalItems"`
+	AdditionalProperties interface{} `field:"optional" json:"additionalProperties" yaml:"additionalProperties"`
+	AllOf *[]*JsonSchemaPropsV1Beta1 `field:"optional" json:"allOf" yaml:"allOf"`
+	AnyOf *[]*JsonSchemaPropsV1Beta1 `field:"optional" json:"anyOf" yaml:"anyOf"`
 	// default is a default value for undefined object fields.
 	//
 	// Defaulting is a beta feature under the CustomResourceDefaulting feature gate. CustomResourceDefinitions with defaults must be created using the v1 (or newer) CustomResourceDefinition API.
-	Default interface{} `json:"default" yaml:"default"`
-	Definitions *map[string]*JsonSchemaPropsV1Beta1 `json:"definitions" yaml:"definitions"`
-	Dependencies *map[string]interface{} `json:"dependencies" yaml:"dependencies"`
-	Description *string `json:"description" yaml:"description"`
-	Enum *[]interface{} `json:"enum" yaml:"enum"`
-	Example interface{} `json:"example" yaml:"example"`
-	ExclusiveMaximum *bool `json:"exclusiveMaximum" yaml:"exclusiveMaximum"`
-	ExclusiveMinimum *bool `json:"exclusiveMinimum" yaml:"exclusiveMinimum"`
-	ExternalDocs *ExternalDocumentationV1Beta1 `json:"externalDocs" yaml:"externalDocs"`
+	Default interface{} `field:"optional" json:"default" yaml:"default"`
+	Definitions *map[string]*JsonSchemaPropsV1Beta1 `field:"optional" json:"definitions" yaml:"definitions"`
+	Dependencies *map[string]interface{} `field:"optional" json:"dependencies" yaml:"dependencies"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
+	Enum *[]interface{} `field:"optional" json:"enum" yaml:"enum"`
+	Example interface{} `field:"optional" json:"example" yaml:"example"`
+	ExclusiveMaximum *bool `field:"optional" json:"exclusiveMaximum" yaml:"exclusiveMaximum"`
+	ExclusiveMinimum *bool `field:"optional" json:"exclusiveMinimum" yaml:"exclusiveMinimum"`
+	ExternalDocs *ExternalDocumentationV1Beta1 `field:"optional" json:"externalDocs" yaml:"externalDocs"`
 	// format is an OpenAPI v3 format string. Unknown formats are ignored. The following formats are validated:.
 	//
 	// - bsonobjectid: a bson object ID, i.e. a 24 characters hex string - uri: an URI as parsed by Golang net/url.ParseRequestURI - email: an email address as parsed by Golang net/mail.ParseAddress - hostname: a valid representation for an Internet host name, as defined by RFC 1034, section 3.1 [RFC1034]. - ipv4: an IPv4 IP as parsed by Golang net.ParseIP - ipv6: an IPv6 IP as parsed by Golang net.ParseIP - cidr: a CIDR as parsed by Golang net.ParseCIDR - mac: a MAC address as parsed by Golang net.ParseMAC - uuid: an UUID that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{12}$ - uuid3: an UUID3 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?3[0-9a-f]{3}-?[0-9a-f]{4}-?[0-9a-f]{12}$ - uuid4: an UUID4 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?4[0-9a-f]{3}-?[89ab][0-9a-f]{3}-?[0-9a-f]{12}$ - uuid5: an UUID5 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?5[0-9a-f]{3}-?[89ab][0-9a-f]{3}-?[0-9a-f]{12}$ - isbn: an ISBN10 or ISBN13 number string like "0321751043" or "978-0321751041" - isbn10: an ISBN10 number string like "0321751043" - isbn13: an ISBN13 number string like "978-0321751041" - creditcard: a credit card number defined by the regex ^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$ with any non digit characters mixed in - ssn: a U.S. social security number following the regex ^\d{3}[- ]?\d{2}[- ]?\d{4}$ - hexcolor: an hexadecimal color code like "#FFFFFF: following the regex ^#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$ - rgbcolor: an RGB color code like rgb like "rgb(255,255,2559" - byte: base64 encoded binary data - password: any kind of string - date: a date string like "2006-01-02" as defined by full-date in RFC3339 - duration: a duration string like "22 ns" as parsed by Golang time.ParseDuration or compatible with Scala duration format - datetime: a date time string like "2014-12-15T19:30:20.000Z" as defined by date-time in RFC3339.
-	Format *string `json:"format" yaml:"format"`
-	Id *string `json:"id" yaml:"id"`
-	Items interface{} `json:"items" yaml:"items"`
-	Maximum *float64 `json:"maximum" yaml:"maximum"`
-	MaxItems *float64 `json:"maxItems" yaml:"maxItems"`
-	MaxLength *float64 `json:"maxLength" yaml:"maxLength"`
-	MaxProperties *float64 `json:"maxProperties" yaml:"maxProperties"`
-	Minimum *float64 `json:"minimum" yaml:"minimum"`
-	MinItems *float64 `json:"minItems" yaml:"minItems"`
-	MinLength *float64 `json:"minLength" yaml:"minLength"`
-	MinProperties *float64 `json:"minProperties" yaml:"minProperties"`
-	MultipleOf *float64 `json:"multipleOf" yaml:"multipleOf"`
-	Not **JsonSchemaPropsV1Beta1 `json:"not" yaml:"not"`
-	Nullable *bool `json:"nullable" yaml:"nullable"`
-	OneOf *[]*JsonSchemaPropsV1Beta1 `json:"oneOf" yaml:"oneOf"`
-	Pattern *string `json:"pattern" yaml:"pattern"`
-	PatternProperties *map[string]*JsonSchemaPropsV1Beta1 `json:"patternProperties" yaml:"patternProperties"`
-	Properties *map[string]*JsonSchemaPropsV1Beta1 `json:"properties" yaml:"properties"`
-	Ref *string `json:"ref" yaml:"ref"`
-	Required *[]*string `json:"required" yaml:"required"`
-	Schema *string `json:"schema" yaml:"schema"`
-	Title *string `json:"title" yaml:"title"`
-	Type *string `json:"type" yaml:"type"`
-	UniqueItems *bool `json:"uniqueItems" yaml:"uniqueItems"`
+	Format *string `field:"optional" json:"format" yaml:"format"`
+	Id *string `field:"optional" json:"id" yaml:"id"`
+	Items interface{} `field:"optional" json:"items" yaml:"items"`
+	Maximum *float64 `field:"optional" json:"maximum" yaml:"maximum"`
+	MaxItems *float64 `field:"optional" json:"maxItems" yaml:"maxItems"`
+	MaxLength *float64 `field:"optional" json:"maxLength" yaml:"maxLength"`
+	MaxProperties *float64 `field:"optional" json:"maxProperties" yaml:"maxProperties"`
+	Minimum *float64 `field:"optional" json:"minimum" yaml:"minimum"`
+	MinItems *float64 `field:"optional" json:"minItems" yaml:"minItems"`
+	MinLength *float64 `field:"optional" json:"minLength" yaml:"minLength"`
+	MinProperties *float64 `field:"optional" json:"minProperties" yaml:"minProperties"`
+	MultipleOf *float64 `field:"optional" json:"multipleOf" yaml:"multipleOf"`
+	Not **JsonSchemaPropsV1Beta1 `field:"optional" json:"not" yaml:"not"`
+	Nullable *bool `field:"optional" json:"nullable" yaml:"nullable"`
+	OneOf *[]*JsonSchemaPropsV1Beta1 `field:"optional" json:"oneOf" yaml:"oneOf"`
+	Pattern *string `field:"optional" json:"pattern" yaml:"pattern"`
+	PatternProperties *map[string]*JsonSchemaPropsV1Beta1 `field:"optional" json:"patternProperties" yaml:"patternProperties"`
+	Properties *map[string]*JsonSchemaPropsV1Beta1 `field:"optional" json:"properties" yaml:"properties"`
+	Ref *string `field:"optional" json:"ref" yaml:"ref"`
+	Required *[]*string `field:"optional" json:"required" yaml:"required"`
+	Schema *string `field:"optional" json:"schema" yaml:"schema"`
+	Title *string `field:"optional" json:"title" yaml:"title"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
+	UniqueItems *bool `field:"optional" json:"uniqueItems" yaml:"uniqueItems"`
 	// x-kubernetes-embedded-resource defines that the value is an embedded Kubernetes runtime.Object, with TypeMeta and ObjectMeta. The type must be object. It is allowed to further restrict the embedded object. kind, apiVersion and metadata are validated automatically. x-kubernetes-preserve-unknown-fields is allowed to be true, but does not have to be if the object is fully specified (up to kind, apiVersion, metadata).
-	XKubernetesEmbeddedResource *bool `json:"xKubernetesEmbeddedResource" yaml:"xKubernetesEmbeddedResource"`
+	XKubernetesEmbeddedResource *bool `field:"optional" json:"xKubernetesEmbeddedResource" yaml:"xKubernetesEmbeddedResource"`
 	// x-kubernetes-int-or-string specifies that this value is either an integer or a string.
 	//
 	// If this is true, an empty type is allowed and type as child of anyOf is permitted if following one of the following patterns:
@@ -2472,11 +2472,11 @@ type JsonSchemaPropsV1Beta1 struct {
 	// - type: integer
 	// - type: string
 	// - ... zero or more
-	XKubernetesIntOrString *bool `json:"xKubernetesIntOrString" yaml:"xKubernetesIntOrString"`
+	XKubernetesIntOrString *bool `field:"optional" json:"xKubernetesIntOrString" yaml:"xKubernetesIntOrString"`
 	// x-kubernetes-list-map-keys annotates an array with the x-kubernetes-list-type `map` by specifying the keys used as the index of the map.
 	//
 	// This tag MUST only be used on lists that have the "x-kubernetes-list-type" extension set to "map". Also, the values specified for this attribute must be a scalar typed field of the child structure (no nesting is supported).
-	XKubernetesListMapKeys *[]*string `json:"xKubernetesListMapKeys" yaml:"xKubernetesListMapKeys"`
+	XKubernetesListMapKeys *[]*string `field:"optional" json:"xKubernetesListMapKeys" yaml:"xKubernetesListMapKeys"`
 	// x-kubernetes-list-type annotates an array to further describe its topology.
 	//
 	// This extension must only be used on lists and may have 3 possible values:
@@ -2493,7 +2493,7 @@ type JsonSchemaPropsV1Beta1 struct {
 	// used to identify them. Order is preserved upon merge. The map tag
 	// must only be used on a list with elements of type object.
 	// Defaults to atomic for arrays.
-	XKubernetesListType *string `json:"xKubernetesListType" yaml:"xKubernetesListType"`
+	XKubernetesListType *string `field:"optional" json:"xKubernetesListType" yaml:"xKubernetesListType"`
 	// x-kubernetes-map-type annotates an object to further describe its topology.
 	//
 	// This extension must only be used when type is object and may have 2 possible values:
@@ -2504,25 +2504,25 @@ type JsonSchemaPropsV1Beta1 struct {
 	// the default behaviour for all maps.
 	// 2) `atomic`: the list is treated as a single entity, like a scalar.
 	// Atomic maps will be entirely replaced when updated.
-	XKubernetesMapType *string `json:"xKubernetesMapType" yaml:"xKubernetesMapType"`
+	XKubernetesMapType *string `field:"optional" json:"xKubernetesMapType" yaml:"xKubernetesMapType"`
 	// x-kubernetes-preserve-unknown-fields stops the API server decoding step from pruning fields which are not specified in the validation schema.
 	//
 	// This affects fields recursively, but switches back to normal pruning behaviour if nested properties or additionalProperties are specified in the schema. This can either be true or undefined. False is forbidden.
-	XKubernetesPreserveUnknownFields *bool `json:"xKubernetesPreserveUnknownFields" yaml:"xKubernetesPreserveUnknownFields"`
+	XKubernetesPreserveUnknownFields *bool `field:"optional" json:"xKubernetesPreserveUnknownFields" yaml:"xKubernetesPreserveUnknownFields"`
 }
 
 // Maps a string key to a path within a volume.
 type KeyToPath struct {
 	// The key to project.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"required" json:"key" yaml:"key"`
 	// The relative path of the file to map the key to.
 	//
 	// May not be an absolute path. May not contain the path element '..'. May not start with the string '..'.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"required" json:"path" yaml:"path"`
 	// Optional: mode bits to use on this file, must be a value between 0 and 0777.
 	//
 	// If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
-	Mode *float64 `json:"mode" yaml:"mode"`
+	Mode *float64 `field:"optional" json:"mode" yaml:"mode"`
 }
 
 // APIService represents a server for a particular GroupVersion.
@@ -3091,8 +3091,8 @@ func (k *jsiiProxy_KubeApiServiceList) ToString() *string {
 
 // APIServiceList is a list of APIService objects.
 type KubeApiServiceListProps struct {
-	Items *[]*KubeApiServiceProps `json:"items" yaml:"items"`
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Items *[]*KubeApiServiceProps `field:"required" json:"items" yaml:"items"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // APIServiceList is a list of APIService objects.
@@ -3378,17 +3378,17 @@ func (k *jsiiProxy_KubeApiServiceListV1Beta1) ToString() *string {
 
 // APIServiceList is a list of APIService objects.
 type KubeApiServiceListV1Beta1Props struct {
-	Items *[]*KubeApiServiceV1Beta1Props `json:"items" yaml:"items"`
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Items *[]*KubeApiServiceV1Beta1Props `field:"required" json:"items" yaml:"items"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // APIService represents a server for a particular GroupVersion.
 //
 // Name must be "version.group".
 type KubeApiServiceProps struct {
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// Spec contains information for locating and communicating with a server.
-	Spec *ApiServiceSpec `json:"spec" yaml:"spec"`
+	Spec *ApiServiceSpec `field:"optional" json:"spec" yaml:"spec"`
 }
 
 // APIService represents a server for a particular GroupVersion.
@@ -3678,9 +3678,9 @@ func (k *jsiiProxy_KubeApiServiceV1Beta1) ToString() *string {
 //
 // Name must be "version.group".
 type KubeApiServiceV1Beta1Props struct {
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// Spec contains information for locating and communicating with a server.
-	Spec *ApiServiceSpecV1Beta1 `json:"spec" yaml:"spec"`
+	Spec *ApiServiceSpecV1Beta1 `field:"optional" json:"spec" yaml:"spec"`
 }
 
 // AuditSinkList is a list of AuditSink items.
@@ -3967,8 +3967,8 @@ func (k *jsiiProxy_KubeAuditSinkListV1Alpha1) ToString() *string {
 // AuditSinkList is a list of AuditSink items.
 type KubeAuditSinkListV1Alpha1Props struct {
 	// List of audit configurations.
-	Items *[]*KubeAuditSinkV1Alpha1Props `json:"items" yaml:"items"`
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Items *[]*KubeAuditSinkV1Alpha1Props `field:"required" json:"items" yaml:"items"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // AuditSink represents a cluster level audit sink.
@@ -4254,9 +4254,9 @@ func (k *jsiiProxy_KubeAuditSinkV1Alpha1) ToString() *string {
 
 // AuditSink represents a cluster level audit sink.
 type KubeAuditSinkV1Alpha1Props struct {
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// Spec defines the audit configuration spec.
-	Spec *AuditSinkSpecV1Alpha1 `json:"spec" yaml:"spec"`
+	Spec *AuditSinkSpecV1Alpha1 `field:"optional" json:"spec" yaml:"spec"`
 }
 
 // Binding ties one object to another;
@@ -4547,11 +4547,11 @@ func (k *jsiiProxy_KubeBinding) ToString() *string {
 // for example, a pod is bound to a node by a scheduler. Deprecated in 1.7, please use the bindings subresource of pods instead.
 type KubeBindingProps struct {
 	// The target object that you want to bind to the standard object.
-	Target *ObjectReference `json:"target" yaml:"target"`
+	Target *ObjectReference `field:"required" json:"target" yaml:"target"`
 	// Standard object's metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 type KubeCertificateSigningRequestListV1Beta1 interface {
@@ -4835,8 +4835,8 @@ func (k *jsiiProxy_KubeCertificateSigningRequestListV1Beta1) ToString() *string 
 }
 
 type KubeCertificateSigningRequestListV1Beta1Props struct {
-	Items *[]*KubeCertificateSigningRequestV1Beta1Props `json:"items" yaml:"items"`
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Items *[]*KubeCertificateSigningRequestV1Beta1Props `field:"required" json:"items" yaml:"items"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // Describes a certificate signing request.
@@ -5122,9 +5122,9 @@ func (k *jsiiProxy_KubeCertificateSigningRequestV1Beta1) ToString() *string {
 
 // Describes a certificate signing request.
 type KubeCertificateSigningRequestV1Beta1Props struct {
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// The certificate request itself and any additional information.
-	Spec *CertificateSigningRequestSpecV1Beta1 `json:"spec" yaml:"spec"`
+	Spec *CertificateSigningRequestSpecV1Beta1 `field:"optional" json:"spec" yaml:"spec"`
 }
 
 // ClusterRole is a cluster level, logical grouping of PolicyRules that can be referenced as a unit by a RoleBinding or ClusterRoleBinding.
@@ -5975,9 +5975,9 @@ func (k *jsiiProxy_KubeClusterRoleBindingList) ToString() *string {
 // ClusterRoleBindingList is a collection of ClusterRoleBindings.
 type KubeClusterRoleBindingListProps struct {
 	// Items is a list of ClusterRoleBindings.
-	Items *[]*KubeClusterRoleBindingProps `json:"items" yaml:"items"`
+	Items *[]*KubeClusterRoleBindingProps `field:"required" json:"items" yaml:"items"`
 	// Standard object's metadata.
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // ClusterRoleBindingList is a collection of ClusterRoleBindings.
@@ -6268,9 +6268,9 @@ func (k *jsiiProxy_KubeClusterRoleBindingListV1Alpha1) ToString() *string {
 // Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 ClusterRoleBindings, and will no longer be served in v1.20.
 type KubeClusterRoleBindingListV1Alpha1Props struct {
 	// Items is a list of ClusterRoleBindings.
-	Items *[]*KubeClusterRoleBindingV1Alpha1Props `json:"items" yaml:"items"`
+	Items *[]*KubeClusterRoleBindingV1Alpha1Props `field:"required" json:"items" yaml:"items"`
 	// Standard object's metadata.
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // ClusterRoleBindingList is a collection of ClusterRoleBindings.
@@ -6561,9 +6561,9 @@ func (k *jsiiProxy_KubeClusterRoleBindingListV1Beta1) ToString() *string {
 // Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 ClusterRoleBindingList, and will no longer be served in v1.20.
 type KubeClusterRoleBindingListV1Beta1Props struct {
 	// Items is a list of ClusterRoleBindings.
-	Items *[]*KubeClusterRoleBindingV1Beta1Props `json:"items" yaml:"items"`
+	Items *[]*KubeClusterRoleBindingV1Beta1Props `field:"required" json:"items" yaml:"items"`
 	// Standard object's metadata.
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // ClusterRoleBinding references a ClusterRole, but not contain it.
@@ -6573,11 +6573,11 @@ type KubeClusterRoleBindingProps struct {
 	// RoleRef can only reference a ClusterRole in the global namespace.
 	//
 	// If the RoleRef cannot be resolved, the Authorizer must return an error.
-	RoleRef *RoleRef `json:"roleRef" yaml:"roleRef"`
+	RoleRef *RoleRef `field:"required" json:"roleRef" yaml:"roleRef"`
 	// Standard object's metadata.
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// Subjects holds references to the objects the role applies to.
-	Subjects *[]*Subject `json:"subjects" yaml:"subjects"`
+	Subjects *[]*Subject `field:"optional" json:"subjects" yaml:"subjects"`
 }
 
 // ClusterRoleBinding references a ClusterRole, but not contain it.
@@ -6870,11 +6870,11 @@ type KubeClusterRoleBindingV1Alpha1Props struct {
 	// RoleRef can only reference a ClusterRole in the global namespace.
 	//
 	// If the RoleRef cannot be resolved, the Authorizer must return an error.
-	RoleRef *RoleRefV1Alpha1 `json:"roleRef" yaml:"roleRef"`
+	RoleRef *RoleRefV1Alpha1 `field:"required" json:"roleRef" yaml:"roleRef"`
 	// Standard object's metadata.
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// Subjects holds references to the objects the role applies to.
-	Subjects *[]*SubjectV1Alpha1 `json:"subjects" yaml:"subjects"`
+	Subjects *[]*SubjectV1Alpha1 `field:"optional" json:"subjects" yaml:"subjects"`
 }
 
 // ClusterRoleBinding references a ClusterRole, but not contain it.
@@ -7167,11 +7167,11 @@ type KubeClusterRoleBindingV1Beta1Props struct {
 	// RoleRef can only reference a ClusterRole in the global namespace.
 	//
 	// If the RoleRef cannot be resolved, the Authorizer must return an error.
-	RoleRef *RoleRefV1Beta1 `json:"roleRef" yaml:"roleRef"`
+	RoleRef *RoleRefV1Beta1 `field:"required" json:"roleRef" yaml:"roleRef"`
 	// Standard object's metadata.
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// Subjects holds references to the objects the role applies to.
-	Subjects *[]*SubjectV1Beta1 `json:"subjects" yaml:"subjects"`
+	Subjects *[]*SubjectV1Beta1 `field:"optional" json:"subjects" yaml:"subjects"`
 }
 
 // ClusterRoleList is a collection of ClusterRoles.
@@ -7458,9 +7458,9 @@ func (k *jsiiProxy_KubeClusterRoleList) ToString() *string {
 // ClusterRoleList is a collection of ClusterRoles.
 type KubeClusterRoleListProps struct {
 	// Items is a list of ClusterRoles.
-	Items *[]*KubeClusterRoleProps `json:"items" yaml:"items"`
+	Items *[]*KubeClusterRoleProps `field:"required" json:"items" yaml:"items"`
 	// Standard object's metadata.
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // ClusterRoleList is a collection of ClusterRoles.
@@ -7751,9 +7751,9 @@ func (k *jsiiProxy_KubeClusterRoleListV1Alpha1) ToString() *string {
 // Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 ClusterRoles, and will no longer be served in v1.20.
 type KubeClusterRoleListV1Alpha1Props struct {
 	// Items is a list of ClusterRoles.
-	Items *[]*KubeClusterRoleV1Alpha1Props `json:"items" yaml:"items"`
+	Items *[]*KubeClusterRoleV1Alpha1Props `field:"required" json:"items" yaml:"items"`
 	// Standard object's metadata.
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // ClusterRoleList is a collection of ClusterRoles.
@@ -8044,9 +8044,9 @@ func (k *jsiiProxy_KubeClusterRoleListV1Beta1) ToString() *string {
 // Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 ClusterRoles, and will no longer be served in v1.20.
 type KubeClusterRoleListV1Beta1Props struct {
 	// Items is a list of ClusterRoles.
-	Items *[]*KubeClusterRoleV1Beta1Props `json:"items" yaml:"items"`
+	Items *[]*KubeClusterRoleV1Beta1Props `field:"required" json:"items" yaml:"items"`
 	// Standard object's metadata.
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // ClusterRole is a cluster level, logical grouping of PolicyRules that can be referenced as a unit by a RoleBinding or ClusterRoleBinding.
@@ -8054,11 +8054,11 @@ type KubeClusterRoleProps struct {
 	// AggregationRule is an optional field that describes how to build the Rules for this ClusterRole.
 	//
 	// If AggregationRule is set, then the Rules are controller managed and direct changes to Rules will be stomped by the controller.
-	AggregationRule *AggregationRule `json:"aggregationRule" yaml:"aggregationRule"`
+	AggregationRule *AggregationRule `field:"optional" json:"aggregationRule" yaml:"aggregationRule"`
 	// Standard object's metadata.
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// Rules holds all the PolicyRules for this ClusterRole.
-	Rules *[]*PolicyRule `json:"rules" yaml:"rules"`
+	Rules *[]*PolicyRule `field:"optional" json:"rules" yaml:"rules"`
 }
 
 // ClusterRole is a cluster level, logical grouping of PolicyRules that can be referenced as a unit by a RoleBinding or ClusterRoleBinding.
@@ -8351,11 +8351,11 @@ type KubeClusterRoleV1Alpha1Props struct {
 	// AggregationRule is an optional field that describes how to build the Rules for this ClusterRole.
 	//
 	// If AggregationRule is set, then the Rules are controller managed and direct changes to Rules will be stomped by the controller.
-	AggregationRule *AggregationRuleV1Alpha1 `json:"aggregationRule" yaml:"aggregationRule"`
+	AggregationRule *AggregationRuleV1Alpha1 `field:"optional" json:"aggregationRule" yaml:"aggregationRule"`
 	// Standard object's metadata.
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// Rules holds all the PolicyRules for this ClusterRole.
-	Rules *[]*PolicyRuleV1Alpha1 `json:"rules" yaml:"rules"`
+	Rules *[]*PolicyRuleV1Alpha1 `field:"optional" json:"rules" yaml:"rules"`
 }
 
 // ClusterRole is a cluster level, logical grouping of PolicyRules that can be referenced as a unit by a RoleBinding or ClusterRoleBinding.
@@ -8648,11 +8648,11 @@ type KubeClusterRoleV1Beta1Props struct {
 	// AggregationRule is an optional field that describes how to build the Rules for this ClusterRole.
 	//
 	// If AggregationRule is set, then the Rules are controller managed and direct changes to Rules will be stomped by the controller.
-	AggregationRule *AggregationRuleV1Beta1 `json:"aggregationRule" yaml:"aggregationRule"`
+	AggregationRule *AggregationRuleV1Beta1 `field:"optional" json:"aggregationRule" yaml:"aggregationRule"`
 	// Standard object's metadata.
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// Rules holds all the PolicyRules for this ClusterRole.
-	Rules *[]*PolicyRuleV1Beta1 `json:"rules" yaml:"rules"`
+	Rules *[]*PolicyRuleV1Beta1 `field:"optional" json:"rules" yaml:"rules"`
 }
 
 // ComponentStatus (and ComponentStatusList) holds the cluster validation info.
@@ -9220,21 +9220,21 @@ func (k *jsiiProxy_KubeComponentStatusList) ToString() *string {
 // Status of all the conditions for the component as a list of ComponentStatus objects.
 type KubeComponentStatusListProps struct {
 	// List of ComponentStatus objects.
-	Items *[]*KubeComponentStatusProps `json:"items" yaml:"items"`
+	Items *[]*KubeComponentStatusProps `field:"required" json:"items" yaml:"items"`
 	// Standard list metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // ComponentStatus (and ComponentStatusList) holds the cluster validation info.
 type KubeComponentStatusProps struct {
 	// List of component conditions observed.
-	Conditions *[]*ComponentCondition `json:"conditions" yaml:"conditions"`
+	Conditions *[]*ComponentCondition `field:"optional" json:"conditions" yaml:"conditions"`
 	// Standard object's metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // ConfigMap holds configuration data for pods to consume.
@@ -9802,9 +9802,9 @@ func (k *jsiiProxy_KubeConfigMapList) ToString() *string {
 // ConfigMapList is a resource containing a list of ConfigMap objects.
 type KubeConfigMapListProps struct {
 	// Items is the list of ConfigMaps.
-	Items *[]*KubeConfigMapProps `json:"items" yaml:"items"`
+	Items *[]*KubeConfigMapProps `field:"required" json:"items" yaml:"items"`
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // ConfigMap holds configuration data for pods to consume.
@@ -9812,15 +9812,15 @@ type KubeConfigMapProps struct {
 	// BinaryData contains the binary data.
 	//
 	// Each key must consist of alphanumeric characters, '-', '_' or '.'. BinaryData can contain byte sequences that are not in the UTF-8 range. The keys stored in BinaryData must not overlap with the ones in the Data field, this is enforced during validation process. Using this field will require 1.10+ apiserver and kubelet.
-	BinaryData *map[string]*string `json:"binaryData" yaml:"binaryData"`
+	BinaryData *map[string]*string `field:"optional" json:"binaryData" yaml:"binaryData"`
 	// Data contains the configuration data.
 	//
 	// Each key must consist of alphanumeric characters, '-', '_' or '.'. Values with non-UTF-8 byte sequences must use the BinaryData field. The keys stored in Data must not overlap with the keys in the BinaryData field, this is enforced during validation process.
-	Data *map[string]*string `json:"data" yaml:"data"`
+	Data *map[string]*string `field:"optional" json:"data" yaml:"data"`
 	// Standard object's metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // ControllerRevision implements an immutable snapshot of state data.
@@ -10390,9 +10390,9 @@ func (k *jsiiProxy_KubeControllerRevisionList) ToString() *string {
 // ControllerRevisionList is a resource containing a list of ControllerRevision objects.
 type KubeControllerRevisionListProps struct {
 	// Items is the list of ControllerRevisions.
-	Items *[]*KubeControllerRevisionProps `json:"items" yaml:"items"`
+	Items *[]*KubeControllerRevisionProps `field:"required" json:"items" yaml:"items"`
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // ControllerRevisionList is a resource containing a list of ControllerRevision objects.
@@ -10679,9 +10679,9 @@ func (k *jsiiProxy_KubeControllerRevisionListV1Beta1) ToString() *string {
 // ControllerRevisionList is a resource containing a list of ControllerRevision objects.
 type KubeControllerRevisionListV1Beta1Props struct {
 	// Items is the list of ControllerRevisions.
-	Items *[]*KubeControllerRevisionV1Beta1Props `json:"items" yaml:"items"`
+	Items *[]*KubeControllerRevisionV1Beta1Props `field:"required" json:"items" yaml:"items"`
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // ControllerRevisionList is a resource containing a list of ControllerRevision objects.
@@ -10968,9 +10968,9 @@ func (k *jsiiProxy_KubeControllerRevisionListV1Beta2) ToString() *string {
 // ControllerRevisionList is a resource containing a list of ControllerRevision objects.
 type KubeControllerRevisionListV1Beta2Props struct {
 	// Items is the list of ControllerRevisions.
-	Items *[]*KubeControllerRevisionV1Beta2Props `json:"items" yaml:"items"`
+	Items *[]*KubeControllerRevisionV1Beta2Props `field:"required" json:"items" yaml:"items"`
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // ControllerRevision implements an immutable snapshot of state data.
@@ -10978,13 +10978,13 @@ type KubeControllerRevisionListV1Beta2Props struct {
 // Clients are responsible for serializing and deserializing the objects that contain their internal state. Once a ControllerRevision has been successfully created, it can not be updated. The API Server will fail validation of all requests that attempt to mutate the Data field. ControllerRevisions may, however, be deleted. Note that, due to its use by both the DaemonSet and StatefulSet controllers for update and rollback, this object is beta. However, it may be subject to name and representation changes in future releases, and clients should not depend on its stability. It is primarily for internal use by controllers.
 type KubeControllerRevisionProps struct {
 	// Revision indicates the revision of the state represented by Data.
-	Revision *float64 `json:"revision" yaml:"revision"`
+	Revision *float64 `field:"required" json:"revision" yaml:"revision"`
 	// Data is the serialized representation of the state.
-	Data interface{} `json:"data" yaml:"data"`
+	Data interface{} `field:"optional" json:"data" yaml:"data"`
 	// Standard object's metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // DEPRECATED - This group version of ControllerRevision is deprecated by apps/v1beta2/ControllerRevision.
@@ -11275,13 +11275,13 @@ func (k *jsiiProxy_KubeControllerRevisionV1Beta1) ToString() *string {
 // See the release notes for more information. ControllerRevision implements an immutable snapshot of state data. Clients are responsible for serializing and deserializing the objects that contain their internal state. Once a ControllerRevision has been successfully created, it can not be updated. The API Server will fail validation of all requests that attempt to mutate the Data field. ControllerRevisions may, however, be deleted. Note that, due to its use by both the DaemonSet and StatefulSet controllers for update and rollback, this object is beta. However, it may be subject to name and representation changes in future releases, and clients should not depend on its stability. It is primarily for internal use by controllers.
 type KubeControllerRevisionV1Beta1Props struct {
 	// Revision indicates the revision of the state represented by Data.
-	Revision *float64 `json:"revision" yaml:"revision"`
+	Revision *float64 `field:"required" json:"revision" yaml:"revision"`
 	// Data is the serialized representation of the state.
-	Data interface{} `json:"data" yaml:"data"`
+	Data interface{} `field:"optional" json:"data" yaml:"data"`
 	// Standard object's metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // DEPRECATED - This group version of ControllerRevision is deprecated by apps/v1/ControllerRevision.
@@ -11572,13 +11572,13 @@ func (k *jsiiProxy_KubeControllerRevisionV1Beta2) ToString() *string {
 // See the release notes for more information. ControllerRevision implements an immutable snapshot of state data. Clients are responsible for serializing and deserializing the objects that contain their internal state. Once a ControllerRevision has been successfully created, it can not be updated. The API Server will fail validation of all requests that attempt to mutate the Data field. ControllerRevisions may, however, be deleted. Note that, due to its use by both the DaemonSet and StatefulSet controllers for update and rollback, this object is beta. However, it may be subject to name and representation changes in future releases, and clients should not depend on its stability. It is primarily for internal use by controllers.
 type KubeControllerRevisionV1Beta2Props struct {
 	// Revision indicates the revision of the state represented by Data.
-	Revision *float64 `json:"revision" yaml:"revision"`
+	Revision *float64 `field:"required" json:"revision" yaml:"revision"`
 	// Data is the serialized representation of the state.
-	Data interface{} `json:"data" yaml:"data"`
+	Data interface{} `field:"optional" json:"data" yaml:"data"`
 	// Standard object's metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // CronJobList is a collection of cron jobs.
@@ -11865,11 +11865,11 @@ func (k *jsiiProxy_KubeCronJobListV1Beta1) ToString() *string {
 // CronJobList is a collection of cron jobs.
 type KubeCronJobListV1Beta1Props struct {
 	// items is the list of CronJobs.
-	Items *[]*KubeCronJobV1Beta1Props `json:"items" yaml:"items"`
+	Items *[]*KubeCronJobV1Beta1Props `field:"required" json:"items" yaml:"items"`
 	// Standard list metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // CronJobList is a collection of cron jobs.
@@ -12156,11 +12156,11 @@ func (k *jsiiProxy_KubeCronJobListV2Alpha1) ToString() *string {
 // CronJobList is a collection of cron jobs.
 type KubeCronJobListV2Alpha1Props struct {
 	// items is the list of CronJobs.
-	Items *[]*KubeCronJobV2Alpha1Props `json:"items" yaml:"items"`
+	Items *[]*KubeCronJobV2Alpha1Props `field:"required" json:"items" yaml:"items"`
 	// Standard list metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // CronJob represents the configuration of a single cron job.
@@ -12449,11 +12449,11 @@ type KubeCronJobV1Beta1Props struct {
 	// Standard object's metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// Specification of the desired behavior of a cron job, including the schedule.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-	Spec *CronJobSpecV1Beta1 `json:"spec" yaml:"spec"`
+	Spec *CronJobSpecV1Beta1 `field:"optional" json:"spec" yaml:"spec"`
 }
 
 // CronJob represents the configuration of a single cron job.
@@ -12742,11 +12742,11 @@ type KubeCronJobV2Alpha1Props struct {
 	// Standard object's metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// Specification of the desired behavior of a cron job, including the schedule.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-	Spec *CronJobSpecV2Alpha1 `json:"spec" yaml:"spec"`
+	Spec *CronJobSpecV2Alpha1 `field:"optional" json:"spec" yaml:"spec"`
 }
 
 // CSIDriverList is a collection of CSIDriver objects.
@@ -13033,9 +13033,9 @@ func (k *jsiiProxy_KubeCsiDriverListV1Beta1) ToString() *string {
 // CSIDriverList is a collection of CSIDriver objects.
 type KubeCsiDriverListV1Beta1Props struct {
 	// items is the list of CSIDriver.
-	Items *[]*KubeCsiDriverV1Beta1Props `json:"items" yaml:"items"`
+	Items *[]*KubeCsiDriverV1Beta1Props `field:"required" json:"items" yaml:"items"`
 	// Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // CSIDriver captures information about a Container Storage Interface (CSI) volume driver deployed on the cluster.
@@ -13326,11 +13326,11 @@ func (k *jsiiProxy_KubeCsiDriverV1Beta1) ToString() *string {
 // CSI drivers do not need to create the CSIDriver object directly. Instead they may use the cluster-driver-registrar sidecar container. When deployed with a CSI driver it automatically creates a CSIDriver object representing the driver. Kubernetes attach detach controller uses this object to determine whether attach is required. Kubelet uses this object to determine whether pod information needs to be passed on mount. CSIDriver objects are non-namespaced.
 type KubeCsiDriverV1Beta1Props struct {
 	// Specification of the CSI Driver.
-	Spec *CsiDriverSpecV1Beta1 `json:"spec" yaml:"spec"`
+	Spec *CsiDriverSpecV1Beta1 `field:"required" json:"spec" yaml:"spec"`
 	// Standard object metadata.
 	//
 	// metadata.Name indicates the name of the CSI driver that this object refers to; it MUST be the same name returned by the CSI GetPluginName() call for that driver. The driver name must be 63 characters or less, beginning and ending with an alphanumeric character ([a-z0-9A-Z]) with dashes (-), dots (.), and alphanumerics between. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // CSINode holds information about all CSI drivers installed on a node.
@@ -13900,9 +13900,9 @@ func (k *jsiiProxy_KubeCsiNodeList) ToString() *string {
 // CSINodeList is a collection of CSINode objects.
 type KubeCsiNodeListProps struct {
 	// items is the list of CSINode.
-	Items *[]*KubeCsiNodeProps `json:"items" yaml:"items"`
+	Items *[]*KubeCsiNodeProps `field:"required" json:"items" yaml:"items"`
 	// Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // CSINodeList is a collection of CSINode objects.
@@ -14189,9 +14189,9 @@ func (k *jsiiProxy_KubeCsiNodeListV1Beta1) ToString() *string {
 // CSINodeList is a collection of CSINode objects.
 type KubeCsiNodeListV1Beta1Props struct {
 	// items is the list of CSINode.
-	Items *[]*KubeCsiNodeV1Beta1Props `json:"items" yaml:"items"`
+	Items *[]*KubeCsiNodeV1Beta1Props `field:"required" json:"items" yaml:"items"`
 	// Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // CSINode holds information about all CSI drivers installed on a node.
@@ -14199,9 +14199,9 @@ type KubeCsiNodeListV1Beta1Props struct {
 // CSI drivers do not need to create the CSINode object directly. As long as they use the node-driver-registrar sidecar container, the kubelet will automatically populate the CSINode object for the CSI driver as part of kubelet plugin registration. CSINode has the same name as a node. If the object is missing, it means either there are no CSI Drivers available on the node, or the Kubelet version is low enough that it doesn't create this object. CSINode has an OwnerReference that points to the corresponding node object.
 type KubeCsiNodeProps struct {
 	// spec is the specification of CSINode.
-	Spec *CsiNodeSpec `json:"spec" yaml:"spec"`
+	Spec *CsiNodeSpec `field:"required" json:"spec" yaml:"spec"`
 	// metadata.name must be the Kubernetes node name.
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // DEPRECATED - This group version of CSINode is deprecated by storage/v1/CSINode.
@@ -14492,9 +14492,9 @@ func (k *jsiiProxy_KubeCsiNodeV1Beta1) ToString() *string {
 // See the release notes for more information. CSINode holds information about all CSI drivers installed on a node. CSI drivers do not need to create the CSINode object directly. As long as they use the node-driver-registrar sidecar container, the kubelet will automatically populate the CSINode object for the CSI driver as part of kubelet plugin registration. CSINode has the same name as a node. If the object is missing, it means either there are no CSI Drivers available on the node, or the Kubelet version is low enough that it doesn't create this object. CSINode has an OwnerReference that points to the corresponding node object.
 type KubeCsiNodeV1Beta1Props struct {
 	// spec is the specification of CSINode.
-	Spec *CsiNodeSpecV1Beta1 `json:"spec" yaml:"spec"`
+	Spec *CsiNodeSpecV1Beta1 `field:"required" json:"spec" yaml:"spec"`
 	// metadata.name must be the Kubernetes node name.
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // CustomResourceDefinition represents a resource that should be exposed on the API server.
@@ -15064,8 +15064,8 @@ func (k *jsiiProxy_KubeCustomResourceDefinitionList) ToString() *string {
 // CustomResourceDefinitionList is a list of CustomResourceDefinition objects.
 type KubeCustomResourceDefinitionListProps struct {
 	// items list individual CustomResourceDefinition objects.
-	Items *[]*KubeCustomResourceDefinitionProps `json:"items" yaml:"items"`
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Items *[]*KubeCustomResourceDefinitionProps `field:"required" json:"items" yaml:"items"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // CustomResourceDefinitionList is a list of CustomResourceDefinition objects.
@@ -15352,8 +15352,8 @@ func (k *jsiiProxy_KubeCustomResourceDefinitionListV1Beta1) ToString() *string {
 // CustomResourceDefinitionList is a list of CustomResourceDefinition objects.
 type KubeCustomResourceDefinitionListV1Beta1Props struct {
 	// items list individual CustomResourceDefinition objects.
-	Items *[]*KubeCustomResourceDefinitionV1Beta1Props `json:"items" yaml:"items"`
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Items *[]*KubeCustomResourceDefinitionV1Beta1Props `field:"required" json:"items" yaml:"items"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // CustomResourceDefinition represents a resource that should be exposed on the API server.
@@ -15361,8 +15361,8 @@ type KubeCustomResourceDefinitionListV1Beta1Props struct {
 // Its name MUST be in the format <.spec.name>.<.spec.group>.
 type KubeCustomResourceDefinitionProps struct {
 	// spec describes how the user wants the resources to appear.
-	Spec *CustomResourceDefinitionSpec `json:"spec" yaml:"spec"`
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Spec *CustomResourceDefinitionSpec `field:"required" json:"spec" yaml:"spec"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // CustomResourceDefinition represents a resource that should be exposed on the API server.
@@ -15653,8 +15653,8 @@ func (k *jsiiProxy_KubeCustomResourceDefinitionV1Beta1) ToString() *string {
 // Its name MUST be in the format <.spec.name>.<.spec.group>. Deprecated in v1.16, planned for removal in v1.19. Use apiextensions.k8s.io/v1 CustomResourceDefinition instead.
 type KubeCustomResourceDefinitionV1Beta1Props struct {
 	// spec describes how the user wants the resources to appear.
-	Spec *CustomResourceDefinitionSpecV1Beta1 `json:"spec" yaml:"spec"`
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Spec *CustomResourceDefinitionSpecV1Beta1 `field:"required" json:"spec" yaml:"spec"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // DaemonSet represents the configuration of a daemon set.
@@ -16222,11 +16222,11 @@ func (k *jsiiProxy_KubeDaemonSetList) ToString() *string {
 // DaemonSetList is a collection of daemon sets.
 type KubeDaemonSetListProps struct {
 	// A list of daemon sets.
-	Items *[]*KubeDaemonSetProps `json:"items" yaml:"items"`
+	Items *[]*KubeDaemonSetProps `field:"required" json:"items" yaml:"items"`
 	// Standard list metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // DaemonSetList is a collection of daemon sets.
@@ -16513,11 +16513,11 @@ func (k *jsiiProxy_KubeDaemonSetListV1Beta1) ToString() *string {
 // DaemonSetList is a collection of daemon sets.
 type KubeDaemonSetListV1Beta1Props struct {
 	// A list of daemon sets.
-	Items *[]*KubeDaemonSetV1Beta1Props `json:"items" yaml:"items"`
+	Items *[]*KubeDaemonSetV1Beta1Props `field:"required" json:"items" yaml:"items"`
 	// Standard list metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // DaemonSetList is a collection of daemon sets.
@@ -16804,11 +16804,11 @@ func (k *jsiiProxy_KubeDaemonSetListV1Beta2) ToString() *string {
 // DaemonSetList is a collection of daemon sets.
 type KubeDaemonSetListV1Beta2Props struct {
 	// A list of daemon sets.
-	Items *[]*KubeDaemonSetV1Beta2Props `json:"items" yaml:"items"`
+	Items *[]*KubeDaemonSetV1Beta2Props `field:"required" json:"items" yaml:"items"`
 	// Standard list metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // DaemonSet represents the configuration of a daemon set.
@@ -16816,11 +16816,11 @@ type KubeDaemonSetProps struct {
 	// Standard object's metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// The desired behavior of this daemon set.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-	Spec *DaemonSetSpec `json:"spec" yaml:"spec"`
+	Spec *DaemonSetSpec `field:"optional" json:"spec" yaml:"spec"`
 }
 
 // DEPRECATED - This group version of DaemonSet is deprecated by apps/v1beta2/DaemonSet.
@@ -17113,11 +17113,11 @@ type KubeDaemonSetV1Beta1Props struct {
 	// Standard object's metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// The desired behavior of this daemon set.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-	Spec *DaemonSetSpecV1Beta1 `json:"spec" yaml:"spec"`
+	Spec *DaemonSetSpecV1Beta1 `field:"optional" json:"spec" yaml:"spec"`
 }
 
 // DEPRECATED - This group version of DaemonSet is deprecated by apps/v1/DaemonSet.
@@ -17410,11 +17410,11 @@ type KubeDaemonSetV1Beta2Props struct {
 	// Standard object's metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// The desired behavior of this daemon set.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-	Spec *DaemonSetSpecV1Beta2 `json:"spec" yaml:"spec"`
+	Spec *DaemonSetSpecV1Beta2 `field:"optional" json:"spec" yaml:"spec"`
 }
 
 // Deployment enables declarative updates for Pods and ReplicaSets.
@@ -17982,9 +17982,9 @@ func (k *jsiiProxy_KubeDeploymentList) ToString() *string {
 // DeploymentList is a list of Deployments.
 type KubeDeploymentListProps struct {
 	// Items is the list of Deployments.
-	Items *[]*KubeDeploymentProps `json:"items" yaml:"items"`
+	Items *[]*KubeDeploymentProps `field:"required" json:"items" yaml:"items"`
 	// Standard list metadata.
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // DeploymentList is a list of Deployments.
@@ -18271,9 +18271,9 @@ func (k *jsiiProxy_KubeDeploymentListV1Beta1) ToString() *string {
 // DeploymentList is a list of Deployments.
 type KubeDeploymentListV1Beta1Props struct {
 	// Items is the list of Deployments.
-	Items *[]*KubeDeploymentV1Beta1Props `json:"items" yaml:"items"`
+	Items *[]*KubeDeploymentV1Beta1Props `field:"required" json:"items" yaml:"items"`
 	// Standard list metadata.
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // DeploymentList is a list of Deployments.
@@ -18560,17 +18560,17 @@ func (k *jsiiProxy_KubeDeploymentListV1Beta2) ToString() *string {
 // DeploymentList is a list of Deployments.
 type KubeDeploymentListV1Beta2Props struct {
 	// Items is the list of Deployments.
-	Items *[]*KubeDeploymentV1Beta2Props `json:"items" yaml:"items"`
+	Items *[]*KubeDeploymentV1Beta2Props `field:"required" json:"items" yaml:"items"`
 	// Standard list metadata.
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // Deployment enables declarative updates for Pods and ReplicaSets.
 type KubeDeploymentProps struct {
 	// Standard object metadata.
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// Specification of the desired behavior of the Deployment.
-	Spec *DeploymentSpec `json:"spec" yaml:"spec"`
+	Spec *DeploymentSpec `field:"optional" json:"spec" yaml:"spec"`
 }
 
 // DEPRECATED - This group version of Deployment is deprecated by apps/v1beta2/Deployment.
@@ -18861,9 +18861,9 @@ func (k *jsiiProxy_KubeDeploymentV1Beta1) ToString() *string {
 // See the release notes for more information. Deployment enables declarative updates for Pods and ReplicaSets.
 type KubeDeploymentV1Beta1Props struct {
 	// Standard object metadata.
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// Specification of the desired behavior of the Deployment.
-	Spec *DeploymentSpecV1Beta1 `json:"spec" yaml:"spec"`
+	Spec *DeploymentSpecV1Beta1 `field:"optional" json:"spec" yaml:"spec"`
 }
 
 // DEPRECATED - This group version of Deployment is deprecated by apps/v1/Deployment.
@@ -19154,9 +19154,9 @@ func (k *jsiiProxy_KubeDeploymentV1Beta2) ToString() *string {
 // See the release notes for more information. Deployment enables declarative updates for Pods and ReplicaSets.
 type KubeDeploymentV1Beta2Props struct {
 	// Standard object metadata.
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// Specification of the desired behavior of the Deployment.
-	Spec *DeploymentSpecV1Beta2 `json:"spec" yaml:"spec"`
+	Spec *DeploymentSpecV1Beta2 `field:"optional" json:"spec" yaml:"spec"`
 }
 
 // EndpointSliceList represents a list of endpoint slices.
@@ -19443,9 +19443,9 @@ func (k *jsiiProxy_KubeEndpointSliceListV1Beta1) ToString() *string {
 // EndpointSliceList represents a list of endpoint slices.
 type KubeEndpointSliceListV1Beta1Props struct {
 	// List of endpoint slices.
-	Items *[]*KubeEndpointSliceV1Beta1Props `json:"items" yaml:"items"`
+	Items *[]*KubeEndpointSliceV1Beta1Props `field:"required" json:"items" yaml:"items"`
 	// Standard list metadata.
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // EndpointSlice represents a subset of the endpoints that implement a service.
@@ -19738,17 +19738,17 @@ type KubeEndpointSliceV1Beta1Props struct {
 	// addressType specifies the type of address carried by this EndpointSlice.
 	//
 	// All addresses in this slice must be the same type. This field is immutable after creation. The following address types are currently supported: * IPv4: Represents an IPv4 Address. * IPv6: Represents an IPv6 Address. * FQDN: Represents a Fully Qualified Domain Name.
-	AddressType *string `json:"addressType" yaml:"addressType"`
+	AddressType *string `field:"required" json:"addressType" yaml:"addressType"`
 	// endpoints is a list of unique endpoints in this slice.
 	//
 	// Each slice may include a maximum of 1000 endpoints.
-	Endpoints *[]*EndpointV1Beta1 `json:"endpoints" yaml:"endpoints"`
+	Endpoints *[]*EndpointV1Beta1 `field:"required" json:"endpoints" yaml:"endpoints"`
 	// Standard object's metadata.
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// ports specifies the list of network ports exposed by each endpoint in this slice.
 	//
 	// Each port must have a unique name. When ports is empty, it indicates that there are no defined ports. When a port is defined with a nil port value, it indicates "all ports". Each slice may include a maximum of 100 ports.
-	Ports *[]*EndpointPortV1Beta1 `json:"ports" yaml:"ports"`
+	Ports *[]*EndpointPortV1Beta1 `field:"optional" json:"ports" yaml:"ports"`
 }
 
 // Endpoints is a collection of endpoints that implement the actual service.
@@ -20329,11 +20329,11 @@ func (k *jsiiProxy_KubeEndpointsList) ToString() *string {
 // EndpointsList is a list of endpoints.
 type KubeEndpointsListProps struct {
 	// List of endpoints.
-	Items *[]*KubeEndpointsProps `json:"items" yaml:"items"`
+	Items *[]*KubeEndpointsProps `field:"required" json:"items" yaml:"items"`
 	// Standard list metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // Endpoints is a collection of endpoints that implement the actual service.
@@ -20354,11 +20354,11 @@ type KubeEndpointsProps struct {
 	// Standard object's metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// The set of all endpoints is the union of all subsets.
 	//
 	// Addresses are placed into subsets according to the IPs they share. A single address with multiple ports, some of which are ready and some of which are not (because they come from different containers) will result in the address being displayed in different subsets for the different ports. No address will appear in both Addresses and NotReadyAddresses in the same subset. Sets of addresses and ports that comprise a service.
-	Subsets *[]*EndpointSubset `json:"subsets" yaml:"subsets"`
+	Subsets *[]*EndpointSubset `field:"optional" json:"subsets" yaml:"subsets"`
 }
 
 // Event is a report of an event somewhere in the cluster.
@@ -20926,11 +20926,11 @@ func (k *jsiiProxy_KubeEventList) ToString() *string {
 // EventList is a list of events.
 type KubeEventListProps struct {
 	// List of events.
-	Items *[]*KubeEventProps `json:"items" yaml:"items"`
+	Items *[]*KubeEventProps `field:"required" json:"items" yaml:"items"`
 	// Standard list metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // EventList is a list of Event objects.
@@ -21217,51 +21217,51 @@ func (k *jsiiProxy_KubeEventListV1Beta1) ToString() *string {
 // EventList is a list of Event objects.
 type KubeEventListV1Beta1Props struct {
 	// Items is a list of schema objects.
-	Items *[]*KubeEventV1Beta1Props `json:"items" yaml:"items"`
+	Items *[]*KubeEventV1Beta1Props `field:"required" json:"items" yaml:"items"`
 	// Standard list metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // Event is a report of an event somewhere in the cluster.
 type KubeEventProps struct {
 	// The object that this event is about.
-	InvolvedObject *ObjectReference `json:"involvedObject" yaml:"involvedObject"`
+	InvolvedObject *ObjectReference `field:"required" json:"involvedObject" yaml:"involvedObject"`
 	// Standard object's metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"required" json:"metadata" yaml:"metadata"`
 	// What action was taken/failed regarding to the Regarding object.
-	Action *string `json:"action" yaml:"action"`
+	Action *string `field:"optional" json:"action" yaml:"action"`
 	// The number of times this event has occurred.
-	Count *float64 `json:"count" yaml:"count"`
+	Count *float64 `field:"optional" json:"count" yaml:"count"`
 	// Time when this Event was first observed.
-	EventTime *time.Time `json:"eventTime" yaml:"eventTime"`
+	EventTime *time.Time `field:"optional" json:"eventTime" yaml:"eventTime"`
 	// The time at which the event was first recorded.
 	//
 	// (Time of server receipt is in TypeMeta.)
-	FirstTimestamp *time.Time `json:"firstTimestamp" yaml:"firstTimestamp"`
+	FirstTimestamp *time.Time `field:"optional" json:"firstTimestamp" yaml:"firstTimestamp"`
 	// The time at which the most recent occurrence of this event was recorded.
-	LastTimestamp *time.Time `json:"lastTimestamp" yaml:"lastTimestamp"`
+	LastTimestamp *time.Time `field:"optional" json:"lastTimestamp" yaml:"lastTimestamp"`
 	// A human-readable description of the status of this operation.
-	Message *string `json:"message" yaml:"message"`
+	Message *string `field:"optional" json:"message" yaml:"message"`
 	// This should be a short, machine understandable string that gives the reason for the transition into the object's current status.
-	Reason *string `json:"reason" yaml:"reason"`
+	Reason *string `field:"optional" json:"reason" yaml:"reason"`
 	// Optional secondary object for more complex actions.
-	Related *ObjectReference `json:"related" yaml:"related"`
+	Related *ObjectReference `field:"optional" json:"related" yaml:"related"`
 	// Name of the controller that emitted this Event, e.g. `kubernetes.io/kubelet`.
-	ReportingComponent *string `json:"reportingComponent" yaml:"reportingComponent"`
+	ReportingComponent *string `field:"optional" json:"reportingComponent" yaml:"reportingComponent"`
 	// ID of the controller instance, e.g. `kubelet-xyzf`.
-	ReportingInstance *string `json:"reportingInstance" yaml:"reportingInstance"`
+	ReportingInstance *string `field:"optional" json:"reportingInstance" yaml:"reportingInstance"`
 	// Data about the Event series this event represents or nil if it's a singleton Event.
-	Series *EventSeries `json:"series" yaml:"series"`
+	Series *EventSeries `field:"optional" json:"series" yaml:"series"`
 	// The component reporting this event.
 	//
 	// Should be a short machine understandable string.
-	Source *EventSource `json:"source" yaml:"source"`
+	Source *EventSource `field:"optional" json:"source" yaml:"source"`
 	// Type of this event (Normal, Warning), new types could be added in the future.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 
 // Event is a report of an event somewhere in the cluster.
@@ -21554,40 +21554,40 @@ type KubeEventV1Beta1Props struct {
 	// Required.
 	//
 	// Time when this Event was first observed.
-	EventTime *time.Time `json:"eventTime" yaml:"eventTime"`
+	EventTime *time.Time `field:"required" json:"eventTime" yaml:"eventTime"`
 	// What action was taken/failed regarding to the regarding object.
-	Action *string `json:"action" yaml:"action"`
+	Action *string `field:"optional" json:"action" yaml:"action"`
 	// Deprecated field assuring backward compatibility with core.v1 Event type.
-	DeprecatedCount *float64 `json:"deprecatedCount" yaml:"deprecatedCount"`
+	DeprecatedCount *float64 `field:"optional" json:"deprecatedCount" yaml:"deprecatedCount"`
 	// Deprecated field assuring backward compatibility with core.v1 Event type.
-	DeprecatedFirstTimestamp *time.Time `json:"deprecatedFirstTimestamp" yaml:"deprecatedFirstTimestamp"`
+	DeprecatedFirstTimestamp *time.Time `field:"optional" json:"deprecatedFirstTimestamp" yaml:"deprecatedFirstTimestamp"`
 	// Deprecated field assuring backward compatibility with core.v1 Event type.
-	DeprecatedLastTimestamp *time.Time `json:"deprecatedLastTimestamp" yaml:"deprecatedLastTimestamp"`
+	DeprecatedLastTimestamp *time.Time `field:"optional" json:"deprecatedLastTimestamp" yaml:"deprecatedLastTimestamp"`
 	// Deprecated field assuring backward compatibility with core.v1 Event type.
-	DeprecatedSource *EventSource `json:"deprecatedSource" yaml:"deprecatedSource"`
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	DeprecatedSource *EventSource `field:"optional" json:"deprecatedSource" yaml:"deprecatedSource"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// Optional.
 	//
 	// A human-readable description of the status of this operation. Maximal length of the note is 1kB, but libraries should be prepared to handle values up to 64kB.
-	Note *string `json:"note" yaml:"note"`
+	Note *string `field:"optional" json:"note" yaml:"note"`
 	// Why the action was taken.
-	Reason *string `json:"reason" yaml:"reason"`
+	Reason *string `field:"optional" json:"reason" yaml:"reason"`
 	// The object this Event is about.
 	//
 	// In most cases it's an Object reporting controller implements. E.g. ReplicaSetController implements ReplicaSets and this event is emitted because it acts on some changes in a ReplicaSet object.
-	Regarding *ObjectReference `json:"regarding" yaml:"regarding"`
+	Regarding *ObjectReference `field:"optional" json:"regarding" yaml:"regarding"`
 	// Optional secondary object for more complex actions.
 	//
 	// E.g. when regarding object triggers a creation or deletion of related object.
-	Related *ObjectReference `json:"related" yaml:"related"`
+	Related *ObjectReference `field:"optional" json:"related" yaml:"related"`
 	// Name of the controller that emitted this Event, e.g. `kubernetes.io/kubelet`.
-	ReportingController *string `json:"reportingController" yaml:"reportingController"`
+	ReportingController *string `field:"optional" json:"reportingController" yaml:"reportingController"`
 	// ID of the controller instance, e.g. `kubelet-xyzf`.
-	ReportingInstance *string `json:"reportingInstance" yaml:"reportingInstance"`
+	ReportingInstance *string `field:"optional" json:"reportingInstance" yaml:"reportingInstance"`
 	// Data about the Event series this event represents or nil if it's a singleton Event.
-	Series *EventSeriesV1Beta1 `json:"series" yaml:"series"`
+	Series *EventSeriesV1Beta1 `field:"optional" json:"series" yaml:"series"`
 	// Type of this event (Normal, Warning), new types could be added in the future.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 
 // Eviction evicts a pod from its node subject to certain policies and safety constraints.
@@ -21878,9 +21878,9 @@ func (k *jsiiProxy_KubeEvictionV1Beta1) ToString() *string {
 // This is a subresource of Pod.  A request to cause such an eviction is created by POSTing to .../pods/<pod name>/evictions.
 type KubeEvictionV1Beta1Props struct {
 	// DeleteOptions may be provided.
-	DeleteOptions *DeleteOptions `json:"deleteOptions" yaml:"deleteOptions"`
+	DeleteOptions *DeleteOptions `field:"optional" json:"deleteOptions" yaml:"deleteOptions"`
 	// ObjectMeta describes the pod that is being evicted.
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // FlowSchemaList is a list of FlowSchema objects.
@@ -22167,11 +22167,11 @@ func (k *jsiiProxy_KubeFlowSchemaListV1Alpha1) ToString() *string {
 // FlowSchemaList is a list of FlowSchema objects.
 type KubeFlowSchemaListV1Alpha1Props struct {
 	// `items` is a list of FlowSchemas.
-	Items *[]*KubeFlowSchemaV1Alpha1Props `json:"items" yaml:"items"`
+	Items *[]*KubeFlowSchemaV1Alpha1Props `field:"required" json:"items" yaml:"items"`
 	// `metadata` is the standard list metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // FlowSchema defines the schema of a group of flows.
@@ -22464,11 +22464,11 @@ type KubeFlowSchemaV1Alpha1Props struct {
 	// `metadata` is the standard object's metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// `spec` is the specification of the desired behavior of a FlowSchema.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
-	Spec *FlowSchemaSpecV1Alpha1 `json:"spec" yaml:"spec"`
+	Spec *FlowSchemaSpecV1Alpha1 `field:"optional" json:"spec" yaml:"spec"`
 }
 
 // configuration of a horizontal pod autoscaler.
@@ -23036,9 +23036,9 @@ func (k *jsiiProxy_KubeHorizontalPodAutoscalerList) ToString() *string {
 // list of horizontal pod autoscaler objects.
 type KubeHorizontalPodAutoscalerListProps struct {
 	// list of horizontal pod autoscaler objects.
-	Items *[]*KubeHorizontalPodAutoscalerProps `json:"items" yaml:"items"`
+	Items *[]*KubeHorizontalPodAutoscalerProps `field:"required" json:"items" yaml:"items"`
 	// Standard list metadata.
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // HorizontalPodAutoscaler is a list of horizontal pod autoscaler objects.
@@ -23325,9 +23325,9 @@ func (k *jsiiProxy_KubeHorizontalPodAutoscalerListV2Beta1) ToString() *string {
 // HorizontalPodAutoscaler is a list of horizontal pod autoscaler objects.
 type KubeHorizontalPodAutoscalerListV2Beta1Props struct {
 	// items is the list of horizontal pod autoscaler objects.
-	Items *[]*KubeHorizontalPodAutoscalerV2Beta1Props `json:"items" yaml:"items"`
+	Items *[]*KubeHorizontalPodAutoscalerV2Beta1Props `field:"required" json:"items" yaml:"items"`
 	// metadata is the standard list metadata.
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // HorizontalPodAutoscalerList is a list of horizontal pod autoscaler objects.
@@ -23614,9 +23614,9 @@ func (k *jsiiProxy_KubeHorizontalPodAutoscalerListV2Beta2) ToString() *string {
 // HorizontalPodAutoscalerList is a list of horizontal pod autoscaler objects.
 type KubeHorizontalPodAutoscalerListV2Beta2Props struct {
 	// items is the list of horizontal pod autoscaler objects.
-	Items *[]*KubeHorizontalPodAutoscalerV2Beta2Props `json:"items" yaml:"items"`
+	Items *[]*KubeHorizontalPodAutoscalerV2Beta2Props `field:"required" json:"items" yaml:"items"`
 	// metadata is the standard list metadata.
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // configuration of a horizontal pod autoscaler.
@@ -23624,11 +23624,11 @@ type KubeHorizontalPodAutoscalerProps struct {
 	// Standard object metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// behaviour of autoscaler.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
-	Spec *HorizontalPodAutoscalerSpec `json:"spec" yaml:"spec"`
+	Spec *HorizontalPodAutoscalerSpec `field:"optional" json:"spec" yaml:"spec"`
 }
 
 // HorizontalPodAutoscaler is the configuration for a horizontal pod autoscaler, which automatically manages the replica count of any resource implementing the scale subresource based on the metrics specified.
@@ -23917,11 +23917,11 @@ type KubeHorizontalPodAutoscalerV2Beta1Props struct {
 	// metadata is the standard object metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// spec is the specification for the behaviour of the autoscaler.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
-	Spec *HorizontalPodAutoscalerSpecV2Beta1 `json:"spec" yaml:"spec"`
+	Spec *HorizontalPodAutoscalerSpecV2Beta1 `field:"optional" json:"spec" yaml:"spec"`
 }
 
 // HorizontalPodAutoscaler is the configuration for a horizontal pod autoscaler, which automatically manages the replica count of any resource implementing the scale subresource based on the metrics specified.
@@ -24210,11 +24210,11 @@ type KubeHorizontalPodAutoscalerV2Beta2Props struct {
 	// metadata is the standard object metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// spec is the specification for the behaviour of the autoscaler.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
-	Spec *HorizontalPodAutoscalerSpecV2Beta2 `json:"spec" yaml:"spec"`
+	Spec *HorizontalPodAutoscalerSpecV2Beta2 `field:"optional" json:"spec" yaml:"spec"`
 }
 
 // IngressList is a collection of Ingress.
@@ -24501,11 +24501,11 @@ func (k *jsiiProxy_KubeIngressListV1Beta1) ToString() *string {
 // IngressList is a collection of Ingress.
 type KubeIngressListV1Beta1Props struct {
 	// Items is the list of Ingress.
-	Items *[]*KubeIngressV1Beta1Props `json:"items" yaml:"items"`
+	Items *[]*KubeIngressV1Beta1Props `field:"required" json:"items" yaml:"items"`
 	// Standard object's metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // Ingress is a collection of rules that allow inbound connections to reach the endpoints defined by a backend.
@@ -24798,11 +24798,11 @@ type KubeIngressV1Beta1Props struct {
 	// Standard object's metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// Spec is the desired state of the Ingress.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-	Spec *IngressSpecV1Beta1 `json:"spec" yaml:"spec"`
+	Spec *IngressSpecV1Beta1 `field:"optional" json:"spec" yaml:"spec"`
 }
 
 // Job represents the configuration of a single job.
@@ -25370,11 +25370,11 @@ func (k *jsiiProxy_KubeJobList) ToString() *string {
 // JobList is a collection of jobs.
 type KubeJobListProps struct {
 	// items is the list of Jobs.
-	Items *[]*KubeJobProps `json:"items" yaml:"items"`
+	Items *[]*KubeJobProps `field:"required" json:"items" yaml:"items"`
 	// Standard list metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // Job represents the configuration of a single job.
@@ -25382,11 +25382,11 @@ type KubeJobProps struct {
 	// Standard object's metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// Specification of the desired behavior of a job.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-	Spec *JobSpec `json:"spec" yaml:"spec"`
+	Spec *JobSpec `field:"optional" json:"spec" yaml:"spec"`
 }
 
 // Lease defines a lease concept.
@@ -25954,11 +25954,11 @@ func (k *jsiiProxy_KubeLeaseList) ToString() *string {
 // LeaseList is a list of Lease objects.
 type KubeLeaseListProps struct {
 	// Items is a list of schema objects.
-	Items *[]*KubeLeaseProps `json:"items" yaml:"items"`
+	Items *[]*KubeLeaseProps `field:"required" json:"items" yaml:"items"`
 	// Standard list metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // LeaseList is a list of Lease objects.
@@ -26245,21 +26245,21 @@ func (k *jsiiProxy_KubeLeaseListV1Beta1) ToString() *string {
 // LeaseList is a list of Lease objects.
 type KubeLeaseListV1Beta1Props struct {
 	// Items is a list of schema objects.
-	Items *[]*KubeLeaseV1Beta1Props `json:"items" yaml:"items"`
+	Items *[]*KubeLeaseV1Beta1Props `field:"required" json:"items" yaml:"items"`
 	// Standard list metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // Lease defines a lease concept.
 type KubeLeaseProps struct {
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// Specification of the Lease.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-	Spec *LeaseSpec `json:"spec" yaml:"spec"`
+	Spec *LeaseSpec `field:"optional" json:"spec" yaml:"spec"`
 }
 
 // Lease defines a lease concept.
@@ -26546,11 +26546,11 @@ func (k *jsiiProxy_KubeLeaseV1Beta1) ToString() *string {
 // Lease defines a lease concept.
 type KubeLeaseV1Beta1Props struct {
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// Specification of the Lease.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-	Spec *LeaseSpecV1Beta1 `json:"spec" yaml:"spec"`
+	Spec *LeaseSpecV1Beta1 `field:"optional" json:"spec" yaml:"spec"`
 }
 
 // LimitRange sets resource usage limits for each kind of resource in a Namespace.
@@ -27120,11 +27120,11 @@ type KubeLimitRangeListProps struct {
 	// Items is a list of LimitRange objects.
 	//
 	// More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
-	Items *[]*KubeLimitRangeProps `json:"items" yaml:"items"`
+	Items *[]*KubeLimitRangeProps `field:"required" json:"items" yaml:"items"`
 	// Standard list metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // LimitRange sets resource usage limits for each kind of resource in a Namespace.
@@ -27132,11 +27132,11 @@ type KubeLimitRangeProps struct {
 	// Standard object's metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// Spec defines the limits enforced.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-	Spec *LimitRangeSpec `json:"spec" yaml:"spec"`
+	Spec *LimitRangeSpec `field:"optional" json:"spec" yaml:"spec"`
 }
 
 // LocalSubjectAccessReview checks whether or not a user or group can perform an action in a given namespace.
@@ -27429,8 +27429,8 @@ type KubeLocalSubjectAccessReviewProps struct {
 	// Spec holds information about the request being evaluated.
 	//
 	// spec.namespace must be equal to the namespace you made the request against.  If empty, it is defaulted.
-	Spec *SubjectAccessReviewSpec `json:"spec" yaml:"spec"`
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Spec *SubjectAccessReviewSpec `field:"required" json:"spec" yaml:"spec"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // LocalSubjectAccessReview checks whether or not a user or group can perform an action in a given namespace.
@@ -27723,8 +27723,8 @@ type KubeLocalSubjectAccessReviewV1Beta1Props struct {
 	// Spec holds information about the request being evaluated.
 	//
 	// spec.namespace must be equal to the namespace you made the request against.  If empty, it is defaulted.
-	Spec *SubjectAccessReviewSpecV1Beta1 `json:"spec" yaml:"spec"`
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Spec *SubjectAccessReviewSpecV1Beta1 `field:"required" json:"spec" yaml:"spec"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // MutatingWebhookConfiguration describes the configuration of and admission webhook that accept or reject and may change the object.
@@ -28292,11 +28292,11 @@ func (k *jsiiProxy_KubeMutatingWebhookConfigurationList) ToString() *string {
 // MutatingWebhookConfigurationList is a list of MutatingWebhookConfiguration.
 type KubeMutatingWebhookConfigurationListProps struct {
 	// List of MutatingWebhookConfiguration.
-	Items *[]*KubeMutatingWebhookConfigurationProps `json:"items" yaml:"items"`
+	Items *[]*KubeMutatingWebhookConfigurationProps `field:"required" json:"items" yaml:"items"`
 	// Standard list metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // MutatingWebhookConfigurationList is a list of MutatingWebhookConfiguration.
@@ -28583,11 +28583,11 @@ func (k *jsiiProxy_KubeMutatingWebhookConfigurationListV1Beta1) ToString() *stri
 // MutatingWebhookConfigurationList is a list of MutatingWebhookConfiguration.
 type KubeMutatingWebhookConfigurationListV1Beta1Props struct {
 	// List of MutatingWebhookConfiguration.
-	Items *[]*KubeMutatingWebhookConfigurationV1Beta1Props `json:"items" yaml:"items"`
+	Items *[]*KubeMutatingWebhookConfigurationV1Beta1Props `field:"required" json:"items" yaml:"items"`
 	// Standard list metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // MutatingWebhookConfiguration describes the configuration of and admission webhook that accept or reject and may change the object.
@@ -28595,9 +28595,9 @@ type KubeMutatingWebhookConfigurationProps struct {
 	// Standard object metadata;
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// Webhooks is a list of webhooks and the affected resources and operations.
-	Webhooks *[]*MutatingWebhook `json:"webhooks" yaml:"webhooks"`
+	Webhooks *[]*MutatingWebhook `field:"optional" json:"webhooks" yaml:"webhooks"`
 }
 
 // MutatingWebhookConfiguration describes the configuration of and admission webhook that accept or reject and may change the object.
@@ -28890,9 +28890,9 @@ type KubeMutatingWebhookConfigurationV1Beta1Props struct {
 	// Standard object metadata;
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// Webhooks is a list of webhooks and the affected resources and operations.
-	Webhooks *[]*MutatingWebhookV1Beta1 `json:"webhooks" yaml:"webhooks"`
+	Webhooks *[]*MutatingWebhookV1Beta1 `field:"optional" json:"webhooks" yaml:"webhooks"`
 }
 
 // Namespace provides a scope for Names.
@@ -29464,11 +29464,11 @@ type KubeNamespaceListProps struct {
 	// Items is the list of Namespace objects in the list.
 	//
 	// More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/
-	Items *[]*KubeNamespaceProps `json:"items" yaml:"items"`
+	Items *[]*KubeNamespaceProps `field:"required" json:"items" yaml:"items"`
 	// Standard list metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // Namespace provides a scope for Names.
@@ -29478,11 +29478,11 @@ type KubeNamespaceProps struct {
 	// Standard object's metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// Spec defines the behavior of the Namespace.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-	Spec *NamespaceSpec `json:"spec" yaml:"spec"`
+	Spec *NamespaceSpec `field:"optional" json:"spec" yaml:"spec"`
 }
 
 // NetworkPolicy describes what network traffic is allowed for a set of Pods.
@@ -30050,11 +30050,11 @@ func (k *jsiiProxy_KubeNetworkPolicyList) ToString() *string {
 // NetworkPolicyList is a list of NetworkPolicy objects.
 type KubeNetworkPolicyListProps struct {
 	// Items is a list of schema objects.
-	Items *[]*KubeNetworkPolicyProps `json:"items" yaml:"items"`
+	Items *[]*KubeNetworkPolicyProps `field:"required" json:"items" yaml:"items"`
 	// Standard list metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // DEPRECATED 1.9 - This group version of NetworkPolicyList is deprecated by networking/v1/NetworkPolicyList. Network Policy List is a list of NetworkPolicy objects.
@@ -30341,11 +30341,11 @@ func (k *jsiiProxy_KubeNetworkPolicyListV1Beta1) ToString() *string {
 // DEPRECATED 1.9 - This group version of NetworkPolicyList is deprecated by networking/v1/NetworkPolicyList. Network Policy List is a list of NetworkPolicy objects.
 type KubeNetworkPolicyListV1Beta1Props struct {
 	// Items is a list of schema objects.
-	Items *[]*KubeNetworkPolicyV1Beta1Props `json:"items" yaml:"items"`
+	Items *[]*KubeNetworkPolicyV1Beta1Props `field:"required" json:"items" yaml:"items"`
 	// Standard list metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // NetworkPolicy describes what network traffic is allowed for a set of Pods.
@@ -30353,9 +30353,9 @@ type KubeNetworkPolicyProps struct {
 	// Standard object's metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// Specification of the desired behavior for this NetworkPolicy.
-	Spec *NetworkPolicySpec `json:"spec" yaml:"spec"`
+	Spec *NetworkPolicySpec `field:"optional" json:"spec" yaml:"spec"`
 }
 
 // DEPRECATED 1.9 - This group version of NetworkPolicy is deprecated by networking/v1/NetworkPolicy. NetworkPolicy describes what network traffic is allowed for a set of Pods.
@@ -30644,9 +30644,9 @@ type KubeNetworkPolicyV1Beta1Props struct {
 	// Standard object's metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// Specification of the desired behavior for this NetworkPolicy.
-	Spec *NetworkPolicySpecV1Beta1 `json:"spec" yaml:"spec"`
+	Spec *NetworkPolicySpecV1Beta1 `field:"optional" json:"spec" yaml:"spec"`
 }
 
 // Node is a worker node in Kubernetes.
@@ -31216,11 +31216,11 @@ func (k *jsiiProxy_KubeNodeList) ToString() *string {
 // NodeList is the whole list of all Nodes which have been registered with master.
 type KubeNodeListProps struct {
 	// List of nodes.
-	Items *[]*KubeNodeProps `json:"items" yaml:"items"`
+	Items *[]*KubeNodeProps `field:"required" json:"items" yaml:"items"`
 	// Standard list metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // Node is a worker node in Kubernetes.
@@ -31230,11 +31230,11 @@ type KubeNodeProps struct {
 	// Standard object's metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// Spec defines the behavior of a node.
 	//
 	// https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-	Spec *NodeSpec `json:"spec" yaml:"spec"`
+	Spec *NodeSpec `field:"optional" json:"spec" yaml:"spec"`
 }
 
 // PersistentVolume (PV) is a storage resource provisioned by an administrator.
@@ -32087,11 +32087,11 @@ type KubePersistentVolumeClaimListProps struct {
 	// A list of persistent volume claims.
 	//
 	// More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims
-	Items *[]*KubePersistentVolumeClaimProps `json:"items" yaml:"items"`
+	Items *[]*KubePersistentVolumeClaimProps `field:"required" json:"items" yaml:"items"`
 	// Standard list metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // PersistentVolumeClaim is a user's request for and claim to a persistent volume.
@@ -32099,11 +32099,11 @@ type KubePersistentVolumeClaimProps struct {
 	// Standard object's metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// Spec defines the desired characteristics of a volume requested by a pod author.
 	//
 	// More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims
-	Spec *PersistentVolumeClaimSpec `json:"spec" yaml:"spec"`
+	Spec *PersistentVolumeClaimSpec `field:"optional" json:"spec" yaml:"spec"`
 }
 
 // PersistentVolumeList is a list of PersistentVolume items.
@@ -32392,11 +32392,11 @@ type KubePersistentVolumeListProps struct {
 	// List of persistent volumes.
 	//
 	// More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes
-	Items *[]*KubePersistentVolumeProps `json:"items" yaml:"items"`
+	Items *[]*KubePersistentVolumeProps `field:"required" json:"items" yaml:"items"`
 	// Standard list metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // PersistentVolume (PV) is a storage resource provisioned by an administrator.
@@ -32406,11 +32406,11 @@ type KubePersistentVolumeProps struct {
 	// Standard object's metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// Spec defines a specification of a persistent volume owned by the cluster.
 	//
 	// Provisioned by an administrator. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistent-volumes
-	Spec *PersistentVolumeSpec `json:"spec" yaml:"spec"`
+	Spec *PersistentVolumeSpec `field:"optional" json:"spec" yaml:"spec"`
 }
 
 // Pod is a collection of containers that can run on a host.
@@ -32979,8 +32979,8 @@ func (k *jsiiProxy_KubePodDisruptionBudgetListV1Beta1) ToString() *string {
 
 // PodDisruptionBudgetList is a collection of PodDisruptionBudgets.
 type KubePodDisruptionBudgetListV1Beta1Props struct {
-	Items *[]*KubePodDisruptionBudgetV1Beta1Props `json:"items" yaml:"items"`
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Items *[]*KubePodDisruptionBudgetV1Beta1Props `field:"required" json:"items" yaml:"items"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // PodDisruptionBudget is an object to define the max disruption that can be caused to a collection of pods.
@@ -33266,9 +33266,9 @@ func (k *jsiiProxy_KubePodDisruptionBudgetV1Beta1) ToString() *string {
 
 // PodDisruptionBudget is an object to define the max disruption that can be caused to a collection of pods.
 type KubePodDisruptionBudgetV1Beta1Props struct {
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// Specification of the desired behavior of the PodDisruptionBudget.
-	Spec *PodDisruptionBudgetSpecV1Beta1 `json:"spec" yaml:"spec"`
+	Spec *PodDisruptionBudgetSpecV1Beta1 `field:"optional" json:"spec" yaml:"spec"`
 }
 
 // PodList is a list of Pods.
@@ -33557,11 +33557,11 @@ type KubePodListProps struct {
 	// List of pods.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md
-	Items *[]*KubePodProps `json:"items" yaml:"items"`
+	Items *[]*KubePodProps `field:"required" json:"items" yaml:"items"`
 	// Standard list metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // PodPresetList is a list of PodPreset objects.
@@ -33848,11 +33848,11 @@ func (k *jsiiProxy_KubePodPresetListV1Alpha1) ToString() *string {
 // PodPresetList is a list of PodPreset objects.
 type KubePodPresetListV1Alpha1Props struct {
 	// Items is a list of schema objects.
-	Items *[]*KubePodPresetV1Alpha1Props `json:"items" yaml:"items"`
+	Items *[]*KubePodPresetV1Alpha1Props `field:"required" json:"items" yaml:"items"`
 	// Standard list metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // PodPreset is a policy resource that defines additional runtime requirements for a Pod.
@@ -34138,8 +34138,8 @@ func (k *jsiiProxy_KubePodPresetV1Alpha1) ToString() *string {
 
 // PodPreset is a policy resource that defines additional runtime requirements for a Pod.
 type KubePodPresetV1Alpha1Props struct {
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
-	Spec *PodPresetSpecV1Alpha1 `json:"spec" yaml:"spec"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
+	Spec *PodPresetSpecV1Alpha1 `field:"optional" json:"spec" yaml:"spec"`
 }
 
 // Pod is a collection of containers that can run on a host.
@@ -34149,11 +34149,11 @@ type KubePodProps struct {
 	// Standard object's metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// Specification of the desired behavior of the pod.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-	Spec *PodSpec `json:"spec" yaml:"spec"`
+	Spec *PodSpec `field:"optional" json:"spec" yaml:"spec"`
 }
 
 // PodSecurityPolicyList is a list of PodSecurityPolicy objects.
@@ -34440,11 +34440,11 @@ func (k *jsiiProxy_KubePodSecurityPolicyListV1Beta1) ToString() *string {
 // PodSecurityPolicyList is a list of PodSecurityPolicy objects.
 type KubePodSecurityPolicyListV1Beta1Props struct {
 	// items is a list of schema objects.
-	Items *[]*KubePodSecurityPolicyV1Beta1Props `json:"items" yaml:"items"`
+	Items *[]*KubePodSecurityPolicyV1Beta1Props `field:"required" json:"items" yaml:"items"`
 	// Standard list metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // PodSecurityPolicy governs the ability to make requests that affect the Security Context that will be applied to a pod and container.
@@ -34733,9 +34733,9 @@ type KubePodSecurityPolicyV1Beta1Props struct {
 	// Standard object's metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// spec defines the policy enforced.
-	Spec *PodSecurityPolicySpecV1Beta1 `json:"spec" yaml:"spec"`
+	Spec *PodSecurityPolicySpecV1Beta1 `field:"optional" json:"spec" yaml:"spec"`
 }
 
 // PodTemplate describes a template for creating copies of a predefined pod.
@@ -35303,11 +35303,11 @@ func (k *jsiiProxy_KubePodTemplateList) ToString() *string {
 // PodTemplateList is a list of PodTemplates.
 type KubePodTemplateListProps struct {
 	// List of pod templates.
-	Items *[]*KubePodTemplateProps `json:"items" yaml:"items"`
+	Items *[]*KubePodTemplateProps `field:"required" json:"items" yaml:"items"`
 	// Standard list metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // PodTemplate describes a template for creating copies of a predefined pod.
@@ -35315,11 +35315,11 @@ type KubePodTemplateProps struct {
 	// Standard object's metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// Template defines the pods that will be created from this pod template.
 	//
 	// https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-	Template *PodTemplateSpec `json:"template" yaml:"template"`
+	Template *PodTemplateSpec `field:"optional" json:"template" yaml:"template"`
 }
 
 // PriorityClass defines mapping from a priority class name to the priority integer value.
@@ -35889,9 +35889,9 @@ func (k *jsiiProxy_KubePriorityClassList) ToString() *string {
 // PriorityClassList is a collection of priority classes.
 type KubePriorityClassListProps struct {
 	// items is the list of PriorityClasses.
-	Items *[]*KubePriorityClassProps `json:"items" yaml:"items"`
+	Items *[]*KubePriorityClassProps `field:"required" json:"items" yaml:"items"`
 	// Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // PriorityClassList is a collection of priority classes.
@@ -36178,9 +36178,9 @@ func (k *jsiiProxy_KubePriorityClassListV1Alpha1) ToString() *string {
 // PriorityClassList is a collection of priority classes.
 type KubePriorityClassListV1Alpha1Props struct {
 	// items is the list of PriorityClasses.
-	Items *[]*KubePriorityClassV1Alpha1Props `json:"items" yaml:"items"`
+	Items *[]*KubePriorityClassV1Alpha1Props `field:"required" json:"items" yaml:"items"`
 	// Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // PriorityClassList is a collection of priority classes.
@@ -36467,9 +36467,9 @@ func (k *jsiiProxy_KubePriorityClassListV1Beta1) ToString() *string {
 // PriorityClassList is a collection of priority classes.
 type KubePriorityClassListV1Beta1Props struct {
 	// items is the list of PriorityClasses.
-	Items *[]*KubePriorityClassV1Beta1Props `json:"items" yaml:"items"`
+	Items *[]*KubePriorityClassV1Beta1Props `field:"required" json:"items" yaml:"items"`
 	// Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // PriorityClass defines mapping from a priority class name to the priority integer value.
@@ -36479,21 +36479,21 @@ type KubePriorityClassProps struct {
 	// The value of this priority class.
 	//
 	// This is the actual priority that pods receive when they have the name of this class in their pod spec.
-	Value *float64 `json:"value" yaml:"value"`
+	Value *float64 `field:"required" json:"value" yaml:"value"`
 	// description is an arbitrary string that usually provides guidelines on when this priority class should be used.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// globalDefault specifies whether this PriorityClass should be considered as the default priority for pods that do not have any priority class.
 	//
 	// Only one PriorityClass can be marked as `globalDefault`. However, if more than one PriorityClasses exists with their `globalDefault` field set to true, the smallest value of such global default PriorityClasses will be used as the default priority.
-	GlobalDefault *bool `json:"globalDefault" yaml:"globalDefault"`
+	GlobalDefault *bool `field:"optional" json:"globalDefault" yaml:"globalDefault"`
 	// Standard object's metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// PreemptionPolicy is the Policy for preempting pods with lower priority.
 	//
 	// One of Never, PreemptLowerPriority. Defaults to PreemptLowerPriority if unset. This field is alpha-level and is only honored by servers that enable the NonPreemptingPriority feature.
-	PreemptionPolicy *string `json:"preemptionPolicy" yaml:"preemptionPolicy"`
+	PreemptionPolicy *string `field:"optional" json:"preemptionPolicy" yaml:"preemptionPolicy"`
 }
 
 // DEPRECATED - This group version of PriorityClass is deprecated by scheduling.k8s.io/v1/PriorityClass. PriorityClass defines mapping from a priority class name to the priority integer value. The value can be any valid integer.
@@ -36782,21 +36782,21 @@ type KubePriorityClassV1Alpha1Props struct {
 	// The value of this priority class.
 	//
 	// This is the actual priority that pods receive when they have the name of this class in their pod spec.
-	Value *float64 `json:"value" yaml:"value"`
+	Value *float64 `field:"required" json:"value" yaml:"value"`
 	// description is an arbitrary string that usually provides guidelines on when this priority class should be used.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// globalDefault specifies whether this PriorityClass should be considered as the default priority for pods that do not have any priority class.
 	//
 	// Only one PriorityClass can be marked as `globalDefault`. However, if more than one PriorityClasses exists with their `globalDefault` field set to true, the smallest value of such global default PriorityClasses will be used as the default priority.
-	GlobalDefault *bool `json:"globalDefault" yaml:"globalDefault"`
+	GlobalDefault *bool `field:"optional" json:"globalDefault" yaml:"globalDefault"`
 	// Standard object's metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// PreemptionPolicy is the Policy for preempting pods with lower priority.
 	//
 	// One of Never, PreemptLowerPriority. Defaults to PreemptLowerPriority if unset. This field is alpha-level and is only honored by servers that enable the NonPreemptingPriority feature.
-	PreemptionPolicy *string `json:"preemptionPolicy" yaml:"preemptionPolicy"`
+	PreemptionPolicy *string `field:"optional" json:"preemptionPolicy" yaml:"preemptionPolicy"`
 }
 
 // DEPRECATED - This group version of PriorityClass is deprecated by scheduling.k8s.io/v1/PriorityClass. PriorityClass defines mapping from a priority class name to the priority integer value. The value can be any valid integer.
@@ -37085,21 +37085,21 @@ type KubePriorityClassV1Beta1Props struct {
 	// The value of this priority class.
 	//
 	// This is the actual priority that pods receive when they have the name of this class in their pod spec.
-	Value *float64 `json:"value" yaml:"value"`
+	Value *float64 `field:"required" json:"value" yaml:"value"`
 	// description is an arbitrary string that usually provides guidelines on when this priority class should be used.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// globalDefault specifies whether this PriorityClass should be considered as the default priority for pods that do not have any priority class.
 	//
 	// Only one PriorityClass can be marked as `globalDefault`. However, if more than one PriorityClasses exists with their `globalDefault` field set to true, the smallest value of such global default PriorityClasses will be used as the default priority.
-	GlobalDefault *bool `json:"globalDefault" yaml:"globalDefault"`
+	GlobalDefault *bool `field:"optional" json:"globalDefault" yaml:"globalDefault"`
 	// Standard object's metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// PreemptionPolicy is the Policy for preempting pods with lower priority.
 	//
 	// One of Never, PreemptLowerPriority. Defaults to PreemptLowerPriority if unset. This field is alpha-level and is only honored by servers that enable the NonPreemptingPriority feature.
-	PreemptionPolicy *string `json:"preemptionPolicy" yaml:"preemptionPolicy"`
+	PreemptionPolicy *string `field:"optional" json:"preemptionPolicy" yaml:"preemptionPolicy"`
 }
 
 // PriorityLevelConfigurationList is a list of PriorityLevelConfiguration objects.
@@ -37386,11 +37386,11 @@ func (k *jsiiProxy_KubePriorityLevelConfigurationListV1Alpha1) ToString() *strin
 // PriorityLevelConfigurationList is a list of PriorityLevelConfiguration objects.
 type KubePriorityLevelConfigurationListV1Alpha1Props struct {
 	// `items` is a list of request-priorities.
-	Items *[]*KubePriorityLevelConfigurationV1Alpha1Props `json:"items" yaml:"items"`
+	Items *[]*KubePriorityLevelConfigurationV1Alpha1Props `field:"required" json:"items" yaml:"items"`
 	// `metadata` is the standard object's metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // PriorityLevelConfiguration represents the configuration of a priority level.
@@ -37679,11 +37679,11 @@ type KubePriorityLevelConfigurationV1Alpha1Props struct {
 	// `metadata` is the standard object's metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// `spec` is the specification of the desired behavior of a "request-priority".
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
-	Spec *PriorityLevelConfigurationSpecV1Alpha1 `json:"spec" yaml:"spec"`
+	Spec *PriorityLevelConfigurationSpecV1Alpha1 `field:"optional" json:"spec" yaml:"spec"`
 }
 
 // ReplicaSet ensures that a specified number of pod replicas are running at any given time.
@@ -38253,11 +38253,11 @@ type KubeReplicaSetListProps struct {
 	// List of ReplicaSets.
 	//
 	// More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller
-	Items *[]*KubeReplicaSetProps `json:"items" yaml:"items"`
+	Items *[]*KubeReplicaSetProps `field:"required" json:"items" yaml:"items"`
 	// Standard list metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // ReplicaSetList is a collection of ReplicaSets.
@@ -38546,11 +38546,11 @@ type KubeReplicaSetListV1Beta1Props struct {
 	// List of ReplicaSets.
 	//
 	// More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller
-	Items *[]*KubeReplicaSetV1Beta1Props `json:"items" yaml:"items"`
+	Items *[]*KubeReplicaSetV1Beta1Props `field:"required" json:"items" yaml:"items"`
 	// Standard list metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // ReplicaSetList is a collection of ReplicaSets.
@@ -38839,11 +38839,11 @@ type KubeReplicaSetListV1Beta2Props struct {
 	// List of ReplicaSets.
 	//
 	// More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller
-	Items *[]*KubeReplicaSetV1Beta2Props `json:"items" yaml:"items"`
+	Items *[]*KubeReplicaSetV1Beta2Props `field:"required" json:"items" yaml:"items"`
 	// Standard list metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // ReplicaSet ensures that a specified number of pod replicas are running at any given time.
@@ -38851,11 +38851,11 @@ type KubeReplicaSetProps struct {
 	// If the Labels of a ReplicaSet are empty, they are defaulted to be the same as the Pod(s) that the ReplicaSet manages.
 	//
 	// Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// Spec defines the specification of the desired behavior of the ReplicaSet.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-	Spec *ReplicaSetSpec `json:"spec" yaml:"spec"`
+	Spec *ReplicaSetSpec `field:"optional" json:"spec" yaml:"spec"`
 }
 
 // DEPRECATED - This group version of ReplicaSet is deprecated by apps/v1beta2/ReplicaSet.
@@ -39148,11 +39148,11 @@ type KubeReplicaSetV1Beta1Props struct {
 	// If the Labels of a ReplicaSet are empty, they are defaulted to be the same as the Pod(s) that the ReplicaSet manages.
 	//
 	// Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// Spec defines the specification of the desired behavior of the ReplicaSet.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-	Spec *ReplicaSetSpecV1Beta1 `json:"spec" yaml:"spec"`
+	Spec *ReplicaSetSpecV1Beta1 `field:"optional" json:"spec" yaml:"spec"`
 }
 
 // DEPRECATED - This group version of ReplicaSet is deprecated by apps/v1/ReplicaSet.
@@ -39445,11 +39445,11 @@ type KubeReplicaSetV1Beta2Props struct {
 	// If the Labels of a ReplicaSet are empty, they are defaulted to be the same as the Pod(s) that the ReplicaSet manages.
 	//
 	// Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// Spec defines the specification of the desired behavior of the ReplicaSet.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-	Spec *ReplicaSetSpecV1Beta2 `json:"spec" yaml:"spec"`
+	Spec *ReplicaSetSpecV1Beta2 `field:"optional" json:"spec" yaml:"spec"`
 }
 
 // ReplicationController represents the configuration of a replication controller.
@@ -40019,11 +40019,11 @@ type KubeReplicationControllerListProps struct {
 	// List of replication controllers.
 	//
 	// More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller
-	Items *[]*KubeReplicationControllerProps `json:"items" yaml:"items"`
+	Items *[]*KubeReplicationControllerProps `field:"required" json:"items" yaml:"items"`
 	// Standard list metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // ReplicationController represents the configuration of a replication controller.
@@ -40031,11 +40031,11 @@ type KubeReplicationControllerProps struct {
 	// If the Labels of a ReplicationController are empty, they are defaulted to be the same as the Pod(s) that the replication controller manages.
 	//
 	// Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// Spec defines the specification of the desired behavior of the replication controller.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-	Spec *ReplicationControllerSpec `json:"spec" yaml:"spec"`
+	Spec *ReplicationControllerSpec `field:"optional" json:"spec" yaml:"spec"`
 }
 
 // ResourceQuota sets aggregate quota restrictions enforced per namespace.
@@ -40605,11 +40605,11 @@ type KubeResourceQuotaListProps struct {
 	// Items is a list of ResourceQuota objects.
 	//
 	// More info: https://kubernetes.io/docs/concepts/policy/resource-quotas/
-	Items *[]*KubeResourceQuotaProps `json:"items" yaml:"items"`
+	Items *[]*KubeResourceQuotaProps `field:"required" json:"items" yaml:"items"`
 	// Standard list metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // ResourceQuota sets aggregate quota restrictions enforced per namespace.
@@ -40617,11 +40617,11 @@ type KubeResourceQuotaProps struct {
 	// Standard object's metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// Spec defines the desired quota.
 	//
 	// https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-	Spec *ResourceQuotaSpec `json:"spec" yaml:"spec"`
+	Spec *ResourceQuotaSpec `field:"optional" json:"spec" yaml:"spec"`
 }
 
 // Role is a namespaced, logical grouping of PolicyRules that can be referenced as a unit by a RoleBinding.
@@ -41472,9 +41472,9 @@ func (k *jsiiProxy_KubeRoleBindingList) ToString() *string {
 // RoleBindingList is a collection of RoleBindings.
 type KubeRoleBindingListProps struct {
 	// Items is a list of RoleBindings.
-	Items *[]*KubeRoleBindingProps `json:"items" yaml:"items"`
+	Items *[]*KubeRoleBindingProps `field:"required" json:"items" yaml:"items"`
 	// Standard object's metadata.
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // RoleBindingList is a collection of RoleBindings Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 RoleBindingList, and will no longer be served in v1.20.
@@ -41761,9 +41761,9 @@ func (k *jsiiProxy_KubeRoleBindingListV1Alpha1) ToString() *string {
 // RoleBindingList is a collection of RoleBindings Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 RoleBindingList, and will no longer be served in v1.20.
 type KubeRoleBindingListV1Alpha1Props struct {
 	// Items is a list of RoleBindings.
-	Items *[]*KubeRoleBindingV1Alpha1Props `json:"items" yaml:"items"`
+	Items *[]*KubeRoleBindingV1Alpha1Props `field:"required" json:"items" yaml:"items"`
 	// Standard object's metadata.
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // RoleBindingList is a collection of RoleBindings Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 RoleBindingList, and will no longer be served in v1.20.
@@ -42050,9 +42050,9 @@ func (k *jsiiProxy_KubeRoleBindingListV1Beta1) ToString() *string {
 // RoleBindingList is a collection of RoleBindings Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 RoleBindingList, and will no longer be served in v1.20.
 type KubeRoleBindingListV1Beta1Props struct {
 	// Items is a list of RoleBindings.
-	Items *[]*KubeRoleBindingV1Beta1Props `json:"items" yaml:"items"`
+	Items *[]*KubeRoleBindingV1Beta1Props `field:"required" json:"items" yaml:"items"`
 	// Standard object's metadata.
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // RoleBinding references a role, but does not contain it.
@@ -42062,11 +42062,11 @@ type KubeRoleBindingProps struct {
 	// RoleRef can reference a Role in the current namespace or a ClusterRole in the global namespace.
 	//
 	// If the RoleRef cannot be resolved, the Authorizer must return an error.
-	RoleRef *RoleRef `json:"roleRef" yaml:"roleRef"`
+	RoleRef *RoleRef `field:"required" json:"roleRef" yaml:"roleRef"`
 	// Standard object's metadata.
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// Subjects holds references to the objects the role applies to.
-	Subjects *[]*Subject `json:"subjects" yaml:"subjects"`
+	Subjects *[]*Subject `field:"optional" json:"subjects" yaml:"subjects"`
 }
 
 // RoleBinding references a role, but does not contain it.
@@ -42359,11 +42359,11 @@ type KubeRoleBindingV1Alpha1Props struct {
 	// RoleRef can reference a Role in the current namespace or a ClusterRole in the global namespace.
 	//
 	// If the RoleRef cannot be resolved, the Authorizer must return an error.
-	RoleRef *RoleRefV1Alpha1 `json:"roleRef" yaml:"roleRef"`
+	RoleRef *RoleRefV1Alpha1 `field:"required" json:"roleRef" yaml:"roleRef"`
 	// Standard object's metadata.
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// Subjects holds references to the objects the role applies to.
-	Subjects *[]*SubjectV1Alpha1 `json:"subjects" yaml:"subjects"`
+	Subjects *[]*SubjectV1Alpha1 `field:"optional" json:"subjects" yaml:"subjects"`
 }
 
 // RoleBinding references a role, but does not contain it.
@@ -42656,11 +42656,11 @@ type KubeRoleBindingV1Beta1Props struct {
 	// RoleRef can reference a Role in the current namespace or a ClusterRole in the global namespace.
 	//
 	// If the RoleRef cannot be resolved, the Authorizer must return an error.
-	RoleRef *RoleRefV1Beta1 `json:"roleRef" yaml:"roleRef"`
+	RoleRef *RoleRefV1Beta1 `field:"required" json:"roleRef" yaml:"roleRef"`
 	// Standard object's metadata.
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// Subjects holds references to the objects the role applies to.
-	Subjects *[]*SubjectV1Beta1 `json:"subjects" yaml:"subjects"`
+	Subjects *[]*SubjectV1Beta1 `field:"optional" json:"subjects" yaml:"subjects"`
 }
 
 // RoleList is a collection of Roles.
@@ -42947,9 +42947,9 @@ func (k *jsiiProxy_KubeRoleList) ToString() *string {
 // RoleList is a collection of Roles.
 type KubeRoleListProps struct {
 	// Items is a list of Roles.
-	Items *[]*KubeRoleProps `json:"items" yaml:"items"`
+	Items *[]*KubeRoleProps `field:"required" json:"items" yaml:"items"`
 	// Standard object's metadata.
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // RoleList is a collection of Roles.
@@ -43240,9 +43240,9 @@ func (k *jsiiProxy_KubeRoleListV1Alpha1) ToString() *string {
 // Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 RoleList, and will no longer be served in v1.20.
 type KubeRoleListV1Alpha1Props struct {
 	// Items is a list of Roles.
-	Items *[]*KubeRoleV1Alpha1Props `json:"items" yaml:"items"`
+	Items *[]*KubeRoleV1Alpha1Props `field:"required" json:"items" yaml:"items"`
 	// Standard object's metadata.
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // RoleList is a collection of Roles Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 RoleList, and will no longer be served in v1.20.
@@ -43529,17 +43529,17 @@ func (k *jsiiProxy_KubeRoleListV1Beta1) ToString() *string {
 // RoleList is a collection of Roles Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 RoleList, and will no longer be served in v1.20.
 type KubeRoleListV1Beta1Props struct {
 	// Items is a list of Roles.
-	Items *[]*KubeRoleV1Beta1Props `json:"items" yaml:"items"`
+	Items *[]*KubeRoleV1Beta1Props `field:"required" json:"items" yaml:"items"`
 	// Standard object's metadata.
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // Role is a namespaced, logical grouping of PolicyRules that can be referenced as a unit by a RoleBinding.
 type KubeRoleProps struct {
 	// Standard object's metadata.
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// Rules holds all the PolicyRules for this Role.
-	Rules *[]*PolicyRule `json:"rules" yaml:"rules"`
+	Rules *[]*PolicyRule `field:"optional" json:"rules" yaml:"rules"`
 }
 
 // Role is a namespaced, logical grouping of PolicyRules that can be referenced as a unit by a RoleBinding.
@@ -43830,9 +43830,9 @@ func (k *jsiiProxy_KubeRoleV1Alpha1) ToString() *string {
 // Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 Role, and will no longer be served in v1.20.
 type KubeRoleV1Alpha1Props struct {
 	// Standard object's metadata.
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// Rules holds all the PolicyRules for this Role.
-	Rules *[]*PolicyRuleV1Alpha1 `json:"rules" yaml:"rules"`
+	Rules *[]*PolicyRuleV1Alpha1 `field:"optional" json:"rules" yaml:"rules"`
 }
 
 // Role is a namespaced, logical grouping of PolicyRules that can be referenced as a unit by a RoleBinding.
@@ -44123,9 +44123,9 @@ func (k *jsiiProxy_KubeRoleV1Beta1) ToString() *string {
 // Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 Role, and will no longer be served in v1.20.
 type KubeRoleV1Beta1Props struct {
 	// Standard object's metadata.
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// Rules holds all the PolicyRules for this Role.
-	Rules *[]*PolicyRuleV1Beta1 `json:"rules" yaml:"rules"`
+	Rules *[]*PolicyRuleV1Beta1 `field:"optional" json:"rules" yaml:"rules"`
 }
 
 // RuntimeClassList is a list of RuntimeClass objects.
@@ -44412,11 +44412,11 @@ func (k *jsiiProxy_KubeRuntimeClassListV1Alpha1) ToString() *string {
 // RuntimeClassList is a list of RuntimeClass objects.
 type KubeRuntimeClassListV1Alpha1Props struct {
 	// Items is a list of schema objects.
-	Items *[]*KubeRuntimeClassV1Alpha1Props `json:"items" yaml:"items"`
+	Items *[]*KubeRuntimeClassV1Alpha1Props `field:"required" json:"items" yaml:"items"`
 	// Standard list metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // RuntimeClassList is a list of RuntimeClass objects.
@@ -44703,11 +44703,11 @@ func (k *jsiiProxy_KubeRuntimeClassListV1Beta1) ToString() *string {
 // RuntimeClassList is a list of RuntimeClass objects.
 type KubeRuntimeClassListV1Beta1Props struct {
 	// Items is a list of schema objects.
-	Items *[]*KubeRuntimeClassV1Beta1Props `json:"items" yaml:"items"`
+	Items *[]*KubeRuntimeClassV1Beta1Props `field:"required" json:"items" yaml:"items"`
 	// Standard list metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // RuntimeClass defines a class of container runtime supported in the cluster.
@@ -44998,9 +44998,9 @@ func (k *jsiiProxy_KubeRuntimeClassV1Alpha1) ToString() *string {
 // The RuntimeClass is used to determine which container runtime is used to run all containers in a pod. RuntimeClasses are (currently) manually defined by a user or cluster provisioner, and referenced in the PodSpec. The Kubelet is responsible for resolving the RuntimeClassName reference before running the pod.  For more details, see https://git.k8s.io/enhancements/keps/sig-node/runtime-class.md
 type KubeRuntimeClassV1Alpha1Props struct {
 	// Specification of the RuntimeClass More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
-	Spec *RuntimeClassSpecV1Alpha1 `json:"spec" yaml:"spec"`
+	Spec *RuntimeClassSpecV1Alpha1 `field:"required" json:"spec" yaml:"spec"`
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // RuntimeClass defines a class of container runtime supported in the cluster.
@@ -45293,17 +45293,17 @@ type KubeRuntimeClassV1Beta1Props struct {
 	// Handler specifies the underlying runtime and configuration that the CRI implementation will use to handle pods of this class.
 	//
 	// The possible values are specific to the node & CRI configuration.  It is assumed that all handlers are available on every node, and handlers of the same name are equivalent on every node. For example, a handler called "runc" might specify that the runc OCI runtime (using native Linux containers) will be used to run the containers in a pod. The Handler must conform to the DNS Label (RFC 1123) requirements, and is immutable.
-	Handler *string `json:"handler" yaml:"handler"`
+	Handler *string `field:"required" json:"handler" yaml:"handler"`
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// Overhead represents the resource overhead associated with running a pod for a given RuntimeClass.
 	//
 	// For more details, see https://git.k8s.io/enhancements/keps/sig-node/20190226-pod-overhead.md This field is alpha-level as of Kubernetes v1.15, and is only honored by servers that enable the PodOverhead feature.
-	Overhead *OverheadV1Beta1 `json:"overhead" yaml:"overhead"`
+	Overhead *OverheadV1Beta1 `field:"optional" json:"overhead" yaml:"overhead"`
 	// Scheduling holds the scheduling constraints to ensure that pods running with this RuntimeClass are scheduled to nodes that support it.
 	//
 	// If scheduling is nil, this RuntimeClass is assumed to be supported by all nodes.
-	Scheduling *SchedulingV1Beta1 `json:"scheduling" yaml:"scheduling"`
+	Scheduling *SchedulingV1Beta1 `field:"optional" json:"scheduling" yaml:"scheduling"`
 }
 
 // Scale represents a scaling request for a resource.
@@ -45592,11 +45592,11 @@ type KubeScaleProps struct {
 	// Standard object metadata;
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// defines the behavior of the scale.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
-	Spec *ScaleSpec `json:"spec" yaml:"spec"`
+	Spec *ScaleSpec `field:"optional" json:"spec" yaml:"spec"`
 }
 
 // represents a scaling request for a resource.
@@ -45885,11 +45885,11 @@ type KubeScaleV1Beta1Props struct {
 	// Standard object metadata;
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// defines the behavior of the scale.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
-	Spec *ScaleSpecV1Beta1 `json:"spec" yaml:"spec"`
+	Spec *ScaleSpecV1Beta1 `field:"optional" json:"spec" yaml:"spec"`
 }
 
 // Scale represents a scaling request for a resource.
@@ -46178,11 +46178,11 @@ type KubeScaleV1Beta2Props struct {
 	// Standard object metadata;
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// defines the behavior of the scale.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
-	Spec *ScaleSpecV1Beta2 `json:"spec" yaml:"spec"`
+	Spec *ScaleSpecV1Beta2 `field:"optional" json:"spec" yaml:"spec"`
 }
 
 // Secret holds secret data of a certain type.
@@ -46754,11 +46754,11 @@ type KubeSecretListProps struct {
 	// Items is a list of secret objects.
 	//
 	// More info: https://kubernetes.io/docs/concepts/configuration/secret
-	Items *[]*KubeSecretProps `json:"items" yaml:"items"`
+	Items *[]*KubeSecretProps `field:"required" json:"items" yaml:"items"`
 	// Standard list metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // Secret holds secret data of a certain type.
@@ -46768,17 +46768,17 @@ type KubeSecretProps struct {
 	// Data contains the secret data.
 	//
 	// Each key must consist of alphanumeric characters, '-', '_' or '.'. The serialized form of the secret data is a base64 encoded string, representing the arbitrary (possibly non-string) data value here. Described in https://tools.ietf.org/html/rfc4648#section-4
-	Data *map[string]*string `json:"data" yaml:"data"`
+	Data *map[string]*string `field:"optional" json:"data" yaml:"data"`
 	// Standard object's metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// stringData allows specifying non-binary secret data in string form.
 	//
 	// It is provided as a write-only convenience method. All keys and values are merged into the data field on write, overwriting any existing values. It is never output when reading from the API.
-	StringData *map[string]*string `json:"stringData" yaml:"stringData"`
+	StringData *map[string]*string `field:"optional" json:"stringData" yaml:"stringData"`
 	// Used to facilitate programmatic handling of secret data.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 
 // SelfSubjectAccessReview checks whether or the current user can perform an action.
@@ -47071,8 +47071,8 @@ type KubeSelfSubjectAccessReviewProps struct {
 	// Spec holds information about the request being evaluated.
 	//
 	// user and groups must be empty.
-	Spec *SelfSubjectAccessReviewSpec `json:"spec" yaml:"spec"`
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Spec *SelfSubjectAccessReviewSpec `field:"required" json:"spec" yaml:"spec"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // SelfSubjectAccessReview checks whether or the current user can perform an action.
@@ -47365,8 +47365,8 @@ type KubeSelfSubjectAccessReviewV1Beta1Props struct {
 	// Spec holds information about the request being evaluated.
 	//
 	// user and groups must be empty.
-	Spec *SelfSubjectAccessReviewSpecV1Beta1 `json:"spec" yaml:"spec"`
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Spec *SelfSubjectAccessReviewSpecV1Beta1 `field:"required" json:"spec" yaml:"spec"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // SelfSubjectRulesReview enumerates the set of actions the current user can perform within a namespace.
@@ -47657,8 +47657,8 @@ func (k *jsiiProxy_KubeSelfSubjectRulesReview) ToString() *string {
 // The returned list of actions may be incomplete depending on the server's authorization mode, and any errors experienced during the evaluation. SelfSubjectRulesReview should be used by UIs to show/hide actions, or to quickly let an end user reason about their permissions. It should NOT Be used by external systems to drive authorization decisions as this raises confused deputy, cache lifetime/revocation, and correctness concerns. SubjectAccessReview, and LocalAccessReview are the correct way to defer authorization decisions to the API server.
 type KubeSelfSubjectRulesReviewProps struct {
 	// Spec holds information about the request being evaluated.
-	Spec *SelfSubjectRulesReviewSpec `json:"spec" yaml:"spec"`
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Spec *SelfSubjectRulesReviewSpec `field:"required" json:"spec" yaml:"spec"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // SelfSubjectRulesReview enumerates the set of actions the current user can perform within a namespace.
@@ -47949,8 +47949,8 @@ func (k *jsiiProxy_KubeSelfSubjectRulesReviewV1Beta1) ToString() *string {
 // The returned list of actions may be incomplete depending on the server's authorization mode, and any errors experienced during the evaluation. SelfSubjectRulesReview should be used by UIs to show/hide actions, or to quickly let an end user reason about their permissions. It should NOT Be used by external systems to drive authorization decisions as this raises confused deputy, cache lifetime/revocation, and correctness concerns. SubjectAccessReview, and LocalAccessReview are the correct way to defer authorization decisions to the API server.
 type KubeSelfSubjectRulesReviewV1Beta1Props struct {
 	// Spec holds information about the request being evaluated.
-	Spec *SelfSubjectRulesReviewSpecV1Beta1 `json:"spec" yaml:"spec"`
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Spec *SelfSubjectRulesReviewSpecV1Beta1 `field:"required" json:"spec" yaml:"spec"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // Service is a named abstraction of software service (for example, mysql) consisting of local port (for example 3306) that the proxy listens on, and the selector that determines which pods will answer requests sent through the proxy.
@@ -48801,11 +48801,11 @@ type KubeServiceAccountListProps struct {
 	// List of ServiceAccounts.
 	//
 	// More info: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/
-	Items *[]*KubeServiceAccountProps `json:"items" yaml:"items"`
+	Items *[]*KubeServiceAccountProps `field:"required" json:"items" yaml:"items"`
 	// Standard list metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // ServiceAccount binds together: * a name, understood by users, and perhaps by peripheral systems, for an identity * a principal that can be authenticated and authorized * a set of secrets.
@@ -48813,19 +48813,19 @@ type KubeServiceAccountProps struct {
 	// AutomountServiceAccountToken indicates whether pods running as this service account should have an API token automatically mounted.
 	//
 	// Can be overridden at the pod level.
-	AutomountServiceAccountToken *bool `json:"automountServiceAccountToken" yaml:"automountServiceAccountToken"`
+	AutomountServiceAccountToken *bool `field:"optional" json:"automountServiceAccountToken" yaml:"automountServiceAccountToken"`
 	// ImagePullSecrets is a list of references to secrets in the same namespace to use for pulling any images in pods that reference this ServiceAccount.
 	//
 	// ImagePullSecrets are distinct from Secrets because Secrets can be mounted in the pod, but ImagePullSecrets are only accessed by the kubelet. More info: https://kubernetes.io/docs/concepts/containers/images/#specifying-imagepullsecrets-on-a-pod
-	ImagePullSecrets *[]*LocalObjectReference `json:"imagePullSecrets" yaml:"imagePullSecrets"`
+	ImagePullSecrets *[]*LocalObjectReference `field:"optional" json:"imagePullSecrets" yaml:"imagePullSecrets"`
 	// Standard object's metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// Secrets is the list of secrets allowed to be used by pods running using this ServiceAccount.
 	//
 	// More info: https://kubernetes.io/docs/concepts/configuration/secret
-	Secrets *[]*ObjectReference `json:"secrets" yaml:"secrets"`
+	Secrets *[]*ObjectReference `field:"optional" json:"secrets" yaml:"secrets"`
 }
 
 // ServiceList holds a list of services.
@@ -49112,11 +49112,11 @@ func (k *jsiiProxy_KubeServiceList) ToString() *string {
 // ServiceList holds a list of services.
 type KubeServiceListProps struct {
 	// List of services.
-	Items *[]*KubeServiceProps `json:"items" yaml:"items"`
+	Items *[]*KubeServiceProps `field:"required" json:"items" yaml:"items"`
 	// Standard list metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // Service is a named abstraction of software service (for example, mysql) consisting of local port (for example 3306) that the proxy listens on, and the selector that determines which pods will answer requests sent through the proxy.
@@ -49124,11 +49124,11 @@ type KubeServiceProps struct {
 	// Standard object's metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// Spec defines the behavior of a service.
 	//
 	// https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-	Spec *ServiceSpec `json:"spec" yaml:"spec"`
+	Spec *ServiceSpec `field:"optional" json:"spec" yaml:"spec"`
 }
 
 // StatefulSet represents a set of pods with consistent identities.
@@ -49700,8 +49700,8 @@ func (k *jsiiProxy_KubeStatefulSetList) ToString() *string {
 
 // StatefulSetList is a collection of StatefulSets.
 type KubeStatefulSetListProps struct {
-	Items *[]*KubeStatefulSetProps `json:"items" yaml:"items"`
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Items *[]*KubeStatefulSetProps `field:"required" json:"items" yaml:"items"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // StatefulSetList is a collection of StatefulSets.
@@ -49987,8 +49987,8 @@ func (k *jsiiProxy_KubeStatefulSetListV1Beta1) ToString() *string {
 
 // StatefulSetList is a collection of StatefulSets.
 type KubeStatefulSetListV1Beta1Props struct {
-	Items *[]*KubeStatefulSetV1Beta1Props `json:"items" yaml:"items"`
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Items *[]*KubeStatefulSetV1Beta1Props `field:"required" json:"items" yaml:"items"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // StatefulSetList is a collection of StatefulSets.
@@ -50274,8 +50274,8 @@ func (k *jsiiProxy_KubeStatefulSetListV1Beta2) ToString() *string {
 
 // StatefulSetList is a collection of StatefulSets.
 type KubeStatefulSetListV1Beta2Props struct {
-	Items *[]*KubeStatefulSetV1Beta2Props `json:"items" yaml:"items"`
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Items *[]*KubeStatefulSetV1Beta2Props `field:"required" json:"items" yaml:"items"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // StatefulSet represents a set of pods with consistent identities.
@@ -50285,9 +50285,9 @@ type KubeStatefulSetListV1Beta2Props struct {
 // - Storage: As many VolumeClaims as requested.
 // The StatefulSet guarantees that a given network identity will always map to the same storage identity.
 type KubeStatefulSetProps struct {
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// Spec defines the desired identities of pods in this set.
-	Spec *StatefulSetSpec `json:"spec" yaml:"spec"`
+	Spec *StatefulSetSpec `field:"optional" json:"spec" yaml:"spec"`
 }
 
 // DEPRECATED - This group version of StatefulSet is deprecated by apps/v1beta2/StatefulSet.
@@ -50583,9 +50583,9 @@ func (k *jsiiProxy_KubeStatefulSetV1Beta1) ToString() *string {
 // - Storage: As many VolumeClaims as requested.
 // The StatefulSet guarantees that a given network identity will always map to the same storage identity.
 type KubeStatefulSetV1Beta1Props struct {
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// Spec defines the desired identities of pods in this set.
-	Spec *StatefulSetSpecV1Beta1 `json:"spec" yaml:"spec"`
+	Spec *StatefulSetSpecV1Beta1 `field:"optional" json:"spec" yaml:"spec"`
 }
 
 // DEPRECATED - This group version of StatefulSet is deprecated by apps/v1/StatefulSet.
@@ -50881,9 +50881,9 @@ func (k *jsiiProxy_KubeStatefulSetV1Beta2) ToString() *string {
 // - Storage: As many VolumeClaims as requested.
 // The StatefulSet guarantees that a given network identity will always map to the same storage identity.
 type KubeStatefulSetV1Beta2Props struct {
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// Spec defines the desired identities of pods in this set.
-	Spec *StatefulSetSpecV1Beta2 `json:"spec" yaml:"spec"`
+	Spec *StatefulSetSpecV1Beta2 `field:"optional" json:"spec" yaml:"spec"`
 }
 
 // Status is a return value for calls that don't return other objects.
@@ -51170,21 +51170,21 @@ func (k *jsiiProxy_KubeStatus) ToString() *string {
 // Status is a return value for calls that don't return other objects.
 type KubeStatusProps struct {
 	// Suggested HTTP return code for this status, 0 if not set.
-	Code *float64 `json:"code" yaml:"code"`
+	Code *float64 `field:"optional" json:"code" yaml:"code"`
 	// Extended data associated with the reason.
 	//
 	// Each reason may define its own extended details. This field is optional and the data returned is not guaranteed to conform to any schema except that defined by the reason type.
-	Details *StatusDetails `json:"details" yaml:"details"`
+	Details *StatusDetails `field:"optional" json:"details" yaml:"details"`
 	// A human-readable description of the status of this operation.
-	Message *string `json:"message" yaml:"message"`
+	Message *string `field:"optional" json:"message" yaml:"message"`
 	// Standard list metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// A machine-readable description of why this operation is in the "Failure" status.
 	//
 	// If this value is empty there is no information available. A Reason clarifies an HTTP status code but does not override it.
-	Reason *string `json:"reason" yaml:"reason"`
+	Reason *string `field:"optional" json:"reason" yaml:"reason"`
 }
 
 // StorageClass describes the parameters for a class of storage for which PersistentVolumes can be dynamically provisioned.
@@ -51754,9 +51754,9 @@ func (k *jsiiProxy_KubeStorageClassList) ToString() *string {
 // StorageClassList is a collection of storage classes.
 type KubeStorageClassListProps struct {
 	// Items is the list of StorageClasses.
-	Items *[]*KubeStorageClassProps `json:"items" yaml:"items"`
+	Items *[]*KubeStorageClassProps `field:"required" json:"items" yaml:"items"`
 	// Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // StorageClassList is a collection of storage classes.
@@ -52043,9 +52043,9 @@ func (k *jsiiProxy_KubeStorageClassListV1Beta1) ToString() *string {
 // StorageClassList is a collection of storage classes.
 type KubeStorageClassListV1Beta1Props struct {
 	// Items is the list of StorageClasses.
-	Items *[]*KubeStorageClassV1Beta1Props `json:"items" yaml:"items"`
+	Items *[]*KubeStorageClassV1Beta1Props `field:"required" json:"items" yaml:"items"`
 	// Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // StorageClass describes the parameters for a class of storage for which PersistentVolumes can be dynamically provisioned.
@@ -52053,29 +52053,29 @@ type KubeStorageClassListV1Beta1Props struct {
 // StorageClasses are non-namespaced; the name of the storage class according to etcd is in ObjectMeta.Name.
 type KubeStorageClassProps struct {
 	// Provisioner indicates the type of the provisioner.
-	Provisioner *string `json:"provisioner" yaml:"provisioner"`
+	Provisioner *string `field:"required" json:"provisioner" yaml:"provisioner"`
 	// Restrict the node topologies where volumes can be dynamically provisioned.
 	//
 	// Each volume plugin defines its own supported topology specifications. An empty TopologySelectorTerm list means there is no topology restriction. This field is only honored by servers that enable the VolumeScheduling feature.
-	AllowedTopologies *[]*TopologySelectorTerm `json:"allowedTopologies" yaml:"allowedTopologies"`
+	AllowedTopologies *[]*TopologySelectorTerm `field:"optional" json:"allowedTopologies" yaml:"allowedTopologies"`
 	// AllowVolumeExpansion shows whether the storage class allow volume expand.
-	AllowVolumeExpansion *bool `json:"allowVolumeExpansion" yaml:"allowVolumeExpansion"`
+	AllowVolumeExpansion *bool `field:"optional" json:"allowVolumeExpansion" yaml:"allowVolumeExpansion"`
 	// Standard object's metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// Dynamically provisioned PersistentVolumes of this storage class are created with these mountOptions, e.g. ["ro", "soft"]. Not validated - mount of the PVs will simply fail if one is invalid.
-	MountOptions *[]*string `json:"mountOptions" yaml:"mountOptions"`
+	MountOptions *[]*string `field:"optional" json:"mountOptions" yaml:"mountOptions"`
 	// Parameters holds the parameters for the provisioner that should create volumes of this storage class.
-	Parameters *map[string]*string `json:"parameters" yaml:"parameters"`
+	Parameters *map[string]*string `field:"optional" json:"parameters" yaml:"parameters"`
 	// Dynamically provisioned PersistentVolumes of this storage class are created with this reclaimPolicy.
 	//
 	// Defaults to Delete.
-	ReclaimPolicy *string `json:"reclaimPolicy" yaml:"reclaimPolicy"`
+	ReclaimPolicy *string `field:"optional" json:"reclaimPolicy" yaml:"reclaimPolicy"`
 	// VolumeBindingMode indicates how PersistentVolumeClaims should be provisioned and bound.
 	//
 	// When unset, VolumeBindingImmediate is used. This field is only honored by servers that enable the VolumeScheduling feature.
-	VolumeBindingMode *string `json:"volumeBindingMode" yaml:"volumeBindingMode"`
+	VolumeBindingMode *string `field:"optional" json:"volumeBindingMode" yaml:"volumeBindingMode"`
 }
 
 // StorageClass describes the parameters for a class of storage for which PersistentVolumes can be dynamically provisioned.
@@ -52366,29 +52366,29 @@ func (k *jsiiProxy_KubeStorageClassV1Beta1) ToString() *string {
 // StorageClasses are non-namespaced; the name of the storage class according to etcd is in ObjectMeta.Name.
 type KubeStorageClassV1Beta1Props struct {
 	// Provisioner indicates the type of the provisioner.
-	Provisioner *string `json:"provisioner" yaml:"provisioner"`
+	Provisioner *string `field:"required" json:"provisioner" yaml:"provisioner"`
 	// Restrict the node topologies where volumes can be dynamically provisioned.
 	//
 	// Each volume plugin defines its own supported topology specifications. An empty TopologySelectorTerm list means there is no topology restriction. This field is only honored by servers that enable the VolumeScheduling feature.
-	AllowedTopologies *[]*TopologySelectorTerm `json:"allowedTopologies" yaml:"allowedTopologies"`
+	AllowedTopologies *[]*TopologySelectorTerm `field:"optional" json:"allowedTopologies" yaml:"allowedTopologies"`
 	// AllowVolumeExpansion shows whether the storage class allow volume expand.
-	AllowVolumeExpansion *bool `json:"allowVolumeExpansion" yaml:"allowVolumeExpansion"`
+	AllowVolumeExpansion *bool `field:"optional" json:"allowVolumeExpansion" yaml:"allowVolumeExpansion"`
 	// Standard object's metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// Dynamically provisioned PersistentVolumes of this storage class are created with these mountOptions, e.g. ["ro", "soft"]. Not validated - mount of the PVs will simply fail if one is invalid.
-	MountOptions *[]*string `json:"mountOptions" yaml:"mountOptions"`
+	MountOptions *[]*string `field:"optional" json:"mountOptions" yaml:"mountOptions"`
 	// Parameters holds the parameters for the provisioner that should create volumes of this storage class.
-	Parameters *map[string]*string `json:"parameters" yaml:"parameters"`
+	Parameters *map[string]*string `field:"optional" json:"parameters" yaml:"parameters"`
 	// Dynamically provisioned PersistentVolumes of this storage class are created with this reclaimPolicy.
 	//
 	// Defaults to Delete.
-	ReclaimPolicy *string `json:"reclaimPolicy" yaml:"reclaimPolicy"`
+	ReclaimPolicy *string `field:"optional" json:"reclaimPolicy" yaml:"reclaimPolicy"`
 	// VolumeBindingMode indicates how PersistentVolumeClaims should be provisioned and bound.
 	//
 	// When unset, VolumeBindingImmediate is used. This field is only honored by servers that enable the VolumeScheduling feature.
-	VolumeBindingMode *string `json:"volumeBindingMode" yaml:"volumeBindingMode"`
+	VolumeBindingMode *string `field:"optional" json:"volumeBindingMode" yaml:"volumeBindingMode"`
 }
 
 // SubjectAccessReview checks whether or not a user or group can perform an action.
@@ -52675,8 +52675,8 @@ func (k *jsiiProxy_KubeSubjectAccessReview) ToString() *string {
 // SubjectAccessReview checks whether or not a user or group can perform an action.
 type KubeSubjectAccessReviewProps struct {
 	// Spec holds information about the request being evaluated.
-	Spec *SubjectAccessReviewSpec `json:"spec" yaml:"spec"`
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Spec *SubjectAccessReviewSpec `field:"required" json:"spec" yaml:"spec"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // SubjectAccessReview checks whether or not a user or group can perform an action.
@@ -52963,8 +52963,8 @@ func (k *jsiiProxy_KubeSubjectAccessReviewV1Beta1) ToString() *string {
 // SubjectAccessReview checks whether or not a user or group can perform an action.
 type KubeSubjectAccessReviewV1Beta1Props struct {
 	// Spec holds information about the request being evaluated.
-	Spec *SubjectAccessReviewSpecV1Beta1 `json:"spec" yaml:"spec"`
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Spec *SubjectAccessReviewSpecV1Beta1 `field:"required" json:"spec" yaml:"spec"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // TokenRequest requests a token for a given service account.
@@ -53250,8 +53250,8 @@ func (k *jsiiProxy_KubeTokenRequest) ToString() *string {
 
 // TokenRequest requests a token for a given service account.
 type KubeTokenRequestProps struct {
-	Spec *TokenRequestSpec `json:"spec" yaml:"spec"`
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Spec *TokenRequestSpec `field:"required" json:"spec" yaml:"spec"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // TokenReview attempts to authenticate a token to a known user.
@@ -53542,8 +53542,8 @@ func (k *jsiiProxy_KubeTokenReview) ToString() *string {
 // Note: TokenReview requests may be cached by the webhook token authenticator plugin in the kube-apiserver.
 type KubeTokenReviewProps struct {
 	// Spec holds information about the request being evaluated.
-	Spec *TokenReviewSpec `json:"spec" yaml:"spec"`
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Spec *TokenReviewSpec `field:"required" json:"spec" yaml:"spec"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // TokenReview attempts to authenticate a token to a known user.
@@ -53834,8 +53834,8 @@ func (k *jsiiProxy_KubeTokenReviewV1Beta1) ToString() *string {
 // Note: TokenReview requests may be cached by the webhook token authenticator plugin in the kube-apiserver.
 type KubeTokenReviewV1Beta1Props struct {
 	// Spec holds information about the request being evaluated.
-	Spec *TokenReviewSpecV1Beta1 `json:"spec" yaml:"spec"`
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Spec *TokenReviewSpecV1Beta1 `field:"required" json:"spec" yaml:"spec"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // ValidatingWebhookConfiguration describes the configuration of and admission webhook that accept or reject and object without changing it.
@@ -54403,11 +54403,11 @@ func (k *jsiiProxy_KubeValidatingWebhookConfigurationList) ToString() *string {
 // ValidatingWebhookConfigurationList is a list of ValidatingWebhookConfiguration.
 type KubeValidatingWebhookConfigurationListProps struct {
 	// List of ValidatingWebhookConfiguration.
-	Items *[]*KubeValidatingWebhookConfigurationProps `json:"items" yaml:"items"`
+	Items *[]*KubeValidatingWebhookConfigurationProps `field:"required" json:"items" yaml:"items"`
 	// Standard list metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // ValidatingWebhookConfigurationList is a list of ValidatingWebhookConfiguration.
@@ -54694,11 +54694,11 @@ func (k *jsiiProxy_KubeValidatingWebhookConfigurationListV1Beta1) ToString() *st
 // ValidatingWebhookConfigurationList is a list of ValidatingWebhookConfiguration.
 type KubeValidatingWebhookConfigurationListV1Beta1Props struct {
 	// List of ValidatingWebhookConfiguration.
-	Items *[]*KubeValidatingWebhookConfigurationV1Beta1Props `json:"items" yaml:"items"`
+	Items *[]*KubeValidatingWebhookConfigurationV1Beta1Props `field:"required" json:"items" yaml:"items"`
 	// Standard list metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // ValidatingWebhookConfiguration describes the configuration of and admission webhook that accept or reject and object without changing it.
@@ -54706,9 +54706,9 @@ type KubeValidatingWebhookConfigurationProps struct {
 	// Standard object metadata;
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// Webhooks is a list of webhooks and the affected resources and operations.
-	Webhooks *[]*ValidatingWebhook `json:"webhooks" yaml:"webhooks"`
+	Webhooks *[]*ValidatingWebhook `field:"optional" json:"webhooks" yaml:"webhooks"`
 }
 
 // ValidatingWebhookConfiguration describes the configuration of and admission webhook that accept or reject and object without changing it.
@@ -55001,9 +55001,9 @@ type KubeValidatingWebhookConfigurationV1Beta1Props struct {
 	// Standard object metadata;
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// Webhooks is a list of webhooks and the affected resources and operations.
-	Webhooks *[]*ValidatingWebhookV1Beta1 `json:"webhooks" yaml:"webhooks"`
+	Webhooks *[]*ValidatingWebhookV1Beta1 `field:"optional" json:"webhooks" yaml:"webhooks"`
 }
 
 // VolumeAttachment captures the intent to attach or detach the specified volume to/from the specified node.
@@ -55573,9 +55573,9 @@ func (k *jsiiProxy_KubeVolumeAttachmentList) ToString() *string {
 // VolumeAttachmentList is a collection of VolumeAttachment objects.
 type KubeVolumeAttachmentListProps struct {
 	// Items is the list of VolumeAttachments.
-	Items *[]*KubeVolumeAttachmentProps `json:"items" yaml:"items"`
+	Items *[]*KubeVolumeAttachmentProps `field:"required" json:"items" yaml:"items"`
 	// Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // VolumeAttachmentList is a collection of VolumeAttachment objects.
@@ -55862,9 +55862,9 @@ func (k *jsiiProxy_KubeVolumeAttachmentListV1Alpha1) ToString() *string {
 // VolumeAttachmentList is a collection of VolumeAttachment objects.
 type KubeVolumeAttachmentListV1Alpha1Props struct {
 	// Items is the list of VolumeAttachments.
-	Items *[]*KubeVolumeAttachmentV1Alpha1Props `json:"items" yaml:"items"`
+	Items *[]*KubeVolumeAttachmentV1Alpha1Props `field:"required" json:"items" yaml:"items"`
 	// Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // VolumeAttachmentList is a collection of VolumeAttachment objects.
@@ -56151,9 +56151,9 @@ func (k *jsiiProxy_KubeVolumeAttachmentListV1Beta1) ToString() *string {
 // VolumeAttachmentList is a collection of VolumeAttachment objects.
 type KubeVolumeAttachmentListV1Beta1Props struct {
 	// Items is the list of VolumeAttachments.
-	Items *[]*KubeVolumeAttachmentV1Beta1Props `json:"items" yaml:"items"`
+	Items *[]*KubeVolumeAttachmentV1Beta1Props `field:"required" json:"items" yaml:"items"`
 	// Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
-	Metadata *ListMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ListMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // VolumeAttachment captures the intent to attach or detach the specified volume to/from the specified node.
@@ -56163,11 +56163,11 @@ type KubeVolumeAttachmentProps struct {
 	// Specification of the desired attach/detach volume behavior.
 	//
 	// Populated by the Kubernetes system.
-	Spec *VolumeAttachmentSpec `json:"spec" yaml:"spec"`
+	Spec *VolumeAttachmentSpec `field:"required" json:"spec" yaml:"spec"`
 	// Standard object metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // VolumeAttachment captures the intent to attach or detach the specified volume to/from the specified node.
@@ -56460,11 +56460,11 @@ type KubeVolumeAttachmentV1Alpha1Props struct {
 	// Specification of the desired attach/detach volume behavior.
 	//
 	// Populated by the Kubernetes system.
-	Spec *VolumeAttachmentSpecV1Alpha1 `json:"spec" yaml:"spec"`
+	Spec *VolumeAttachmentSpecV1Alpha1 `field:"required" json:"spec" yaml:"spec"`
 	// Standard object metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // VolumeAttachment captures the intent to attach or detach the specified volume to/from the specified node.
@@ -56757,11 +56757,11 @@ type KubeVolumeAttachmentV1Beta1Props struct {
 	// Specification of the desired attach/detach volume behavior.
 	//
 	// Populated by the Kubernetes system.
-	Spec *VolumeAttachmentSpecV1Beta1 `json:"spec" yaml:"spec"`
+	Spec *VolumeAttachmentSpecV1Beta1 `field:"required" json:"spec" yaml:"spec"`
 	// Standard object metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 }
 
 // A label selector is a label query over a set of resources.
@@ -56771,57 +56771,57 @@ type LabelSelector struct {
 	// matchExpressions is a list of label selector requirements.
 	//
 	// The requirements are ANDed.
-	MatchExpressions *[]*LabelSelectorRequirement `json:"matchExpressions" yaml:"matchExpressions"`
+	MatchExpressions *[]*LabelSelectorRequirement `field:"optional" json:"matchExpressions" yaml:"matchExpressions"`
 	// matchLabels is a map of {key,value} pairs.
 	//
 	// A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
-	MatchLabels *map[string]*string `json:"matchLabels" yaml:"matchLabels"`
+	MatchLabels *map[string]*string `field:"optional" json:"matchLabels" yaml:"matchLabels"`
 }
 
 // A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
 type LabelSelectorRequirement struct {
 	// key is the label key that the selector applies to.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"required" json:"key" yaml:"key"`
 	// operator represents a key's relationship to a set of values.
 	//
 	// Valid operators are In, NotIn, Exists and DoesNotExist.
-	Operator *string `json:"operator" yaml:"operator"`
+	Operator *string `field:"required" json:"operator" yaml:"operator"`
 	// values is an array of string values.
 	//
 	// If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
-	Values *[]*string `json:"values" yaml:"values"`
+	Values *[]*string `field:"optional" json:"values" yaml:"values"`
 }
 
 // LeaseSpec is a specification of a Lease.
 type LeaseSpec struct {
 	// acquireTime is a time when the current lease was acquired.
-	AcquireTime *time.Time `json:"acquireTime" yaml:"acquireTime"`
+	AcquireTime *time.Time `field:"optional" json:"acquireTime" yaml:"acquireTime"`
 	// holderIdentity contains the identity of the holder of a current lease.
-	HolderIdentity *string `json:"holderIdentity" yaml:"holderIdentity"`
+	HolderIdentity *string `field:"optional" json:"holderIdentity" yaml:"holderIdentity"`
 	// leaseDurationSeconds is a duration that candidates for a lease need to wait to force acquire it.
 	//
 	// This is measure against time of last observed RenewTime.
-	LeaseDurationSeconds *float64 `json:"leaseDurationSeconds" yaml:"leaseDurationSeconds"`
+	LeaseDurationSeconds *float64 `field:"optional" json:"leaseDurationSeconds" yaml:"leaseDurationSeconds"`
 	// leaseTransitions is the number of transitions of a lease between holders.
-	LeaseTransitions *float64 `json:"leaseTransitions" yaml:"leaseTransitions"`
+	LeaseTransitions *float64 `field:"optional" json:"leaseTransitions" yaml:"leaseTransitions"`
 	// renewTime is a time when the current holder of a lease has last updated the lease.
-	RenewTime *time.Time `json:"renewTime" yaml:"renewTime"`
+	RenewTime *time.Time `field:"optional" json:"renewTime" yaml:"renewTime"`
 }
 
 // LeaseSpec is a specification of a Lease.
 type LeaseSpecV1Beta1 struct {
 	// acquireTime is a time when the current lease was acquired.
-	AcquireTime *time.Time `json:"acquireTime" yaml:"acquireTime"`
+	AcquireTime *time.Time `field:"optional" json:"acquireTime" yaml:"acquireTime"`
 	// holderIdentity contains the identity of the holder of a current lease.
-	HolderIdentity *string `json:"holderIdentity" yaml:"holderIdentity"`
+	HolderIdentity *string `field:"optional" json:"holderIdentity" yaml:"holderIdentity"`
 	// leaseDurationSeconds is a duration that candidates for a lease need to wait to force acquire it.
 	//
 	// This is measure against time of last observed RenewTime.
-	LeaseDurationSeconds *float64 `json:"leaseDurationSeconds" yaml:"leaseDurationSeconds"`
+	LeaseDurationSeconds *float64 `field:"optional" json:"leaseDurationSeconds" yaml:"leaseDurationSeconds"`
 	// leaseTransitions is the number of transitions of a lease between holders.
-	LeaseTransitions *float64 `json:"leaseTransitions" yaml:"leaseTransitions"`
+	LeaseTransitions *float64 `field:"optional" json:"leaseTransitions" yaml:"leaseTransitions"`
 	// renewTime is a time when the current holder of a lease has last updated the lease.
-	RenewTime *time.Time `json:"renewTime" yaml:"renewTime"`
+	RenewTime *time.Time `field:"optional" json:"renewTime" yaml:"renewTime"`
 }
 
 // Lifecycle describes actions that the management system should take in response to container lifecycle events.
@@ -56831,35 +56831,35 @@ type Lifecycle struct {
 	// PostStart is called immediately after a container is created.
 	//
 	// If the handler fails, the container is terminated and restarted according to its restart policy. Other management of the container blocks until the hook completes. More info: https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/#container-hooks
-	PostStart *Handler `json:"postStart" yaml:"postStart"`
+	PostStart *Handler `field:"optional" json:"postStart" yaml:"postStart"`
 	// PreStop is called immediately before a container is terminated due to an API request or management event such as liveness/startup probe failure, preemption, resource contention, etc.
 	//
 	// The handler is not called if the container crashes or exits. The reason for termination is passed to the handler. The Pod's termination grace period countdown begins before the PreStop hooked is executed. Regardless of the outcome of the handler, the container will eventually terminate within the Pod's termination grace period. Other management of the container blocks until the hook completes or until the termination grace period is reached. More info: https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/#container-hooks
-	PreStop *Handler `json:"preStop" yaml:"preStop"`
+	PreStop *Handler `field:"optional" json:"preStop" yaml:"preStop"`
 }
 
 // LimitRangeItem defines a min/max usage limit for any resource that matches on kind.
 type LimitRangeItem struct {
 	// Default resource requirement limit value by resource name if resource limit is omitted.
-	Default *map[string]Quantity `json:"default" yaml:"default"`
+	Default *map[string]Quantity `field:"optional" json:"default" yaml:"default"`
 	// DefaultRequest is the default resource requirement request value by resource name if resource request is omitted.
-	DefaultRequest *map[string]Quantity `json:"defaultRequest" yaml:"defaultRequest"`
+	DefaultRequest *map[string]Quantity `field:"optional" json:"defaultRequest" yaml:"defaultRequest"`
 	// Max usage constraints on this kind by resource name.
-	Max *map[string]Quantity `json:"max" yaml:"max"`
+	Max *map[string]Quantity `field:"optional" json:"max" yaml:"max"`
 	// MaxLimitRequestRatio if specified, the named resource must have a request and limit that are both non-zero where limit divided by request is less than or equal to the enumerated value;
 	//
 	// this represents the max burst for the named resource.
-	MaxLimitRequestRatio *map[string]Quantity `json:"maxLimitRequestRatio" yaml:"maxLimitRequestRatio"`
+	MaxLimitRequestRatio *map[string]Quantity `field:"optional" json:"maxLimitRequestRatio" yaml:"maxLimitRequestRatio"`
 	// Min usage constraints on this kind by resource name.
-	Min *map[string]Quantity `json:"min" yaml:"min"`
+	Min *map[string]Quantity `field:"optional" json:"min" yaml:"min"`
 	// Type of resource that this limit applies to.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 
 // LimitRangeSpec defines a min/max usage limit for resources that match on kind.
 type LimitRangeSpec struct {
 	// Limits is the list of LimitRangeItem objects that are enforced.
-	Limits *[]*LimitRangeItem `json:"limits" yaml:"limits"`
+	Limits *[]*LimitRangeItem `field:"required" json:"limits" yaml:"limits"`
 }
 
 // LimitResponse defines how to handle requests that can not be executed right now.
@@ -56867,11 +56867,11 @@ type LimitResponseV1Alpha1 struct {
 	// `type` is "Queue" or "Reject".
 	//
 	// "Queue" means that requests that can not be executed upon arrival are held in a queue until they can be executed or a queuing limit is reached. "Reject" means that requests that can not be executed upon arrival are rejected. Required.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// `queuing` holds the configuration parameters for queuing.
 	//
 	// This field may be non-empty only if `type` is `"Queue"`.
-	Queuing *QueuingConfigurationV1Alpha1 `json:"queuing" yaml:"queuing"`
+	Queuing *QueuingConfigurationV1Alpha1 `field:"optional" json:"queuing" yaml:"queuing"`
 }
 
 // LimitedPriorityLevelConfiguration specifies how to handle requests that are subject to limits.
@@ -56887,9 +56887,9 @@ type LimitedPriorityLevelConfigurationV1Alpha1 struct {
 	// ACV(l) = ceil( SCL * ACS(l) / ( sum[priority levels k] ACS(k) ) )
 	//
 	// bigger numbers of ACS mean more reserved concurrent requests (at the expense of every other PL). This field has a default value of 30.
-	AssuredConcurrencyShares *float64 `json:"assuredConcurrencyShares" yaml:"assuredConcurrencyShares"`
+	AssuredConcurrencyShares *float64 `field:"optional" json:"assuredConcurrencyShares" yaml:"assuredConcurrencyShares"`
 	// `limitResponse` indicates what to do with requests that can not be executed right now.
-	LimitResponse *LimitResponseV1Alpha1 `json:"limitResponse" yaml:"limitResponse"`
+	LimitResponse *LimitResponseV1Alpha1 `field:"optional" json:"limitResponse" yaml:"limitResponse"`
 }
 
 // ListMeta describes metadata that synthetic resources must have, including lists and various status objects.
@@ -56899,19 +56899,19 @@ type ListMeta struct {
 	// continue may be set if the user set a limit on the number of items returned, and indicates that the server has more data available.
 	//
 	// The value is opaque and may be used to issue another request to the endpoint that served this list to retrieve the next set of available objects. Continuing a consistent list may not be possible if the server configuration has changed or more than a few minutes have passed. The resourceVersion field returned when using this continue value will be identical to the value in the first response, unless you have received this token from an error message.
-	Continue *string `json:"continue" yaml:"continue"`
+	Continue *string `field:"optional" json:"continue" yaml:"continue"`
 	// remainingItemCount is the number of subsequent items in the list which are not included in this list response.
 	//
 	// If the list request contained label or field selectors, then the number of remaining items is unknown and the field will be left unset and omitted during serialization. If the list is complete (either because it is not chunking or because this is the last chunk), then there are no more remaining items and this field will be left unset and omitted during serialization. Servers older than v1.15 do not set this field. The intended use of the remainingItemCount is *estimating* the size of a collection. Clients should not rely on the remainingItemCount to be set or to be exact.
-	RemainingItemCount *float64 `json:"remainingItemCount" yaml:"remainingItemCount"`
+	RemainingItemCount *float64 `field:"optional" json:"remainingItemCount" yaml:"remainingItemCount"`
 	// String that identifies the server's internal version of this object that can be used by clients to determine when objects have changed.
 	//
 	// Value must be treated as opaque by clients and passed unmodified back to the server. Populated by the system. Read-only. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency
-	ResourceVersion *string `json:"resourceVersion" yaml:"resourceVersion"`
+	ResourceVersion *string `field:"optional" json:"resourceVersion" yaml:"resourceVersion"`
 	// selfLink is a URL representing this object. Populated by the system. Read-only.
 	//
 	// DEPRECATED Kubernetes will stop propagating this field in 1.20 release and the field is planned to be removed in 1.21 release.
-	SelfLink *string `json:"selfLink" yaml:"selfLink"`
+	SelfLink *string `field:"optional" json:"selfLink" yaml:"selfLink"`
 }
 
 // LocalObjectReference contains enough information to let you locate the referenced object inside the same namespace.
@@ -56919,7 +56919,7 @@ type LocalObjectReference struct {
 	// Name of the referent.
 	//
 	// More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 
 // Local represents directly-attached storage with node affinity (Beta feature).
@@ -56927,11 +56927,11 @@ type LocalVolumeSource struct {
 	// The full path to the volume on the node.
 	//
 	// It can be either a directory or block device (disk, partition, ...).
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"required" json:"path" yaml:"path"`
 	// Filesystem type to mount.
 	//
 	// It applies only when the Path is a block device. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". The default value is to auto-select a fileystem if unspecified.
-	FsType *string `json:"fsType" yaml:"fsType"`
+	FsType *string `field:"optional" json:"fsType" yaml:"fsType"`
 }
 
 // ManagedFieldsEntry is a workflow-id, a FieldSet and the group version of the resource that the fieldset applies to.
@@ -56939,33 +56939,33 @@ type ManagedFieldsEntry struct {
 	// APIVersion defines the version of this resource that this field set applies to.
 	//
 	// The format is "group/version" just like the top-level APIVersion field. It is necessary to track the version of a field set because it cannot be automatically converted.
-	ApiVersion *string `json:"apiVersion" yaml:"apiVersion"`
+	ApiVersion *string `field:"optional" json:"apiVersion" yaml:"apiVersion"`
 	// FieldsType is the discriminator for the different fields format and version.
 	//
 	// There is currently only one possible value: "FieldsV1".
-	FieldsType *string `json:"fieldsType" yaml:"fieldsType"`
+	FieldsType *string `field:"optional" json:"fieldsType" yaml:"fieldsType"`
 	// FieldsV1 holds the first JSON version format as described in the "FieldsV1" type.
-	FieldsV1 interface{} `json:"fieldsV1" yaml:"fieldsV1"`
+	FieldsV1 interface{} `field:"optional" json:"fieldsV1" yaml:"fieldsV1"`
 	// Manager is an identifier of the workflow managing these fields.
-	Manager *string `json:"manager" yaml:"manager"`
+	Manager *string `field:"optional" json:"manager" yaml:"manager"`
 	// Operation is the type of operation which lead to this ManagedFieldsEntry being created.
 	//
 	// The only valid values for this field are 'Apply' and 'Update'.
-	Operation *string `json:"operation" yaml:"operation"`
+	Operation *string `field:"optional" json:"operation" yaml:"operation"`
 	// Time is timestamp of when these fields were set.
 	//
 	// It should always be empty if Operation is 'Apply'.
-	Time *time.Time `json:"time" yaml:"time"`
+	Time *time.Time `field:"optional" json:"time" yaml:"time"`
 }
 
 // MetricIdentifier defines the name and optionally selector for a metric.
 type MetricIdentifierV2Beta2 struct {
 	// name is the name of the given metric.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// selector is the string-encoded form of a standard kubernetes label selector for the given metric When set, it is passed as an additional parameter to the metrics server for more specific metrics scoping.
 	//
 	// When unset, just the metricName will be used to gather metrics.
-	Selector *LabelSelector `json:"selector" yaml:"selector"`
+	Selector *LabelSelector `field:"optional" json:"selector" yaml:"selector"`
 }
 
 // MetricSpec specifies how to scale based on a single metric (only `type` and one other matching field should be set at once).
@@ -56973,19 +56973,19 @@ type MetricSpecV2Beta1 struct {
 	// type is the type of metric source.
 	//
 	// It should be one of "Object", "Pods" or "Resource", each mapping to a matching field in the object.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// external refers to a global metric that is not associated with any Kubernetes object.
 	//
 	// It allows autoscaling based on information coming from components running outside of cluster (for example length of queue in cloud messaging service, or QPS from loadbalancer running outside of cluster).
-	External *ExternalMetricSourceV2Beta1 `json:"external" yaml:"external"`
+	External *ExternalMetricSourceV2Beta1 `field:"optional" json:"external" yaml:"external"`
 	// object refers to a metric describing a single kubernetes object (for example, hits-per-second on an Ingress object).
-	Object *ObjectMetricSourceV2Beta1 `json:"object" yaml:"object"`
+	Object *ObjectMetricSourceV2Beta1 `field:"optional" json:"object" yaml:"object"`
 	// pods refers to a metric describing each pod in the current scale target (for example, transactions-processed-per-second).
 	//
 	// The values will be averaged together before being compared to the target value.
-	Pods *PodsMetricSourceV2Beta1 `json:"pods" yaml:"pods"`
+	Pods *PodsMetricSourceV2Beta1 `field:"optional" json:"pods" yaml:"pods"`
 	// resource refers to a resource metric (such as those specified in requests and limits) known to Kubernetes describing each pod in the current scale target (e.g. CPU or memory). Such metrics are built in to Kubernetes, and have special scaling options on top of those available to normal per-pod metrics using the "pods" source.
-	Resource *ResourceMetricSourceV2Beta1 `json:"resource" yaml:"resource"`
+	Resource *ResourceMetricSourceV2Beta1 `field:"optional" json:"resource" yaml:"resource"`
 }
 
 // MetricSpec specifies how to scale based on a single metric (only `type` and one other matching field should be set at once).
@@ -56993,33 +56993,33 @@ type MetricSpecV2Beta2 struct {
 	// type is the type of metric source.
 	//
 	// It should be one of "Object", "Pods" or "Resource", each mapping to a matching field in the object.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// external refers to a global metric that is not associated with any Kubernetes object.
 	//
 	// It allows autoscaling based on information coming from components running outside of cluster (for example length of queue in cloud messaging service, or QPS from loadbalancer running outside of cluster).
-	External *ExternalMetricSourceV2Beta2 `json:"external" yaml:"external"`
+	External *ExternalMetricSourceV2Beta2 `field:"optional" json:"external" yaml:"external"`
 	// object refers to a metric describing a single kubernetes object (for example, hits-per-second on an Ingress object).
-	Object *ObjectMetricSourceV2Beta2 `json:"object" yaml:"object"`
+	Object *ObjectMetricSourceV2Beta2 `field:"optional" json:"object" yaml:"object"`
 	// pods refers to a metric describing each pod in the current scale target (for example, transactions-processed-per-second).
 	//
 	// The values will be averaged together before being compared to the target value.
-	Pods *PodsMetricSourceV2Beta2 `json:"pods" yaml:"pods"`
+	Pods *PodsMetricSourceV2Beta2 `field:"optional" json:"pods" yaml:"pods"`
 	// resource refers to a resource metric (such as those specified in requests and limits) known to Kubernetes describing each pod in the current scale target (e.g. CPU or memory). Such metrics are built in to Kubernetes, and have special scaling options on top of those available to normal per-pod metrics using the "pods" source.
-	Resource *ResourceMetricSourceV2Beta2 `json:"resource" yaml:"resource"`
+	Resource *ResourceMetricSourceV2Beta2 `field:"optional" json:"resource" yaml:"resource"`
 }
 
 // MetricTarget defines the target value, average value, or average utilization of a specific metric.
 type MetricTargetV2Beta2 struct {
 	// type represents whether the metric type is Utilization, Value, or AverageValue.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// averageUtilization is the target value of the average of the resource metric across all relevant pods, represented as a percentage of the requested value of the resource for the pods.
 	//
 	// Currently only valid for Resource metric source type.
-	AverageUtilization *float64 `json:"averageUtilization" yaml:"averageUtilization"`
+	AverageUtilization *float64 `field:"optional" json:"averageUtilization" yaml:"averageUtilization"`
 	// averageValue is the target value of the average of the metric across all relevant pods (as a quantity).
-	AverageValue Quantity `json:"averageValue" yaml:"averageValue"`
+	AverageValue Quantity `field:"optional" json:"averageValue" yaml:"averageValue"`
 	// value is the target value of the metric (as a quantity).
-	Value Quantity `json:"value" yaml:"value"`
+	Value Quantity `field:"optional" json:"value" yaml:"value"`
 }
 
 // MutatingWebhook describes an admission webhook and the resources and operations it applies to.
@@ -57027,23 +57027,23 @@ type MutatingWebhook struct {
 	// AdmissionReviewVersions is an ordered list of preferred `AdmissionReview` versions the Webhook expects.
 	//
 	// API server will try to use first version in the list which it supports. If none of the versions specified in this list supported by API server, validation will fail for this object. If a persisted webhook configuration specifies allowed versions and does not include any versions known to the API Server, calls to the webhook will fail and be subject to the failure policy.
-	AdmissionReviewVersions *[]*string `json:"admissionReviewVersions" yaml:"admissionReviewVersions"`
+	AdmissionReviewVersions *[]*string `field:"required" json:"admissionReviewVersions" yaml:"admissionReviewVersions"`
 	// ClientConfig defines how to communicate with the hook.
 	//
 	// Required.
-	ClientConfig *WebhookClientConfig `json:"clientConfig" yaml:"clientConfig"`
+	ClientConfig *WebhookClientConfig `field:"required" json:"clientConfig" yaml:"clientConfig"`
 	// The name of the admission webhook.
 	//
 	// Name should be fully qualified, e.g., imagepolicy.kubernetes.io, where "imagepolicy" is the name of the webhook, and kubernetes.io is the name of the organization. Required.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// SideEffects states whether this webhook has side effects.
 	//
 	// Acceptable values are: None, NoneOnDryRun (webhooks created via v1beta1 may also specify Some or Unknown). Webhooks with side effects MUST implement a reconciliation system, since a request may be rejected by a future step in the admission change and the side effects therefore need to be undone. Requests with the dryRun attribute will be auto-rejected if they match a webhook with sideEffects == Unknown or Some.
-	SideEffects *string `json:"sideEffects" yaml:"sideEffects"`
+	SideEffects *string `field:"required" json:"sideEffects" yaml:"sideEffects"`
 	// FailurePolicy defines how unrecognized errors from the admission endpoint are handled - allowed values are Ignore or Fail.
 	//
 	// Defaults to Fail.
-	FailurePolicy *string `json:"failurePolicy" yaml:"failurePolicy"`
+	FailurePolicy *string `field:"optional" json:"failurePolicy" yaml:"failurePolicy"`
 	// matchPolicy defines how the "rules" list is used to match incoming requests. Allowed values are "Exact" or "Equivalent".
 	//
 	// - Exact: match a request only if it exactly matches a specified rule. For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1, but "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`, a request to apps/v1beta1 or extensions/v1beta1 would not be sent to the webhook.
@@ -57051,7 +57051,7 @@ type MutatingWebhook struct {
 	// - Equivalent: match a request if modifies a resource listed in rules, even via another API group or version. For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1, and "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`, a request to apps/v1beta1 or extensions/v1beta1 would be converted to apps/v1 and sent to the webhook.
 	//
 	// Defaults to "Equivalent".
-	MatchPolicy *string `json:"matchPolicy" yaml:"matchPolicy"`
+	MatchPolicy *string `field:"optional" json:"matchPolicy" yaml:"matchPolicy"`
 	// NamespaceSelector decides whether to run the webhook on an object based on whether the namespace for that object matches the selector.
 	//
 	// If the object itself is a namespace, the matching is performed on object.metadata.labels. If the object is another cluster scoped resource, it never skips the webhook.
@@ -57085,11 +57085,11 @@ type MutatingWebhook struct {
 	// See https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/ for more examples of label selectors.
 	//
 	// Default to the empty LabelSelector, which matches everything.
-	NamespaceSelector *LabelSelector `json:"namespaceSelector" yaml:"namespaceSelector"`
+	NamespaceSelector *LabelSelector `field:"optional" json:"namespaceSelector" yaml:"namespaceSelector"`
 	// ObjectSelector decides whether to run the webhook based on if the object has matching labels.
 	//
 	// objectSelector is evaluated against both the oldObject and newObject that would be sent to the webhook, and is considered to match if either object matches the selector. A null object (oldObject in the case of create, or newObject in the case of delete) or an object that cannot have labels (like a DeploymentRollback or a PodProxyOptions object) is not considered to match. Use the object selector only if the webhook is opt-in, because end users may skip the admission webhook by setting the labels. Default to the empty LabelSelector, which matches everything.
-	ObjectSelector *LabelSelector `json:"objectSelector" yaml:"objectSelector"`
+	ObjectSelector *LabelSelector `field:"optional" json:"objectSelector" yaml:"objectSelector"`
 	// reinvocationPolicy indicates whether this webhook should be called multiple times as part of a single admission evaluation.
 	//
 	// Allowed values are "Never" and "IfNeeded".
@@ -57099,15 +57099,15 @@ type MutatingWebhook struct {
 	// IfNeeded: the webhook will be called at least one additional time as part of the admission evaluation if the object being admitted is modified by other admission plugins after the initial webhook call. Webhooks that specify this option *must* be idempotent, able to process objects they previously admitted. Note: * the number of additional invocations is not guaranteed to be exactly one. * if additional invocations result in further modifications to the object, webhooks are not guaranteed to be invoked again. * webhooks that use this option may be reordered to minimize the number of additional invocations. * to validate an object after all mutations are guaranteed complete, use a validating admission webhook instead.
 	//
 	// Defaults to "Never".
-	ReinvocationPolicy *string `json:"reinvocationPolicy" yaml:"reinvocationPolicy"`
+	ReinvocationPolicy *string `field:"optional" json:"reinvocationPolicy" yaml:"reinvocationPolicy"`
 	// Rules describes what operations on what resources/subresources the webhook cares about.
 	//
 	// The webhook cares about an operation if it matches _any_ Rule. However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks from putting the cluster in a state which cannot be recovered from without completely disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
-	Rules *[]*RuleWithOperations `json:"rules" yaml:"rules"`
+	Rules *[]*RuleWithOperations `field:"optional" json:"rules" yaml:"rules"`
 	// TimeoutSeconds specifies the timeout for this webhook.
 	//
 	// After the timeout passes, the webhook call will be ignored or the API call will fail based on the failure policy. The timeout value must be between 1 and 30 seconds. Default to 10 seconds.
-	TimeoutSeconds *float64 `json:"timeoutSeconds" yaml:"timeoutSeconds"`
+	TimeoutSeconds *float64 `field:"optional" json:"timeoutSeconds" yaml:"timeoutSeconds"`
 }
 
 // MutatingWebhook describes an admission webhook and the resources and operations it applies to.
@@ -57115,19 +57115,19 @@ type MutatingWebhookV1Beta1 struct {
 	// ClientConfig defines how to communicate with the hook.
 	//
 	// Required.
-	ClientConfig *WebhookClientConfigV1Beta1 `json:"clientConfig" yaml:"clientConfig"`
+	ClientConfig *WebhookClientConfigV1Beta1 `field:"required" json:"clientConfig" yaml:"clientConfig"`
 	// The name of the admission webhook.
 	//
 	// Name should be fully qualified, e.g., imagepolicy.kubernetes.io, where "imagepolicy" is the name of the webhook, and kubernetes.io is the name of the organization. Required.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// AdmissionReviewVersions is an ordered list of preferred `AdmissionReview` versions the Webhook expects.
 	//
 	// API server will try to use first version in the list which it supports. If none of the versions specified in this list supported by API server, validation will fail for this object. If a persisted webhook configuration specifies allowed versions and does not include any versions known to the API Server, calls to the webhook will fail and be subject to the failure policy. Default to `['v1beta1']`.
-	AdmissionReviewVersions *[]*string `json:"admissionReviewVersions" yaml:"admissionReviewVersions"`
+	AdmissionReviewVersions *[]*string `field:"optional" json:"admissionReviewVersions" yaml:"admissionReviewVersions"`
 	// FailurePolicy defines how unrecognized errors from the admission endpoint are handled - allowed values are Ignore or Fail.
 	//
 	// Defaults to Ignore.
-	FailurePolicy *string `json:"failurePolicy" yaml:"failurePolicy"`
+	FailurePolicy *string `field:"optional" json:"failurePolicy" yaml:"failurePolicy"`
 	// matchPolicy defines how the "rules" list is used to match incoming requests. Allowed values are "Exact" or "Equivalent".
 	//
 	// - Exact: match a request only if it exactly matches a specified rule. For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1, but "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`, a request to apps/v1beta1 or extensions/v1beta1 would not be sent to the webhook.
@@ -57135,7 +57135,7 @@ type MutatingWebhookV1Beta1 struct {
 	// - Equivalent: match a request if modifies a resource listed in rules, even via another API group or version. For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1, and "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`, a request to apps/v1beta1 or extensions/v1beta1 would be converted to apps/v1 and sent to the webhook.
 	//
 	// Defaults to "Exact".
-	MatchPolicy *string `json:"matchPolicy" yaml:"matchPolicy"`
+	MatchPolicy *string `field:"optional" json:"matchPolicy" yaml:"matchPolicy"`
 	// NamespaceSelector decides whether to run the webhook on an object based on whether the namespace for that object matches the selector.
 	//
 	// If the object itself is a namespace, the matching is performed on object.metadata.labels. If the object is another cluster scoped resource, it never skips the webhook.
@@ -57169,11 +57169,11 @@ type MutatingWebhookV1Beta1 struct {
 	// See https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/ for more examples of label selectors.
 	//
 	// Default to the empty LabelSelector, which matches everything.
-	NamespaceSelector *LabelSelector `json:"namespaceSelector" yaml:"namespaceSelector"`
+	NamespaceSelector *LabelSelector `field:"optional" json:"namespaceSelector" yaml:"namespaceSelector"`
 	// ObjectSelector decides whether to run the webhook based on if the object has matching labels.
 	//
 	// objectSelector is evaluated against both the oldObject and newObject that would be sent to the webhook, and is considered to match if either object matches the selector. A null object (oldObject in the case of create, or newObject in the case of delete) or an object that cannot have labels (like a DeploymentRollback or a PodProxyOptions object) is not considered to match. Use the object selector only if the webhook is opt-in, because end users may skip the admission webhook by setting the labels. Default to the empty LabelSelector, which matches everything.
-	ObjectSelector *LabelSelector `json:"objectSelector" yaml:"objectSelector"`
+	ObjectSelector *LabelSelector `field:"optional" json:"objectSelector" yaml:"objectSelector"`
 	// reinvocationPolicy indicates whether this webhook should be called multiple times as part of a single admission evaluation.
 	//
 	// Allowed values are "Never" and "IfNeeded".
@@ -57183,19 +57183,19 @@ type MutatingWebhookV1Beta1 struct {
 	// IfNeeded: the webhook will be called at least one additional time as part of the admission evaluation if the object being admitted is modified by other admission plugins after the initial webhook call. Webhooks that specify this option *must* be idempotent, able to process objects they previously admitted. Note: * the number of additional invocations is not guaranteed to be exactly one. * if additional invocations result in further modifications to the object, webhooks are not guaranteed to be invoked again. * webhooks that use this option may be reordered to minimize the number of additional invocations. * to validate an object after all mutations are guaranteed complete, use a validating admission webhook instead.
 	//
 	// Defaults to "Never".
-	ReinvocationPolicy *string `json:"reinvocationPolicy" yaml:"reinvocationPolicy"`
+	ReinvocationPolicy *string `field:"optional" json:"reinvocationPolicy" yaml:"reinvocationPolicy"`
 	// Rules describes what operations on what resources/subresources the webhook cares about.
 	//
 	// The webhook cares about an operation if it matches _any_ Rule. However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks from putting the cluster in a state which cannot be recovered from without completely disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
-	Rules *[]*RuleWithOperationsV1Beta1 `json:"rules" yaml:"rules"`
+	Rules *[]*RuleWithOperationsV1Beta1 `field:"optional" json:"rules" yaml:"rules"`
 	// SideEffects states whether this webhook has side effects.
 	//
 	// Acceptable values are: Unknown, None, Some, NoneOnDryRun Webhooks with side effects MUST implement a reconciliation system, since a request may be rejected by a future step in the admission change and the side effects therefore need to be undone. Requests with the dryRun attribute will be auto-rejected if they match a webhook with sideEffects == Unknown or Some. Defaults to Unknown.
-	SideEffects *string `json:"sideEffects" yaml:"sideEffects"`
+	SideEffects *string `field:"optional" json:"sideEffects" yaml:"sideEffects"`
 	// TimeoutSeconds specifies the timeout for this webhook.
 	//
 	// After the timeout passes, the webhook call will be ignored or the API call will fail based on the failure policy. The timeout value must be between 1 and 30 seconds. Default to 30 seconds.
-	TimeoutSeconds *float64 `json:"timeoutSeconds" yaml:"timeoutSeconds"`
+	TimeoutSeconds *float64 `field:"optional" json:"timeoutSeconds" yaml:"timeoutSeconds"`
 }
 
 // NamespaceSpec describes the attributes on a Namespace.
@@ -57203,7 +57203,7 @@ type NamespaceSpec struct {
 	// Finalizers is an opaque list of values that must be empty to permanently remove object from storage.
 	//
 	// More info: https://kubernetes.io/docs/tasks/administer-cluster/namespaces/
-	Finalizers *[]*string `json:"finalizers" yaml:"finalizers"`
+	Finalizers *[]*string `field:"optional" json:"finalizers" yaml:"finalizers"`
 }
 
 // NetworkPolicyEgressRule describes a particular set of traffic that is allowed out of pods matched by a NetworkPolicySpec's podSelector.
@@ -57213,11 +57213,11 @@ type NetworkPolicyEgressRule struct {
 	// List of destination ports for outgoing traffic.
 	//
 	// Each item in this list is combined using a logical OR. If this field is empty or missing, this rule matches all ports (traffic not restricted by port). If this field is present and contains at least one item, then this rule allows traffic only if the traffic matches at least one port in the list.
-	Ports *[]*NetworkPolicyPort `json:"ports" yaml:"ports"`
+	Ports *[]*NetworkPolicyPort `field:"optional" json:"ports" yaml:"ports"`
 	// List of destinations for outgoing traffic of pods selected for this rule.
 	//
 	// Items in this list are combined using a logical OR operation. If this field is empty or missing, this rule matches all destinations (traffic not restricted by destination). If this field is present and contains at least one item, this rule allows traffic only if the traffic matches at least one item in the to list.
-	To *[]*NetworkPolicyPeer `json:"to" yaml:"to"`
+	To *[]*NetworkPolicyPeer `field:"optional" json:"to" yaml:"to"`
 }
 
 // DEPRECATED 1.9 - This group version of NetworkPolicyEgressRule is deprecated by networking/v1/NetworkPolicyEgressRule. NetworkPolicyEgressRule describes a particular set of traffic that is allowed out of pods matched by a NetworkPolicySpec's podSelector. The traffic must match both ports and to. This type is beta-level in 1.8.
@@ -57225,11 +57225,11 @@ type NetworkPolicyEgressRuleV1Beta1 struct {
 	// List of destination ports for outgoing traffic.
 	//
 	// Each item in this list is combined using a logical OR. If this field is empty or missing, this rule matches all ports (traffic not restricted by port). If this field is present and contains at least one item, then this rule allows traffic only if the traffic matches at least one port in the list.
-	Ports *[]*NetworkPolicyPortV1Beta1 `json:"ports" yaml:"ports"`
+	Ports *[]*NetworkPolicyPortV1Beta1 `field:"optional" json:"ports" yaml:"ports"`
 	// List of destinations for outgoing traffic of pods selected for this rule.
 	//
 	// Items in this list are combined using a logical OR operation. If this field is empty or missing, this rule matches all destinations (traffic not restricted by destination). If this field is present and contains at least one item, this rule allows traffic only if the traffic matches at least one item in the to list.
-	To *[]*NetworkPolicyPeerV1Beta1 `json:"to" yaml:"to"`
+	To *[]*NetworkPolicyPeerV1Beta1 `field:"optional" json:"to" yaml:"to"`
 }
 
 // NetworkPolicyIngressRule describes a particular set of traffic that is allowed to the pods matched by a NetworkPolicySpec's podSelector.
@@ -57239,11 +57239,11 @@ type NetworkPolicyIngressRule struct {
 	// List of sources which should be able to access the pods selected for this rule.
 	//
 	// Items in this list are combined using a logical OR operation. If this field is empty or missing, this rule matches all sources (traffic not restricted by source). If this field is present and contains at least one item, this rule allows traffic only if the traffic matches at least one item in the from list.
-	From *[]*NetworkPolicyPeer `json:"from" yaml:"from"`
+	From *[]*NetworkPolicyPeer `field:"optional" json:"from" yaml:"from"`
 	// List of ports which should be made accessible on the pods selected for this rule.
 	//
 	// Each item in this list is combined using a logical OR. If this field is empty or missing, this rule matches all ports (traffic not restricted by port). If this field is present and contains at least one item, then this rule allows traffic only if the traffic matches at least one port in the list.
-	Ports *[]*NetworkPolicyPort `json:"ports" yaml:"ports"`
+	Ports *[]*NetworkPolicyPort `field:"optional" json:"ports" yaml:"ports"`
 }
 
 // DEPRECATED 1.9 - This group version of NetworkPolicyIngressRule is deprecated by networking/v1/NetworkPolicyIngressRule. This NetworkPolicyIngressRule matches traffic if and only if the traffic matches both ports AND from.
@@ -57251,11 +57251,11 @@ type NetworkPolicyIngressRuleV1Beta1 struct {
 	// List of sources which should be able to access the pods selected for this rule.
 	//
 	// Items in this list are combined using a logical OR operation. If this field is empty or missing, this rule matches all sources (traffic not restricted by source). If this field is present and contains at least one item, this rule allows traffic only if the traffic matches at least one item in the from list.
-	From *[]*NetworkPolicyPeerV1Beta1 `json:"from" yaml:"from"`
+	From *[]*NetworkPolicyPeerV1Beta1 `field:"optional" json:"from" yaml:"from"`
 	// List of ports which should be made accessible on the pods selected for this rule.
 	//
 	// Each item in this list is combined using a logical OR. If this field is empty or missing, this rule matches all ports (traffic not restricted by port). If this field is present and contains at least one item, then this rule allows traffic only if the traffic matches at least one port in the list.
-	Ports *[]*NetworkPolicyPortV1Beta1 `json:"ports" yaml:"ports"`
+	Ports *[]*NetworkPolicyPortV1Beta1 `field:"optional" json:"ports" yaml:"ports"`
 }
 
 // NetworkPolicyPeer describes a peer to allow traffic from.
@@ -57265,19 +57265,19 @@ type NetworkPolicyPeer struct {
 	// IPBlock defines policy on a particular IPBlock.
 	//
 	// If this field is set then neither of the other fields can be.
-	IpBlock *IpBlock `json:"ipBlock" yaml:"ipBlock"`
+	IpBlock *IpBlock `field:"optional" json:"ipBlock" yaml:"ipBlock"`
 	// Selects Namespaces using cluster-scoped labels.
 	//
 	// This field follows standard label selector semantics; if present but empty, it selects all namespaces.
 	//
 	// If PodSelector is also set, then the NetworkPolicyPeer as a whole selects the Pods matching PodSelector in the Namespaces selected by NamespaceSelector. Otherwise it selects all Pods in the Namespaces selected by NamespaceSelector.
-	NamespaceSelector *LabelSelector `json:"namespaceSelector" yaml:"namespaceSelector"`
+	NamespaceSelector *LabelSelector `field:"optional" json:"namespaceSelector" yaml:"namespaceSelector"`
 	// This is a label selector which selects Pods.
 	//
 	// This field follows standard label selector semantics; if present but empty, it selects all pods.
 	//
 	// If NamespaceSelector is also set, then the NetworkPolicyPeer as a whole selects the Pods matching PodSelector in the Namespaces selected by NamespaceSelector. Otherwise it selects the Pods matching PodSelector in the policy's own Namespace.
-	PodSelector *LabelSelector `json:"podSelector" yaml:"podSelector"`
+	PodSelector *LabelSelector `field:"optional" json:"podSelector" yaml:"podSelector"`
 }
 
 // DEPRECATED 1.9 - This group version of NetworkPolicyPeer is deprecated by networking/v1/NetworkPolicyPeer.
@@ -57285,19 +57285,19 @@ type NetworkPolicyPeerV1Beta1 struct {
 	// IPBlock defines policy on a particular IPBlock.
 	//
 	// If this field is set then neither of the other fields can be.
-	IpBlock *IpBlockV1Beta1 `json:"ipBlock" yaml:"ipBlock"`
+	IpBlock *IpBlockV1Beta1 `field:"optional" json:"ipBlock" yaml:"ipBlock"`
 	// Selects Namespaces using cluster-scoped labels.
 	//
 	// This field follows standard label selector semantics; if present but empty, it selects all namespaces.
 	//
 	// If PodSelector is also set, then the NetworkPolicyPeer as a whole selects the Pods matching PodSelector in the Namespaces selected by NamespaceSelector. Otherwise it selects all Pods in the Namespaces selected by NamespaceSelector.
-	NamespaceSelector *LabelSelector `json:"namespaceSelector" yaml:"namespaceSelector"`
+	NamespaceSelector *LabelSelector `field:"optional" json:"namespaceSelector" yaml:"namespaceSelector"`
 	// This is a label selector which selects Pods.
 	//
 	// This field follows standard label selector semantics; if present but empty, it selects all pods.
 	//
 	// If NamespaceSelector is also set, then the NetworkPolicyPeer as a whole selects the Pods matching PodSelector in the Namespaces selected by NamespaceSelector. Otherwise it selects the Pods matching PodSelector in the policy's own Namespace.
-	PodSelector *LabelSelector `json:"podSelector" yaml:"podSelector"`
+	PodSelector *LabelSelector `field:"optional" json:"podSelector" yaml:"podSelector"`
 }
 
 // NetworkPolicyPort describes a port to allow traffic on.
@@ -57305,11 +57305,11 @@ type NetworkPolicyPort struct {
 	// The port on the given protocol.
 	//
 	// This can either be a numerical or named port on a pod. If this field is not provided, this matches all port names and numbers.
-	Port IntOrString `json:"port" yaml:"port"`
+	Port IntOrString `field:"optional" json:"port" yaml:"port"`
 	// The protocol (TCP, UDP, or SCTP) which traffic must match.
 	//
 	// If not specified, this field defaults to TCP.
-	Protocol *string `json:"protocol" yaml:"protocol"`
+	Protocol *string `field:"optional" json:"protocol" yaml:"protocol"`
 }
 
 // DEPRECATED 1.9 - This group version of NetworkPolicyPort is deprecated by networking/v1/NetworkPolicyPort.
@@ -57317,11 +57317,11 @@ type NetworkPolicyPortV1Beta1 struct {
 	// If specified, the port on the given protocol.
 	//
 	// This can either be a numerical or named port on a pod.  If this field is not provided, this matches all port names and numbers. If present, only traffic on the specified protocol AND port will be matched.
-	Port IntOrString `json:"port" yaml:"port"`
+	Port IntOrString `field:"optional" json:"port" yaml:"port"`
 	// Optional.
 	//
 	// The protocol (TCP, UDP, or SCTP) which traffic must match. If not specified, this field defaults to TCP.
-	Protocol *string `json:"protocol" yaml:"protocol"`
+	Protocol *string `field:"optional" json:"protocol" yaml:"protocol"`
 }
 
 // NetworkPolicySpec provides the specification of a NetworkPolicy.
@@ -57329,19 +57329,19 @@ type NetworkPolicySpec struct {
 	// Selects the pods to which this NetworkPolicy object applies.
 	//
 	// The array of ingress rules is applied to any pods selected by this field. Multiple network policies can select the same set of pods. In this case, the ingress rules for each are combined additively. This field is NOT optional and follows standard label selector semantics. An empty podSelector matches all pods in this namespace.
-	PodSelector *LabelSelector `json:"podSelector" yaml:"podSelector"`
+	PodSelector *LabelSelector `field:"required" json:"podSelector" yaml:"podSelector"`
 	// List of egress rules to be applied to the selected pods.
 	//
 	// Outgoing traffic is allowed if there are no NetworkPolicies selecting the pod (and cluster policy otherwise allows the traffic), OR if the traffic matches at least one egress rule across all of the NetworkPolicy objects whose podSelector matches the pod. If this field is empty then this NetworkPolicy limits all outgoing traffic (and serves solely to ensure that the pods it selects are isolated by default). This field is beta-level in 1.8
-	Egress *[]*NetworkPolicyEgressRule `json:"egress" yaml:"egress"`
+	Egress *[]*NetworkPolicyEgressRule `field:"optional" json:"egress" yaml:"egress"`
 	// List of ingress rules to be applied to the selected pods.
 	//
 	// Traffic is allowed to a pod if there are no NetworkPolicies selecting the pod (and cluster policy otherwise allows the traffic), OR if the traffic source is the pod's local node, OR if the traffic matches at least one ingress rule across all of the NetworkPolicy objects whose podSelector matches the pod. If this field is empty then this NetworkPolicy does not allow any traffic (and serves solely to ensure that the pods it selects are isolated by default)
-	Ingress *[]*NetworkPolicyIngressRule `json:"ingress" yaml:"ingress"`
+	Ingress *[]*NetworkPolicyIngressRule `field:"optional" json:"ingress" yaml:"ingress"`
 	// List of rule types that the NetworkPolicy relates to.
 	//
 	// Valid options are "Ingress", "Egress", or "Ingress,Egress". If this field is not specified, it will default based on the existence of Ingress or Egress rules; policies that contain an Egress section are assumed to affect Egress, and all policies (whether or not they contain an Ingress section) are assumed to affect Ingress. If you want to write an egress-only policy, you must explicitly specify policyTypes [ "Egress" ]. Likewise, if you want to write a policy that specifies that no egress is allowed, you must specify a policyTypes value that include "Egress" (since such a policy would not include an Egress section and would otherwise default to just [ "Ingress" ]). This field is beta-level in 1.8
-	PolicyTypes *[]*string `json:"policyTypes" yaml:"policyTypes"`
+	PolicyTypes *[]*string `field:"optional" json:"policyTypes" yaml:"policyTypes"`
 }
 
 // DEPRECATED 1.9 - This group version of NetworkPolicySpec is deprecated by networking/v1/NetworkPolicySpec.
@@ -57349,19 +57349,19 @@ type NetworkPolicySpecV1Beta1 struct {
 	// Selects the pods to which this NetworkPolicy object applies.
 	//
 	// The array of ingress rules is applied to any pods selected by this field. Multiple network policies can select the same set of pods.  In this case, the ingress rules for each are combined additively. This field is NOT optional and follows standard label selector semantics. An empty podSelector matches all pods in this namespace.
-	PodSelector *LabelSelector `json:"podSelector" yaml:"podSelector"`
+	PodSelector *LabelSelector `field:"required" json:"podSelector" yaml:"podSelector"`
 	// List of egress rules to be applied to the selected pods.
 	//
 	// Outgoing traffic is allowed if there are no NetworkPolicies selecting the pod (and cluster policy otherwise allows the traffic), OR if the traffic matches at least one egress rule across all of the NetworkPolicy objects whose podSelector matches the pod. If this field is empty then this NetworkPolicy limits all outgoing traffic (and serves solely to ensure that the pods it selects are isolated by default). This field is beta-level in 1.8
-	Egress *[]*NetworkPolicyEgressRuleV1Beta1 `json:"egress" yaml:"egress"`
+	Egress *[]*NetworkPolicyEgressRuleV1Beta1 `field:"optional" json:"egress" yaml:"egress"`
 	// List of ingress rules to be applied to the selected pods.
 	//
 	// Traffic is allowed to a pod if there are no NetworkPolicies selecting the pod OR if the traffic source is the pod's local node, OR if the traffic matches at least one ingress rule across all of the NetworkPolicy objects whose podSelector matches the pod. If this field is empty then this NetworkPolicy does not allow any traffic (and serves solely to ensure that the pods it selects are isolated by default).
-	Ingress *[]*NetworkPolicyIngressRuleV1Beta1 `json:"ingress" yaml:"ingress"`
+	Ingress *[]*NetworkPolicyIngressRuleV1Beta1 `field:"optional" json:"ingress" yaml:"ingress"`
 	// List of rule types that the NetworkPolicy relates to.
 	//
 	// Valid options are "Ingress", "Egress", or "Ingress,Egress". If this field is not specified, it will default based on the existence of Ingress or Egress rules; policies that contain an Egress section are assumed to affect Egress, and all policies (whether or not they contain an Ingress section) are assumed to affect Ingress. If you want to write an egress-only policy, you must explicitly specify policyTypes [ "Egress" ]. Likewise, if you want to write a policy that specifies that no egress is allowed, you must specify a policyTypes value that include "Egress" (since such a policy would not include an Egress section and would otherwise default to just [ "Ingress" ]). This field is beta-level in 1.8
-	PolicyTypes *[]*string `json:"policyTypes" yaml:"policyTypes"`
+	PolicyTypes *[]*string `field:"optional" json:"policyTypes" yaml:"policyTypes"`
 }
 
 // Represents an NFS mount that lasts the lifetime of a pod.
@@ -57371,15 +57371,15 @@ type NfsVolumeSource struct {
 	// Path that is exported by the NFS server.
 	//
 	// More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"required" json:"path" yaml:"path"`
 	// Server is the hostname or IP address of the NFS server.
 	//
 	// More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
-	Server *string `json:"server" yaml:"server"`
+	Server *string `field:"required" json:"server" yaml:"server"`
 	// ReadOnly here will force the NFS export to be mounted with read-only permissions.
 	//
 	// Defaults to false. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
-	ReadOnly *bool `json:"readOnly" yaml:"readOnly"`
+	ReadOnly *bool `field:"optional" json:"readOnly" yaml:"readOnly"`
 }
 
 // Node affinity is a group of node affinity scheduling rules.
@@ -57387,11 +57387,11 @@ type NodeAffinity struct {
 	// The scheduler will prefer to schedule pods to nodes that satisfy the affinity expressions specified by this field, but it may choose a node that violates one or more of the expressions.
 	//
 	// The node that is most preferred is the one with the greatest sum of weights, i.e. for each node that meets all of the scheduling requirements (resource request, requiredDuringScheduling affinity expressions, etc.), compute a sum by iterating through the elements of this field and adding "weight" to the sum if the node matches the corresponding matchExpressions; the node(s) with the highest sum are the most preferred.
-	PreferredDuringSchedulingIgnoredDuringExecution *[]*PreferredSchedulingTerm `json:"preferredDuringSchedulingIgnoredDuringExecution" yaml:"preferredDuringSchedulingIgnoredDuringExecution"`
+	PreferredDuringSchedulingIgnoredDuringExecution *[]*PreferredSchedulingTerm `field:"optional" json:"preferredDuringSchedulingIgnoredDuringExecution" yaml:"preferredDuringSchedulingIgnoredDuringExecution"`
 	// If the affinity requirements specified by this field are not met at scheduling time, the pod will not be scheduled onto the node.
 	//
 	// If the affinity requirements specified by this field cease to be met at some point during pod execution (e.g. due to an update), the system may or may not try to eventually evict the pod from its node.
-	RequiredDuringSchedulingIgnoredDuringExecution *NodeSelector `json:"requiredDuringSchedulingIgnoredDuringExecution" yaml:"requiredDuringSchedulingIgnoredDuringExecution"`
+	RequiredDuringSchedulingIgnoredDuringExecution *NodeSelector `field:"optional" json:"requiredDuringSchedulingIgnoredDuringExecution" yaml:"requiredDuringSchedulingIgnoredDuringExecution"`
 }
 
 // NodeConfigSource specifies a source of node configuration.
@@ -57399,7 +57399,7 @@ type NodeAffinity struct {
 // Exactly one subfield (excluding metadata) must be non-nil.
 type NodeConfigSource struct {
 	// ConfigMap is a reference to a Node's ConfigMap.
-	ConfigMap *ConfigMapNodeConfigSource `json:"configMap" yaml:"configMap"`
+	ConfigMap *ConfigMapNodeConfigSource `field:"optional" json:"configMap" yaml:"configMap"`
 }
 
 // A node selector represents the union of the results of one or more label queries over a set of nodes;
@@ -57409,21 +57409,21 @@ type NodeSelector struct {
 	// Required.
 	//
 	// A list of node selector terms. The terms are ORed.
-	NodeSelectorTerms *[]*NodeSelectorTerm `json:"nodeSelectorTerms" yaml:"nodeSelectorTerms"`
+	NodeSelectorTerms *[]*NodeSelectorTerm `field:"required" json:"nodeSelectorTerms" yaml:"nodeSelectorTerms"`
 }
 
 // A node selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
 type NodeSelectorRequirement struct {
 	// The label key that the selector applies to.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"required" json:"key" yaml:"key"`
 	// Represents a key's relationship to a set of values.
 	//
 	// Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.
-	Operator *string `json:"operator" yaml:"operator"`
+	Operator *string `field:"required" json:"operator" yaml:"operator"`
 	// An array of string values.
 	//
 	// If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. If the operator is Gt or Lt, the values array must have a single element, which will be interpreted as an integer. This array is replaced during a strategic merge patch.
-	Values *[]*string `json:"values" yaml:"values"`
+	Values *[]*string `field:"optional" json:"values" yaml:"values"`
 }
 
 // A null or empty node selector term matches no objects.
@@ -57431,49 +57431,49 @@ type NodeSelectorRequirement struct {
 // The requirements of them are ANDed. The TopologySelectorTerm type implements a subset of the NodeSelectorTerm.
 type NodeSelectorTerm struct {
 	// A list of node selector requirements by node's labels.
-	MatchExpressions *[]*NodeSelectorRequirement `json:"matchExpressions" yaml:"matchExpressions"`
+	MatchExpressions *[]*NodeSelectorRequirement `field:"optional" json:"matchExpressions" yaml:"matchExpressions"`
 	// A list of node selector requirements by node's fields.
-	MatchFields *[]*NodeSelectorRequirement `json:"matchFields" yaml:"matchFields"`
+	MatchFields *[]*NodeSelectorRequirement `field:"optional" json:"matchFields" yaml:"matchFields"`
 }
 
 // NodeSpec describes the attributes that a node is created with.
 type NodeSpec struct {
 	// If specified, the source to get node configuration from The DynamicKubeletConfig feature gate must be enabled for the Kubelet to use this field.
-	ConfigSource *NodeConfigSource `json:"configSource" yaml:"configSource"`
+	ConfigSource *NodeConfigSource `field:"optional" json:"configSource" yaml:"configSource"`
 	// Deprecated.
 	//
 	// Not all kubelets will set this field. Remove field after 1.13. see: https://issues.k8s.io/61966
-	ExternalId *string `json:"externalId" yaml:"externalId"`
+	ExternalId *string `field:"optional" json:"externalId" yaml:"externalId"`
 	// PodCIDR represents the pod IP range assigned to the node.
-	PodCidr *string `json:"podCidr" yaml:"podCidr"`
+	PodCidr *string `field:"optional" json:"podCidr" yaml:"podCidr"`
 	// podCIDRs represents the IP ranges assigned to the node for usage by Pods on that node.
 	//
 	// If this field is specified, the 0th entry must match the podCIDR field. It may contain at most 1 value for each of IPv4 and IPv6.
-	PodCidRs *[]*string `json:"podCidRs" yaml:"podCidRs"`
+	PodCidRs *[]*string `field:"optional" json:"podCidRs" yaml:"podCidRs"`
 	// ID of the node assigned by the cloud provider in the format: <ProviderName>://<ProviderSpecificNodeID>.
-	ProviderId *string `json:"providerId" yaml:"providerId"`
+	ProviderId *string `field:"optional" json:"providerId" yaml:"providerId"`
 	// If specified, the node's taints.
-	Taints *[]*Taint `json:"taints" yaml:"taints"`
+	Taints *[]*Taint `field:"optional" json:"taints" yaml:"taints"`
 	// Unschedulable controls node schedulability of new pods.
 	//
 	// By default, node is schedulable. More info: https://kubernetes.io/docs/concepts/nodes/node/#manual-node-administration
-	Unschedulable *bool `json:"unschedulable" yaml:"unschedulable"`
+	Unschedulable *bool `field:"optional" json:"unschedulable" yaml:"unschedulable"`
 }
 
 // NonResourceAttributes includes the authorization attributes available for non-resource requests to the Authorizer interface.
 type NonResourceAttributes struct {
 	// Path is the URL path of the request.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"optional" json:"path" yaml:"path"`
 	// Verb is the standard HTTP verb.
-	Verb *string `json:"verb" yaml:"verb"`
+	Verb *string `field:"optional" json:"verb" yaml:"verb"`
 }
 
 // NonResourceAttributes includes the authorization attributes available for non-resource requests to the Authorizer interface.
 type NonResourceAttributesV1Beta1 struct {
 	// Path is the URL path of the request.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"optional" json:"path" yaml:"path"`
 	// Verb is the standard HTTP verb.
-	Verb *string `json:"verb" yaml:"verb"`
+	Verb *string `field:"optional" json:"verb" yaml:"verb"`
 }
 
 // NonResourcePolicyRule is a predicate that matches non-resource requests according to their verb and the target non-resource URL.
@@ -57489,19 +57489,19 @@ type NonResourcePolicyRuleV1Alpha1 struct {
 	// - "/hea/*" also matches nothing
 	// - "/healthz/*" matches all per-component health checks.
 	// "*" matches all non-resource urls. if it is present, it must be the only entry. Required.
-	NonResourceUrLs *[]*string `json:"nonResourceUrLs" yaml:"nonResourceUrLs"`
+	NonResourceUrLs *[]*string `field:"required" json:"nonResourceUrLs" yaml:"nonResourceUrLs"`
 	// `verbs` is a list of matching verbs and may not be empty.
 	//
 	// "*" matches all verbs. If it is present, it must be the only entry. Required.
-	Verbs *[]*string `json:"verbs" yaml:"verbs"`
+	Verbs *[]*string `field:"required" json:"verbs" yaml:"verbs"`
 }
 
 // ObjectFieldSelector selects an APIVersioned field of an object.
 type ObjectFieldSelector struct {
 	// Path of the field to select in the specified API version.
-	FieldPath *string `json:"fieldPath" yaml:"fieldPath"`
+	FieldPath *string `field:"required" json:"fieldPath" yaml:"fieldPath"`
 	// Version of the schema the FieldPath is written in terms of, defaults to "v1".
-	ApiVersion *string `json:"apiVersion" yaml:"apiVersion"`
+	ApiVersion *string `field:"optional" json:"apiVersion" yaml:"apiVersion"`
 }
 
 // ObjectMeta is metadata that all persisted resources must have, which includes all objects users must create.
@@ -57509,31 +57509,31 @@ type ObjectMeta struct {
 	// Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata.
 	//
 	// They are not queryable and should be preserved when modifying objects. More info: http://kubernetes.io/docs/user-guide/annotations
-	Annotations *map[string]*string `json:"annotations" yaml:"annotations"`
+	Annotations *map[string]*string `field:"optional" json:"annotations" yaml:"annotations"`
 	// The name of the cluster which the object belongs to.
 	//
 	// This is used to distinguish resources with same name and namespace in different clusters. This field is not set anywhere right now and apiserver is going to ignore it if set in create or update request.
-	ClusterName *string `json:"clusterName" yaml:"clusterName"`
+	ClusterName *string `field:"optional" json:"clusterName" yaml:"clusterName"`
 	// CreationTimestamp is a timestamp representing the server time when this object was created.
 	//
 	// It is not guaranteed to be set in happens-before order across separate operations. Clients may not set this value. It is represented in RFC3339 form and is in UTC.
 	//
 	// Populated by the system. Read-only. Null for lists. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	CreationTimestamp *time.Time `json:"creationTimestamp" yaml:"creationTimestamp"`
+	CreationTimestamp *time.Time `field:"optional" json:"creationTimestamp" yaml:"creationTimestamp"`
 	// Number of seconds allowed for this object to gracefully terminate before it will be removed from the system.
 	//
 	// Only set when deletionTimestamp is also set. May only be shortened. Read-only.
-	DeletionGracePeriodSeconds *float64 `json:"deletionGracePeriodSeconds" yaml:"deletionGracePeriodSeconds"`
+	DeletionGracePeriodSeconds *float64 `field:"optional" json:"deletionGracePeriodSeconds" yaml:"deletionGracePeriodSeconds"`
 	// DeletionTimestamp is RFC 3339 date and time at which this resource will be deleted.
 	//
 	// This field is set by the server when a graceful deletion is requested by the user, and is not directly settable by a client. The resource is expected to be deleted (no longer visible from resource lists, and not reachable by name) after the time in this field, once the finalizers list is empty. As long as the finalizers list contains items, deletion is blocked. Once the deletionTimestamp is set, this value may not be unset or be set further into the future, although it may be shortened or the resource may be deleted prior to this time. For example, a user may request that a pod is deleted in 30 seconds. The Kubelet will react by sending a graceful termination signal to the containers in the pod. After that 30 seconds, the Kubelet will send a hard termination signal (SIGKILL) to the container and after cleanup, remove the pod from the API. In the presence of network partitions, this object may still exist after this timestamp, until an administrator or automated process can determine the resource is fully terminated. If not set, graceful deletion of the object has not been requested.
 	//
 	// Populated by the system when a graceful deletion is requested. Read-only. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	DeletionTimestamp *time.Time `json:"deletionTimestamp" yaml:"deletionTimestamp"`
+	DeletionTimestamp *time.Time `field:"optional" json:"deletionTimestamp" yaml:"deletionTimestamp"`
 	// Must be empty before the object is deleted from the registry.
 	//
 	// Each entry is an identifier for the responsible component that will remove the entry from the list. If the deletionTimestamp of the object is non-nil, entries in this list can only be removed. Finalizers may be processed and removed in any order.  Order is NOT enforced because it introduces significant risk of stuck finalizers. finalizers is a shared field, any actor with permission can reorder it. If the finalizer list is processed in order, then this can lead to a situation in which the component responsible for the first finalizer in the list is waiting for a signal (field value, external system, or other) produced by a component responsible for a finalizer later in the list, resulting in a deadlock. Without enforced ordering finalizers are free to order amongst themselves and are not vulnerable to ordering changes in the list.
-	Finalizers *[]*string `json:"finalizers" yaml:"finalizers"`
+	Finalizers *[]*string `field:"optional" json:"finalizers" yaml:"finalizers"`
 	// GenerateName is an optional prefix, used by the server, to generate a unique name ONLY IF the Name field has not been provided.
 	//
 	// If this field is used, the name returned to the client will be different than the name passed. This value will also be combined with a unique suffix. The provided value has the same validation rules as the Name field, and may be truncated by the length of the suffix required to make the value unique on the server.
@@ -57541,112 +57541,112 @@ type ObjectMeta struct {
 	// If this field is specified and the generated name exists, the server will NOT return a 409 - instead, it will either return 201 Created or 500 with Reason ServerTimeout indicating a unique name could not be found in the time allotted, and the client should retry (optionally after the time indicated in the Retry-After header).
 	//
 	// Applied only if Name is not specified. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#idempotency
-	GenerateName *string `json:"generateName" yaml:"generateName"`
+	GenerateName *string `field:"optional" json:"generateName" yaml:"generateName"`
 	// A sequence number representing a specific generation of the desired state.
 	//
 	// Populated by the system. Read-only.
-	Generation *float64 `json:"generation" yaml:"generation"`
+	Generation *float64 `field:"optional" json:"generation" yaml:"generation"`
 	// Map of string keys and values that can be used to organize and categorize (scope and select) objects.
 	//
 	// May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
-	Labels *map[string]*string `json:"labels" yaml:"labels"`
+	Labels *map[string]*string `field:"optional" json:"labels" yaml:"labels"`
 	// ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow.
 	//
 	// This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like "ci-cd". The set of fields is always in the version that the workflow used when modifying the object.
-	ManagedFields *[]*ManagedFieldsEntry `json:"managedFields" yaml:"managedFields"`
+	ManagedFields *[]*ManagedFieldsEntry `field:"optional" json:"managedFields" yaml:"managedFields"`
 	// Name must be unique within a namespace.
 	//
 	// Is required when creating resources, although some resources may allow a client to request the generation of an appropriate name automatically. Name is primarily intended for creation idempotence and configuration definition. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// Namespace defines the space within each name must be unique.
 	//
 	// An empty namespace is equivalent to the "default" namespace, but "default" is the canonical representation. Not all objects are required to be scoped to a namespace - the value of this field for those objects will be empty.
 	//
 	// Must be a DNS_LABEL. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/namespaces
-	Namespace *string `json:"namespace" yaml:"namespace"`
+	Namespace *string `field:"optional" json:"namespace" yaml:"namespace"`
 	// List of objects depended by this object.
 	//
 	// If ALL objects in the list have been deleted, this object will be garbage collected. If this object is managed by a controller, then an entry in this list will point to this controller, with the controller field set to true. There cannot be more than one managing controller.
-	OwnerReferences *[]*OwnerReference `json:"ownerReferences" yaml:"ownerReferences"`
+	OwnerReferences *[]*OwnerReference `field:"optional" json:"ownerReferences" yaml:"ownerReferences"`
 	// An opaque value that represents the internal version of this object that can be used by clients to determine when objects have changed.
 	//
 	// May be used for optimistic concurrency, change detection, and the watch operation on a resource or set of resources. Clients must treat these values as opaque and passed unmodified back to the server. They may only be valid for a particular resource or set of resources.
 	//
 	// Populated by the system. Read-only. Value must be treated as opaque by clients and . More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency
-	ResourceVersion *string `json:"resourceVersion" yaml:"resourceVersion"`
+	ResourceVersion *string `field:"optional" json:"resourceVersion" yaml:"resourceVersion"`
 	// SelfLink is a URL representing this object. Populated by the system. Read-only.
 	//
 	// DEPRECATED Kubernetes will stop propagating this field in 1.20 release and the field is planned to be removed in 1.21 release.
-	SelfLink *string `json:"selfLink" yaml:"selfLink"`
+	SelfLink *string `field:"optional" json:"selfLink" yaml:"selfLink"`
 	// UID is the unique in time and space value for this object.
 	//
 	// It is typically generated by the server on successful creation of a resource and is not allowed to change on PUT operations.
 	//
 	// Populated by the system. Read-only. More info: http://kubernetes.io/docs/user-guide/identifiers#uids
-	Uid *string `json:"uid" yaml:"uid"`
+	Uid *string `field:"optional" json:"uid" yaml:"uid"`
 }
 
 // ObjectMetricSource indicates how to scale on a metric describing a kubernetes object (for example, hits-per-second on an Ingress object).
 type ObjectMetricSourceV2Beta1 struct {
 	// metricName is the name of the metric in question.
-	MetricName *string `json:"metricName" yaml:"metricName"`
+	MetricName *string `field:"required" json:"metricName" yaml:"metricName"`
 	// target is the described Kubernetes object.
-	Target *CrossVersionObjectReferenceV2Beta1 `json:"target" yaml:"target"`
+	Target *CrossVersionObjectReferenceV2Beta1 `field:"required" json:"target" yaml:"target"`
 	// targetValue is the target value of the metric (as a quantity).
-	TargetValue Quantity `json:"targetValue" yaml:"targetValue"`
+	TargetValue Quantity `field:"required" json:"targetValue" yaml:"targetValue"`
 	// averageValue is the target value of the average of the metric across all relevant pods (as a quantity).
-	AverageValue Quantity `json:"averageValue" yaml:"averageValue"`
+	AverageValue Quantity `field:"optional" json:"averageValue" yaml:"averageValue"`
 	// selector is the string-encoded form of a standard kubernetes label selector for the given metric When set, it is passed as an additional parameter to the metrics server for more specific metrics scoping When unset, just the metricName will be used to gather metrics.
-	Selector *LabelSelector `json:"selector" yaml:"selector"`
+	Selector *LabelSelector `field:"optional" json:"selector" yaml:"selector"`
 }
 
 // ObjectMetricSource indicates how to scale on a metric describing a kubernetes object (for example, hits-per-second on an Ingress object).
 type ObjectMetricSourceV2Beta2 struct {
-	DescribedObject *CrossVersionObjectReferenceV2Beta2 `json:"describedObject" yaml:"describedObject"`
+	DescribedObject *CrossVersionObjectReferenceV2Beta2 `field:"required" json:"describedObject" yaml:"describedObject"`
 	// metric identifies the target metric by name and selector.
-	Metric *MetricIdentifierV2Beta2 `json:"metric" yaml:"metric"`
+	Metric *MetricIdentifierV2Beta2 `field:"required" json:"metric" yaml:"metric"`
 	// target specifies the target value for the given metric.
-	Target *MetricTargetV2Beta2 `json:"target" yaml:"target"`
+	Target *MetricTargetV2Beta2 `field:"required" json:"target" yaml:"target"`
 }
 
 // ObjectReference contains enough information to let you inspect or modify the referred object.
 type ObjectReference struct {
 	// API version of the referent.
-	ApiVersion *string `json:"apiVersion" yaml:"apiVersion"`
+	ApiVersion *string `field:"optional" json:"apiVersion" yaml:"apiVersion"`
 	// If referring to a piece of an object instead of an entire object, this string should contain a valid JSON/Go field access statement, such as desiredState.manifest.containers[2]. For example, if the object reference is to a container within a pod, this would take on a value like: "spec.containers{name}" (where "name" refers to the name of the container that triggered the event) or if no container name is specified "spec.containers[2]" (container with index 2 in this pod). This syntax is chosen only to have some well-defined way of referencing a part of an object.
-	FieldPath *string `json:"fieldPath" yaml:"fieldPath"`
+	FieldPath *string `field:"optional" json:"fieldPath" yaml:"fieldPath"`
 	// Kind of the referent.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
-	Kind *string `json:"kind" yaml:"kind"`
+	Kind *string `field:"optional" json:"kind" yaml:"kind"`
 	// Name of the referent.
 	//
 	// More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// Namespace of the referent.
 	//
 	// More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/
-	Namespace *string `json:"namespace" yaml:"namespace"`
+	Namespace *string `field:"optional" json:"namespace" yaml:"namespace"`
 	// Specific resourceVersion to which this reference is made, if any.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency
-	ResourceVersion *string `json:"resourceVersion" yaml:"resourceVersion"`
+	ResourceVersion *string `field:"optional" json:"resourceVersion" yaml:"resourceVersion"`
 	// UID of the referent.
 	//
 	// More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#uids
-	Uid *string `json:"uid" yaml:"uid"`
+	Uid *string `field:"optional" json:"uid" yaml:"uid"`
 }
 
 // Overhead structure represents the resource overhead associated with running a pod.
 type OverheadV1Alpha1 struct {
 	// PodFixed represents the fixed resource overhead associated with running a pod.
-	PodFixed *map[string]Quantity `json:"podFixed" yaml:"podFixed"`
+	PodFixed *map[string]Quantity `field:"optional" json:"podFixed" yaml:"podFixed"`
 }
 
 // Overhead structure represents the resource overhead associated with running a pod.
 type OverheadV1Beta1 struct {
 	// PodFixed represents the fixed resource overhead associated with running a pod.
-	PodFixed *map[string]Quantity `json:"podFixed" yaml:"podFixed"`
+	PodFixed *map[string]Quantity `field:"optional" json:"podFixed" yaml:"podFixed"`
 }
 
 // OwnerReference contains enough information to let you identify an owning object.
@@ -57654,25 +57654,25 @@ type OverheadV1Beta1 struct {
 // An owning object must be in the same namespace as the dependent, or be cluster-scoped, so there is no namespace field.
 type OwnerReference struct {
 	// API version of the referent.
-	ApiVersion *string `json:"apiVersion" yaml:"apiVersion"`
+	ApiVersion *string `field:"required" json:"apiVersion" yaml:"apiVersion"`
 	// Kind of the referent.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
-	Kind *string `json:"kind" yaml:"kind"`
+	Kind *string `field:"required" json:"kind" yaml:"kind"`
 	// Name of the referent.
 	//
 	// More info: http://kubernetes.io/docs/user-guide/identifiers#names
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// UID of the referent.
 	//
 	// More info: http://kubernetes.io/docs/user-guide/identifiers#uids
-	Uid *string `json:"uid" yaml:"uid"`
+	Uid *string `field:"required" json:"uid" yaml:"uid"`
 	// If true, AND if the owner has the "foregroundDeletion" finalizer, then the owner cannot be deleted from the key-value store until this reference is removed.
 	//
 	// Defaults to false. To set this field, a user needs "delete" permission of the owner, otherwise 422 (Unprocessable Entity) will be returned.
-	BlockOwnerDeletion *bool `json:"blockOwnerDeletion" yaml:"blockOwnerDeletion"`
+	BlockOwnerDeletion *bool `field:"optional" json:"blockOwnerDeletion" yaml:"blockOwnerDeletion"`
 	// If true, this reference points to the managing controller.
-	Controller *bool `json:"controller" yaml:"controller"`
+	Controller *bool `field:"optional" json:"controller" yaml:"controller"`
 }
 
 // PersistentVolumeClaimSpec describes the common attributes of storage devices and allows a Source for provider-specific attributes.
@@ -57680,27 +57680,27 @@ type PersistentVolumeClaimSpec struct {
 	// AccessModes contains the desired access modes the volume should have.
 	//
 	// More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1
-	AccessModes *[]*string `json:"accessModes" yaml:"accessModes"`
+	AccessModes *[]*string `field:"optional" json:"accessModes" yaml:"accessModes"`
 	// This field requires the VolumeSnapshotDataSource alpha feature gate to be enabled and currently VolumeSnapshot is the only supported data source.
 	//
 	// If the provisioner can support VolumeSnapshot data source, it will create a new volume and data will be restored to the volume at the same time. If the provisioner does not support VolumeSnapshot data source, volume will not be created and the failure will be reported as an event. In the future, we plan to support more data source types and the behavior of the provisioner may change.
-	DataSource *TypedLocalObjectReference `json:"dataSource" yaml:"dataSource"`
+	DataSource *TypedLocalObjectReference `field:"optional" json:"dataSource" yaml:"dataSource"`
 	// Resources represents the minimum resources the volume should have.
 	//
 	// More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources
-	Resources *ResourceRequirements `json:"resources" yaml:"resources"`
+	Resources *ResourceRequirements `field:"optional" json:"resources" yaml:"resources"`
 	// A label query over volumes to consider for binding.
-	Selector *LabelSelector `json:"selector" yaml:"selector"`
+	Selector *LabelSelector `field:"optional" json:"selector" yaml:"selector"`
 	// Name of the StorageClass required by the claim.
 	//
 	// More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1
-	StorageClassName *string `json:"storageClassName" yaml:"storageClassName"`
+	StorageClassName *string `field:"optional" json:"storageClassName" yaml:"storageClassName"`
 	// volumeMode defines what type of volume is required by the claim.
 	//
 	// Value of Filesystem is implied when not included in claim spec. This is a beta feature.
-	VolumeMode *string `json:"volumeMode" yaml:"volumeMode"`
+	VolumeMode *string `field:"optional" json:"volumeMode" yaml:"volumeMode"`
 	// VolumeName is the binding reference to the PersistentVolume backing this claim.
-	VolumeName *string `json:"volumeName" yaml:"volumeName"`
+	VolumeName *string `field:"optional" json:"volumeName" yaml:"volumeName"`
 }
 
 // PersistentVolumeClaimVolumeSource references the user's PVC in the same namespace.
@@ -57710,11 +57710,11 @@ type PersistentVolumeClaimVolumeSource struct {
 	// ClaimName is the name of a PersistentVolumeClaim in the same namespace as the pod using this volume.
 	//
 	// More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims
-	ClaimName *string `json:"claimName" yaml:"claimName"`
+	ClaimName *string `field:"required" json:"claimName" yaml:"claimName"`
 	// Will force the ReadOnly setting in VolumeMounts.
 	//
 	// Default false.
-	ReadOnly *bool `json:"readOnly" yaml:"readOnly"`
+	ReadOnly *bool `field:"optional" json:"readOnly" yaml:"readOnly"`
 }
 
 // PersistentVolumeSpec is the specification of a persistent volume.
@@ -57722,105 +57722,105 @@ type PersistentVolumeSpec struct {
 	// AccessModes contains all ways the volume can be mounted.
 	//
 	// More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes
-	AccessModes *[]*string `json:"accessModes" yaml:"accessModes"`
+	AccessModes *[]*string `field:"optional" json:"accessModes" yaml:"accessModes"`
 	// AWSElasticBlockStore represents an AWS Disk resource that is attached to a kubelet's host machine and then exposed to the pod.
 	//
 	// More info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore
-	AwsElasticBlockStore *AwsElasticBlockStoreVolumeSource `json:"awsElasticBlockStore" yaml:"awsElasticBlockStore"`
+	AwsElasticBlockStore *AwsElasticBlockStoreVolumeSource `field:"optional" json:"awsElasticBlockStore" yaml:"awsElasticBlockStore"`
 	// AzureDisk represents an Azure Data Disk mount on the host and bind mount to the pod.
-	AzureDisk *AzureDiskVolumeSource `json:"azureDisk" yaml:"azureDisk"`
+	AzureDisk *AzureDiskVolumeSource `field:"optional" json:"azureDisk" yaml:"azureDisk"`
 	// AzureFile represents an Azure File Service mount on the host and bind mount to the pod.
-	AzureFile *AzureFilePersistentVolumeSource `json:"azureFile" yaml:"azureFile"`
+	AzureFile *AzureFilePersistentVolumeSource `field:"optional" json:"azureFile" yaml:"azureFile"`
 	// A description of the persistent volume's resources and capacity.
 	//
 	// More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#capacity
-	Capacity *map[string]Quantity `json:"capacity" yaml:"capacity"`
+	Capacity *map[string]Quantity `field:"optional" json:"capacity" yaml:"capacity"`
 	// CephFS represents a Ceph FS mount on the host that shares a pod's lifetime.
-	Cephfs *CephFsPersistentVolumeSource `json:"cephfs" yaml:"cephfs"`
+	Cephfs *CephFsPersistentVolumeSource `field:"optional" json:"cephfs" yaml:"cephfs"`
 	// Cinder represents a cinder volume attached and mounted on kubelets host machine.
 	//
 	// More info: https://examples.k8s.io/mysql-cinder-pd/README.md
-	Cinder *CinderPersistentVolumeSource `json:"cinder" yaml:"cinder"`
+	Cinder *CinderPersistentVolumeSource `field:"optional" json:"cinder" yaml:"cinder"`
 	// ClaimRef is part of a bi-directional binding between PersistentVolume and PersistentVolumeClaim.
 	//
 	// Expected to be non-nil when bound. claim.VolumeName is the authoritative bind between PV and PVC. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#binding
-	ClaimRef *ObjectReference `json:"claimRef" yaml:"claimRef"`
+	ClaimRef *ObjectReference `field:"optional" json:"claimRef" yaml:"claimRef"`
 	// CSI represents storage that is handled by an external CSI driver (Beta feature).
-	Csi *CsiPersistentVolumeSource `json:"csi" yaml:"csi"`
+	Csi *CsiPersistentVolumeSource `field:"optional" json:"csi" yaml:"csi"`
 	// FC represents a Fibre Channel resource that is attached to a kubelet's host machine and then exposed to the pod.
-	Fc *FcVolumeSource `json:"fc" yaml:"fc"`
+	Fc *FcVolumeSource `field:"optional" json:"fc" yaml:"fc"`
 	// FlexVolume represents a generic volume resource that is provisioned/attached using an exec based plugin.
-	FlexVolume *FlexPersistentVolumeSource `json:"flexVolume" yaml:"flexVolume"`
+	FlexVolume *FlexPersistentVolumeSource `field:"optional" json:"flexVolume" yaml:"flexVolume"`
 	// Flocker represents a Flocker volume attached to a kubelet's host machine and exposed to the pod for its usage.
 	//
 	// This depends on the Flocker control service being running.
-	Flocker *FlockerVolumeSource `json:"flocker" yaml:"flocker"`
+	Flocker *FlockerVolumeSource `field:"optional" json:"flocker" yaml:"flocker"`
 	// GCEPersistentDisk represents a GCE Disk resource that is attached to a kubelet's host machine and then exposed to the pod.
 	//
 	// Provisioned by an admin. More info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk
-	GcePersistentDisk *GcePersistentDiskVolumeSource `json:"gcePersistentDisk" yaml:"gcePersistentDisk"`
+	GcePersistentDisk *GcePersistentDiskVolumeSource `field:"optional" json:"gcePersistentDisk" yaml:"gcePersistentDisk"`
 	// Glusterfs represents a Glusterfs volume that is attached to a host and exposed to the pod.
 	//
 	// Provisioned by an admin. More info: https://examples.k8s.io/volumes/glusterfs/README.md
-	Glusterfs *GlusterfsPersistentVolumeSource `json:"glusterfs" yaml:"glusterfs"`
+	Glusterfs *GlusterfsPersistentVolumeSource `field:"optional" json:"glusterfs" yaml:"glusterfs"`
 	// HostPath represents a directory on the host.
 	//
 	// Provisioned by a developer or tester. This is useful for single-node development and testing only! On-host storage is not supported in any way and WILL NOT WORK in a multi-node cluster. More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath
-	HostPath *HostPathVolumeSource `json:"hostPath" yaml:"hostPath"`
+	HostPath *HostPathVolumeSource `field:"optional" json:"hostPath" yaml:"hostPath"`
 	// ISCSI represents an ISCSI Disk resource that is attached to a kubelet's host machine and then exposed to the pod.
 	//
 	// Provisioned by an admin.
-	Iscsi *IscsiPersistentVolumeSource `json:"iscsi" yaml:"iscsi"`
+	Iscsi *IscsiPersistentVolumeSource `field:"optional" json:"iscsi" yaml:"iscsi"`
 	// Local represents directly-attached storage with node affinity.
-	Local *LocalVolumeSource `json:"local" yaml:"local"`
+	Local *LocalVolumeSource `field:"optional" json:"local" yaml:"local"`
 	// A list of mount options, e.g. ["ro", "soft"]. Not validated - mount will simply fail if one is invalid. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#mount-options.
-	MountOptions *[]*string `json:"mountOptions" yaml:"mountOptions"`
+	MountOptions *[]*string `field:"optional" json:"mountOptions" yaml:"mountOptions"`
 	// NFS represents an NFS mount on the host.
 	//
 	// Provisioned by an admin. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
-	Nfs *NfsVolumeSource `json:"nfs" yaml:"nfs"`
+	Nfs *NfsVolumeSource `field:"optional" json:"nfs" yaml:"nfs"`
 	// NodeAffinity defines constraints that limit what nodes this volume can be accessed from.
 	//
 	// This field influences the scheduling of pods that use this volume.
-	NodeAffinity *VolumeNodeAffinity `json:"nodeAffinity" yaml:"nodeAffinity"`
+	NodeAffinity *VolumeNodeAffinity `field:"optional" json:"nodeAffinity" yaml:"nodeAffinity"`
 	// What happens to a persistent volume when released from its claim.
 	//
 	// Valid options are Retain (default for manually created PersistentVolumes), Delete (default for dynamically provisioned PersistentVolumes), and Recycle (deprecated). Recycle must be supported by the volume plugin underlying this PersistentVolume. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#reclaiming
-	PersistentVolumeReclaimPolicy *string `json:"persistentVolumeReclaimPolicy" yaml:"persistentVolumeReclaimPolicy"`
+	PersistentVolumeReclaimPolicy *string `field:"optional" json:"persistentVolumeReclaimPolicy" yaml:"persistentVolumeReclaimPolicy"`
 	// PhotonPersistentDisk represents a PhotonController persistent disk attached and mounted on kubelets host machine.
-	PhotonPersistentDisk *PhotonPersistentDiskVolumeSource `json:"photonPersistentDisk" yaml:"photonPersistentDisk"`
+	PhotonPersistentDisk *PhotonPersistentDiskVolumeSource `field:"optional" json:"photonPersistentDisk" yaml:"photonPersistentDisk"`
 	// PortworxVolume represents a portworx volume attached and mounted on kubelets host machine.
-	PortworxVolume *PortworxVolumeSource `json:"portworxVolume" yaml:"portworxVolume"`
+	PortworxVolume *PortworxVolumeSource `field:"optional" json:"portworxVolume" yaml:"portworxVolume"`
 	// Quobyte represents a Quobyte mount on the host that shares a pod's lifetime.
-	Quobyte *QuobyteVolumeSource `json:"quobyte" yaml:"quobyte"`
+	Quobyte *QuobyteVolumeSource `field:"optional" json:"quobyte" yaml:"quobyte"`
 	// RBD represents a Rados Block Device mount on the host that shares a pod's lifetime.
 	//
 	// More info: https://examples.k8s.io/volumes/rbd/README.md
-	Rbd *RbdPersistentVolumeSource `json:"rbd" yaml:"rbd"`
+	Rbd *RbdPersistentVolumeSource `field:"optional" json:"rbd" yaml:"rbd"`
 	// ScaleIO represents a ScaleIO persistent volume attached and mounted on Kubernetes nodes.
-	ScaleIo *ScaleIoPersistentVolumeSource `json:"scaleIo" yaml:"scaleIo"`
+	ScaleIo *ScaleIoPersistentVolumeSource `field:"optional" json:"scaleIo" yaml:"scaleIo"`
 	// Name of StorageClass to which this persistent volume belongs.
 	//
 	// Empty value means that this volume does not belong to any StorageClass.
-	StorageClassName *string `json:"storageClassName" yaml:"storageClassName"`
+	StorageClassName *string `field:"optional" json:"storageClassName" yaml:"storageClassName"`
 	// StorageOS represents a StorageOS volume that is attached to the kubelet's host machine and mounted into the pod More info: https://examples.k8s.io/volumes/storageos/README.md.
-	Storageos *StorageOsPersistentVolumeSource `json:"storageos" yaml:"storageos"`
+	Storageos *StorageOsPersistentVolumeSource `field:"optional" json:"storageos" yaml:"storageos"`
 	// volumeMode defines if a volume is intended to be used with a formatted filesystem or to remain in raw block state.
 	//
 	// Value of Filesystem is implied when not included in spec. This is a beta feature.
-	VolumeMode *string `json:"volumeMode" yaml:"volumeMode"`
+	VolumeMode *string `field:"optional" json:"volumeMode" yaml:"volumeMode"`
 	// VsphereVolume represents a vSphere volume attached and mounted on kubelets host machine.
-	VsphereVolume *VsphereVirtualDiskVolumeSource `json:"vsphereVolume" yaml:"vsphereVolume"`
+	VsphereVolume *VsphereVirtualDiskVolumeSource `field:"optional" json:"vsphereVolume" yaml:"vsphereVolume"`
 }
 
 // Represents a Photon Controller persistent disk resource.
 type PhotonPersistentDiskVolumeSource struct {
 	// ID that identifies Photon Controller persistent disk.
-	PdId *string `json:"pdId" yaml:"pdId"`
+	PdId *string `field:"required" json:"pdId" yaml:"pdId"`
 	// Filesystem type to mount.
 	//
 	// Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
-	FsType *string `json:"fsType" yaml:"fsType"`
+	FsType *string `field:"optional" json:"fsType" yaml:"fsType"`
 }
 
 // Pod affinity is a group of inter pod affinity scheduling rules.
@@ -57828,11 +57828,11 @@ type PodAffinity struct {
 	// The scheduler will prefer to schedule pods to nodes that satisfy the affinity expressions specified by this field, but it may choose a node that violates one or more of the expressions.
 	//
 	// The node that is most preferred is the one with the greatest sum of weights, i.e. for each node that meets all of the scheduling requirements (resource request, requiredDuringScheduling affinity expressions, etc.), compute a sum by iterating through the elements of this field and adding "weight" to the sum if the node has pods which matches the corresponding podAffinityTerm; the node(s) with the highest sum are the most preferred.
-	PreferredDuringSchedulingIgnoredDuringExecution *[]*WeightedPodAffinityTerm `json:"preferredDuringSchedulingIgnoredDuringExecution" yaml:"preferredDuringSchedulingIgnoredDuringExecution"`
+	PreferredDuringSchedulingIgnoredDuringExecution *[]*WeightedPodAffinityTerm `field:"optional" json:"preferredDuringSchedulingIgnoredDuringExecution" yaml:"preferredDuringSchedulingIgnoredDuringExecution"`
 	// If the affinity requirements specified by this field are not met at scheduling time, the pod will not be scheduled onto the node.
 	//
 	// If the affinity requirements specified by this field cease to be met at some point during pod execution (e.g. due to a pod label update), the system may or may not try to eventually evict the pod from its node. When there are multiple elements, the lists of nodes corresponding to each podAffinityTerm are intersected, i.e. all terms must be satisfied.
-	RequiredDuringSchedulingIgnoredDuringExecution *[]*PodAffinityTerm `json:"requiredDuringSchedulingIgnoredDuringExecution" yaml:"requiredDuringSchedulingIgnoredDuringExecution"`
+	RequiredDuringSchedulingIgnoredDuringExecution *[]*PodAffinityTerm `field:"optional" json:"requiredDuringSchedulingIgnoredDuringExecution" yaml:"requiredDuringSchedulingIgnoredDuringExecution"`
 }
 
 // Defines a set of pods (namely those matching the labelSelector relative to the given namespace(s)) that this pod should be co-located (affinity) or not co-located (anti-affinity) with, where co-located is defined as running on a node whose value of the label with key <topologyKey> matches that of any node on which a pod of the set of pods is running.
@@ -57840,13 +57840,13 @@ type PodAffinityTerm struct {
 	// This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching the labelSelector in the specified namespaces, where co-located is defined as running on a node whose value of the label with key topologyKey matches that of any node on which any of the selected pods is running.
 	//
 	// Empty topologyKey is not allowed.
-	TopologyKey *string `json:"topologyKey" yaml:"topologyKey"`
+	TopologyKey *string `field:"required" json:"topologyKey" yaml:"topologyKey"`
 	// A label query over a set of resources, in this case pods.
-	LabelSelector *LabelSelector `json:"labelSelector" yaml:"labelSelector"`
+	LabelSelector *LabelSelector `field:"optional" json:"labelSelector" yaml:"labelSelector"`
 	// namespaces specifies which namespaces the labelSelector applies to (matches against);
 	//
 	// null or empty list means "this pod's namespace".
-	Namespaces *[]*string `json:"namespaces" yaml:"namespaces"`
+	Namespaces *[]*string `field:"optional" json:"namespaces" yaml:"namespaces"`
 }
 
 // Pod anti affinity is a group of inter pod anti affinity scheduling rules.
@@ -57854,21 +57854,21 @@ type PodAntiAffinity struct {
 	// The scheduler will prefer to schedule pods to nodes that satisfy the anti-affinity expressions specified by this field, but it may choose a node that violates one or more of the expressions.
 	//
 	// The node that is most preferred is the one with the greatest sum of weights, i.e. for each node that meets all of the scheduling requirements (resource request, requiredDuringScheduling anti-affinity expressions, etc.), compute a sum by iterating through the elements of this field and adding "weight" to the sum if the node has pods which matches the corresponding podAffinityTerm; the node(s) with the highest sum are the most preferred.
-	PreferredDuringSchedulingIgnoredDuringExecution *[]*WeightedPodAffinityTerm `json:"preferredDuringSchedulingIgnoredDuringExecution" yaml:"preferredDuringSchedulingIgnoredDuringExecution"`
+	PreferredDuringSchedulingIgnoredDuringExecution *[]*WeightedPodAffinityTerm `field:"optional" json:"preferredDuringSchedulingIgnoredDuringExecution" yaml:"preferredDuringSchedulingIgnoredDuringExecution"`
 	// If the anti-affinity requirements specified by this field are not met at scheduling time, the pod will not be scheduled onto the node.
 	//
 	// If the anti-affinity requirements specified by this field cease to be met at some point during pod execution (e.g. due to a pod label update), the system may or may not try to eventually evict the pod from its node. When there are multiple elements, the lists of nodes corresponding to each podAffinityTerm are intersected, i.e. all terms must be satisfied.
-	RequiredDuringSchedulingIgnoredDuringExecution *[]*PodAffinityTerm `json:"requiredDuringSchedulingIgnoredDuringExecution" yaml:"requiredDuringSchedulingIgnoredDuringExecution"`
+	RequiredDuringSchedulingIgnoredDuringExecution *[]*PodAffinityTerm `field:"optional" json:"requiredDuringSchedulingIgnoredDuringExecution" yaml:"requiredDuringSchedulingIgnoredDuringExecution"`
 }
 
 // PodDisruptionBudgetSpec is a description of a PodDisruptionBudget.
 type PodDisruptionBudgetSpecV1Beta1 struct {
 	// An eviction is allowed if at most "maxUnavailable" pods selected by "selector" are unavailable after the eviction, i.e. even in absence of the evicted pod. For example, one can prevent all voluntary evictions by specifying 0. This is a mutually exclusive setting with "minAvailable".
-	MaxUnavailable IntOrString `json:"maxUnavailable" yaml:"maxUnavailable"`
+	MaxUnavailable IntOrString `field:"optional" json:"maxUnavailable" yaml:"maxUnavailable"`
 	// An eviction is allowed if at least "minAvailable" pods selected by "selector" will still be available after the eviction, i.e. even in the absence of the evicted pod.  So for example you can prevent all voluntary evictions by specifying "100%".
-	MinAvailable IntOrString `json:"minAvailable" yaml:"minAvailable"`
+	MinAvailable IntOrString `field:"optional" json:"minAvailable" yaml:"minAvailable"`
 	// Label query over pods whose evictions are managed by the disruption budget.
-	Selector *LabelSelector `json:"selector" yaml:"selector"`
+	Selector *LabelSelector `field:"optional" json:"selector" yaml:"selector"`
 }
 
 // PodDNSConfig defines the DNS parameters of a pod in addition to those generated from DNSPolicy.
@@ -57876,44 +57876,44 @@ type PodDnsConfig struct {
 	// A list of DNS name server IP addresses.
 	//
 	// This will be appended to the base nameservers generated from DNSPolicy. Duplicated nameservers will be removed.
-	Nameservers *[]*string `json:"nameservers" yaml:"nameservers"`
+	Nameservers *[]*string `field:"optional" json:"nameservers" yaml:"nameservers"`
 	// A list of DNS resolver options.
 	//
 	// This will be merged with the base options generated from DNSPolicy. Duplicated entries will be removed. Resolution options given in Options will override those that appear in the base DNSPolicy.
-	Options *[]*PodDnsConfigOption `json:"options" yaml:"options"`
+	Options *[]*PodDnsConfigOption `field:"optional" json:"options" yaml:"options"`
 	// A list of DNS search domains for host-name lookup.
 	//
 	// This will be appended to the base search paths generated from DNSPolicy. Duplicated search paths will be removed.
-	Searches *[]*string `json:"searches" yaml:"searches"`
+	Searches *[]*string `field:"optional" json:"searches" yaml:"searches"`
 }
 
 // PodDNSConfigOption defines DNS resolver options of a pod.
 type PodDnsConfigOption struct {
 	// Required.
-	Name *string `json:"name" yaml:"name"`
-	Value *string `json:"value" yaml:"value"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
+	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 
 // PodPresetSpec is a description of a pod preset.
 type PodPresetSpecV1Alpha1 struct {
 	// Env defines the collection of EnvVar to inject into containers.
-	Env *[]*EnvVar `json:"env" yaml:"env"`
+	Env *[]*EnvVar `field:"optional" json:"env" yaml:"env"`
 	// EnvFrom defines the collection of EnvFromSource to inject into containers.
-	EnvFrom *[]*EnvFromSource `json:"envFrom" yaml:"envFrom"`
+	EnvFrom *[]*EnvFromSource `field:"optional" json:"envFrom" yaml:"envFrom"`
 	// Selector is a label query over a set of resources, in this case pods.
 	//
 	// Required.
-	Selector *LabelSelector `json:"selector" yaml:"selector"`
+	Selector *LabelSelector `field:"optional" json:"selector" yaml:"selector"`
 	// VolumeMounts defines the collection of VolumeMount to inject into containers.
-	VolumeMounts *[]*VolumeMount `json:"volumeMounts" yaml:"volumeMounts"`
+	VolumeMounts *[]*VolumeMount `field:"optional" json:"volumeMounts" yaml:"volumeMounts"`
 	// Volumes defines the collection of Volume to inject into the pod.
-	Volumes *[]*Volume `json:"volumes" yaml:"volumes"`
+	Volumes *[]*Volume `field:"optional" json:"volumes" yaml:"volumes"`
 }
 
 // PodReadinessGate contains the reference to a pod condition.
 type PodReadinessGate struct {
 	// ConditionType refers to a condition in the pod's condition list with matching type.
-	ConditionType *string `json:"conditionType" yaml:"conditionType"`
+	ConditionType *string `field:"required" json:"conditionType" yaml:"conditionType"`
 }
 
 // PodSecurityContext holds pod-level security attributes and common container settings.
@@ -57927,119 +57927,119 @@ type PodSecurityContext struct {
 	// 1. The owning GID will be the FSGroup 2. The setgid bit is set (new files created in the volume will be owned by FSGroup) 3. The permission bits are OR'd with rw-rw----
 	//
 	// If unset, the Kubelet will not modify the ownership and permissions of any volume.
-	FsGroup *float64 `json:"fsGroup" yaml:"fsGroup"`
+	FsGroup *float64 `field:"optional" json:"fsGroup" yaml:"fsGroup"`
 	// The GID to run the entrypoint of the container process.
 	//
 	// Uses runtime default if unset. May also be set in SecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence for that container.
-	RunAsGroup *float64 `json:"runAsGroup" yaml:"runAsGroup"`
+	RunAsGroup *float64 `field:"optional" json:"runAsGroup" yaml:"runAsGroup"`
 	// Indicates that the container must run as a non-root user.
 	//
 	// If true, the Kubelet will validate the image at runtime to ensure that it does not run as UID 0 (root) and fail to start the container if it does. If unset or false, no such validation will be performed. May also be set in SecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
-	RunAsNonRoot *bool `json:"runAsNonRoot" yaml:"runAsNonRoot"`
+	RunAsNonRoot *bool `field:"optional" json:"runAsNonRoot" yaml:"runAsNonRoot"`
 	// The UID to run the entrypoint of the container process.
 	//
 	// Defaults to user specified in image metadata if unspecified. May also be set in SecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence for that container.
-	RunAsUser *float64 `json:"runAsUser" yaml:"runAsUser"`
+	RunAsUser *float64 `field:"optional" json:"runAsUser" yaml:"runAsUser"`
 	// The SELinux context to be applied to all containers.
 	//
 	// If unspecified, the container runtime will allocate a random SELinux context for each container.  May also be set in SecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence for that container.
-	SeLinuxOptions *SeLinuxOptions `json:"seLinuxOptions" yaml:"seLinuxOptions"`
+	SeLinuxOptions *SeLinuxOptions `field:"optional" json:"seLinuxOptions" yaml:"seLinuxOptions"`
 	// A list of groups applied to the first process run in each container, in addition to the container's primary GID.
 	//
 	// If unspecified, no groups will be added to any container.
-	SupplementalGroups *[]*float64 `json:"supplementalGroups" yaml:"supplementalGroups"`
+	SupplementalGroups *[]*float64 `field:"optional" json:"supplementalGroups" yaml:"supplementalGroups"`
 	// Sysctls hold a list of namespaced sysctls used for the pod.
 	//
 	// Pods with unsupported sysctls (by the container runtime) might fail to launch.
-	Sysctls *[]*Sysctl `json:"sysctls" yaml:"sysctls"`
+	Sysctls *[]*Sysctl `field:"optional" json:"sysctls" yaml:"sysctls"`
 	// The Windows specific settings applied to all containers.
 	//
 	// If unspecified, the options within a container's SecurityContext will be used. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
-	WindowsOptions *WindowsSecurityContextOptions `json:"windowsOptions" yaml:"windowsOptions"`
+	WindowsOptions *WindowsSecurityContextOptions `field:"optional" json:"windowsOptions" yaml:"windowsOptions"`
 }
 
 // PodSecurityPolicySpec defines the policy enforced.
 type PodSecurityPolicySpecV1Beta1 struct {
 	// fsGroup is the strategy that will dictate what fs group is used by the SecurityContext.
-	FsGroup *FsGroupStrategyOptionsV1Beta1 `json:"fsGroup" yaml:"fsGroup"`
+	FsGroup *FsGroupStrategyOptionsV1Beta1 `field:"required" json:"fsGroup" yaml:"fsGroup"`
 	// runAsUser is the strategy that will dictate the allowable RunAsUser values that may be set.
-	RunAsUser *RunAsUserStrategyOptionsV1Beta1 `json:"runAsUser" yaml:"runAsUser"`
+	RunAsUser *RunAsUserStrategyOptionsV1Beta1 `field:"required" json:"runAsUser" yaml:"runAsUser"`
 	// seLinux is the strategy that will dictate the allowable labels that may be set.
-	SeLinux *SeLinuxStrategyOptionsV1Beta1 `json:"seLinux" yaml:"seLinux"`
+	SeLinux *SeLinuxStrategyOptionsV1Beta1 `field:"required" json:"seLinux" yaml:"seLinux"`
 	// supplementalGroups is the strategy that will dictate what supplemental groups are used by the SecurityContext.
-	SupplementalGroups *SupplementalGroupsStrategyOptionsV1Beta1 `json:"supplementalGroups" yaml:"supplementalGroups"`
+	SupplementalGroups *SupplementalGroupsStrategyOptionsV1Beta1 `field:"required" json:"supplementalGroups" yaml:"supplementalGroups"`
 	// allowedCapabilities is a list of capabilities that can be requested to add to the container.
 	//
 	// Capabilities in this field may be added at the pod author's discretion. You must not list a capability in both allowedCapabilities and requiredDropCapabilities.
-	AllowedCapabilities *[]*string `json:"allowedCapabilities" yaml:"allowedCapabilities"`
+	AllowedCapabilities *[]*string `field:"optional" json:"allowedCapabilities" yaml:"allowedCapabilities"`
 	// AllowedCSIDrivers is a whitelist of inline CSI drivers that must be explicitly set to be embedded within a pod spec.
 	//
 	// An empty value indicates that any CSI driver can be used for inline ephemeral volumes. This is an alpha field, and is only honored if the API server enables the CSIInlineVolume feature gate.
-	AllowedCsiDrivers *[]*AllowedCsiDriverV1Beta1 `json:"allowedCsiDrivers" yaml:"allowedCsiDrivers"`
+	AllowedCsiDrivers *[]*AllowedCsiDriverV1Beta1 `field:"optional" json:"allowedCsiDrivers" yaml:"allowedCsiDrivers"`
 	// allowedFlexVolumes is a whitelist of allowed Flexvolumes.
 	//
 	// Empty or nil indicates that all Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes is allowed in the "volumes" field.
-	AllowedFlexVolumes *[]*AllowedFlexVolumeV1Beta1 `json:"allowedFlexVolumes" yaml:"allowedFlexVolumes"`
+	AllowedFlexVolumes *[]*AllowedFlexVolumeV1Beta1 `field:"optional" json:"allowedFlexVolumes" yaml:"allowedFlexVolumes"`
 	// allowedHostPaths is a white list of allowed host paths.
 	//
 	// Empty indicates that all host paths may be used.
-	AllowedHostPaths *[]*AllowedHostPathV1Beta1 `json:"allowedHostPaths" yaml:"allowedHostPaths"`
+	AllowedHostPaths *[]*AllowedHostPathV1Beta1 `field:"optional" json:"allowedHostPaths" yaml:"allowedHostPaths"`
 	// AllowedProcMountTypes is a whitelist of allowed ProcMountTypes.
 	//
 	// Empty or nil indicates that only the DefaultProcMountType may be used. This requires the ProcMountType feature flag to be enabled.
-	AllowedProcMountTypes *[]*string `json:"allowedProcMountTypes" yaml:"allowedProcMountTypes"`
+	AllowedProcMountTypes *[]*string `field:"optional" json:"allowedProcMountTypes" yaml:"allowedProcMountTypes"`
 	// allowedUnsafeSysctls is a list of explicitly allowed unsafe sysctls, defaults to none.
 	//
 	// Each entry is either a plain sysctl name or ends in "*" in which case it is considered as a prefix of allowed sysctls. Single * means all unsafe sysctls are allowed. Kubelet has to whitelist all allowed unsafe sysctls explicitly to avoid rejection.
 	//
 	// Examples: e.g. "foo/*" allows "foo/bar", "foo/baz", etc. e.g. "foo.*" allows "foo.bar", "foo.baz", etc.
-	AllowedUnsafeSysctls *[]*string `json:"allowedUnsafeSysctls" yaml:"allowedUnsafeSysctls"`
+	AllowedUnsafeSysctls *[]*string `field:"optional" json:"allowedUnsafeSysctls" yaml:"allowedUnsafeSysctls"`
 	// allowPrivilegeEscalation determines if a pod can request to allow privilege escalation.
 	//
 	// If unspecified, defaults to true.
-	AllowPrivilegeEscalation *bool `json:"allowPrivilegeEscalation" yaml:"allowPrivilegeEscalation"`
+	AllowPrivilegeEscalation *bool `field:"optional" json:"allowPrivilegeEscalation" yaml:"allowPrivilegeEscalation"`
 	// defaultAddCapabilities is the default set of capabilities that will be added to the container unless the pod spec specifically drops the capability.
 	//
 	// You may not list a capability in both defaultAddCapabilities and requiredDropCapabilities. Capabilities added here are implicitly allowed, and need not be included in the allowedCapabilities list.
-	DefaultAddCapabilities *[]*string `json:"defaultAddCapabilities" yaml:"defaultAddCapabilities"`
+	DefaultAddCapabilities *[]*string `field:"optional" json:"defaultAddCapabilities" yaml:"defaultAddCapabilities"`
 	// defaultAllowPrivilegeEscalation controls the default setting for whether a process can gain more privileges than its parent process.
-	DefaultAllowPrivilegeEscalation *bool `json:"defaultAllowPrivilegeEscalation" yaml:"defaultAllowPrivilegeEscalation"`
+	DefaultAllowPrivilegeEscalation *bool `field:"optional" json:"defaultAllowPrivilegeEscalation" yaml:"defaultAllowPrivilegeEscalation"`
 	// forbiddenSysctls is a list of explicitly forbidden sysctls, defaults to none.
 	//
 	// Each entry is either a plain sysctl name or ends in "*" in which case it is considered as a prefix of forbidden sysctls. Single * means all sysctls are forbidden.
 	//
 	// Examples: e.g. "foo/*" forbids "foo/bar", "foo/baz", etc. e.g. "foo.*" forbids "foo.bar", "foo.baz", etc.
-	ForbiddenSysctls *[]*string `json:"forbiddenSysctls" yaml:"forbiddenSysctls"`
+	ForbiddenSysctls *[]*string `field:"optional" json:"forbiddenSysctls" yaml:"forbiddenSysctls"`
 	// hostIPC determines if the policy allows the use of HostIPC in the pod spec.
-	HostIpc *bool `json:"hostIpc" yaml:"hostIpc"`
+	HostIpc *bool `field:"optional" json:"hostIpc" yaml:"hostIpc"`
 	// hostNetwork determines if the policy allows the use of HostNetwork in the pod spec.
-	HostNetwork *bool `json:"hostNetwork" yaml:"hostNetwork"`
+	HostNetwork *bool `field:"optional" json:"hostNetwork" yaml:"hostNetwork"`
 	// hostPID determines if the policy allows the use of HostPID in the pod spec.
-	HostPid *bool `json:"hostPid" yaml:"hostPid"`
+	HostPid *bool `field:"optional" json:"hostPid" yaml:"hostPid"`
 	// hostPorts determines which host port ranges are allowed to be exposed.
-	HostPorts *[]*HostPortRangeV1Beta1 `json:"hostPorts" yaml:"hostPorts"`
+	HostPorts *[]*HostPortRangeV1Beta1 `field:"optional" json:"hostPorts" yaml:"hostPorts"`
 	// privileged determines if a pod can request to be run as privileged.
-	Privileged *bool `json:"privileged" yaml:"privileged"`
+	Privileged *bool `field:"optional" json:"privileged" yaml:"privileged"`
 	// readOnlyRootFilesystem when set to true will force containers to run with a read only root file system.
 	//
 	// If the container specifically requests to run with a non-read only root file system the PSP should deny the pod. If set to false the container may run with a read only root file system if it wishes but it will not be forced to.
-	ReadOnlyRootFilesystem *bool `json:"readOnlyRootFilesystem" yaml:"readOnlyRootFilesystem"`
+	ReadOnlyRootFilesystem *bool `field:"optional" json:"readOnlyRootFilesystem" yaml:"readOnlyRootFilesystem"`
 	// requiredDropCapabilities are the capabilities that will be dropped from the container.
 	//
 	// These are required to be dropped and cannot be added.
-	RequiredDropCapabilities *[]*string `json:"requiredDropCapabilities" yaml:"requiredDropCapabilities"`
+	RequiredDropCapabilities *[]*string `field:"optional" json:"requiredDropCapabilities" yaml:"requiredDropCapabilities"`
 	// RunAsGroup is the strategy that will dictate the allowable RunAsGroup values that may be set.
 	//
 	// If this field is omitted, the pod's RunAsGroup can take any value. This field requires the RunAsGroup feature gate to be enabled.
-	RunAsGroup *RunAsGroupStrategyOptionsV1Beta1 `json:"runAsGroup" yaml:"runAsGroup"`
+	RunAsGroup *RunAsGroupStrategyOptionsV1Beta1 `field:"optional" json:"runAsGroup" yaml:"runAsGroup"`
 	// runtimeClass is the strategy that will dictate the allowable RuntimeClasses for a pod.
 	//
 	// If this field is omitted, the pod's runtimeClassName field is unrestricted. Enforcement of this field depends on the RuntimeClass feature gate being enabled.
-	RuntimeClass *RuntimeClassStrategyOptionsV1Beta1 `json:"runtimeClass" yaml:"runtimeClass"`
+	RuntimeClass *RuntimeClassStrategyOptionsV1Beta1 `field:"optional" json:"runtimeClass" yaml:"runtimeClass"`
 	// volumes is a white list of allowed volume plugins.
 	//
 	// Empty indicates that no volumes may be used. To allow all volumes you may use '*'.
-	Volumes *[]*string `json:"volumes" yaml:"volumes"`
+	Volumes *[]*string `field:"optional" json:"volumes" yaml:"volumes"`
 }
 
 // PodSpec is a description of a pod.
@@ -58047,127 +58047,127 @@ type PodSpec struct {
 	// List of containers belonging to the pod.
 	//
 	// Containers cannot currently be added or removed. There must be at least one container in a Pod. Cannot be updated.
-	Containers *[]*Container `json:"containers" yaml:"containers"`
+	Containers *[]*Container `field:"required" json:"containers" yaml:"containers"`
 	// Optional duration in seconds the pod may be active on the node relative to StartTime before the system will actively try to mark it failed and kill associated containers.
 	//
 	// Value must be a positive integer.
-	ActiveDeadlineSeconds *float64 `json:"activeDeadlineSeconds" yaml:"activeDeadlineSeconds"`
+	ActiveDeadlineSeconds *float64 `field:"optional" json:"activeDeadlineSeconds" yaml:"activeDeadlineSeconds"`
 	// If specified, the pod's scheduling constraints.
-	Affinity *Affinity `json:"affinity" yaml:"affinity"`
+	Affinity *Affinity `field:"optional" json:"affinity" yaml:"affinity"`
 	// AutomountServiceAccountToken indicates whether a service account token should be automatically mounted.
-	AutomountServiceAccountToken *bool `json:"automountServiceAccountToken" yaml:"automountServiceAccountToken"`
+	AutomountServiceAccountToken *bool `field:"optional" json:"automountServiceAccountToken" yaml:"automountServiceAccountToken"`
 	// Specifies the DNS parameters of a pod.
 	//
 	// Parameters specified here will be merged to the generated DNS configuration based on DNSPolicy.
-	DnsConfig *PodDnsConfig `json:"dnsConfig" yaml:"dnsConfig"`
+	DnsConfig *PodDnsConfig `field:"optional" json:"dnsConfig" yaml:"dnsConfig"`
 	// Set DNS policy for the pod.
 	//
 	// Defaults to "ClusterFirst". Valid values are 'ClusterFirstWithHostNet', 'ClusterFirst', 'Default' or 'None'. DNS parameters given in DNSConfig will be merged with the policy selected with DNSPolicy. To have DNS options set along with hostNetwork, you have to specify DNS policy explicitly to 'ClusterFirstWithHostNet'.
-	DnsPolicy *string `json:"dnsPolicy" yaml:"dnsPolicy"`
+	DnsPolicy *string `field:"optional" json:"dnsPolicy" yaml:"dnsPolicy"`
 	// EnableServiceLinks indicates whether information about services should be injected into pod's environment variables, matching the syntax of Docker links.
 	//
 	// Optional: Defaults to true.
-	EnableServiceLinks *bool `json:"enableServiceLinks" yaml:"enableServiceLinks"`
+	EnableServiceLinks *bool `field:"optional" json:"enableServiceLinks" yaml:"enableServiceLinks"`
 	// List of ephemeral containers run in this pod.
 	//
 	// Ephemeral containers may be run in an existing pod to perform user-initiated actions such as debugging. This list cannot be specified when creating a pod, and it cannot be modified by updating the pod spec. In order to add an ephemeral container to an existing pod, use the pod's ephemeralcontainers subresource. This field is alpha-level and is only honored by servers that enable the EphemeralContainers feature.
-	EphemeralContainers *[]*EphemeralContainer `json:"ephemeralContainers" yaml:"ephemeralContainers"`
+	EphemeralContainers *[]*EphemeralContainer `field:"optional" json:"ephemeralContainers" yaml:"ephemeralContainers"`
 	// HostAliases is an optional list of hosts and IPs that will be injected into the pod's hosts file if specified.
 	//
 	// This is only valid for non-hostNetwork pods.
-	HostAliases *[]*HostAlias `json:"hostAliases" yaml:"hostAliases"`
+	HostAliases *[]*HostAlias `field:"optional" json:"hostAliases" yaml:"hostAliases"`
 	// Use the host's ipc namespace.
 	//
 	// Optional: Default to false.
-	HostIpc *bool `json:"hostIpc" yaml:"hostIpc"`
+	HostIpc *bool `field:"optional" json:"hostIpc" yaml:"hostIpc"`
 	// Specifies the hostname of the Pod If not specified, the pod's hostname will be set to a system-defined value.
-	Hostname *string `json:"hostname" yaml:"hostname"`
+	Hostname *string `field:"optional" json:"hostname" yaml:"hostname"`
 	// Host networking requested for this pod.
 	//
 	// Use the host's network namespace. If this option is set, the ports that will be used must be specified. Default to false.
-	HostNetwork *bool `json:"hostNetwork" yaml:"hostNetwork"`
+	HostNetwork *bool `field:"optional" json:"hostNetwork" yaml:"hostNetwork"`
 	// Use the host's pid namespace.
 	//
 	// Optional: Default to false.
-	HostPid *bool `json:"hostPid" yaml:"hostPid"`
+	HostPid *bool `field:"optional" json:"hostPid" yaml:"hostPid"`
 	// ImagePullSecrets is an optional list of references to secrets in the same namespace to use for pulling any of the images used by this PodSpec.
 	//
 	// If specified, these secrets will be passed to individual puller implementations for them to use. For example, in the case of docker, only DockerConfig type secrets are honored. More info: https://kubernetes.io/docs/concepts/containers/images#specifying-imagepullsecrets-on-a-pod
-	ImagePullSecrets *[]*LocalObjectReference `json:"imagePullSecrets" yaml:"imagePullSecrets"`
+	ImagePullSecrets *[]*LocalObjectReference `field:"optional" json:"imagePullSecrets" yaml:"imagePullSecrets"`
 	// List of initialization containers belonging to the pod.
 	//
 	// Init containers are executed in order prior to containers being started. If any init container fails, the pod is considered to have failed and is handled according to its restartPolicy. The name for an init container or normal container must be unique among all containers. Init containers may not have Lifecycle actions, Readiness probes, Liveness probes, or Startup probes. The resourceRequirements of an init container are taken into account during scheduling by finding the highest request/limit for each resource type, and then using the max of of that value or the sum of the normal containers. Limits are applied to init containers in a similar fashion. Init containers cannot currently be added or removed. Cannot be updated. More info: https://kubernetes.io/docs/concepts/workloads/pods/init-containers/
-	InitContainers *[]*Container `json:"initContainers" yaml:"initContainers"`
+	InitContainers *[]*Container `field:"optional" json:"initContainers" yaml:"initContainers"`
 	// NodeName is a request to schedule this pod onto a specific node.
 	//
 	// If it is non-empty, the scheduler simply schedules this pod onto that node, assuming that it fits resource requirements.
-	NodeName *string `json:"nodeName" yaml:"nodeName"`
+	NodeName *string `field:"optional" json:"nodeName" yaml:"nodeName"`
 	// NodeSelector is a selector which must be true for the pod to fit on a node.
 	//
 	// Selector which must match a node's labels for the pod to be scheduled on that node. More info: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
-	NodeSelector *map[string]*string `json:"nodeSelector" yaml:"nodeSelector"`
+	NodeSelector *map[string]*string `field:"optional" json:"nodeSelector" yaml:"nodeSelector"`
 	// Overhead represents the resource overhead associated with running a pod for a given RuntimeClass.
 	//
 	// This field will be autopopulated at admission time by the RuntimeClass admission controller. If the RuntimeClass admission controller is enabled, overhead must not be set in Pod create requests. The RuntimeClass admission controller will reject Pod create requests which have the overhead already set. If RuntimeClass is configured and selected in the PodSpec, Overhead will be set to the value defined in the corresponding RuntimeClass, otherwise it will remain unset and treated as zero. More info: https://git.k8s.io/enhancements/keps/sig-node/20190226-pod-overhead.md This field is alpha-level as of Kubernetes v1.16, and is only honored by servers that enable the PodOverhead feature.
-	Overhead *map[string]Quantity `json:"overhead" yaml:"overhead"`
+	Overhead *map[string]Quantity `field:"optional" json:"overhead" yaml:"overhead"`
 	// PreemptionPolicy is the Policy for preempting pods with lower priority.
 	//
 	// One of Never, PreemptLowerPriority. Defaults to PreemptLowerPriority if unset. This field is alpha-level and is only honored by servers that enable the NonPreemptingPriority feature.
-	PreemptionPolicy *string `json:"preemptionPolicy" yaml:"preemptionPolicy"`
+	PreemptionPolicy *string `field:"optional" json:"preemptionPolicy" yaml:"preemptionPolicy"`
 	// The priority value.
 	//
 	// Various system components use this field to find the priority of the pod. When Priority Admission Controller is enabled, it prevents users from setting this field. The admission controller populates this field from PriorityClassName. The higher the value, the higher the priority.
-	Priority *float64 `json:"priority" yaml:"priority"`
+	Priority *float64 `field:"optional" json:"priority" yaml:"priority"`
 	// If specified, indicates the pod's priority.
 	//
 	// "system-node-critical" and "system-cluster-critical" are two special keywords which indicate the highest priorities with the former being the highest priority. Any other name must be defined by creating a PriorityClass object with that name. If not specified, the pod priority will be default or zero if there is no default.
-	PriorityClassName *string `json:"priorityClassName" yaml:"priorityClassName"`
+	PriorityClassName *string `field:"optional" json:"priorityClassName" yaml:"priorityClassName"`
 	// If specified, all readiness gates will be evaluated for pod readiness.
 	//
 	// A pod is ready when all its containers are ready AND all conditions specified in the readiness gates have status equal to "True" More info: https://git.k8s.io/enhancements/keps/sig-network/0007-pod-ready%2B%2B.md
-	ReadinessGates *[]*PodReadinessGate `json:"readinessGates" yaml:"readinessGates"`
+	ReadinessGates *[]*PodReadinessGate `field:"optional" json:"readinessGates" yaml:"readinessGates"`
 	// Restart policy for all containers within the pod.
 	//
 	// One of Always, OnFailure, Never. Default to Always. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#restart-policy
-	RestartPolicy *string `json:"restartPolicy" yaml:"restartPolicy"`
+	RestartPolicy *string `field:"optional" json:"restartPolicy" yaml:"restartPolicy"`
 	// RuntimeClassName refers to a RuntimeClass object in the node.k8s.io group, which should be used to run this pod.  If no RuntimeClass resource matches the named class, the pod will not be run. If unset or empty, the "legacy" RuntimeClass will be used, which is an implicit class with an empty definition that uses the default runtime handler. More info: https://git.k8s.io/enhancements/keps/sig-node/runtime-class.md This is a beta feature as of Kubernetes v1.14.
-	RuntimeClassName *string `json:"runtimeClassName" yaml:"runtimeClassName"`
+	RuntimeClassName *string `field:"optional" json:"runtimeClassName" yaml:"runtimeClassName"`
 	// If specified, the pod will be dispatched by specified scheduler.
 	//
 	// If not specified, the pod will be dispatched by default scheduler.
-	SchedulerName *string `json:"schedulerName" yaml:"schedulerName"`
+	SchedulerName *string `field:"optional" json:"schedulerName" yaml:"schedulerName"`
 	// SecurityContext holds pod-level security attributes and common container settings.
 	//
 	// Optional: Defaults to empty.  See type description for default values of each field.
-	SecurityContext *PodSecurityContext `json:"securityContext" yaml:"securityContext"`
+	SecurityContext *PodSecurityContext `field:"optional" json:"securityContext" yaml:"securityContext"`
 	// DeprecatedServiceAccount is a depreciated alias for ServiceAccountName.
 	//
 	// Deprecated: Use serviceAccountName instead.
-	ServiceAccount *string `json:"serviceAccount" yaml:"serviceAccount"`
+	ServiceAccount *string `field:"optional" json:"serviceAccount" yaml:"serviceAccount"`
 	// ServiceAccountName is the name of the ServiceAccount to use to run this pod.
 	//
 	// More info: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/
-	ServiceAccountName *string `json:"serviceAccountName" yaml:"serviceAccountName"`
+	ServiceAccountName *string `field:"optional" json:"serviceAccountName" yaml:"serviceAccountName"`
 	// Share a single process namespace between all of the containers in a pod.
 	//
 	// When this is set containers will be able to view and signal processes from other containers in the same pod, and the first process in each container will not be assigned PID 1. HostPID and ShareProcessNamespace cannot both be set. Optional: Default to false.
-	ShareProcessNamespace *bool `json:"shareProcessNamespace" yaml:"shareProcessNamespace"`
+	ShareProcessNamespace *bool `field:"optional" json:"shareProcessNamespace" yaml:"shareProcessNamespace"`
 	// If specified, the fully qualified Pod hostname will be "<hostname>.<subdomain>.<pod namespace>.svc.<cluster domain>". If not specified, the pod will not have a domainname at all.
-	Subdomain *string `json:"subdomain" yaml:"subdomain"`
+	Subdomain *string `field:"optional" json:"subdomain" yaml:"subdomain"`
 	// Optional duration in seconds the pod needs to terminate gracefully.
 	//
 	// May be decreased in delete request. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period will be used instead. The grace period is the duration in seconds after the processes running in the pod are sent a termination signal and the time when the processes are forcibly halted with a kill signal. Set this value longer than the expected cleanup time for your process. Defaults to 30 seconds.
-	TerminationGracePeriodSeconds *float64 `json:"terminationGracePeriodSeconds" yaml:"terminationGracePeriodSeconds"`
+	TerminationGracePeriodSeconds *float64 `field:"optional" json:"terminationGracePeriodSeconds" yaml:"terminationGracePeriodSeconds"`
 	// If specified, the pod's tolerations.
-	Tolerations *[]*Toleration `json:"tolerations" yaml:"tolerations"`
+	Tolerations *[]*Toleration `field:"optional" json:"tolerations" yaml:"tolerations"`
 	// TopologySpreadConstraints describes how a group of pods ought to spread across topology domains.
 	//
 	// Scheduler will schedule pods in a way which abides by the constraints. This field is alpha-level and is only honored by clusters that enables the EvenPodsSpread feature. All topologySpreadConstraints are ANDed.
-	TopologySpreadConstraints *[]*TopologySpreadConstraint `json:"topologySpreadConstraints" yaml:"topologySpreadConstraints"`
+	TopologySpreadConstraints *[]*TopologySpreadConstraint `field:"optional" json:"topologySpreadConstraints" yaml:"topologySpreadConstraints"`
 	// List of volumes that can be mounted by containers belonging to the pod.
 	//
 	// More info: https://kubernetes.io/docs/concepts/storage/volumes
-	Volumes *[]*Volume `json:"volumes" yaml:"volumes"`
+	Volumes *[]*Volume `field:"optional" json:"volumes" yaml:"volumes"`
 }
 
 // PodTemplateSpec describes the data a pod should have when created from a template.
@@ -58175,11 +58175,11 @@ type PodTemplateSpec struct {
 	// Standard object's metadata.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-	Metadata *ObjectMeta `json:"metadata" yaml:"metadata"`
+	Metadata *ObjectMeta `field:"optional" json:"metadata" yaml:"metadata"`
 	// Specification of the desired behavior of the pod.
 	//
 	// More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-	Spec *PodSpec `json:"spec" yaml:"spec"`
+	Spec *PodSpec `field:"optional" json:"spec" yaml:"spec"`
 }
 
 // PodsMetricSource indicates how to scale on a metric describing each pod in the current scale target (for example, transactions-processed-per-second).
@@ -58187,11 +58187,11 @@ type PodTemplateSpec struct {
 // The values will be averaged together before being compared to the target value.
 type PodsMetricSourceV2Beta1 struct {
 	// metricName is the name of the metric in question.
-	MetricName *string `json:"metricName" yaml:"metricName"`
+	MetricName *string `field:"required" json:"metricName" yaml:"metricName"`
 	// targetAverageValue is the target value of the average of the metric across all relevant pods (as a quantity).
-	TargetAverageValue Quantity `json:"targetAverageValue" yaml:"targetAverageValue"`
+	TargetAverageValue Quantity `field:"required" json:"targetAverageValue" yaml:"targetAverageValue"`
 	// selector is the string-encoded form of a standard kubernetes label selector for the given metric When set, it is passed as an additional parameter to the metrics server for more specific metrics scoping When unset, just the metricName will be used to gather metrics.
-	Selector *LabelSelector `json:"selector" yaml:"selector"`
+	Selector *LabelSelector `field:"optional" json:"selector" yaml:"selector"`
 }
 
 // PodsMetricSource indicates how to scale on a metric describing each pod in the current scale target (for example, transactions-processed-per-second).
@@ -58199,9 +58199,9 @@ type PodsMetricSourceV2Beta1 struct {
 // The values will be averaged together before being compared to the target value.
 type PodsMetricSourceV2Beta2 struct {
 	// metric identifies the target metric by name and selector.
-	Metric *MetricIdentifierV2Beta2 `json:"metric" yaml:"metric"`
+	Metric *MetricIdentifierV2Beta2 `field:"required" json:"metric" yaml:"metric"`
 	// target specifies the target value for the given metric.
-	Target *MetricTargetV2Beta2 `json:"target" yaml:"target"`
+	Target *MetricTargetV2Beta2 `field:"required" json:"target" yaml:"target"`
 }
 
 // PolicyRule holds information that describes a policy rule, but does not contain information about who the rule applies to or which namespace the rule applies to.
@@ -58209,23 +58209,23 @@ type PolicyRule struct {
 	// Verbs is a list of Verbs that apply to ALL the ResourceKinds and AttributeRestrictions contained in this rule.
 	//
 	// VerbAll represents all kinds.
-	Verbs *[]*string `json:"verbs" yaml:"verbs"`
+	Verbs *[]*string `field:"required" json:"verbs" yaml:"verbs"`
 	// APIGroups is the name of the APIGroup that contains the resources.
 	//
 	// If multiple API groups are specified, any action requested against one of the enumerated resources in any API group will be allowed.
-	ApiGroups *[]*string `json:"apiGroups" yaml:"apiGroups"`
+	ApiGroups *[]*string `field:"optional" json:"apiGroups" yaml:"apiGroups"`
 	// NonResourceURLs is a set of partial urls that a user should have access to.
 	//
 	// *s are allowed, but only as the full, final step in the path Since non-resource URLs are not namespaced, this field is only applicable for ClusterRoles referenced from a ClusterRoleBinding. Rules can either apply to API resources (such as "pods" or "secrets") or non-resource URL paths (such as "/api"),  but not both.
-	NonResourceUrLs *[]*string `json:"nonResourceUrLs" yaml:"nonResourceUrLs"`
+	NonResourceUrLs *[]*string `field:"optional" json:"nonResourceUrLs" yaml:"nonResourceUrLs"`
 	// ResourceNames is an optional white list of names that the rule applies to.
 	//
 	// An empty set means that everything is allowed.
-	ResourceNames *[]*string `json:"resourceNames" yaml:"resourceNames"`
+	ResourceNames *[]*string `field:"optional" json:"resourceNames" yaml:"resourceNames"`
 	// Resources is a list of resources this rule applies to.
 	//
 	// ResourceAll represents all resources.
-	Resources *[]*string `json:"resources" yaml:"resources"`
+	Resources *[]*string `field:"optional" json:"resources" yaml:"resources"`
 }
 
 // PolicyRule holds information that describes a policy rule, but does not contain information about who the rule applies to or which namespace the rule applies to.
@@ -58233,23 +58233,23 @@ type PolicyRuleV1Alpha1 struct {
 	// Verbs is a list of Verbs that apply to ALL the ResourceKinds and AttributeRestrictions contained in this rule.
 	//
 	// VerbAll represents all kinds.
-	Verbs *[]*string `json:"verbs" yaml:"verbs"`
+	Verbs *[]*string `field:"required" json:"verbs" yaml:"verbs"`
 	// APIGroups is the name of the APIGroup that contains the resources.
 	//
 	// If multiple API groups are specified, any action requested against one of the enumerated resources in any API group will be allowed.
-	ApiGroups *[]*string `json:"apiGroups" yaml:"apiGroups"`
+	ApiGroups *[]*string `field:"optional" json:"apiGroups" yaml:"apiGroups"`
 	// NonResourceURLs is a set of partial urls that a user should have access to.
 	//
 	// *s are allowed, but only as the full, final step in the path This name is intentionally different than the internal type so that the DefaultConvert works nicely and because the ordering may be different. Since non-resource URLs are not namespaced, this field is only applicable for ClusterRoles referenced from a ClusterRoleBinding. Rules can either apply to API resources (such as "pods" or "secrets") or non-resource URL paths (such as "/api"),  but not both.
-	NonResourceUrLs *[]*string `json:"nonResourceUrLs" yaml:"nonResourceUrLs"`
+	NonResourceUrLs *[]*string `field:"optional" json:"nonResourceUrLs" yaml:"nonResourceUrLs"`
 	// ResourceNames is an optional white list of names that the rule applies to.
 	//
 	// An empty set means that everything is allowed.
-	ResourceNames *[]*string `json:"resourceNames" yaml:"resourceNames"`
+	ResourceNames *[]*string `field:"optional" json:"resourceNames" yaml:"resourceNames"`
 	// Resources is a list of resources this rule applies to.
 	//
 	// ResourceAll represents all resources.
-	Resources *[]*string `json:"resources" yaml:"resources"`
+	Resources *[]*string `field:"optional" json:"resources" yaml:"resources"`
 }
 
 // PolicyRule holds information that describes a policy rule, but does not contain information about who the rule applies to or which namespace the rule applies to.
@@ -58257,23 +58257,23 @@ type PolicyRuleV1Beta1 struct {
 	// Verbs is a list of Verbs that apply to ALL the ResourceKinds and AttributeRestrictions contained in this rule.
 	//
 	// VerbAll represents all kinds.
-	Verbs *[]*string `json:"verbs" yaml:"verbs"`
+	Verbs *[]*string `field:"required" json:"verbs" yaml:"verbs"`
 	// APIGroups is the name of the APIGroup that contains the resources.
 	//
 	// If multiple API groups are specified, any action requested against one of the enumerated resources in any API group will be allowed.
-	ApiGroups *[]*string `json:"apiGroups" yaml:"apiGroups"`
+	ApiGroups *[]*string `field:"optional" json:"apiGroups" yaml:"apiGroups"`
 	// NonResourceURLs is a set of partial urls that a user should have access to.
 	//
 	// *s are allowed, but only as the full, final step in the path Since non-resource URLs are not namespaced, this field is only applicable for ClusterRoles referenced from a ClusterRoleBinding. Rules can either apply to API resources (such as "pods" or "secrets") or non-resource URL paths (such as "/api"),  but not both.
-	NonResourceUrLs *[]*string `json:"nonResourceUrLs" yaml:"nonResourceUrLs"`
+	NonResourceUrLs *[]*string `field:"optional" json:"nonResourceUrLs" yaml:"nonResourceUrLs"`
 	// ResourceNames is an optional white list of names that the rule applies to.
 	//
 	// An empty set means that everything is allowed.
-	ResourceNames *[]*string `json:"resourceNames" yaml:"resourceNames"`
+	ResourceNames *[]*string `field:"optional" json:"resourceNames" yaml:"resourceNames"`
 	// Resources is a list of resources this rule applies to.
 	//
 	// '*' represents all resources in the specified apiGroups. '_/foo' represents the subresource 'foo' for all resources in the specified apiGroups.
-	Resources *[]*string `json:"resources" yaml:"resources"`
+	Resources *[]*string `field:"optional" json:"resources" yaml:"resources"`
 }
 
 // PolicyRulesWithSubjects prescribes a test that applies to a request to an apiserver.
@@ -58283,13 +58283,13 @@ type PolicyRulesWithSubjectsV1Alpha1 struct {
 	// subjects is the list of normal user, serviceaccount, or group that this rule cares about.
 	//
 	// There must be at least one member in this slice. A slice that includes both the system:authenticated and system:unauthenticated user groups matches every request. Required.
-	Subjects *[]*SubjectV1Alpha1 `json:"subjects" yaml:"subjects"`
+	Subjects *[]*SubjectV1Alpha1 `field:"required" json:"subjects" yaml:"subjects"`
 	// `nonResourceRules` is a list of NonResourcePolicyRules that identify matching requests according to their verb and the target non-resource URL.
-	NonResourceRules *[]*NonResourcePolicyRuleV1Alpha1 `json:"nonResourceRules" yaml:"nonResourceRules"`
+	NonResourceRules *[]*NonResourcePolicyRuleV1Alpha1 `field:"optional" json:"nonResourceRules" yaml:"nonResourceRules"`
 	// `resourceRules` is a slice of ResourcePolicyRules that identify matching requests according to their verb and the target resource.
 	//
 	// At least one of `resourceRules` and `nonResourceRules` has to be non-empty.
-	ResourceRules *[]*ResourcePolicyRuleV1Alpha1 `json:"resourceRules" yaml:"resourceRules"`
+	ResourceRules *[]*ResourcePolicyRuleV1Alpha1 `field:"optional" json:"resourceRules" yaml:"resourceRules"`
 }
 
 // Policy defines the configuration of how audit events are logged.
@@ -58297,45 +58297,45 @@ type PolicyV1Alpha1 struct {
 	// The Level that all requests are recorded at.
 	//
 	// available options: None, Metadata, Request, RequestResponse required.
-	Level *string `json:"level" yaml:"level"`
+	Level *string `field:"required" json:"level" yaml:"level"`
 	// Stages is a list of stages for which events are created.
-	Stages *[]*string `json:"stages" yaml:"stages"`
+	Stages *[]*string `field:"optional" json:"stages" yaml:"stages"`
 }
 
 // PortworxVolumeSource represents a Portworx volume resource.
 type PortworxVolumeSource struct {
 	// VolumeID uniquely identifies a Portworx volume.
-	VolumeId *string `json:"volumeId" yaml:"volumeId"`
+	VolumeId *string `field:"required" json:"volumeId" yaml:"volumeId"`
 	// FSType represents the filesystem type to mount Must be a filesystem type supported by the host operating system.
 	//
 	// Ex. "ext4", "xfs". Implicitly inferred to be "ext4" if unspecified.
-	FsType *string `json:"fsType" yaml:"fsType"`
+	FsType *string `field:"optional" json:"fsType" yaml:"fsType"`
 	// Defaults to false (read/write).
 	//
 	// ReadOnly here will force the ReadOnly setting in VolumeMounts.
-	ReadOnly *bool `json:"readOnly" yaml:"readOnly"`
+	ReadOnly *bool `field:"optional" json:"readOnly" yaml:"readOnly"`
 }
 
 // Preconditions must be fulfilled before an operation (update, delete, etc.) is carried out.
 type Preconditions struct {
 	// Specifies the target ResourceVersion.
-	ResourceVersion *string `json:"resourceVersion" yaml:"resourceVersion"`
+	ResourceVersion *string `field:"optional" json:"resourceVersion" yaml:"resourceVersion"`
 	// Specifies the target UID.
-	Uid *string `json:"uid" yaml:"uid"`
+	Uid *string `field:"optional" json:"uid" yaml:"uid"`
 }
 
 // An empty preferred scheduling term matches all objects with implicit weight 0 (i.e. it's a no-op). A null preferred scheduling term matches no objects (i.e. is also a no-op).
 type PreferredSchedulingTerm struct {
 	// A node selector term, associated with the corresponding weight.
-	Preference *NodeSelectorTerm `json:"preference" yaml:"preference"`
+	Preference *NodeSelectorTerm `field:"required" json:"preference" yaml:"preference"`
 	// Weight associated with matching the corresponding nodeSelectorTerm, in the range 1-100.
-	Weight *float64 `json:"weight" yaml:"weight"`
+	Weight *float64 `field:"required" json:"weight" yaml:"weight"`
 }
 
 // PriorityLevelConfigurationReference contains information that points to the "request-priority" being used.
 type PriorityLevelConfigurationReferenceV1Alpha1 struct {
 	// `name` is the name of the priority level configuration being referenced Required.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 }
 
 // PriorityLevelConfigurationSpec specifies the configuration of a priority level.
@@ -58343,11 +58343,11 @@ type PriorityLevelConfigurationSpecV1Alpha1 struct {
 	// `type` indicates whether this priority level is subject to limitation on request execution.
 	//
 	// A value of `"Exempt"` means that requests of this priority level are not subject to a limit (and thus are never queued) and do not detract from the capacity made available to other priority levels.  A value of `"Limited"` means that (a) requests of this priority level _are_ subject to limits and (b) some of the server's limited capacity is made available exclusively to this priority level. Required.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// `limited` specifies how requests are handled for a Limited priority level.
 	//
 	// This field must be non-empty if and only if `type` is `"Limited"`.
-	Limited *LimitedPriorityLevelConfigurationV1Alpha1 `json:"limited" yaml:"limited"`
+	Limited *LimitedPriorityLevelConfigurationV1Alpha1 `field:"optional" json:"limited" yaml:"limited"`
 }
 
 // Probe describes a health check to be performed against a container to determine whether it is alive or ready to receive traffic.
@@ -58355,43 +58355,43 @@ type Probe struct {
 	// One and only one of the following should be specified.
 	//
 	// Exec specifies the action to take.
-	Exec *ExecAction `json:"exec" yaml:"exec"`
+	Exec *ExecAction `field:"optional" json:"exec" yaml:"exec"`
 	// Minimum consecutive failures for the probe to be considered failed after having succeeded.
 	//
 	// Defaults to 3. Minimum value is 1.
-	FailureThreshold *float64 `json:"failureThreshold" yaml:"failureThreshold"`
+	FailureThreshold *float64 `field:"optional" json:"failureThreshold" yaml:"failureThreshold"`
 	// HTTPGet specifies the http request to perform.
-	HttpGet *HttpGetAction `json:"httpGet" yaml:"httpGet"`
+	HttpGet *HttpGetAction `field:"optional" json:"httpGet" yaml:"httpGet"`
 	// Number of seconds after the container has started before liveness probes are initiated.
 	//
 	// More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
-	InitialDelaySeconds *float64 `json:"initialDelaySeconds" yaml:"initialDelaySeconds"`
+	InitialDelaySeconds *float64 `field:"optional" json:"initialDelaySeconds" yaml:"initialDelaySeconds"`
 	// How often (in seconds) to perform the probe.
 	//
 	// Default to 10 seconds. Minimum value is 1.
-	PeriodSeconds *float64 `json:"periodSeconds" yaml:"periodSeconds"`
+	PeriodSeconds *float64 `field:"optional" json:"periodSeconds" yaml:"periodSeconds"`
 	// Minimum consecutive successes for the probe to be considered successful after having failed.
 	//
 	// Defaults to 1. Must be 1 for liveness and startup. Minimum value is 1.
-	SuccessThreshold *float64 `json:"successThreshold" yaml:"successThreshold"`
+	SuccessThreshold *float64 `field:"optional" json:"successThreshold" yaml:"successThreshold"`
 	// TCPSocket specifies an action involving a TCP port.
 	//
 	// TCP hooks not yet supported.
-	TcpSocket *TcpSocketAction `json:"tcpSocket" yaml:"tcpSocket"`
+	TcpSocket *TcpSocketAction `field:"optional" json:"tcpSocket" yaml:"tcpSocket"`
 	// Number of seconds after which the probe times out.
 	//
 	// Defaults to 1 second. Minimum value is 1. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
-	TimeoutSeconds *float64 `json:"timeoutSeconds" yaml:"timeoutSeconds"`
+	TimeoutSeconds *float64 `field:"optional" json:"timeoutSeconds" yaml:"timeoutSeconds"`
 }
 
 // Represents a projected volume source.
 type ProjectedVolumeSource struct {
 	// list of volume projections.
-	Sources *[]*VolumeProjection `json:"sources" yaml:"sources"`
+	Sources *[]*VolumeProjection `field:"required" json:"sources" yaml:"sources"`
 	// Mode bits to use on created files by default.
 	//
 	// Must be a value between 0 and 0777. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
-	DefaultMode *float64 `json:"defaultMode" yaml:"defaultMode"`
+	DefaultMode *float64 `field:"optional" json:"defaultMode" yaml:"defaultMode"`
 }
 
 type Quantity interface {
@@ -58449,15 +58449,15 @@ type QueuingConfigurationV1Alpha1 struct {
 	// `handSize` is a small positive number that configures the shuffle sharding of requests into queues.
 	//
 	// When enqueuing a request at this priority level the request's flow identifier (a string pair) is hashed and the hash value is used to shuffle the list of queues and deal a hand of the size specified here.  The request is put into one of the shortest queues in that hand. `handSize` must be no larger than `queues`, and should be significantly smaller (so that a few heavy flows do not saturate most of the queues).  See the user-facing documentation for more extensive guidance on setting this field.  This field has a default value of 8.
-	HandSize *float64 `json:"handSize" yaml:"handSize"`
+	HandSize *float64 `field:"optional" json:"handSize" yaml:"handSize"`
 	// `queueLengthLimit` is the maximum number of requests allowed to be waiting in a given queue of this priority level at a time;
 	//
 	// excess requests are rejected.  This value must be positive.  If not specified, it will be defaulted to 50.
-	QueueLengthLimit *float64 `json:"queueLengthLimit" yaml:"queueLengthLimit"`
+	QueueLengthLimit *float64 `field:"optional" json:"queueLengthLimit" yaml:"queueLengthLimit"`
 	// `queues` is the number of queues for this priority level.
 	//
 	// The queues exist independently at each apiserver. The value must be positive.  Setting it to 1 effectively precludes shufflesharding and thus makes the distinguisher method of associated flow schemas irrelevant.  This field has a default value of 64.
-	Queues *float64 `json:"queues" yaml:"queues"`
+	Queues *float64 `field:"optional" json:"queues" yaml:"queues"`
 }
 
 // Represents a Quobyte mount that lasts the lifetime of a pod.
@@ -58465,19 +58465,19 @@ type QueuingConfigurationV1Alpha1 struct {
 // Quobyte volumes do not support ownership management or SELinux relabeling.
 type QuobyteVolumeSource struct {
 	// Registry represents a single or multiple Quobyte Registry services specified as a string as host:port pair (multiple entries are separated with commas) which acts as the central registry for volumes.
-	Registry *string `json:"registry" yaml:"registry"`
+	Registry *string `field:"required" json:"registry" yaml:"registry"`
 	// Volume is a string that references an already created Quobyte volume by name.
-	Volume *string `json:"volume" yaml:"volume"`
+	Volume *string `field:"required" json:"volume" yaml:"volume"`
 	// Group to map volume access to Default is no group.
-	Group *string `json:"group" yaml:"group"`
+	Group *string `field:"optional" json:"group" yaml:"group"`
 	// ReadOnly here will force the Quobyte volume to be mounted with read-only permissions.
 	//
 	// Defaults to false.
-	ReadOnly *bool `json:"readOnly" yaml:"readOnly"`
+	ReadOnly *bool `field:"optional" json:"readOnly" yaml:"readOnly"`
 	// Tenant owning the given Quobyte volume in the Backend Used with dynamically provisioned Quobyte volumes, value is set by the plugin.
-	Tenant *string `json:"tenant" yaml:"tenant"`
+	Tenant *string `field:"optional" json:"tenant" yaml:"tenant"`
 	// User to map volume access to Defaults to serivceaccount user.
-	User *string `json:"user" yaml:"user"`
+	User *string `field:"optional" json:"user" yaml:"user"`
 }
 
 // Represents a Rados Block Device mount that lasts the lifetime of a pod.
@@ -58487,35 +58487,35 @@ type RbdPersistentVolumeSource struct {
 	// The rados image name.
 	//
 	// More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
-	Image *string `json:"image" yaml:"image"`
+	Image *string `field:"required" json:"image" yaml:"image"`
 	// A collection of Ceph monitors.
 	//
 	// More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
-	Monitors *[]*string `json:"monitors" yaml:"monitors"`
+	Monitors *[]*string `field:"required" json:"monitors" yaml:"monitors"`
 	// Filesystem type of the volume that you want to mount.
 	//
 	// Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#rbd
-	FsType *string `json:"fsType" yaml:"fsType"`
+	FsType *string `field:"optional" json:"fsType" yaml:"fsType"`
 	// Keyring is the path to key ring for RBDUser.
 	//
 	// Default is /etc/ceph/keyring. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
-	Keyring *string `json:"keyring" yaml:"keyring"`
+	Keyring *string `field:"optional" json:"keyring" yaml:"keyring"`
 	// The rados pool name.
 	//
 	// Default is rbd. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
-	Pool *string `json:"pool" yaml:"pool"`
+	Pool *string `field:"optional" json:"pool" yaml:"pool"`
 	// ReadOnly here will force the ReadOnly setting in VolumeMounts.
 	//
 	// Defaults to false. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
-	ReadOnly *bool `json:"readOnly" yaml:"readOnly"`
+	ReadOnly *bool `field:"optional" json:"readOnly" yaml:"readOnly"`
 	// SecretRef is name of the authentication secret for RBDUser.
 	//
 	// If provided overrides keyring. Default is nil. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
-	SecretRef *SecretReference `json:"secretRef" yaml:"secretRef"`
+	SecretRef *SecretReference `field:"optional" json:"secretRef" yaml:"secretRef"`
 	// The rados user name.
 	//
 	// Default is admin. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
-	User *string `json:"user" yaml:"user"`
+	User *string `field:"optional" json:"user" yaml:"user"`
 }
 
 // Represents a Rados Block Device mount that lasts the lifetime of a pod.
@@ -58525,35 +58525,35 @@ type RbdVolumeSource struct {
 	// The rados image name.
 	//
 	// More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
-	Image *string `json:"image" yaml:"image"`
+	Image *string `field:"required" json:"image" yaml:"image"`
 	// A collection of Ceph monitors.
 	//
 	// More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
-	Monitors *[]*string `json:"monitors" yaml:"monitors"`
+	Monitors *[]*string `field:"required" json:"monitors" yaml:"monitors"`
 	// Filesystem type of the volume that you want to mount.
 	//
 	// Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#rbd
-	FsType *string `json:"fsType" yaml:"fsType"`
+	FsType *string `field:"optional" json:"fsType" yaml:"fsType"`
 	// Keyring is the path to key ring for RBDUser.
 	//
 	// Default is /etc/ceph/keyring. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
-	Keyring *string `json:"keyring" yaml:"keyring"`
+	Keyring *string `field:"optional" json:"keyring" yaml:"keyring"`
 	// The rados pool name.
 	//
 	// Default is rbd. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
-	Pool *string `json:"pool" yaml:"pool"`
+	Pool *string `field:"optional" json:"pool" yaml:"pool"`
 	// ReadOnly here will force the ReadOnly setting in VolumeMounts.
 	//
 	// Defaults to false. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
-	ReadOnly *bool `json:"readOnly" yaml:"readOnly"`
+	ReadOnly *bool `field:"optional" json:"readOnly" yaml:"readOnly"`
 	// SecretRef is name of the authentication secret for RBDUser.
 	//
 	// If provided overrides keyring. Default is nil. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
-	SecretRef *LocalObjectReference `json:"secretRef" yaml:"secretRef"`
+	SecretRef *LocalObjectReference `field:"optional" json:"secretRef" yaml:"secretRef"`
 	// The rados user name.
 	//
 	// Default is admin. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
-	User *string `json:"user" yaml:"user"`
+	User *string `field:"optional" json:"user" yaml:"user"`
 }
 
 // ReplicaSetSpec is the specification of a ReplicaSet.
@@ -58561,19 +58561,19 @@ type ReplicaSetSpec struct {
 	// Selector is a label query over pods that should match the replica count.
 	//
 	// Label keys and values that must match in order to be controlled by this replica set. It must match the pod template's labels. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
-	Selector *LabelSelector `json:"selector" yaml:"selector"`
+	Selector *LabelSelector `field:"required" json:"selector" yaml:"selector"`
 	// Minimum number of seconds for which a newly created pod should be ready without any of its container crashing, for it to be considered available.
 	//
 	// Defaults to 0 (pod will be considered available as soon as it is ready).
-	MinReadySeconds *float64 `json:"minReadySeconds" yaml:"minReadySeconds"`
+	MinReadySeconds *float64 `field:"optional" json:"minReadySeconds" yaml:"minReadySeconds"`
 	// Replicas is the number of desired replicas.
 	//
 	// This is a pointer to distinguish between explicit zero and unspecified. Defaults to 1. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller/#what-is-a-replicationcontroller
-	Replicas *float64 `json:"replicas" yaml:"replicas"`
+	Replicas *float64 `field:"optional" json:"replicas" yaml:"replicas"`
 	// Template is the object that describes the pod that will be created if insufficient replicas are detected.
 	//
 	// More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller#pod-template
-	Template *PodTemplateSpec `json:"template" yaml:"template"`
+	Template *PodTemplateSpec `field:"optional" json:"template" yaml:"template"`
 }
 
 // ReplicaSetSpec is the specification of a ReplicaSet.
@@ -58581,19 +58581,19 @@ type ReplicaSetSpecV1Beta1 struct {
 	// Minimum number of seconds for which a newly created pod should be ready without any of its container crashing, for it to be considered available.
 	//
 	// Defaults to 0 (pod will be considered available as soon as it is ready).
-	MinReadySeconds *float64 `json:"minReadySeconds" yaml:"minReadySeconds"`
+	MinReadySeconds *float64 `field:"optional" json:"minReadySeconds" yaml:"minReadySeconds"`
 	// Replicas is the number of desired replicas.
 	//
 	// This is a pointer to distinguish between explicit zero and unspecified. Defaults to 1. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller/#what-is-a-replicationcontroller
-	Replicas *float64 `json:"replicas" yaml:"replicas"`
+	Replicas *float64 `field:"optional" json:"replicas" yaml:"replicas"`
 	// Selector is a label query over pods that should match the replica count.
 	//
 	// If the selector is empty, it is defaulted to the labels present on the pod template. Label keys and values that must match in order to be controlled by this replica set. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
-	Selector *LabelSelector `json:"selector" yaml:"selector"`
+	Selector *LabelSelector `field:"optional" json:"selector" yaml:"selector"`
 	// Template is the object that describes the pod that will be created if insufficient replicas are detected.
 	//
 	// More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller#pod-template
-	Template *PodTemplateSpec `json:"template" yaml:"template"`
+	Template *PodTemplateSpec `field:"optional" json:"template" yaml:"template"`
 }
 
 // ReplicaSetSpec is the specification of a ReplicaSet.
@@ -58601,19 +58601,19 @@ type ReplicaSetSpecV1Beta2 struct {
 	// Selector is a label query over pods that should match the replica count.
 	//
 	// Label keys and values that must match in order to be controlled by this replica set. It must match the pod template's labels. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
-	Selector *LabelSelector `json:"selector" yaml:"selector"`
+	Selector *LabelSelector `field:"required" json:"selector" yaml:"selector"`
 	// Minimum number of seconds for which a newly created pod should be ready without any of its container crashing, for it to be considered available.
 	//
 	// Defaults to 0 (pod will be considered available as soon as it is ready).
-	MinReadySeconds *float64 `json:"minReadySeconds" yaml:"minReadySeconds"`
+	MinReadySeconds *float64 `field:"optional" json:"minReadySeconds" yaml:"minReadySeconds"`
 	// Replicas is the number of desired replicas.
 	//
 	// This is a pointer to distinguish between explicit zero and unspecified. Defaults to 1. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller/#what-is-a-replicationcontroller
-	Replicas *float64 `json:"replicas" yaml:"replicas"`
+	Replicas *float64 `field:"optional" json:"replicas" yaml:"replicas"`
 	// Template is the object that describes the pod that will be created if insufficient replicas are detected.
 	//
 	// More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller#pod-template
-	Template *PodTemplateSpec `json:"template" yaml:"template"`
+	Template *PodTemplateSpec `field:"optional" json:"template" yaml:"template"`
 }
 
 // ReplicationControllerSpec is the specification of a replication controller.
@@ -58621,19 +58621,19 @@ type ReplicationControllerSpec struct {
 	// Minimum number of seconds for which a newly created pod should be ready without any of its container crashing, for it to be considered available.
 	//
 	// Defaults to 0 (pod will be considered available as soon as it is ready).
-	MinReadySeconds *float64 `json:"minReadySeconds" yaml:"minReadySeconds"`
+	MinReadySeconds *float64 `field:"optional" json:"minReadySeconds" yaml:"minReadySeconds"`
 	// Replicas is the number of desired replicas.
 	//
 	// This is a pointer to distinguish between explicit zero and unspecified. Defaults to 1. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller#what-is-a-replicationcontroller
-	Replicas *float64 `json:"replicas" yaml:"replicas"`
+	Replicas *float64 `field:"optional" json:"replicas" yaml:"replicas"`
 	// Selector is a label query over pods that should match the Replicas count.
 	//
 	// If Selector is empty, it is defaulted to the labels present on the Pod template. Label keys and values that must match in order to be controlled by this replication controller, if empty defaulted to labels on Pod template. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
-	Selector *map[string]*string `json:"selector" yaml:"selector"`
+	Selector *map[string]*string `field:"optional" json:"selector" yaml:"selector"`
 	// Template is the object that describes the pod that will be created if insufficient replicas are detected.
 	//
 	// This takes precedence over a TemplateRef. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller#pod-template
-	Template *PodTemplateSpec `json:"template" yaml:"template"`
+	Template *PodTemplateSpec `field:"optional" json:"template" yaml:"template"`
 }
 
 // ResourceAttributes includes the authorization attributes available for resource requests to the Authorizer interface.
@@ -58641,31 +58641,31 @@ type ResourceAttributes struct {
 	// Group is the API Group of the Resource.
 	//
 	// "*" means all.
-	Group *string `json:"group" yaml:"group"`
+	Group *string `field:"optional" json:"group" yaml:"group"`
 	// Name is the name of the resource being requested for a "get" or deleted for a "delete".
 	//
 	// "" (empty) means all.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// Namespace is the namespace of the action being requested.
 	//
 	// Currently, there is no distinction between no namespace and all namespaces "" (empty) is defaulted for LocalSubjectAccessReviews "" (empty) is empty for cluster-scoped resources "" (empty) means "all" for namespace scoped resources from a SubjectAccessReview or SelfSubjectAccessReview.
-	Namespace *string `json:"namespace" yaml:"namespace"`
+	Namespace *string `field:"optional" json:"namespace" yaml:"namespace"`
 	// Resource is one of the existing resource types.
 	//
 	// "*" means all.
-	Resource *string `json:"resource" yaml:"resource"`
+	Resource *string `field:"optional" json:"resource" yaml:"resource"`
 	// Subresource is one of the existing resource types.
 	//
 	// "" means none.
-	Subresource *string `json:"subresource" yaml:"subresource"`
+	Subresource *string `field:"optional" json:"subresource" yaml:"subresource"`
 	// Verb is a kubernetes resource API verb, like: get, list, watch, create, update, delete, proxy.
 	//
 	// "*" means all.
-	Verb *string `json:"verb" yaml:"verb"`
+	Verb *string `field:"optional" json:"verb" yaml:"verb"`
 	// Version is the API Version of the Resource.
 	//
 	// "*" means all.
-	Version *string `json:"version" yaml:"version"`
+	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 
 // ResourceAttributes includes the authorization attributes available for resource requests to the Authorizer interface.
@@ -58673,59 +58673,59 @@ type ResourceAttributesV1Beta1 struct {
 	// Group is the API Group of the Resource.
 	//
 	// "*" means all.
-	Group *string `json:"group" yaml:"group"`
+	Group *string `field:"optional" json:"group" yaml:"group"`
 	// Name is the name of the resource being requested for a "get" or deleted for a "delete".
 	//
 	// "" (empty) means all.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// Namespace is the namespace of the action being requested.
 	//
 	// Currently, there is no distinction between no namespace and all namespaces "" (empty) is defaulted for LocalSubjectAccessReviews "" (empty) is empty for cluster-scoped resources "" (empty) means "all" for namespace scoped resources from a SubjectAccessReview or SelfSubjectAccessReview.
-	Namespace *string `json:"namespace" yaml:"namespace"`
+	Namespace *string `field:"optional" json:"namespace" yaml:"namespace"`
 	// Resource is one of the existing resource types.
 	//
 	// "*" means all.
-	Resource *string `json:"resource" yaml:"resource"`
+	Resource *string `field:"optional" json:"resource" yaml:"resource"`
 	// Subresource is one of the existing resource types.
 	//
 	// "" means none.
-	Subresource *string `json:"subresource" yaml:"subresource"`
+	Subresource *string `field:"optional" json:"subresource" yaml:"subresource"`
 	// Verb is a kubernetes resource API verb, like: get, list, watch, create, update, delete, proxy.
 	//
 	// "*" means all.
-	Verb *string `json:"verb" yaml:"verb"`
+	Verb *string `field:"optional" json:"verb" yaml:"verb"`
 	// Version is the API Version of the Resource.
 	//
 	// "*" means all.
-	Version *string `json:"version" yaml:"version"`
+	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 
 // ResourceFieldSelector represents container resources (cpu, memory) and their output format.
 type ResourceFieldSelector struct {
 	// Required: resource to select.
-	Resource *string `json:"resource" yaml:"resource"`
+	Resource *string `field:"required" json:"resource" yaml:"resource"`
 	// Container name: required for volumes, optional for env vars.
-	ContainerName *string `json:"containerName" yaml:"containerName"`
+	ContainerName *string `field:"optional" json:"containerName" yaml:"containerName"`
 	// Specifies the output format of the exposed resources, defaults to "1".
-	Divisor Quantity `json:"divisor" yaml:"divisor"`
+	Divisor Quantity `field:"optional" json:"divisor" yaml:"divisor"`
 }
 
 // ResourceMetricSource indicates how to scale on a resource metric known to Kubernetes, as specified in requests and limits, describing each pod in the current scale target (e.g. CPU or memory).  The values will be averaged together before being compared to the target.  Such metrics are built in to Kubernetes, and have special scaling options on top of those available to normal per-pod metrics using the "pods" source.  Only one "target" type should be set.
 type ResourceMetricSourceV2Beta1 struct {
 	// name is the name of the resource in question.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// targetAverageUtilization is the target value of the average of the resource metric across all relevant pods, represented as a percentage of the requested value of the resource for the pods.
-	TargetAverageUtilization *float64 `json:"targetAverageUtilization" yaml:"targetAverageUtilization"`
+	TargetAverageUtilization *float64 `field:"optional" json:"targetAverageUtilization" yaml:"targetAverageUtilization"`
 	// targetAverageValue is the target value of the average of the resource metric across all relevant pods, as a raw value (instead of as a percentage of the request), similar to the "pods" metric source type.
-	TargetAverageValue Quantity `json:"targetAverageValue" yaml:"targetAverageValue"`
+	TargetAverageValue Quantity `field:"optional" json:"targetAverageValue" yaml:"targetAverageValue"`
 }
 
 // ResourceMetricSource indicates how to scale on a resource metric known to Kubernetes, as specified in requests and limits, describing each pod in the current scale target (e.g. CPU or memory).  The values will be averaged together before being compared to the target.  Such metrics are built in to Kubernetes, and have special scaling options on top of those available to normal per-pod metrics using the "pods" source.  Only one "target" type should be set.
 type ResourceMetricSourceV2Beta2 struct {
 	// name is the name of the resource in question.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// target specifies the target value for the given metric.
-	Target *MetricTargetV2Beta2 `json:"target" yaml:"target"`
+	Target *MetricTargetV2Beta2 `field:"required" json:"target" yaml:"target"`
 }
 
 // ResourcePolicyRule is a predicate that matches some resource requests, testing the request's verb and the target resource.
@@ -58735,21 +58735,21 @@ type ResourcePolicyRuleV1Alpha1 struct {
 	// `apiGroups` is a list of matching API groups and may not be empty.
 	//
 	// "*" matches all API groups and, if present, must be the only entry. Required.
-	ApiGroups *[]*string `json:"apiGroups" yaml:"apiGroups"`
+	ApiGroups *[]*string `field:"required" json:"apiGroups" yaml:"apiGroups"`
 	// `resources` is a list of matching resources (i.e., lowercase and plural) with, if desired, subresource.  For example, [ "services", "nodes/status" ].  This list may not be empty. "*" matches all resources and, if present, must be the only entry. Required.
-	Resources *[]*string `json:"resources" yaml:"resources"`
+	Resources *[]*string `field:"required" json:"resources" yaml:"resources"`
 	// `verbs` is a list of matching verbs and may not be empty.
 	//
 	// "*" matches all verbs and, if present, must be the only entry. Required.
-	Verbs *[]*string `json:"verbs" yaml:"verbs"`
+	Verbs *[]*string `field:"required" json:"verbs" yaml:"verbs"`
 	// `clusterScope` indicates whether to match requests that do not specify a namespace (which happens either because the resource is not namespaced or the request targets all namespaces).
 	//
 	// If this field is omitted or false then the `namespaces` field must contain a non-empty list.
-	ClusterScope *bool `json:"clusterScope" yaml:"clusterScope"`
+	ClusterScope *bool `field:"optional" json:"clusterScope" yaml:"clusterScope"`
 	// `namespaces` is a list of target namespaces that restricts matches.
 	//
 	// A request that specifies a target namespace matches only if either (a) this list contains that target namespace or (b) this list contains "*".  Note that "*" matches any specified namespace but does not match a request that _does not specify_ a namespace (see the `clusterScope` field for that). This list may be empty, but only if `clusterScope` is true.
-	Namespaces *[]*string `json:"namespaces" yaml:"namespaces"`
+	Namespaces *[]*string `field:"optional" json:"namespaces" yaml:"namespaces"`
 }
 
 // ResourceQuotaSpec defines the desired hard limits to enforce for Quota.
@@ -58757,15 +58757,15 @@ type ResourceQuotaSpec struct {
 	// hard is the set of desired hard limits for each named resource.
 	//
 	// More info: https://kubernetes.io/docs/concepts/policy/resource-quotas/
-	Hard *map[string]Quantity `json:"hard" yaml:"hard"`
+	Hard *map[string]Quantity `field:"optional" json:"hard" yaml:"hard"`
 	// A collection of filters that must match each object tracked by a quota.
 	//
 	// If not specified, the quota matches all objects.
-	Scopes *[]*string `json:"scopes" yaml:"scopes"`
+	Scopes *[]*string `field:"optional" json:"scopes" yaml:"scopes"`
 	// scopeSelector is also a collection of filters like scopes that must match each object tracked by a quota but expressed using ScopeSelectorOperator in combination with possible values.
 	//
 	// For a resource to match, both scopes AND scopeSelector (if specified in spec), must be matched.
-	ScopeSelector *ScopeSelector `json:"scopeSelector" yaml:"scopeSelector"`
+	ScopeSelector *ScopeSelector `field:"optional" json:"scopeSelector" yaml:"scopeSelector"`
 }
 
 // ResourceRequirements describes the compute resource requirements.
@@ -58773,41 +58773,41 @@ type ResourceRequirements struct {
 	// Limits describes the maximum amount of compute resources allowed.
 	//
 	// More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
-	Limits *map[string]Quantity `json:"limits" yaml:"limits"`
+	Limits *map[string]Quantity `field:"optional" json:"limits" yaml:"limits"`
 	// Requests describes the minimum amount of compute resources required.
 	//
 	// If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
-	Requests *map[string]Quantity `json:"requests" yaml:"requests"`
+	Requests *map[string]Quantity `field:"optional" json:"requests" yaml:"requests"`
 }
 
 // RoleRef contains information that points to the role being used.
 type RoleRef struct {
 	// APIGroup is the group for the resource being referenced.
-	ApiGroup *string `json:"apiGroup" yaml:"apiGroup"`
+	ApiGroup *string `field:"required" json:"apiGroup" yaml:"apiGroup"`
 	// Kind is the type of resource being referenced.
-	Kind *string `json:"kind" yaml:"kind"`
+	Kind *string `field:"required" json:"kind" yaml:"kind"`
 	// Name is the name of resource being referenced.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 }
 
 // RoleRef contains information that points to the role being used.
 type RoleRefV1Alpha1 struct {
 	// APIGroup is the group for the resource being referenced.
-	ApiGroup *string `json:"apiGroup" yaml:"apiGroup"`
+	ApiGroup *string `field:"required" json:"apiGroup" yaml:"apiGroup"`
 	// Kind is the type of resource being referenced.
-	Kind *string `json:"kind" yaml:"kind"`
+	Kind *string `field:"required" json:"kind" yaml:"kind"`
 	// Name is the name of resource being referenced.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 }
 
 // RoleRef contains information that points to the role being used.
 type RoleRefV1Beta1 struct {
 	// APIGroup is the group for the resource being referenced.
-	ApiGroup *string `json:"apiGroup" yaml:"apiGroup"`
+	ApiGroup *string `field:"required" json:"apiGroup" yaml:"apiGroup"`
 	// Kind is the type of resource being referenced.
-	Kind *string `json:"kind" yaml:"kind"`
+	Kind *string `field:"required" json:"kind" yaml:"kind"`
 	// Name is the name of resource being referenced.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 }
 
 // DEPRECATED.
@@ -58815,7 +58815,7 @@ type RollbackConfigV1Beta1 struct {
 	// The revision to rollback to.
 	//
 	// If set to 0, rollback to the last revision.
-	Revision *float64 `json:"revision" yaml:"revision"`
+	Revision *float64 `field:"optional" json:"revision" yaml:"revision"`
 }
 
 // Spec to control the desired behavior of daemon set rolling update.
@@ -58823,7 +58823,7 @@ type RollingUpdateDaemonSet struct {
 	// The maximum number of DaemonSet pods that can be unavailable during the update.
 	//
 	// Value can be an absolute number (ex: 5) or a percentage of total number of DaemonSet pods at the start of the update (ex: 10%). Absolute number is calculated from percentage by rounding up. This cannot be 0. Default value is 1. Example: when this is set to 30%, at most 30% of the total number of nodes that should be running the daemon pod (i.e. status.desiredNumberScheduled) can have their pods stopped for an update at any given time. The update starts by stopping at most 30% of those DaemonSet pods and then brings up new DaemonSet pods in their place. Once the new pods are available, it then proceeds onto other DaemonSet pods, thus ensuring that at least 70% of original number of DaemonSet pods are available at all times during the update.
-	MaxUnavailable IntOrString `json:"maxUnavailable" yaml:"maxUnavailable"`
+	MaxUnavailable IntOrString `field:"optional" json:"maxUnavailable" yaml:"maxUnavailable"`
 }
 
 // Spec to control the desired behavior of daemon set rolling update.
@@ -58831,7 +58831,7 @@ type RollingUpdateDaemonSetV1Beta1 struct {
 	// The maximum number of DaemonSet pods that can be unavailable during the update.
 	//
 	// Value can be an absolute number (ex: 5) or a percentage of total number of DaemonSet pods at the start of the update (ex: 10%). Absolute number is calculated from percentage by rounding up. This cannot be 0. Default value is 1. Example: when this is set to 30%, at most 30% of the total number of nodes that should be running the daemon pod (i.e. status.desiredNumberScheduled) can have their pods stopped for an update at any given time. The update starts by stopping at most 30% of those DaemonSet pods and then brings up new DaemonSet pods in their place. Once the new pods are available, it then proceeds onto other DaemonSet pods, thus ensuring that at least 70% of original number of DaemonSet pods are available at all times during the update.
-	MaxUnavailable IntOrString `json:"maxUnavailable" yaml:"maxUnavailable"`
+	MaxUnavailable IntOrString `field:"optional" json:"maxUnavailable" yaml:"maxUnavailable"`
 }
 
 // Spec to control the desired behavior of daemon set rolling update.
@@ -58839,7 +58839,7 @@ type RollingUpdateDaemonSetV1Beta2 struct {
 	// The maximum number of DaemonSet pods that can be unavailable during the update.
 	//
 	// Value can be an absolute number (ex: 5) or a percentage of total number of DaemonSet pods at the start of the update (ex: 10%). Absolute number is calculated from percentage by rounding up. This cannot be 0. Default value is 1. Example: when this is set to 30%, at most 30% of the total number of nodes that should be running the daemon pod (i.e. status.desiredNumberScheduled) can have their pods stopped for an update at any given time. The update starts by stopping at most 30% of those DaemonSet pods and then brings up new DaemonSet pods in their place. Once the new pods are available, it then proceeds onto other DaemonSet pods, thus ensuring that at least 70% of original number of DaemonSet pods are available at all times during the update.
-	MaxUnavailable IntOrString `json:"maxUnavailable" yaml:"maxUnavailable"`
+	MaxUnavailable IntOrString `field:"optional" json:"maxUnavailable" yaml:"maxUnavailable"`
 }
 
 // Spec to control the desired behavior of rolling update.
@@ -58847,11 +58847,11 @@ type RollingUpdateDeployment struct {
 	// The maximum number of pods that can be scheduled above the desired number of pods.
 	//
 	// Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%). This can not be 0 if MaxUnavailable is 0. Absolute number is calculated from percentage by rounding up. Defaults to 25%. Example: when this is set to 30%, the new ReplicaSet can be scaled up immediately when the rolling update starts, such that the total number of old and new pods do not exceed 130% of desired pods. Once old pods have been killed, new ReplicaSet can be scaled up further, ensuring that total number of pods running at any time during the update is at most 130% of desired pods.
-	MaxSurge IntOrString `json:"maxSurge" yaml:"maxSurge"`
+	MaxSurge IntOrString `field:"optional" json:"maxSurge" yaml:"maxSurge"`
 	// The maximum number of pods that can be unavailable during the update.
 	//
 	// Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%). Absolute number is calculated from percentage by rounding down. This can not be 0 if MaxSurge is 0. Defaults to 25%. Example: when this is set to 30%, the old ReplicaSet can be scaled down to 70% of desired pods immediately when the rolling update starts. Once new pods are ready, old ReplicaSet can be scaled down further, followed by scaling up the new ReplicaSet, ensuring that the total number of pods available at all times during the update is at least 70% of desired pods.
-	MaxUnavailable IntOrString `json:"maxUnavailable" yaml:"maxUnavailable"`
+	MaxUnavailable IntOrString `field:"optional" json:"maxUnavailable" yaml:"maxUnavailable"`
 }
 
 // Spec to control the desired behavior of rolling update.
@@ -58859,11 +58859,11 @@ type RollingUpdateDeploymentV1Beta1 struct {
 	// The maximum number of pods that can be scheduled above the desired number of pods.
 	//
 	// Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%). This can not be 0 if MaxUnavailable is 0. Absolute number is calculated from percentage by rounding up. By default, a value of 1 is used. Example: when this is set to 30%, the new RC can be scaled up immediately when the rolling update starts, such that the total number of old and new pods do not exceed 130% of desired pods. Once old pods have been killed, new RC can be scaled up further, ensuring that total number of pods running at any time during the update is at most 130% of desired pods.
-	MaxSurge IntOrString `json:"maxSurge" yaml:"maxSurge"`
+	MaxSurge IntOrString `field:"optional" json:"maxSurge" yaml:"maxSurge"`
 	// The maximum number of pods that can be unavailable during the update.
 	//
 	// Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%). Absolute number is calculated from percentage by rounding down. This can not be 0 if MaxSurge is 0. By default, a fixed value of 1 is used. Example: when this is set to 30%, the old RC can be scaled down to 70% of desired pods immediately when the rolling update starts. Once new pods are ready, old RC can be scaled down further, followed by scaling up the new RC, ensuring that the total number of pods available at all times during the update is at least 70% of desired pods.
-	MaxUnavailable IntOrString `json:"maxUnavailable" yaml:"maxUnavailable"`
+	MaxUnavailable IntOrString `field:"optional" json:"maxUnavailable" yaml:"maxUnavailable"`
 }
 
 // Spec to control the desired behavior of rolling update.
@@ -58871,11 +58871,11 @@ type RollingUpdateDeploymentV1Beta2 struct {
 	// The maximum number of pods that can be scheduled above the desired number of pods.
 	//
 	// Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%). This can not be 0 if MaxUnavailable is 0. Absolute number is calculated from percentage by rounding up. Defaults to 25%. Example: when this is set to 30%, the new ReplicaSet can be scaled up immediately when the rolling update starts, such that the total number of old and new pods do not exceed 130% of desired pods. Once old pods have been killed, new ReplicaSet can be scaled up further, ensuring that total number of pods running at any time during the update is at most 130% of desired pods.
-	MaxSurge IntOrString `json:"maxSurge" yaml:"maxSurge"`
+	MaxSurge IntOrString `field:"optional" json:"maxSurge" yaml:"maxSurge"`
 	// The maximum number of pods that can be unavailable during the update.
 	//
 	// Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%). Absolute number is calculated from percentage by rounding down. This can not be 0 if MaxSurge is 0. Defaults to 25%. Example: when this is set to 30%, the old ReplicaSet can be scaled down to 70% of desired pods immediately when the rolling update starts. Once new pods are ready, old ReplicaSet can be scaled down further, followed by scaling up the new ReplicaSet, ensuring that the total number of pods available at all times during the update is at least 70% of desired pods.
-	MaxUnavailable IntOrString `json:"maxUnavailable" yaml:"maxUnavailable"`
+	MaxUnavailable IntOrString `field:"optional" json:"maxUnavailable" yaml:"maxUnavailable"`
 }
 
 // RollingUpdateStatefulSetStrategy is used to communicate parameter for RollingUpdateStatefulSetStrategyType.
@@ -58883,13 +58883,13 @@ type RollingUpdateStatefulSetStrategy struct {
 	// Partition indicates the ordinal at which the StatefulSet should be partitioned.
 	//
 	// Default value is 0.
-	Partition *float64 `json:"partition" yaml:"partition"`
+	Partition *float64 `field:"optional" json:"partition" yaml:"partition"`
 }
 
 // RollingUpdateStatefulSetStrategy is used to communicate parameter for RollingUpdateStatefulSetStrategyType.
 type RollingUpdateStatefulSetStrategyV1Beta1 struct {
 	// Partition indicates the ordinal at which the StatefulSet should be partitioned.
-	Partition *float64 `json:"partition" yaml:"partition"`
+	Partition *float64 `field:"optional" json:"partition" yaml:"partition"`
 }
 
 // RollingUpdateStatefulSetStrategy is used to communicate parameter for RollingUpdateStatefulSetStrategyType.
@@ -58897,7 +58897,7 @@ type RollingUpdateStatefulSetStrategyV1Beta2 struct {
 	// Partition indicates the ordinal at which the StatefulSet should be partitioned.
 	//
 	// Default value is 0.
-	Partition *float64 `json:"partition" yaml:"partition"`
+	Partition *float64 `field:"optional" json:"partition" yaml:"partition"`
 }
 
 // RuleWithOperations is a tuple of Operations and Resources.
@@ -58907,15 +58907,15 @@ type RuleWithOperations struct {
 	// APIGroups is the API groups the resources belong to.
 	//
 	// '*' is all groups. If '*' is present, the length of the slice must be one. Required.
-	ApiGroups *[]*string `json:"apiGroups" yaml:"apiGroups"`
+	ApiGroups *[]*string `field:"optional" json:"apiGroups" yaml:"apiGroups"`
 	// APIVersions is the API versions the resources belong to.
 	//
 	// '*' is all versions. If '*' is present, the length of the slice must be one. Required.
-	ApiVersions *[]*string `json:"apiVersions" yaml:"apiVersions"`
+	ApiVersions *[]*string `field:"optional" json:"apiVersions" yaml:"apiVersions"`
 	// Operations is the operations the admission hook cares about - CREATE, UPDATE, or * for all operations.
 	//
 	// If '*' is present, the length of the slice must be one. Required.
-	Operations *[]*string `json:"operations" yaml:"operations"`
+	Operations *[]*string `field:"optional" json:"operations" yaml:"operations"`
 	// Resources is a list of resources this rule applies to.
 	//
 	// For example: 'pods' means pods. 'pods/log' means the log subresource of pods. '*' means all resources, but not subresources. 'pods/*' means all subresources of pods. '_/scale' means all scale subresources. '_/*' means all resources and their subresources.
@@ -58923,11 +58923,11 @@ type RuleWithOperations struct {
 	// If wildcard is present, the validation rule will ensure resources do not overlap with each other.
 	//
 	// Depending on the enclosing object, subresources might not be allowed. Required.
-	Resources *[]*string `json:"resources" yaml:"resources"`
+	Resources *[]*string `field:"optional" json:"resources" yaml:"resources"`
 	// scope specifies the scope of this rule.
 	//
 	// Valid values are "Cluster", "Namespaced", and "*" "Cluster" means that only cluster-scoped resources will match this rule. Namespace API objects are cluster-scoped. "Namespaced" means that only namespaced resources will match this rule. "*" means that there are no scope restrictions. Subresources match the scope of their parent resource. Default is "*".
-	Scope *string `json:"scope" yaml:"scope"`
+	Scope *string `field:"optional" json:"scope" yaml:"scope"`
 }
 
 // RuleWithOperations is a tuple of Operations and Resources.
@@ -58937,15 +58937,15 @@ type RuleWithOperationsV1Beta1 struct {
 	// APIGroups is the API groups the resources belong to.
 	//
 	// '*' is all groups. If '*' is present, the length of the slice must be one. Required.
-	ApiGroups *[]*string `json:"apiGroups" yaml:"apiGroups"`
+	ApiGroups *[]*string `field:"optional" json:"apiGroups" yaml:"apiGroups"`
 	// APIVersions is the API versions the resources belong to.
 	//
 	// '*' is all versions. If '*' is present, the length of the slice must be one. Required.
-	ApiVersions *[]*string `json:"apiVersions" yaml:"apiVersions"`
+	ApiVersions *[]*string `field:"optional" json:"apiVersions" yaml:"apiVersions"`
 	// Operations is the operations the admission hook cares about - CREATE, UPDATE, or * for all operations.
 	//
 	// If '*' is present, the length of the slice must be one. Required.
-	Operations *[]*string `json:"operations" yaml:"operations"`
+	Operations *[]*string `field:"optional" json:"operations" yaml:"operations"`
 	// Resources is a list of resources this rule applies to.
 	//
 	// For example: 'pods' means pods. 'pods/log' means the log subresource of pods. '*' means all resources, but not subresources. 'pods/*' means all subresources of pods. '_/scale' means all scale subresources. '_/*' means all resources and their subresources.
@@ -58953,31 +58953,31 @@ type RuleWithOperationsV1Beta1 struct {
 	// If wildcard is present, the validation rule will ensure resources do not overlap with each other.
 	//
 	// Depending on the enclosing object, subresources might not be allowed. Required.
-	Resources *[]*string `json:"resources" yaml:"resources"`
+	Resources *[]*string `field:"optional" json:"resources" yaml:"resources"`
 	// scope specifies the scope of this rule.
 	//
 	// Valid values are "Cluster", "Namespaced", and "*" "Cluster" means that only cluster-scoped resources will match this rule. Namespace API objects are cluster-scoped. "Namespaced" means that only namespaced resources will match this rule. "*" means that there are no scope restrictions. Subresources match the scope of their parent resource. Default is "*".
-	Scope *string `json:"scope" yaml:"scope"`
+	Scope *string `field:"optional" json:"scope" yaml:"scope"`
 }
 
 // RunAsGroupStrategyOptions defines the strategy type and any options used to create the strategy.
 type RunAsGroupStrategyOptionsV1Beta1 struct {
 	// rule is the strategy that will dictate the allowable RunAsGroup values that may be set.
-	Rule *string `json:"rule" yaml:"rule"`
+	Rule *string `field:"required" json:"rule" yaml:"rule"`
 	// ranges are the allowed ranges of gids that may be used.
 	//
 	// If you would like to force a single gid then supply a single range with the same start and end. Required for MustRunAs.
-	Ranges *[]*IdRangeV1Beta1 `json:"ranges" yaml:"ranges"`
+	Ranges *[]*IdRangeV1Beta1 `field:"optional" json:"ranges" yaml:"ranges"`
 }
 
 // RunAsUserStrategyOptions defines the strategy type and any options used to create the strategy.
 type RunAsUserStrategyOptionsV1Beta1 struct {
 	// rule is the strategy that will dictate the allowable RunAsUser values that may be set.
-	Rule *string `json:"rule" yaml:"rule"`
+	Rule *string `field:"required" json:"rule" yaml:"rule"`
 	// ranges are the allowed ranges of uids that may be used.
 	//
 	// If you would like to force a single uid then supply a single range with the same start and end. Required for MustRunAs.
-	Ranges *[]*IdRangeV1Beta1 `json:"ranges" yaml:"ranges"`
+	Ranges *[]*IdRangeV1Beta1 `field:"optional" json:"ranges" yaml:"ranges"`
 }
 
 // RuntimeClassSpec is a specification of a RuntimeClass.
@@ -58987,15 +58987,15 @@ type RuntimeClassSpecV1Alpha1 struct {
 	// RuntimeHandler specifies the underlying runtime and configuration that the CRI implementation will use to handle pods of this class.
 	//
 	// The possible values are specific to the node & CRI configuration.  It is assumed that all handlers are available on every node, and handlers of the same name are equivalent on every node. For example, a handler called "runc" might specify that the runc OCI runtime (using native Linux containers) will be used to run the containers in a pod. The RuntimeHandler must conform to the DNS Label (RFC 1123) requirements and is immutable.
-	RuntimeHandler *string `json:"runtimeHandler" yaml:"runtimeHandler"`
+	RuntimeHandler *string `field:"required" json:"runtimeHandler" yaml:"runtimeHandler"`
 	// Overhead represents the resource overhead associated with running a pod for a given RuntimeClass.
 	//
 	// For more details, see https://git.k8s.io/enhancements/keps/sig-node/20190226-pod-overhead.md This field is alpha-level as of Kubernetes v1.15, and is only honored by servers that enable the PodOverhead feature.
-	Overhead *OverheadV1Alpha1 `json:"overhead" yaml:"overhead"`
+	Overhead *OverheadV1Alpha1 `field:"optional" json:"overhead" yaml:"overhead"`
 	// Scheduling holds the scheduling constraints to ensure that pods running with this RuntimeClass are scheduled to nodes that support it.
 	//
 	// If scheduling is nil, this RuntimeClass is assumed to be supported by all nodes.
-	Scheduling *SchedulingV1Alpha1 `json:"scheduling" yaml:"scheduling"`
+	Scheduling *SchedulingV1Alpha1 `field:"optional" json:"scheduling" yaml:"scheduling"`
 }
 
 // RuntimeClassStrategyOptions define the strategy that will dictate the allowable RuntimeClasses for a pod.
@@ -59003,93 +59003,93 @@ type RuntimeClassStrategyOptionsV1Beta1 struct {
 	// allowedRuntimeClassNames is a whitelist of RuntimeClass names that may be specified on a pod.
 	//
 	// A value of "*" means that any RuntimeClass name is allowed, and must be the only item in the list. An empty list requires the RuntimeClassName field to be unset.
-	AllowedRuntimeClassNames *[]*string `json:"allowedRuntimeClassNames" yaml:"allowedRuntimeClassNames"`
+	AllowedRuntimeClassNames *[]*string `field:"required" json:"allowedRuntimeClassNames" yaml:"allowedRuntimeClassNames"`
 	// defaultRuntimeClassName is the default RuntimeClassName to set on the pod.
 	//
 	// The default MUST be allowed by the allowedRuntimeClassNames list. A value of nil does not mutate the Pod.
-	DefaultRuntimeClassName *string `json:"defaultRuntimeClassName" yaml:"defaultRuntimeClassName"`
+	DefaultRuntimeClassName *string `field:"optional" json:"defaultRuntimeClassName" yaml:"defaultRuntimeClassName"`
 }
 
 // ScaleIOPersistentVolumeSource represents a persistent ScaleIO volume.
 type ScaleIoPersistentVolumeSource struct {
 	// The host address of the ScaleIO API Gateway.
-	Gateway *string `json:"gateway" yaml:"gateway"`
+	Gateway *string `field:"required" json:"gateway" yaml:"gateway"`
 	// SecretRef references to the secret for ScaleIO user and other sensitive information.
 	//
 	// If this is not provided, Login operation will fail.
-	SecretRef *SecretReference `json:"secretRef" yaml:"secretRef"`
+	SecretRef *SecretReference `field:"required" json:"secretRef" yaml:"secretRef"`
 	// The name of the storage system as configured in ScaleIO.
-	System *string `json:"system" yaml:"system"`
+	System *string `field:"required" json:"system" yaml:"system"`
 	// Filesystem type to mount.
 	//
 	// Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Default is "xfs"
-	FsType *string `json:"fsType" yaml:"fsType"`
+	FsType *string `field:"optional" json:"fsType" yaml:"fsType"`
 	// The name of the ScaleIO Protection Domain for the configured storage.
-	ProtectionDomain *string `json:"protectionDomain" yaml:"protectionDomain"`
+	ProtectionDomain *string `field:"optional" json:"protectionDomain" yaml:"protectionDomain"`
 	// Defaults to false (read/write).
 	//
 	// ReadOnly here will force the ReadOnly setting in VolumeMounts.
-	ReadOnly *bool `json:"readOnly" yaml:"readOnly"`
+	ReadOnly *bool `field:"optional" json:"readOnly" yaml:"readOnly"`
 	// Flag to enable/disable SSL communication with Gateway, default false.
-	SslEnabled *bool `json:"sslEnabled" yaml:"sslEnabled"`
+	SslEnabled *bool `field:"optional" json:"sslEnabled" yaml:"sslEnabled"`
 	// Indicates whether the storage for a volume should be ThickProvisioned or ThinProvisioned.
 	//
 	// Default is ThinProvisioned.
-	StorageMode *string `json:"storageMode" yaml:"storageMode"`
+	StorageMode *string `field:"optional" json:"storageMode" yaml:"storageMode"`
 	// The ScaleIO Storage Pool associated with the protection domain.
-	StoragePool *string `json:"storagePool" yaml:"storagePool"`
+	StoragePool *string `field:"optional" json:"storagePool" yaml:"storagePool"`
 	// The name of a volume already created in the ScaleIO system that is associated with this volume source.
-	VolumeName *string `json:"volumeName" yaml:"volumeName"`
+	VolumeName *string `field:"optional" json:"volumeName" yaml:"volumeName"`
 }
 
 // ScaleIOVolumeSource represents a persistent ScaleIO volume.
 type ScaleIoVolumeSource struct {
 	// The host address of the ScaleIO API Gateway.
-	Gateway *string `json:"gateway" yaml:"gateway"`
+	Gateway *string `field:"required" json:"gateway" yaml:"gateway"`
 	// SecretRef references to the secret for ScaleIO user and other sensitive information.
 	//
 	// If this is not provided, Login operation will fail.
-	SecretRef *LocalObjectReference `json:"secretRef" yaml:"secretRef"`
+	SecretRef *LocalObjectReference `field:"required" json:"secretRef" yaml:"secretRef"`
 	// The name of the storage system as configured in ScaleIO.
-	System *string `json:"system" yaml:"system"`
+	System *string `field:"required" json:"system" yaml:"system"`
 	// Filesystem type to mount.
 	//
 	// Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Default is "xfs".
-	FsType *string `json:"fsType" yaml:"fsType"`
+	FsType *string `field:"optional" json:"fsType" yaml:"fsType"`
 	// The name of the ScaleIO Protection Domain for the configured storage.
-	ProtectionDomain *string `json:"protectionDomain" yaml:"protectionDomain"`
+	ProtectionDomain *string `field:"optional" json:"protectionDomain" yaml:"protectionDomain"`
 	// Defaults to false (read/write).
 	//
 	// ReadOnly here will force the ReadOnly setting in VolumeMounts.
-	ReadOnly *bool `json:"readOnly" yaml:"readOnly"`
+	ReadOnly *bool `field:"optional" json:"readOnly" yaml:"readOnly"`
 	// Flag to enable/disable SSL communication with Gateway, default false.
-	SslEnabled *bool `json:"sslEnabled" yaml:"sslEnabled"`
+	SslEnabled *bool `field:"optional" json:"sslEnabled" yaml:"sslEnabled"`
 	// Indicates whether the storage for a volume should be ThickProvisioned or ThinProvisioned.
 	//
 	// Default is ThinProvisioned.
-	StorageMode *string `json:"storageMode" yaml:"storageMode"`
+	StorageMode *string `field:"optional" json:"storageMode" yaml:"storageMode"`
 	// The ScaleIO Storage Pool associated with the protection domain.
-	StoragePool *string `json:"storagePool" yaml:"storagePool"`
+	StoragePool *string `field:"optional" json:"storagePool" yaml:"storagePool"`
 	// The name of a volume already created in the ScaleIO system that is associated with this volume source.
-	VolumeName *string `json:"volumeName" yaml:"volumeName"`
+	VolumeName *string `field:"optional" json:"volumeName" yaml:"volumeName"`
 }
 
 // ScaleSpec describes the attributes of a scale subresource.
 type ScaleSpec struct {
 	// desired number of instances for the scaled object.
-	Replicas *float64 `json:"replicas" yaml:"replicas"`
+	Replicas *float64 `field:"optional" json:"replicas" yaml:"replicas"`
 }
 
 // describes the attributes of a scale subresource.
 type ScaleSpecV1Beta1 struct {
 	// desired number of instances for the scaled object.
-	Replicas *float64 `json:"replicas" yaml:"replicas"`
+	Replicas *float64 `field:"optional" json:"replicas" yaml:"replicas"`
 }
 
 // ScaleSpec describes the attributes of a scale subresource.
 type ScaleSpecV1Beta2 struct {
 	// desired number of instances for the scaled object.
-	Replicas *float64 `json:"replicas" yaml:"replicas"`
+	Replicas *float64 `field:"optional" json:"replicas" yaml:"replicas"`
 }
 
 // Scheduling specifies the scheduling constraints for nodes supporting a RuntimeClass.
@@ -59097,9 +59097,9 @@ type SchedulingV1Alpha1 struct {
 	// nodeSelector lists labels that must be present on nodes that support this RuntimeClass.
 	//
 	// Pods using this RuntimeClass can only be scheduled to a node matched by this selector. The RuntimeClass nodeSelector is merged with a pod's existing nodeSelector. Any conflicts will cause the pod to be rejected in admission.
-	NodeSelector *map[string]*string `json:"nodeSelector" yaml:"nodeSelector"`
+	NodeSelector *map[string]*string `field:"optional" json:"nodeSelector" yaml:"nodeSelector"`
 	// tolerations are appended (excluding duplicates) to pods running with this RuntimeClass during admission, effectively unioning the set of nodes tolerated by the pod and the RuntimeClass.
-	Tolerations *[]*Toleration `json:"tolerations" yaml:"tolerations"`
+	Tolerations *[]*Toleration `field:"optional" json:"tolerations" yaml:"tolerations"`
 }
 
 // Scheduling specifies the scheduling constraints for nodes supporting a RuntimeClass.
@@ -59107,15 +59107,15 @@ type SchedulingV1Beta1 struct {
 	// nodeSelector lists labels that must be present on nodes that support this RuntimeClass.
 	//
 	// Pods using this RuntimeClass can only be scheduled to a node matched by this selector. The RuntimeClass nodeSelector is merged with a pod's existing nodeSelector. Any conflicts will cause the pod to be rejected in admission.
-	NodeSelector *map[string]*string `json:"nodeSelector" yaml:"nodeSelector"`
+	NodeSelector *map[string]*string `field:"optional" json:"nodeSelector" yaml:"nodeSelector"`
 	// tolerations are appended (excluding duplicates) to pods running with this RuntimeClass during admission, effectively unioning the set of nodes tolerated by the pod and the RuntimeClass.
-	Tolerations *[]*Toleration `json:"tolerations" yaml:"tolerations"`
+	Tolerations *[]*Toleration `field:"optional" json:"tolerations" yaml:"tolerations"`
 }
 
 // A scope selector represents the AND of the selectors represented by the scoped-resource selector requirements.
 type ScopeSelector struct {
 	// A list of scope selector requirements by scope of the resources.
-	MatchExpressions *[]*ScopedResourceSelectorRequirement `json:"matchExpressions" yaml:"matchExpressions"`
+	MatchExpressions *[]*ScopedResourceSelectorRequirement `field:"optional" json:"matchExpressions" yaml:"matchExpressions"`
 }
 
 // A scoped-resource selector requirement is a selector that contains values, a scope name, and an operator that relates the scope name and values.
@@ -59123,35 +59123,35 @@ type ScopedResourceSelectorRequirement struct {
 	// Represents a scope's relationship to a set of values.
 	//
 	// Valid operators are In, NotIn, Exists, DoesNotExist.
-	Operator *string `json:"operator" yaml:"operator"`
+	Operator *string `field:"required" json:"operator" yaml:"operator"`
 	// The name of the scope that the selector applies to.
-	ScopeName *string `json:"scopeName" yaml:"scopeName"`
+	ScopeName *string `field:"required" json:"scopeName" yaml:"scopeName"`
 	// An array of string values.
 	//
 	// If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
-	Values *[]*string `json:"values" yaml:"values"`
+	Values *[]*string `field:"optional" json:"values" yaml:"values"`
 }
 
 // SELinuxOptions are the labels to be applied to the container.
 type SeLinuxOptions struct {
 	// Level is SELinux level label that applies to the container.
-	Level *string `json:"level" yaml:"level"`
+	Level *string `field:"optional" json:"level" yaml:"level"`
 	// Role is a SELinux role label that applies to the container.
-	Role *string `json:"role" yaml:"role"`
+	Role *string `field:"optional" json:"role" yaml:"role"`
 	// Type is a SELinux type label that applies to the container.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
 	// User is a SELinux user label that applies to the container.
-	User *string `json:"user" yaml:"user"`
+	User *string `field:"optional" json:"user" yaml:"user"`
 }
 
 // SELinuxStrategyOptions defines the strategy type and any options used to create the strategy.
 type SeLinuxStrategyOptionsV1Beta1 struct {
 	// rule is the strategy that will dictate the allowable labels that may be set.
-	Rule *string `json:"rule" yaml:"rule"`
+	Rule *string `field:"required" json:"rule" yaml:"rule"`
 	// seLinuxOptions required to run as;
 	//
 	// required for MustRunAs More info: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
-	SeLinuxOptions *SeLinuxOptions `json:"seLinuxOptions" yaml:"seLinuxOptions"`
+	SeLinuxOptions *SeLinuxOptions `field:"optional" json:"seLinuxOptions" yaml:"seLinuxOptions"`
 }
 
 // SecretEnvSource selects a Secret to populate the environment variables with.
@@ -59161,9 +59161,9 @@ type SecretEnvSource struct {
 	// Name of the referent.
 	//
 	// More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// Specify whether the Secret must be defined.
-	Optional *bool `json:"optional" yaml:"optional"`
+	Optional *bool `field:"optional" json:"optional" yaml:"optional"`
 }
 
 // SecretKeySelector selects a key of a Secret.
@@ -59171,13 +59171,13 @@ type SecretKeySelector struct {
 	// The key of the secret to select from.
 	//
 	// Must be a valid secret key.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"required" json:"key" yaml:"key"`
 	// Name of the referent.
 	//
 	// More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// Specify whether the Secret or its key must be defined.
-	Optional *bool `json:"optional" yaml:"optional"`
+	Optional *bool `field:"optional" json:"optional" yaml:"optional"`
 }
 
 // Adapts a secret into a projected volume.
@@ -59187,13 +59187,13 @@ type SecretProjection struct {
 	// If unspecified, each key-value pair in the Data field of the referenced Secret will be projected into the volume as a file whose name is the key and content is the value.
 	//
 	// If specified, the listed keys will be projected into the specified paths, and unlisted keys will not be present. If a key is specified which is not present in the Secret, the volume setup will error unless it is marked optional. Paths must be relative and may not contain the '..' path or start with '..'.
-	Items *[]*KeyToPath `json:"items" yaml:"items"`
+	Items *[]*KeyToPath `field:"optional" json:"items" yaml:"items"`
 	// Name of the referent.
 	//
 	// More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// Specify whether the Secret or its key must be defined.
-	Optional *bool `json:"optional" yaml:"optional"`
+	Optional *bool `field:"optional" json:"optional" yaml:"optional"`
 }
 
 // SecretReference represents a Secret Reference.
@@ -59201,9 +59201,9 @@ type SecretProjection struct {
 // It has enough information to retrieve secret in any namespace.
 type SecretReference struct {
 	// Name is unique within a namespace to reference a secret resource.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// Namespace defines the space within which the secret name must be unique.
-	Namespace *string `json:"namespace" yaml:"namespace"`
+	Namespace *string `field:"optional" json:"namespace" yaml:"namespace"`
 }
 
 // Adapts a Secret into a volume.
@@ -59213,17 +59213,17 @@ type SecretVolumeSource struct {
 	// Optional: mode bits to use on created files by default.
 	//
 	// Must be a value between 0 and 0777. Defaults to 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
-	DefaultMode *float64 `json:"defaultMode" yaml:"defaultMode"`
+	DefaultMode *float64 `field:"optional" json:"defaultMode" yaml:"defaultMode"`
 	// If unspecified, each key-value pair in the Data field of the referenced Secret will be projected into the volume as a file whose name is the key and content is the value.
 	//
 	// If specified, the listed keys will be projected into the specified paths, and unlisted keys will not be present. If a key is specified which is not present in the Secret, the volume setup will error unless it is marked optional. Paths must be relative and may not contain the '..' path or start with '..'.
-	Items *[]*KeyToPath `json:"items" yaml:"items"`
+	Items *[]*KeyToPath `field:"optional" json:"items" yaml:"items"`
 	// Specify whether the Secret or its keys must be defined.
-	Optional *bool `json:"optional" yaml:"optional"`
+	Optional *bool `field:"optional" json:"optional" yaml:"optional"`
 	// Name of the secret in the pod's namespace to use.
 	//
 	// More info: https://kubernetes.io/docs/concepts/storage/volumes#secret
-	SecretName *string `json:"secretName" yaml:"secretName"`
+	SecretName *string `field:"optional" json:"secretName" yaml:"secretName"`
 }
 
 // SecurityContext holds security configuration that will be applied to a container.
@@ -59233,43 +59233,43 @@ type SecurityContext struct {
 	// AllowPrivilegeEscalation controls whether a process can gain more privileges than its parent process.
 	//
 	// This bool directly controls if the no_new_privs flag will be set on the container process. AllowPrivilegeEscalation is true always when the container is: 1) run as Privileged 2) has CAP_SYS_ADMIN
-	AllowPrivilegeEscalation *bool `json:"allowPrivilegeEscalation" yaml:"allowPrivilegeEscalation"`
+	AllowPrivilegeEscalation *bool `field:"optional" json:"allowPrivilegeEscalation" yaml:"allowPrivilegeEscalation"`
 	// The capabilities to add/drop when running containers.
 	//
 	// Defaults to the default set of capabilities granted by the container runtime.
-	Capabilities *Capabilities `json:"capabilities" yaml:"capabilities"`
+	Capabilities *Capabilities `field:"optional" json:"capabilities" yaml:"capabilities"`
 	// Run container in privileged mode.
 	//
 	// Processes in privileged containers are essentially equivalent to root on the host. Defaults to false.
-	Privileged *bool `json:"privileged" yaml:"privileged"`
+	Privileged *bool `field:"optional" json:"privileged" yaml:"privileged"`
 	// procMount denotes the type of proc mount to use for the containers.
 	//
 	// The default is DefaultProcMount which uses the container runtime defaults for readonly paths and masked paths. This requires the ProcMountType feature flag to be enabled.
-	ProcMount *string `json:"procMount" yaml:"procMount"`
+	ProcMount *string `field:"optional" json:"procMount" yaml:"procMount"`
 	// Whether this container has a read-only root filesystem.
 	//
 	// Default is false.
-	ReadOnlyRootFilesystem *bool `json:"readOnlyRootFilesystem" yaml:"readOnlyRootFilesystem"`
+	ReadOnlyRootFilesystem *bool `field:"optional" json:"readOnlyRootFilesystem" yaml:"readOnlyRootFilesystem"`
 	// The GID to run the entrypoint of the container process.
 	//
 	// Uses runtime default if unset. May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
-	RunAsGroup *float64 `json:"runAsGroup" yaml:"runAsGroup"`
+	RunAsGroup *float64 `field:"optional" json:"runAsGroup" yaml:"runAsGroup"`
 	// Indicates that the container must run as a non-root user.
 	//
 	// If true, the Kubelet will validate the image at runtime to ensure that it does not run as UID 0 (root) and fail to start the container if it does. If unset or false, no such validation will be performed. May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
-	RunAsNonRoot *bool `json:"runAsNonRoot" yaml:"runAsNonRoot"`
+	RunAsNonRoot *bool `field:"optional" json:"runAsNonRoot" yaml:"runAsNonRoot"`
 	// The UID to run the entrypoint of the container process.
 	//
 	// Defaults to user specified in image metadata if unspecified. May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
-	RunAsUser *float64 `json:"runAsUser" yaml:"runAsUser"`
+	RunAsUser *float64 `field:"optional" json:"runAsUser" yaml:"runAsUser"`
 	// The SELinux context to be applied to the container.
 	//
 	// If unspecified, the container runtime will allocate a random SELinux context for each container.  May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
-	SeLinuxOptions *SeLinuxOptions `json:"seLinuxOptions" yaml:"seLinuxOptions"`
+	SeLinuxOptions *SeLinuxOptions `field:"optional" json:"seLinuxOptions" yaml:"seLinuxOptions"`
 	// The Windows specific settings applied to all containers.
 	//
 	// If unspecified, the options from the PodSecurityContext will be used. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
-	WindowsOptions *WindowsSecurityContextOptions `json:"windowsOptions" yaml:"windowsOptions"`
+	WindowsOptions *WindowsSecurityContextOptions `field:"optional" json:"windowsOptions" yaml:"windowsOptions"`
 }
 
 // SelfSubjectAccessReviewSpec is a description of the access request.
@@ -59277,9 +59277,9 @@ type SecurityContext struct {
 // Exactly one of ResourceAuthorizationAttributes and NonResourceAuthorizationAttributes must be set.
 type SelfSubjectAccessReviewSpec struct {
 	// NonResourceAttributes describes information for a non-resource access request.
-	NonResourceAttributes *NonResourceAttributes `json:"nonResourceAttributes" yaml:"nonResourceAttributes"`
+	NonResourceAttributes *NonResourceAttributes `field:"optional" json:"nonResourceAttributes" yaml:"nonResourceAttributes"`
 	// ResourceAuthorizationAttributes describes information for a resource access request.
-	ResourceAttributes *ResourceAttributes `json:"resourceAttributes" yaml:"resourceAttributes"`
+	ResourceAttributes *ResourceAttributes `field:"optional" json:"resourceAttributes" yaml:"resourceAttributes"`
 }
 
 // SelfSubjectAccessReviewSpec is a description of the access request.
@@ -59287,23 +59287,23 @@ type SelfSubjectAccessReviewSpec struct {
 // Exactly one of ResourceAuthorizationAttributes and NonResourceAuthorizationAttributes must be set.
 type SelfSubjectAccessReviewSpecV1Beta1 struct {
 	// NonResourceAttributes describes information for a non-resource access request.
-	NonResourceAttributes *NonResourceAttributesV1Beta1 `json:"nonResourceAttributes" yaml:"nonResourceAttributes"`
+	NonResourceAttributes *NonResourceAttributesV1Beta1 `field:"optional" json:"nonResourceAttributes" yaml:"nonResourceAttributes"`
 	// ResourceAuthorizationAttributes describes information for a resource access request.
-	ResourceAttributes *ResourceAttributesV1Beta1 `json:"resourceAttributes" yaml:"resourceAttributes"`
+	ResourceAttributes *ResourceAttributesV1Beta1 `field:"optional" json:"resourceAttributes" yaml:"resourceAttributes"`
 }
 
 type SelfSubjectRulesReviewSpec struct {
 	// Namespace to evaluate rules for.
 	//
 	// Required.
-	Namespace *string `json:"namespace" yaml:"namespace"`
+	Namespace *string `field:"optional" json:"namespace" yaml:"namespace"`
 }
 
 type SelfSubjectRulesReviewSpecV1Beta1 struct {
 	// Namespace to evaluate rules for.
 	//
 	// Required.
-	Namespace *string `json:"namespace" yaml:"namespace"`
+	Namespace *string `field:"optional" json:"namespace" yaml:"namespace"`
 }
 
 // ServiceAccountTokenProjection represents a projected service account token volume.
@@ -59311,37 +59311,37 @@ type SelfSubjectRulesReviewSpecV1Beta1 struct {
 // This projection can be used to insert a service account token into the pods runtime filesystem for use against APIs (Kubernetes API Server or otherwise).
 type ServiceAccountTokenProjection struct {
 	// Path is the path relative to the mount point of the file to project the token into.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"required" json:"path" yaml:"path"`
 	// Audience is the intended audience of the token.
 	//
 	// A recipient of a token must identify itself with an identifier specified in the audience of the token, and otherwise should reject the token. The audience defaults to the identifier of the apiserver.
-	Audience *string `json:"audience" yaml:"audience"`
+	Audience *string `field:"optional" json:"audience" yaml:"audience"`
 	// ExpirationSeconds is the requested duration of validity of the service account token.
 	//
 	// As the token approaches expiration, the kubelet volume plugin will proactively rotate the service account token. The kubelet will start trying to rotate the token if the token is older than 80 percent of its time to live or if the token is older than 24 hours.Defaults to 1 hour and must be at least 10 minutes.
-	ExpirationSeconds *float64 `json:"expirationSeconds" yaml:"expirationSeconds"`
+	ExpirationSeconds *float64 `field:"optional" json:"expirationSeconds" yaml:"expirationSeconds"`
 }
 
 // ServicePort contains information on service's port.
 type ServicePort struct {
 	// The port that will be exposed by this service.
-	Port *float64 `json:"port" yaml:"port"`
+	Port *float64 `field:"required" json:"port" yaml:"port"`
 	// The name of this port within the service.
 	//
 	// This must be a DNS_LABEL. All ports within a ServiceSpec must have unique names. When considering the endpoints for a Service, this must match the 'name' field in the EndpointPort. Optional if only one ServicePort is defined on this service.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The port on each node on which this service is exposed when type=NodePort or LoadBalancer.
 	//
 	// Usually assigned by the system. If specified, it will be allocated to the service if unused or else creation of the service will fail. Default is to auto-allocate a port if the ServiceType of this Service requires one. More info: https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport
-	NodePort *float64 `json:"nodePort" yaml:"nodePort"`
+	NodePort *float64 `field:"optional" json:"nodePort" yaml:"nodePort"`
 	// The IP protocol for this port.
 	//
 	// Supports "TCP", "UDP", and "SCTP". Default is TCP.
-	Protocol *string `json:"protocol" yaml:"protocol"`
+	Protocol *string `field:"optional" json:"protocol" yaml:"protocol"`
 	// Number or name of the port to access on the pods targeted by the service.
 	//
 	// Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME. If this is a string, it will be looked up as a named port in the target Pod's container ports. If this is not specified, the value of the 'port' field is used (an identity map). This field is ignored for services with clusterIP=None, and should be omitted or set equal to the 'port' field. More info: https://kubernetes.io/docs/concepts/services-networking/service/#defining-a-service
-	TargetPort IntOrString `json:"targetPort" yaml:"targetPort"`
+	TargetPort IntOrString `field:"optional" json:"targetPort" yaml:"targetPort"`
 }
 
 // ServiceReference holds a reference to Service.legacy.k8s.io.
@@ -59349,17 +59349,17 @@ type ServiceReference struct {
 	// `name` is the name of the service.
 	//
 	// Required.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// `namespace` is the namespace of the service.
 	//
 	// Required.
-	Namespace *string `json:"namespace" yaml:"namespace"`
+	Namespace *string `field:"required" json:"namespace" yaml:"namespace"`
 	// `path` is an optional URL path which will be sent in any request to this service.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"optional" json:"path" yaml:"path"`
 	// If specified, the port on the service that hosting webhook.
 	//
 	// Default to 443 for backward compatibility. `port` should be a valid port number (1-65535, inclusive).
-	Port *float64 `json:"port" yaml:"port"`
+	Port *float64 `field:"optional" json:"port" yaml:"port"`
 }
 
 // ServiceReference holds a reference to Service.legacy.k8s.io.
@@ -59367,17 +59367,17 @@ type ServiceReferenceV1Alpha1 struct {
 	// `name` is the name of the service.
 	//
 	// Required.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// `namespace` is the namespace of the service.
 	//
 	// Required.
-	Namespace *string `json:"namespace" yaml:"namespace"`
+	Namespace *string `field:"required" json:"namespace" yaml:"namespace"`
 	// `path` is an optional URL path which will be sent in any request to this service.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"optional" json:"path" yaml:"path"`
 	// If specified, the port on the service that hosting webhook.
 	//
 	// Default to 443 for backward compatibility. `port` should be a valid port number (1-65535, inclusive).
-	Port *float64 `json:"port" yaml:"port"`
+	Port *float64 `field:"optional" json:"port" yaml:"port"`
 }
 
 // ServiceReference holds a reference to Service.legacy.k8s.io.
@@ -59385,17 +59385,17 @@ type ServiceReferenceV1Beta1 struct {
 	// `name` is the name of the service.
 	//
 	// Required.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// `namespace` is the namespace of the service.
 	//
 	// Required.
-	Namespace *string `json:"namespace" yaml:"namespace"`
+	Namespace *string `field:"required" json:"namespace" yaml:"namespace"`
 	// `path` is an optional URL path which will be sent in any request to this service.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"optional" json:"path" yaml:"path"`
 	// If specified, the port on the service that hosting webhook.
 	//
 	// Default to 443 for backward compatibility. `port` should be a valid port number (1-65535, inclusive).
-	Port *float64 `json:"port" yaml:"port"`
+	Port *float64 `field:"optional" json:"port" yaml:"port"`
 }
 
 // ServiceSpec describes the attributes that a user creates on a service.
@@ -59403,65 +59403,65 @@ type ServiceSpec struct {
 	// clusterIP is the IP address of the service and is usually assigned randomly by the master.
 	//
 	// If an address is specified manually and is not in use by others, it will be allocated to the service; otherwise, creation of the service will fail. This field can not be changed through updates. Valid values are "None", empty string (""), or a valid IP address. "None" can be specified for headless services when proxying is not required. Only applies to types ClusterIP, NodePort, and LoadBalancer. Ignored if type is ExternalName. More info: https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies
-	ClusterIp *string `json:"clusterIp" yaml:"clusterIp"`
+	ClusterIp *string `field:"optional" json:"clusterIp" yaml:"clusterIp"`
 	// externalIPs is a list of IP addresses for which nodes in the cluster will also accept traffic for this service.
 	//
 	// These IPs are not managed by Kubernetes.  The user is responsible for ensuring that traffic arrives at a node with this IP.  A common example is external load-balancers that are not part of the Kubernetes system.
-	ExternalIPs *[]*string `json:"externalIPs" yaml:"externalIPs"`
+	ExternalIPs *[]*string `field:"optional" json:"externalIPs" yaml:"externalIPs"`
 	// externalName is the external reference that kubedns or equivalent will return as a CNAME record for this service.
 	//
 	// No proxying will be involved. Must be a valid RFC-1123 hostname (https://tools.ietf.org/html/rfc1123) and requires Type to be ExternalName.
-	ExternalName *string `json:"externalName" yaml:"externalName"`
+	ExternalName *string `field:"optional" json:"externalName" yaml:"externalName"`
 	// externalTrafficPolicy denotes if this Service desires to route external traffic to node-local or cluster-wide endpoints.
 	//
 	// "Local" preserves the client source IP and avoids a second hop for LoadBalancer and Nodeport type services, but risks potentially imbalanced traffic spreading. "Cluster" obscures the client source IP and may cause a second hop to another node, but should have good overall load-spreading.
-	ExternalTrafficPolicy *string `json:"externalTrafficPolicy" yaml:"externalTrafficPolicy"`
+	ExternalTrafficPolicy *string `field:"optional" json:"externalTrafficPolicy" yaml:"externalTrafficPolicy"`
 	// healthCheckNodePort specifies the healthcheck nodePort for the service.
 	//
 	// If not specified, HealthCheckNodePort is created by the service api backend with the allocated nodePort. Will use user-specified nodePort value if specified by the client. Only effects when Type is set to LoadBalancer and ExternalTrafficPolicy is set to Local.
-	HealthCheckNodePort *float64 `json:"healthCheckNodePort" yaml:"healthCheckNodePort"`
+	HealthCheckNodePort *float64 `field:"optional" json:"healthCheckNodePort" yaml:"healthCheckNodePort"`
 	// ipFamily specifies whether this Service has a preference for a particular IP family (e.g. IPv4 vs. IPv6).  If a specific IP family is requested, the clusterIP field will be allocated from that family, if it is available in the cluster.  If no IP family is requested, the cluster's primary IP family will be used. Other IP fields (loadBalancerIP, loadBalancerSourceRanges, externalIPs) and controllers which allocate external load-balancers should use the same IP family.  Endpoints for this Service will be of this family.  This field is immutable after creation. Assigning a ServiceIPFamily not available in the cluster (e.g. IPv6 in IPv4 only cluster) is an error condition and will fail during clusterIP assignment.
-	IpFamily *string `json:"ipFamily" yaml:"ipFamily"`
+	IpFamily *string `field:"optional" json:"ipFamily" yaml:"ipFamily"`
 	// Only applies to Service Type: LoadBalancer LoadBalancer will get created with the IP specified in this field.
 	//
 	// This feature depends on whether the underlying cloud-provider supports specifying the loadBalancerIP when a load balancer is created. This field will be ignored if the cloud-provider does not support the feature.
-	LoadBalancerIp *string `json:"loadBalancerIp" yaml:"loadBalancerIp"`
+	LoadBalancerIp *string `field:"optional" json:"loadBalancerIp" yaml:"loadBalancerIp"`
 	// If specified and supported by the platform, this will restrict traffic through the cloud-provider load-balancer will be restricted to the specified client IPs.
 	//
 	// This field will be ignored if the cloud-provider does not support the feature." More info: https://kubernetes.io/docs/tasks/access-application-cluster/configure-cloud-provider-firewall/
-	LoadBalancerSourceRanges *[]*string `json:"loadBalancerSourceRanges" yaml:"loadBalancerSourceRanges"`
+	LoadBalancerSourceRanges *[]*string `field:"optional" json:"loadBalancerSourceRanges" yaml:"loadBalancerSourceRanges"`
 	// The list of ports that are exposed by this service.
 	//
 	// More info: https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies
-	Ports *[]*ServicePort `json:"ports" yaml:"ports"`
+	Ports *[]*ServicePort `field:"optional" json:"ports" yaml:"ports"`
 	// publishNotReadyAddresses, when set to true, indicates that DNS implementations must publish the notReadyAddresses of subsets for the Endpoints associated with the Service.
 	//
 	// The default value is false. The primary use case for setting this field is to use a StatefulSet's Headless Service to propagate SRV records for its Pods without respect to their readiness for purpose of peer discovery.
-	PublishNotReadyAddresses *bool `json:"publishNotReadyAddresses" yaml:"publishNotReadyAddresses"`
+	PublishNotReadyAddresses *bool `field:"optional" json:"publishNotReadyAddresses" yaml:"publishNotReadyAddresses"`
 	// Route service traffic to pods with label keys and values matching this selector.
 	//
 	// If empty or not present, the service is assumed to have an external process managing its endpoints, which Kubernetes will not modify. Only applies to types ClusterIP, NodePort, and LoadBalancer. Ignored if type is ExternalName. More info: https://kubernetes.io/docs/concepts/services-networking/service/
-	Selector *map[string]*string `json:"selector" yaml:"selector"`
+	Selector *map[string]*string `field:"optional" json:"selector" yaml:"selector"`
 	// Supports "ClientIP" and "None".
 	//
 	// Used to maintain session affinity. Enable client IP based session affinity. Must be ClientIP or None. Defaults to None. More info: https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies
-	SessionAffinity *string `json:"sessionAffinity" yaml:"sessionAffinity"`
+	SessionAffinity *string `field:"optional" json:"sessionAffinity" yaml:"sessionAffinity"`
 	// sessionAffinityConfig contains the configurations of session affinity.
-	SessionAffinityConfig *SessionAffinityConfig `json:"sessionAffinityConfig" yaml:"sessionAffinityConfig"`
+	SessionAffinityConfig *SessionAffinityConfig `field:"optional" json:"sessionAffinityConfig" yaml:"sessionAffinityConfig"`
 	// topologyKeys is a preference-order list of topology keys which implementations of services should use to preferentially sort endpoints when accessing this Service, it can not be used at the same time as externalTrafficPolicy=Local.
 	//
 	// Topology keys must be valid label keys and at most 16 keys may be specified. Endpoints are chosen based on the first topology key with available backends. If this field is specified and all entries have no backends that match the topology of the client, the service has no backends for that client and connections should fail. The special value "*" may be used to mean "any topology". This catch-all value, if used, only makes sense as the last value in the list. If this is not specified or empty, no topology constraints will be applied.
-	TopologyKeys *[]*string `json:"topologyKeys" yaml:"topologyKeys"`
+	TopologyKeys *[]*string `field:"optional" json:"topologyKeys" yaml:"topologyKeys"`
 	// type determines how the Service is exposed.
 	//
 	// Defaults to ClusterIP. Valid options are ExternalName, ClusterIP, NodePort, and LoadBalancer. "ExternalName" maps to the specified externalName. "ClusterIP" allocates a cluster-internal IP address for load-balancing to endpoints. Endpoints are determined by the selector or if that is not specified, by manual construction of an Endpoints object. If clusterIP is "None", no virtual IP is allocated and the endpoints are published as a set of endpoints rather than a stable IP. "NodePort" builds on ClusterIP and allocates a port on every node which routes to the clusterIP. "LoadBalancer" builds on NodePort and creates an external load-balancer (if supported in the current cloud) which routes to the clusterIP. More info: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 
 // SessionAffinityConfig represents the configurations of session affinity.
 type SessionAffinityConfig struct {
 	// clientIP contains the configurations of Client IP based session affinity.
-	ClientIp *ClientIpConfig `json:"clientIp" yaml:"clientIp"`
+	ClientIp *ClientIpConfig `field:"optional" json:"clientIp" yaml:"clientIp"`
 }
 
 // A StatefulSetSpec is the specification of a StatefulSet.
@@ -59469,33 +59469,33 @@ type StatefulSetSpec struct {
 	// selector is a label query over pods that should match the replica count.
 	//
 	// It must match the pod template's labels. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
-	Selector *LabelSelector `json:"selector" yaml:"selector"`
+	Selector *LabelSelector `field:"required" json:"selector" yaml:"selector"`
 	// serviceName is the name of the service that governs this StatefulSet.
 	//
 	// This service must exist before the StatefulSet, and is responsible for the network identity of the set. Pods get DNS/hostnames that follow the pattern: pod-specific-string.serviceName.default.svc.cluster.local where "pod-specific-string" is managed by the StatefulSet controller.
-	ServiceName *string `json:"serviceName" yaml:"serviceName"`
+	ServiceName *string `field:"required" json:"serviceName" yaml:"serviceName"`
 	// template is the object that describes the pod that will be created if insufficient replicas are detected.
 	//
 	// Each pod stamped out by the StatefulSet will fulfill this Template, but have a unique identity from the rest of the StatefulSet.
-	Template *PodTemplateSpec `json:"template" yaml:"template"`
+	Template *PodTemplateSpec `field:"required" json:"template" yaml:"template"`
 	// podManagementPolicy controls how pods are created during initial scale up, when replacing pods on nodes, or when scaling down.
 	//
 	// The default policy is `OrderedReady`, where pods are created in increasing order (pod-0, then pod-1, etc) and the controller will wait until each pod is ready before continuing. When scaling down, the pods are removed in the opposite order. The alternative policy is `Parallel` which will create pods in parallel to match the desired scale without waiting, and on scale down will delete all pods at once.
-	PodManagementPolicy *string `json:"podManagementPolicy" yaml:"podManagementPolicy"`
+	PodManagementPolicy *string `field:"optional" json:"podManagementPolicy" yaml:"podManagementPolicy"`
 	// replicas is the desired number of replicas of the given Template.
 	//
 	// These are replicas in the sense that they are instantiations of the same Template, but individual replicas also have a consistent identity. If unspecified, defaults to 1.
-	Replicas *float64 `json:"replicas" yaml:"replicas"`
+	Replicas *float64 `field:"optional" json:"replicas" yaml:"replicas"`
 	// revisionHistoryLimit is the maximum number of revisions that will be maintained in the StatefulSet's revision history.
 	//
 	// The revision history consists of all revisions not represented by a currently applied StatefulSetSpec version. The default value is 10.
-	RevisionHistoryLimit *float64 `json:"revisionHistoryLimit" yaml:"revisionHistoryLimit"`
+	RevisionHistoryLimit *float64 `field:"optional" json:"revisionHistoryLimit" yaml:"revisionHistoryLimit"`
 	// updateStrategy indicates the StatefulSetUpdateStrategy that will be employed to update Pods in the StatefulSet when a revision is made to Template.
-	UpdateStrategy *StatefulSetUpdateStrategy `json:"updateStrategy" yaml:"updateStrategy"`
+	UpdateStrategy *StatefulSetUpdateStrategy `field:"optional" json:"updateStrategy" yaml:"updateStrategy"`
 	// volumeClaimTemplates is a list of claims that pods are allowed to reference.
 	//
 	// The StatefulSet controller is responsible for mapping network identities to claims in a way that maintains the identity of a pod. Every claim in this list must have at least one matching (by name) volumeMount in one container in the template. A claim in this list takes precedence over any volumes in the template, with the same name.
-	VolumeClaimTemplates *[]*KubePersistentVolumeClaimProps `json:"volumeClaimTemplates" yaml:"volumeClaimTemplates"`
+	VolumeClaimTemplates *[]*KubePersistentVolumeClaimProps `field:"optional" json:"volumeClaimTemplates" yaml:"volumeClaimTemplates"`
 }
 
 // A StatefulSetSpec is the specification of a StatefulSet.
@@ -59503,33 +59503,33 @@ type StatefulSetSpecV1Beta1 struct {
 	// serviceName is the name of the service that governs this StatefulSet.
 	//
 	// This service must exist before the StatefulSet, and is responsible for the network identity of the set. Pods get DNS/hostnames that follow the pattern: pod-specific-string.serviceName.default.svc.cluster.local where "pod-specific-string" is managed by the StatefulSet controller.
-	ServiceName *string `json:"serviceName" yaml:"serviceName"`
+	ServiceName *string `field:"required" json:"serviceName" yaml:"serviceName"`
 	// template is the object that describes the pod that will be created if insufficient replicas are detected.
 	//
 	// Each pod stamped out by the StatefulSet will fulfill this Template, but have a unique identity from the rest of the StatefulSet.
-	Template *PodTemplateSpec `json:"template" yaml:"template"`
+	Template *PodTemplateSpec `field:"required" json:"template" yaml:"template"`
 	// podManagementPolicy controls how pods are created during initial scale up, when replacing pods on nodes, or when scaling down.
 	//
 	// The default policy is `OrderedReady`, where pods are created in increasing order (pod-0, then pod-1, etc) and the controller will wait until each pod is ready before continuing. When scaling down, the pods are removed in the opposite order. The alternative policy is `Parallel` which will create pods in parallel to match the desired scale without waiting, and on scale down will delete all pods at once.
-	PodManagementPolicy *string `json:"podManagementPolicy" yaml:"podManagementPolicy"`
+	PodManagementPolicy *string `field:"optional" json:"podManagementPolicy" yaml:"podManagementPolicy"`
 	// replicas is the desired number of replicas of the given Template.
 	//
 	// These are replicas in the sense that they are instantiations of the same Template, but individual replicas also have a consistent identity. If unspecified, defaults to 1.
-	Replicas *float64 `json:"replicas" yaml:"replicas"`
+	Replicas *float64 `field:"optional" json:"replicas" yaml:"replicas"`
 	// revisionHistoryLimit is the maximum number of revisions that will be maintained in the StatefulSet's revision history.
 	//
 	// The revision history consists of all revisions not represented by a currently applied StatefulSetSpec version. The default value is 10.
-	RevisionHistoryLimit *float64 `json:"revisionHistoryLimit" yaml:"revisionHistoryLimit"`
+	RevisionHistoryLimit *float64 `field:"optional" json:"revisionHistoryLimit" yaml:"revisionHistoryLimit"`
 	// selector is a label query over pods that should match the replica count.
 	//
 	// If empty, defaulted to labels on the pod template. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
-	Selector *LabelSelector `json:"selector" yaml:"selector"`
+	Selector *LabelSelector `field:"optional" json:"selector" yaml:"selector"`
 	// updateStrategy indicates the StatefulSetUpdateStrategy that will be employed to update Pods in the StatefulSet when a revision is made to Template.
-	UpdateStrategy *StatefulSetUpdateStrategyV1Beta1 `json:"updateStrategy" yaml:"updateStrategy"`
+	UpdateStrategy *StatefulSetUpdateStrategyV1Beta1 `field:"optional" json:"updateStrategy" yaml:"updateStrategy"`
 	// volumeClaimTemplates is a list of claims that pods are allowed to reference.
 	//
 	// The StatefulSet controller is responsible for mapping network identities to claims in a way that maintains the identity of a pod. Every claim in this list must have at least one matching (by name) volumeMount in one container in the template. A claim in this list takes precedence over any volumes in the template, with the same name.
-	VolumeClaimTemplates *[]*KubePersistentVolumeClaimProps `json:"volumeClaimTemplates" yaml:"volumeClaimTemplates"`
+	VolumeClaimTemplates *[]*KubePersistentVolumeClaimProps `field:"optional" json:"volumeClaimTemplates" yaml:"volumeClaimTemplates"`
 }
 
 // A StatefulSetSpec is the specification of a StatefulSet.
@@ -59537,33 +59537,33 @@ type StatefulSetSpecV1Beta2 struct {
 	// selector is a label query over pods that should match the replica count.
 	//
 	// It must match the pod template's labels. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
-	Selector *LabelSelector `json:"selector" yaml:"selector"`
+	Selector *LabelSelector `field:"required" json:"selector" yaml:"selector"`
 	// serviceName is the name of the service that governs this StatefulSet.
 	//
 	// This service must exist before the StatefulSet, and is responsible for the network identity of the set. Pods get DNS/hostnames that follow the pattern: pod-specific-string.serviceName.default.svc.cluster.local where "pod-specific-string" is managed by the StatefulSet controller.
-	ServiceName *string `json:"serviceName" yaml:"serviceName"`
+	ServiceName *string `field:"required" json:"serviceName" yaml:"serviceName"`
 	// template is the object that describes the pod that will be created if insufficient replicas are detected.
 	//
 	// Each pod stamped out by the StatefulSet will fulfill this Template, but have a unique identity from the rest of the StatefulSet.
-	Template *PodTemplateSpec `json:"template" yaml:"template"`
+	Template *PodTemplateSpec `field:"required" json:"template" yaml:"template"`
 	// podManagementPolicy controls how pods are created during initial scale up, when replacing pods on nodes, or when scaling down.
 	//
 	// The default policy is `OrderedReady`, where pods are created in increasing order (pod-0, then pod-1, etc) and the controller will wait until each pod is ready before continuing. When scaling down, the pods are removed in the opposite order. The alternative policy is `Parallel` which will create pods in parallel to match the desired scale without waiting, and on scale down will delete all pods at once.
-	PodManagementPolicy *string `json:"podManagementPolicy" yaml:"podManagementPolicy"`
+	PodManagementPolicy *string `field:"optional" json:"podManagementPolicy" yaml:"podManagementPolicy"`
 	// replicas is the desired number of replicas of the given Template.
 	//
 	// These are replicas in the sense that they are instantiations of the same Template, but individual replicas also have a consistent identity. If unspecified, defaults to 1.
-	Replicas *float64 `json:"replicas" yaml:"replicas"`
+	Replicas *float64 `field:"optional" json:"replicas" yaml:"replicas"`
 	// revisionHistoryLimit is the maximum number of revisions that will be maintained in the StatefulSet's revision history.
 	//
 	// The revision history consists of all revisions not represented by a currently applied StatefulSetSpec version. The default value is 10.
-	RevisionHistoryLimit *float64 `json:"revisionHistoryLimit" yaml:"revisionHistoryLimit"`
+	RevisionHistoryLimit *float64 `field:"optional" json:"revisionHistoryLimit" yaml:"revisionHistoryLimit"`
 	// updateStrategy indicates the StatefulSetUpdateStrategy that will be employed to update Pods in the StatefulSet when a revision is made to Template.
-	UpdateStrategy *StatefulSetUpdateStrategyV1Beta2 `json:"updateStrategy" yaml:"updateStrategy"`
+	UpdateStrategy *StatefulSetUpdateStrategyV1Beta2 `field:"optional" json:"updateStrategy" yaml:"updateStrategy"`
 	// volumeClaimTemplates is a list of claims that pods are allowed to reference.
 	//
 	// The StatefulSet controller is responsible for mapping network identities to claims in a way that maintains the identity of a pod. Every claim in this list must have at least one matching (by name) volumeMount in one container in the template. A claim in this list takes precedence over any volumes in the template, with the same name.
-	VolumeClaimTemplates *[]*KubePersistentVolumeClaimProps `json:"volumeClaimTemplates" yaml:"volumeClaimTemplates"`
+	VolumeClaimTemplates *[]*KubePersistentVolumeClaimProps `field:"optional" json:"volumeClaimTemplates" yaml:"volumeClaimTemplates"`
 }
 
 // StatefulSetUpdateStrategy indicates the strategy that the StatefulSet controller will use to perform updates.
@@ -59571,11 +59571,11 @@ type StatefulSetSpecV1Beta2 struct {
 // It includes any additional parameters necessary to perform the update for the indicated strategy.
 type StatefulSetUpdateStrategy struct {
 	// RollingUpdate is used to communicate parameters when Type is RollingUpdateStatefulSetStrategyType.
-	RollingUpdate *RollingUpdateStatefulSetStrategy `json:"rollingUpdate" yaml:"rollingUpdate"`
+	RollingUpdate *RollingUpdateStatefulSetStrategy `field:"optional" json:"rollingUpdate" yaml:"rollingUpdate"`
 	// Type indicates the type of the StatefulSetUpdateStrategy.
 	//
 	// Default is RollingUpdate.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 
 // StatefulSetUpdateStrategy indicates the strategy that the StatefulSet controller will use to perform updates.
@@ -59583,9 +59583,9 @@ type StatefulSetUpdateStrategy struct {
 // It includes any additional parameters necessary to perform the update for the indicated strategy.
 type StatefulSetUpdateStrategyV1Beta1 struct {
 	// RollingUpdate is used to communicate parameters when Type is RollingUpdateStatefulSetStrategyType.
-	RollingUpdate *RollingUpdateStatefulSetStrategyV1Beta1 `json:"rollingUpdate" yaml:"rollingUpdate"`
+	RollingUpdate *RollingUpdateStatefulSetStrategyV1Beta1 `field:"optional" json:"rollingUpdate" yaml:"rollingUpdate"`
 	// Type indicates the type of the StatefulSetUpdateStrategy.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 
 // StatefulSetUpdateStrategy indicates the strategy that the StatefulSet controller will use to perform updates.
@@ -59593,11 +59593,11 @@ type StatefulSetUpdateStrategyV1Beta1 struct {
 // It includes any additional parameters necessary to perform the update for the indicated strategy.
 type StatefulSetUpdateStrategyV1Beta2 struct {
 	// RollingUpdate is used to communicate parameters when Type is RollingUpdateStatefulSetStrategyType.
-	RollingUpdate *RollingUpdateStatefulSetStrategyV1Beta2 `json:"rollingUpdate" yaml:"rollingUpdate"`
+	RollingUpdate *RollingUpdateStatefulSetStrategyV1Beta2 `field:"optional" json:"rollingUpdate" yaml:"rollingUpdate"`
 	// Type indicates the type of the StatefulSetUpdateStrategy.
 	//
 	// Default is RollingUpdate.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 
 // StatusCause provides more information about an api.Status failure, including cases when multiple errors are encountered.
@@ -59609,15 +59609,15 @@ type StatusCause struct {
 	// Examples:
 	// "name" - the field "name" on the current resource
 	// "items[0].name" - the field "name" on the first array entry in "items"
-	Field *string `json:"field" yaml:"field"`
+	Field *string `field:"optional" json:"field" yaml:"field"`
 	// A human-readable description of the cause of the error.
 	//
 	// This field may be presented as-is to a reader.
-	Message *string `json:"message" yaml:"message"`
+	Message *string `field:"optional" json:"message" yaml:"message"`
 	// A machine-readable description of the cause of the error.
 	//
 	// If this value is empty there is no information available.
-	Reason *string `json:"reason" yaml:"reason"`
+	Reason *string `field:"optional" json:"reason" yaml:"reason"`
 }
 
 // StatusDetails is a set of additional properties that MAY be set by the server to provide additional information about a response.
@@ -59627,23 +59627,23 @@ type StatusDetails struct {
 	// The Causes array includes more details associated with the StatusReason failure.
 	//
 	// Not all StatusReasons may provide detailed causes.
-	Causes *[]*StatusCause `json:"causes" yaml:"causes"`
+	Causes *[]*StatusCause `field:"optional" json:"causes" yaml:"causes"`
 	// The group attribute of the resource associated with the status StatusReason.
-	Group *string `json:"group" yaml:"group"`
+	Group *string `field:"optional" json:"group" yaml:"group"`
 	// The kind attribute of the resource associated with the status StatusReason.
 	//
 	// On some operations may differ from the requested resource Kind. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
-	Kind *string `json:"kind" yaml:"kind"`
+	Kind *string `field:"optional" json:"kind" yaml:"kind"`
 	// The name attribute of the resource associated with the status StatusReason (when there is a single name which can be described).
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// If specified, the time in seconds before the operation should be retried.
 	//
 	// Some errors may indicate the client must take an alternate action - for those errors this field may indicate how long to wait before taking the alternate action.
-	RetryAfterSeconds *float64 `json:"retryAfterSeconds" yaml:"retryAfterSeconds"`
+	RetryAfterSeconds *float64 `field:"optional" json:"retryAfterSeconds" yaml:"retryAfterSeconds"`
 	// UID of the resource.
 	//
 	// (when there is a single resource which can be described). More info: http://kubernetes.io/docs/user-guide/identifiers#uids
-	Uid *string `json:"uid" yaml:"uid"`
+	Uid *string `field:"optional" json:"uid" yaml:"uid"`
 }
 
 // Represents a StorageOS persistent volume resource.
@@ -59651,23 +59651,23 @@ type StorageOsPersistentVolumeSource struct {
 	// Filesystem type to mount.
 	//
 	// Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
-	FsType *string `json:"fsType" yaml:"fsType"`
+	FsType *string `field:"optional" json:"fsType" yaml:"fsType"`
 	// Defaults to false (read/write).
 	//
 	// ReadOnly here will force the ReadOnly setting in VolumeMounts.
-	ReadOnly *bool `json:"readOnly" yaml:"readOnly"`
+	ReadOnly *bool `field:"optional" json:"readOnly" yaml:"readOnly"`
 	// SecretRef specifies the secret to use for obtaining the StorageOS API credentials.
 	//
 	// If not specified, default values will be attempted.
-	SecretRef *ObjectReference `json:"secretRef" yaml:"secretRef"`
+	SecretRef *ObjectReference `field:"optional" json:"secretRef" yaml:"secretRef"`
 	// VolumeName is the human-readable name of the StorageOS volume.
 	//
 	// Volume names are only unique within a namespace.
-	VolumeName *string `json:"volumeName" yaml:"volumeName"`
+	VolumeName *string `field:"optional" json:"volumeName" yaml:"volumeName"`
 	// VolumeNamespace specifies the scope of the volume within StorageOS.
 	//
 	// If no namespace is specified then the Pod's namespace will be used.  This allows the Kubernetes name scoping to be mirrored within StorageOS for tighter integration. Set VolumeName to any name to override the default behaviour. Set to "default" if you are not using namespaces within StorageOS. Namespaces that do not pre-exist within StorageOS will be created.
-	VolumeNamespace *string `json:"volumeNamespace" yaml:"volumeNamespace"`
+	VolumeNamespace *string `field:"optional" json:"volumeNamespace" yaml:"volumeNamespace"`
 }
 
 // Represents a StorageOS persistent volume resource.
@@ -59675,23 +59675,23 @@ type StorageOsVolumeSource struct {
 	// Filesystem type to mount.
 	//
 	// Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
-	FsType *string `json:"fsType" yaml:"fsType"`
+	FsType *string `field:"optional" json:"fsType" yaml:"fsType"`
 	// Defaults to false (read/write).
 	//
 	// ReadOnly here will force the ReadOnly setting in VolumeMounts.
-	ReadOnly *bool `json:"readOnly" yaml:"readOnly"`
+	ReadOnly *bool `field:"optional" json:"readOnly" yaml:"readOnly"`
 	// SecretRef specifies the secret to use for obtaining the StorageOS API credentials.
 	//
 	// If not specified, default values will be attempted.
-	SecretRef *LocalObjectReference `json:"secretRef" yaml:"secretRef"`
+	SecretRef *LocalObjectReference `field:"optional" json:"secretRef" yaml:"secretRef"`
 	// VolumeName is the human-readable name of the StorageOS volume.
 	//
 	// Volume names are only unique within a namespace.
-	VolumeName *string `json:"volumeName" yaml:"volumeName"`
+	VolumeName *string `field:"optional" json:"volumeName" yaml:"volumeName"`
 	// VolumeNamespace specifies the scope of the volume within StorageOS.
 	//
 	// If no namespace is specified then the Pod's namespace will be used.  This allows the Kubernetes name scoping to be mirrored within StorageOS for tighter integration. Set VolumeName to any name to override the default behaviour. Set to "default" if you are not using namespaces within StorageOS. Namespaces that do not pre-exist within StorageOS will be created.
-	VolumeNamespace *string `json:"volumeNamespace" yaml:"volumeNamespace"`
+	VolumeNamespace *string `field:"optional" json:"volumeNamespace" yaml:"volumeNamespace"`
 }
 
 // Subject contains a reference to the object or user identities a role binding applies to.
@@ -59701,17 +59701,17 @@ type Subject struct {
 	// Kind of object being referenced.
 	//
 	// Values defined by this API group are "User", "Group", and "ServiceAccount". If the Authorizer does not recognized the kind value, the Authorizer should report an error.
-	Kind *string `json:"kind" yaml:"kind"`
+	Kind *string `field:"required" json:"kind" yaml:"kind"`
 	// Name of the object being referenced.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// APIGroup holds the API group of the referenced subject.
 	//
 	// Defaults to "" for ServiceAccount subjects. Defaults to "rbac.authorization.k8s.io" for User and Group subjects.
-	ApiGroup *string `json:"apiGroup" yaml:"apiGroup"`
+	ApiGroup *string `field:"optional" json:"apiGroup" yaml:"apiGroup"`
 	// Namespace of the referenced object.
 	//
 	// If the object kind is non-namespace, such as "User" or "Group", and this value is not empty the Authorizer should report an error.
-	Namespace *string `json:"namespace" yaml:"namespace"`
+	Namespace *string `field:"optional" json:"namespace" yaml:"namespace"`
 }
 
 // SubjectAccessReviewSpec is a description of the access request.
@@ -59719,19 +59719,19 @@ type Subject struct {
 // Exactly one of ResourceAuthorizationAttributes and NonResourceAuthorizationAttributes must be set.
 type SubjectAccessReviewSpec struct {
 	// Extra corresponds to the user.Info.GetExtra() method from the authenticator.  Since that is input to the authorizer it needs a reflection here.
-	Extra *map[string]*[]*string `json:"extra" yaml:"extra"`
+	Extra *map[string]*[]*string `field:"optional" json:"extra" yaml:"extra"`
 	// Groups is the groups you're testing for.
-	Groups *[]*string `json:"groups" yaml:"groups"`
+	Groups *[]*string `field:"optional" json:"groups" yaml:"groups"`
 	// NonResourceAttributes describes information for a non-resource access request.
-	NonResourceAttributes *NonResourceAttributes `json:"nonResourceAttributes" yaml:"nonResourceAttributes"`
+	NonResourceAttributes *NonResourceAttributes `field:"optional" json:"nonResourceAttributes" yaml:"nonResourceAttributes"`
 	// ResourceAuthorizationAttributes describes information for a resource access request.
-	ResourceAttributes *ResourceAttributes `json:"resourceAttributes" yaml:"resourceAttributes"`
+	ResourceAttributes *ResourceAttributes `field:"optional" json:"resourceAttributes" yaml:"resourceAttributes"`
 	// UID information about the requesting user.
-	Uid *string `json:"uid" yaml:"uid"`
+	Uid *string `field:"optional" json:"uid" yaml:"uid"`
 	// User is the user you're testing for.
 	//
 	// If you specify "User" but not "Groups", then is it interpreted as "What if User were not a member of any groups.
-	User *string `json:"user" yaml:"user"`
+	User *string `field:"optional" json:"user" yaml:"user"`
 }
 
 // SubjectAccessReviewSpec is a description of the access request.
@@ -59739,19 +59739,19 @@ type SubjectAccessReviewSpec struct {
 // Exactly one of ResourceAuthorizationAttributes and NonResourceAuthorizationAttributes must be set.
 type SubjectAccessReviewSpecV1Beta1 struct {
 	// Extra corresponds to the user.Info.GetExtra() method from the authenticator.  Since that is input to the authorizer it needs a reflection here.
-	Extra *map[string]*[]*string `json:"extra" yaml:"extra"`
+	Extra *map[string]*[]*string `field:"optional" json:"extra" yaml:"extra"`
 	// Groups is the groups you're testing for.
-	Group *[]*string `json:"group" yaml:"group"`
+	Group *[]*string `field:"optional" json:"group" yaml:"group"`
 	// NonResourceAttributes describes information for a non-resource access request.
-	NonResourceAttributes *NonResourceAttributesV1Beta1 `json:"nonResourceAttributes" yaml:"nonResourceAttributes"`
+	NonResourceAttributes *NonResourceAttributesV1Beta1 `field:"optional" json:"nonResourceAttributes" yaml:"nonResourceAttributes"`
 	// ResourceAuthorizationAttributes describes information for a resource access request.
-	ResourceAttributes *ResourceAttributesV1Beta1 `json:"resourceAttributes" yaml:"resourceAttributes"`
+	ResourceAttributes *ResourceAttributesV1Beta1 `field:"optional" json:"resourceAttributes" yaml:"resourceAttributes"`
 	// UID information about the requesting user.
-	Uid *string `json:"uid" yaml:"uid"`
+	Uid *string `field:"optional" json:"uid" yaml:"uid"`
 	// User is the user you're testing for.
 	//
 	// If you specify "User" but not "Group", then is it interpreted as "What if User were not a member of any groups.
-	User *string `json:"user" yaml:"user"`
+	User *string `field:"optional" json:"user" yaml:"user"`
 }
 
 // Subject contains a reference to the object or user identities a role binding applies to.
@@ -59761,17 +59761,17 @@ type SubjectV1Alpha1 struct {
 	// Kind of object being referenced.
 	//
 	// Values defined by this API group are "User", "Group", and "ServiceAccount". If the Authorizer does not recognized the kind value, the Authorizer should report an error.
-	Kind *string `json:"kind" yaml:"kind"`
+	Kind *string `field:"required" json:"kind" yaml:"kind"`
 	// Name of the object being referenced.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// APIVersion holds the API group and version of the referenced subject.
 	//
 	// Defaults to "v1" for ServiceAccount subjects. Defaults to "rbac.authorization.k8s.io/v1alpha1" for User and Group subjects.
-	ApiVersion *string `json:"apiVersion" yaml:"apiVersion"`
+	ApiVersion *string `field:"optional" json:"apiVersion" yaml:"apiVersion"`
 	// Namespace of the referenced object.
 	//
 	// If the object kind is non-namespace, such as "User" or "Group", and this value is not empty the Authorizer should report an error.
-	Namespace *string `json:"namespace" yaml:"namespace"`
+	Namespace *string `field:"optional" json:"namespace" yaml:"namespace"`
 }
 
 // Subject contains a reference to the object or user identities a role binding applies to.
@@ -59781,17 +59781,17 @@ type SubjectV1Beta1 struct {
 	// Kind of object being referenced.
 	//
 	// Values defined by this API group are "User", "Group", and "ServiceAccount". If the Authorizer does not recognized the kind value, the Authorizer should report an error.
-	Kind *string `json:"kind" yaml:"kind"`
+	Kind *string `field:"required" json:"kind" yaml:"kind"`
 	// Name of the object being referenced.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// APIGroup holds the API group of the referenced subject.
 	//
 	// Defaults to "" for ServiceAccount subjects. Defaults to "rbac.authorization.k8s.io" for User and Group subjects.
-	ApiGroup *string `json:"apiGroup" yaml:"apiGroup"`
+	ApiGroup *string `field:"optional" json:"apiGroup" yaml:"apiGroup"`
 	// Namespace of the referenced object.
 	//
 	// If the object kind is non-namespace, such as "User" or "Group", and this value is not empty the Authorizer should report an error.
-	Namespace *string `json:"namespace" yaml:"namespace"`
+	Namespace *string `field:"optional" json:"namespace" yaml:"namespace"`
 }
 
 // SupplementalGroupsStrategyOptions defines the strategy type and options used to create the strategy.
@@ -59799,17 +59799,17 @@ type SupplementalGroupsStrategyOptionsV1Beta1 struct {
 	// ranges are the allowed ranges of supplemental groups.
 	//
 	// If you would like to force a single supplemental group then supply a single range with the same start and end. Required for MustRunAs.
-	Ranges *[]*IdRangeV1Beta1 `json:"ranges" yaml:"ranges"`
+	Ranges *[]*IdRangeV1Beta1 `field:"optional" json:"ranges" yaml:"ranges"`
 	// rule is the strategy that will dictate what supplemental groups is used in the SecurityContext.
-	Rule *string `json:"rule" yaml:"rule"`
+	Rule *string `field:"optional" json:"rule" yaml:"rule"`
 }
 
 // Sysctl defines a kernel parameter to be set.
 type Sysctl struct {
 	// Name of a property to set.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// Value of a property to set.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 }
 
 // The node this Taint is attached to has the "effect" on any pod that does not tolerate the Taint.
@@ -59817,19 +59817,19 @@ type Taint struct {
 	// Required.
 	//
 	// The effect of the taint on pods that do not tolerate the taint. Valid effects are NoSchedule, PreferNoSchedule and NoExecute.
-	Effect *string `json:"effect" yaml:"effect"`
+	Effect *string `field:"required" json:"effect" yaml:"effect"`
 	// Required.
 	//
 	// The taint key to be applied to a node.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"required" json:"key" yaml:"key"`
 	// TimeAdded represents the time at which the taint was added.
 	//
 	// It is only written for NoExecute taints.
-	TimeAdded *time.Time `json:"timeAdded" yaml:"timeAdded"`
+	TimeAdded *time.Time `field:"optional" json:"timeAdded" yaml:"timeAdded"`
 	// Required.
 	//
 	// The taint value corresponding to the taint key.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 
 // TCPSocketAction describes an action based on opening a socket.
@@ -59837,9 +59837,9 @@ type TcpSocketAction struct {
 	// Number or name of the port to access on the container.
 	//
 	// Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
-	Port IntOrString `json:"port" yaml:"port"`
+	Port IntOrString `field:"required" json:"port" yaml:"port"`
 	// Optional: Host name to connect to, defaults to the pod IP.
-	Host *string `json:"host" yaml:"host"`
+	Host *string `field:"optional" json:"host" yaml:"host"`
 }
 
 // TokenRequestSpec contains client provided parameters of a token request.
@@ -59847,15 +59847,15 @@ type TokenRequestSpec struct {
 	// Audiences are the intendend audiences of the token.
 	//
 	// A recipient of a token must identitfy themself with an identifier in the list of audiences of the token, and otherwise should reject the token. A token issued for multiple audiences may be used to authenticate against any of the audiences listed but implies a high degree of trust between the target audiences.
-	Audiences *[]*string `json:"audiences" yaml:"audiences"`
+	Audiences *[]*string `field:"required" json:"audiences" yaml:"audiences"`
 	// BoundObjectRef is a reference to an object that the token will be bound to.
 	//
 	// The token will only be valid for as long as the bound object exists. NOTE: The API server's TokenReview endpoint will validate the BoundObjectRef, but other audiences may not. Keep ExpirationSeconds small if you want prompt revocation.
-	BoundObjectRef *BoundObjectReference `json:"boundObjectRef" yaml:"boundObjectRef"`
+	BoundObjectRef *BoundObjectReference `field:"optional" json:"boundObjectRef" yaml:"boundObjectRef"`
 	// ExpirationSeconds is the requested duration of validity of the request.
 	//
 	// The token issuer may return a token with a different validity duration so a client needs to check the 'expiration' field in a response.
-	ExpirationSeconds *float64 `json:"expirationSeconds" yaml:"expirationSeconds"`
+	ExpirationSeconds *float64 `field:"optional" json:"expirationSeconds" yaml:"expirationSeconds"`
 }
 
 // TokenReviewSpec is a description of the token authentication request.
@@ -59863,9 +59863,9 @@ type TokenReviewSpec struct {
 	// Audiences is a list of the identifiers that the resource server presented with the token identifies as.
 	//
 	// Audience-aware token authenticators will verify that the token was intended for at least one of the audiences in this list. If no audiences are provided, the audience will default to the audience of the Kubernetes apiserver.
-	Audiences *[]*string `json:"audiences" yaml:"audiences"`
+	Audiences *[]*string `field:"optional" json:"audiences" yaml:"audiences"`
 	// Token is the opaque bearer token.
-	Token *string `json:"token" yaml:"token"`
+	Token *string `field:"optional" json:"token" yaml:"token"`
 }
 
 // TokenReviewSpec is a description of the token authentication request.
@@ -59873,9 +59873,9 @@ type TokenReviewSpecV1Beta1 struct {
 	// Audiences is a list of the identifiers that the resource server presented with the token identifies as.
 	//
 	// Audience-aware token authenticators will verify that the token was intended for at least one of the audiences in this list. If no audiences are provided, the audience will default to the audience of the Kubernetes apiserver.
-	Audiences *[]*string `json:"audiences" yaml:"audiences"`
+	Audiences *[]*string `field:"optional" json:"audiences" yaml:"audiences"`
 	// Token is the opaque bearer token.
-	Token *string `json:"token" yaml:"token"`
+	Token *string `field:"optional" json:"token" yaml:"token"`
 }
 
 // The pod this Toleration is attached to tolerates any taint that matches the triple <key,value,effect> using the matching operator <operator>.
@@ -59883,23 +59883,23 @@ type Toleration struct {
 	// Effect indicates the taint effect to match.
 	//
 	// Empty means match all taint effects. When specified, allowed values are NoSchedule, PreferNoSchedule and NoExecute.
-	Effect *string `json:"effect" yaml:"effect"`
+	Effect *string `field:"optional" json:"effect" yaml:"effect"`
 	// Key is the taint key that the toleration applies to.
 	//
 	// Empty means match all taint keys. If the key is empty, operator must be Exists; this combination means to match all values and all keys.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"optional" json:"key" yaml:"key"`
 	// Operator represents a key's relationship to the value.
 	//
 	// Valid operators are Exists and Equal. Defaults to Equal. Exists is equivalent to wildcard for value, so that a pod can tolerate all taints of a particular category.
-	Operator *string `json:"operator" yaml:"operator"`
+	Operator *string `field:"optional" json:"operator" yaml:"operator"`
 	// TolerationSeconds represents the period of time the toleration (which must be of effect NoExecute, otherwise this field is ignored) tolerates the taint.
 	//
 	// By default, it is not set, which means tolerate the taint forever (do not evict). Zero and negative values will be treated as 0 (evict immediately) by the system.
-	TolerationSeconds *float64 `json:"tolerationSeconds" yaml:"tolerationSeconds"`
+	TolerationSeconds *float64 `field:"optional" json:"tolerationSeconds" yaml:"tolerationSeconds"`
 	// Value is the taint value the toleration matches to.
 	//
 	// If the operator is Exists, the value should be empty, otherwise just a regular string.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 
 // A topology selector requirement is a selector that matches given label.
@@ -59907,11 +59907,11 @@ type Toleration struct {
 // This is an alpha feature and may change in the future.
 type TopologySelectorLabelRequirement struct {
 	// The label key that the selector applies to.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"required" json:"key" yaml:"key"`
 	// An array of string values.
 	//
 	// One value must match the label to be selected. Each entry in Values is ORed.
-	Values *[]*string `json:"values" yaml:"values"`
+	Values *[]*string `field:"required" json:"values" yaml:"values"`
 }
 
 // A topology selector term represents the result of label queries.
@@ -59919,7 +59919,7 @@ type TopologySelectorLabelRequirement struct {
 // A null or empty topology selector term matches no objects. The requirements of them are ANDed. It provides a subset of functionality as NodeSelectorTerm. This is an alpha feature and may change in the future.
 type TopologySelectorTerm struct {
 	// A list of topology selector requirements by labels.
-	MatchLabelExpressions *[]*TopologySelectorLabelRequirement `json:"matchLabelExpressions" yaml:"matchLabelExpressions"`
+	MatchLabelExpressions *[]*TopologySelectorLabelRequirement `field:"optional" json:"matchLabelExpressions" yaml:"matchLabelExpressions"`
 }
 
 // TopologySpreadConstraint specifies how to spread matching pods among the given topology.
@@ -59927,31 +59927,31 @@ type TopologySpreadConstraint struct {
 	// MaxSkew describes the degree to which pods may be unevenly distributed.
 	//
 	// It's the maximum permitted difference between the number of matching pods in any two topology domains of a given topology type. For example, in a 3-zone cluster, MaxSkew is set to 1, and pods with the same labelSelector spread as 1/1/0: | zone1 | zone2 | zone3 | |   P   |   P   |       | - if MaxSkew is 1, incoming pod can only be scheduled to zone3 to become 1/1/1; scheduling it onto zone1(zone2) would make the ActualSkew(2-0) on zone1(zone2) violate MaxSkew(1). - if MaxSkew is 2, incoming pod can be scheduled onto any zone. It's a required field. Default value is 1 and 0 is not allowed.
-	MaxSkew *float64 `json:"maxSkew" yaml:"maxSkew"`
+	MaxSkew *float64 `field:"required" json:"maxSkew" yaml:"maxSkew"`
 	// TopologyKey is the key of node labels.
 	//
 	// Nodes that have a label with this key and identical values are considered to be in the same topology. We consider each <key, value> as a "bucket", and try to put balanced number of pods into each bucket. It's a required field.
-	TopologyKey *string `json:"topologyKey" yaml:"topologyKey"`
+	TopologyKey *string `field:"required" json:"topologyKey" yaml:"topologyKey"`
 	// WhenUnsatisfiable indicates how to deal with a pod if it doesn't satisfy the spread constraint.
 	//
 	// - DoNotSchedule (default) tells the scheduler not to schedule it - ScheduleAnyway tells the scheduler to still schedule it It's considered as "Unsatisfiable" if and only if placing incoming pod on any topology violates "MaxSkew". For example, in a 3-zone cluster, MaxSkew is set to 1, and pods with the same labelSelector spread as 3/1/1: | zone1 | zone2 | zone3 | | P P P |   P   |   P   | If WhenUnsatisfiable is set to DoNotSchedule, incoming pod can only be scheduled to zone2(zone3) to become 3/2/1(3/1/2) as ActualSkew(2-1) on zone2(zone3) satisfies MaxSkew(1). In other words, the cluster can still be imbalanced, but scheduler won't make it *more* imbalanced. It's a required field.
-	WhenUnsatisfiable *string `json:"whenUnsatisfiable" yaml:"whenUnsatisfiable"`
+	WhenUnsatisfiable *string `field:"required" json:"whenUnsatisfiable" yaml:"whenUnsatisfiable"`
 	// LabelSelector is used to find matching pods.
 	//
 	// Pods that match this label selector are counted to determine the number of pods in their corresponding topology domain.
-	LabelSelector *LabelSelector `json:"labelSelector" yaml:"labelSelector"`
+	LabelSelector *LabelSelector `field:"optional" json:"labelSelector" yaml:"labelSelector"`
 }
 
 // TypedLocalObjectReference contains enough information to let you locate the typed referenced object inside the same namespace.
 type TypedLocalObjectReference struct {
 	// Kind is the type of resource being referenced.
-	Kind *string `json:"kind" yaml:"kind"`
+	Kind *string `field:"required" json:"kind" yaml:"kind"`
 	// Name is the name of resource being referenced.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// APIGroup is the group for the resource being referenced.
 	//
 	// If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.
-	ApiGroup *string `json:"apiGroup" yaml:"apiGroup"`
+	ApiGroup *string `field:"optional" json:"apiGroup" yaml:"apiGroup"`
 }
 
 // ValidatingWebhook describes an admission webhook and the resources and operations it applies to.
@@ -59959,23 +59959,23 @@ type ValidatingWebhook struct {
 	// AdmissionReviewVersions is an ordered list of preferred `AdmissionReview` versions the Webhook expects.
 	//
 	// API server will try to use first version in the list which it supports. If none of the versions specified in this list supported by API server, validation will fail for this object. If a persisted webhook configuration specifies allowed versions and does not include any versions known to the API Server, calls to the webhook will fail and be subject to the failure policy.
-	AdmissionReviewVersions *[]*string `json:"admissionReviewVersions" yaml:"admissionReviewVersions"`
+	AdmissionReviewVersions *[]*string `field:"required" json:"admissionReviewVersions" yaml:"admissionReviewVersions"`
 	// ClientConfig defines how to communicate with the hook.
 	//
 	// Required.
-	ClientConfig *WebhookClientConfig `json:"clientConfig" yaml:"clientConfig"`
+	ClientConfig *WebhookClientConfig `field:"required" json:"clientConfig" yaml:"clientConfig"`
 	// The name of the admission webhook.
 	//
 	// Name should be fully qualified, e.g., imagepolicy.kubernetes.io, where "imagepolicy" is the name of the webhook, and kubernetes.io is the name of the organization. Required.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// SideEffects states whether this webhook has side effects.
 	//
 	// Acceptable values are: None, NoneOnDryRun (webhooks created via v1beta1 may also specify Some or Unknown). Webhooks with side effects MUST implement a reconciliation system, since a request may be rejected by a future step in the admission change and the side effects therefore need to be undone. Requests with the dryRun attribute will be auto-rejected if they match a webhook with sideEffects == Unknown or Some.
-	SideEffects *string `json:"sideEffects" yaml:"sideEffects"`
+	SideEffects *string `field:"required" json:"sideEffects" yaml:"sideEffects"`
 	// FailurePolicy defines how unrecognized errors from the admission endpoint are handled - allowed values are Ignore or Fail.
 	//
 	// Defaults to Fail.
-	FailurePolicy *string `json:"failurePolicy" yaml:"failurePolicy"`
+	FailurePolicy *string `field:"optional" json:"failurePolicy" yaml:"failurePolicy"`
 	// matchPolicy defines how the "rules" list is used to match incoming requests. Allowed values are "Exact" or "Equivalent".
 	//
 	// - Exact: match a request only if it exactly matches a specified rule. For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1, but "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`, a request to apps/v1beta1 or extensions/v1beta1 would not be sent to the webhook.
@@ -59983,7 +59983,7 @@ type ValidatingWebhook struct {
 	// - Equivalent: match a request if modifies a resource listed in rules, even via another API group or version. For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1, and "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`, a request to apps/v1beta1 or extensions/v1beta1 would be converted to apps/v1 and sent to the webhook.
 	//
 	// Defaults to "Equivalent".
-	MatchPolicy *string `json:"matchPolicy" yaml:"matchPolicy"`
+	MatchPolicy *string `field:"optional" json:"matchPolicy" yaml:"matchPolicy"`
 	// NamespaceSelector decides whether to run the webhook on an object based on whether the namespace for that object matches the selector.
 	//
 	// If the object itself is a namespace, the matching is performed on object.metadata.labels. If the object is another cluster scoped resource, it never skips the webhook.
@@ -60017,19 +60017,19 @@ type ValidatingWebhook struct {
 	// See https://kubernetes.io/docs/concepts/overview/working-with-objects/labels for more examples of label selectors.
 	//
 	// Default to the empty LabelSelector, which matches everything.
-	NamespaceSelector *LabelSelector `json:"namespaceSelector" yaml:"namespaceSelector"`
+	NamespaceSelector *LabelSelector `field:"optional" json:"namespaceSelector" yaml:"namespaceSelector"`
 	// ObjectSelector decides whether to run the webhook based on if the object has matching labels.
 	//
 	// objectSelector is evaluated against both the oldObject and newObject that would be sent to the webhook, and is considered to match if either object matches the selector. A null object (oldObject in the case of create, or newObject in the case of delete) or an object that cannot have labels (like a DeploymentRollback or a PodProxyOptions object) is not considered to match. Use the object selector only if the webhook is opt-in, because end users may skip the admission webhook by setting the labels. Default to the empty LabelSelector, which matches everything.
-	ObjectSelector *LabelSelector `json:"objectSelector" yaml:"objectSelector"`
+	ObjectSelector *LabelSelector `field:"optional" json:"objectSelector" yaml:"objectSelector"`
 	// Rules describes what operations on what resources/subresources the webhook cares about.
 	//
 	// The webhook cares about an operation if it matches _any_ Rule. However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks from putting the cluster in a state which cannot be recovered from without completely disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
-	Rules *[]*RuleWithOperations `json:"rules" yaml:"rules"`
+	Rules *[]*RuleWithOperations `field:"optional" json:"rules" yaml:"rules"`
 	// TimeoutSeconds specifies the timeout for this webhook.
 	//
 	// After the timeout passes, the webhook call will be ignored or the API call will fail based on the failure policy. The timeout value must be between 1 and 30 seconds. Default to 10 seconds.
-	TimeoutSeconds *float64 `json:"timeoutSeconds" yaml:"timeoutSeconds"`
+	TimeoutSeconds *float64 `field:"optional" json:"timeoutSeconds" yaml:"timeoutSeconds"`
 }
 
 // ValidatingWebhook describes an admission webhook and the resources and operations it applies to.
@@ -60037,19 +60037,19 @@ type ValidatingWebhookV1Beta1 struct {
 	// ClientConfig defines how to communicate with the hook.
 	//
 	// Required.
-	ClientConfig *WebhookClientConfigV1Beta1 `json:"clientConfig" yaml:"clientConfig"`
+	ClientConfig *WebhookClientConfigV1Beta1 `field:"required" json:"clientConfig" yaml:"clientConfig"`
 	// The name of the admission webhook.
 	//
 	// Name should be fully qualified, e.g., imagepolicy.kubernetes.io, where "imagepolicy" is the name of the webhook, and kubernetes.io is the name of the organization. Required.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// AdmissionReviewVersions is an ordered list of preferred `AdmissionReview` versions the Webhook expects.
 	//
 	// API server will try to use first version in the list which it supports. If none of the versions specified in this list supported by API server, validation will fail for this object. If a persisted webhook configuration specifies allowed versions and does not include any versions known to the API Server, calls to the webhook will fail and be subject to the failure policy. Default to `['v1beta1']`.
-	AdmissionReviewVersions *[]*string `json:"admissionReviewVersions" yaml:"admissionReviewVersions"`
+	AdmissionReviewVersions *[]*string `field:"optional" json:"admissionReviewVersions" yaml:"admissionReviewVersions"`
 	// FailurePolicy defines how unrecognized errors from the admission endpoint are handled - allowed values are Ignore or Fail.
 	//
 	// Defaults to Ignore.
-	FailurePolicy *string `json:"failurePolicy" yaml:"failurePolicy"`
+	FailurePolicy *string `field:"optional" json:"failurePolicy" yaml:"failurePolicy"`
 	// matchPolicy defines how the "rules" list is used to match incoming requests. Allowed values are "Exact" or "Equivalent".
 	//
 	// - Exact: match a request only if it exactly matches a specified rule. For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1, but "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`, a request to apps/v1beta1 or extensions/v1beta1 would not be sent to the webhook.
@@ -60057,7 +60057,7 @@ type ValidatingWebhookV1Beta1 struct {
 	// - Equivalent: match a request if modifies a resource listed in rules, even via another API group or version. For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1, and "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`, a request to apps/v1beta1 or extensions/v1beta1 would be converted to apps/v1 and sent to the webhook.
 	//
 	// Defaults to "Exact".
-	MatchPolicy *string `json:"matchPolicy" yaml:"matchPolicy"`
+	MatchPolicy *string `field:"optional" json:"matchPolicy" yaml:"matchPolicy"`
 	// NamespaceSelector decides whether to run the webhook on an object based on whether the namespace for that object matches the selector.
 	//
 	// If the object itself is a namespace, the matching is performed on object.metadata.labels. If the object is another cluster scoped resource, it never skips the webhook.
@@ -60091,23 +60091,23 @@ type ValidatingWebhookV1Beta1 struct {
 	// See https://kubernetes.io/docs/concepts/overview/working-with-objects/labels for more examples of label selectors.
 	//
 	// Default to the empty LabelSelector, which matches everything.
-	NamespaceSelector *LabelSelector `json:"namespaceSelector" yaml:"namespaceSelector"`
+	NamespaceSelector *LabelSelector `field:"optional" json:"namespaceSelector" yaml:"namespaceSelector"`
 	// ObjectSelector decides whether to run the webhook based on if the object has matching labels.
 	//
 	// objectSelector is evaluated against both the oldObject and newObject that would be sent to the webhook, and is considered to match if either object matches the selector. A null object (oldObject in the case of create, or newObject in the case of delete) or an object that cannot have labels (like a DeploymentRollback or a PodProxyOptions object) is not considered to match. Use the object selector only if the webhook is opt-in, because end users may skip the admission webhook by setting the labels. Default to the empty LabelSelector, which matches everything.
-	ObjectSelector *LabelSelector `json:"objectSelector" yaml:"objectSelector"`
+	ObjectSelector *LabelSelector `field:"optional" json:"objectSelector" yaml:"objectSelector"`
 	// Rules describes what operations on what resources/subresources the webhook cares about.
 	//
 	// The webhook cares about an operation if it matches _any_ Rule. However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks from putting the cluster in a state which cannot be recovered from without completely disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
-	Rules *[]*RuleWithOperationsV1Beta1 `json:"rules" yaml:"rules"`
+	Rules *[]*RuleWithOperationsV1Beta1 `field:"optional" json:"rules" yaml:"rules"`
 	// SideEffects states whether this webhook has side effects.
 	//
 	// Acceptable values are: Unknown, None, Some, NoneOnDryRun Webhooks with side effects MUST implement a reconciliation system, since a request may be rejected by a future step in the admission change and the side effects therefore need to be undone. Requests with the dryRun attribute will be auto-rejected if they match a webhook with sideEffects == Unknown or Some. Defaults to Unknown.
-	SideEffects *string `json:"sideEffects" yaml:"sideEffects"`
+	SideEffects *string `field:"optional" json:"sideEffects" yaml:"sideEffects"`
 	// TimeoutSeconds specifies the timeout for this webhook.
 	//
 	// After the timeout passes, the webhook call will be ignored or the API call will fail based on the failure policy. The timeout value must be between 1 and 30 seconds. Default to 30 seconds.
-	TimeoutSeconds *float64 `json:"timeoutSeconds" yaml:"timeoutSeconds"`
+	TimeoutSeconds *float64 `field:"optional" json:"timeoutSeconds" yaml:"timeoutSeconds"`
 }
 
 // Volume represents a named volume in a pod that may be accessed by any container in the pod.
@@ -60115,87 +60115,87 @@ type Volume struct {
 	// Volume's name.
 	//
 	// Must be a DNS_LABEL and unique within the pod. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// AWSElasticBlockStore represents an AWS Disk resource that is attached to a kubelet's host machine and then exposed to the pod.
 	//
 	// More info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore
-	AwsElasticBlockStore *AwsElasticBlockStoreVolumeSource `json:"awsElasticBlockStore" yaml:"awsElasticBlockStore"`
+	AwsElasticBlockStore *AwsElasticBlockStoreVolumeSource `field:"optional" json:"awsElasticBlockStore" yaml:"awsElasticBlockStore"`
 	// AzureDisk represents an Azure Data Disk mount on the host and bind mount to the pod.
-	AzureDisk *AzureDiskVolumeSource `json:"azureDisk" yaml:"azureDisk"`
+	AzureDisk *AzureDiskVolumeSource `field:"optional" json:"azureDisk" yaml:"azureDisk"`
 	// AzureFile represents an Azure File Service mount on the host and bind mount to the pod.
-	AzureFile *AzureFileVolumeSource `json:"azureFile" yaml:"azureFile"`
+	AzureFile *AzureFileVolumeSource `field:"optional" json:"azureFile" yaml:"azureFile"`
 	// CephFS represents a Ceph FS mount on the host that shares a pod's lifetime.
-	Cephfs *CephFsVolumeSource `json:"cephfs" yaml:"cephfs"`
+	Cephfs *CephFsVolumeSource `field:"optional" json:"cephfs" yaml:"cephfs"`
 	// Cinder represents a cinder volume attached and mounted on kubelets host machine.
 	//
 	// More info: https://examples.k8s.io/mysql-cinder-pd/README.md
-	Cinder *CinderVolumeSource `json:"cinder" yaml:"cinder"`
+	Cinder *CinderVolumeSource `field:"optional" json:"cinder" yaml:"cinder"`
 	// ConfigMap represents a configMap that should populate this volume.
-	ConfigMap *ConfigMapVolumeSource `json:"configMap" yaml:"configMap"`
+	ConfigMap *ConfigMapVolumeSource `field:"optional" json:"configMap" yaml:"configMap"`
 	// CSI (Container Storage Interface) represents storage that is handled by an external CSI driver (Alpha feature).
-	Csi *CsiVolumeSource `json:"csi" yaml:"csi"`
+	Csi *CsiVolumeSource `field:"optional" json:"csi" yaml:"csi"`
 	// DownwardAPI represents downward API about the pod that should populate this volume.
-	DownwardApi *DownwardApiVolumeSource `json:"downwardApi" yaml:"downwardApi"`
+	DownwardApi *DownwardApiVolumeSource `field:"optional" json:"downwardApi" yaml:"downwardApi"`
 	// EmptyDir represents a temporary directory that shares a pod's lifetime.
 	//
 	// More info: https://kubernetes.io/docs/concepts/storage/volumes#emptydir
-	EmptyDir *EmptyDirVolumeSource `json:"emptyDir" yaml:"emptyDir"`
+	EmptyDir *EmptyDirVolumeSource `field:"optional" json:"emptyDir" yaml:"emptyDir"`
 	// FC represents a Fibre Channel resource that is attached to a kubelet's host machine and then exposed to the pod.
-	Fc *FcVolumeSource `json:"fc" yaml:"fc"`
+	Fc *FcVolumeSource `field:"optional" json:"fc" yaml:"fc"`
 	// FlexVolume represents a generic volume resource that is provisioned/attached using an exec based plugin.
-	FlexVolume *FlexVolumeSource `json:"flexVolume" yaml:"flexVolume"`
+	FlexVolume *FlexVolumeSource `field:"optional" json:"flexVolume" yaml:"flexVolume"`
 	// Flocker represents a Flocker volume attached to a kubelet's host machine.
 	//
 	// This depends on the Flocker control service being running.
-	Flocker *FlockerVolumeSource `json:"flocker" yaml:"flocker"`
+	Flocker *FlockerVolumeSource `field:"optional" json:"flocker" yaml:"flocker"`
 	// GCEPersistentDisk represents a GCE Disk resource that is attached to a kubelet's host machine and then exposed to the pod.
 	//
 	// More info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk
-	GcePersistentDisk *GcePersistentDiskVolumeSource `json:"gcePersistentDisk" yaml:"gcePersistentDisk"`
+	GcePersistentDisk *GcePersistentDiskVolumeSource `field:"optional" json:"gcePersistentDisk" yaml:"gcePersistentDisk"`
 	// GitRepo represents a git repository at a particular revision.
 	//
 	// DEPRECATED: GitRepo is deprecated. To provision a container with a git repo, mount an EmptyDir into an InitContainer that clones the repo using git, then mount the EmptyDir into the Pod's container.
-	GitRepo *GitRepoVolumeSource `json:"gitRepo" yaml:"gitRepo"`
+	GitRepo *GitRepoVolumeSource `field:"optional" json:"gitRepo" yaml:"gitRepo"`
 	// Glusterfs represents a Glusterfs mount on the host that shares a pod's lifetime.
 	//
 	// More info: https://examples.k8s.io/volumes/glusterfs/README.md
-	Glusterfs *GlusterfsVolumeSource `json:"glusterfs" yaml:"glusterfs"`
+	Glusterfs *GlusterfsVolumeSource `field:"optional" json:"glusterfs" yaml:"glusterfs"`
 	// HostPath represents a pre-existing file or directory on the host machine that is directly exposed to the container.
 	//
 	// This is generally used for system agents or other privileged things that are allowed to see the host machine. Most containers will NOT need this. More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath
-	HostPath *HostPathVolumeSource `json:"hostPath" yaml:"hostPath"`
+	HostPath *HostPathVolumeSource `field:"optional" json:"hostPath" yaml:"hostPath"`
 	// ISCSI represents an ISCSI Disk resource that is attached to a kubelet's host machine and then exposed to the pod.
 	//
 	// More info: https://examples.k8s.io/volumes/iscsi/README.md
-	Iscsi *IscsiVolumeSource `json:"iscsi" yaml:"iscsi"`
+	Iscsi *IscsiVolumeSource `field:"optional" json:"iscsi" yaml:"iscsi"`
 	// NFS represents an NFS mount on the host that shares a pod's lifetime More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs.
-	Nfs *NfsVolumeSource `json:"nfs" yaml:"nfs"`
+	Nfs *NfsVolumeSource `field:"optional" json:"nfs" yaml:"nfs"`
 	// PersistentVolumeClaimVolumeSource represents a reference to a PersistentVolumeClaim in the same namespace.
 	//
 	// More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims
-	PersistentVolumeClaim *PersistentVolumeClaimVolumeSource `json:"persistentVolumeClaim" yaml:"persistentVolumeClaim"`
+	PersistentVolumeClaim *PersistentVolumeClaimVolumeSource `field:"optional" json:"persistentVolumeClaim" yaml:"persistentVolumeClaim"`
 	// PhotonPersistentDisk represents a PhotonController persistent disk attached and mounted on kubelets host machine.
-	PhotonPersistentDisk *PhotonPersistentDiskVolumeSource `json:"photonPersistentDisk" yaml:"photonPersistentDisk"`
+	PhotonPersistentDisk *PhotonPersistentDiskVolumeSource `field:"optional" json:"photonPersistentDisk" yaml:"photonPersistentDisk"`
 	// PortworxVolume represents a portworx volume attached and mounted on kubelets host machine.
-	PortworxVolume *PortworxVolumeSource `json:"portworxVolume" yaml:"portworxVolume"`
+	PortworxVolume *PortworxVolumeSource `field:"optional" json:"portworxVolume" yaml:"portworxVolume"`
 	// Items for all in one resources secrets, configmaps, and downward API.
-	Projected *ProjectedVolumeSource `json:"projected" yaml:"projected"`
+	Projected *ProjectedVolumeSource `field:"optional" json:"projected" yaml:"projected"`
 	// Quobyte represents a Quobyte mount on the host that shares a pod's lifetime.
-	Quobyte *QuobyteVolumeSource `json:"quobyte" yaml:"quobyte"`
+	Quobyte *QuobyteVolumeSource `field:"optional" json:"quobyte" yaml:"quobyte"`
 	// RBD represents a Rados Block Device mount on the host that shares a pod's lifetime.
 	//
 	// More info: https://examples.k8s.io/volumes/rbd/README.md
-	Rbd *RbdVolumeSource `json:"rbd" yaml:"rbd"`
+	Rbd *RbdVolumeSource `field:"optional" json:"rbd" yaml:"rbd"`
 	// ScaleIO represents a ScaleIO persistent volume attached and mounted on Kubernetes nodes.
-	ScaleIo *ScaleIoVolumeSource `json:"scaleIo" yaml:"scaleIo"`
+	ScaleIo *ScaleIoVolumeSource `field:"optional" json:"scaleIo" yaml:"scaleIo"`
 	// Secret represents a secret that should populate this volume.
 	//
 	// More info: https://kubernetes.io/docs/concepts/storage/volumes#secret
-	Secret *SecretVolumeSource `json:"secret" yaml:"secret"`
+	Secret *SecretVolumeSource `field:"optional" json:"secret" yaml:"secret"`
 	// StorageOS represents a StorageOS volume attached and mounted on Kubernetes nodes.
-	Storageos *StorageOsVolumeSource `json:"storageos" yaml:"storageos"`
+	Storageos *StorageOsVolumeSource `field:"optional" json:"storageos" yaml:"storageos"`
 	// VsphereVolume represents a vSphere volume attached and mounted on kubelets host machine.
-	VsphereVolume *VsphereVirtualDiskVolumeSource `json:"vsphereVolume" yaml:"vsphereVolume"`
+	VsphereVolume *VsphereVirtualDiskVolumeSource `field:"optional" json:"vsphereVolume" yaml:"vsphereVolume"`
 }
 
 // VolumeAttachmentSource represents a volume that should be attached.
@@ -60205,9 +60205,9 @@ type VolumeAttachmentSource struct {
 	// inlineVolumeSpec contains all the information necessary to attach a persistent volume defined by a pod's inline VolumeSource.
 	//
 	// This field is populated only for the CSIMigration feature. It contains translated fields from a pod's inline VolumeSource to a PersistentVolumeSpec. This field is alpha-level and is only honored by servers that enabled the CSIMigration feature.
-	InlineVolumeSpec *PersistentVolumeSpec `json:"inlineVolumeSpec" yaml:"inlineVolumeSpec"`
+	InlineVolumeSpec *PersistentVolumeSpec `field:"optional" json:"inlineVolumeSpec" yaml:"inlineVolumeSpec"`
 	// Name of the persistent volume to attach.
-	PersistentVolumeName *string `json:"persistentVolumeName" yaml:"persistentVolumeName"`
+	PersistentVolumeName *string `field:"optional" json:"persistentVolumeName" yaml:"persistentVolumeName"`
 }
 
 // VolumeAttachmentSource represents a volume that should be attached.
@@ -60217,9 +60217,9 @@ type VolumeAttachmentSourceV1Alpha1 struct {
 	// inlineVolumeSpec contains all the information necessary to attach a persistent volume defined by a pod's inline VolumeSource.
 	//
 	// This field is populated only for the CSIMigration feature. It contains translated fields from a pod's inline VolumeSource to a PersistentVolumeSpec. This field is alpha-level and is only honored by servers that enabled the CSIMigration feature.
-	InlineVolumeSpec *PersistentVolumeSpec `json:"inlineVolumeSpec" yaml:"inlineVolumeSpec"`
+	InlineVolumeSpec *PersistentVolumeSpec `field:"optional" json:"inlineVolumeSpec" yaml:"inlineVolumeSpec"`
 	// Name of the persistent volume to attach.
-	PersistentVolumeName *string `json:"persistentVolumeName" yaml:"persistentVolumeName"`
+	PersistentVolumeName *string `field:"optional" json:"persistentVolumeName" yaml:"persistentVolumeName"`
 }
 
 // VolumeAttachmentSource represents a volume that should be attached.
@@ -60229,9 +60229,9 @@ type VolumeAttachmentSourceV1Beta1 struct {
 	// inlineVolumeSpec contains all the information necessary to attach a persistent volume defined by a pod's inline VolumeSource.
 	//
 	// This field is populated only for the CSIMigration feature. It contains translated fields from a pod's inline VolumeSource to a PersistentVolumeSpec. This field is alpha-level and is only honored by servers that enabled the CSIMigration feature.
-	InlineVolumeSpec *PersistentVolumeSpec `json:"inlineVolumeSpec" yaml:"inlineVolumeSpec"`
+	InlineVolumeSpec *PersistentVolumeSpec `field:"optional" json:"inlineVolumeSpec" yaml:"inlineVolumeSpec"`
 	// Name of the persistent volume to attach.
-	PersistentVolumeName *string `json:"persistentVolumeName" yaml:"persistentVolumeName"`
+	PersistentVolumeName *string `field:"optional" json:"persistentVolumeName" yaml:"persistentVolumeName"`
 }
 
 // VolumeAttachmentSpec is the specification of a VolumeAttachment request.
@@ -60239,11 +60239,11 @@ type VolumeAttachmentSpec struct {
 	// Attacher indicates the name of the volume driver that MUST handle this request.
 	//
 	// This is the name returned by GetPluginName().
-	Attacher *string `json:"attacher" yaml:"attacher"`
+	Attacher *string `field:"required" json:"attacher" yaml:"attacher"`
 	// The node that the volume should be attached to.
-	NodeName *string `json:"nodeName" yaml:"nodeName"`
+	NodeName *string `field:"required" json:"nodeName" yaml:"nodeName"`
 	// Source represents the volume that should be attached.
-	Source *VolumeAttachmentSource `json:"source" yaml:"source"`
+	Source *VolumeAttachmentSource `field:"required" json:"source" yaml:"source"`
 }
 
 // VolumeAttachmentSpec is the specification of a VolumeAttachment request.
@@ -60251,11 +60251,11 @@ type VolumeAttachmentSpecV1Alpha1 struct {
 	// Attacher indicates the name of the volume driver that MUST handle this request.
 	//
 	// This is the name returned by GetPluginName().
-	Attacher *string `json:"attacher" yaml:"attacher"`
+	Attacher *string `field:"required" json:"attacher" yaml:"attacher"`
 	// The node that the volume should be attached to.
-	NodeName *string `json:"nodeName" yaml:"nodeName"`
+	NodeName *string `field:"required" json:"nodeName" yaml:"nodeName"`
 	// Source represents the volume that should be attached.
-	Source *VolumeAttachmentSourceV1Alpha1 `json:"source" yaml:"source"`
+	Source *VolumeAttachmentSourceV1Alpha1 `field:"required" json:"source" yaml:"source"`
 }
 
 // VolumeAttachmentSpec is the specification of a VolumeAttachment request.
@@ -60263,19 +60263,19 @@ type VolumeAttachmentSpecV1Beta1 struct {
 	// Attacher indicates the name of the volume driver that MUST handle this request.
 	//
 	// This is the name returned by GetPluginName().
-	Attacher *string `json:"attacher" yaml:"attacher"`
+	Attacher *string `field:"required" json:"attacher" yaml:"attacher"`
 	// The node that the volume should be attached to.
-	NodeName *string `json:"nodeName" yaml:"nodeName"`
+	NodeName *string `field:"required" json:"nodeName" yaml:"nodeName"`
 	// Source represents the volume that should be attached.
-	Source *VolumeAttachmentSourceV1Beta1 `json:"source" yaml:"source"`
+	Source *VolumeAttachmentSourceV1Beta1 `field:"required" json:"source" yaml:"source"`
 }
 
 // volumeDevice describes a mapping of a raw block device within a container.
 type VolumeDevice struct {
 	// devicePath is the path inside of the container that the device will be mapped to.
-	DevicePath *string `json:"devicePath" yaml:"devicePath"`
+	DevicePath *string `field:"required" json:"devicePath" yaml:"devicePath"`
 	// name must match the name of a persistentVolumeClaim in the pod.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 }
 
 // VolumeMount describes a mounting of a Volume within a container.
@@ -60283,31 +60283,31 @@ type VolumeMount struct {
 	// Path within the container at which the volume should be mounted.
 	//
 	// Must not contain ':'.
-	MountPath *string `json:"mountPath" yaml:"mountPath"`
+	MountPath *string `field:"required" json:"mountPath" yaml:"mountPath"`
 	// This must match the Name of a Volume.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// mountPropagation determines how mounts are propagated from the host to container and the other way around.
 	//
 	// When not set, MountPropagationNone is used. This field is beta in 1.10.
-	MountPropagation *string `json:"mountPropagation" yaml:"mountPropagation"`
+	MountPropagation *string `field:"optional" json:"mountPropagation" yaml:"mountPropagation"`
 	// Mounted read-only if true, read-write otherwise (false or unspecified).
 	//
 	// Defaults to false.
-	ReadOnly *bool `json:"readOnly" yaml:"readOnly"`
+	ReadOnly *bool `field:"optional" json:"readOnly" yaml:"readOnly"`
 	// Path within the volume from which the container's volume should be mounted.
 	//
 	// Defaults to "" (volume's root).
-	SubPath *string `json:"subPath" yaml:"subPath"`
+	SubPath *string `field:"optional" json:"subPath" yaml:"subPath"`
 	// Expanded path within the volume from which the container's volume should be mounted.
 	//
 	// Behaves similarly to SubPath but environment variable references $(VAR_NAME) are expanded using the container's environment. Defaults to "" (volume's root). SubPathExpr and SubPath are mutually exclusive.
-	SubPathExpr *string `json:"subPathExpr" yaml:"subPathExpr"`
+	SubPathExpr *string `field:"optional" json:"subPathExpr" yaml:"subPathExpr"`
 }
 
 // VolumeNodeAffinity defines constraints that limit what nodes this volume can be accessed from.
 type VolumeNodeAffinity struct {
 	// Required specifies hard node constraints that must be met.
-	Required *NodeSelector `json:"required" yaml:"required"`
+	Required *NodeSelector `field:"optional" json:"required" yaml:"required"`
 }
 
 // VolumeNodeResources is a set of resource limits for scheduling of volumes.
@@ -60315,7 +60315,7 @@ type VolumeNodeResources struct {
 	// Maximum number of unique volumes managed by the CSI driver that can be used on a node.
 	//
 	// A volume that is both attached and mounted on a node is considered to be used once, not twice. The same rule applies for a unique volume that is shared among multiple pods on the same node. If this field is not specified, then the supported number of volumes on this node is unbounded.
-	Count *float64 `json:"count" yaml:"count"`
+	Count *float64 `field:"optional" json:"count" yaml:"count"`
 }
 
 // VolumeNodeResources is a set of resource limits for scheduling of volumes.
@@ -60323,33 +60323,33 @@ type VolumeNodeResourcesV1Beta1 struct {
 	// Maximum number of unique volumes managed by the CSI driver that can be used on a node.
 	//
 	// A volume that is both attached and mounted on a node is considered to be used once, not twice. The same rule applies for a unique volume that is shared among multiple pods on the same node. If this field is nil, then the supported number of volumes on this node is unbounded.
-	Count *float64 `json:"count" yaml:"count"`
+	Count *float64 `field:"optional" json:"count" yaml:"count"`
 }
 
 // Projection that may be projected along with other supported volume types.
 type VolumeProjection struct {
 	// information about the configMap data to project.
-	ConfigMap *ConfigMapProjection `json:"configMap" yaml:"configMap"`
+	ConfigMap *ConfigMapProjection `field:"optional" json:"configMap" yaml:"configMap"`
 	// information about the downwardAPI data to project.
-	DownwardApi *DownwardApiProjection `json:"downwardApi" yaml:"downwardApi"`
+	DownwardApi *DownwardApiProjection `field:"optional" json:"downwardApi" yaml:"downwardApi"`
 	// information about the secret data to project.
-	Secret *SecretProjection `json:"secret" yaml:"secret"`
+	Secret *SecretProjection `field:"optional" json:"secret" yaml:"secret"`
 	// information about the serviceAccountToken data to project.
-	ServiceAccountToken *ServiceAccountTokenProjection `json:"serviceAccountToken" yaml:"serviceAccountToken"`
+	ServiceAccountToken *ServiceAccountTokenProjection `field:"optional" json:"serviceAccountToken" yaml:"serviceAccountToken"`
 }
 
 // Represents a vSphere volume resource.
 type VsphereVirtualDiskVolumeSource struct {
 	// Path that identifies vSphere volume vmdk.
-	VolumePath *string `json:"volumePath" yaml:"volumePath"`
+	VolumePath *string `field:"required" json:"volumePath" yaml:"volumePath"`
 	// Filesystem type to mount.
 	//
 	// Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
-	FsType *string `json:"fsType" yaml:"fsType"`
+	FsType *string `field:"optional" json:"fsType" yaml:"fsType"`
 	// Storage Policy Based Management (SPBM) profile ID associated with the StoragePolicyName.
-	StoragePolicyId *string `json:"storagePolicyId" yaml:"storagePolicyId"`
+	StoragePolicyId *string `field:"optional" json:"storagePolicyId" yaml:"storagePolicyId"`
 	// Storage Policy Based Management (SPBM) profile name.
-	StoragePolicyName *string `json:"storagePolicyName" yaml:"storagePolicyName"`
+	StoragePolicyName *string `field:"optional" json:"storagePolicyName" yaml:"storagePolicyName"`
 }
 
 // WebhookClientConfig contains the information to make a TLS connection with the webhook.
@@ -60357,11 +60357,11 @@ type WebhookClientConfig struct {
 	// `caBundle` is a PEM encoded CA bundle which will be used to validate the webhook's server certificate.
 	//
 	// If unspecified, system trust roots on the apiserver are used.
-	CaBundle *string `json:"caBundle" yaml:"caBundle"`
+	CaBundle *string `field:"optional" json:"caBundle" yaml:"caBundle"`
 	// `service` is a reference to the service for this webhook. Either `service` or `url` must be specified.
 	//
 	// If the webhook is running within the cluster, then you should use `service`.
-	Service *ServiceReference `json:"service" yaml:"service"`
+	Service *ServiceReference `field:"optional" json:"service" yaml:"service"`
 	// `url` gives the location of the webhook, in standard URL form (`scheme://host:port/path`).
 	//
 	// Exactly one of `url` or `service` must be specified.
@@ -60375,7 +60375,7 @@ type WebhookClientConfig struct {
 	// A path is optional, and if present may be any string permissible in a URL. You may use the path to pass an arbitrary string to the webhook, for example, a cluster identifier.
 	//
 	// Attempting to use a user or basic auth e.g. "user:password@" is not allowed. Fragments ("#...") and query parameters ("?...") are not allowed, either.
-	Url *string `json:"url" yaml:"url"`
+	Url *string `field:"optional" json:"url" yaml:"url"`
 }
 
 // WebhookClientConfig contains the information to make a connection with the webhook.
@@ -60383,11 +60383,11 @@ type WebhookClientConfigV1Alpha1 struct {
 	// `caBundle` is a PEM encoded CA bundle which will be used to validate the webhook's server certificate.
 	//
 	// If unspecified, system trust roots on the apiserver are used.
-	CaBundle *string `json:"caBundle" yaml:"caBundle"`
+	CaBundle *string `field:"optional" json:"caBundle" yaml:"caBundle"`
 	// `service` is a reference to the service for this webhook. Either `service` or `url` must be specified.
 	//
 	// If the webhook is running within the cluster, then you should use `service`.
-	Service *ServiceReferenceV1Alpha1 `json:"service" yaml:"service"`
+	Service *ServiceReferenceV1Alpha1 `field:"optional" json:"service" yaml:"service"`
 	// `url` gives the location of the webhook, in standard URL form (`scheme://host:port/path`).
 	//
 	// Exactly one of `url` or `service` must be specified.
@@ -60401,7 +60401,7 @@ type WebhookClientConfigV1Alpha1 struct {
 	// A path is optional, and if present may be any string permissible in a URL. You may use the path to pass an arbitrary string to the webhook, for example, a cluster identifier.
 	//
 	// Attempting to use a user or basic auth e.g. "user:password@" is not allowed. Fragments ("#...") and query parameters ("?...") are not allowed, either.
-	Url *string `json:"url" yaml:"url"`
+	Url *string `field:"optional" json:"url" yaml:"url"`
 }
 
 // WebhookClientConfig contains the information to make a TLS connection with the webhook.
@@ -60409,11 +60409,11 @@ type WebhookClientConfigV1Beta1 struct {
 	// `caBundle` is a PEM encoded CA bundle which will be used to validate the webhook's server certificate.
 	//
 	// If unspecified, system trust roots on the apiserver are used.
-	CaBundle *string `json:"caBundle" yaml:"caBundle"`
+	CaBundle *string `field:"optional" json:"caBundle" yaml:"caBundle"`
 	// `service` is a reference to the service for this webhook. Either `service` or `url` must be specified.
 	//
 	// If the webhook is running within the cluster, then you should use `service`.
-	Service *ServiceReferenceV1Beta1 `json:"service" yaml:"service"`
+	Service *ServiceReferenceV1Beta1 `field:"optional" json:"service" yaml:"service"`
 	// `url` gives the location of the webhook, in standard URL form (`scheme://host:port/path`).
 	//
 	// Exactly one of `url` or `service` must be specified.
@@ -60427,7 +60427,7 @@ type WebhookClientConfigV1Beta1 struct {
 	// A path is optional, and if present may be any string permissible in a URL. You may use the path to pass an arbitrary string to the webhook, for example, a cluster identifier.
 	//
 	// Attempting to use a user or basic auth e.g. "user:password@" is not allowed. Fragments ("#...") and query parameters ("?...") are not allowed, either.
-	Url *string `json:"url" yaml:"url"`
+	Url *string `field:"optional" json:"url" yaml:"url"`
 }
 
 // WebhookConversion describes how to call a conversion webhook.
@@ -60435,25 +60435,25 @@ type WebhookConversion struct {
 	// conversionReviewVersions is an ordered list of preferred `ConversionReview` versions the Webhook expects.
 	//
 	// The API server will use the first version in the list which it supports. If none of the versions specified in this list are supported by API server, conversion will fail for the custom resource. If a persisted Webhook configuration specifies allowed versions and does not include any versions known to the API Server, calls to the webhook will fail.
-	ConversionReviewVersions *[]*string `json:"conversionReviewVersions" yaml:"conversionReviewVersions"`
+	ConversionReviewVersions *[]*string `field:"required" json:"conversionReviewVersions" yaml:"conversionReviewVersions"`
 	// clientConfig is the instructions for how to call the webhook if strategy is `Webhook`.
-	ClientConfig *WebhookClientConfig `json:"clientConfig" yaml:"clientConfig"`
+	ClientConfig *WebhookClientConfig `field:"optional" json:"clientConfig" yaml:"clientConfig"`
 }
 
 // WebhookThrottleConfig holds the configuration for throttling events.
 type WebhookThrottleConfigV1Alpha1 struct {
 	// ThrottleBurst is the maximum number of events sent at the same moment default 15 QPS.
-	Burst *float64 `json:"burst" yaml:"burst"`
+	Burst *float64 `field:"optional" json:"burst" yaml:"burst"`
 	// ThrottleQPS maximum number of batches per second default 10 QPS.
-	Qps *float64 `json:"qps" yaml:"qps"`
+	Qps *float64 `field:"optional" json:"qps" yaml:"qps"`
 }
 
 // Webhook holds the configuration of the webhook.
 type WebhookV1Alpha1 struct {
 	// ClientConfig holds the connection parameters for the webhook required.
-	ClientConfig *WebhookClientConfigV1Alpha1 `json:"clientConfig" yaml:"clientConfig"`
+	ClientConfig *WebhookClientConfigV1Alpha1 `field:"required" json:"clientConfig" yaml:"clientConfig"`
 	// Throttle holds the options for throttling the webhook.
-	Throttle *WebhookThrottleConfigV1Alpha1 `json:"throttle" yaml:"throttle"`
+	Throttle *WebhookThrottleConfigV1Alpha1 `field:"optional" json:"throttle" yaml:"throttle"`
 }
 
 // The weights of all of the matched WeightedPodAffinityTerm fields are added per-node to find the most preferred node(s).
@@ -60461,22 +60461,22 @@ type WeightedPodAffinityTerm struct {
 	// Required.
 	//
 	// A pod affinity term, associated with the corresponding weight.
-	PodAffinityTerm *PodAffinityTerm `json:"podAffinityTerm" yaml:"podAffinityTerm"`
+	PodAffinityTerm *PodAffinityTerm `field:"required" json:"podAffinityTerm" yaml:"podAffinityTerm"`
 	// weight associated with matching the corresponding podAffinityTerm, in the range 1-100.
-	Weight *float64 `json:"weight" yaml:"weight"`
+	Weight *float64 `field:"required" json:"weight" yaml:"weight"`
 }
 
 // WindowsSecurityContextOptions contain Windows-specific options and credentials.
 type WindowsSecurityContextOptions struct {
 	// GMSACredentialSpec is where the GMSA admission webhook (https://github.com/kubernetes-sigs/windows-gmsa) inlines the contents of the GMSA credential spec named by the GMSACredentialSpecName field. This field is alpha-level and is only honored by servers that enable the WindowsGMSA feature flag.
-	GmsaCredentialSpec *string `json:"gmsaCredentialSpec" yaml:"gmsaCredentialSpec"`
+	GmsaCredentialSpec *string `field:"optional" json:"gmsaCredentialSpec" yaml:"gmsaCredentialSpec"`
 	// GMSACredentialSpecName is the name of the GMSA credential spec to use.
 	//
 	// This field is alpha-level and is only honored by servers that enable the WindowsGMSA feature flag.
-	GmsaCredentialSpecName *string `json:"gmsaCredentialSpecName" yaml:"gmsaCredentialSpecName"`
+	GmsaCredentialSpecName *string `field:"optional" json:"gmsaCredentialSpecName" yaml:"gmsaCredentialSpecName"`
 	// The UserName in Windows to run the entrypoint of the container process.
 	//
 	// Defaults to the user specified in image metadata if unspecified. May also be set in PodSecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. This field is beta-level and may be disabled with the WindowsRunAsUserName feature flag.
-	RunAsUserName *string `json:"runAsUserName" yaml:"runAsUserName"`
+	RunAsUserName *string `field:"optional" json:"runAsUserName" yaml:"runAsUserName"`
 }
 
