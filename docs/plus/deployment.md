@@ -100,7 +100,7 @@ const redis = new kplus.Deployment(chart, 'Redis', {
   replicas: 3,
 });
 
-deployment.scheduling.spread(kplus.TopologyKey.HOSTNAME);
+deployment.scheduling.spread(kplus.Topology.HOSTNAME);
 ```
 
 This example ensures that each replica of the `Redis` deployment
@@ -127,10 +127,10 @@ const web = new kplus.Deployment(chart, 'Web', {
 });
 
 // ensure redis is spread across all nodes
-redis.scheduling.spread(kplus.TopologyKey.HOSTNAME);
+redis.scheduling.spread(kplus.Topology.HOSTNAME);
 
 // ensure web app is spread across all nodes
-web.scheduling.spread(kplus.TopologyKey.HOSTNAME);
+web.scheduling.spread(kplus.Topology.HOSTNAME);
 
 // ensure a web app pod always runs along side a cache instance
 web.scheduling.colocate(redis);
