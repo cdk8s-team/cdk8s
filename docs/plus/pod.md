@@ -76,7 +76,7 @@ CDK8s+ collapses all these different features and exposes them under one unified
 
 ### Node Assignment
 
-You can statically assign a pod to specific node, by using the node's name.
+You can statically assign a pod to a specific node, by using the node's name.
 
 ```ts
 import * as k from 'cdk8s';
