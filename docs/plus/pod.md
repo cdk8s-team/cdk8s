@@ -74,7 +74,17 @@ CDK8s+ collapses all these different features and exposes them under one unified
 
 > The same API is also available on all workload resources (i.e `Deployment`, `StatefulSet`, `Job`, `DaemonSet`).
 
-### Node Assignment
+Scheduling is comprised of two different types:
+
+- [Node Selection](#node-selection)
+- [Pod Selection](#pod-selection)
+
+### Node Selection
+
+Node selection is the process of directly selecting which
+nodes should pods be scheduled on, by selecting node attributes.
+
+#### Node Assignment
 
 You can statically assign a pod to a specific node, by using the node's name.
 
@@ -93,10 +103,10 @@ redis.scheduling.assign(kplus.Node.named('node1'));
 
 This example will cause the `Redis` pod to be scheduled on a node with name `node1`.
 
-### Node Attraction
+#### Node Attraction
 
 Pods can attract themselves to nodes. As opposed to an assignment,
-an attraction can be made to a **set** of nodes, specified by node selectors.
+an attraction can be made to a **set** of nodes, specified by node labels.
 An attraction can be either required, or preferred.
 
 ```ts
@@ -120,7 +130,7 @@ node that has the `memory=high` label. To request a **preference**, specify the 
 redis.scheduling.attract(highMemoryNodes, { weight: 50 });
 ```
 
-### Node Toleration
+#### Node Toleration
 
 While attractions is a property of Pods that attracts them to a set of nodes,
 taints are the opposite -- they allow a node to repel a set of pods.
@@ -129,6 +139,8 @@ Tolerations are applied to pods, and allow (but do not require) the pods to
 schedule onto nodes with matching taints.
 
 Taints and tolerations work together to ensure that pods are not scheduled onto inappropriate nodes. One or more taints are applied to a node; this marks that the node should not accept any pods that do not tolerate the taints.
+
+A toleration can be made to a **set** of nodes, specified by node taints.
 
 ```ts
 import * as k from 'cdk8s';
@@ -150,7 +162,43 @@ redis.scheduling.tolerate(node);
 This example says the the `Redis` pod is able to tolerate
 nodes tainted with `key1=value1:NoSchedule`.
 
-### Pod Co-location
+### Pod Selection
+
+Pod selection is the process of selecting which **nodes** should pods be scheduled on,
+by looking at which other **pods** are already scheduled on those nodes.
+
+The API's presented here interact either with specific pods,
+i.e instances of `Pod` or `Workload` (e.g `Deployment`, `StatefulSet`, `Job`, ...), or with a group of pods, i.e ones
+that are identified by a set of selectors.
+
+Following are a few examples that show how to select a group of pods:
+
+##### Select all pods
+
+```ts
+const pods = kplus.Pod.all();
+```
+
+##### Select all pods in a particular namespace by name
+
+```ts
+const pods = kplus.Pod.all().namespaced(kplus.Namespace.named('web'));
+```
+
+##### Select pods with labels
+
+```ts
+const pods = kplus.Pod.labeled(kplus.LabelQuery.is('app', 'store'));
+```
+
+##### Select pods with labels in a particular namespace by labels
+
+```ts
+const pods = kplus.Pod.labeled(kplus.LabelQuery.is('app', 'store'))
+  .namespaced(kplus.Namespace.labeled(kplus.LabelQuery.is('net', '1')));
+```
+
+#### Pod Co-location
 
 Pod co-location is a way to tell the scheduler to place a pod in a *topology*
 that already hosts other pods that meet some criteria.
@@ -212,7 +260,7 @@ whether they are defined in the cdk8s app or not.
 > **Under the hood**: Co-location with managed pods will automatically
 > extract its labels and form the appropriate pod selector.
 
-### Pod Separation
+#### Pod Separation
 
 Pod separation (e.g anti co-location) is a way to tell the scheduler **not to** place a
 pod in a *topology* that already hosts other pods that meet some criteria.
