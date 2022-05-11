@@ -9102,7 +9102,7 @@ file mode, like fsGroup, and the result can be other mode bits set.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">PathMapping</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getItems</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus22.PathMapping">klzzwxh:8378</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus22.PathMapping">klzzwxh:8389</a>></li>
 <li><em>Default:</em> no mapping</li>
 </ul>
 <p>If unspecified, each key-value pair in the Data field of the referenced ConfigMap will be projected into the volume as a file whose name is the key and content is the value.</p>
@@ -9234,7 +9234,7 @@ More info: https://kubernetes.io/docs/tasks/inject-data-application/define-comma
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">EnvValue</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getEnv</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus22.EnvValue">klzzwxh:8351</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus22.EnvValue">klzzwxh:8362</a>></li>
 <li><em>Default:</em> No environment variables.</li>
 </ul>
 <p>List of environment variables to set in the container.</p>
@@ -12006,7 +12006,7 @@ file mode, like fsGroup, and the result can be other mode bits set.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">PathMapping</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getItems</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus22.PathMapping">klzzwxh:7664</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus22.PathMapping">klzzwxh:7675</a>></li>
 <li><em>Default:</em> no mapping</li>
 </ul>
 <p>If unspecified, each key-value pair in the Data field of the referenced secret will be projected into the volume as a file whose name is the key and content is the value.</p>
@@ -13506,7 +13506,7 @@ More info: https://kubernetes.io/docs/tasks/inject-data-application/define-comma
 <hr />
 <h5 id="envoptional_1"><code>env</code><sup>Optional</sup> <a name="org.cdk8s.plus22.ContainerProps.parameter.env"></a><a class="headerlink" href="#envoptional_1" title="Permanent link">&para;</a></h5>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus22.EnvValue">klzzwxh:7216</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus22.EnvValue">klzzwxh:7227</a>></li>
 <li><em>Default:</em> No environment variables.</li>
 </ul>
 <p>List of environment variables to set in the container.</p>
@@ -13643,7 +13643,7 @@ More info: https://kubernetes.io/docs/tasks/inject-data-application/define-comma
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">EnvValue</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getEnv</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus22.EnvValue">klzzwxh:7161</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus22.EnvValue">klzzwxh:7172</a>></li>
 </ul>
 <p>The environment variables for this container.</p>
 <p>Returns a copy. To add environment variables use <code>addEnv()</code>.</p>
@@ -14090,6 +14090,16 @@ and Group subjects.</p>
 <h3 id="ingressbackend">IngressBackend <a name="org.cdk8s.plus22.IngressBackend"></a><a class="headerlink" href="#ingressbackend" title="Permanent link">&para;</a></h3>
 <p>The backend for an ingress path.</p>
 <h4 id="static-functions_12">Static Functions <a name="Static Functions"></a><a class="headerlink" href="#static-functions_12" title="Permanent link">&para;</a></h4>
+<h5 id="fromresource_1"><code>fromResource</code> <a name="org.cdk8s.plus22.IngressBackend.fromResource"></a><a class="headerlink" href="#fromresource_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus22.IngressBackend</span><span class="p">;</span><span class="w"></span>
+
+<span class="n">IngressBackend</span><span class="p">.</span><span class="na">fromResource</span><span class="p">(</span><span class="n">IResource</span><span class="w"> </span><span class="n">resource</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<h6 id="resourcerequired_1"><code>resource</code><sup>Required</sup> <a name="org.cdk8s.plus22.IngressBackend.parameter.resource"></a><a class="headerlink" href="#resourcerequired_1" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.plus22.IResource"><code>org.cdk8s.plus22.IResource</code></a></li>
+</ul>
+<hr />
 <h5 id="fromservice"><code>fromService</code> <a name="org.cdk8s.plus22.IngressBackend.fromService"></a><a class="headerlink" href="#fromservice" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus22.IngressBackend</span><span class="p">;</span><span class="w"></span>
 
