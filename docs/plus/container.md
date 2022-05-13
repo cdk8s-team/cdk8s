@@ -26,7 +26,7 @@ container.addEnv('endpoint', kplus.EnvValue.fromConfigMap(backendsConfig, 'endpo
 
 // use a specific key from a secret.
 const credentials = kplus.Secret.fromSecretName('credentials');
-container.addEnv('password', kplus.EnvValue.fromSecret(credentials, 'password'));
+container.addEnv('password', kplus.EnvValue.fromSecretValue({ secret: credentials, key: 'password' }));
 ```
 
 ## Volume Mounts
