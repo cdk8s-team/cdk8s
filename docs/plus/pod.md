@@ -5,35 +5,69 @@ A pod is essentially a collection of containers. It is the most fundamental comp
 !!! tip ""
     [API Reference](../reference/cdk8s-plus-22/typescript.md#pod)
 
-### Adding Containers/Volumes
+## Create a `Pod`
 
-Containers and volumes can be added to pod definition like so:
+To create a new pod in the cluster:
 
-```typescript
+```ts
 import * as kplus from 'cdk8s-plus-22';
-
-const pod = new kplus.Pod(chart, 'Pod');
-
-const container = pod.addContainer({
-  image: 'node',
-});
-
-const storage = kplus.Volume.fromEmptyDir('storage');
-
-container.mount('/data', storage);
+import * as k from 'cdk8s';
 
 const app = new k.App();
 const chart = new k.Chart(app, 'Chart');
 
-// this will automatically add the volume as well.
-pod.addContainer(container);
+const pod = new kplus.Pod(chart, 'Pod');
+```
 
-// but if you want to explicitly add it, simply use:
-pod.addVolume(storage);
+### Adding Containers
 
+Every `Pod` must have at least one container before you synthesize the application.
+You can add containers either during, or post instantiation:
+
+```ts
+const pod = new kplus.Pod(chart, 'Pod', {
+  containers: [{ image: 'image' }],
+});
+
+pod.addContainer({ image: 'another-image' });
+```
+
+### Adding Volumes
+
+Volumes can be added to pod definition either during, or post instantiation:
+
+```typescript
+import * as kplus from 'cdk8s-plus-22';
+
+const data1 = kplus.Volume.fromEmptyDir('data1');
+const data2 = kplus.Volume.fromEmptyDir('data2');
+
+const pod = new kplus.Pod(chart, 'Pod', {
+  volumes: [data1],
+});
+
+pod.addVolume(data2);
+```
+
+Note that adding a volume to a pod doesn't actually make the volume available
+to its containers. For that, you also need to mount the volume onto a container.
+
+```ts
+import * as kplus from 'cdk8s-plus-22';
+
+const data = kplus.Volume.fromEmptyDir('data');
+
+const pod = new kplus.Pod(chart, 'Pod');
+const container = pod.addContainer({ image: 'image' });
+
+// mount the volume onto the container. this is actually enough, and you
+// don't need to explicitly add the volume to the pod -- cdk8s+ will do that for you.
+container.mount('/data', data);
 ```
 
 ### Applying a restart policy
+
+A restart policy can only be specified at instantiation time:
 
 ```typescript
 import * as kplus from 'cdk8s-plus-22';
@@ -48,6 +82,8 @@ const pod = new kplus.Pod(chart, 'Pod', {
 
 ### Assigning a ServiceAccount
 
+A service account can only be specified at instantiation time:
+
 ```typescript
 import * as kplus from 'cdk8s-plus-22';
 
@@ -58,6 +94,42 @@ const pod = new kplus.Pod(chart, 'Pod', {
   serviceAccount: kplus.ServiceAccount.fromServiceAccountName('aws'),
 });
 ```
+
+## Select a pod(s)
+
+Pods can also be selected by various mechanisms. These selections are often used in other
+cdk8s+ API's, such as [pod selection](./pod.md#pod-selection) during scheduling.
+
+### Select pods with labels
+
+Selects all pods that have the `app=store` label.
+
+```ts
+const pods = kplus.Pod.labeled(kplus.LabelQuery.is('app', 'store'));
+```
+
+### Select pods with labels in a particular namespace
+
+Pod selection can also be scoped to specific namespaces.
+This is done using the `.namespaced` method, which can accept any [namespace selector](./namespace.md#select-a-namespaces).
+
+For example, select all pods that have the `app=store` label in the `backoffice` namespace:
+
+```ts
+const pods = kplus.Pod.labeled(kplus.LabelQuery.is('app', 'store'))
+  .namespaced(kplus.Namespace.named('backoffice'));
+```
+
+### Select all pods
+
+Select all pods.
+
+```ts
+const pods = kplus.Pod.all();
+```
+
+By default this will select pods in the namespace of the resource / context
+it is defined in. This can also be [scoped to a specific namespace](#select-pods-with-labels-in-a-particular-namespace) by using `.namespaced`.
 
 ## Scheduling
 
@@ -168,35 +240,7 @@ Pod selection is the process of selecting which **nodes** should pods be schedul
 by looking at which other **pods** are already scheduled on those nodes.
 
 The API's presented here interact either with specific pods,
-i.e instances of `Pod` or `Workload` (e.g `Deployment`, `StatefulSet`, `Job`, ...), or with a group of pods, i.e ones
-that are identified by a set of selectors.
-
-Following are a few examples that show how to select a group of pods:
-
-##### Select all pods
-
-```ts
-const pods = kplus.Pod.all();
-```
-
-##### Select all pods in a particular namespace by name
-
-```ts
-const pods = kplus.Pod.all().namespaced(kplus.Namespace.named('web'));
-```
-
-##### Select pods with labels
-
-```ts
-const pods = kplus.Pod.labeled(kplus.LabelQuery.is('app', 'store'));
-```
-
-##### Select pods with labels in a particular namespace by labels
-
-```ts
-const pods = kplus.Pod.labeled(kplus.LabelQuery.is('app', 'store'))
-  .namespaced(kplus.Namespace.labeled(kplus.LabelQuery.is('net', '1')));
-```
+i.e instances of `Pod` or `Workload` (e.g `Deployment`, `StatefulSet`, `Job`, ...), or with a group of pods, i.e ones that are identified by a set of [selectors](#select-a-pods).
 
 #### Pod Co-location
 
