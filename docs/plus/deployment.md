@@ -5,7 +5,7 @@ Create a deployment to govern the lifecycle and orchestration of a set of identi
 !!! tip ""
     [API Reference](../reference/cdk8s-plus-22/typescript.md#deployment)
 
-### Automatic pod selection
+## Automatic pod selection
 
 When you specify pods in a deployment, you normally have to configure the appropriate labels and selectors to
 make the deployment control the relevant pods. This construct does this automatically.
@@ -44,7 +44,7 @@ spec:
         cdk8s.deployment: ChartFrontEndsDD8A97CE
 ```
 
-### Exposing via a service
+## Exposing via a service
 
 Following up on pod selection, you can also easily create a service that will select the pods relevant to the deployment.
 
