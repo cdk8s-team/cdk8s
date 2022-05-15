@@ -357,3 +357,79 @@ whether they are defined in the cdk8s app or not.
 
 > **Under the hood**: Co-location with managed pods will automatically
 > extract its labels and form the appropriate pod selector.
+
+## Connections
+
+Pod connections offer a simplified API to automatically create [network policies](./network-policy.md) on
+both ends of a connection. Accessing this API is done via the `connections` property
+of a specific `Pod`, which serves as one end of the connection.
+The other end is a network policy [peer](./network-policy.md#peers).
+
+### Allow To
+
+To allow connections from a `Pod` to a [peer](./network-policy.md#peers):
+
+```ts
+import * as k from 'cdk8s';
+import * as kplus from 'cdk8s-plus-22';
+
+const app = new k.App();
+const chart = new k.Chart(app, 'Chart');
+
+const redis = new kplus.Pod(chart, 'Redis', {
+  containers: [{ image: 'redis', port: 6379 }]
+});
+const web = new kplus.Pod(chart, 'Web', {
+  containers: [{ image: 'web' }]
+});
+
+web.connections.allowTo(redis);
+```
+
+This will allow the `web` pod to connect to the `redis` port on port 6379,
+and will allow the `redis` pod to accept connections from the `web` pod on port 6379.
+
+### Allow From
+
+To allow connections from a [peer](./network-policy.md#peers) to a `Pod`:
+
+```ts
+import * as k from 'cdk8s';
+import * as kplus from 'cdk8s-plus-22';
+
+const app = new k.App();
+const chart = new k.Chart(app, 'Chart');
+
+const redis = new kplus.Pod(chart, 'Redis', {
+  containers: [{ image: 'redis', port: 6379 }]
+});
+const web = new kplus.Pod(chart, 'Web', {
+  containers: [{ image: 'web' }]
+});
+
+redis.connections.allowFrom(web);
+```
+
+### Isolation
+
+By default, the `allowXXX` methods will create both an egress policy on the initiating end,
+as well as an ingress policy on the accepting end of the connection.
+
+This means that, if no other policies apply, both sides of the connection will be *isolated*,
+each in the corresponding direction. In the above [example](#allow-to), if the `redis` pod
+needs to be accessed from any pod other than `web`, an explicit policy needs to be applied,
+because the default *non-isolated* behavior is now disabled.
+
+To control the isolation this API incurs, you can use the `isolation` option. It accepts two
+possible values:
+
+- `PodConnectionsIsolation.POD`: Only isolate the pod that offers the `connections` API.
+- `PodConnectionsIsolation.PEER`: Only isolate the peer the pod needs to communicate with.
+
+```ts
+// this will only create an egress policy on the 'web' pod.
+web.connections.allowTo(redis, { isolation: PodConnectionsIsolation.POD });
+
+// this will only create an ingress policy on the 'redis' pod.
+web.connections.allowTo(redis, { isolation: PodConnectionsIsolation.PEER });
+```

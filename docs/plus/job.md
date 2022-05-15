@@ -35,3 +35,7 @@ job.addContainer({
 ## Scheduling
 
 See [Deployment scheduling](./deployment.md#scheduling).
+
+## Connections
+
+See [Pod connections](./pod.md#connections).
