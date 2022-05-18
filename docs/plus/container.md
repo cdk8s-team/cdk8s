@@ -5,9 +5,14 @@ Define containers that run in a pod using the `Container` class.
 !!! tip ""
     [API Reference](../reference/cdk8s-plus-22/typescript.md#container)
 
-## Environment variables
+## Environment
 
-Environment variables can be added to containers using various sources, via semantically explicit API's:
+A container's environment can be populated by various methods.
+
+### Variables
+
+Environment variables can be added to containers by specifying the
+variable name and value. The value can come from different sources, either dynamic or static.
 
 ```typescript
 import * as kplus from 'cdk8s-plus-22'
@@ -17,16 +22,41 @@ const container = pod.addContainer({
   image: 'my-app'
 });
 
-// explicitly use a value.
-container.addEnv('endpoint', kplus.EnvValue.fromValue('value'));
+// use a static value.
+container.env.addVariable('endpoint', kplus.EnvValue.fromValue('value'));
 
 // use a specific key from a config map.
 const backendsConfig = kplus.ConfigMap.fromConfigMapName('backends');
-container.addEnv('endpoint', kplus.EnvValue.fromConfigMap(backendsConfig, 'endpoint'));
+container.env.addVariable('endpoint', kplus.EnvValue.fromConfigMap(backendsConfig, 'endpoint'));
 
 // use a specific key from a secret.
 const credentials = kplus.Secret.fromSecretName('credentials');
-container.addEnv('password', kplus.EnvValue.fromSecretValue({ secret: credentials, key: 'password' }));
+container.env.addVariable('password', kplus.EnvValue.fromSecretValue({ secret: credentials, key: 'password' }));
+```
+
+> You can pass env variables at instantiation time as well by specifying the `envVariables` property.
+
+### Sources
+
+Environment variables can also be populated by referencing other objects as an environment source.
+With this method, all the key-value data of the source is added as environment variables,
+where the key is the env name and the value is the env value.
+
+```ts
+import * as kplus from 'cdk8s-plus-22'
+
+const pod = new kplus.Pod(this, 'Pod');
+const cm = new kplus.ConfigMap(this, 'ConfigMap', {
+  data: {
+    key: 'value',
+  }
+});
+const container = pod.addContainer({
+  image: 'my-app'
+});
+
+// this will add 'key=value' env variable at runtime.
+container.env.copyFrom(kplus.Env.fromConfigMap(cm));
 ```
 
 ## Volume Mounts
