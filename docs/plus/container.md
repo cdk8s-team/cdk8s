@@ -31,7 +31,7 @@ container.env.addVariable('endpoint', kplus.EnvValue.fromConfigMap(backendsConfi
 
 // use a specific key from a secret.
 const credentials = kplus.Secret.fromSecretName('credentials');
-container.env.addVariable('password', kplus.EnvValue.fromSecret(credentials, 'password'));
+container.env.addVariable('password', kplus.EnvValue.fromSecretValue({ secret: credentials, key: 'password' }));
 ```
 
 > You can pass env variables at instantiation time as well by specifying the `envVariables` property.
