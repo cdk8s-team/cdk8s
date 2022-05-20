@@ -49,6 +49,8 @@ Array [
       "name": "test-chart-deployment-c8cfd183",
     },
     "spec": Object {
+      "minReadySeconds": 0,
+      "progressDeadlineSeconds": 600,
       "replicas": 1,
       "selector": Object {
         "matchLabels": Object {
@@ -69,6 +71,7 @@ Array [
           },
         },
         "spec": Object {
+          "automountServiceAccountToken": true,
           "containers": Array [
             Object {
               "command": Array [
@@ -117,13 +120,12 @@ Array [
               "workingDir": "/root",
             },
           ],
-          "hostAliases": Array [],
-          "initContainers": Array [],
+          "dnsPolicy": "ClusterFirst",
           "securityContext": Object {
             "fsGroupChangePolicy": "Always",
             "runAsNonRoot": false,
-            "sysctls": Array [],
           },
+          "setHostnameAsFQDN": false,
           "volumes": Array [
             Object {
               "configMap": Object {
