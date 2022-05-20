@@ -296,8 +296,8 @@ type ClusterInstallationProps struct {
 	// Specification of the desired behavior of the Mattermost cluster.
 	//
 	// More info: https://github.com/kubernetes/community/blob/master/contributors/devel/api-conventions.md#spec-and-status
-	Spec *ClusterInstallationSpec `field:"required" json:"spec" yaml:"spec"`
-	Metadata *cdk8s.ApiObjectMetadata `field:"optional" json:"metadata" yaml:"metadata"`
+	Spec *ClusterInstallationSpec `json:"spec" yaml:"spec"`
+	Metadata *cdk8s.ApiObjectMetadata `json:"metadata" yaml:"metadata"`
 }
 
 // Specification of the desired behavior of the Mattermost cluster.
@@ -305,58 +305,58 @@ type ClusterInstallationProps struct {
 // More info: https://github.com/kubernetes/community/blob/master/contributors/devel/api-conventions.md#spec-and-status
 type ClusterInstallationSpec struct {
 	// IngressName defines the name to be used when creating the ingress rules.
-	IngressName *string `field:"required" json:"ingressName" yaml:"ingressName"`
+	IngressName *string `json:"ingressName" yaml:"ingressName"`
 	// If specified, affinity will define the pod's scheduling constraints.
-	Affinity *ClusterInstallationSpecAffinity `field:"optional" json:"affinity" yaml:"affinity"`
+	Affinity *ClusterInstallationSpecAffinity `json:"affinity" yaml:"affinity"`
 	// BlueGreen defines the configuration of BlueGreen deployment for a ClusterInstallation.
-	BlueGreen *ClusterInstallationSpecBlueGreen `field:"optional" json:"blueGreen" yaml:"blueGreen"`
+	BlueGreen *ClusterInstallationSpecBlueGreen `json:"blueGreen" yaml:"blueGreen"`
 	// Canary defines the configuration of Canary deployment for a ClusterInstallation.
-	Canary *ClusterInstallationSpecCanary `field:"optional" json:"canary" yaml:"canary"`
+	Canary *ClusterInstallationSpecCanary `json:"canary" yaml:"canary"`
 	// Database defines the database configuration for a ClusterInstallation.
-	Database *ClusterInstallationSpecDatabase `field:"optional" json:"database" yaml:"database"`
+	Database *ClusterInstallationSpecDatabase `json:"database" yaml:"database"`
 	// ElasticSearch defines the ElasticSearch configuration for a ClusterInstallation.
-	ElasticSearch *ClusterInstallationSpecElasticSearch `field:"optional" json:"elasticSearch" yaml:"elasticSearch"`
+	ElasticSearch *ClusterInstallationSpecElasticSearch `json:"elasticSearch" yaml:"elasticSearch"`
 	// Image defines the ClusterInstallation Docker image.
-	Image *string `field:"optional" json:"image" yaml:"image"`
-	IngressAnnotations *map[string]*string `field:"optional" json:"ingressAnnotations" yaml:"ingressAnnotations"`
+	Image *string `json:"image" yaml:"image"`
+	IngressAnnotations *map[string]*string `json:"ingressAnnotations" yaml:"ingressAnnotations"`
 	// Defines the probe to check if the application is up and running.
-	LivenessProbe *ClusterInstallationSpecLivenessProbe `field:"optional" json:"livenessProbe" yaml:"livenessProbe"`
+	LivenessProbe *ClusterInstallationSpecLivenessProbe `json:"livenessProbe" yaml:"livenessProbe"`
 	// Optional environment variables to set in the Mattermost application pods.
-	MattermostEnv *[]*ClusterInstallationSpecMattermostEnv `field:"optional" json:"mattermostEnv" yaml:"mattermostEnv"`
+	MattermostEnv *[]*ClusterInstallationSpecMattermostEnv `json:"mattermostEnv" yaml:"mattermostEnv"`
 	// Secret that contains the mattermost license.
-	MattermostLicenseSecret *string `field:"optional" json:"mattermostLicenseSecret" yaml:"mattermostLicenseSecret"`
+	MattermostLicenseSecret *string `json:"mattermostLicenseSecret" yaml:"mattermostLicenseSecret"`
 	// Minio defines the configuration of Minio for a ClusterInstallation.
-	Minio *ClusterInstallationSpecMinio `field:"optional" json:"minio" yaml:"minio"`
+	Minio *ClusterInstallationSpecMinio `json:"minio" yaml:"minio"`
 	// NodeSelector is a selector which must be true for the pod to fit on a node.
 	//
 	// Selector which must match a node's labels for the pod to be scheduled on that node. More info: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
-	NodeSelector *map[string]*string `field:"optional" json:"nodeSelector" yaml:"nodeSelector"`
+	NodeSelector *map[string]*string `json:"nodeSelector" yaml:"nodeSelector"`
 	// Defines the probe to check if the application is ready to accept traffic.
-	ReadinessProbe *ClusterInstallationSpecReadinessProbe `field:"optional" json:"readinessProbe" yaml:"readinessProbe"`
+	ReadinessProbe *ClusterInstallationSpecReadinessProbe `json:"readinessProbe" yaml:"readinessProbe"`
 	// Replicas defines the number of replicas to use for the Mattermost app servers.
 	//
 	// Setting this will override the number of replicas set by 'Size'.
-	Replicas *float64 `field:"optional" json:"replicas" yaml:"replicas"`
+	Replicas *float64 `json:"replicas" yaml:"replicas"`
 	// Defines the resource requests and limits for the Mattermost app server pods.
-	Resources *ClusterInstallationSpecResources `field:"optional" json:"resources" yaml:"resources"`
-	ServiceAnnotations *map[string]*string `field:"optional" json:"serviceAnnotations" yaml:"serviceAnnotations"`
+	Resources *ClusterInstallationSpecResources `json:"resources" yaml:"resources"`
+	ServiceAnnotations *map[string]*string `json:"serviceAnnotations" yaml:"serviceAnnotations"`
 	// Size defines the size of the ClusterInstallation.
 	//
 	// This is typically specified in number of users. This will set replica and resource requests/limits appropriately for the provided number of users. Accepted values are: 100users, 1000users, 5000users, 10000users, 250000users. Defaults to 5000users. Setting 'Replicas', 'Resources', 'Minio.Replicas', 'Minio.Resource', 'Database.Replicas', or 'Database.Resources' will override the values set by Size.
-	Size *string `field:"optional" json:"size" yaml:"size"`
-	UseServiceLoadBalancer *bool `field:"optional" json:"useServiceLoadBalancer" yaml:"useServiceLoadBalancer"`
+	Size *string `json:"size" yaml:"size"`
+	UseServiceLoadBalancer *bool `json:"useServiceLoadBalancer" yaml:"useServiceLoadBalancer"`
 	// Version defines the ClusterInstallation Docker image version.
-	Version *string `field:"optional" json:"version" yaml:"version"`
+	Version *string `json:"version" yaml:"version"`
 }
 
 // If specified, affinity will define the pod's scheduling constraints.
 type ClusterInstallationSpecAffinity struct {
 	// Describes node affinity scheduling rules for the pod.
-	NodeAffinity *ClusterInstallationSpecAffinityNodeAffinity `field:"optional" json:"nodeAffinity" yaml:"nodeAffinity"`
+	NodeAffinity *ClusterInstallationSpecAffinityNodeAffinity `json:"nodeAffinity" yaml:"nodeAffinity"`
 	// Describes pod affinity scheduling rules (e.g. co-locate this pod in the same node, zone, etc. as some other pod(s)).
-	PodAffinity *ClusterInstallationSpecAffinityPodAffinity `field:"optional" json:"podAffinity" yaml:"podAffinity"`
+	PodAffinity *ClusterInstallationSpecAffinityPodAffinity `json:"podAffinity" yaml:"podAffinity"`
 	// Describes pod anti-affinity scheduling rules (e.g. avoid putting this pod in the same node, zone, etc. as some other pod(s)).
-	PodAntiAffinity *ClusterInstallationSpecAffinityPodAntiAffinity `field:"optional" json:"podAntiAffinity" yaml:"podAntiAffinity"`
+	PodAntiAffinity *ClusterInstallationSpecAffinityPodAntiAffinity `json:"podAntiAffinity" yaml:"podAntiAffinity"`
 }
 
 // Describes node affinity scheduling rules for the pod.
@@ -364,55 +364,55 @@ type ClusterInstallationSpecAffinityNodeAffinity struct {
 	// The scheduler will prefer to schedule pods to nodes that satisfy the affinity expressions specified by this field, but it may choose a node that violates one or more of the expressions.
 	//
 	// The node that is most preferred is the one with the greatest sum of weights, i.e. for each node that meets all of the scheduling requirements (resource request, requiredDuringScheduling affinity expressions, etc.), compute a sum by iterating through the elements of this field and adding "weight" to the sum if the node matches the corresponding matchExpressions; the node(s) with the highest sum are the most preferred.
-	PreferredDuringSchedulingIgnoredDuringExecution *[]*ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution `field:"optional" json:"preferredDuringSchedulingIgnoredDuringExecution" yaml:"preferredDuringSchedulingIgnoredDuringExecution"`
+	PreferredDuringSchedulingIgnoredDuringExecution *[]*ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution `json:"preferredDuringSchedulingIgnoredDuringExecution" yaml:"preferredDuringSchedulingIgnoredDuringExecution"`
 	// If the affinity requirements specified by this field are not met at scheduling time, the pod will not be scheduled onto the node.
 	//
 	// If the affinity requirements specified by this field cease to be met at some point during pod execution (e.g. due to an update), the system may or may not try to eventually evict the pod from its node.
-	RequiredDuringSchedulingIgnoredDuringExecution *ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution `field:"optional" json:"requiredDuringSchedulingIgnoredDuringExecution" yaml:"requiredDuringSchedulingIgnoredDuringExecution"`
+	RequiredDuringSchedulingIgnoredDuringExecution *ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution `json:"requiredDuringSchedulingIgnoredDuringExecution" yaml:"requiredDuringSchedulingIgnoredDuringExecution"`
 }
 
 // An empty preferred scheduling term matches all objects with implicit weight 0 (i.e. it's a no-op). A null preferred scheduling term matches no objects (i.e. is also a no-op).
 type ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution struct {
 	// A node selector term, associated with the corresponding weight.
-	Preference *ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference `field:"required" json:"preference" yaml:"preference"`
+	Preference *ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference `json:"preference" yaml:"preference"`
 	// Weight associated with matching the corresponding nodeSelectorTerm, in the range 1-100.
-	Weight *float64 `field:"required" json:"weight" yaml:"weight"`
+	Weight *float64 `json:"weight" yaml:"weight"`
 }
 
 // A node selector term, associated with the corresponding weight.
 type ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference struct {
 	// A list of node selector requirements by node's labels.
-	MatchExpressions *[]*ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions `field:"optional" json:"matchExpressions" yaml:"matchExpressions"`
+	MatchExpressions *[]*ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions `json:"matchExpressions" yaml:"matchExpressions"`
 	// A list of node selector requirements by node's fields.
-	MatchFields *[]*ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchFields `field:"optional" json:"matchFields" yaml:"matchFields"`
+	MatchFields *[]*ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchFields `json:"matchFields" yaml:"matchFields"`
 }
 
 // A node selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
 type ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions struct {
 	// The label key that the selector applies to.
-	Key *string `field:"required" json:"key" yaml:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// Represents a key's relationship to a set of values.
 	//
 	// Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.
-	Operator *string `field:"required" json:"operator" yaml:"operator"`
+	Operator *string `json:"operator" yaml:"operator"`
 	// An array of string values.
 	//
 	// If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. If the operator is Gt or Lt, the values array must have a single element, which will be interpreted as an integer. This array is replaced during a strategic merge patch.
-	Values *[]*string `field:"optional" json:"values" yaml:"values"`
+	Values *[]*string `json:"values" yaml:"values"`
 }
 
 // A node selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
 type ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchFields struct {
 	// The label key that the selector applies to.
-	Key *string `field:"required" json:"key" yaml:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// Represents a key's relationship to a set of values.
 	//
 	// Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.
-	Operator *string `field:"required" json:"operator" yaml:"operator"`
+	Operator *string `json:"operator" yaml:"operator"`
 	// An array of string values.
 	//
 	// If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. If the operator is Gt or Lt, the values array must have a single element, which will be interpreted as an integer. This array is replaced during a strategic merge patch.
-	Values *[]*string `field:"optional" json:"values" yaml:"values"`
+	Values *[]*string `json:"values" yaml:"values"`
 }
 
 // If the affinity requirements specified by this field are not met at scheduling time, the pod will not be scheduled onto the node.
@@ -422,7 +422,7 @@ type ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredD
 	// Required.
 	//
 	// A list of node selector terms. The terms are ORed.
-	NodeSelectorTerms *[]*ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerms `field:"required" json:"nodeSelectorTerms" yaml:"nodeSelectorTerms"`
+	NodeSelectorTerms *[]*ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerms `json:"nodeSelectorTerms" yaml:"nodeSelectorTerms"`
 }
 
 // A null or empty node selector term matches no objects.
@@ -430,37 +430,37 @@ type ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredD
 // The requirements of them are ANDed. The TopologySelectorTerm type implements a subset of the NodeSelectorTerm.
 type ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerms struct {
 	// A list of node selector requirements by node's labels.
-	MatchExpressions *[]*ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchExpressions `field:"optional" json:"matchExpressions" yaml:"matchExpressions"`
+	MatchExpressions *[]*ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchExpressions `json:"matchExpressions" yaml:"matchExpressions"`
 	// A list of node selector requirements by node's fields.
-	MatchFields *[]*ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchFields `field:"optional" json:"matchFields" yaml:"matchFields"`
+	MatchFields *[]*ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchFields `json:"matchFields" yaml:"matchFields"`
 }
 
 // A node selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
 type ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchExpressions struct {
 	// The label key that the selector applies to.
-	Key *string `field:"required" json:"key" yaml:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// Represents a key's relationship to a set of values.
 	//
 	// Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.
-	Operator *string `field:"required" json:"operator" yaml:"operator"`
+	Operator *string `json:"operator" yaml:"operator"`
 	// An array of string values.
 	//
 	// If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. If the operator is Gt or Lt, the values array must have a single element, which will be interpreted as an integer. This array is replaced during a strategic merge patch.
-	Values *[]*string `field:"optional" json:"values" yaml:"values"`
+	Values *[]*string `json:"values" yaml:"values"`
 }
 
 // A node selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
 type ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchFields struct {
 	// The label key that the selector applies to.
-	Key *string `field:"required" json:"key" yaml:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// Represents a key's relationship to a set of values.
 	//
 	// Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.
-	Operator *string `field:"required" json:"operator" yaml:"operator"`
+	Operator *string `json:"operator" yaml:"operator"`
 	// An array of string values.
 	//
 	// If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. If the operator is Gt or Lt, the values array must have a single element, which will be interpreted as an integer. This array is replaced during a strategic merge patch.
-	Values *[]*string `field:"optional" json:"values" yaml:"values"`
+	Values *[]*string `json:"values" yaml:"values"`
 }
 
 // Describes pod affinity scheduling rules (e.g. co-locate this pod in the same node, zone, etc. as some other pod(s)).
@@ -468,11 +468,11 @@ type ClusterInstallationSpecAffinityPodAffinity struct {
 	// The scheduler will prefer to schedule pods to nodes that satisfy the affinity expressions specified by this field, but it may choose a node that violates one or more of the expressions.
 	//
 	// The node that is most preferred is the one with the greatest sum of weights, i.e. for each node that meets all of the scheduling requirements (resource request, requiredDuringScheduling affinity expressions, etc.), compute a sum by iterating through the elements of this field and adding "weight" to the sum if the node has pods which matches the corresponding podAffinityTerm; the node(s) with the highest sum are the most preferred.
-	PreferredDuringSchedulingIgnoredDuringExecution *[]*ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution `field:"optional" json:"preferredDuringSchedulingIgnoredDuringExecution" yaml:"preferredDuringSchedulingIgnoredDuringExecution"`
+	PreferredDuringSchedulingIgnoredDuringExecution *[]*ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution `json:"preferredDuringSchedulingIgnoredDuringExecution" yaml:"preferredDuringSchedulingIgnoredDuringExecution"`
 	// If the affinity requirements specified by this field are not met at scheduling time, the pod will not be scheduled onto the node.
 	//
 	// If the affinity requirements specified by this field cease to be met at some point during pod execution (e.g. due to a pod label update), the system may or may not try to eventually evict the pod from its node. When there are multiple elements, the lists of nodes corresponding to each podAffinityTerm are intersected, i.e. all terms must be satisfied.
-	RequiredDuringSchedulingIgnoredDuringExecution *[]*ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution `field:"optional" json:"requiredDuringSchedulingIgnoredDuringExecution" yaml:"requiredDuringSchedulingIgnoredDuringExecution"`
+	RequiredDuringSchedulingIgnoredDuringExecution *[]*ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution `json:"requiredDuringSchedulingIgnoredDuringExecution" yaml:"requiredDuringSchedulingIgnoredDuringExecution"`
 }
 
 // The weights of all of the matched WeightedPodAffinityTerm fields are added per-node to find the most preferred node(s).
@@ -480,9 +480,9 @@ type ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredD
 	// Required.
 	//
 	// A pod affinity term, associated with the corresponding weight.
-	PodAffinityTerm *ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm `field:"required" json:"podAffinityTerm" yaml:"podAffinityTerm"`
+	PodAffinityTerm *ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm `json:"podAffinityTerm" yaml:"podAffinityTerm"`
 	// weight associated with matching the corresponding podAffinityTerm, in the range 1-100.
-	Weight *float64 `field:"required" json:"weight" yaml:"weight"`
+	Weight *float64 `json:"weight" yaml:"weight"`
 }
 
 // Required.
@@ -492,13 +492,13 @@ type ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredD
 	// This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching the labelSelector in the specified namespaces, where co-located is defined as running on a node whose value of the label with key topologyKey matches that of any node on which any of the selected pods is running.
 	//
 	// Empty topologyKey is not allowed.
-	TopologyKey *string `field:"required" json:"topologyKey" yaml:"topologyKey"`
+	TopologyKey *string `json:"topologyKey" yaml:"topologyKey"`
 	// A label query over a set of resources, in this case pods.
-	LabelSelector *ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector `field:"optional" json:"labelSelector" yaml:"labelSelector"`
+	LabelSelector *ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector `json:"labelSelector" yaml:"labelSelector"`
 	// namespaces specifies which namespaces the labelSelector applies to (matches against);
 	//
 	// null or empty list means "this pod's namespace".
-	Namespaces *[]*string `field:"optional" json:"namespaces" yaml:"namespaces"`
+	Namespaces *[]*string `json:"namespaces" yaml:"namespaces"`
 }
 
 // A label query over a set of resources, in this case pods.
@@ -506,25 +506,25 @@ type ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredD
 	// matchExpressions is a list of label selector requirements.
 	//
 	// The requirements are ANDed.
-	MatchExpressions *[]*ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions `field:"optional" json:"matchExpressions" yaml:"matchExpressions"`
+	MatchExpressions *[]*ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions `json:"matchExpressions" yaml:"matchExpressions"`
 	// matchLabels is a map of {key,value} pairs.
 	//
 	// A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
-	MatchLabels *map[string]*string `field:"optional" json:"matchLabels" yaml:"matchLabels"`
+	MatchLabels *map[string]*string `json:"matchLabels" yaml:"matchLabels"`
 }
 
 // A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
 type ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions struct {
 	// key is the label key that the selector applies to.
-	Key *string `field:"required" json:"key" yaml:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// operator represents a key's relationship to a set of values.
 	//
 	// Valid operators are In, NotIn, Exists and DoesNotExist.
-	Operator *string `field:"required" json:"operator" yaml:"operator"`
+	Operator *string `json:"operator" yaml:"operator"`
 	// values is an array of string values.
 	//
 	// If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
-	Values *[]*string `field:"optional" json:"values" yaml:"values"`
+	Values *[]*string `json:"values" yaml:"values"`
 }
 
 // Defines a set of pods (namely those matching the labelSelector relative to the given namespace(s)) that this pod should be co-located (affinity) or not co-located (anti-affinity) with, where co-located is defined as running on a node whose value of the label with key <topologyKey> matches that of any node on which a pod of the set of pods is running.
@@ -532,13 +532,13 @@ type ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDu
 	// This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching the labelSelector in the specified namespaces, where co-located is defined as running on a node whose value of the label with key topologyKey matches that of any node on which any of the selected pods is running.
 	//
 	// Empty topologyKey is not allowed.
-	TopologyKey *string `field:"required" json:"topologyKey" yaml:"topologyKey"`
+	TopologyKey *string `json:"topologyKey" yaml:"topologyKey"`
 	// A label query over a set of resources, in this case pods.
-	LabelSelector *ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector `field:"optional" json:"labelSelector" yaml:"labelSelector"`
+	LabelSelector *ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector `json:"labelSelector" yaml:"labelSelector"`
 	// namespaces specifies which namespaces the labelSelector applies to (matches against);
 	//
 	// null or empty list means "this pod's namespace".
-	Namespaces *[]*string `field:"optional" json:"namespaces" yaml:"namespaces"`
+	Namespaces *[]*string `json:"namespaces" yaml:"namespaces"`
 }
 
 // A label query over a set of resources, in this case pods.
@@ -546,25 +546,25 @@ type ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDu
 	// matchExpressions is a list of label selector requirements.
 	//
 	// The requirements are ANDed.
-	MatchExpressions *[]*ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions `field:"optional" json:"matchExpressions" yaml:"matchExpressions"`
+	MatchExpressions *[]*ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions `json:"matchExpressions" yaml:"matchExpressions"`
 	// matchLabels is a map of {key,value} pairs.
 	//
 	// A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
-	MatchLabels *map[string]*string `field:"optional" json:"matchLabels" yaml:"matchLabels"`
+	MatchLabels *map[string]*string `json:"matchLabels" yaml:"matchLabels"`
 }
 
 // A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
 type ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions struct {
 	// key is the label key that the selector applies to.
-	Key *string `field:"required" json:"key" yaml:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// operator represents a key's relationship to a set of values.
 	//
 	// Valid operators are In, NotIn, Exists and DoesNotExist.
-	Operator *string `field:"required" json:"operator" yaml:"operator"`
+	Operator *string `json:"operator" yaml:"operator"`
 	// values is an array of string values.
 	//
 	// If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
-	Values *[]*string `field:"optional" json:"values" yaml:"values"`
+	Values *[]*string `json:"values" yaml:"values"`
 }
 
 // Describes pod anti-affinity scheduling rules (e.g. avoid putting this pod in the same node, zone, etc. as some other pod(s)).
@@ -572,11 +572,11 @@ type ClusterInstallationSpecAffinityPodAntiAffinity struct {
 	// The scheduler will prefer to schedule pods to nodes that satisfy the anti-affinity expressions specified by this field, but it may choose a node that violates one or more of the expressions.
 	//
 	// The node that is most preferred is the one with the greatest sum of weights, i.e. for each node that meets all of the scheduling requirements (resource request, requiredDuringScheduling anti-affinity expressions, etc.), compute a sum by iterating through the elements of this field and adding "weight" to the sum if the node has pods which matches the corresponding podAffinityTerm; the node(s) with the highest sum are the most preferred.
-	PreferredDuringSchedulingIgnoredDuringExecution *[]*ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution `field:"optional" json:"preferredDuringSchedulingIgnoredDuringExecution" yaml:"preferredDuringSchedulingIgnoredDuringExecution"`
+	PreferredDuringSchedulingIgnoredDuringExecution *[]*ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution `json:"preferredDuringSchedulingIgnoredDuringExecution" yaml:"preferredDuringSchedulingIgnoredDuringExecution"`
 	// If the anti-affinity requirements specified by this field are not met at scheduling time, the pod will not be scheduled onto the node.
 	//
 	// If the anti-affinity requirements specified by this field cease to be met at some point during pod execution (e.g. due to a pod label update), the system may or may not try to eventually evict the pod from its node. When there are multiple elements, the lists of nodes corresponding to each podAffinityTerm are intersected, i.e. all terms must be satisfied.
-	RequiredDuringSchedulingIgnoredDuringExecution *[]*ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution `field:"optional" json:"requiredDuringSchedulingIgnoredDuringExecution" yaml:"requiredDuringSchedulingIgnoredDuringExecution"`
+	RequiredDuringSchedulingIgnoredDuringExecution *[]*ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution `json:"requiredDuringSchedulingIgnoredDuringExecution" yaml:"requiredDuringSchedulingIgnoredDuringExecution"`
 }
 
 // The weights of all of the matched WeightedPodAffinityTerm fields are added per-node to find the most preferred node(s).
@@ -584,9 +584,9 @@ type ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgno
 	// Required.
 	//
 	// A pod affinity term, associated with the corresponding weight.
-	PodAffinityTerm *ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm `field:"required" json:"podAffinityTerm" yaml:"podAffinityTerm"`
+	PodAffinityTerm *ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm `json:"podAffinityTerm" yaml:"podAffinityTerm"`
 	// weight associated with matching the corresponding podAffinityTerm, in the range 1-100.
-	Weight *float64 `field:"required" json:"weight" yaml:"weight"`
+	Weight *float64 `json:"weight" yaml:"weight"`
 }
 
 // Required.
@@ -596,13 +596,13 @@ type ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgno
 	// This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching the labelSelector in the specified namespaces, where co-located is defined as running on a node whose value of the label with key topologyKey matches that of any node on which any of the selected pods is running.
 	//
 	// Empty topologyKey is not allowed.
-	TopologyKey *string `field:"required" json:"topologyKey" yaml:"topologyKey"`
+	TopologyKey *string `json:"topologyKey" yaml:"topologyKey"`
 	// A label query over a set of resources, in this case pods.
-	LabelSelector *ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector `field:"optional" json:"labelSelector" yaml:"labelSelector"`
+	LabelSelector *ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector `json:"labelSelector" yaml:"labelSelector"`
 	// namespaces specifies which namespaces the labelSelector applies to (matches against);
 	//
 	// null or empty list means "this pod's namespace".
-	Namespaces *[]*string `field:"optional" json:"namespaces" yaml:"namespaces"`
+	Namespaces *[]*string `json:"namespaces" yaml:"namespaces"`
 }
 
 // A label query over a set of resources, in this case pods.
@@ -610,25 +610,25 @@ type ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgno
 	// matchExpressions is a list of label selector requirements.
 	//
 	// The requirements are ANDed.
-	MatchExpressions *[]*ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions `field:"optional" json:"matchExpressions" yaml:"matchExpressions"`
+	MatchExpressions *[]*ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions `json:"matchExpressions" yaml:"matchExpressions"`
 	// matchLabels is a map of {key,value} pairs.
 	//
 	// A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
-	MatchLabels *map[string]*string `field:"optional" json:"matchLabels" yaml:"matchLabels"`
+	MatchLabels *map[string]*string `json:"matchLabels" yaml:"matchLabels"`
 }
 
 // A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
 type ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions struct {
 	// key is the label key that the selector applies to.
-	Key *string `field:"required" json:"key" yaml:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// operator represents a key's relationship to a set of values.
 	//
 	// Valid operators are In, NotIn, Exists and DoesNotExist.
-	Operator *string `field:"required" json:"operator" yaml:"operator"`
+	Operator *string `json:"operator" yaml:"operator"`
 	// values is an array of string values.
 	//
 	// If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
-	Values *[]*string `field:"optional" json:"values" yaml:"values"`
+	Values *[]*string `json:"values" yaml:"values"`
 }
 
 // Defines a set of pods (namely those matching the labelSelector relative to the given namespace(s)) that this pod should be co-located (affinity) or not co-located (anti-affinity) with, where co-located is defined as running on a node whose value of the label with key <topologyKey> matches that of any node on which a pod of the set of pods is running.
@@ -636,13 +636,13 @@ type ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnor
 	// This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching the labelSelector in the specified namespaces, where co-located is defined as running on a node whose value of the label with key topologyKey matches that of any node on which any of the selected pods is running.
 	//
 	// Empty topologyKey is not allowed.
-	TopologyKey *string `field:"required" json:"topologyKey" yaml:"topologyKey"`
+	TopologyKey *string `json:"topologyKey" yaml:"topologyKey"`
 	// A label query over a set of resources, in this case pods.
-	LabelSelector *ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector `field:"optional" json:"labelSelector" yaml:"labelSelector"`
+	LabelSelector *ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector `json:"labelSelector" yaml:"labelSelector"`
 	// namespaces specifies which namespaces the labelSelector applies to (matches against);
 	//
 	// null or empty list means "this pod's namespace".
-	Namespaces *[]*string `field:"optional" json:"namespaces" yaml:"namespaces"`
+	Namespaces *[]*string `json:"namespaces" yaml:"namespaces"`
 }
 
 // A label query over a set of resources, in this case pods.
@@ -650,37 +650,37 @@ type ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnor
 	// matchExpressions is a list of label selector requirements.
 	//
 	// The requirements are ANDed.
-	MatchExpressions *[]*ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions `field:"optional" json:"matchExpressions" yaml:"matchExpressions"`
+	MatchExpressions *[]*ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions `json:"matchExpressions" yaml:"matchExpressions"`
 	// matchLabels is a map of {key,value} pairs.
 	//
 	// A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
-	MatchLabels *map[string]*string `field:"optional" json:"matchLabels" yaml:"matchLabels"`
+	MatchLabels *map[string]*string `json:"matchLabels" yaml:"matchLabels"`
 }
 
 // A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
 type ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions struct {
 	// key is the label key that the selector applies to.
-	Key *string `field:"required" json:"key" yaml:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// operator represents a key's relationship to a set of values.
 	//
 	// Valid operators are In, NotIn, Exists and DoesNotExist.
-	Operator *string `field:"required" json:"operator" yaml:"operator"`
+	Operator *string `json:"operator" yaml:"operator"`
 	// values is an array of string values.
 	//
 	// If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
-	Values *[]*string `field:"optional" json:"values" yaml:"values"`
+	Values *[]*string `json:"values" yaml:"values"`
 }
 
 // BlueGreen defines the configuration of BlueGreen deployment for a ClusterInstallation.
 type ClusterInstallationSpecBlueGreen struct {
 	// Blue defines the blue deployment.
-	Blue *ClusterInstallationSpecBlueGreenBlue `field:"optional" json:"blue" yaml:"blue"`
+	Blue *ClusterInstallationSpecBlueGreenBlue `json:"blue" yaml:"blue"`
 	// Enable defines if BlueGreen deployment will be applied.
-	Enable *bool `field:"optional" json:"enable" yaml:"enable"`
+	Enable *bool `json:"enable" yaml:"enable"`
 	// Green defines the green deployment.
-	Green *ClusterInstallationSpecBlueGreenGreen `field:"optional" json:"green" yaml:"green"`
+	Green *ClusterInstallationSpecBlueGreenGreen `json:"green" yaml:"green"`
 	// ProductionDeployment defines if the current production is blue or green.
-	ProductionDeployment *string `field:"optional" json:"productionDeployment" yaml:"productionDeployment"`
+	ProductionDeployment *string `json:"productionDeployment" yaml:"productionDeployment"`
 }
 
 // Blue defines the blue deployment.
@@ -688,17 +688,17 @@ type ClusterInstallationSpecBlueGreenBlue struct {
 	// Image defines the base Docker image that will be used for the deployment.
 	//
 	// Required when BlueGreen or Canary is enabled.
-	Image *string `field:"optional" json:"image" yaml:"image"`
+	Image *string `json:"image" yaml:"image"`
 	// IngressName defines the ingress name that will be used by the deployment.
 	//
 	// This option is not used for Canary builds.
-	IngressName *string `field:"optional" json:"ingressName" yaml:"ingressName"`
+	IngressName *string `json:"ingressName" yaml:"ingressName"`
 	// Name defines the name of the deployment.
-	Name *string `field:"optional" json:"name" yaml:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// Version defines the Docker image version that will be used for the deployment.
 	//
 	// Required when BlueGreen or Canary is enabled.
-	Version *string `field:"optional" json:"version" yaml:"version"`
+	Version *string `json:"version" yaml:"version"`
 }
 
 // Green defines the green deployment.
@@ -706,25 +706,25 @@ type ClusterInstallationSpecBlueGreenGreen struct {
 	// Image defines the base Docker image that will be used for the deployment.
 	//
 	// Required when BlueGreen or Canary is enabled.
-	Image *string `field:"optional" json:"image" yaml:"image"`
+	Image *string `json:"image" yaml:"image"`
 	// IngressName defines the ingress name that will be used by the deployment.
 	//
 	// This option is not used for Canary builds.
-	IngressName *string `field:"optional" json:"ingressName" yaml:"ingressName"`
+	IngressName *string `json:"ingressName" yaml:"ingressName"`
 	// Name defines the name of the deployment.
-	Name *string `field:"optional" json:"name" yaml:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// Version defines the Docker image version that will be used for the deployment.
 	//
 	// Required when BlueGreen or Canary is enabled.
-	Version *string `field:"optional" json:"version" yaml:"version"`
+	Version *string `json:"version" yaml:"version"`
 }
 
 // Canary defines the configuration of Canary deployment for a ClusterInstallation.
 type ClusterInstallationSpecCanary struct {
 	// Deployment defines the canary deployment.
-	Deployment *ClusterInstallationSpecCanaryDeployment `field:"optional" json:"deployment" yaml:"deployment"`
+	Deployment *ClusterInstallationSpecCanaryDeployment `json:"deployment" yaml:"deployment"`
 	// Enable defines if a canary build will be deployed.
-	Enable *bool `field:"optional" json:"enable" yaml:"enable"`
+	Enable *bool `json:"enable" yaml:"enable"`
 }
 
 // Deployment defines the canary deployment.
@@ -732,52 +732,52 @@ type ClusterInstallationSpecCanaryDeployment struct {
 	// Image defines the base Docker image that will be used for the deployment.
 	//
 	// Required when BlueGreen or Canary is enabled.
-	Image *string `field:"optional" json:"image" yaml:"image"`
+	Image *string `json:"image" yaml:"image"`
 	// IngressName defines the ingress name that will be used by the deployment.
 	//
 	// This option is not used for Canary builds.
-	IngressName *string `field:"optional" json:"ingressName" yaml:"ingressName"`
+	IngressName *string `json:"ingressName" yaml:"ingressName"`
 	// Name defines the name of the deployment.
-	Name *string `field:"optional" json:"name" yaml:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// Version defines the Docker image version that will be used for the deployment.
 	//
 	// Required when BlueGreen or Canary is enabled.
-	Version *string `field:"optional" json:"version" yaml:"version"`
+	Version *string `json:"version" yaml:"version"`
 }
 
 // Database defines the database configuration for a ClusterInstallation.
 type ClusterInstallationSpecDatabase struct {
 	// Defines the backup retention policy.
-	BackupRemoteDeletePolicy *string `field:"optional" json:"backupRemoteDeletePolicy" yaml:"backupRemoteDeletePolicy"`
+	BackupRemoteDeletePolicy *string `json:"backupRemoteDeletePolicy" yaml:"backupRemoteDeletePolicy"`
 	// Defines the secret to be used when performing a database restore.
-	BackupRestoreSecretName *string `field:"optional" json:"backupRestoreSecretName" yaml:"backupRestoreSecretName"`
+	BackupRestoreSecretName *string `json:"backupRestoreSecretName" yaml:"backupRestoreSecretName"`
 	// Defines the interval for backups in cron expression format.
-	BackupSchedule *string `field:"optional" json:"backupSchedule" yaml:"backupSchedule"`
+	BackupSchedule *string `json:"backupSchedule" yaml:"backupSchedule"`
 	// Defines the secret to be used for uploading/restoring backup.
-	BackupSecretName *string `field:"optional" json:"backupSecretName" yaml:"backupSecretName"`
+	BackupSecretName *string `json:"backupSecretName" yaml:"backupSecretName"`
 	// Defines the object storage url for uploading backups.
-	BackupUrl *string `field:"optional" json:"backupUrl" yaml:"backupUrl"`
+	BackupUrl *string `json:"backupUrl" yaml:"backupUrl"`
 	// Defines the AWS S3 bucket where the Database Backup is stored.
 	//
 	// The operator will download the file to restore the data.
-	InitBucketUrl *string `field:"optional" json:"initBucketUrl" yaml:"initBucketUrl"`
+	InitBucketUrl *string `json:"initBucketUrl" yaml:"initBucketUrl"`
 	// Defines the number of database replicas.
 	//
 	// For redundancy use at least 2 replicas. Setting this will override the number of replicas set by 'Size'.
-	Replicas *float64 `field:"optional" json:"replicas" yaml:"replicas"`
+	Replicas *float64 `json:"replicas" yaml:"replicas"`
 	// Defines the resource requests and limits for the database pods.
-	Resources *ClusterInstallationSpecDatabaseResources `field:"optional" json:"resources" yaml:"resources"`
+	Resources *ClusterInstallationSpecDatabaseResources `json:"resources" yaml:"resources"`
 	// Optionally enter the name of an already-existing Secret for connecting to the database.
 	//
 	// This secret should be configured as follows:
 	// User-Managed Database   - Key: DB_CONNECTION_STRING | Value: <FULL_DATABASE_CONNECTION_STRING> Operator-Managed Database   - Key: ROOT_PASSWORD | Value: <ROOT_DATABASE_PASSWORD>   - Key: USER | Value: <USER_NAME>   - Key: PASSWORD | Value: <USER_PASSWORD>   - Key: DATABASE Value: <DATABASE_NAME>
 	// Notes:   If you define all secret values for both User-Managed and   Operator-Managed database types, the User-Managed connection string will   take precedence and the Operator-Managed values will be ignored. If the   secret is left blank, the default behavior is to use an Operator-Managed   database with strong randomly-generated database credentials.
-	Secret *string `field:"optional" json:"secret" yaml:"secret"`
+	Secret *string `json:"secret" yaml:"secret"`
 	// Defines the storage size for the database.
 	//
 	// ie 50Gi.
-	StorageSize *string `field:"optional" json:"storageSize" yaml:"storageSize"`
-	Type *string `field:"optional" json:"type" yaml:"type"`
+	StorageSize *string `json:"storageSize" yaml:"storageSize"`
+	Type *string `json:"type" yaml:"type"`
 }
 
 // Defines the resource requests and limits for the database pods.
@@ -785,18 +785,18 @@ type ClusterInstallationSpecDatabaseResources struct {
 	// Limits describes the maximum amount of compute resources allowed.
 	//
 	// More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
-	Limits *map[string]*string `field:"optional" json:"limits" yaml:"limits"`
+	Limits *map[string]*string `json:"limits" yaml:"limits"`
 	// Requests describes the minimum amount of compute resources required.
 	//
 	// If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
-	Requests *map[string]*string `field:"optional" json:"requests" yaml:"requests"`
+	Requests *map[string]*string `json:"requests" yaml:"requests"`
 }
 
 // ElasticSearch defines the ElasticSearch configuration for a ClusterInstallation.
 type ClusterInstallationSpecElasticSearch struct {
-	Host *string `field:"optional" json:"host" yaml:"host"`
-	Password *string `field:"optional" json:"password" yaml:"password"`
-	Username *string `field:"optional" json:"username" yaml:"username"`
+	Host *string `json:"host" yaml:"host"`
+	Password *string `json:"password" yaml:"password"`
+	Username *string `json:"username" yaml:"username"`
 }
 
 // Defines the probe to check if the application is up and running.
@@ -804,33 +804,33 @@ type ClusterInstallationSpecLivenessProbe struct {
 	// One and only one of the following should be specified.
 	//
 	// Exec specifies the action to take.
-	Exec *ClusterInstallationSpecLivenessProbeExec `field:"optional" json:"exec" yaml:"exec"`
+	Exec *ClusterInstallationSpecLivenessProbeExec `json:"exec" yaml:"exec"`
 	// Minimum consecutive failures for the probe to be considered failed after having succeeded.
 	//
 	// Defaults to 3. Minimum value is 1.
-	FailureThreshold *float64 `field:"optional" json:"failureThreshold" yaml:"failureThreshold"`
+	FailureThreshold *float64 `json:"failureThreshold" yaml:"failureThreshold"`
 	// HTTPGet specifies the http request to perform.
-	HttpGet *ClusterInstallationSpecLivenessProbeHttpGet `field:"optional" json:"httpGet" yaml:"httpGet"`
+	HttpGet *ClusterInstallationSpecLivenessProbeHttpGet `json:"httpGet" yaml:"httpGet"`
 	// Number of seconds after the container has started before liveness probes are initiated.
 	//
 	// More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
-	InitialDelaySeconds *float64 `field:"optional" json:"initialDelaySeconds" yaml:"initialDelaySeconds"`
+	InitialDelaySeconds *float64 `json:"initialDelaySeconds" yaml:"initialDelaySeconds"`
 	// How often (in seconds) to perform the probe.
 	//
 	// Default to 10 seconds. Minimum value is 1.
-	PeriodSeconds *float64 `field:"optional" json:"periodSeconds" yaml:"periodSeconds"`
+	PeriodSeconds *float64 `json:"periodSeconds" yaml:"periodSeconds"`
 	// Minimum consecutive successes for the probe to be considered successful after having failed.
 	//
 	// Defaults to 1. Must be 1 for liveness and startup. Minimum value is 1.
-	SuccessThreshold *float64 `field:"optional" json:"successThreshold" yaml:"successThreshold"`
+	SuccessThreshold *float64 `json:"successThreshold" yaml:"successThreshold"`
 	// TCPSocket specifies an action involving a TCP port.
 	//
 	// TCP hooks not yet supported TODO: implement a realistic TCP lifecycle hook.
-	TcpSocket *ClusterInstallationSpecLivenessProbeTcpSocket `field:"optional" json:"tcpSocket" yaml:"tcpSocket"`
+	TcpSocket *ClusterInstallationSpecLivenessProbeTcpSocket `json:"tcpSocket" yaml:"tcpSocket"`
 	// Number of seconds after which the probe times out.
 	//
 	// Defaults to 1 second. Minimum value is 1. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
-	TimeoutSeconds *float64 `field:"optional" json:"timeoutSeconds" yaml:"timeoutSeconds"`
+	TimeoutSeconds *float64 `json:"timeoutSeconds" yaml:"timeoutSeconds"`
 }
 
 // One and only one of the following should be specified.
@@ -840,7 +840,7 @@ type ClusterInstallationSpecLivenessProbeExec struct {
 	// Command is the command line to execute inside the container, the working directory for the command  is root ('/') in the container's filesystem.
 	//
 	// The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
-	Command *[]*string `field:"optional" json:"command" yaml:"command"`
+	Command *[]*string `json:"command" yaml:"command"`
 }
 
 // HTTPGet specifies the http request to perform.
@@ -848,29 +848,29 @@ type ClusterInstallationSpecLivenessProbeHttpGet struct {
 	// Name or number of the port to access on the container.
 	//
 	// Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
-	Port ClusterInstallationSpecLivenessProbeHttpGetPort `field:"required" json:"port" yaml:"port"`
+	Port ClusterInstallationSpecLivenessProbeHttpGetPort `json:"port" yaml:"port"`
 	// Host name to connect to, defaults to the pod IP.
 	//
 	// You probably want to set "Host" in httpHeaders instead.
-	Host *string `field:"optional" json:"host" yaml:"host"`
+	Host *string `json:"host" yaml:"host"`
 	// Custom headers to set in the request.
 	//
 	// HTTP allows repeated headers.
-	HttpHeaders *[]*ClusterInstallationSpecLivenessProbeHttpGetHttpHeaders `field:"optional" json:"httpHeaders" yaml:"httpHeaders"`
+	HttpHeaders *[]*ClusterInstallationSpecLivenessProbeHttpGetHttpHeaders `json:"httpHeaders" yaml:"httpHeaders"`
 	// Path to access on the HTTP server.
-	Path *string `field:"optional" json:"path" yaml:"path"`
+	Path *string `json:"path" yaml:"path"`
 	// Scheme to use for connecting to the host.
 	//
 	// Defaults to HTTP.
-	Scheme *string `field:"optional" json:"scheme" yaml:"scheme"`
+	Scheme *string `json:"scheme" yaml:"scheme"`
 }
 
 // HTTPHeader describes a custom header to be used in HTTP probes.
 type ClusterInstallationSpecLivenessProbeHttpGetHttpHeaders struct {
 	// The header field name.
-	Name *string `field:"required" json:"name" yaml:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The header field value.
-	Value *string `field:"required" json:"value" yaml:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // Name or number of the port to access on the container.
@@ -933,9 +933,9 @@ type ClusterInstallationSpecLivenessProbeTcpSocket struct {
 	// Number or name of the port to access on the container.
 	//
 	// Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
-	Port ClusterInstallationSpecLivenessProbeTcpSocketPort `field:"required" json:"port" yaml:"port"`
+	Port ClusterInstallationSpecLivenessProbeTcpSocketPort `json:"port" yaml:"port"`
 	// Optional: Host name to connect to, defaults to the pod IP.
-	Host *string `field:"optional" json:"host" yaml:"host"`
+	Host *string `json:"host" yaml:"host"`
 }
 
 // Number or name of the port to access on the container.
@@ -996,15 +996,15 @@ type ClusterInstallationSpecMattermostEnv struct {
 	// Name of the environment variable.
 	//
 	// Must be a C_IDENTIFIER.
-	Name *string `field:"required" json:"name" yaml:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// Variable references $(VAR_NAME) are expanded using the previous defined environment variables in the container and any service environment variables.
 	//
 	// If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Defaults to "".
-	Value *string `field:"optional" json:"value" yaml:"value"`
+	Value *string `json:"value" yaml:"value"`
 	// Source for the environment variable's value.
 	//
 	// Cannot be used if value is not empty.
-	ValueFrom *ClusterInstallationSpecMattermostEnvValueFrom `field:"optional" json:"valueFrom" yaml:"valueFrom"`
+	ValueFrom *ClusterInstallationSpecMattermostEnvValueFrom `json:"valueFrom" yaml:"valueFrom"`
 }
 
 // Source for the environment variable's value.
@@ -1012,43 +1012,43 @@ type ClusterInstallationSpecMattermostEnv struct {
 // Cannot be used if value is not empty.
 type ClusterInstallationSpecMattermostEnvValueFrom struct {
 	// Selects a key of a ConfigMap.
-	ConfigMapKeyRef *ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef `field:"optional" json:"configMapKeyRef" yaml:"configMapKeyRef"`
+	ConfigMapKeyRef *ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef `json:"configMapKeyRef" yaml:"configMapKeyRef"`
 	// Selects a field of the pod: supports metadata.name, metadata.namespace, metadata.labels, metadata.annotations, spec.nodeName, spec.serviceAccountName, status.hostIP, status.podIP, status.podIPs.
-	FieldRef *ClusterInstallationSpecMattermostEnvValueFromFieldRef `field:"optional" json:"fieldRef" yaml:"fieldRef"`
+	FieldRef *ClusterInstallationSpecMattermostEnvValueFromFieldRef `json:"fieldRef" yaml:"fieldRef"`
 	// Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, limits.ephemeral-storage, requests.cpu, requests.memory and requests.ephemeral-storage) are currently supported.
-	ResourceFieldRef *ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef `field:"optional" json:"resourceFieldRef" yaml:"resourceFieldRef"`
+	ResourceFieldRef *ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef `json:"resourceFieldRef" yaml:"resourceFieldRef"`
 	// Selects a key of a secret in the pod's namespace.
-	SecretKeyRef *ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef `field:"optional" json:"secretKeyRef" yaml:"secretKeyRef"`
+	SecretKeyRef *ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef `json:"secretKeyRef" yaml:"secretKeyRef"`
 }
 
 // Selects a key of a ConfigMap.
 type ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef struct {
 	// The key to select.
-	Key *string `field:"required" json:"key" yaml:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// Name of the referent.
 	//
 	// More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
-	Name *string `field:"optional" json:"name" yaml:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// Specify whether the ConfigMap or its key must be defined.
-	Optional *bool `field:"optional" json:"optional" yaml:"optional"`
+	Optional *bool `json:"optional" yaml:"optional"`
 }
 
 // Selects a field of the pod: supports metadata.name, metadata.namespace, metadata.labels, metadata.annotations, spec.nodeName, spec.serviceAccountName, status.hostIP, status.podIP, status.podIPs.
 type ClusterInstallationSpecMattermostEnvValueFromFieldRef struct {
 	// Path of the field to select in the specified API version.
-	FieldPath *string `field:"required" json:"fieldPath" yaml:"fieldPath"`
+	FieldPath *string `json:"fieldPath" yaml:"fieldPath"`
 	// Version of the schema the FieldPath is written in terms of, defaults to "v1".
-	ApiVersion *string `field:"optional" json:"apiVersion" yaml:"apiVersion"`
+	ApiVersion *string `json:"apiVersion" yaml:"apiVersion"`
 }
 
 // Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, limits.ephemeral-storage, requests.cpu, requests.memory and requests.ephemeral-storage) are currently supported.
 type ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef struct {
 	// Required: resource to select.
-	Resource *string `field:"required" json:"resource" yaml:"resource"`
+	Resource *string `json:"resource" yaml:"resource"`
 	// Container name: required for volumes, optional for env vars.
-	ContainerName *string `field:"optional" json:"containerName" yaml:"containerName"`
+	ContainerName *string `json:"containerName" yaml:"containerName"`
 	// Specifies the output format of the exposed resources, defaults to "1".
-	Divisor *string `field:"optional" json:"divisor" yaml:"divisor"`
+	Divisor *string `json:"divisor" yaml:"divisor"`
 }
 
 // Selects a key of a secret in the pod's namespace.
@@ -1056,37 +1056,37 @@ type ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef struct {
 	// The key of the secret to select from.
 	//
 	// Must be a valid secret key.
-	Key *string `field:"required" json:"key" yaml:"key"`
+	Key *string `json:"key" yaml:"key"`
 	// Name of the referent.
 	//
 	// More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
-	Name *string `field:"optional" json:"name" yaml:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// Specify whether the Secret or its key must be defined.
-	Optional *bool `field:"optional" json:"optional" yaml:"optional"`
+	Optional *bool `json:"optional" yaml:"optional"`
 }
 
 // Minio defines the configuration of Minio for a ClusterInstallation.
 type ClusterInstallationSpecMinio struct {
 	// Set to the bucket name of your external MinIO or S3.
-	ExternalBucket *string `field:"optional" json:"externalBucket" yaml:"externalBucket"`
+	ExternalBucket *string `json:"externalBucket" yaml:"externalBucket"`
 	// Set to use an external MinIO deployment or S3.
 	//
 	// Must also set 'Secret' and 'ExternalBucket'.
-	ExternalUrl *string `field:"optional" json:"externalUrl" yaml:"externalUrl"`
+	ExternalUrl *string `json:"externalUrl" yaml:"externalUrl"`
 	// Defines the number of Minio replicas.
 	//
 	// Supply 1 to run Minio in standalone mode with no redundancy. Supply 4 or more to run Minio in distributed mode. Note that it is not possible to upgrade Minio from standalone to distributed mode. Setting this will override the number of replicas set by 'Size'. More info: https://docs.min.io/docs/distributed-minio-quickstart-guide.html
-	Replicas *float64 `field:"optional" json:"replicas" yaml:"replicas"`
+	Replicas *float64 `json:"replicas" yaml:"replicas"`
 	// Defines the resource requests and limits for the Minio pods.
-	Resources *ClusterInstallationSpecMinioResources `field:"optional" json:"resources" yaml:"resources"`
+	Resources *ClusterInstallationSpecMinioResources `json:"resources" yaml:"resources"`
 	// Optionally enter the name of already existing secret.
 	//
 	// Secret should have two values: "accesskey" and "secretkey". Required when "ExternalURL" is set.
-	Secret *string `field:"optional" json:"secret" yaml:"secret"`
+	Secret *string `json:"secret" yaml:"secret"`
 	// Defines the storage size for Minio.
 	//
 	// ie 50Gi.
-	StorageSize *string `field:"optional" json:"storageSize" yaml:"storageSize"`
+	StorageSize *string `json:"storageSize" yaml:"storageSize"`
 }
 
 // Defines the resource requests and limits for the Minio pods.
@@ -1094,11 +1094,11 @@ type ClusterInstallationSpecMinioResources struct {
 	// Limits describes the maximum amount of compute resources allowed.
 	//
 	// More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
-	Limits *map[string]*string `field:"optional" json:"limits" yaml:"limits"`
+	Limits *map[string]*string `json:"limits" yaml:"limits"`
 	// Requests describes the minimum amount of compute resources required.
 	//
 	// If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
-	Requests *map[string]*string `field:"optional" json:"requests" yaml:"requests"`
+	Requests *map[string]*string `json:"requests" yaml:"requests"`
 }
 
 // Defines the probe to check if the application is ready to accept traffic.
@@ -1106,33 +1106,33 @@ type ClusterInstallationSpecReadinessProbe struct {
 	// One and only one of the following should be specified.
 	//
 	// Exec specifies the action to take.
-	Exec *ClusterInstallationSpecReadinessProbeExec `field:"optional" json:"exec" yaml:"exec"`
+	Exec *ClusterInstallationSpecReadinessProbeExec `json:"exec" yaml:"exec"`
 	// Minimum consecutive failures for the probe to be considered failed after having succeeded.
 	//
 	// Defaults to 3. Minimum value is 1.
-	FailureThreshold *float64 `field:"optional" json:"failureThreshold" yaml:"failureThreshold"`
+	FailureThreshold *float64 `json:"failureThreshold" yaml:"failureThreshold"`
 	// HTTPGet specifies the http request to perform.
-	HttpGet *ClusterInstallationSpecReadinessProbeHttpGet `field:"optional" json:"httpGet" yaml:"httpGet"`
+	HttpGet *ClusterInstallationSpecReadinessProbeHttpGet `json:"httpGet" yaml:"httpGet"`
 	// Number of seconds after the container has started before liveness probes are initiated.
 	//
 	// More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
-	InitialDelaySeconds *float64 `field:"optional" json:"initialDelaySeconds" yaml:"initialDelaySeconds"`
+	InitialDelaySeconds *float64 `json:"initialDelaySeconds" yaml:"initialDelaySeconds"`
 	// How often (in seconds) to perform the probe.
 	//
 	// Default to 10 seconds. Minimum value is 1.
-	PeriodSeconds *float64 `field:"optional" json:"periodSeconds" yaml:"periodSeconds"`
+	PeriodSeconds *float64 `json:"periodSeconds" yaml:"periodSeconds"`
 	// Minimum consecutive successes for the probe to be considered successful after having failed.
 	//
 	// Defaults to 1. Must be 1 for liveness and startup. Minimum value is 1.
-	SuccessThreshold *float64 `field:"optional" json:"successThreshold" yaml:"successThreshold"`
+	SuccessThreshold *float64 `json:"successThreshold" yaml:"successThreshold"`
 	// TCPSocket specifies an action involving a TCP port.
 	//
 	// TCP hooks not yet supported TODO: implement a realistic TCP lifecycle hook.
-	TcpSocket *ClusterInstallationSpecReadinessProbeTcpSocket `field:"optional" json:"tcpSocket" yaml:"tcpSocket"`
+	TcpSocket *ClusterInstallationSpecReadinessProbeTcpSocket `json:"tcpSocket" yaml:"tcpSocket"`
 	// Number of seconds after which the probe times out.
 	//
 	// Defaults to 1 second. Minimum value is 1. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
-	TimeoutSeconds *float64 `field:"optional" json:"timeoutSeconds" yaml:"timeoutSeconds"`
+	TimeoutSeconds *float64 `json:"timeoutSeconds" yaml:"timeoutSeconds"`
 }
 
 // One and only one of the following should be specified.
@@ -1142,7 +1142,7 @@ type ClusterInstallationSpecReadinessProbeExec struct {
 	// Command is the command line to execute inside the container, the working directory for the command  is root ('/') in the container's filesystem.
 	//
 	// The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
-	Command *[]*string `field:"optional" json:"command" yaml:"command"`
+	Command *[]*string `json:"command" yaml:"command"`
 }
 
 // HTTPGet specifies the http request to perform.
@@ -1150,29 +1150,29 @@ type ClusterInstallationSpecReadinessProbeHttpGet struct {
 	// Name or number of the port to access on the container.
 	//
 	// Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
-	Port ClusterInstallationSpecReadinessProbeHttpGetPort `field:"required" json:"port" yaml:"port"`
+	Port ClusterInstallationSpecReadinessProbeHttpGetPort `json:"port" yaml:"port"`
 	// Host name to connect to, defaults to the pod IP.
 	//
 	// You probably want to set "Host" in httpHeaders instead.
-	Host *string `field:"optional" json:"host" yaml:"host"`
+	Host *string `json:"host" yaml:"host"`
 	// Custom headers to set in the request.
 	//
 	// HTTP allows repeated headers.
-	HttpHeaders *[]*ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders `field:"optional" json:"httpHeaders" yaml:"httpHeaders"`
+	HttpHeaders *[]*ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders `json:"httpHeaders" yaml:"httpHeaders"`
 	// Path to access on the HTTP server.
-	Path *string `field:"optional" json:"path" yaml:"path"`
+	Path *string `json:"path" yaml:"path"`
 	// Scheme to use for connecting to the host.
 	//
 	// Defaults to HTTP.
-	Scheme *string `field:"optional" json:"scheme" yaml:"scheme"`
+	Scheme *string `json:"scheme" yaml:"scheme"`
 }
 
 // HTTPHeader describes a custom header to be used in HTTP probes.
 type ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders struct {
 	// The header field name.
-	Name *string `field:"required" json:"name" yaml:"name"`
+	Name *string `json:"name" yaml:"name"`
 	// The header field value.
-	Value *string `field:"required" json:"value" yaml:"value"`
+	Value *string `json:"value" yaml:"value"`
 }
 
 // Name or number of the port to access on the container.
@@ -1235,9 +1235,9 @@ type ClusterInstallationSpecReadinessProbeTcpSocket struct {
 	// Number or name of the port to access on the container.
 	//
 	// Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
-	Port ClusterInstallationSpecReadinessProbeTcpSocketPort `field:"required" json:"port" yaml:"port"`
+	Port ClusterInstallationSpecReadinessProbeTcpSocketPort `json:"port" yaml:"port"`
 	// Optional: Host name to connect to, defaults to the pod IP.
-	Host *string `field:"optional" json:"host" yaml:"host"`
+	Host *string `json:"host" yaml:"host"`
 }
 
 // Number or name of the port to access on the container.
@@ -1298,10 +1298,10 @@ type ClusterInstallationSpecResources struct {
 	// Limits describes the maximum amount of compute resources allowed.
 	//
 	// More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
-	Limits *map[string]*string `field:"optional" json:"limits" yaml:"limits"`
+	Limits *map[string]*string `json:"limits" yaml:"limits"`
 	// Requests describes the minimum amount of compute resources required.
 	//
 	// If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
-	Requests *map[string]*string `field:"optional" json:"requests" yaml:"requests"`
+	Requests *map[string]*string `json:"requests" yaml:"requests"`
 }
 

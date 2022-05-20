@@ -16,5 +16,9 @@
     "synth": "node ./index.js",
     "test": "jest",
     "test:update": "jest -u"
+  },
+  "dependencies": {
+    "cdk8s": "2.2.87",
+    "constructs": "10.1.12"
   }
 }
