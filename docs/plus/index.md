@@ -41,7 +41,7 @@ their manifests to the Kubernetes version they are operating. This way, users
 are only exposed to a set of capabilities offered by their specific cluster,
 preventing deployment errors caused by version mismatches.
 
-For example, imagine we had published a single library for all Kubernetes versions (call it `cdk8s-plus`). 
+For example, imagine we had published a single library for all Kubernetes versions (call it `cdk8s-plus`).
 This library would have had support for the [`namespaceSelector`](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#namespace-selector) property when configuring pod affinity rules. This property was only added in Kubernetes 1.21.0.
 
 Now imagine you operate Kubernetes 1.20.0. In such a case, you would have access to the `namespaceSelector` property, even though
@@ -268,9 +268,9 @@ app.synth();
 
     ```go
     import (
-      "github.com/aws/constructs-go/constructs/v3"
+      "github.com/aws/constructs-go/constructs/v10"
       "github.com/aws/jsii-runtime-go"
-      "github.com/cdk8s-team/cdk8s-core-go/cdk8s"
+      "github.com/cdk8s-team/cdk8s-core-go/cdk8s/v2"
       "github.com/cdk8s-team/cdk8s-plus-go/cdk8splus22"
     )
     ```
