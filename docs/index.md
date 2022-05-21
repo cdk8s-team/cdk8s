@@ -5,6 +5,10 @@ applications and reusable abstractions using familiar programming languages and
 rich object-oriented APIs. cdk8s generates pure Kubernetes YAML - you can use
 cdk8s to define applications for any Kubernetes cluster running anywhere.
 
+!!! notice
+
+    The documentation here relates to version `2.x` of the cdk8s toolchain, which is the latest. If you are still using version `1.x`, please refer to the [Migrating from 1.x Guide](./migrating-from-1.x.md).
+
 ![demo](./assets/animation.gif)
 
 Read [our blog](https://aws.amazon.com/blogs/containers/introducing-cdk-for-kubernetes/) or [watch our CNCF webinar](https://www.cncf.io/webinars/end-yaml-engineering-with-cdk8s/) to learn more and see a live demo of cdk8s in action.

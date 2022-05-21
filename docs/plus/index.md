@@ -7,6 +7,10 @@ Built on top of the auto-generated building blocks provided by cdk8s, this
 library includes a hand crafted *construct* for each native kubernetes object,
 exposing richer API's with reduced complexity.
 
+!!! notice
+
+    The documentation here relates to version `2.x` of the cdk8s toolchain, which is the latest. If you are still using version `1.x`, please refer to the [Migrating from 1.x Guide](../migrating-from-1.x.md).
+
 Here is an example of how we would deploy a simple nginx container, once with the low-level API (on the left), and once with the high level abstraction (on the right).
 
 ![corevsplus](../assets/corevsplus.png)
@@ -110,7 +114,7 @@ const container = deployment.addContainer({
 container.mount(appPath, appVolume);
 
 // finally, we expose the deployment as a load balancer service and make it run
-deployment.expose(8080, {serviceType: kplus.ServiceType.LOAD_BALANCER})
+deployment.exposeViaService({ serviceType: kplus.ServiceType.LOAD_BALANCER })
 
 // we are done, synth
 app.synth();
