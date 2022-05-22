@@ -22,38 +22,37 @@ const namespace = new kplus.Namespace(chart, 'BackOfficeNamespace');
 Like any other resource, if you don't specify a name, cdk8s will auto-generate one, which you
 can access by `namespace.name`.
 
-## Select a namespace(s)
+## Select namespaces
 
 Namespaces can also be selected by various mechanisms. These selections are often used in other
 cdk8s+ API's, such as [pod selection](./pod.md#pod-selection) during scheduling.
 
-### Select a namespace by name
+### Select namespaces by name
 
-This mechanism selects a **single** namespace by specifying its name.
+Select a namespace called `backoffice`.
 
 ```ts
 import * as kplus from 'cdk8s-plus-22';
 
-const backoffice = kplus.Namespace.named('backoffice');
+const backoffice = kplus.Namespaces.select({ names: ['backoffice'] });
 ```
 
-### Select a namespace by labels
+### Select namespace by labels
 
-This mechanism can select **multiple** namespaces, by querying its labels.
+Select all namespaces that have the `processing=batch` label.
 
 ```ts
 import * as kplus from 'cdk8s-plus-22';
 
-// select all namespaces that have the 'processing=batch' label.
-const batch = kplus.Namespace.labeled(kplus.LabelQuery.is('processing', 'batch'));
+const batch = kplus.Namespaces.select({ labels: { processing: 'batch'} });
 ```
 
 ### Select all namespaces
 
-This mechanism simply selects **all** namespaces in the cluster.
+Select all namespaces in the cluster.
 
 ```ts
 import * as kplus from 'cdk8s-plus-22';
 
-const all = kplus.Namespace.all();
+const all = kplus.Namespaces.all();
 ```

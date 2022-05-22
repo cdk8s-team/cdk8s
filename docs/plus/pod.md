@@ -95,7 +95,7 @@ const pod = new kplus.Pod(chart, 'Pod', {
 });
 ```
 
-## Select a pod(s)
+## Select pods
 
 Pods can also be selected by various mechanisms. These selections are often used in other
 cdk8s+ API's, such as [pod selection](./pod.md#pod-selection) during scheduling.
@@ -105,31 +105,38 @@ cdk8s+ API's, such as [pod selection](./pod.md#pod-selection) during scheduling.
 Selects all pods that have the `app=store` label.
 
 ```ts
-const pods = kplus.Pod.labeled(kplus.LabelQuery.is('app', 'store'));
+import * as kplus from 'cdk8s-plus-22';
+
+const pods = kplus.Pods.select({ labels: { app: 'store' }});
+```
+
+### Select pods with expressions
+
+Selects all pods that have the `app` label, regardless of the value.
+
+```ts
+import * as kplus from 'cdk8s-plus-22';
+
+const pods = kplus.Pods.select({
+  expressions: [kplus.LabelExpression.exists('app')]
+});
 ```
 
 ### Select pods with labels in a particular namespace
 
 Pod selection can also be scoped to specific namespaces.
-This is done using the `.namespaced` method, which can accept any [namespace selector](./namespace.md#select-a-namespaces).
+This is done using the `namespaces` property, which can accept any [namespace selector](./namespace.md#select-namespaces).
 
 For example, select all pods that have the `app=store` label in the `backoffice` namespace:
 
 ```ts
-const pods = kplus.Pod.labeled(kplus.LabelQuery.is('app', 'store'))
-  .namespaced(kplus.Namespace.named('backoffice'));
+import * as kplus from 'cdk8s-plus-22';
+
+const pods = kplus.Pods.select({
+  labels: { app: 'store' },
+  namespaces: kplus.Namespaces.select({ names: ['backoffice'] }),
+});
 ```
-
-### Select all pods
-
-Select all pods.
-
-```ts
-const pods = kplus.Pod.all();
-```
-
-By default this will select pods in the namespace of the resource / context
-it is defined in. This can also be [scoped to a specific namespace](#select-pods-with-labels-in-a-particular-namespace) by using `.namespaced`.
 
 ## Scheduling
 
@@ -240,7 +247,7 @@ Pod selection is the process of selecting which **nodes** should pods be schedul
 by looking at which other **pods** are already scheduled on those nodes.
 
 The API's presented here interact either with specific pods,
-i.e instances of `Pod` or `Workload` (e.g `Deployment`, `StatefulSet`, `Job`, ...), or with a group of pods, i.e ones that are identified by a set of [selectors](#select-a-pods).
+i.e instances of `Pod` or `Workload` (e.g `Deployment`, `StatefulSet`, `Job`, ...), or with a group of pods, i.e ones that are identified by a set of [selectors](#select-pods).
 
 #### Pod Co-location
 
@@ -292,8 +299,8 @@ in the same cdk8s application. You can also co-locate with an externally
 managed pod, by specifying a pod selector:
 
 ```ts
-const redis = kplus.Pod.select({
-  labelSelector: [kplus.PodLabelQuery.is('app', 'cache')]
+const redis = kplus.Pods.select({
+  labels: { app: 'cache' },
 });
 web.scheduling.colocate(redis);
 ```
@@ -346,8 +353,8 @@ in the same cdk8s application. You can also separate with an externally
 managed pod, by specifying a pod selector:
 
 ```ts
-const redis = kplus.Pod.select({
-  labelSelector: [kplus.PodLabelQuery.is('app', 'cache')]
+const redis = kplus.Pods.select({
+  labels: { app: 'cache' },
 });
 web.scheduling.separate(redis);
 ```
