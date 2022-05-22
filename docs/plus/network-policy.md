@@ -20,7 +20,7 @@ If either side does not allow the connection, it will not happen.
 A network policy is a namespaced resource that applies to specific pods in that namespace.
 The pods are specified using the `selector` property, and can accept a few different objects:
 
-### For a managed pod
+### Managed Pod
 
 A managed pod is a pod that is created by the current cdk8s application. That is, its simply an instance of a `Pod`.
 You can pass that instance to be used as the selector. The policy will be applied only to that **specific** pod.
@@ -42,7 +42,7 @@ const web = new kplus.Pod(chart, 'Web', {
 new kplus.NetworkPolicy(chart, 'Policy', { selector: web });
 ```
 
-### For a managed workload
+### Managed Workload
 
 Exactly as for a managed `Pod`, you can pass an instance of any workload resource (e.g `Deployment`, `StatefulSet`, ...)
 
@@ -60,10 +60,10 @@ const web = new kplus.Deployment(chart, 'Web', {
 new kplus.NetworkPolicy(chart, 'Policy', { selector: web });
 ```
 
-### For selected pods
+### Selected Pods
 
-If you'd like to select external pods (i.e ones not created with cdk8s), or wish to select a group of pods,
-you can use a [selected pod](./pod.md#select).
+If you'd like to create a policy for pods that aren't managed by the current cdk8s application,
+you use [selected pods](./pod.md#select-pods).
 
 ```ts
 import * as k from 'cdk8s';
@@ -72,32 +72,30 @@ import * as kplus from 'cdk8s-plus-22';
 const app = new k.App();
 const chart = new k.Chart(app, 'Chart');
 
-const web = kplus.Pod.labeled(kplus.LabelQuery.is('app', 'web'));
+const web = kplus.Pods.select({ labels: { app: 'web' }});
 
 new kplus.NetworkPolicy(chart, 'Policy', { selector: web });
 ```
 
-This policy will apply to **all** pods with label `app=web`. Note that you won't be able
-to [select pods in particular namespace](./pod.md#select-pods-with-labels-in-a-particular-namespace) since
-the namespace will always be the namespace the policy is created in.
+This policy will apply to **all** pods with label `app=web`.
 
 ## Peers
 
 The selector of a policy is defined at instantiation time and there can only be one.
-It constitutes the first end of the a connection, where peers are the other end.
+It constitutes the first end of a connection, where peers are the other end.
 A policy can define rules for multiple peers, and a peer can be any one of:
 
-- A [managed pod](#for-a-managed-pod).
-- A [managed workload](#for-a-managed-workload)
-- A [selected pod](#select-a-pods).
-- A [managed namespace](./namespace.md). This will establish a connection with all pods in a specific namespace.
-- A [selected namespace](./namespace.md#select-a-namespaces). This will establish a connection with all pods in a selected namespace(s).
+- [Managed Pod](#managed-pod): Will establish a connection to a specific pod.
+- [Managed Workload](#managed-workload): Will establish a connection with the pods of the workload.
+- [Selected Pods](#selected-pods): Will establish a connection to the selected pods.
+- [Managed Namespace](./namespace.md): Will establish a connection with all pods in a specific namespace.
+- [Selected Namespaces](./namespace.md#select-namespaces): Will will establish a connection with all pods in the selected namespaces.
 
 > You can also create a custom peer by implementing the `kplus.INetworkPolicyPeer` interface.
 
 ## Egress Rule
 
-Isolating pods for outgoing traffic (egress) can be done either at or post instantiation:
+Isolating pods for outgoing traffic (egress) can be done either at, or post instantiation:
 
 ```ts
 import * as k from 'cdk8s';
@@ -110,17 +108,27 @@ const web = new kplus.Pod(chart, 'Web', {
   containers: [{ image: 'web' }],
 });
 
-const redis = new kplus.Pod(chart, 'Redis', {
-  containers: [{ image: 'redis', port: 6379 }],
+const cache = new kplus.Pod(chart, 'Cache', {
+  containers: [{ image: 'cache', port: 6379 }],
 });
 
-const webPolicy = new kplus.NetworkPolicy(chart, 'Policy', { selector: web });
-webPolicy.addEgressRule(redis, [kplus.NetworkPolicyPort.tcp(6379)]);
+const db = new kplus.Pod(chart, 'DB', {
+  containers: [{ image: 'db', port: 6378 }],
+});
+
+// create a policy with an egress rule at instantiation
+const webPolicy = new kplus.NetworkPolicy(chart, 'Policy', {
+  selector: web,
+  egress: { rules: [{ peer: cache, ports: [kplus.NetworkPolicyPort.tcp(6379)]}] },
+});
+
+// add an egress rule post instantiation
+webPolicy.addEgressRule(db, [kplus.NetworkPolicyPort.tcp(6378)]);
 ```
 
 ## Ingress Rule
 
-Isolating pods for incoming traffic (ingress) can be done either at or post instantiation:
+Isolating pods for incoming traffic (ingress) can be done either at, or post instantiation:
 
 ```ts
 import * as k from 'cdk8s';
@@ -133,12 +141,22 @@ const web = new kplus.Pod(chart, 'Web', {
   containers: [{ image: 'web' }],
 });
 
-const redis = new kplus.Pod(chart, 'Redis', {
-  containers: [{ image: 'redis', port: 6379 }],
+const cache = new kplus.Pod(chart, 'Cache', {
+  containers: [{ image: 'cache', port: 6379 }],
 });
 
-const redisPolicy = new kplus.NetworkPolicy(chart, 'Policy', { selector: redis });
-redis.addIngressRule(web, [kplus.NetworkPolicyPort.tcp(6379)]);
+const db = new kplus.Pod(chart, 'DB', {
+  containers: [{ image: 'db', port: 6378 }],
+});
+
+// create a policy with an ingress rule at instantiation
+const dbPolicy = new kplus.NetworkPolicy(chart, 'Policy', {
+  selector: db,
+  ingress: { rule: [{ peer: web, ports: [kplus.NetworkPolicyPort.tcp(6379)]}] },
+});
+
+// add an ingress rule post instantiation
+redis.addIngressRule(cache, [kplus.NetworkPolicyPort.tcp(6379)]);
 ```
 
 ## Bi-directional Rule
@@ -180,8 +198,8 @@ webPolicy.addEgressRule(redis, [kplus.NetworkPolicyPort.tcp(6379)]);
 redis.addIngressRule(web, [kplus.NetworkPolicyPort.tcp(6379)]);
 ```
 
-If the source pod of your connection is a [managed pod](#for-a-managed-pod)
-(or [managed workload](#for-a-managed-workload)), the same thing can be achieved much easier:
+If the source pod of your connection is a [managed pod](#managed-pod)
+(or [managed workload](#managed-workload)), the same thing can be achieved much easier:
 
 ```ts
 const app = new k.App();
@@ -189,10 +207,12 @@ const chart = new k.Chart(app, 'Chart');
 
 const web = new kplus.Pod(chart, 'Web', {
   containers: [{ image: 'web' }],
+  metadata: { namespace: 'n1' },
 });
 
 const redis = new kplus.Pod(chart, 'Redis', {
   containers: [{ image: 'redis', port: 6379 }],
+  metadata: { namespace: 'n2' },
 });
 
 web.connections.allowTo(redis);

@@ -395,6 +395,8 @@ web.connections.allowTo(redis);
 
 This will allow the `web` pod to connect to the `redis` port on port 6379,
 and will allow the `redis` pod to accept connections from the `web` pod on port 6379.
+Note that the port is not specified in the `allowTo` invocation, it is automatically
+extracted from the `redis` pod definition.
 
 ### Allow From
 
@@ -416,6 +418,11 @@ const web = new kplus.Pod(chart, 'Web', {
 
 redis.connections.allowFrom(web);
 ```
+
+This will allow the `redis` pod to accept connection from the `web` pod on port 6379,
+and will allow the `web` pod to connect to the `redis` pod on port 6379.
+Note that the port is not specified in the `allowFrom` invocation, it is automatically
+extracted from the `redis` pod definition.
 
 ### Isolation
 
