@@ -75,3 +75,63 @@ spec:
     cdk8s.deployment: ChartFrontEndsDD8A97CE
   type: ClusterIP
 ```
+
+## Scheduling
+
+In addition to the scheduling capabilities provided by [pod scheduling](./pod.md#scheduling),
+a Deployment offers the following:
+
+### Spreading
+
+A spread is a [separation](./pod.md#pod-separation) of pods from themselves.
+It can be used to ensure replicas of the same workload are scheduled on different topologies.
+
+> The same API is also available on all workload resources (i.e `Deployment`, `StatefulSet`, `Job`, `DaemonSet`).
+
+```ts
+import * as k from 'cdk8s';
+import * as kplus from 'cdk8s-plus-22';
+
+const app = new k.App();
+const chart = new k.Chart(app, 'Chart');
+
+const redis = new kplus.Deployment(chart, 'Redis', {
+  containers: [{ image: 'redis' }],
+  replicas: 3,
+});
+
+deployment.scheduling.spread(kplus.Topology.HOSTNAME);
+```
+
+This example ensures that each replica of the `Redis` deployment
+will be scheduled on a different node.
+
+Take, for [example](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#more-practical-use-cases), a three-node cluster running a web application with an in-memory cache like redis. You'd like to co-locate the web servers with the cache as much as possible, while still maintaining node failure resistance. (i.e not all pods are on the same node).
+
+Here is how you can accomplish that:
+
+```ts
+import * as k from 'cdk8s';
+import * as kplus from 'cdk8s-plus-22';
+
+const app = new k.App();
+const chart = new k.Chart(app, 'Chart');
+
+const redis = new kplus.Deployment(chart, 'Redis', {
+  containers: [{ image: 'redis' }],
+  replicas: 3,
+});
+const web = new kplus.Deployment(chart, 'Web', {
+  containers: [{ image: 'web' }],
+  replicas: 3,
+});
+
+// ensure redis is spread across all nodes
+redis.scheduling.spread(kplus.Topology.HOSTNAME);
+
+// ensure web app is spread across all nodes
+web.scheduling.spread(kplus.Topology.HOSTNAME);
+
+// ensure a web app pod always runs along side a cache instance
+web.scheduling.colocate(redis);
+```
