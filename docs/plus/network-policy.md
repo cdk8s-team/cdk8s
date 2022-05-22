@@ -23,7 +23,7 @@ The pods are specified using the `selector` property, and can accept a few diffe
 ### For a managed pod
 
 A managed pod is a pod that is created by the current cdk8s application. That is, its simply an instance of a `Pod`.
-You can that instance to be used as the selector. The policy will be applied only to that **specific** pod.
+You can pass that instance to be used as the selector. The policy will be applied only to that **specific** pod.
 
 > Under the hood, this uses a magic `cdk8s.io/metadata.address` label that uniquely
 > identifies pods, and is added automatically by cdk8s.
@@ -60,10 +60,10 @@ const web = new kplus.Deployment(chart, 'Web', {
 new kplus.NetworkPolicy(chart, 'Policy', { selector: web });
 ```
 
-### For a selected pod
+### For selected pods
 
-If you'd like to select an external pod (i.e one not created with cdk8s), or wish to select a group of pods,
-you can use a [selected pod](./pod.md#select-a-pods).
+If you'd like to select external pods (i.e ones not created with cdk8s), or wish to select a group of pods,
+you can use a [selected pod](./pod.md#select).
 
 ```ts
 import * as k from 'cdk8s';
