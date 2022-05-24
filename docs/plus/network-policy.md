@@ -190,6 +190,9 @@ allow the connection. Using network policies, this could be tricky, especially i
 are in different namespace:
 
 ```ts
+import * as k from 'cdk8s';
+import * as kplus from 'cdk8s-plus-22';
+
 const app = new k.App();
 const chart = new k.Chart(app, 'Chart');
 
@@ -225,6 +228,9 @@ If the source pod of your connection is a [managed pod](#managed-pod)
 (or [managed workload](#managed-workload)), the same thing can be achieved much easier:
 
 ```ts
+import * as k from 'cdk8s';
+import * as kplus from 'cdk8s-plus-22';
+
 const app = new k.App();
 const chart = new k.Chart(app, 'Chart');
 
@@ -244,3 +250,93 @@ redis.connections.allowFrom(web);
 ```
 
 See [pod connections](./pod.md#connections) for more details.
+
+## Default Policies
+
+Every policy can specify what behavior should apply when no rules are specified in
+a given direction. You can use that to create default policies that either deny or allow
+all traffic.
+
+### Deny All Ingress
+
+> See [default-deny-all-ingress-traffic](https://kubernetes.io/docs/concepts/services-networking/network-policies/#default-deny-all-ingress-traffic)
+
+```ts
+import * as k from 'cdk8s';
+import * as kplus from 'cdk8s-plus-22';
+
+const app = new k.App();
+const chart = new k.Chart(app, 'Chart');
+
+new kplus.NetworkPolicy(chart, 'Policy', {
+  ingress: { default: kplus.NetworkPolicyTrafficDefault.DENY },
+});
+```
+
+This ensures that even pods that aren't selected by any other network policy will still be isolated for ingress. This policy does not affect isolation for egress from any pod.
+
+### Allow All Ingress
+
+> See [allow-all-ingress-traffic](https://kubernetes.io/docs/concepts/services-networking/network-policies/#allow-all-ingress-traffic)
+
+```ts
+import * as k from 'cdk8s';
+import * as kplus from 'cdk8s-plus-22';
+
+const app = new k.App();
+const chart = new k.Chart(app, 'Chart');
+
+new kplus.NetworkPolicy(chart, 'Policy', {
+  ingress: { default: kplus.NetworkPolicyTrafficDefault.ALLOW },
+});
+```
+
+With this policy in place, no additional policy or policies can cause any incoming connection to those pods to be denied. This policy has no effect on isolation for egress from any pod.
+
+!!! notice
+
+    This differs from the default `DENY` isolation behavior, which is effectively disabled
+    when other policies are applied.
+
+
+
+### Deny All Egress
+
+> See [default-deny-all-egress-traffic](https://kubernetes.io/docs/concepts/services-networking/network-policies/#default-deny-all-egress-traffic)
+
+```ts
+import * as k from 'cdk8s';
+import * as kplus from 'cdk8s-plus-22';
+
+const app = new k.App();
+const chart = new k.Chart(app, 'Chart');
+
+new kplus.NetworkPolicy(chart, 'Policy', {
+  egress: { default: kplus.NetworkPolicyTrafficDefault.DENY },
+});
+```
+
+This ensures that even pods that aren't selected by any other NetworkPolicy will not be allowed egress traffic. This policy does not change the ingress isolation behavior of any pod.
+
+### Allow All Egress
+
+> See [allow-all-egress-traffic](https://kubernetes.io/docs/concepts/services-networking/network-policies/#allow-all-egress-traffic)
+
+```ts
+import * as k from 'cdk8s';
+import * as kplus from 'cdk8s-plus-22';
+
+const app = new k.App();
+const chart = new k.Chart(app, 'Chart');
+
+new kplus.NetworkPolicy(chart, 'Policy', {
+  egress: { default: kplus.NetworkPolicyTrafficDefault.ALLOW },
+});
+```
+
+With this policy in place, no additional policy or policies can cause any outgoing connection from those pods to be denied. This policy has no effect on isolation for ingress to any pod.
+
+!!! notice
+
+    This differs from the default `DENY` isolation behavior, which is effectively disabled
+    when other policies are applied.
