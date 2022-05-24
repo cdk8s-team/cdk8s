@@ -103,9 +103,8 @@ Ip blocks can later be used as network policy [peers](#peers).
 
 ## Peers
 
-The selector of a policy is defined at instantiation time and there can only be one.
-It constitutes the first end of a connection, where peers are the other end.
-A policy can define rules for multiple peers, and a peer can be any one of:
+The selector of a policy is defined at construction time and there can only be one per policy.
+The peers constitute the second half of the connection -- they are the resources or endpoints that the **selected** resources can communicate with. A policy can define rules for multiple peers, and a peer can be any one of:
 
 - [Ip Block](#ip-block): Will allow a connection with a CIDR range.
 - [Managed Pod](#managed-pod): Will establish a connection with specific pod.
@@ -118,7 +117,7 @@ A policy can define rules for multiple peers, and a peer can be any one of:
 
 ## Egress Rule
 
-Isolating pods for outgoing traffic (egress) can be done either at, or post instantiation:
+Isolating pods for egress traffic egress can be done either at, or post construction:
 
 ```ts
 import * as k from 'cdk8s';
@@ -151,7 +150,7 @@ webPolicy.addEgressRule(db, [kplus.NetworkPolicyPort.tcp(6378)]);
 
 ## Ingress Rule
 
-Isolating pods for incoming traffic (ingress) can be done either at, or post instantiation:
+Isolating pods for ingress traffic ingress can be done either at, or post construction:
 
 ```ts
 import * as k from 'cdk8s';

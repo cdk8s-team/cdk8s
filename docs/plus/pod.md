@@ -398,6 +398,12 @@ and will allow the `redis` pod to accept connections from the `web` pod on port 
 Note that the port is not specified in the `allowTo` invocation, it is automatically
 extracted from the `redis` pod definition.
 
+You can also pass ports explicitly, overriding this extraction:
+
+```ts
+web.connections.allowTo(redis, { ports: [kplus.NetworkPolicyPort.tcp(4444)] });
+```
+
 ### Allow From
 
 To allow connections from a [peer](./network-policy.md#peers) to a `Pod`:
