@@ -1,11 +1,10 @@
 # Network Policy
 
 Network policies control inter-pod traffic flow at the IP address or port level (OSI layer 3 or 4).
-By default, a pod is opened in the network (or *non-isolated*). That is, it can initiate any outgoing traffic,
-and accept any incoming traffic.
+By default, a pod is opened in the network (or *non-isolated*). That is, it can initiate any outgoing traffic, and accept any incoming traffic.
 
-When network policies are applied to pods, they loose this default behavior and become restricted, or *isolated*.
-There are two sorts of isolation for a pod: isolation for egress, and isolation for ingress.
+When network policies are applied to pods, they loose this default behavior and become restricted, or *isolated*. This means that as soon as a policy in a specific direction
+applies to a pod, that pods stops being open in that direction. We refer to such pods as **isolated**. There are two sorts of isolation for a pod: isolation for egress, and isolation for ingress.
 
 Network policies do not conflict; they are additive. If any policy or policies apply to a given pod for a given direction,
 the connections allowed in that direction from that pod is the union of what the applicable policies allow.
