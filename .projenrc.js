@@ -30,7 +30,6 @@ const project = new javascript.NodeProject({
     'cdk8s-plus-22',
     'cdk8s-plus-21',
     'cdk8s-plus-20',
-    'cdk8s-plus-17',
     'constructs',
     'lerna@^4',
     'semver',
@@ -147,7 +146,6 @@ workflow.addJobs({
 // See docs/build.sh.
 const packages = [
   'cdk8s',
-  'cdk8s-plus-17',
   'cdk8s-plus-20',
   'cdk8s-plus-21',
   'cdk8s-plus-22'

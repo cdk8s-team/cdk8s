@@ -9,8 +9,8 @@ import (
 
 	_jsii_     "github.com/aws/jsii-runtime-go/runtime"
 
-	constructs "github.com/aws/constructs-go/constructs/v3/jsii"
-	cdk8s      "github.com/cdk8s-team/cdk8s-core-go/cdk8s/jsii"
+	constructs "github.com/aws/constructs-go/constructs/v10/jsii"
+	cdk8s      "github.com/cdk8s-team/cdk8s-core-go/cdk8s/v2/jsii"
 )
 
 //go:embed k8s-0.0.0.tgz

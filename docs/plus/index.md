@@ -7,6 +7,10 @@ Built on top of the auto-generated building blocks provided by cdk8s, this
 library includes a hand crafted *construct* for each native kubernetes object,
 exposing richer API's with reduced complexity.
 
+!!! notice
+
+    The documentation here relates to version `2.x` of the cdk8s toolchain, which is the latest. If you are still using version `1.x`, please refer to the [Migrating from 1.x Guide](../migrating-from-1.x.md).
+
 Here is an example of how we would deploy a simple nginx container, once with the low-level API (on the left), and once with the high level abstraction (on the right).
 
 ![corevsplus](../assets/corevsplus.png)
@@ -41,7 +45,7 @@ their manifests to the Kubernetes version they are operating. This way, users
 are only exposed to a set of capabilities offered by their specific cluster,
 preventing deployment errors caused by version mismatches.
 
-For example, imagine we had published a single library for all Kubernetes versions (call it `cdk8s-plus`). 
+For example, imagine we had published a single library for all Kubernetes versions (call it `cdk8s-plus`).
 This library would have had support for the [`namespaceSelector`](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#namespace-selector) property when configuring pod affinity rules. This property was only added in Kubernetes 1.21.0.
 
 Now imagine you operate Kubernetes 1.20.0. In such a case, you would have access to the `namespaceSelector` property, even though
@@ -110,7 +114,7 @@ const container = deployment.addContainer({
 container.mount(appPath, appVolume);
 
 // finally, we expose the deployment as a load balancer service and make it run
-deployment.expose(8080, {serviceType: kplus.ServiceType.LOAD_BALANCER})
+deployment.exposeViaService({ serviceType: kplus.ServiceType.LOAD_BALANCER })
 
 // we are done, synth
 app.synth();
@@ -268,9 +272,9 @@ app.synth();
 
     ```go
     import (
-      "github.com/aws/constructs-go/constructs/v3"
+      "github.com/aws/constructs-go/constructs/v10"
       "github.com/aws/jsii-runtime-go"
-      "github.com/cdk8s-team/cdk8s-core-go/cdk8s"
+      "github.com/cdk8s-team/cdk8s-core-go/cdk8s/v2"
       "github.com/cdk8s-team/cdk8s-plus-go/cdk8splus22"
     )
     ```

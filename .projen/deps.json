@@ -17,10 +17,6 @@
       "type": "build"
     },
     {
-      "name": "cdk8s-plus-17",
-      "type": "build"
-    },
-    {
       "name": "cdk8s-plus-20",
       "type": "build"
     },

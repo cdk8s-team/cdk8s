@@ -53,7 +53,6 @@ Array [
       "progressDeadlineSeconds": 600,
       "replicas": 1,
       "selector": Object {
-        "matchExpressions": Array [],
         "matchLabels": Object {
           "cdk8s.deployment": "test-chart-Deployment-c8550d6d",
         },
@@ -121,18 +120,10 @@ Array [
               "workingDir": "/root",
             },
           ],
-          "dnsConfig": Object {
-            "nameservers": Array [],
-            "options": Array [],
-            "searches": Array [],
-          },
           "dnsPolicy": "ClusterFirst",
-          "hostAliases": Array [],
-          "initContainers": Array [],
           "securityContext": Object {
             "fsGroupChangePolicy": "Always",
             "runAsNonRoot": false,
-            "sysctls": Array [],
           },
           "setHostnameAsFQDN": false,
           "volumes": Array [

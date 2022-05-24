@@ -6,8 +6,8 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-constructs = "==3.0.4"
-cdk8s = "~=1.5.66"
+constructs = "==10.1.12"
+cdk8s = "~=2.2.87"
 
 [requires]
 python_version = "3.7"

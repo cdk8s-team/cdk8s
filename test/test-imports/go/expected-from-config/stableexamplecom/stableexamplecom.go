@@ -6,8 +6,8 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"example.com/test/imports/stableexamplecom/internal"
-	"github.com/aws/constructs-go/constructs/v3"
-	"github.com/cdk8s-team/cdk8s-core-go/cdk8s"
+	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/cdk8s-team/cdk8s-core-go/cdk8s/v2"
 )
 
 type CronTab interface {
@@ -29,6 +29,8 @@ type CronTab interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -39,29 +41,6 @@ type CronTab interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -133,6 +112,16 @@ func (j *jsiiProxy_CronTab) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CronTab) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "CronTab" API object.
 func NewCronTab(scope constructs.Construct, id *string, props *CronTabProps) CronTab {
@@ -158,6 +147,38 @@ func NewCronTab_Override(c CronTab, scope constructs.Construct, id *string, prop
 		[]interface{}{scope, id, props},
 		c,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func CronTab_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"stableexamplecom.CronTab",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "CronTab".
@@ -233,35 +254,6 @@ func (c *jsiiProxy_CronTab) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 		"addJsonPatch",
 		args,
 	)
-}
-
-func (c *jsiiProxy_CronTab) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (c *jsiiProxy_CronTab) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (c *jsiiProxy_CronTab) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
 }
 
 func (c *jsiiProxy_CronTab) ToJson() interface{} {
