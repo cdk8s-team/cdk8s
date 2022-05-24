@@ -79,17 +79,41 @@ new kplus.NetworkPolicy(chart, 'Policy', { selector: web });
 
 This policy will apply to **all** pods with label `app=web`.
 
+## Ip Block
+
+An Ip Block defines a range of IP addresses using CIDR notation.
+You can define both `ipv4` and `ipv6` ranges:
+
+```ts
+import * as kplus from 'cdk8s-plus-22';
+
+// define a specific ipv4 range
+kplus.NetworkPolicyIpBlock.ipv4('172.17.0.0/16');
+
+// define a specific ipv6 range
+kplus.NetworkPolicyIpBlock.ipv6('2002::1234:abcd:ffff:c0a8:101/64');
+
+// define all ipv4 addresses
+kplus.NetworkPolicyIpBlock.anyIpv4();
+
+// define all ipv6 addresses
+kplus.NetworkPolicyIpBlock.anyIpv6();
+```
+
+Ip blocks can later be used as network policy [peers](#peers).
+
 ## Peers
 
 The selector of a policy is defined at instantiation time and there can only be one.
 It constitutes the first end of a connection, where peers are the other end.
 A policy can define rules for multiple peers, and a peer can be any one of:
 
-- [Managed Pod](#managed-pod): Will establish a connection to a specific pod.
+- [Ip Block](#ip-block): Will allow a connection with a CIDR range.
+- [Managed Pod](#managed-pod): Will establish a connection with specific pod.
 - [Managed Workload](#managed-workload): Will establish a connection with the pods of the workload.
-- [Selected Pods](#selected-pods): Will establish a connection to the selected pods.
+- [Selected Pods](#selected-pods): Will establish a connection with the selected pods.
 - [Managed Namespace](./namespace.md): Will establish a connection with all pods in a specific namespace.
-- [Selected Namespaces](./namespace.md#select-namespaces): Will will establish a connection with all pods in the selected namespaces.
+- [Selected Namespaces](./namespace.md#select-namespaces): Will establish a connection with all pods in the selected namespaces.
 
 > You can also create a custom peer by implementing the `kplus.INetworkPolicyPeer` interface.
 
