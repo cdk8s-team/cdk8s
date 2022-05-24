@@ -31,3 +31,7 @@ job.addContainer({
   image: 'loader'
 });
 ```
+
+## Scheduling
+
+See [Deployment scheduling](./deployment.md#scheduling).
