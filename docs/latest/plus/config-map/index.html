@@ -711,6 +711,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../network-policy/" class="md-nav__link">
+        Network Policy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../pod/" class="md-nav__link">
         Pod
       </a>
@@ -1044,14 +1058,14 @@
       
       
         <label class="md-nav__link" for="__nav_8_4">
-          cdk8s-plus-21
+          cdk8s-plus-23
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="cdk8s-plus-21" data-md-level="2">
+      <nav class="md-nav" aria-label="cdk8s-plus-23" data-md-level="2">
         <label class="md-nav__title" for="__nav_8_4">
           <span class="md-nav__icon md-icon"></span>
-          cdk8s-plus-21
+          cdk8s-plus-23
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1061,7 +1075,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/cdk8s-plus-21/typescript/" class="md-nav__link">
+      <a href="../../reference/cdk8s-plus-23/typescript/" class="md-nav__link">
         TypeScript
       </a>
     </li>
@@ -1075,7 +1089,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/cdk8s-plus-21/python/" class="md-nav__link">
+      <a href="../../reference/cdk8s-plus-23/python/" class="md-nav__link">
         Python
       </a>
     </li>
@@ -1089,7 +1103,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/cdk8s-plus-21/java/" class="md-nav__link">
+      <a href="../../reference/cdk8s-plus-23/java/" class="md-nav__link">
         Java
       </a>
     </li>
@@ -1103,7 +1117,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/cdk8s-plus-21/go/" class="md-nav__link">
+      <a href="../../reference/cdk8s-plus-23/go/" class="md-nav__link">
         Go
       </a>
     </li>
@@ -1133,14 +1147,14 @@
       
       
         <label class="md-nav__link" for="__nav_8_5">
-          cdk8s-plus-20
+          cdk8s-plus-24
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="cdk8s-plus-20" data-md-level="2">
+      <nav class="md-nav" aria-label="cdk8s-plus-24" data-md-level="2">
         <label class="md-nav__title" for="__nav_8_5">
           <span class="md-nav__icon md-icon"></span>
-          cdk8s-plus-20
+          cdk8s-plus-24
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1150,7 +1164,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/cdk8s-plus-20/typescript/" class="md-nav__link">
+      <a href="../../reference/cdk8s-plus-24/typescript/" class="md-nav__link">
         TypeScript
       </a>
     </li>
@@ -1164,7 +1178,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/cdk8s-plus-20/python/" class="md-nav__link">
+      <a href="../../reference/cdk8s-plus-24/python/" class="md-nav__link">
         Python
       </a>
     </li>
@@ -1178,7 +1192,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/cdk8s-plus-20/java/" class="md-nav__link">
+      <a href="../../reference/cdk8s-plus-24/java/" class="md-nav__link">
         Java
       </a>
     </li>
@@ -1192,7 +1206,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/cdk8s-plus-20/go/" class="md-nav__link">
+      <a href="../../reference/cdk8s-plus-24/go/" class="md-nav__link">
         Go
       </a>
     </li>
@@ -1586,12 +1600,12 @@
 <p>ConfigMap are used to store configuration data. They provide a dictionary based
 data structure that can be consumed in various shapes and forms.</p>
 <div class="admonition tip">
-<p><a href="../../reference/cdk8s-plus-22/typescript/#configmap">API Reference</a></p>
+<p><a href="../../reference/cdk8s-plus-24/typescript/#configmap">API Reference</a></p>
 </div>
 <h2 id="use-an-existing-configmap">Use an existing <code>ConfigMap</code><a class="headerlink" href="#use-an-existing-configmap" title="Permanent link">&para;</a></h2>
 <p>You can reference to an existing <code>ConfigMap</code> like so. Note that this does not create a new object,
 and will therefore not be included in the resulting manifest.</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-22&#39;</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-24&#39;</span><span class="p">;</span><span class="w"></span>
 
 <span class="kd">const</span><span class="w"> </span><span class="nx">config</span><span class="o">:</span><span class="w"> </span><span class="kt">kplus.IConfigMap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">ConfigMap</span><span class="p">.</span><span class="nx">fromConfigMapName</span><span class="p">(</span><span class="s1">&#39;config&#39;</span><span class="p">);</span><span class="w"></span>
 
@@ -1601,7 +1615,7 @@ and will therefore not be included in the resulting manifest.</p>
 </code></pre></div>
 <h2 id="adding-data">Adding data<a class="headerlink" href="#adding-data" title="Permanent link">&para;</a></h2>
 <p>You can create config maps and add some data to them like so:</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-22&#39;</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-24&#39;</span><span class="p">;</span><span class="w"></span>
 <span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">k</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span><span class="w"></span>
 
 <span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">k</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span><span class="w"></span>
@@ -1612,7 +1626,7 @@ and will therefore not be included in the resulting manifest.</p>
 </code></pre></div>
 <h2 id="creating-a-volume-from-a-directory">Creating a volume from a directory<a class="headerlink" href="#creating-a-volume-from-a-directory" title="Permanent link">&para;</a></h2>
 <p>Here is a nifty little trick you can use to create a volume that contains a directory on the client machine (machine that runs <code>cdk8s synth</code>):</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-22&#39;</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-24&#39;</span><span class="p">;</span><span class="w"></span>
 <span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">k</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span><span class="w"></span>
 <span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">path</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;path&#39;</span><span class="p">;</span><span class="w"></span>
 

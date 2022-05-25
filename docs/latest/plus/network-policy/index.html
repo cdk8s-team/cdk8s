@@ -13,7 +13,7 @@
     
     
       
-        <title>Pod - cdk8s Documentation</title>
+        <title>Network Policy - cdk8s Documentation</title>
       
     
     
@@ -65,7 +65,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#pod" class="md-skip">
+        <a href="#network-policy" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Pod
+              Network Policy
             
           </span>
         </div>
@@ -654,20 +654,6 @@
               
   
   
-  
-    <li class="md-nav__item">
-      <a href="../network-policy/" class="md-nav__link">
-        Network Policy
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
     
   
   
@@ -680,12 +666,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Pod
+          Network Policy
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Pod
+        Network Policy
       </a>
       
         
@@ -704,37 +690,30 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#create-a-pod" class="md-nav__link">
-    Create a Pod
+  <a href="#create-a-networkpolicy" class="md-nav__link">
+    Create a NetworkPolicy
   </a>
   
-    <nav class="md-nav" aria-label="Create a Pod">
+    <nav class="md-nav" aria-label="Create a NetworkPolicy">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#adding-containers" class="md-nav__link">
-    Adding Containers
+  <a href="#managed-pod" class="md-nav__link">
+    Managed Pod
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#adding-volumes" class="md-nav__link">
-    Adding Volumes
+  <a href="#managed-workload" class="md-nav__link">
+    Managed Workload
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#applying-a-restart-policy" class="md-nav__link">
-    Applying a restart policy
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#assigning-a-serviceaccount" class="md-nav__link">
-    Assigning a ServiceAccount
+  <a href="#selected-pods" class="md-nav__link">
+    Selected Pods
   </a>
   
 </li>
@@ -745,57 +724,72 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#select-pods" class="md-nav__link">
-    Select pods
+  <a href="#ip-block" class="md-nav__link">
+    Ip Block
   </a>
-  
-    <nav class="md-nav" aria-label="Select pods">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#select-pods-with-labels" class="md-nav__link">
-    Select pods with labels
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#select-pods-with-expressions" class="md-nav__link">
-    Select pods with expressions
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#select-pods-with-labels-in-a-particular-namespace" class="md-nav__link">
-    Select pods with labels in a particular namespace
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#scheduling" class="md-nav__link">
-    Scheduling
+  <a href="#peers" class="md-nav__link">
+    Peers
   </a>
   
-    <nav class="md-nav" aria-label="Scheduling">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#egress-rule" class="md-nav__link">
+    Egress Rule
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ingress-rule" class="md-nav__link">
+    Ingress Rule
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bi-directional-rule" class="md-nav__link">
+    Bi-directional Rule
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#default-policies" class="md-nav__link">
+    Default Policies
+  </a>
+  
+    <nav class="md-nav" aria-label="Default Policies">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#node-selection" class="md-nav__link">
-    Node Selection
+  <a href="#deny-all-ingress" class="md-nav__link">
+    Deny All Ingress
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#pod-selection" class="md-nav__link">
-    Pod Selection
+  <a href="#allow-all-ingress" class="md-nav__link">
+    Allow All Ingress
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deny-all-egress" class="md-nav__link">
+    Deny All Egress
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#allow-all-egress" class="md-nav__link">
+    Allow All Egress
   </a>
   
 </li>
@@ -809,6 +803,20 @@
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pod/" class="md-nav__link">
+        Pod
+      </a>
     </li>
   
 
@@ -1639,37 +1647,30 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#create-a-pod" class="md-nav__link">
-    Create a Pod
+  <a href="#create-a-networkpolicy" class="md-nav__link">
+    Create a NetworkPolicy
   </a>
   
-    <nav class="md-nav" aria-label="Create a Pod">
+    <nav class="md-nav" aria-label="Create a NetworkPolicy">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#adding-containers" class="md-nav__link">
-    Adding Containers
+  <a href="#managed-pod" class="md-nav__link">
+    Managed Pod
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#adding-volumes" class="md-nav__link">
-    Adding Volumes
+  <a href="#managed-workload" class="md-nav__link">
+    Managed Workload
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#applying-a-restart-policy" class="md-nav__link">
-    Applying a restart policy
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#assigning-a-serviceaccount" class="md-nav__link">
-    Assigning a ServiceAccount
+  <a href="#selected-pods" class="md-nav__link">
+    Selected Pods
   </a>
   
 </li>
@@ -1680,57 +1681,72 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#select-pods" class="md-nav__link">
-    Select pods
+  <a href="#ip-block" class="md-nav__link">
+    Ip Block
   </a>
-  
-    <nav class="md-nav" aria-label="Select pods">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#select-pods-with-labels" class="md-nav__link">
-    Select pods with labels
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#select-pods-with-expressions" class="md-nav__link">
-    Select pods with expressions
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#select-pods-with-labels-in-a-particular-namespace" class="md-nav__link">
-    Select pods with labels in a particular namespace
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#scheduling" class="md-nav__link">
-    Scheduling
+  <a href="#peers" class="md-nav__link">
+    Peers
   </a>
   
-    <nav class="md-nav" aria-label="Scheduling">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#egress-rule" class="md-nav__link">
+    Egress Rule
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ingress-rule" class="md-nav__link">
+    Ingress Rule
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bi-directional-rule" class="md-nav__link">
+    Bi-directional Rule
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#default-policies" class="md-nav__link">
+    Default Policies
+  </a>
+  
+    <nav class="md-nav" aria-label="Default Policies">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#node-selection" class="md-nav__link">
-    Node Selection
+  <a href="#deny-all-ingress" class="md-nav__link">
+    Deny All Ingress
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#pod-selection" class="md-nav__link">
-    Pod Selection
+  <a href="#allow-all-ingress" class="md-nav__link">
+    Allow All Ingress
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deny-all-egress" class="md-nav__link">
+    Deny All Egress
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#allow-all-egress" class="md-nav__link">
+    Allow All Egress
   </a>
   
 </li>
@@ -1752,286 +1768,298 @@
             <article class="md-content__inner md-typeset">
               
                 
-  <a href="https://github.com/cdk8s-team/cdk8s/blob/master/docs/plus/pod.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/cdk8s-team/cdk8s/blob/master/docs/plus/network-policy.md" title="Edit this page" class="md-content__button md-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
 
-<h1 id="pod">Pod<a class="headerlink" href="#pod" title="Permanent link">&para;</a></h1>
-<p>A pod is essentially a collection of containers. It is the most fundamental computation unit that can be provisioned.</p>
-<div class="admonition tip">
-<p><a href="../../reference/cdk8s-plus-24/typescript/#pod">API Reference</a></p>
+<h1 id="network-policy">Network Policy<a class="headerlink" href="#network-policy" title="Permanent link">&para;</a></h1>
+<p>Network policies control inter-pod traffic flow at the IP address or port level (OSI layer 3 or 4).
+By default, a pod is opened in the network (or <em>non-isolated</em>). That is, it can initiate any outgoing traffic, and accept any incoming traffic.</p>
+<p>When network policies are applied to pods, they loose this default behavior and become restricted, or <em>isolated</em>. This means that as soon as a policy in a specific direction
+applies to a pod, that pods stops being open in that direction. We refer to such pods as <strong>isolated</strong>. There are two sorts of isolation for a pod: isolation for egress, and isolation for ingress.</p>
+<p>Network policies do not conflict; they are additive. If any policy or policies apply to a given pod for a given direction,
+the connections allowed in that direction from that pod is the union of what the applicable policies allow.
+Thus, order of evaluation does not affect the policy result.</p>
+<p>For a connection from a source pod to a destination pod to be allowed, both the egress policy on
+the source pod and the ingress policy on the destination pod need to allow the connection.
+If either side does not allow the connection, it will not happen.</p>
+<h2 id="create-a-networkpolicy">Create a <code>NetworkPolicy</code><a class="headerlink" href="#create-a-networkpolicy" title="Permanent link">&para;</a></h2>
+<p>A network policy is a namespaced resource that applies to specific pods in that namespace.
+The pods are specified using the <code>selector</code> property, and can accept a few different objects:</p>
+<h3 id="managed-pod">Managed Pod<a class="headerlink" href="#managed-pod" title="Permanent link">&para;</a></h3>
+<p>A managed pod is a pod that is created by the current cdk8s application. That is, its simply an instance of a <code>Pod</code>.
+You can pass that instance to be used as the selector. The policy will be applied only to that <strong>specific</strong> pod.</p>
+<blockquote>
+<p>Under the hood, this uses a magic <code>cdk8s.io/metadata.address</code> label that uniquely
+identifies pods, and is added automatically by cdk8s.</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">k</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-24&#39;</span><span class="p">;</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">k</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">chart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">k</span><span class="p">.</span><span class="nx">Chart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Chart&#39;</span><span class="p">);</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">web</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Pod</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Web&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">containers</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;web&#39;</span><span class="w"> </span><span class="p">}],</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+
+<span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">NetworkPolicy</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Policy&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">selector</span><span class="o">:</span><span class="w"> </span><span class="kt">web</span><span class="w"> </span><span class="p">});</span><span class="w"></span>
+</code></pre></div>
+<h3 id="managed-workload">Managed Workload<a class="headerlink" href="#managed-workload" title="Permanent link">&para;</a></h3>
+<p>Exactly as for a managed <code>Pod</code>, you can pass an instance of any workload resource (e.g <code>Deployment</code>, <code>StatefulSet</code>, &hellip;)</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">k</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-24&#39;</span><span class="p">;</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">k</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">chart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">k</span><span class="p">.</span><span class="nx">Chart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Chart&#39;</span><span class="p">);</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">web</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Deployment</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Web&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">containers</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;web&#39;</span><span class="w"> </span><span class="p">}],</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+
+<span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">NetworkPolicy</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Policy&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">selector</span><span class="o">:</span><span class="w"> </span><span class="kt">web</span><span class="w"> </span><span class="p">});</span><span class="w"></span>
+</code></pre></div>
+<h3 id="selected-pods">Selected Pods<a class="headerlink" href="#selected-pods" title="Permanent link">&para;</a></h3>
+<p>If you&rsquo;d like to create a policy for pods that aren&rsquo;t managed by the current cdk8s application,
+you use <a href="../pod/#select-pods">selected pods</a>.</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">k</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-24&#39;</span><span class="p">;</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">k</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">chart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">k</span><span class="p">.</span><span class="nx">Chart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Chart&#39;</span><span class="p">);</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">web</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Pods</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Web&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">labels</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">app</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;web&#39;</span><span class="w"> </span><span class="p">}});</span><span class="w"></span>
+
+<span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">NetworkPolicy</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Policy&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">selector</span><span class="o">:</span><span class="w"> </span><span class="kt">web</span><span class="w"> </span><span class="p">});</span><span class="w"></span>
+</code></pre></div>
+<p>This policy will apply to <strong>all</strong> pods with label <code>app=web</code>.</p>
+<h2 id="ip-block">Ip Block<a class="headerlink" href="#ip-block" title="Permanent link">&para;</a></h2>
+<p>An Ip Block defines a range of IP addresses using CIDR notation.
+You can define both <code>ipv4</code> and <code>ipv6</code> ranges:</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-24&#39;</span><span class="p">;</span><span class="w"></span>
+
+<span class="c1">// define a specific ipv4 range</span><span class="w"></span>
+<span class="nx">kplus</span><span class="p">.</span><span class="nx">NetworkPolicyIpBlock</span><span class="p">.</span><span class="nx">ipv4</span><span class="p">(</span><span class="s1">&#39;172.17.0.0/16&#39;</span><span class="p">);</span><span class="w"></span>
+
+<span class="c1">// define a specific ipv6 range</span><span class="w"></span>
+<span class="nx">kplus</span><span class="p">.</span><span class="nx">NetworkPolicyIpBlock</span><span class="p">.</span><span class="nx">ipv6</span><span class="p">(</span><span class="s1">&#39;2002::1234:abcd:ffff:c0a8:101/64&#39;</span><span class="p">);</span><span class="w"></span>
+
+<span class="c1">// define all ipv4 addresses</span><span class="w"></span>
+<span class="nx">kplus</span><span class="p">.</span><span class="nx">NetworkPolicyIpBlock</span><span class="p">.</span><span class="nx">anyIpv4</span><span class="p">();</span><span class="w"></span>
+
+<span class="c1">// define all ipv6 addresses</span><span class="w"></span>
+<span class="nx">kplus</span><span class="p">.</span><span class="nx">NetworkPolicyIpBlock</span><span class="p">.</span><span class="nx">anyIpv6</span><span class="p">();</span><span class="w"></span>
+</code></pre></div>
+<p>Ip blocks can later be used as network policy <a href="#peers">peers</a>.</p>
+<h2 id="peers">Peers<a class="headerlink" href="#peers" title="Permanent link">&para;</a></h2>
+<p>The selector of a policy is defined at construction time and there can only be one per policy.
+The peers constitute the second half of the connection &ndash; they are the resources or endpoints that the <strong>selected</strong> resources can communicate with. A policy can define rules for multiple peers, and a peer can be any one of:</p>
+<ul>
+<li><a href="#ip-block">Ip Block</a>: Will allow a connection with a CIDR range.</li>
+<li><a href="#managed-pod">Managed Pod</a>: Will establish a connection with specific pod.</li>
+<li><a href="#managed-workload">Managed Workload</a>: Will establish a connection with the pods of the workload.</li>
+<li><a href="#selected-pods">Selected Pods</a>: Will establish a connection with the selected pods.</li>
+<li><a href="../namespace/">Managed Namespace</a>: Will establish a connection with all pods in a specific namespace.</li>
+<li><a href="../namespace/#select-namespaces">Selected Namespaces</a>: Will establish a connection with all pods in the selected namespaces.</li>
+</ul>
+<blockquote>
+<p>You can also create a custom peer by implementing the <code>kplus.INetworkPolicyPeer</code> interface.</p>
+</blockquote>
+<h2 id="egress-rule">Egress Rule<a class="headerlink" href="#egress-rule" title="Permanent link">&para;</a></h2>
+<p>Isolating pods for egress traffic egress can be done either at, or post construction:</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">k</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-24&#39;</span><span class="p">;</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">k</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">chart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">k</span><span class="p">.</span><span class="nx">Chart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Chart&#39;</span><span class="p">);</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">web</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Pod</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Web&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">containers</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;web&#39;</span><span class="w"> </span><span class="p">}],</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">cache</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Pod</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Cache&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">containers</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;cache&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">port</span><span class="o">:</span><span class="w"> </span><span class="kt">6379</span><span class="w"> </span><span class="p">}],</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">db</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Pod</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;DB&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">containers</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;db&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">port</span><span class="o">:</span><span class="w"> </span><span class="kt">6378</span><span class="w"> </span><span class="p">}],</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+
+<span class="c1">// create a policy with an egress rule at instantiation</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">webPolicy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">NetworkPolicy</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Policy&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">selector</span><span class="o">:</span><span class="w"> </span><span class="kt">web</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">egress</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">rules</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nx">peer</span><span class="o">:</span><span class="w"> </span><span class="kt">cache</span><span class="p">,</span><span class="w"> </span><span class="nx">ports</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="nx">kplus</span><span class="p">.</span><span class="nx">NetworkPolicyPort</span><span class="p">.</span><span class="nx">tcp</span><span class="p">(</span><span class="mf">6379</span><span class="p">)]}]</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+
+<span class="c1">// add an egress rule post instantiation</span><span class="w"></span>
+<span class="nx">webPolicy</span><span class="p">.</span><span class="nx">addEgressRule</span><span class="p">(</span><span class="nx">db</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="nx">kplus</span><span class="p">.</span><span class="nx">NetworkPolicyPort</span><span class="p">.</span><span class="nx">tcp</span><span class="p">(</span><span class="mf">6378</span><span class="p">)]);</span><span class="w"></span>
+</code></pre></div>
+<h2 id="ingress-rule">Ingress Rule<a class="headerlink" href="#ingress-rule" title="Permanent link">&para;</a></h2>
+<p>Isolating pods for ingress traffic ingress can be done either at, or post construction:</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">k</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-24&#39;</span><span class="p">;</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">k</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">chart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">k</span><span class="p">.</span><span class="nx">Chart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Chart&#39;</span><span class="p">);</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">web</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Pod</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Web&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">containers</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;web&#39;</span><span class="w"> </span><span class="p">}],</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">cache</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Pod</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Cache&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">containers</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;cache&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">port</span><span class="o">:</span><span class="w"> </span><span class="kt">6379</span><span class="w"> </span><span class="p">}],</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">db</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Pod</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;DB&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">containers</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;db&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">port</span><span class="o">:</span><span class="w"> </span><span class="kt">6378</span><span class="w"> </span><span class="p">}],</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+
+<span class="c1">// create a policy with an ingress rule at instantiation</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">dbPolicy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">NetworkPolicy</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Policy&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">selector</span><span class="o">:</span><span class="w"> </span><span class="kt">db</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">ingress</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">rule</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nx">peer</span><span class="o">:</span><span class="w"> </span><span class="kt">web</span><span class="p">,</span><span class="w"> </span><span class="nx">ports</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="nx">kplus</span><span class="p">.</span><span class="nx">NetworkPolicyPort</span><span class="p">.</span><span class="nx">tcp</span><span class="p">(</span><span class="mf">6379</span><span class="p">)]}]</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+
+<span class="c1">// add an ingress rule post instantiation</span><span class="w"></span>
+<span class="nx">redis</span><span class="p">.</span><span class="nx">addIngressRule</span><span class="p">(</span><span class="nx">cache</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="nx">kplus</span><span class="p">.</span><span class="nx">NetworkPolicyPort</span><span class="p">.</span><span class="nx">tcp</span><span class="p">(</span><span class="mf">6379</span><span class="p">)]);</span><span class="w"></span>
+</code></pre></div>
+<h2 id="bi-directional-rule">Bi-directional Rule<a class="headerlink" href="#bi-directional-rule" title="Permanent link">&para;</a></h2>
+<p>As mentioned earlier, for a connection from a source pod to a destination pod to be allowed,
+both the egress policy on the source pod and the ingress policy on the destination pod need to
+allow the connection. Using network policies, this could be tricky, especially if the pods
+are in different namespace:</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">k</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-24&#39;</span><span class="p">;</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">k</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">chart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">k</span><span class="p">.</span><span class="nx">Chart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Chart&#39;</span><span class="p">);</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">web</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Pod</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Web&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">containers</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;web&#39;</span><span class="w"> </span><span class="p">}],</span><span class="w"></span>
+<span class="w">  </span><span class="nx">metadata</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">namespace</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;n1&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">redis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Pod</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Redis&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">containers</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;redis&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">port</span><span class="o">:</span><span class="w"> </span><span class="kt">6379</span><span class="w"> </span><span class="p">}],</span><span class="w"></span>
+<span class="w">  </span><span class="nx">metadata</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">namespace</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;n2&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">webPolicy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">NetworkPolicy</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;WebPolicy&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">selector</span><span class="o">:</span><span class="w"> </span><span class="kt">web</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// must be created in the &#39;web&#39; namespace so it can select it.</span><span class="w"></span>
+<span class="w">  </span><span class="nx">metadata</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">namespace</span><span class="o">:</span><span class="w"> </span><span class="kt">web.metadata.namespace</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">redisPolicy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">NetworkPolicy</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;RedisPolicy&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">selector</span><span class="o">:</span><span class="w"> </span><span class="kt">redis</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// must be created in the &#39;redis&#39; namespace so it can select it.</span><span class="w"></span>
+<span class="w">  </span><span class="nx">metadata</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">namespace</span><span class="o">:</span><span class="w"> </span><span class="kt">redis.metadata.namespace</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+
+<span class="c1">// allow the &#39;web&#39; pod to initiate a connection to the &#39;redis&#39; pod on port 6379</span><span class="w"></span>
+<span class="nx">webPolicy</span><span class="p">.</span><span class="nx">addEgressRule</span><span class="p">(</span><span class="nx">redis</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="nx">kplus</span><span class="p">.</span><span class="nx">NetworkPolicyPort</span><span class="p">.</span><span class="nx">tcp</span><span class="p">(</span><span class="mf">6379</span><span class="p">)]);</span><span class="w"></span>
+
+<span class="c1">// allow the &#39;redis&#39; pod to accept a connection from the &#39;web&#39; pod on port 6379</span><span class="w"></span>
+<span class="nx">redis</span><span class="p">.</span><span class="nx">addIngressRule</span><span class="p">(</span><span class="nx">web</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="nx">kplus</span><span class="p">.</span><span class="nx">NetworkPolicyPort</span><span class="p">.</span><span class="nx">tcp</span><span class="p">(</span><span class="mf">6379</span><span class="p">)]);</span><span class="w"></span>
+</code></pre></div>
+<p>If the source pod of your connection is a <a href="#managed-pod">managed pod</a>
+(or <a href="#managed-workload">managed workload</a>), the same thing can be achieved much easier:</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">k</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-24&#39;</span><span class="p">;</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">k</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">chart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">k</span><span class="p">.</span><span class="nx">Chart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Chart&#39;</span><span class="p">);</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">web</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Pod</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Web&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">containers</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;web&#39;</span><span class="w"> </span><span class="p">}],</span><span class="w"></span>
+<span class="w">  </span><span class="nx">metadata</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">namespace</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;n1&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">redis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Pod</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Redis&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">containers</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;redis&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">port</span><span class="o">:</span><span class="w"> </span><span class="kt">6379</span><span class="w"> </span><span class="p">}],</span><span class="w"></span>
+<span class="w">  </span><span class="nx">metadata</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">namespace</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;n2&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+
+<span class="nx">web</span><span class="p">.</span><span class="nx">connections</span><span class="p">.</span><span class="nx">allowTo</span><span class="p">(</span><span class="nx">redis</span><span class="p">);</span><span class="w"></span>
+<span class="c1">// or</span><span class="w"></span>
+<span class="nx">redis</span><span class="p">.</span><span class="nx">connections</span><span class="p">.</span><span class="nx">allowFrom</span><span class="p">(</span><span class="nx">web</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+<p>See <a href="../pod/#connections">pod connections</a> for more details.</p>
+<h2 id="default-policies">Default Policies<a class="headerlink" href="#default-policies" title="Permanent link">&para;</a></h2>
+<p>Every policy can specify what behavior should apply when no rules are specified in
+a given direction. You can use that to create default policies that either deny or allow
+all traffic.</p>
+<h3 id="deny-all-ingress">Deny All Ingress<a class="headerlink" href="#deny-all-ingress" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>See <a href="https://kubernetes.io/docs/concepts/services-networking/network-policies/#default-deny-all-ingress-traffic">default-deny-all-ingress-traffic</a></p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">k</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-24&#39;</span><span class="p">;</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">k</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">chart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">k</span><span class="p">.</span><span class="nx">Chart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Chart&#39;</span><span class="p">);</span><span class="w"></span>
+
+<span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">NetworkPolicy</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Policy&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">ingress</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">default</span><span class="o">:</span><span class="w"> </span><span class="kt">kplus.NetworkPolicyTrafficDefault.DENY</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+</code></pre></div>
+<p>This ensures that even pods that aren&rsquo;t selected by any other network policy will still be isolated for ingress. This policy does not affect isolation for egress from any pod.</p>
+<h3 id="allow-all-ingress">Allow All Ingress<a class="headerlink" href="#allow-all-ingress" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>See <a href="https://kubernetes.io/docs/concepts/services-networking/network-policies/#allow-all-ingress-traffic">allow-all-ingress-traffic</a></p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">k</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-24&#39;</span><span class="p">;</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">k</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">chart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">k</span><span class="p">.</span><span class="nx">Chart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Chart&#39;</span><span class="p">);</span><span class="w"></span>
+
+<span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">NetworkPolicy</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Policy&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">ingress</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">default</span><span class="o">:</span><span class="w"> </span><span class="kt">kplus.NetworkPolicyTrafficDefault.ALLOW</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+</code></pre></div>
+<p>With this policy in place, no additional policy or policies can cause any incoming connection to those pods to be denied. This policy has no effect on isolation for egress from any pod.</p>
+<div class="admonition notice">
+<p class="admonition-title">Notice</p>
+<p>This differs from the default <code>DENY</code> isolation behavior, which is effectively disabled
+when other policies are applied.</p>
 </div>
-<h2 id="create-a-pod">Create a <code>Pod</code><a class="headerlink" href="#create-a-pod" title="Permanent link">&para;</a></h2>
-<p>To create a new pod in the cluster:</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-24&#39;</span><span class="p">;</span><span class="w"></span>
-<span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">k</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span><span class="w"></span>
-
-<span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">k</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">chart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">k</span><span class="p">.</span><span class="nx">Chart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Chart&#39;</span><span class="p">);</span><span class="w"></span>
-
-<span class="kd">const</span><span class="w"> </span><span class="nx">pod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Pod</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Pod&#39;</span><span class="p">);</span><span class="w"></span>
-</code></pre></div>
-<h3 id="adding-containers">Adding Containers<a class="headerlink" href="#adding-containers" title="Permanent link">&para;</a></h3>
-<p>Every <code>Pod</code> must have at least one container before you synthesize the application.
-You can add containers either during, or post instantiation:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">pod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Pod</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Pod&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nx">containers</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;image&#39;</span><span class="w"> </span><span class="p">}],</span><span class="w"></span>
-<span class="p">});</span><span class="w"></span>
-
-<span class="nx">pod</span><span class="p">.</span><span class="nx">addContainer</span><span class="p">({</span><span class="w"> </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;another-image&#39;</span><span class="w"> </span><span class="p">});</span><span class="w"></span>
-</code></pre></div>
-<h3 id="adding-volumes">Adding Volumes<a class="headerlink" href="#adding-volumes" title="Permanent link">&para;</a></h3>
-<p>Volumes can be added to pod definition either during, or post instantiation:</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-24&#39;</span><span class="p">;</span><span class="w"></span>
-
-<span class="kd">const</span><span class="w"> </span><span class="nx">data1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Volume</span><span class="p">.</span><span class="nx">fromEmptyDir</span><span class="p">(</span><span class="s1">&#39;data1&#39;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">data2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Volume</span><span class="p">.</span><span class="nx">fromEmptyDir</span><span class="p">(</span><span class="s1">&#39;data2&#39;</span><span class="p">);</span><span class="w"></span>
-
-<span class="kd">const</span><span class="w"> </span><span class="nx">pod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Pod</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Pod&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nx">volumes</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="nx">data1</span><span class="p">],</span><span class="w"></span>
-<span class="p">});</span><span class="w"></span>
-
-<span class="nx">pod</span><span class="p">.</span><span class="nx">addVolume</span><span class="p">(</span><span class="nx">data2</span><span class="p">);</span><span class="w"></span>
-</code></pre></div>
-<p>Note that adding a volume to a pod doesn&rsquo;t actually make the volume available
-to its containers. For that, you also need to mount the volume onto a container.</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-24&#39;</span><span class="p">;</span><span class="w"></span>
-
-<span class="kd">const</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Volume</span><span class="p">.</span><span class="nx">fromEmptyDir</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">);</span><span class="w"></span>
-
-<span class="kd">const</span><span class="w"> </span><span class="nx">pod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Pod</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Pod&#39;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">container</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">pod</span><span class="p">.</span><span class="nx">addContainer</span><span class="p">({</span><span class="w"> </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;image&#39;</span><span class="w"> </span><span class="p">});</span><span class="w"></span>
-
-<span class="c1">// mount the volume onto the container. this is actually enough, and you</span><span class="w"></span>
-<span class="c1">// don&#39;t need to explicitly add the volume to the pod -- cdk8s+ will do that for you.</span><span class="w"></span>
-<span class="nx">container</span><span class="p">.</span><span class="nx">mount</span><span class="p">(</span><span class="s1">&#39;/data&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">);</span><span class="w"></span>
-</code></pre></div>
-<h3 id="applying-a-restart-policy">Applying a restart policy<a class="headerlink" href="#applying-a-restart-policy" title="Permanent link">&para;</a></h3>
-<p>A restart policy can only be specified at instantiation time:</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-24&#39;</span><span class="p">;</span><span class="w"></span>
-
-<span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">k</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">chart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">k</span><span class="p">.</span><span class="nx">Chart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Chart&#39;</span><span class="p">);</span><span class="w"></span>
-
-<span class="kd">const</span><span class="w"> </span><span class="nx">pod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Pod</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Pod&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nx">restartPolicy</span><span class="o">:</span><span class="w"> </span><span class="kt">kplus.RestartPolicy.NEVER</span><span class="p">,</span><span class="w"></span>
-<span class="p">});</span><span class="w"></span>
-</code></pre></div>
-<h3 id="assigning-a-serviceaccount">Assigning a ServiceAccount<a class="headerlink" href="#assigning-a-serviceaccount" title="Permanent link">&para;</a></h3>
-<p>A service account can only be specified at instantiation time:</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-24&#39;</span><span class="p">;</span><span class="w"></span>
-
-<span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">k</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">chart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">k</span><span class="p">.</span><span class="nx">Chart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Chart&#39;</span><span class="p">);</span><span class="w"></span>
-
-<span class="kd">const</span><span class="w"> </span><span class="nx">pod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Pod</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Pod&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nx">serviceAccount</span><span class="o">:</span><span class="w"> </span><span class="kt">kplus.ServiceAccount.fromServiceAccountName</span><span class="p">(</span><span class="s1">&#39;aws&#39;</span><span class="p">),</span><span class="w"></span>
-<span class="p">});</span><span class="w"></span>
-</code></pre></div>
-<h2 id="select-pods">Select pods<a class="headerlink" href="#select-pods" title="Permanent link">&para;</a></h2>
-<p>Pods can also be selected by various mechanisms. These selections are often used in other
-cdk8s+ API&rsquo;s, such as <a href="./#pod-selection">pod selection</a> during scheduling.</p>
-<h3 id="select-pods-with-labels">Select pods with labels<a class="headerlink" href="#select-pods-with-labels" title="Permanent link">&para;</a></h3>
-<p>Selects all pods that have the <code>app=store</code> label.</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-24&#39;</span><span class="p">;</span><span class="w"></span>
-
-<span class="kd">const</span><span class="w"> </span><span class="nx">pods</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Pods</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Store&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">labels</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">app</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;store&#39;</span><span class="w"> </span><span class="p">}});</span><span class="w"></span>
-</code></pre></div>
-<h3 id="select-pods-with-expressions">Select pods with expressions<a class="headerlink" href="#select-pods-with-expressions" title="Permanent link">&para;</a></h3>
-<p>Selects all pods that have the <code>app</code> label, regardless of the value.</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-24&#39;</span><span class="p">;</span><span class="w"></span>
-
-<span class="kd">const</span><span class="w"> </span><span class="nx">pods</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Pods</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;App&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nx">expressions</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="nx">kplus</span><span class="p">.</span><span class="nx">LabelExpression</span><span class="p">.</span><span class="nx">exists</span><span class="p">(</span><span class="s1">&#39;app&#39;</span><span class="p">)]</span><span class="w"></span>
-<span class="p">});</span><span class="w"></span>
-</code></pre></div>
-<h3 id="select-pods-with-labels-in-a-particular-namespace">Select pods with labels in a particular namespace<a class="headerlink" href="#select-pods-with-labels-in-a-particular-namespace" title="Permanent link">&para;</a></h3>
-<p>Pod selection can also be scoped to specific namespaces.
-This is done using the <code>namespaces</code> property, which can accept any <a href="../namespace/#select-namespaces">namespace selector</a>.</p>
-<p>For example, select all pods that have the <code>app=store</code> label in the <code>backoffice</code> namespace:</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-24&#39;</span><span class="p">;</span><span class="w"></span>
-
-<span class="kd">const</span><span class="w"> </span><span class="nx">pods</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Pods</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Pods&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nx">labels</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">app</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;store&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
-<span class="w">  </span><span class="nx">namespaces</span><span class="o">:</span><span class="w"> </span><span class="kt">kplus.Namespaces.select</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Backoffice&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">names</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;backoffice&#39;</span><span class="p">]</span><span class="w"> </span><span class="p">}),</span><span class="w"></span>
-<span class="p">});</span><span class="w"></span>
-</code></pre></div>
-<h2 id="scheduling">Scheduling<a class="headerlink" href="#scheduling" title="Permanent link">&para;</a></h2>
-<p>Kubernetes offers a few properties for controlling how pods are scheduled onto nodes.</p>
-<ul>
-<li><a href="https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodename"><code>nodeName</code></a></li>
-<li><a href="https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector"><code>nodeSelector</code></a></li>
-<li><a href="https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#node-affinity"><code>nodeAffinity</code></a></li>
-<li><a href="https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#inter-pod-affinity-and-anti-affinity"><code>podAffinity</code></a></li>
-<li><a href="https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#inter-pod-affinity-and-anti-affinity"><code>podAntiAffinity</code></a></li>
-<li><a href="https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/"><code>tolearations</code></a></li>
-</ul>
-<p>CDK8s+ collapses all these different features and exposes them under one unified API we refer to as <code>Scheduling</code>. This API is available on a <code>Pod</code> via the <code>scheduling</code> property.</p>
+<h3 id="deny-all-egress">Deny All Egress<a class="headerlink" href="#deny-all-egress" title="Permanent link">&para;</a></h3>
 <blockquote>
-<p>The same API is also available on all workload resources (i.e <code>Deployment</code>, <code>StatefulSet</code>, <code>Job</code>, <code>DaemonSet</code>).</p>
+<p>See <a href="https://kubernetes.io/docs/concepts/services-networking/network-policies/#default-deny-all-egress-traffic">default-deny-all-egress-traffic</a></p>
 </blockquote>
-<p>Scheduling is comprised of two different types:</p>
-<ul>
-<li><a href="#node-selection">Node Selection</a></li>
-<li><a href="#pod-selection">Pod Selection</a></li>
-</ul>
-<h3 id="node-selection">Node Selection<a class="headerlink" href="#node-selection" title="Permanent link">&para;</a></h3>
-<p>Node selection is the process of directly selecting which
-nodes should pods be scheduled on, by selecting node attributes.</p>
-<h4 id="node-assignment">Node Assignment<a class="headerlink" href="#node-assignment" title="Permanent link">&para;</a></h4>
-<p>You can statically assign a pod to a specific node, by using the node&rsquo;s name.</p>
 <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">k</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span><span class="w"></span>
 <span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-24&#39;</span><span class="p">;</span><span class="w"></span>
 
 <span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">k</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span><span class="w"></span>
 <span class="kd">const</span><span class="w"> </span><span class="nx">chart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">k</span><span class="p">.</span><span class="nx">Chart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Chart&#39;</span><span class="p">);</span><span class="w"></span>
 
-<span class="kd">const</span><span class="w"> </span><span class="nx">redis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Pod</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Redis&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nx">containers</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;redis&#39;</span><span class="w"> </span><span class="p">}]</span><span class="w"></span>
+<span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">NetworkPolicy</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Policy&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">egress</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">default</span><span class="o">:</span><span class="w"> </span><span class="kt">kplus.NetworkPolicyTrafficDefault.DENY</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
 <span class="p">});</span><span class="w"></span>
-<span class="nx">redis</span><span class="p">.</span><span class="nx">scheduling</span><span class="p">.</span><span class="nx">assign</span><span class="p">(</span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Node</span><span class="p">.</span><span class="nx">named</span><span class="p">(</span><span class="s1">&#39;node1&#39;</span><span class="p">));</span><span class="w"></span>
 </code></pre></div>
-<p>This example will cause the <code>Redis</code> pod to be scheduled on a node with name <code>node1</code>.</p>
-<h4 id="node-attraction">Node Attraction<a class="headerlink" href="#node-attraction" title="Permanent link">&para;</a></h4>
-<p>Pods can attract themselves to nodes. As opposed to an assignment,
-an attraction can be made to a <strong>set</strong> of nodes, specified by node labels.
-An attraction can be either required, or preferred.</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">k</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span><span class="w"></span>
-<span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-24&#39;</span><span class="p">;</span><span class="w"></span>
-
-<span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">k</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">chart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">k</span><span class="p">.</span><span class="nx">Chart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Chart&#39;</span><span class="p">);</span><span class="w"></span>
-
-<span class="kd">const</span><span class="w"> </span><span class="nx">redis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Pod</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Redis&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nx">containers</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;redis&#39;</span><span class="w"> </span><span class="p">}]</span><span class="w"></span>
-<span class="p">});</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">highMemoryNodes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Node</span><span class="p">.</span><span class="nx">labeled</span><span class="p">(</span><span class="nx">kplus</span><span class="p">.</span><span class="nx">NodeLabelQuery</span><span class="p">.</span><span class="nx">is</span><span class="p">(</span><span class="s1">&#39;memory&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;high&#39;</span><span class="p">));</span><span class="w"></span>
-<span class="nx">redis</span><span class="p">.</span><span class="nx">scheduling</span><span class="p">.</span><span class="nx">attract</span><span class="p">(</span><span class="nx">highMemoryNodes</span><span class="p">);</span><span class="w"></span>
-</code></pre></div>
-<p>This example will <strong>require</strong> the <code>Redis</code> pod be scheduled on a
-node that has the <code>memory=high</code> label. To request a <strong>preference</strong>, specify the <a href="https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#node-affinity-weight"><code>weight</code></a> property:</p>
-<div class="highlight"><pre><span></span><code><span class="nx">redis</span><span class="p">.</span><span class="nx">scheduling</span><span class="p">.</span><span class="nx">attract</span><span class="p">(</span><span class="nx">highMemoryNodes</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">weight</span><span class="o">:</span><span class="w"> </span><span class="kt">50</span><span class="w"> </span><span class="p">});</span><span class="w"></span>
-</code></pre></div>
-<h4 id="node-toleration">Node Toleration<a class="headerlink" href="#node-toleration" title="Permanent link">&para;</a></h4>
-<p>While attractions is a property of Pods that attracts them to a set of nodes,
-taints are the opposite &ndash; they allow a node to repel a set of pods.</p>
-<p>Tolerations are applied to pods, and allow (but do not require) the pods to
-schedule onto nodes with matching taints.</p>
-<p>Taints and tolerations work together to ensure that pods are not scheduled onto inappropriate nodes. One or more taints are applied to a node; this marks that the node should not accept any pods that do not tolerate the taints.</p>
-<p>A toleration can be made to a <strong>set</strong> of nodes, specified by node taints.</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">k</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span><span class="w"></span>
-<span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-24&#39;</span><span class="p">;</span><span class="w"></span>
-
-<span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">k</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">chart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">k</span><span class="p">.</span><span class="nx">Chart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Chart&#39;</span><span class="p">);</span><span class="w"></span>
-
-<span class="kd">const</span><span class="w"> </span><span class="nx">redis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Pod</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Redis&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nx">containers</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;redis&#39;</span><span class="w"> </span><span class="p">}]</span><span class="w"></span>
-<span class="p">});</span><span class="w"></span>
-
-<span class="kd">const</span><span class="w"> </span><span class="nx">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Node</span><span class="p">.</span><span class="nx">tainted</span><span class="p">(</span><span class="nx">kplus</span><span class="p">.</span><span class="nx">NodeTaintQuery</span><span class="p">.</span><span class="nx">is</span><span class="p">(</span><span class="s1">&#39;key1&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;value1&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nx">effect</span><span class="o">:</span><span class="w"> </span><span class="kt">kplus.TainEffect.NO_SCHEDULE</span><span class="w"></span>
-<span class="p">}));</span><span class="w"></span>
-<span class="nx">redis</span><span class="p">.</span><span class="nx">scheduling</span><span class="p">.</span><span class="nx">tolerate</span><span class="p">(</span><span class="nx">node</span><span class="p">);</span><span class="w"></span>
-</code></pre></div>
-<p>This example says the the <code>Redis</code> pod is able to tolerate
-nodes tainted with <code>key1=value1:NoSchedule</code>.</p>
-<h3 id="pod-selection">Pod Selection<a class="headerlink" href="#pod-selection" title="Permanent link">&para;</a></h3>
-<p>Pod selection is the process of selecting which <strong>nodes</strong> should pods be scheduled on,
-by looking at which other <strong>pods</strong> are already scheduled on those nodes.</p>
-<p>The API&rsquo;s presented here interact either with specific pods,
-i.e instances of <code>Pod</code> or <code>Workload</code> (e.g <code>Deployment</code>, <code>StatefulSet</code>, <code>Job</code>, &hellip;), or with a group of pods, i.e ones that are identified by a set of <a href="#select-pods">selectors</a>.</p>
-<h4 id="pod-co-location">Pod Co-location<a class="headerlink" href="#pod-co-location" title="Permanent link">&para;</a></h4>
-<p>Pod co-location is a way to tell the scheduler to place a pod in a <em>topology</em>
-that already hosts other pods that meet some criteria.</p>
-<p>A topology is expressed via the <code>topology</code> property, and
-represents a failure domain that Kubernetes is aware of. It can be one of:</p>
-<ul>
-<li><code>kplus.Topology.HOSTNAME</code>: A single node. This is the default value.</li>
-<li><code>kplus.Topology.ZONE</code>: Multiple nodes in a single availability zone.</li>
-<li><code>kplus.Topology.REGION</code>: Multiple nodes in a single region.</li>
-<li><code>kplus.Topology.custom</code>: Any other configurable value.</li>
-</ul>
-<p>Similarly to node attractions, co-location can also be either required, or preferred.</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">k</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span><span class="w"></span>
-<span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-24&#39;</span><span class="p">;</span><span class="w"></span>
-
-<span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">k</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">chart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">k</span><span class="p">.</span><span class="nx">Chart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Chart&#39;</span><span class="p">);</span><span class="w"></span>
-
-<span class="kd">const</span><span class="w"> </span><span class="nx">redis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Pod</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Redis&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nx">containers</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;redis&#39;</span><span class="w"> </span><span class="p">}]</span><span class="w"></span>
-<span class="p">});</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">web</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Pod</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Web&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nx">containers</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;web&#39;</span><span class="w"> </span><span class="p">}]</span><span class="w"></span>
-<span class="p">});</span><span class="w"></span>
-
-<span class="nx">web</span><span class="p">.</span><span class="nx">scheduling</span><span class="p">.</span><span class="nx">colocate</span><span class="p">(</span><span class="nx">redis</span><span class="p">);</span><span class="w"></span>
-</code></pre></div>
-<p>This example will require the <code>Web</code> pod to be scheduled on the same node as
-the <code>Redis</code> pod. To request a <strong>preference</strong>, specify the <a href="https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#node-affinity-weight"><code>weight</code></a> property:</p>
-<div class="highlight"><pre><span></span><code><span class="nx">web</span><span class="p">.</span><span class="nx">scheduling</span><span class="p">.</span><span class="nx">colocate</span><span class="p">(</span><span class="nx">redis</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">weight</span><span class="o">:</span><span class="w"> </span><span class="kt">50</span><span class="w"> </span><span class="p">});</span><span class="w"></span>
-</code></pre></div>
-<p>To use a different topology, specify the <code>topology</code> property:</p>
-<div class="highlight"><pre><span></span><code><span class="nx">web</span><span class="p">.</span><span class="nx">scheduling</span><span class="p">.</span><span class="nx">colocate</span><span class="p">(</span><span class="nx">redis</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">weight</span><span class="o">:</span><span class="w"> </span><span class="kt">50</span><span class="p">,</span><span class="w"> </span><span class="nx">topology</span><span class="o">:</span><span class="w"> </span><span class="kt">kplus.Topology.ZONE</span><span class="w"> </span><span class="p">});</span><span class="w"></span>
-</code></pre></div>
-<p>This scenario configures co-location between two pods that are defined and managed
-in the same cdk8s application. You can also co-locate with an externally
-managed pod, by specifying a pod selector:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">redis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Pod</span><span class="p">.</span><span class="nx">select</span><span class="p">({</span><span class="w"></span>
-<span class="w">  </span><span class="nx">labels</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">app</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;cache&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
-<span class="p">});</span><span class="w"></span>
-<span class="nx">web</span><span class="p">.</span><span class="nx">scheduling</span><span class="p">.</span><span class="nx">colocate</span><span class="p">(</span><span class="nx">redis</span><span class="p">);</span><span class="w"></span>
-</code></pre></div>
-<p>This will co-locate the <code>Web</code> pod with pods that have the <code>app=cache</code> label, regardless of
-whether they are defined in the cdk8s app or not.</p>
+<p>This ensures that even pods that aren&rsquo;t selected by any other NetworkPolicy will not be allowed egress traffic. This policy does not change the ingress isolation behavior of any pod.</p>
+<h3 id="allow-all-egress">Allow All Egress<a class="headerlink" href="#allow-all-egress" title="Permanent link">&para;</a></h3>
 <blockquote>
-<p><strong>Under the hood</strong>: Co-location with managed pods will automatically
-extract its labels and form the appropriate pod selector.</p>
+<p>See <a href="https://kubernetes.io/docs/concepts/services-networking/network-policies/#allow-all-egress-traffic">allow-all-egress-traffic</a></p>
 </blockquote>
-<h4 id="pod-separation">Pod Separation<a class="headerlink" href="#pod-separation" title="Permanent link">&para;</a></h4>
-<p>Pod separation (e.g anti co-location) is a way to tell the scheduler <strong>not to</strong> place a
-pod in a <em>topology</em> that already hosts other pods that meet some criteria.
-Similarly to co-location, separation can also be either required, or preferred.</p>
 <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">k</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span><span class="w"></span>
 <span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-24&#39;</span><span class="p">;</span><span class="w"></span>
 
 <span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">k</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span><span class="w"></span>
 <span class="kd">const</span><span class="w"> </span><span class="nx">chart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">k</span><span class="p">.</span><span class="nx">Chart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Chart&#39;</span><span class="p">);</span><span class="w"></span>
 
-<span class="kd">const</span><span class="w"> </span><span class="nx">redis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Pod</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Redis&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nx">containers</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;redis&#39;</span><span class="w"> </span><span class="p">}]</span><span class="w"></span>
+<span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">NetworkPolicy</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Policy&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">egress</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">default</span><span class="o">:</span><span class="w"> </span><span class="kt">kplus.NetworkPolicyTrafficDefault.ALLOW</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
 <span class="p">});</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">web</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Pod</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Web&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nx">containers</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;web&#39;</span><span class="w"> </span><span class="p">}]</span><span class="w"></span>
-<span class="p">});</span><span class="w"></span>
-
-<span class="nx">web</span><span class="p">.</span><span class="nx">scheduling</span><span class="p">.</span><span class="nx">separate</span><span class="p">(</span><span class="nx">redis</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
-<p>This example will require the <code>Web</code> pod to <strong>not be</strong> scheduled on the same
-node (because the default value of the topology is <code>HOSTNAME</code>) as the <code>Redis</code> pod.
-To request a <strong>preference</strong>, specify the <a href="https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#node-affinity-weight"><code>weight</code></a> property:</p>
-<div class="highlight"><pre><span></span><code><span class="nx">web</span><span class="p">.</span><span class="nx">scheduling</span><span class="p">.</span><span class="nx">separate</span><span class="p">(</span><span class="nx">redis</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">weight</span><span class="o">:</span><span class="w"> </span><span class="kt">50</span><span class="w"> </span><span class="p">});</span><span class="w"></span>
-</code></pre></div>
-<p>To use a different topology, specify the <code>topology</code> property:</p>
-<div class="highlight"><pre><span></span><code><span class="nx">web</span><span class="p">.</span><span class="nx">scheduling</span><span class="p">.</span><span class="nx">separate</span><span class="p">(</span><span class="nx">redis</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">weight</span><span class="o">:</span><span class="w"> </span><span class="kt">50</span><span class="p">,</span><span class="w"> </span><span class="nx">topology</span><span class="o">:</span><span class="w"> </span><span class="kt">kplus.Topology.ZONE</span><span class="w"> </span><span class="p">});</span><span class="w"></span>
-</code></pre></div>
-<p>This scenario configures separation between two pods that are defined and managed
-in the same cdk8s application. You can also separate with an externally
-managed pod, by specifying a pod selector:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">redis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Pod</span><span class="p">.</span><span class="nx">select</span><span class="p">({</span><span class="w"></span>
-<span class="w">  </span><span class="nx">labels</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">app</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;cache&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
-<span class="p">});</span><span class="w"></span>
-<span class="nx">web</span><span class="p">.</span><span class="nx">scheduling</span><span class="p">.</span><span class="nx">separate</span><span class="p">(</span><span class="nx">redis</span><span class="p">);</span><span class="w"></span>
-</code></pre></div>
-<p>This will separate the <code>Web</code> pod from pods that have the <code>app=cache</code> label, regardless of
-whether they are defined in the cdk8s app or not.</p>
-<blockquote>
-<p><strong>Under the hood</strong>: Co-location with managed pods will automatically
-extract its labels and form the appropriate pod selector.</p>
-</blockquote>
+<p>With this policy in place, no additional policy or policies can cause any outgoing connection from those pods to be denied. This policy has no effect on isolation for ingress to any pod.</p>
+<div class="admonition notice">
+<p class="admonition-title">Notice</p>
+<p>This differs from the default <code>DENY</code> isolation behavior, which is effectively disabled
+when other policies are applied.</p>
+</div>
 
               
             </article>
@@ -2045,7 +2073,7 @@ extract its labels and form the appropriate pod selector.</p>
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../network-policy/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Network Policy" rel="prev">
+        <a href="../namespace/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Namespace" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -2054,20 +2082,20 @@ extract its labels and form the appropriate pod selector.</p>
               <span class="md-footer__direction">
                 Previous
               </span>
-              Network Policy
+              Namespace
             </div>
           </div>
         </a>
       
       
         
-        <a href="../pv/" class="md-footer__link md-footer__link--next" aria-label="Next: PersistentVolume" rel="next">
+        <a href="../pod/" class="md-footer__link md-footer__link--next" aria-label="Next: Pod" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              PersistentVolume
+              Pod
             </div>
           </div>
           <div class="md-footer__button md-icon">

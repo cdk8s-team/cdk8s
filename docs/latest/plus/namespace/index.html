@@ -731,6 +731,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../network-policy/" class="md-nav__link">
+        Network Policy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../pod/" class="md-nav__link">
         Pod
       </a>
@@ -1064,14 +1078,14 @@
       
       
         <label class="md-nav__link" for="__nav_8_4">
-          cdk8s-plus-21
+          cdk8s-plus-23
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="cdk8s-plus-21" data-md-level="2">
+      <nav class="md-nav" aria-label="cdk8s-plus-23" data-md-level="2">
         <label class="md-nav__title" for="__nav_8_4">
           <span class="md-nav__icon md-icon"></span>
-          cdk8s-plus-21
+          cdk8s-plus-23
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1081,7 +1095,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/cdk8s-plus-21/typescript/" class="md-nav__link">
+      <a href="../../reference/cdk8s-plus-23/typescript/" class="md-nav__link">
         TypeScript
       </a>
     </li>
@@ -1095,7 +1109,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/cdk8s-plus-21/python/" class="md-nav__link">
+      <a href="../../reference/cdk8s-plus-23/python/" class="md-nav__link">
         Python
       </a>
     </li>
@@ -1109,7 +1123,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/cdk8s-plus-21/java/" class="md-nav__link">
+      <a href="../../reference/cdk8s-plus-23/java/" class="md-nav__link">
         Java
       </a>
     </li>
@@ -1123,7 +1137,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/cdk8s-plus-21/go/" class="md-nav__link">
+      <a href="../../reference/cdk8s-plus-23/go/" class="md-nav__link">
         Go
       </a>
     </li>
@@ -1153,14 +1167,14 @@
       
       
         <label class="md-nav__link" for="__nav_8_5">
-          cdk8s-plus-20
+          cdk8s-plus-24
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="cdk8s-plus-20" data-md-level="2">
+      <nav class="md-nav" aria-label="cdk8s-plus-24" data-md-level="2">
         <label class="md-nav__title" for="__nav_8_5">
           <span class="md-nav__icon md-icon"></span>
-          cdk8s-plus-20
+          cdk8s-plus-24
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1170,7 +1184,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/cdk8s-plus-20/typescript/" class="md-nav__link">
+      <a href="../../reference/cdk8s-plus-24/typescript/" class="md-nav__link">
         TypeScript
       </a>
     </li>
@@ -1184,7 +1198,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/cdk8s-plus-20/python/" class="md-nav__link">
+      <a href="../../reference/cdk8s-plus-24/python/" class="md-nav__link">
         Python
       </a>
     </li>
@@ -1198,7 +1212,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/cdk8s-plus-20/java/" class="md-nav__link">
+      <a href="../../reference/cdk8s-plus-24/java/" class="md-nav__link">
         Java
       </a>
     </li>
@@ -1212,7 +1226,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/cdk8s-plus-20/go/" class="md-nav__link">
+      <a href="../../reference/cdk8s-plus-24/go/" class="md-nav__link">
         Go
       </a>
     </li>
@@ -1625,11 +1639,11 @@
 <h1 id="namespace">Namespace<a class="headerlink" href="#namespace" title="Permanent link">&para;</a></h1>
 <p>Namespaces provides a mechanism for isolating groups of resources within a single cluster.</p>
 <div class="admonition tip">
-<p><a href="../../reference/cdk8s-plus-22/typescript/#namespace">API Reference</a></p>
+<p><a href="../../reference/cdk8s-plus-24/typescript/#namespace">API Reference</a></p>
 </div>
 <h2 id="create-a-namespace">Create a <code>Namespace</code><a class="headerlink" href="#create-a-namespace" title="Permanent link">&para;</a></h2>
 <p>To create a new namespace in the cluster:</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-22&#39;</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-24&#39;</span><span class="p">;</span><span class="w"></span>
 <span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">k</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span><span class="w"></span>
 
 <span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">k</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span><span class="w"></span>
@@ -1644,19 +1658,19 @@ can access by <code>namespace.name</code>.</p>
 cdk8s+ API&rsquo;s, such as <a href="../pod/#pod-selection">pod selection</a> during scheduling.</p>
 <h3 id="select-namespaces-by-name">Select namespaces by name<a class="headerlink" href="#select-namespaces-by-name" title="Permanent link">&para;</a></h3>
 <p>Select a namespace called <code>backoffice</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-22&#39;</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-24&#39;</span><span class="p">;</span><span class="w"></span>
 
-<span class="kd">const</span><span class="w"> </span><span class="nx">backoffice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Namespaces</span><span class="p">.</span><span class="nx">select</span><span class="p">({</span><span class="w"> </span><span class="nx">names</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;backoffice&#39;</span><span class="p">]</span><span class="w"> </span><span class="p">});</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">backoffice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Namespaces</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Backoffice&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">names</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;backoffice&#39;</span><span class="p">]</span><span class="w"> </span><span class="p">});</span><span class="w"></span>
 </code></pre></div>
 <h3 id="select-namespace-by-labels">Select namespace by labels<a class="headerlink" href="#select-namespace-by-labels" title="Permanent link">&para;</a></h3>
 <p>Select all namespaces that have the <code>processing=batch</code> label.</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-22&#39;</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-24&#39;</span><span class="p">;</span><span class="w"></span>
 
-<span class="kd">const</span><span class="w"> </span><span class="nx">batch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Namespaces</span><span class="p">.</span><span class="nx">select</span><span class="p">({</span><span class="w"> </span><span class="nx">labels</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">processing</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;batch&#39;</span><span class="p">}</span><span class="w"> </span><span class="p">});</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">batch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Namespaces</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Batch&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">labels</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">processing</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;batch&#39;</span><span class="p">}</span><span class="w"> </span><span class="p">});</span><span class="w"></span>
 </code></pre></div>
 <h3 id="select-all-namespaces">Select all namespaces<a class="headerlink" href="#select-all-namespaces" title="Permanent link">&para;</a></h3>
 <p>Select all namespaces in the cluster.</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-22&#39;</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-24&#39;</span><span class="p">;</span><span class="w"></span>
 
 <span class="kd">const</span><span class="w"> </span><span class="nx">all</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Namespaces</span><span class="p">.</span><span class="nx">all</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
@@ -1689,13 +1703,13 @@ cdk8s+ API&rsquo;s, such as <a href="../pod/#pod-selection">pod selection</a> du
       
       
         
-        <a href="../pod/" class="md-footer__link md-footer__link--next" aria-label="Next: Pod" rel="next">
+        <a href="../network-policy/" class="md-footer__link md-footer__link--next" aria-label="Next: Network Policy" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Pod
+              Network Policy
             </div>
           </div>
           <div class="md-footer__button md-icon">

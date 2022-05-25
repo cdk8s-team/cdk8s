@@ -731,6 +731,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../network-policy/" class="md-nav__link">
+        Network Policy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../pod/" class="md-nav__link">
         Pod
       </a>
@@ -1064,14 +1078,14 @@
       
       
         <label class="md-nav__link" for="__nav_8_4">
-          cdk8s-plus-21
+          cdk8s-plus-23
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="cdk8s-plus-21" data-md-level="2">
+      <nav class="md-nav" aria-label="cdk8s-plus-23" data-md-level="2">
         <label class="md-nav__title" for="__nav_8_4">
           <span class="md-nav__icon md-icon"></span>
-          cdk8s-plus-21
+          cdk8s-plus-23
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1081,7 +1095,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/cdk8s-plus-21/typescript/" class="md-nav__link">
+      <a href="../../reference/cdk8s-plus-23/typescript/" class="md-nav__link">
         TypeScript
       </a>
     </li>
@@ -1095,7 +1109,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/cdk8s-plus-21/python/" class="md-nav__link">
+      <a href="../../reference/cdk8s-plus-23/python/" class="md-nav__link">
         Python
       </a>
     </li>
@@ -1109,7 +1123,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/cdk8s-plus-21/java/" class="md-nav__link">
+      <a href="../../reference/cdk8s-plus-23/java/" class="md-nav__link">
         Java
       </a>
     </li>
@@ -1123,7 +1137,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/cdk8s-plus-21/go/" class="md-nav__link">
+      <a href="../../reference/cdk8s-plus-23/go/" class="md-nav__link">
         Go
       </a>
     </li>
@@ -1153,14 +1167,14 @@
       
       
         <label class="md-nav__link" for="__nav_8_5">
-          cdk8s-plus-20
+          cdk8s-plus-24
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="cdk8s-plus-20" data-md-level="2">
+      <nav class="md-nav" aria-label="cdk8s-plus-24" data-md-level="2">
         <label class="md-nav__title" for="__nav_8_5">
           <span class="md-nav__icon md-icon"></span>
-          cdk8s-plus-20
+          cdk8s-plus-24
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1170,7 +1184,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/cdk8s-plus-20/typescript/" class="md-nav__link">
+      <a href="../../reference/cdk8s-plus-24/typescript/" class="md-nav__link">
         TypeScript
       </a>
     </li>
@@ -1184,7 +1198,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/cdk8s-plus-20/python/" class="md-nav__link">
+      <a href="../../reference/cdk8s-plus-24/python/" class="md-nav__link">
         Python
       </a>
     </li>
@@ -1198,7 +1212,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/cdk8s-plus-20/java/" class="md-nav__link">
+      <a href="../../reference/cdk8s-plus-24/java/" class="md-nav__link">
         Java
       </a>
     </li>
@@ -1212,7 +1226,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/cdk8s-plus-20/go/" class="md-nav__link">
+      <a href="../../reference/cdk8s-plus-24/go/" class="md-nav__link">
         Go
       </a>
     </li>
@@ -1625,14 +1639,14 @@
 <h1 id="container">Container<a class="headerlink" href="#container" title="Permanent link">&para;</a></h1>
 <p>Define containers that run in a pod using the <code>Container</code> class.</p>
 <div class="admonition tip">
-<p><a href="../../reference/cdk8s-plus-22/typescript/#container">API Reference</a></p>
+<p><a href="../../reference/cdk8s-plus-24/typescript/#container">API Reference</a></p>
 </div>
 <h2 id="environment">Environment<a class="headerlink" href="#environment" title="Permanent link">&para;</a></h2>
 <p>A container&rsquo;s environment can be populated by various methods.</p>
 <h3 id="variables">Variables<a class="headerlink" href="#variables" title="Permanent link">&para;</a></h3>
 <p>Environment variables can be added to containers by specifying the
 variable name and value. The value can come from different sources, either dynamic or static.</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-22&#39;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-24&#39;</span><span class="w"></span>
 
 <span class="kd">const</span><span class="w"> </span><span class="nx">pod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Pod</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Pod&#39;</span><span class="p">);</span><span class="w"></span>
 <span class="kd">const</span><span class="w"> </span><span class="nx">container</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">pod</span><span class="p">.</span><span class="nx">addContainer</span><span class="p">({</span><span class="w"></span>
@@ -1657,7 +1671,7 @@ variable name and value. The value can come from different sources, either dynam
 <p>Environment variables can also be populated by referencing other objects as an environment source.
 With this method, all the key-value data of the source is added as environment variables,
 where the key is the env name and the value is the env value.</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-22&#39;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-24&#39;</span><span class="w"></span>
 
 <span class="kd">const</span><span class="w"> </span><span class="nx">pod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Pod</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Pod&#39;</span><span class="p">);</span><span class="w"></span>
 <span class="kd">const</span><span class="w"> </span><span class="nx">cm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">ConfigMap</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;ConfigMap&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -1690,7 +1704,7 @@ where the key is the env name and the value is the env value.</p>
 <p>Notice the apparent redundancy of having to specify the volume name twice. Also, if you happen to need the same mount in other pods,
 you would need to duplicate this configuration. This can get complex and cluttered very fast.</p>
 <p>In contrast, here is how to do this with <code>cdk8s+</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-22&#39;</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-24&#39;</span><span class="p">;</span><span class="w"></span>
 
 <span class="kd">const</span><span class="w"> </span><span class="nx">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">ConfigMap</span><span class="p">.</span><span class="nx">fromConfigMapName</span><span class="p">(</span><span class="s1">&#39;config&#39;</span><span class="p">);</span><span class="w"></span>
 <span class="kd">const</span><span class="w"> </span><span class="nx">volume</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Volume</span><span class="p">.</span><span class="nx">fromConfigMap</span><span class="p">(</span><span class="nx">config</span><span class="p">);</span><span class="w"></span>

@@ -752,6 +752,20 @@
   
   
     <li class="md-nav__item">
+      <a href="network-policy/" class="md-nav__link">
+        Network Policy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="pod/" class="md-nav__link">
         Pod
       </a>
@@ -1085,14 +1099,14 @@
       
       
         <label class="md-nav__link" for="__nav_8_4">
-          cdk8s-plus-21
+          cdk8s-plus-23
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="cdk8s-plus-21" data-md-level="2">
+      <nav class="md-nav" aria-label="cdk8s-plus-23" data-md-level="2">
         <label class="md-nav__title" for="__nav_8_4">
           <span class="md-nav__icon md-icon"></span>
-          cdk8s-plus-21
+          cdk8s-plus-23
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1102,7 +1116,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/cdk8s-plus-21/typescript/" class="md-nav__link">
+      <a href="../reference/cdk8s-plus-23/typescript/" class="md-nav__link">
         TypeScript
       </a>
     </li>
@@ -1116,7 +1130,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/cdk8s-plus-21/python/" class="md-nav__link">
+      <a href="../reference/cdk8s-plus-23/python/" class="md-nav__link">
         Python
       </a>
     </li>
@@ -1130,7 +1144,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/cdk8s-plus-21/java/" class="md-nav__link">
+      <a href="../reference/cdk8s-plus-23/java/" class="md-nav__link">
         Java
       </a>
     </li>
@@ -1144,7 +1158,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/cdk8s-plus-21/go/" class="md-nav__link">
+      <a href="../reference/cdk8s-plus-23/go/" class="md-nav__link">
         Go
       </a>
     </li>
@@ -1174,14 +1188,14 @@
       
       
         <label class="md-nav__link" for="__nav_8_5">
-          cdk8s-plus-20
+          cdk8s-plus-24
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="cdk8s-plus-20" data-md-level="2">
+      <nav class="md-nav" aria-label="cdk8s-plus-24" data-md-level="2">
         <label class="md-nav__title" for="__nav_8_5">
           <span class="md-nav__icon md-icon"></span>
-          cdk8s-plus-20
+          cdk8s-plus-24
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1191,7 +1205,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/cdk8s-plus-20/typescript/" class="md-nav__link">
+      <a href="../reference/cdk8s-plus-24/typescript/" class="md-nav__link">
         TypeScript
       </a>
     </li>
@@ -1205,7 +1219,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/cdk8s-plus-20/python/" class="md-nav__link">
+      <a href="../reference/cdk8s-plus-24/python/" class="md-nav__link">
         Python
       </a>
     </li>
@@ -1219,7 +1233,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/cdk8s-plus-20/java/" class="md-nav__link">
+      <a href="../reference/cdk8s-plus-24/java/" class="md-nav__link">
         Java
       </a>
     </li>
@@ -1233,7 +1247,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/cdk8s-plus-20/go/" class="md-nav__link">
+      <a href="../reference/cdk8s-plus-24/go/" class="md-nav__link">
         Go
       </a>
     </li>
@@ -1676,8 +1690,8 @@ exposing richer API&rsquo;s with reduced complexity.</p>
 </div>
 <p>Here is an example of how we would deploy a simple nginx container, once with the low-level API (on the left), and once with the high level abstraction (on the right).</p>
 <p><img alt="corevsplus" src="../assets/corevsplus.png" /></p>
-<p><strong>cdk8s+</strong> is vended as a separate library for each kubernetes spec version. The documentation presented here represents version <a href="https://github.com/kubernetes/kubernetes/tree/v1.22.0/api/openapi-spec">1.22.0</a>
-and is vended as the <code>cdk8s-plus-22</code> library.</p>
+<p><strong>cdk8s+</strong> is vended as a separate library for each kubernetes spec version. The documentation presented here represents version <a href="https://github.com/kubernetes/kubernetes/tree/v1.24.0/api/openapi-spec">1.24.0</a>
+and is vended as the <code>cdk8s-plus-24</code> library.</p>
 <h3 id="naming-conventions">Naming conventions<a class="headerlink" href="#naming-conventions" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Stable resources are represented by a <em>construct</em> of the same <em>kind</em>. For example, the <code>io.k8s.api.core.v1.Pod</code> resource maps to the <code>Pod</code> <em>construct</em>.</li>
@@ -1685,10 +1699,10 @@ and is vended as the <code>cdk8s-plus-22</code> library.</p>
 </ul>
 <h3 id="spec-compatibility">Spec compatibility<a class="headerlink" href="#spec-compatibility" title="Permanent link">&para;</a></h3>
 <p>Per kubernetes <a href="https://kubernetes.io/docs/concepts/overview/kubernetes-api/#api-groups-and-versioning">compatibility guarantees</a>, <strong>stable</strong> resources in this library are compatible with
-any spec version higher or equal to <code>1.22.0</code>. <strong>Non-stable</strong> resources are not guaranteed to be compatible, as they may be removed in future spec versions.</p>
+any spec version higher or equal to <code>1.24.0</code>. <strong>Non-stable</strong> resources are not guaranteed to be compatible, as they may be removed in future spec versions.</p>
 <div class="admonition notice">
 <p class="admonition-title">Notice</p>
-<p>If you are deploying manifests produced by <code>cdk8s-plus-22</code> onto clusters of a lower version, you might encounter some unsupported spec properties or invalid manifests.</p>
+<p>If you are deploying manifests produced by <code>cdk8s-plus-24</code> onto clusters of a lower version, you might encounter some unsupported spec properties or invalid manifests.</p>
 </div>
 <h2 id="faq">FAQ<a class="headerlink" href="#faq" title="Permanent link">&para;</a></h2>
 <h3 id="whats-the-difference-between-cdk8s-plus-20-cdk8s-plus-21-and-cdk8s-plus-22">What&rsquo;s the difference between <code>cdk8s-plus-20</code>, <code>cdk8s-plus-21</code>, and <code>cdk8s-plus-22</code>?<a class="headerlink" href="#whats-the-difference-between-cdk8s-plus-20-cdk8s-plus-21-and-cdk8s-plus-22" title="Permanent link">&para;</a></h3>
@@ -1722,7 +1736,7 @@ possible they have been removed.</p>
 Kubernetes, but you might encounter some unsupported spec properties or invalid
 manifests.</p>
 <h2 id="at-a-glance">At a glance<a class="headerlink" href="#at-a-glance" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-22&#39;</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-24&#39;</span><span class="p">;</span><span class="w"></span>
 <span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">cdk8s</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span><span class="w"></span>
 <span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">path</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;path&#39;</span><span class="p">;</span><span class="w"></span>
 
@@ -1837,8 +1851,8 @@ manifests.</p>
 </details>
 <h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
 <div class="tabbed-set" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">TypeScript/JavaScript</label><div class="tabbed-content">
-<p><code>❯ npm install cdk8s-plus-22 cdk8s</code></p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-22&#39;</span><span class="p">;</span><span class="w"></span>
+<p><code>❯ npm install cdk8s-plus-24 cdk8s</code></p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-24&#39;</span><span class="p">;</span><span class="w"></span>
 <span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">cdk8s</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span><span class="w"></span>
 
 <span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">cdk8s</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span><span class="w"></span>
@@ -1855,7 +1869,7 @@ manifests.</p>
 </code></pre></div>
 </div>
 <input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Python</label><div class="tabbed-content">
-<p><code>❯ pip install --pre cdk8s-plus-22 cdk8s</code></p>
+<p><code>❯ pip install --pre cdk8s-plus-24 cdk8s</code></p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_22</span> <span class="k">as</span> <span class="nn">kplus</span>
 <span class="kn">import</span> <span class="nn">cdk8s</span>
 
@@ -1878,8 +1892,8 @@ manifests.</p>
 <span class="nt">&lt;/dependency&gt;</span>
 <span class="nt">&lt;dependency&gt;</span>
   <span class="nt">&lt;groupId&gt;</span>org.cdk8s<span class="nt">&lt;/groupId&gt;</span>
-  <span class="nt">&lt;artifactId&gt;</span>cdk8s-plus-22<span class="nt">&lt;/artifactId&gt;</span>
-  <span class="nt">&lt;version&gt;</span>1.0.0-beta.1<span class="nt">&lt;/version&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>cdk8s-plus-24<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>2.0.0-beta.3<span class="nt">&lt;/version&gt;</span>
 <span class="nt">&lt;/dependency&gt;</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.App</span><span class="p">;</span><span class="w"></span>
@@ -1905,15 +1919,15 @@ manifests.</p>
 <span class="w">  </span><span class="s">&quot;github.com/aws/constructs-go/constructs/v10&quot;</span><span class="w"></span>
 <span class="w">  </span><span class="s">&quot;github.com/aws/jsii-runtime-go&quot;</span><span class="w"></span>
 <span class="w">  </span><span class="s">&quot;github.com/cdk8s-team/cdk8s-core-go/cdk8s/v2&quot;</span><span class="w"></span>
-<span class="w">  </span><span class="s">&quot;github.com/cdk8s-team/cdk8s-plus-go/cdk8splus22&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;github.com/cdk8s-team/cdk8s-plus-go/cdk8splus24&quot;</span><span class="w"></span>
 <span class="p">)</span><span class="w"></span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="nx">app</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">cdk8s</span><span class="p">.</span><span class="nx">NewApp</span><span class="p">(</span><span class="kc">nil</span><span class="p">)</span><span class="w"></span>
 <span class="nx">chart</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">cdk8s</span><span class="p">.</span><span class="nx">NewChart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;ubuntu&quot;</span><span class="p">),</span><span class="w"> </span><span class="kc">nil</span><span class="p">)</span><span class="w"></span>
 
-<span class="nx">cdk8splus22</span><span class="p">.</span><span class="nx">NewDeployment</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;Deployment&quot;</span><span class="p">),</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">cdk8splus22</span><span class="p">.</span><span class="nx">DeploymentProps</span><span class="p">{</span><span class="w"></span>
+<span class="nx">cdk8splus24</span><span class="p">.</span><span class="nx">NewDeployment</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;Deployment&quot;</span><span class="p">),</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">cdk8splus24</span><span class="p">.</span><span class="nx">DeploymentProps</span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="nx">Replicas</span><span class="p">:</span><span class="w"> </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">Number</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span><span class="w"></span>
-<span class="w">  </span><span class="nx">Containers</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="p">[]</span><span class="o">*</span><span class="nx">cdk8splus22</span><span class="p">.</span><span class="nx">ContainerProps</span><span class="p">{{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">Containers</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="p">[]</span><span class="o">*</span><span class="nx">cdk8splus24</span><span class="p">.</span><span class="nx">ContainerProps</span><span class="p">{{</span><span class="w"></span>
 <span class="w">    </span><span class="nx">Image</span><span class="p">:</span><span class="w"> </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;ubuntu&quot;</span><span class="p">),</span><span class="w"></span>
 <span class="w">  </span><span class="p">}},</span><span class="w"></span>
 <span class="p">})</span><span class="w"></span>

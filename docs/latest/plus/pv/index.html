@@ -656,6 +656,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../network-policy/" class="md-nav__link">
+        Network Policy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../pod/" class="md-nav__link">
         Pod
       </a>
@@ -1044,14 +1058,14 @@
       
       
         <label class="md-nav__link" for="__nav_8_4">
-          cdk8s-plus-21
+          cdk8s-plus-23
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="cdk8s-plus-21" data-md-level="2">
+      <nav class="md-nav" aria-label="cdk8s-plus-23" data-md-level="2">
         <label class="md-nav__title" for="__nav_8_4">
           <span class="md-nav__icon md-icon"></span>
-          cdk8s-plus-21
+          cdk8s-plus-23
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1061,7 +1075,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/cdk8s-plus-21/typescript/" class="md-nav__link">
+      <a href="../../reference/cdk8s-plus-23/typescript/" class="md-nav__link">
         TypeScript
       </a>
     </li>
@@ -1075,7 +1089,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/cdk8s-plus-21/python/" class="md-nav__link">
+      <a href="../../reference/cdk8s-plus-23/python/" class="md-nav__link">
         Python
       </a>
     </li>
@@ -1089,7 +1103,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/cdk8s-plus-21/java/" class="md-nav__link">
+      <a href="../../reference/cdk8s-plus-23/java/" class="md-nav__link">
         Java
       </a>
     </li>
@@ -1103,7 +1117,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/cdk8s-plus-21/go/" class="md-nav__link">
+      <a href="../../reference/cdk8s-plus-23/go/" class="md-nav__link">
         Go
       </a>
     </li>
@@ -1133,14 +1147,14 @@
       
       
         <label class="md-nav__link" for="__nav_8_5">
-          cdk8s-plus-20
+          cdk8s-plus-24
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="cdk8s-plus-20" data-md-level="2">
+      <nav class="md-nav" aria-label="cdk8s-plus-24" data-md-level="2">
         <label class="md-nav__title" for="__nav_8_5">
           <span class="md-nav__icon md-icon"></span>
-          cdk8s-plus-20
+          cdk8s-plus-24
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1150,7 +1164,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/cdk8s-plus-20/typescript/" class="md-nav__link">
+      <a href="../../reference/cdk8s-plus-24/typescript/" class="md-nav__link">
         TypeScript
       </a>
     </li>
@@ -1164,7 +1178,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/cdk8s-plus-20/python/" class="md-nav__link">
+      <a href="../../reference/cdk8s-plus-24/python/" class="md-nav__link">
         Python
       </a>
     </li>
@@ -1178,7 +1192,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/cdk8s-plus-20/java/" class="md-nav__link">
+      <a href="../../reference/cdk8s-plus-24/java/" class="md-nav__link">
         Java
       </a>
     </li>
@@ -1192,7 +1206,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/cdk8s-plus-20/go/" class="md-nav__link">
+      <a href="../../reference/cdk8s-plus-24/go/" class="md-nav__link">
         Go
       </a>
     </li>
@@ -1585,7 +1599,7 @@
 <h1 id="persistentvolume">PersistentVolume<a class="headerlink" href="#persistentvolume" title="Permanent link">&para;</a></h1>
 <p>A <code>PersistentVolume</code> (PV) is a piece of storage in the cluster that has been provisioned by an administrator or dynamically provisioned using Storage Classes.</p>
 <div class="admonition tip">
-<p><a href="../../reference/cdk8s-plus-22/typescript/#persistent-volume">API Reference</a></p>
+<p><a href="../../reference/cdk8s-plus-24/typescript/#persistent-volume">API Reference</a></p>
 </div>
 <p>PV&rsquo;s are used by pods via the pod&rsquo;s <code>volumes</code> spec, just like regular <a href="../volume/">volumes</a>.
 They are not intended to be interchangable with volumes, you can think of a <code>PersistentVolume</code>
@@ -1600,7 +1614,7 @@ specific ones. Currently the supported types are:</p>
 <li><code>GCEPersistentDiskPersistentVolume</code></li>
 </ul>
 <p>For example, to create a PV from an existing AWS EBS volume:</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-22&#39;</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-24&#39;</span><span class="p">;</span><span class="w"></span>
 <span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">cdk8s</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span><span class="w"></span>
 
 <span class="kd">const</span><span class="w"> </span><span class="nx">vol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">AwsElasticBlockStorePersistentVolume</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Volume&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
