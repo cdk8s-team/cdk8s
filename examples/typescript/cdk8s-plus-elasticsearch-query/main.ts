@@ -1,7 +1,7 @@
 import { Construct } from 'constructs';
 import { App, Chart } from 'cdk8s';
 import { Elasticsearch } from './imports/elasticsearch.k8s.elastic.co';
-import * as kplus from 'cdk8s-plus-22';
+import * as kplus from 'cdk8s-plus-24';
 
 export class MyChart extends Chart {
   constructor(scope: Construct, name: string) {
@@ -41,7 +41,7 @@ export class MyChart extends Chart {
       }
     })
 
-    const passwordSecret = kplus.Secret.fromSecretName(`${elastic.name}-es-elastic-user`);
+    const passwordSecret = kplus.Secret.fromSecretName(this, 'Secret', `${elastic.name}-es-elastic-user`);
 
     const deployment = new kplus.Deployment(this, 'Deployment', {
       replicas: 1,
@@ -54,7 +54,7 @@ export class MyChart extends Chart {
       workingDir: workingDir,
       command: ['node', 'query.js', queryPort.toString()],
       port: queryPort,
-      env: {
+      envVariables: {
         ELASTIC_USERNAME: kplus.EnvValue.fromValue('elastic'),
         ELASTIC_ENDPOINT: kplus.EnvValue.fromValue(`http://${elastic.name}-es-http:${esPort}`),
         ELASTIC_PASSWORD: kplus.EnvValue.fromSecretValue({ secret: passwordSecret, key: 'elastic' })
@@ -64,7 +64,7 @@ export class MyChart extends Chart {
     const configMap = new kplus.ConfigMap(this, 'Config');
     configMap.addFile(`${__dirname}/query.js`);
 
-    const volume = kplus.Volume.fromConfigMap(configMap);
+    const volume = kplus.Volume.fromConfigMap(this, 'Volume', configMap);
     container.mount(workingDir, volume);
 
     deployment.exposeViaService({ port: 9000 });

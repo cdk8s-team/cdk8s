@@ -12,5 +12,8 @@
     "watch": "tsc -w",
     "test": "echo ok",
     "build": "npm run compile && npm run test && npm run synth"
+  },
+  "dependencies": {
+    "cdk8s": "2.2.87"
   }
 }

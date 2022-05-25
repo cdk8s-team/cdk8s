@@ -29,7 +29,7 @@ You can pass that instance to be used as the selector. The policy will be applie
 
 ```ts
 import * as k from 'cdk8s';
-import * as kplus from 'cdk8s-plus-22';
+import * as kplus from 'cdk8s-plus-24';
 
 const app = new k.App();
 const chart = new k.Chart(app, 'Chart');
@@ -47,7 +47,7 @@ Exactly as for a managed `Pod`, you can pass an instance of any workload resourc
 
 ```ts
 import * as k from 'cdk8s';
-import * as kplus from 'cdk8s-plus-22';
+import * as kplus from 'cdk8s-plus-24';
 
 const app = new k.App();
 const chart = new k.Chart(app, 'Chart');
@@ -66,12 +66,12 @@ you use [selected pods](./pod.md#select-pods).
 
 ```ts
 import * as k from 'cdk8s';
-import * as kplus from 'cdk8s-plus-22';
+import * as kplus from 'cdk8s-plus-24';
 
 const app = new k.App();
 const chart = new k.Chart(app, 'Chart');
 
-const web = kplus.Pods.select({ labels: { app: 'web' }});
+const web = kplus.Pods.select(chart, 'Web', { labels: { app: 'web' }});
 
 new kplus.NetworkPolicy(chart, 'Policy', { selector: web });
 ```
@@ -84,7 +84,7 @@ An Ip Block defines a range of IP addresses using CIDR notation.
 You can define both `ipv4` and `ipv6` ranges:
 
 ```ts
-import * as kplus from 'cdk8s-plus-22';
+import * as kplus from 'cdk8s-plus-24';
 
 // define a specific ipv4 range
 kplus.NetworkPolicyIpBlock.ipv4('172.17.0.0/16');
@@ -121,7 +121,7 @@ Isolating pods for egress traffic egress can be done either at, or post construc
 
 ```ts
 import * as k from 'cdk8s';
-import * as kplus from 'cdk8s-plus-22';
+import * as kplus from 'cdk8s-plus-24';
 
 const app = new k.App();
 const chart = new k.Chart(app, 'Chart');
@@ -154,7 +154,7 @@ Isolating pods for ingress traffic ingress can be done either at, or post constr
 
 ```ts
 import * as k from 'cdk8s';
-import * as kplus from 'cdk8s-plus-22';
+import * as kplus from 'cdk8s-plus-24';
 
 const app = new k.App();
 const chart = new k.Chart(app, 'Chart');
@@ -190,7 +190,7 @@ are in different namespace:
 
 ```ts
 import * as k from 'cdk8s';
-import * as kplus from 'cdk8s-plus-22';
+import * as kplus from 'cdk8s-plus-24';
 
 const app = new k.App();
 const chart = new k.Chart(app, 'Chart');
@@ -228,7 +228,7 @@ If the source pod of your connection is a [managed pod](#managed-pod)
 
 ```ts
 import * as k from 'cdk8s';
-import * as kplus from 'cdk8s-plus-22';
+import * as kplus from 'cdk8s-plus-24';
 
 const app = new k.App();
 const chart = new k.Chart(app, 'Chart');
@@ -262,7 +262,7 @@ all traffic.
 
 ```ts
 import * as k from 'cdk8s';
-import * as kplus from 'cdk8s-plus-22';
+import * as kplus from 'cdk8s-plus-24';
 
 const app = new k.App();
 const chart = new k.Chart(app, 'Chart');
@@ -280,7 +280,7 @@ This ensures that even pods that aren't selected by any other network policy wil
 
 ```ts
 import * as k from 'cdk8s';
-import * as kplus from 'cdk8s-plus-22';
+import * as kplus from 'cdk8s-plus-24';
 
 const app = new k.App();
 const chart = new k.Chart(app, 'Chart');
@@ -305,7 +305,7 @@ With this policy in place, no additional policy or policies can cause any incomi
 
 ```ts
 import * as k from 'cdk8s';
-import * as kplus from 'cdk8s-plus-22';
+import * as kplus from 'cdk8s-plus-24';
 
 const app = new k.App();
 const chart = new k.Chart(app, 'Chart');
@@ -323,7 +323,7 @@ This ensures that even pods that aren't selected by any other NetworkPolicy will
 
 ```ts
 import * as k from 'cdk8s';
-import * as kplus from 'cdk8s-plus-22';
+import * as kplus from 'cdk8s-plus-24';
 
 const app = new k.App();
 const chart = new k.Chart(app, 'Chart');

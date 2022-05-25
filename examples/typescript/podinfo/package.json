@@ -15,5 +15,8 @@
     "build": "yarn gen && tsc",
     "watch": "tsc -w",
     "synth": "node ./examples/app-example.js"
+  },
+  "dependencies": {
+    "cdk8s": "2.2.87"
   }
 }

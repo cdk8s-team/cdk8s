@@ -16,5 +16,8 @@
     "watch": "tsc -w",
     "synth": "cdk8s synth",
     "test": "echo 'no test for helm yet.'"
+  },
+  "dependencies": {
+    "cdk8s": "2.2.87"
   }
 }

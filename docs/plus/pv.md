@@ -3,7 +3,7 @@
 A `PersistentVolume` (PV) is a piece of storage in the cluster that has been provisioned by an administrator or dynamically provisioned using Storage Classes.
 
 !!! tip ""
-    [API Reference](../reference/cdk8s-plus-22/typescript.md#persistent-volume)
+    [API Reference](../reference/cdk8s-plus-24/typescript.md#persistent-volume)
 
 PV's are used by pods via the pod's `volumes` spec, just like regular [volumes](./volume.md).
 They are not intended to be interchangable with volumes, you can think of a `PersistentVolume`
@@ -23,7 +23,7 @@ specific ones. Currently the supported types are:
 For example, to create a PV from an existing AWS EBS volume:
 
 ```ts
-import * as kplus from 'cdk8s-plus-22';
+import * as kplus from 'cdk8s-plus-24';
 import * as cdk8s from 'cdk8s';
 
 const vol = new kplus.AwsElasticBlockStorePersistentVolume(chart, 'Volume', {

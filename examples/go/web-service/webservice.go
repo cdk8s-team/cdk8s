@@ -2,7 +2,7 @@ package main
 
 import (
 	"example.com/web-service-go/imports/k8s"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/constructs-go/constructs/v10"
 	"github.com/aws/jsii-runtime-go"
 )
 

@@ -8,11 +8,7 @@
     "synth": "mvn install && mvn compile && cdk8s synth",
     "test": "echo 'no test for java yet.'"
   },
-  "dependencies": {
-    "cdk8s": "^1.0.0-beta.49",
-    "constructs": "^3.3.150"
-  },
   "devDependencies": {
-    "cdk8s-cli": "1.0.0-beta.53"
+    "cdk8s-cli": "2.0.0-rc.3"
   }
 }

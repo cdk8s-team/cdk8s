@@ -227,9 +227,9 @@ Let have a look at the code:
     package main
 
     import (
-      "github.com/aws/constructs-go/constructs/v3"
+      "github.com/aws/constructs-go/constructs/v10"
       "github.com/aws/jsii-runtime-go"
-      "github.com/cdk8s-team/cdk8s-core-go/cdk8s"
+      "github.com/cdk8s-team/cdk8s-core-go/cdk8s/v2"
     )
 
     type MyChartProps struct {
@@ -533,9 +533,9 @@ resources inspired by [paulbouwer](https://github.com/paulbouwer)'s
 
     import (
       "example.com/hello-k8s/imports/k8s"
-      "github.com/aws/constructs-go/constructs/v3"
+      "github.com/aws/constructs-go/constructs/v10"
       "github.com/aws/jsii-runtime-go"
-      "github.com/cdk8s-team/cdk8s-core-go/cdk8s"
+      "github.com/cdk8s-team/cdk8s-core-go/cdk8s/v2"
     )
 
     type MyChartProps struct {
@@ -1127,7 +1127,7 @@ Here's how to implement `WebService`:
 
     import (
       "example.com/hello/imports/k8s"
-      "github.com/aws/constructs-go/constructs/v3"
+      "github.com/aws/constructs-go/constructs/v10"
       "github.com/aws/jsii-runtime-go"
     )
 
@@ -1203,9 +1203,9 @@ Here's how to implement `WebService`:
     package main
 
     import (
-      "github.com/aws/constructs-go/constructs/v3"
+      "github.com/aws/constructs-go/constructs/v10"
       "github.com/aws/jsii-runtime-go"
-      "github.com/cdk8s-team/cdk8s-core-go/cdk8s"
+      "github.com/cdk8s-team/cdk8s-core-go/cdk8s/v2"
     )
 
     type MyChartProps struct {

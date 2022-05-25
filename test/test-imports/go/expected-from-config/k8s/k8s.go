@@ -8,8 +8,8 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"example.com/test/imports/k8s/internal"
-	"github.com/aws/constructs-go/constructs/v3"
-	"github.com/cdk8s-team/cdk8s-core-go/cdk8s"
+	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/cdk8s-team/cdk8s-core-go/cdk8s/v2"
 )
 
 // Affinity is a group of affinity scheduling rules.
@@ -2547,6 +2547,8 @@ type KubeApiService interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -2557,29 +2559,6 @@ type KubeApiService interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -2651,6 +2630,16 @@ func (j *jsiiProxy_KubeApiService) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeApiService) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIService" API object.
 func NewKubeApiService(scope constructs.Construct, id *string, props *KubeApiServiceProps) KubeApiService {
@@ -2676,6 +2665,38 @@ func NewKubeApiService_Override(k KubeApiService, scope constructs.Construct, id
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeApiService_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeApiService",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIService".
@@ -2753,35 +2774,6 @@ func (k *jsiiProxy_KubeApiService) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeApiService) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeApiService) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeApiService) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeApiService) ToJson() interface{} {
 	var returns interface{}
 
@@ -2828,6 +2820,8 @@ type KubeApiServiceList interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -2838,29 +2832,6 @@ type KubeApiServiceList interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -2932,6 +2903,16 @@ func (j *jsiiProxy_KubeApiServiceList) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeApiServiceList) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIServiceList" API object.
 func NewKubeApiServiceList(scope constructs.Construct, id *string, props *KubeApiServiceListProps) KubeApiServiceList {
@@ -2957,6 +2938,38 @@ func NewKubeApiServiceList_Override(k KubeApiServiceList, scope constructs.Const
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeApiServiceList_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeApiServiceList",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIServiceList".
@@ -3034,35 +3047,6 @@ func (k *jsiiProxy_KubeApiServiceList) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeApiServiceList) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeApiServiceList) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeApiServiceList) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeApiServiceList) ToJson() interface{} {
 	var returns interface{}
 
@@ -3115,6 +3099,8 @@ type KubeApiServiceListV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -3125,29 +3111,6 @@ type KubeApiServiceListV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -3219,6 +3182,16 @@ func (j *jsiiProxy_KubeApiServiceListV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeApiServiceListV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIServiceList" API object.
 func NewKubeApiServiceListV1Beta1(scope constructs.Construct, id *string, props *KubeApiServiceListV1Beta1Props) KubeApiServiceListV1Beta1 {
@@ -3244,6 +3217,38 @@ func NewKubeApiServiceListV1Beta1_Override(k KubeApiServiceListV1Beta1, scope co
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeApiServiceListV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeApiServiceListV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIServiceList".
@@ -3321,35 +3326,6 @@ func (k *jsiiProxy_KubeApiServiceListV1Beta1) AddJsonPatch(ops ...cdk8s.JsonPatc
 	)
 }
 
-func (k *jsiiProxy_KubeApiServiceListV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeApiServiceListV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeApiServiceListV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeApiServiceListV1Beta1) ToJson() interface{} {
 	var returns interface{}
 
@@ -3413,6 +3389,8 @@ type KubeApiServiceV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -3423,29 +3401,6 @@ type KubeApiServiceV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -3517,6 +3472,16 @@ func (j *jsiiProxy_KubeApiServiceV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeApiServiceV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIService" API object.
 func NewKubeApiServiceV1Beta1(scope constructs.Construct, id *string, props *KubeApiServiceV1Beta1Props) KubeApiServiceV1Beta1 {
@@ -3542,6 +3507,38 @@ func NewKubeApiServiceV1Beta1_Override(k KubeApiServiceV1Beta1, scope constructs
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeApiServiceV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeApiServiceV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIService".
@@ -3619,35 +3616,6 @@ func (k *jsiiProxy_KubeApiServiceV1Beta1) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeApiServiceV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeApiServiceV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeApiServiceV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeApiServiceV1Beta1) ToJson() interface{} {
 	var returns interface{}
 
@@ -3703,6 +3671,8 @@ type KubeAuditSinkListV1Alpha1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -3713,29 +3683,6 @@ type KubeAuditSinkListV1Alpha1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -3807,6 +3754,16 @@ func (j *jsiiProxy_KubeAuditSinkListV1Alpha1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeAuditSinkListV1Alpha1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.auditregistration.v1alpha1.AuditSinkList" API object.
 func NewKubeAuditSinkListV1Alpha1(scope constructs.Construct, id *string, props *KubeAuditSinkListV1Alpha1Props) KubeAuditSinkListV1Alpha1 {
@@ -3832,6 +3789,38 @@ func NewKubeAuditSinkListV1Alpha1_Override(k KubeAuditSinkListV1Alpha1, scope co
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeAuditSinkListV1Alpha1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeAuditSinkListV1Alpha1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.auditregistration.v1alpha1.AuditSinkList".
@@ -3909,35 +3898,6 @@ func (k *jsiiProxy_KubeAuditSinkListV1Alpha1) AddJsonPatch(ops ...cdk8s.JsonPatc
 	)
 }
 
-func (k *jsiiProxy_KubeAuditSinkListV1Alpha1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeAuditSinkListV1Alpha1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeAuditSinkListV1Alpha1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeAuditSinkListV1Alpha1) ToJson() interface{} {
 	var returns interface{}
 
@@ -3991,6 +3951,8 @@ type KubeAuditSinkV1Alpha1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -4001,29 +3963,6 @@ type KubeAuditSinkV1Alpha1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -4095,6 +4034,16 @@ func (j *jsiiProxy_KubeAuditSinkV1Alpha1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeAuditSinkV1Alpha1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.auditregistration.v1alpha1.AuditSink" API object.
 func NewKubeAuditSinkV1Alpha1(scope constructs.Construct, id *string, props *KubeAuditSinkV1Alpha1Props) KubeAuditSinkV1Alpha1 {
@@ -4120,6 +4069,38 @@ func NewKubeAuditSinkV1Alpha1_Override(k KubeAuditSinkV1Alpha1, scope constructs
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeAuditSinkV1Alpha1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeAuditSinkV1Alpha1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.auditregistration.v1alpha1.AuditSink".
@@ -4197,35 +4178,6 @@ func (k *jsiiProxy_KubeAuditSinkV1Alpha1) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeAuditSinkV1Alpha1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeAuditSinkV1Alpha1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeAuditSinkV1Alpha1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeAuditSinkV1Alpha1) ToJson() interface{} {
 	var returns interface{}
 
@@ -4281,6 +4233,8 @@ type KubeBinding interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -4291,29 +4245,6 @@ type KubeBinding interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -4385,6 +4316,16 @@ func (j *jsiiProxy_KubeBinding) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeBinding) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.core.v1.Binding" API object.
 func NewKubeBinding(scope constructs.Construct, id *string, props *KubeBindingProps) KubeBinding {
@@ -4410,6 +4351,38 @@ func NewKubeBinding_Override(k KubeBinding, scope constructs.Construct, id *stri
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeBinding_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeBinding",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.core.v1.Binding".
@@ -4487,35 +4460,6 @@ func (k *jsiiProxy_KubeBinding) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeBinding) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeBinding) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeBinding) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeBinding) ToJson() interface{} {
 	var returns interface{}
 
@@ -4573,6 +4517,8 @@ type KubeCertificateSigningRequestListV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -4583,29 +4529,6 @@ type KubeCertificateSigningRequestListV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -4677,6 +4600,16 @@ func (j *jsiiProxy_KubeCertificateSigningRequestListV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeCertificateSigningRequestListV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.certificates.v1beta1.CertificateSigningRequestList" API object.
 func NewKubeCertificateSigningRequestListV1Beta1(scope constructs.Construct, id *string, props *KubeCertificateSigningRequestListV1Beta1Props) KubeCertificateSigningRequestListV1Beta1 {
@@ -4702,6 +4635,38 @@ func NewKubeCertificateSigningRequestListV1Beta1_Override(k KubeCertificateSigni
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeCertificateSigningRequestListV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeCertificateSigningRequestListV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.certificates.v1beta1.CertificateSigningRequestList".
@@ -4779,35 +4744,6 @@ func (k *jsiiProxy_KubeCertificateSigningRequestListV1Beta1) AddJsonPatch(ops ..
 	)
 }
 
-func (k *jsiiProxy_KubeCertificateSigningRequestListV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeCertificateSigningRequestListV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeCertificateSigningRequestListV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeCertificateSigningRequestListV1Beta1) ToJson() interface{} {
 	var returns interface{}
 
@@ -4859,6 +4795,8 @@ type KubeCertificateSigningRequestV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -4869,29 +4807,6 @@ type KubeCertificateSigningRequestV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -4963,6 +4878,16 @@ func (j *jsiiProxy_KubeCertificateSigningRequestV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeCertificateSigningRequestV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.certificates.v1beta1.CertificateSigningRequest" API object.
 func NewKubeCertificateSigningRequestV1Beta1(scope constructs.Construct, id *string, props *KubeCertificateSigningRequestV1Beta1Props) KubeCertificateSigningRequestV1Beta1 {
@@ -4988,6 +4913,38 @@ func NewKubeCertificateSigningRequestV1Beta1_Override(k KubeCertificateSigningRe
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeCertificateSigningRequestV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeCertificateSigningRequestV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.certificates.v1beta1.CertificateSigningRequest".
@@ -5065,35 +5022,6 @@ func (k *jsiiProxy_KubeCertificateSigningRequestV1Beta1) AddJsonPatch(ops ...cdk
 	)
 }
 
-func (k *jsiiProxy_KubeCertificateSigningRequestV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeCertificateSigningRequestV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeCertificateSigningRequestV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeCertificateSigningRequestV1Beta1) ToJson() interface{} {
 	var returns interface{}
 
@@ -5147,6 +5075,8 @@ type KubeClusterRole interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -5157,29 +5087,6 @@ type KubeClusterRole interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -5251,6 +5158,16 @@ func (j *jsiiProxy_KubeClusterRole) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeClusterRole) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.rbac.v1.ClusterRole" API object.
 func NewKubeClusterRole(scope constructs.Construct, id *string, props *KubeClusterRoleProps) KubeClusterRole {
@@ -5276,6 +5193,38 @@ func NewKubeClusterRole_Override(k KubeClusterRole, scope constructs.Construct, 
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeClusterRole_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeClusterRole",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.rbac.v1.ClusterRole".
@@ -5353,35 +5302,6 @@ func (k *jsiiProxy_KubeClusterRole) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeClusterRole) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeClusterRole) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeClusterRole) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeClusterRole) ToJson() interface{} {
 	var returns interface{}
 
@@ -5430,6 +5350,8 @@ type KubeClusterRoleBinding interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -5440,29 +5362,6 @@ type KubeClusterRoleBinding interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -5534,6 +5433,16 @@ func (j *jsiiProxy_KubeClusterRoleBinding) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeClusterRoleBinding) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.rbac.v1.ClusterRoleBinding" API object.
 func NewKubeClusterRoleBinding(scope constructs.Construct, id *string, props *KubeClusterRoleBindingProps) KubeClusterRoleBinding {
@@ -5559,6 +5468,38 @@ func NewKubeClusterRoleBinding_Override(k KubeClusterRoleBinding, scope construc
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeClusterRoleBinding_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeClusterRoleBinding",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.rbac.v1.ClusterRoleBinding".
@@ -5636,35 +5577,6 @@ func (k *jsiiProxy_KubeClusterRoleBinding) AddJsonPatch(ops ...cdk8s.JsonPatch) 
 	)
 }
 
-func (k *jsiiProxy_KubeClusterRoleBinding) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeClusterRoleBinding) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeClusterRoleBinding) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeClusterRoleBinding) ToJson() interface{} {
 	var returns interface{}
 
@@ -5711,6 +5623,8 @@ type KubeClusterRoleBindingList interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -5721,29 +5635,6 @@ type KubeClusterRoleBindingList interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -5815,6 +5706,16 @@ func (j *jsiiProxy_KubeClusterRoleBindingList) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeClusterRoleBindingList) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.rbac.v1.ClusterRoleBindingList" API object.
 func NewKubeClusterRoleBindingList(scope constructs.Construct, id *string, props *KubeClusterRoleBindingListProps) KubeClusterRoleBindingList {
@@ -5840,6 +5741,38 @@ func NewKubeClusterRoleBindingList_Override(k KubeClusterRoleBindingList, scope 
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeClusterRoleBindingList_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeClusterRoleBindingList",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.rbac.v1.ClusterRoleBindingList".
@@ -5917,35 +5850,6 @@ func (k *jsiiProxy_KubeClusterRoleBindingList) AddJsonPatch(ops ...cdk8s.JsonPat
 	)
 }
 
-func (k *jsiiProxy_KubeClusterRoleBindingList) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeClusterRoleBindingList) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeClusterRoleBindingList) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeClusterRoleBindingList) ToJson() interface{} {
 	var returns interface{}
 
@@ -6002,6 +5906,8 @@ type KubeClusterRoleBindingListV1Alpha1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -6012,29 +5918,6 @@ type KubeClusterRoleBindingListV1Alpha1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -6106,6 +5989,16 @@ func (j *jsiiProxy_KubeClusterRoleBindingListV1Alpha1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeClusterRoleBindingListV1Alpha1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.rbac.v1alpha1.ClusterRoleBindingList" API object.
 func NewKubeClusterRoleBindingListV1Alpha1(scope constructs.Construct, id *string, props *KubeClusterRoleBindingListV1Alpha1Props) KubeClusterRoleBindingListV1Alpha1 {
@@ -6131,6 +6024,38 @@ func NewKubeClusterRoleBindingListV1Alpha1_Override(k KubeClusterRoleBindingList
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeClusterRoleBindingListV1Alpha1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeClusterRoleBindingListV1Alpha1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.rbac.v1alpha1.ClusterRoleBindingList".
@@ -6208,35 +6133,6 @@ func (k *jsiiProxy_KubeClusterRoleBindingListV1Alpha1) AddJsonPatch(ops ...cdk8s
 	)
 }
 
-func (k *jsiiProxy_KubeClusterRoleBindingListV1Alpha1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeClusterRoleBindingListV1Alpha1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeClusterRoleBindingListV1Alpha1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeClusterRoleBindingListV1Alpha1) ToJson() interface{} {
 	var returns interface{}
 
@@ -6295,6 +6191,8 @@ type KubeClusterRoleBindingListV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -6305,29 +6203,6 @@ type KubeClusterRoleBindingListV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -6399,6 +6274,16 @@ func (j *jsiiProxy_KubeClusterRoleBindingListV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeClusterRoleBindingListV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.rbac.v1beta1.ClusterRoleBindingList" API object.
 func NewKubeClusterRoleBindingListV1Beta1(scope constructs.Construct, id *string, props *KubeClusterRoleBindingListV1Beta1Props) KubeClusterRoleBindingListV1Beta1 {
@@ -6424,6 +6309,38 @@ func NewKubeClusterRoleBindingListV1Beta1_Override(k KubeClusterRoleBindingListV
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeClusterRoleBindingListV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeClusterRoleBindingListV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.rbac.v1beta1.ClusterRoleBindingList".
@@ -6501,35 +6418,6 @@ func (k *jsiiProxy_KubeClusterRoleBindingListV1Beta1) AddJsonPatch(ops ...cdk8s.
 	)
 }
 
-func (k *jsiiProxy_KubeClusterRoleBindingListV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeClusterRoleBindingListV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeClusterRoleBindingListV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeClusterRoleBindingListV1Beta1) ToJson() interface{} {
 	var returns interface{}
 
@@ -6602,6 +6490,8 @@ type KubeClusterRoleBindingV1Alpha1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -6612,29 +6502,6 @@ type KubeClusterRoleBindingV1Alpha1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -6706,6 +6573,16 @@ func (j *jsiiProxy_KubeClusterRoleBindingV1Alpha1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeClusterRoleBindingV1Alpha1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.rbac.v1alpha1.ClusterRoleBinding" API object.
 func NewKubeClusterRoleBindingV1Alpha1(scope constructs.Construct, id *string, props *KubeClusterRoleBindingV1Alpha1Props) KubeClusterRoleBindingV1Alpha1 {
@@ -6731,6 +6608,38 @@ func NewKubeClusterRoleBindingV1Alpha1_Override(k KubeClusterRoleBindingV1Alpha1
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeClusterRoleBindingV1Alpha1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeClusterRoleBindingV1Alpha1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.rbac.v1alpha1.ClusterRoleBinding".
@@ -6808,35 +6717,6 @@ func (k *jsiiProxy_KubeClusterRoleBindingV1Alpha1) AddJsonPatch(ops ...cdk8s.Jso
 	)
 }
 
-func (k *jsiiProxy_KubeClusterRoleBindingV1Alpha1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeClusterRoleBindingV1Alpha1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeClusterRoleBindingV1Alpha1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeClusterRoleBindingV1Alpha1) ToJson() interface{} {
 	var returns interface{}
 
@@ -6899,6 +6779,8 @@ type KubeClusterRoleBindingV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -6909,29 +6791,6 @@ type KubeClusterRoleBindingV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -7003,6 +6862,16 @@ func (j *jsiiProxy_KubeClusterRoleBindingV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeClusterRoleBindingV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.rbac.v1beta1.ClusterRoleBinding" API object.
 func NewKubeClusterRoleBindingV1Beta1(scope constructs.Construct, id *string, props *KubeClusterRoleBindingV1Beta1Props) KubeClusterRoleBindingV1Beta1 {
@@ -7028,6 +6897,38 @@ func NewKubeClusterRoleBindingV1Beta1_Override(k KubeClusterRoleBindingV1Beta1, 
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeClusterRoleBindingV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeClusterRoleBindingV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.rbac.v1beta1.ClusterRoleBinding".
@@ -7105,35 +7006,6 @@ func (k *jsiiProxy_KubeClusterRoleBindingV1Beta1) AddJsonPatch(ops ...cdk8s.Json
 	)
 }
 
-func (k *jsiiProxy_KubeClusterRoleBindingV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeClusterRoleBindingV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeClusterRoleBindingV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeClusterRoleBindingV1Beta1) ToJson() interface{} {
 	var returns interface{}
 
@@ -7194,6 +7066,8 @@ type KubeClusterRoleList interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -7204,29 +7078,6 @@ type KubeClusterRoleList interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -7298,6 +7149,16 @@ func (j *jsiiProxy_KubeClusterRoleList) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeClusterRoleList) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.rbac.v1.ClusterRoleList" API object.
 func NewKubeClusterRoleList(scope constructs.Construct, id *string, props *KubeClusterRoleListProps) KubeClusterRoleList {
@@ -7323,6 +7184,38 @@ func NewKubeClusterRoleList_Override(k KubeClusterRoleList, scope constructs.Con
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeClusterRoleList_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeClusterRoleList",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.rbac.v1.ClusterRoleList".
@@ -7400,35 +7293,6 @@ func (k *jsiiProxy_KubeClusterRoleList) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeClusterRoleList) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeClusterRoleList) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeClusterRoleList) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeClusterRoleList) ToJson() interface{} {
 	var returns interface{}
 
@@ -7485,6 +7349,8 @@ type KubeClusterRoleListV1Alpha1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -7495,29 +7361,6 @@ type KubeClusterRoleListV1Alpha1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -7589,6 +7432,16 @@ func (j *jsiiProxy_KubeClusterRoleListV1Alpha1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeClusterRoleListV1Alpha1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.rbac.v1alpha1.ClusterRoleList" API object.
 func NewKubeClusterRoleListV1Alpha1(scope constructs.Construct, id *string, props *KubeClusterRoleListV1Alpha1Props) KubeClusterRoleListV1Alpha1 {
@@ -7614,6 +7467,38 @@ func NewKubeClusterRoleListV1Alpha1_Override(k KubeClusterRoleListV1Alpha1, scop
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeClusterRoleListV1Alpha1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeClusterRoleListV1Alpha1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.rbac.v1alpha1.ClusterRoleList".
@@ -7691,35 +7576,6 @@ func (k *jsiiProxy_KubeClusterRoleListV1Alpha1) AddJsonPatch(ops ...cdk8s.JsonPa
 	)
 }
 
-func (k *jsiiProxy_KubeClusterRoleListV1Alpha1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeClusterRoleListV1Alpha1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeClusterRoleListV1Alpha1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeClusterRoleListV1Alpha1) ToJson() interface{} {
 	var returns interface{}
 
@@ -7778,6 +7634,8 @@ type KubeClusterRoleListV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -7788,29 +7646,6 @@ type KubeClusterRoleListV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -7882,6 +7717,16 @@ func (j *jsiiProxy_KubeClusterRoleListV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeClusterRoleListV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.rbac.v1beta1.ClusterRoleList" API object.
 func NewKubeClusterRoleListV1Beta1(scope constructs.Construct, id *string, props *KubeClusterRoleListV1Beta1Props) KubeClusterRoleListV1Beta1 {
@@ -7907,6 +7752,38 @@ func NewKubeClusterRoleListV1Beta1_Override(k KubeClusterRoleListV1Beta1, scope 
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeClusterRoleListV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeClusterRoleListV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.rbac.v1beta1.ClusterRoleList".
@@ -7984,35 +7861,6 @@ func (k *jsiiProxy_KubeClusterRoleListV1Beta1) AddJsonPatch(ops ...cdk8s.JsonPat
 	)
 }
 
-func (k *jsiiProxy_KubeClusterRoleListV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeClusterRoleListV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeClusterRoleListV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeClusterRoleListV1Beta1) ToJson() interface{} {
 	var returns interface{}
 
@@ -8083,6 +7931,8 @@ type KubeClusterRoleV1Alpha1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -8093,29 +7943,6 @@ type KubeClusterRoleV1Alpha1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -8187,6 +8014,16 @@ func (j *jsiiProxy_KubeClusterRoleV1Alpha1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeClusterRoleV1Alpha1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.rbac.v1alpha1.ClusterRole" API object.
 func NewKubeClusterRoleV1Alpha1(scope constructs.Construct, id *string, props *KubeClusterRoleV1Alpha1Props) KubeClusterRoleV1Alpha1 {
@@ -8212,6 +8049,38 @@ func NewKubeClusterRoleV1Alpha1_Override(k KubeClusterRoleV1Alpha1, scope constr
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeClusterRoleV1Alpha1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeClusterRoleV1Alpha1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.rbac.v1alpha1.ClusterRole".
@@ -8289,35 +8158,6 @@ func (k *jsiiProxy_KubeClusterRoleV1Alpha1) AddJsonPatch(ops ...cdk8s.JsonPatch)
 	)
 }
 
-func (k *jsiiProxy_KubeClusterRoleV1Alpha1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeClusterRoleV1Alpha1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeClusterRoleV1Alpha1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeClusterRoleV1Alpha1) ToJson() interface{} {
 	var returns interface{}
 
@@ -8380,6 +8220,8 @@ type KubeClusterRoleV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -8390,29 +8232,6 @@ type KubeClusterRoleV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -8484,6 +8303,16 @@ func (j *jsiiProxy_KubeClusterRoleV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeClusterRoleV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.rbac.v1beta1.ClusterRole" API object.
 func NewKubeClusterRoleV1Beta1(scope constructs.Construct, id *string, props *KubeClusterRoleV1Beta1Props) KubeClusterRoleV1Beta1 {
@@ -8509,6 +8338,38 @@ func NewKubeClusterRoleV1Beta1_Override(k KubeClusterRoleV1Beta1, scope construc
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeClusterRoleV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeClusterRoleV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.rbac.v1beta1.ClusterRole".
@@ -8586,35 +8447,6 @@ func (k *jsiiProxy_KubeClusterRoleV1Beta1) AddJsonPatch(ops ...cdk8s.JsonPatch) 
 	)
 }
 
-func (k *jsiiProxy_KubeClusterRoleV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeClusterRoleV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeClusterRoleV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeClusterRoleV1Beta1) ToJson() interface{} {
 	var returns interface{}
 
@@ -8675,6 +8507,8 @@ type KubeComponentStatus interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -8685,29 +8519,6 @@ type KubeComponentStatus interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -8779,6 +8590,16 @@ func (j *jsiiProxy_KubeComponentStatus) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeComponentStatus) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.core.v1.ComponentStatus" API object.
 func NewKubeComponentStatus(scope constructs.Construct, id *string, props *KubeComponentStatusProps) KubeComponentStatus {
@@ -8804,6 +8625,38 @@ func NewKubeComponentStatus_Override(k KubeComponentStatus, scope constructs.Con
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeComponentStatus_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeComponentStatus",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.core.v1.ComponentStatus".
@@ -8881,35 +8734,6 @@ func (k *jsiiProxy_KubeComponentStatus) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeComponentStatus) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeComponentStatus) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeComponentStatus) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeComponentStatus) ToJson() interface{} {
 	var returns interface{}
 
@@ -8956,6 +8780,8 @@ type KubeComponentStatusList interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -8966,29 +8792,6 @@ type KubeComponentStatusList interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -9060,6 +8863,16 @@ func (j *jsiiProxy_KubeComponentStatusList) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeComponentStatusList) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.core.v1.ComponentStatusList" API object.
 func NewKubeComponentStatusList(scope constructs.Construct, id *string, props *KubeComponentStatusListProps) KubeComponentStatusList {
@@ -9085,6 +8898,38 @@ func NewKubeComponentStatusList_Override(k KubeComponentStatusList, scope constr
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeComponentStatusList_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeComponentStatusList",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.core.v1.ComponentStatusList".
@@ -9162,35 +9007,6 @@ func (k *jsiiProxy_KubeComponentStatusList) AddJsonPatch(ops ...cdk8s.JsonPatch)
 	)
 }
 
-func (k *jsiiProxy_KubeComponentStatusList) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeComponentStatusList) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeComponentStatusList) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeComponentStatusList) ToJson() interface{} {
 	var returns interface{}
 
@@ -9257,6 +9073,8 @@ type KubeConfigMap interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -9267,29 +9085,6 @@ type KubeConfigMap interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -9361,6 +9156,16 @@ func (j *jsiiProxy_KubeConfigMap) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeConfigMap) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.core.v1.ConfigMap" API object.
 func NewKubeConfigMap(scope constructs.Construct, id *string, props *KubeConfigMapProps) KubeConfigMap {
@@ -9386,6 +9191,38 @@ func NewKubeConfigMap_Override(k KubeConfigMap, scope constructs.Construct, id *
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeConfigMap_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeConfigMap",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.core.v1.ConfigMap".
@@ -9463,35 +9300,6 @@ func (k *jsiiProxy_KubeConfigMap) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeConfigMap) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeConfigMap) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeConfigMap) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeConfigMap) ToJson() interface{} {
 	var returns interface{}
 
@@ -9538,6 +9346,8 @@ type KubeConfigMapList interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -9548,29 +9358,6 @@ type KubeConfigMapList interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -9642,6 +9429,16 @@ func (j *jsiiProxy_KubeConfigMapList) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeConfigMapList) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.core.v1.ConfigMapList" API object.
 func NewKubeConfigMapList(scope constructs.Construct, id *string, props *KubeConfigMapListProps) KubeConfigMapList {
@@ -9667,6 +9464,38 @@ func NewKubeConfigMapList_Override(k KubeConfigMapList, scope constructs.Constru
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeConfigMapList_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeConfigMapList",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.core.v1.ConfigMapList".
@@ -9744,35 +9573,6 @@ func (k *jsiiProxy_KubeConfigMapList) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeConfigMapList) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeConfigMapList) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeConfigMapList) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeConfigMapList) ToJson() interface{} {
 	var returns interface{}
 
@@ -9845,6 +9645,8 @@ type KubeControllerRevision interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -9855,29 +9657,6 @@ type KubeControllerRevision interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -9949,6 +9728,16 @@ func (j *jsiiProxy_KubeControllerRevision) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeControllerRevision) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.apps.v1.ControllerRevision" API object.
 func NewKubeControllerRevision(scope constructs.Construct, id *string, props *KubeControllerRevisionProps) KubeControllerRevision {
@@ -9974,6 +9763,38 @@ func NewKubeControllerRevision_Override(k KubeControllerRevision, scope construc
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeControllerRevision_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeControllerRevision",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.apps.v1.ControllerRevision".
@@ -10051,35 +9872,6 @@ func (k *jsiiProxy_KubeControllerRevision) AddJsonPatch(ops ...cdk8s.JsonPatch) 
 	)
 }
 
-func (k *jsiiProxy_KubeControllerRevision) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeControllerRevision) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeControllerRevision) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeControllerRevision) ToJson() interface{} {
 	var returns interface{}
 
@@ -10126,6 +9918,8 @@ type KubeControllerRevisionList interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -10136,29 +9930,6 @@ type KubeControllerRevisionList interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -10230,6 +10001,16 @@ func (j *jsiiProxy_KubeControllerRevisionList) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeControllerRevisionList) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.apps.v1.ControllerRevisionList" API object.
 func NewKubeControllerRevisionList(scope constructs.Construct, id *string, props *KubeControllerRevisionListProps) KubeControllerRevisionList {
@@ -10255,6 +10036,38 @@ func NewKubeControllerRevisionList_Override(k KubeControllerRevisionList, scope 
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeControllerRevisionList_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeControllerRevisionList",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.apps.v1.ControllerRevisionList".
@@ -10332,35 +10145,6 @@ func (k *jsiiProxy_KubeControllerRevisionList) AddJsonPatch(ops ...cdk8s.JsonPat
 	)
 }
 
-func (k *jsiiProxy_KubeControllerRevisionList) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeControllerRevisionList) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeControllerRevisionList) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeControllerRevisionList) ToJson() interface{} {
 	var returns interface{}
 
@@ -10415,6 +10199,8 @@ type KubeControllerRevisionListV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -10425,29 +10211,6 @@ type KubeControllerRevisionListV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -10519,6 +10282,16 @@ func (j *jsiiProxy_KubeControllerRevisionListV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeControllerRevisionListV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.apps.v1beta1.ControllerRevisionList" API object.
 func NewKubeControllerRevisionListV1Beta1(scope constructs.Construct, id *string, props *KubeControllerRevisionListV1Beta1Props) KubeControllerRevisionListV1Beta1 {
@@ -10544,6 +10317,38 @@ func NewKubeControllerRevisionListV1Beta1_Override(k KubeControllerRevisionListV
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeControllerRevisionListV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeControllerRevisionListV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.apps.v1beta1.ControllerRevisionList".
@@ -10621,35 +10426,6 @@ func (k *jsiiProxy_KubeControllerRevisionListV1Beta1) AddJsonPatch(ops ...cdk8s.
 	)
 }
 
-func (k *jsiiProxy_KubeControllerRevisionListV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeControllerRevisionListV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeControllerRevisionListV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeControllerRevisionListV1Beta1) ToJson() interface{} {
 	var returns interface{}
 
@@ -10704,6 +10480,8 @@ type KubeControllerRevisionListV1Beta2 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -10714,29 +10492,6 @@ type KubeControllerRevisionListV1Beta2 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -10808,6 +10563,16 @@ func (j *jsiiProxy_KubeControllerRevisionListV1Beta2) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeControllerRevisionListV1Beta2) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.apps.v1beta2.ControllerRevisionList" API object.
 func NewKubeControllerRevisionListV1Beta2(scope constructs.Construct, id *string, props *KubeControllerRevisionListV1Beta2Props) KubeControllerRevisionListV1Beta2 {
@@ -10833,6 +10598,38 @@ func NewKubeControllerRevisionListV1Beta2_Override(k KubeControllerRevisionListV
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeControllerRevisionListV1Beta2_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeControllerRevisionListV1Beta2",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.apps.v1beta2.ControllerRevisionList".
@@ -10910,35 +10707,6 @@ func (k *jsiiProxy_KubeControllerRevisionListV1Beta2) AddJsonPatch(ops ...cdk8s.
 	)
 }
 
-func (k *jsiiProxy_KubeControllerRevisionListV1Beta2) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeControllerRevisionListV1Beta2) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeControllerRevisionListV1Beta2) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeControllerRevisionListV1Beta2) ToJson() interface{} {
 	var returns interface{}
 
@@ -11009,6 +10777,8 @@ type KubeControllerRevisionV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -11019,29 +10789,6 @@ type KubeControllerRevisionV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -11113,6 +10860,16 @@ func (j *jsiiProxy_KubeControllerRevisionV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeControllerRevisionV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.apps.v1beta1.ControllerRevision" API object.
 func NewKubeControllerRevisionV1Beta1(scope constructs.Construct, id *string, props *KubeControllerRevisionV1Beta1Props) KubeControllerRevisionV1Beta1 {
@@ -11138,6 +10895,38 @@ func NewKubeControllerRevisionV1Beta1_Override(k KubeControllerRevisionV1Beta1, 
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeControllerRevisionV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeControllerRevisionV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.apps.v1beta1.ControllerRevision".
@@ -11215,35 +11004,6 @@ func (k *jsiiProxy_KubeControllerRevisionV1Beta1) AddJsonPatch(ops ...cdk8s.Json
 	)
 }
 
-func (k *jsiiProxy_KubeControllerRevisionV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeControllerRevisionV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeControllerRevisionV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeControllerRevisionV1Beta1) ToJson() interface{} {
 	var returns interface{}
 
@@ -11306,6 +11066,8 @@ type KubeControllerRevisionV1Beta2 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -11316,29 +11078,6 @@ type KubeControllerRevisionV1Beta2 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -11410,6 +11149,16 @@ func (j *jsiiProxy_KubeControllerRevisionV1Beta2) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeControllerRevisionV1Beta2) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.apps.v1beta2.ControllerRevision" API object.
 func NewKubeControllerRevisionV1Beta2(scope constructs.Construct, id *string, props *KubeControllerRevisionV1Beta2Props) KubeControllerRevisionV1Beta2 {
@@ -11435,6 +11184,38 @@ func NewKubeControllerRevisionV1Beta2_Override(k KubeControllerRevisionV1Beta2, 
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeControllerRevisionV1Beta2_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeControllerRevisionV1Beta2",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.apps.v1beta2.ControllerRevision".
@@ -11512,35 +11293,6 @@ func (k *jsiiProxy_KubeControllerRevisionV1Beta2) AddJsonPatch(ops ...cdk8s.Json
 	)
 }
 
-func (k *jsiiProxy_KubeControllerRevisionV1Beta2) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeControllerRevisionV1Beta2) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeControllerRevisionV1Beta2) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeControllerRevisionV1Beta2) ToJson() interface{} {
 	var returns interface{}
 
@@ -11601,6 +11353,8 @@ type KubeCronJobListV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -11611,29 +11365,6 @@ type KubeCronJobListV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -11705,6 +11436,16 @@ func (j *jsiiProxy_KubeCronJobListV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeCronJobListV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.batch.v1beta1.CronJobList" API object.
 func NewKubeCronJobListV1Beta1(scope constructs.Construct, id *string, props *KubeCronJobListV1Beta1Props) KubeCronJobListV1Beta1 {
@@ -11730,6 +11471,38 @@ func NewKubeCronJobListV1Beta1_Override(k KubeCronJobListV1Beta1, scope construc
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeCronJobListV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeCronJobListV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.batch.v1beta1.CronJobList".
@@ -11807,35 +11580,6 @@ func (k *jsiiProxy_KubeCronJobListV1Beta1) AddJsonPatch(ops ...cdk8s.JsonPatch) 
 	)
 }
 
-func (k *jsiiProxy_KubeCronJobListV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeCronJobListV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeCronJobListV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeCronJobListV1Beta1) ToJson() interface{} {
 	var returns interface{}
 
@@ -11892,6 +11636,8 @@ type KubeCronJobListV2Alpha1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -11902,29 +11648,6 @@ type KubeCronJobListV2Alpha1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -11996,6 +11719,16 @@ func (j *jsiiProxy_KubeCronJobListV2Alpha1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeCronJobListV2Alpha1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.batch.v2alpha1.CronJobList" API object.
 func NewKubeCronJobListV2Alpha1(scope constructs.Construct, id *string, props *KubeCronJobListV2Alpha1Props) KubeCronJobListV2Alpha1 {
@@ -12021,6 +11754,38 @@ func NewKubeCronJobListV2Alpha1_Override(k KubeCronJobListV2Alpha1, scope constr
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeCronJobListV2Alpha1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeCronJobListV2Alpha1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.batch.v2alpha1.CronJobList".
@@ -12098,35 +11863,6 @@ func (k *jsiiProxy_KubeCronJobListV2Alpha1) AddJsonPatch(ops ...cdk8s.JsonPatch)
 	)
 }
 
-func (k *jsiiProxy_KubeCronJobListV2Alpha1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeCronJobListV2Alpha1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeCronJobListV2Alpha1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeCronJobListV2Alpha1) ToJson() interface{} {
 	var returns interface{}
 
@@ -12183,6 +11919,8 @@ type KubeCronJobV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -12193,29 +11931,6 @@ type KubeCronJobV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -12287,6 +12002,16 @@ func (j *jsiiProxy_KubeCronJobV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeCronJobV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.batch.v1beta1.CronJob" API object.
 func NewKubeCronJobV1Beta1(scope constructs.Construct, id *string, props *KubeCronJobV1Beta1Props) KubeCronJobV1Beta1 {
@@ -12312,6 +12037,38 @@ func NewKubeCronJobV1Beta1_Override(k KubeCronJobV1Beta1, scope constructs.Const
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeCronJobV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeCronJobV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.batch.v1beta1.CronJob".
@@ -12389,35 +12146,6 @@ func (k *jsiiProxy_KubeCronJobV1Beta1) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeCronJobV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeCronJobV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeCronJobV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeCronJobV1Beta1) ToJson() interface{} {
 	var returns interface{}
 
@@ -12476,6 +12204,8 @@ type KubeCronJobV2Alpha1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -12486,29 +12216,6 @@ type KubeCronJobV2Alpha1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -12580,6 +12287,16 @@ func (j *jsiiProxy_KubeCronJobV2Alpha1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeCronJobV2Alpha1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.batch.v2alpha1.CronJob" API object.
 func NewKubeCronJobV2Alpha1(scope constructs.Construct, id *string, props *KubeCronJobV2Alpha1Props) KubeCronJobV2Alpha1 {
@@ -12605,6 +12322,38 @@ func NewKubeCronJobV2Alpha1_Override(k KubeCronJobV2Alpha1, scope constructs.Con
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeCronJobV2Alpha1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeCronJobV2Alpha1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.batch.v2alpha1.CronJob".
@@ -12682,35 +12431,6 @@ func (k *jsiiProxy_KubeCronJobV2Alpha1) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeCronJobV2Alpha1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeCronJobV2Alpha1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeCronJobV2Alpha1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeCronJobV2Alpha1) ToJson() interface{} {
 	var returns interface{}
 
@@ -12769,6 +12489,8 @@ type KubeCsiDriverListV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -12779,29 +12501,6 @@ type KubeCsiDriverListV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -12873,6 +12572,16 @@ func (j *jsiiProxy_KubeCsiDriverListV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeCsiDriverListV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.storage.v1beta1.CSIDriverList" API object.
 func NewKubeCsiDriverListV1Beta1(scope constructs.Construct, id *string, props *KubeCsiDriverListV1Beta1Props) KubeCsiDriverListV1Beta1 {
@@ -12898,6 +12607,38 @@ func NewKubeCsiDriverListV1Beta1_Override(k KubeCsiDriverListV1Beta1, scope cons
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeCsiDriverListV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeCsiDriverListV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.storage.v1beta1.CSIDriverList".
@@ -12975,35 +12716,6 @@ func (k *jsiiProxy_KubeCsiDriverListV1Beta1) AddJsonPatch(ops ...cdk8s.JsonPatch
 	)
 }
 
-func (k *jsiiProxy_KubeCsiDriverListV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeCsiDriverListV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeCsiDriverListV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeCsiDriverListV1Beta1) ToJson() interface{} {
 	var returns interface{}
 
@@ -13060,6 +12772,8 @@ type KubeCsiDriverV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -13070,29 +12784,6 @@ type KubeCsiDriverV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -13164,6 +12855,16 @@ func (j *jsiiProxy_KubeCsiDriverV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeCsiDriverV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.storage.v1beta1.CSIDriver" API object.
 func NewKubeCsiDriverV1Beta1(scope constructs.Construct, id *string, props *KubeCsiDriverV1Beta1Props) KubeCsiDriverV1Beta1 {
@@ -13189,6 +12890,38 @@ func NewKubeCsiDriverV1Beta1_Override(k KubeCsiDriverV1Beta1, scope constructs.C
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeCsiDriverV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeCsiDriverV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.storage.v1beta1.CSIDriver".
@@ -13266,35 +12999,6 @@ func (k *jsiiProxy_KubeCsiDriverV1Beta1) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeCsiDriverV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeCsiDriverV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeCsiDriverV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeCsiDriverV1Beta1) ToJson() interface{} {
 	var returns interface{}
 
@@ -13355,6 +13059,8 @@ type KubeCsiNode interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -13365,29 +13071,6 @@ type KubeCsiNode interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -13459,6 +13142,16 @@ func (j *jsiiProxy_KubeCsiNode) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeCsiNode) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.storage.v1.CSINode" API object.
 func NewKubeCsiNode(scope constructs.Construct, id *string, props *KubeCsiNodeProps) KubeCsiNode {
@@ -13484,6 +13177,38 @@ func NewKubeCsiNode_Override(k KubeCsiNode, scope constructs.Construct, id *stri
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeCsiNode_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeCsiNode",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.storage.v1.CSINode".
@@ -13561,35 +13286,6 @@ func (k *jsiiProxy_KubeCsiNode) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeCsiNode) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeCsiNode) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeCsiNode) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeCsiNode) ToJson() interface{} {
 	var returns interface{}
 
@@ -13636,6 +13332,8 @@ type KubeCsiNodeList interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -13646,29 +13344,6 @@ type KubeCsiNodeList interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -13740,6 +13415,16 @@ func (j *jsiiProxy_KubeCsiNodeList) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeCsiNodeList) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.storage.v1.CSINodeList" API object.
 func NewKubeCsiNodeList(scope constructs.Construct, id *string, props *KubeCsiNodeListProps) KubeCsiNodeList {
@@ -13765,6 +13450,38 @@ func NewKubeCsiNodeList_Override(k KubeCsiNodeList, scope constructs.Construct, 
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeCsiNodeList_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeCsiNodeList",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.storage.v1.CSINodeList".
@@ -13842,35 +13559,6 @@ func (k *jsiiProxy_KubeCsiNodeList) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeCsiNodeList) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeCsiNodeList) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeCsiNodeList) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeCsiNodeList) ToJson() interface{} {
 	var returns interface{}
 
@@ -13925,6 +13613,8 @@ type KubeCsiNodeListV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -13935,29 +13625,6 @@ type KubeCsiNodeListV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -14029,6 +13696,16 @@ func (j *jsiiProxy_KubeCsiNodeListV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeCsiNodeListV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.storage.v1beta1.CSINodeList" API object.
 func NewKubeCsiNodeListV1Beta1(scope constructs.Construct, id *string, props *KubeCsiNodeListV1Beta1Props) KubeCsiNodeListV1Beta1 {
@@ -14054,6 +13731,38 @@ func NewKubeCsiNodeListV1Beta1_Override(k KubeCsiNodeListV1Beta1, scope construc
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeCsiNodeListV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeCsiNodeListV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.storage.v1beta1.CSINodeList".
@@ -14131,35 +13840,6 @@ func (k *jsiiProxy_KubeCsiNodeListV1Beta1) AddJsonPatch(ops ...cdk8s.JsonPatch) 
 	)
 }
 
-func (k *jsiiProxy_KubeCsiNodeListV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeCsiNodeListV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeCsiNodeListV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeCsiNodeListV1Beta1) ToJson() interface{} {
 	var returns interface{}
 
@@ -14226,6 +13906,8 @@ type KubeCsiNodeV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -14236,29 +13918,6 @@ type KubeCsiNodeV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -14330,6 +13989,16 @@ func (j *jsiiProxy_KubeCsiNodeV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeCsiNodeV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.storage.v1beta1.CSINode" API object.
 func NewKubeCsiNodeV1Beta1(scope constructs.Construct, id *string, props *KubeCsiNodeV1Beta1Props) KubeCsiNodeV1Beta1 {
@@ -14355,6 +14024,38 @@ func NewKubeCsiNodeV1Beta1_Override(k KubeCsiNodeV1Beta1, scope constructs.Const
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeCsiNodeV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeCsiNodeV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.storage.v1beta1.CSINode".
@@ -14432,35 +14133,6 @@ func (k *jsiiProxy_KubeCsiNodeV1Beta1) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeCsiNodeV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeCsiNodeV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeCsiNodeV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeCsiNodeV1Beta1) ToJson() interface{} {
 	var returns interface{}
 
@@ -14519,6 +14191,8 @@ type KubeCustomResourceDefinition interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -14529,29 +14203,6 @@ type KubeCustomResourceDefinition interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -14623,6 +14274,16 @@ func (j *jsiiProxy_KubeCustomResourceDefinition) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeCustomResourceDefinition) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinition" API object.
 func NewKubeCustomResourceDefinition(scope constructs.Construct, id *string, props *KubeCustomResourceDefinitionProps) KubeCustomResourceDefinition {
@@ -14648,6 +14309,38 @@ func NewKubeCustomResourceDefinition_Override(k KubeCustomResourceDefinition, sc
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeCustomResourceDefinition_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeCustomResourceDefinition",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinition".
@@ -14725,35 +14418,6 @@ func (k *jsiiProxy_KubeCustomResourceDefinition) AddJsonPatch(ops ...cdk8s.JsonP
 	)
 }
 
-func (k *jsiiProxy_KubeCustomResourceDefinition) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeCustomResourceDefinition) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeCustomResourceDefinition) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeCustomResourceDefinition) ToJson() interface{} {
 	var returns interface{}
 
@@ -14800,6 +14464,8 @@ type KubeCustomResourceDefinitionList interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -14810,29 +14476,6 @@ type KubeCustomResourceDefinitionList interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -14904,6 +14547,16 @@ func (j *jsiiProxy_KubeCustomResourceDefinitionList) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeCustomResourceDefinitionList) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinitionList" API object.
 func NewKubeCustomResourceDefinitionList(scope constructs.Construct, id *string, props *KubeCustomResourceDefinitionListProps) KubeCustomResourceDefinitionList {
@@ -14929,6 +14582,38 @@ func NewKubeCustomResourceDefinitionList_Override(k KubeCustomResourceDefinition
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeCustomResourceDefinitionList_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeCustomResourceDefinitionList",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinitionList".
@@ -15006,35 +14691,6 @@ func (k *jsiiProxy_KubeCustomResourceDefinitionList) AddJsonPatch(ops ...cdk8s.J
 	)
 }
 
-func (k *jsiiProxy_KubeCustomResourceDefinitionList) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeCustomResourceDefinitionList) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeCustomResourceDefinitionList) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeCustomResourceDefinitionList) ToJson() interface{} {
 	var returns interface{}
 
@@ -15088,6 +14744,8 @@ type KubeCustomResourceDefinitionListV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -15098,29 +14756,6 @@ type KubeCustomResourceDefinitionListV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -15192,6 +14827,16 @@ func (j *jsiiProxy_KubeCustomResourceDefinitionListV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeCustomResourceDefinitionListV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionList" API object.
 func NewKubeCustomResourceDefinitionListV1Beta1(scope constructs.Construct, id *string, props *KubeCustomResourceDefinitionListV1Beta1Props) KubeCustomResourceDefinitionListV1Beta1 {
@@ -15217,6 +14862,38 @@ func NewKubeCustomResourceDefinitionListV1Beta1_Override(k KubeCustomResourceDef
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeCustomResourceDefinitionListV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeCustomResourceDefinitionListV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionList".
@@ -15294,35 +14971,6 @@ func (k *jsiiProxy_KubeCustomResourceDefinitionListV1Beta1) AddJsonPatch(ops ...
 	)
 }
 
-func (k *jsiiProxy_KubeCustomResourceDefinitionListV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeCustomResourceDefinitionListV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeCustomResourceDefinitionListV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeCustomResourceDefinitionListV1Beta1) ToJson() interface{} {
 	var returns interface{}
 
@@ -15387,6 +15035,8 @@ type KubeCustomResourceDefinitionV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -15397,29 +15047,6 @@ type KubeCustomResourceDefinitionV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -15491,6 +15118,16 @@ func (j *jsiiProxy_KubeCustomResourceDefinitionV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeCustomResourceDefinitionV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinition" API object.
 func NewKubeCustomResourceDefinitionV1Beta1(scope constructs.Construct, id *string, props *KubeCustomResourceDefinitionV1Beta1Props) KubeCustomResourceDefinitionV1Beta1 {
@@ -15516,6 +15153,38 @@ func NewKubeCustomResourceDefinitionV1Beta1_Override(k KubeCustomResourceDefinit
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeCustomResourceDefinitionV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeCustomResourceDefinitionV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinition".
@@ -15593,35 +15262,6 @@ func (k *jsiiProxy_KubeCustomResourceDefinitionV1Beta1) AddJsonPatch(ops ...cdk8
 	)
 }
 
-func (k *jsiiProxy_KubeCustomResourceDefinitionV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeCustomResourceDefinitionV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeCustomResourceDefinitionV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeCustomResourceDefinitionV1Beta1) ToJson() interface{} {
 	var returns interface{}
 
@@ -15677,6 +15317,8 @@ type KubeDaemonSet interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -15687,29 +15329,6 @@ type KubeDaemonSet interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -15781,6 +15400,16 @@ func (j *jsiiProxy_KubeDaemonSet) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeDaemonSet) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.apps.v1.DaemonSet" API object.
 func NewKubeDaemonSet(scope constructs.Construct, id *string, props *KubeDaemonSetProps) KubeDaemonSet {
@@ -15806,6 +15435,38 @@ func NewKubeDaemonSet_Override(k KubeDaemonSet, scope constructs.Construct, id *
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeDaemonSet_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeDaemonSet",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.apps.v1.DaemonSet".
@@ -15883,35 +15544,6 @@ func (k *jsiiProxy_KubeDaemonSet) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeDaemonSet) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeDaemonSet) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeDaemonSet) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeDaemonSet) ToJson() interface{} {
 	var returns interface{}
 
@@ -15958,6 +15590,8 @@ type KubeDaemonSetList interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -15968,29 +15602,6 @@ type KubeDaemonSetList interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -16062,6 +15673,16 @@ func (j *jsiiProxy_KubeDaemonSetList) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeDaemonSetList) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.apps.v1.DaemonSetList" API object.
 func NewKubeDaemonSetList(scope constructs.Construct, id *string, props *KubeDaemonSetListProps) KubeDaemonSetList {
@@ -16087,6 +15708,38 @@ func NewKubeDaemonSetList_Override(k KubeDaemonSetList, scope constructs.Constru
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeDaemonSetList_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeDaemonSetList",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.apps.v1.DaemonSetList".
@@ -16164,35 +15817,6 @@ func (k *jsiiProxy_KubeDaemonSetList) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeDaemonSetList) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeDaemonSetList) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeDaemonSetList) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeDaemonSetList) ToJson() interface{} {
 	var returns interface{}
 
@@ -16249,6 +15873,8 @@ type KubeDaemonSetListV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -16259,29 +15885,6 @@ type KubeDaemonSetListV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -16353,6 +15956,16 @@ func (j *jsiiProxy_KubeDaemonSetListV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeDaemonSetListV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.extensions.v1beta1.DaemonSetList" API object.
 func NewKubeDaemonSetListV1Beta1(scope constructs.Construct, id *string, props *KubeDaemonSetListV1Beta1Props) KubeDaemonSetListV1Beta1 {
@@ -16378,6 +15991,38 @@ func NewKubeDaemonSetListV1Beta1_Override(k KubeDaemonSetListV1Beta1, scope cons
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeDaemonSetListV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeDaemonSetListV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.extensions.v1beta1.DaemonSetList".
@@ -16455,35 +16100,6 @@ func (k *jsiiProxy_KubeDaemonSetListV1Beta1) AddJsonPatch(ops ...cdk8s.JsonPatch
 	)
 }
 
-func (k *jsiiProxy_KubeDaemonSetListV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeDaemonSetListV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeDaemonSetListV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeDaemonSetListV1Beta1) ToJson() interface{} {
 	var returns interface{}
 
@@ -16540,6 +16156,8 @@ type KubeDaemonSetListV1Beta2 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -16550,29 +16168,6 @@ type KubeDaemonSetListV1Beta2 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -16644,6 +16239,16 @@ func (j *jsiiProxy_KubeDaemonSetListV1Beta2) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeDaemonSetListV1Beta2) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.apps.v1beta2.DaemonSetList" API object.
 func NewKubeDaemonSetListV1Beta2(scope constructs.Construct, id *string, props *KubeDaemonSetListV1Beta2Props) KubeDaemonSetListV1Beta2 {
@@ -16669,6 +16274,38 @@ func NewKubeDaemonSetListV1Beta2_Override(k KubeDaemonSetListV1Beta2, scope cons
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeDaemonSetListV1Beta2_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeDaemonSetListV1Beta2",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.apps.v1beta2.DaemonSetList".
@@ -16746,35 +16383,6 @@ func (k *jsiiProxy_KubeDaemonSetListV1Beta2) AddJsonPatch(ops ...cdk8s.JsonPatch
 	)
 }
 
-func (k *jsiiProxy_KubeDaemonSetListV1Beta2) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeDaemonSetListV1Beta2) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeDaemonSetListV1Beta2) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeDaemonSetListV1Beta2) ToJson() interface{} {
 	var returns interface{}
 
@@ -16845,6 +16453,8 @@ type KubeDaemonSetV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -16855,29 +16465,6 @@ type KubeDaemonSetV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -16949,6 +16536,16 @@ func (j *jsiiProxy_KubeDaemonSetV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeDaemonSetV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.extensions.v1beta1.DaemonSet" API object.
 func NewKubeDaemonSetV1Beta1(scope constructs.Construct, id *string, props *KubeDaemonSetV1Beta1Props) KubeDaemonSetV1Beta1 {
@@ -16974,6 +16571,38 @@ func NewKubeDaemonSetV1Beta1_Override(k KubeDaemonSetV1Beta1, scope constructs.C
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeDaemonSetV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeDaemonSetV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.extensions.v1beta1.DaemonSet".
@@ -17051,35 +16680,6 @@ func (k *jsiiProxy_KubeDaemonSetV1Beta1) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeDaemonSetV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeDaemonSetV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeDaemonSetV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeDaemonSetV1Beta1) ToJson() interface{} {
 	var returns interface{}
 
@@ -17142,6 +16742,8 @@ type KubeDaemonSetV1Beta2 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -17152,29 +16754,6 @@ type KubeDaemonSetV1Beta2 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -17246,6 +16825,16 @@ func (j *jsiiProxy_KubeDaemonSetV1Beta2) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeDaemonSetV1Beta2) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.apps.v1beta2.DaemonSet" API object.
 func NewKubeDaemonSetV1Beta2(scope constructs.Construct, id *string, props *KubeDaemonSetV1Beta2Props) KubeDaemonSetV1Beta2 {
@@ -17271,6 +16860,38 @@ func NewKubeDaemonSetV1Beta2_Override(k KubeDaemonSetV1Beta2, scope constructs.C
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeDaemonSetV1Beta2_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeDaemonSetV1Beta2",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.apps.v1beta2.DaemonSet".
@@ -17348,35 +16969,6 @@ func (k *jsiiProxy_KubeDaemonSetV1Beta2) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeDaemonSetV1Beta2) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeDaemonSetV1Beta2) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeDaemonSetV1Beta2) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeDaemonSetV1Beta2) ToJson() interface{} {
 	var returns interface{}
 
@@ -17437,6 +17029,8 @@ type KubeDeployment interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -17447,29 +17041,6 @@ type KubeDeployment interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -17541,6 +17112,16 @@ func (j *jsiiProxy_KubeDeployment) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeDeployment) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.apps.v1.Deployment" API object.
 func NewKubeDeployment(scope constructs.Construct, id *string, props *KubeDeploymentProps) KubeDeployment {
@@ -17566,6 +17147,38 @@ func NewKubeDeployment_Override(k KubeDeployment, scope constructs.Construct, id
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeDeployment_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeDeployment",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.apps.v1.Deployment".
@@ -17643,35 +17256,6 @@ func (k *jsiiProxy_KubeDeployment) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeDeployment) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeDeployment) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeDeployment) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeDeployment) ToJson() interface{} {
 	var returns interface{}
 
@@ -17718,6 +17302,8 @@ type KubeDeploymentList interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -17728,29 +17314,6 @@ type KubeDeploymentList interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -17822,6 +17385,16 @@ func (j *jsiiProxy_KubeDeploymentList) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeDeploymentList) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.apps.v1.DeploymentList" API object.
 func NewKubeDeploymentList(scope constructs.Construct, id *string, props *KubeDeploymentListProps) KubeDeploymentList {
@@ -17847,6 +17420,38 @@ func NewKubeDeploymentList_Override(k KubeDeploymentList, scope constructs.Const
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeDeploymentList_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeDeploymentList",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.apps.v1.DeploymentList".
@@ -17924,35 +17529,6 @@ func (k *jsiiProxy_KubeDeploymentList) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeDeploymentList) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeDeploymentList) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeDeploymentList) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeDeploymentList) ToJson() interface{} {
 	var returns interface{}
 
@@ -18007,6 +17583,8 @@ type KubeDeploymentListV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -18017,29 +17595,6 @@ type KubeDeploymentListV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -18111,6 +17666,16 @@ func (j *jsiiProxy_KubeDeploymentListV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeDeploymentListV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.extensions.v1beta1.DeploymentList" API object.
 func NewKubeDeploymentListV1Beta1(scope constructs.Construct, id *string, props *KubeDeploymentListV1Beta1Props) KubeDeploymentListV1Beta1 {
@@ -18136,6 +17701,38 @@ func NewKubeDeploymentListV1Beta1_Override(k KubeDeploymentListV1Beta1, scope co
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeDeploymentListV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeDeploymentListV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.extensions.v1beta1.DeploymentList".
@@ -18213,35 +17810,6 @@ func (k *jsiiProxy_KubeDeploymentListV1Beta1) AddJsonPatch(ops ...cdk8s.JsonPatc
 	)
 }
 
-func (k *jsiiProxy_KubeDeploymentListV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeDeploymentListV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeDeploymentListV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeDeploymentListV1Beta1) ToJson() interface{} {
 	var returns interface{}
 
@@ -18296,6 +17864,8 @@ type KubeDeploymentListV1Beta2 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -18306,29 +17876,6 @@ type KubeDeploymentListV1Beta2 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -18400,6 +17947,16 @@ func (j *jsiiProxy_KubeDeploymentListV1Beta2) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeDeploymentListV1Beta2) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.apps.v1beta2.DeploymentList" API object.
 func NewKubeDeploymentListV1Beta2(scope constructs.Construct, id *string, props *KubeDeploymentListV1Beta2Props) KubeDeploymentListV1Beta2 {
@@ -18425,6 +17982,38 @@ func NewKubeDeploymentListV1Beta2_Override(k KubeDeploymentListV1Beta2, scope co
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeDeploymentListV1Beta2_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeDeploymentListV1Beta2",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.apps.v1beta2.DeploymentList".
@@ -18502,35 +18091,6 @@ func (k *jsiiProxy_KubeDeploymentListV1Beta2) AddJsonPatch(ops ...cdk8s.JsonPatc
 	)
 }
 
-func (k *jsiiProxy_KubeDeploymentListV1Beta2) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeDeploymentListV1Beta2) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeDeploymentListV1Beta2) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeDeploymentListV1Beta2) ToJson() interface{} {
 	var returns interface{}
 
@@ -18595,6 +18155,8 @@ type KubeDeploymentV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -18605,29 +18167,6 @@ type KubeDeploymentV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -18699,6 +18238,16 @@ func (j *jsiiProxy_KubeDeploymentV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeDeploymentV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.extensions.v1beta1.Deployment" API object.
 func NewKubeDeploymentV1Beta1(scope constructs.Construct, id *string, props *KubeDeploymentV1Beta1Props) KubeDeploymentV1Beta1 {
@@ -18724,6 +18273,38 @@ func NewKubeDeploymentV1Beta1_Override(k KubeDeploymentV1Beta1, scope constructs
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeDeploymentV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeDeploymentV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.extensions.v1beta1.Deployment".
@@ -18801,35 +18382,6 @@ func (k *jsiiProxy_KubeDeploymentV1Beta1) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeDeploymentV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeDeploymentV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeDeploymentV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeDeploymentV1Beta1) ToJson() interface{} {
 	var returns interface{}
 
@@ -18888,6 +18440,8 @@ type KubeDeploymentV1Beta2 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -18898,29 +18452,6 @@ type KubeDeploymentV1Beta2 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -18992,6 +18523,16 @@ func (j *jsiiProxy_KubeDeploymentV1Beta2) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeDeploymentV1Beta2) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.apps.v1beta2.Deployment" API object.
 func NewKubeDeploymentV1Beta2(scope constructs.Construct, id *string, props *KubeDeploymentV1Beta2Props) KubeDeploymentV1Beta2 {
@@ -19017,6 +18558,38 @@ func NewKubeDeploymentV1Beta2_Override(k KubeDeploymentV1Beta2, scope constructs
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeDeploymentV1Beta2_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeDeploymentV1Beta2",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.apps.v1beta2.Deployment".
@@ -19094,35 +18667,6 @@ func (k *jsiiProxy_KubeDeploymentV1Beta2) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeDeploymentV1Beta2) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeDeploymentV1Beta2) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeDeploymentV1Beta2) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeDeploymentV1Beta2) ToJson() interface{} {
 	var returns interface{}
 
@@ -19179,6 +18723,8 @@ type KubeEndpointSliceListV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -19189,29 +18735,6 @@ type KubeEndpointSliceListV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -19283,6 +18806,16 @@ func (j *jsiiProxy_KubeEndpointSliceListV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeEndpointSliceListV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.discovery.v1beta1.EndpointSliceList" API object.
 func NewKubeEndpointSliceListV1Beta1(scope constructs.Construct, id *string, props *KubeEndpointSliceListV1Beta1Props) KubeEndpointSliceListV1Beta1 {
@@ -19308,6 +18841,38 @@ func NewKubeEndpointSliceListV1Beta1_Override(k KubeEndpointSliceListV1Beta1, sc
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeEndpointSliceListV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeEndpointSliceListV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.discovery.v1beta1.EndpointSliceList".
@@ -19385,35 +18950,6 @@ func (k *jsiiProxy_KubeEndpointSliceListV1Beta1) AddJsonPatch(ops ...cdk8s.JsonP
 	)
 }
 
-func (k *jsiiProxy_KubeEndpointSliceListV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeEndpointSliceListV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeEndpointSliceListV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeEndpointSliceListV1Beta1) ToJson() interface{} {
 	var returns interface{}
 
@@ -19470,6 +19006,8 @@ type KubeEndpointSliceV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -19480,29 +19018,6 @@ type KubeEndpointSliceV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -19574,6 +19089,16 @@ func (j *jsiiProxy_KubeEndpointSliceV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeEndpointSliceV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.discovery.v1beta1.EndpointSlice" API object.
 func NewKubeEndpointSliceV1Beta1(scope constructs.Construct, id *string, props *KubeEndpointSliceV1Beta1Props) KubeEndpointSliceV1Beta1 {
@@ -19599,6 +19124,38 @@ func NewKubeEndpointSliceV1Beta1_Override(k KubeEndpointSliceV1Beta1, scope cons
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeEndpointSliceV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeEndpointSliceV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.discovery.v1beta1.EndpointSlice".
@@ -19674,35 +19231,6 @@ func (k *jsiiProxy_KubeEndpointSliceV1Beta1) AddJsonPatch(ops ...cdk8s.JsonPatch
 		"addJsonPatch",
 		args,
 	)
-}
-
-func (k *jsiiProxy_KubeEndpointSliceV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeEndpointSliceV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeEndpointSliceV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
 }
 
 func (k *jsiiProxy_KubeEndpointSliceV1Beta1) ToJson() interface{} {
@@ -19784,6 +19312,8 @@ type KubeEndpoints interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -19794,29 +19324,6 @@ type KubeEndpoints interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -19888,6 +19395,16 @@ func (j *jsiiProxy_KubeEndpoints) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeEndpoints) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.core.v1.Endpoints" API object.
 func NewKubeEndpoints(scope constructs.Construct, id *string, props *KubeEndpointsProps) KubeEndpoints {
@@ -19913,6 +19430,38 @@ func NewKubeEndpoints_Override(k KubeEndpoints, scope constructs.Construct, id *
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeEndpoints_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeEndpoints",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.core.v1.Endpoints".
@@ -19990,35 +19539,6 @@ func (k *jsiiProxy_KubeEndpoints) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeEndpoints) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeEndpoints) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeEndpoints) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeEndpoints) ToJson() interface{} {
 	var returns interface{}
 
@@ -20065,6 +19585,8 @@ type KubeEndpointsList interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -20075,29 +19597,6 @@ type KubeEndpointsList interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -20169,6 +19668,16 @@ func (j *jsiiProxy_KubeEndpointsList) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeEndpointsList) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.core.v1.EndpointsList" API object.
 func NewKubeEndpointsList(scope constructs.Construct, id *string, props *KubeEndpointsListProps) KubeEndpointsList {
@@ -20194,6 +19703,38 @@ func NewKubeEndpointsList_Override(k KubeEndpointsList, scope constructs.Constru
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeEndpointsList_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeEndpointsList",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.core.v1.EndpointsList".
@@ -20269,35 +19810,6 @@ func (k *jsiiProxy_KubeEndpointsList) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 		"addJsonPatch",
 		args,
 	)
-}
-
-func (k *jsiiProxy_KubeEndpointsList) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeEndpointsList) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeEndpointsList) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
 }
 
 func (k *jsiiProxy_KubeEndpointsList) ToJson() interface{} {
@@ -20381,6 +19893,8 @@ type KubeEvent interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -20391,29 +19905,6 @@ type KubeEvent interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -20485,6 +19976,16 @@ func (j *jsiiProxy_KubeEvent) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeEvent) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.core.v1.Event" API object.
 func NewKubeEvent(scope constructs.Construct, id *string, props *KubeEventProps) KubeEvent {
@@ -20510,6 +20011,38 @@ func NewKubeEvent_Override(k KubeEvent, scope constructs.Construct, id *string, 
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeEvent_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeEvent",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.core.v1.Event".
@@ -20587,35 +20120,6 @@ func (k *jsiiProxy_KubeEvent) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeEvent) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeEvent) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeEvent) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeEvent) ToJson() interface{} {
 	var returns interface{}
 
@@ -20662,6 +20166,8 @@ type KubeEventList interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -20672,29 +20178,6 @@ type KubeEventList interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -20766,6 +20249,16 @@ func (j *jsiiProxy_KubeEventList) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeEventList) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.core.v1.EventList" API object.
 func NewKubeEventList(scope constructs.Construct, id *string, props *KubeEventListProps) KubeEventList {
@@ -20791,6 +20284,38 @@ func NewKubeEventList_Override(k KubeEventList, scope constructs.Construct, id *
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeEventList_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeEventList",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.core.v1.EventList".
@@ -20868,35 +20393,6 @@ func (k *jsiiProxy_KubeEventList) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeEventList) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeEventList) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeEventList) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeEventList) ToJson() interface{} {
 	var returns interface{}
 
@@ -20953,6 +20449,8 @@ type KubeEventListV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -20963,29 +20461,6 @@ type KubeEventListV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -21057,6 +20532,16 @@ func (j *jsiiProxy_KubeEventListV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeEventListV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.events.v1beta1.EventList" API object.
 func NewKubeEventListV1Beta1(scope constructs.Construct, id *string, props *KubeEventListV1Beta1Props) KubeEventListV1Beta1 {
@@ -21082,6 +20567,38 @@ func NewKubeEventListV1Beta1_Override(k KubeEventListV1Beta1, scope constructs.C
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeEventListV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeEventListV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.events.v1beta1.EventList".
@@ -21157,35 +20674,6 @@ func (k *jsiiProxy_KubeEventListV1Beta1) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 		"addJsonPatch",
 		args,
 	)
-}
-
-func (k *jsiiProxy_KubeEventListV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeEventListV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeEventListV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
 }
 
 func (k *jsiiProxy_KubeEventListV1Beta1) ToJson() interface{} {
@@ -21286,6 +20774,8 @@ type KubeEventV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -21296,29 +20786,6 @@ type KubeEventV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -21390,6 +20857,16 @@ func (j *jsiiProxy_KubeEventV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeEventV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.events.v1beta1.Event" API object.
 func NewKubeEventV1Beta1(scope constructs.Construct, id *string, props *KubeEventV1Beta1Props) KubeEventV1Beta1 {
@@ -21415,6 +20892,38 @@ func NewKubeEventV1Beta1_Override(k KubeEventV1Beta1, scope constructs.Construct
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeEventV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeEventV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.events.v1beta1.Event".
@@ -21490,35 +20999,6 @@ func (k *jsiiProxy_KubeEventV1Beta1) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 		"addJsonPatch",
 		args,
 	)
-}
-
-func (k *jsiiProxy_KubeEventV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeEventV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeEventV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
 }
 
 func (k *jsiiProxy_KubeEventV1Beta1) ToJson() interface{} {
@@ -21612,6 +21092,8 @@ type KubeEvictionV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -21622,29 +21104,6 @@ type KubeEvictionV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -21716,6 +21175,16 @@ func (j *jsiiProxy_KubeEvictionV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeEvictionV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.policy.v1beta1.Eviction" API object.
 func NewKubeEvictionV1Beta1(scope constructs.Construct, id *string, props *KubeEvictionV1Beta1Props) KubeEvictionV1Beta1 {
@@ -21741,6 +21210,38 @@ func NewKubeEvictionV1Beta1_Override(k KubeEvictionV1Beta1, scope constructs.Con
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeEvictionV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeEvictionV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.policy.v1beta1.Eviction".
@@ -21818,35 +21319,6 @@ func (k *jsiiProxy_KubeEvictionV1Beta1) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeEvictionV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeEvictionV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeEvictionV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeEvictionV1Beta1) ToJson() interface{} {
 	var returns interface{}
 
@@ -21903,6 +21375,8 @@ type KubeFlowSchemaListV1Alpha1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -21913,29 +21387,6 @@ type KubeFlowSchemaListV1Alpha1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -22007,6 +21458,16 @@ func (j *jsiiProxy_KubeFlowSchemaListV1Alpha1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeFlowSchemaListV1Alpha1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.flowcontrol.v1alpha1.FlowSchemaList" API object.
 func NewKubeFlowSchemaListV1Alpha1(scope constructs.Construct, id *string, props *KubeFlowSchemaListV1Alpha1Props) KubeFlowSchemaListV1Alpha1 {
@@ -22032,6 +21493,38 @@ func NewKubeFlowSchemaListV1Alpha1_Override(k KubeFlowSchemaListV1Alpha1, scope 
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeFlowSchemaListV1Alpha1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeFlowSchemaListV1Alpha1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.flowcontrol.v1alpha1.FlowSchemaList".
@@ -22109,35 +21602,6 @@ func (k *jsiiProxy_KubeFlowSchemaListV1Alpha1) AddJsonPatch(ops ...cdk8s.JsonPat
 	)
 }
 
-func (k *jsiiProxy_KubeFlowSchemaListV1Alpha1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeFlowSchemaListV1Alpha1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeFlowSchemaListV1Alpha1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeFlowSchemaListV1Alpha1) ToJson() interface{} {
 	var returns interface{}
 
@@ -22196,6 +21660,8 @@ type KubeFlowSchemaV1Alpha1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -22206,29 +21672,6 @@ type KubeFlowSchemaV1Alpha1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -22300,6 +21743,16 @@ func (j *jsiiProxy_KubeFlowSchemaV1Alpha1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeFlowSchemaV1Alpha1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.flowcontrol.v1alpha1.FlowSchema" API object.
 func NewKubeFlowSchemaV1Alpha1(scope constructs.Construct, id *string, props *KubeFlowSchemaV1Alpha1Props) KubeFlowSchemaV1Alpha1 {
@@ -22325,6 +21778,38 @@ func NewKubeFlowSchemaV1Alpha1_Override(k KubeFlowSchemaV1Alpha1, scope construc
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeFlowSchemaV1Alpha1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeFlowSchemaV1Alpha1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.flowcontrol.v1alpha1.FlowSchema".
@@ -22402,35 +21887,6 @@ func (k *jsiiProxy_KubeFlowSchemaV1Alpha1) AddJsonPatch(ops ...cdk8s.JsonPatch) 
 	)
 }
 
-func (k *jsiiProxy_KubeFlowSchemaV1Alpha1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeFlowSchemaV1Alpha1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeFlowSchemaV1Alpha1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeFlowSchemaV1Alpha1) ToJson() interface{} {
 	var returns interface{}
 
@@ -22491,6 +21947,8 @@ type KubeHorizontalPodAutoscaler interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -22501,29 +21959,6 @@ type KubeHorizontalPodAutoscaler interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -22595,6 +22030,16 @@ func (j *jsiiProxy_KubeHorizontalPodAutoscaler) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeHorizontalPodAutoscaler) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.autoscaling.v1.HorizontalPodAutoscaler" API object.
 func NewKubeHorizontalPodAutoscaler(scope constructs.Construct, id *string, props *KubeHorizontalPodAutoscalerProps) KubeHorizontalPodAutoscaler {
@@ -22620,6 +22065,38 @@ func NewKubeHorizontalPodAutoscaler_Override(k KubeHorizontalPodAutoscaler, scop
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeHorizontalPodAutoscaler_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeHorizontalPodAutoscaler",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.autoscaling.v1.HorizontalPodAutoscaler".
@@ -22697,35 +22174,6 @@ func (k *jsiiProxy_KubeHorizontalPodAutoscaler) AddJsonPatch(ops ...cdk8s.JsonPa
 	)
 }
 
-func (k *jsiiProxy_KubeHorizontalPodAutoscaler) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeHorizontalPodAutoscaler) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeHorizontalPodAutoscaler) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeHorizontalPodAutoscaler) ToJson() interface{} {
 	var returns interface{}
 
@@ -22772,6 +22220,8 @@ type KubeHorizontalPodAutoscalerList interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -22782,29 +22232,6 @@ type KubeHorizontalPodAutoscalerList interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -22876,6 +22303,16 @@ func (j *jsiiProxy_KubeHorizontalPodAutoscalerList) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeHorizontalPodAutoscalerList) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.autoscaling.v1.HorizontalPodAutoscalerList" API object.
 func NewKubeHorizontalPodAutoscalerList(scope constructs.Construct, id *string, props *KubeHorizontalPodAutoscalerListProps) KubeHorizontalPodAutoscalerList {
@@ -22901,6 +22338,38 @@ func NewKubeHorizontalPodAutoscalerList_Override(k KubeHorizontalPodAutoscalerLi
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeHorizontalPodAutoscalerList_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeHorizontalPodAutoscalerList",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.autoscaling.v1.HorizontalPodAutoscalerList".
@@ -22978,35 +22447,6 @@ func (k *jsiiProxy_KubeHorizontalPodAutoscalerList) AddJsonPatch(ops ...cdk8s.Js
 	)
 }
 
-func (k *jsiiProxy_KubeHorizontalPodAutoscalerList) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeHorizontalPodAutoscalerList) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeHorizontalPodAutoscalerList) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeHorizontalPodAutoscalerList) ToJson() interface{} {
 	var returns interface{}
 
@@ -23061,6 +22501,8 @@ type KubeHorizontalPodAutoscalerListV2Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -23071,29 +22513,6 @@ type KubeHorizontalPodAutoscalerListV2Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -23165,6 +22584,16 @@ func (j *jsiiProxy_KubeHorizontalPodAutoscalerListV2Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeHorizontalPodAutoscalerListV2Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.autoscaling.v2beta1.HorizontalPodAutoscalerList" API object.
 func NewKubeHorizontalPodAutoscalerListV2Beta1(scope constructs.Construct, id *string, props *KubeHorizontalPodAutoscalerListV2Beta1Props) KubeHorizontalPodAutoscalerListV2Beta1 {
@@ -23190,6 +22619,38 @@ func NewKubeHorizontalPodAutoscalerListV2Beta1_Override(k KubeHorizontalPodAutos
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeHorizontalPodAutoscalerListV2Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeHorizontalPodAutoscalerListV2Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.autoscaling.v2beta1.HorizontalPodAutoscalerList".
@@ -23267,35 +22728,6 @@ func (k *jsiiProxy_KubeHorizontalPodAutoscalerListV2Beta1) AddJsonPatch(ops ...c
 	)
 }
 
-func (k *jsiiProxy_KubeHorizontalPodAutoscalerListV2Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeHorizontalPodAutoscalerListV2Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeHorizontalPodAutoscalerListV2Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeHorizontalPodAutoscalerListV2Beta1) ToJson() interface{} {
 	var returns interface{}
 
@@ -23350,6 +22782,8 @@ type KubeHorizontalPodAutoscalerListV2Beta2 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -23360,29 +22794,6 @@ type KubeHorizontalPodAutoscalerListV2Beta2 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -23454,6 +22865,16 @@ func (j *jsiiProxy_KubeHorizontalPodAutoscalerListV2Beta2) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeHorizontalPodAutoscalerListV2Beta2) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.autoscaling.v2beta2.HorizontalPodAutoscalerList" API object.
 func NewKubeHorizontalPodAutoscalerListV2Beta2(scope constructs.Construct, id *string, props *KubeHorizontalPodAutoscalerListV2Beta2Props) KubeHorizontalPodAutoscalerListV2Beta2 {
@@ -23479,6 +22900,38 @@ func NewKubeHorizontalPodAutoscalerListV2Beta2_Override(k KubeHorizontalPodAutos
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeHorizontalPodAutoscalerListV2Beta2_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeHorizontalPodAutoscalerListV2Beta2",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.autoscaling.v2beta2.HorizontalPodAutoscalerList".
@@ -23556,35 +23009,6 @@ func (k *jsiiProxy_KubeHorizontalPodAutoscalerListV2Beta2) AddJsonPatch(ops ...c
 	)
 }
 
-func (k *jsiiProxy_KubeHorizontalPodAutoscalerListV2Beta2) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeHorizontalPodAutoscalerListV2Beta2) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeHorizontalPodAutoscalerListV2Beta2) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeHorizontalPodAutoscalerListV2Beta2) ToJson() interface{} {
 	var returns interface{}
 
@@ -23651,6 +23075,8 @@ type KubeHorizontalPodAutoscalerV2Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -23661,29 +23087,6 @@ type KubeHorizontalPodAutoscalerV2Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -23755,6 +23158,16 @@ func (j *jsiiProxy_KubeHorizontalPodAutoscalerV2Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeHorizontalPodAutoscalerV2Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.autoscaling.v2beta1.HorizontalPodAutoscaler" API object.
 func NewKubeHorizontalPodAutoscalerV2Beta1(scope constructs.Construct, id *string, props *KubeHorizontalPodAutoscalerV2Beta1Props) KubeHorizontalPodAutoscalerV2Beta1 {
@@ -23780,6 +23193,38 @@ func NewKubeHorizontalPodAutoscalerV2Beta1_Override(k KubeHorizontalPodAutoscale
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeHorizontalPodAutoscalerV2Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeHorizontalPodAutoscalerV2Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.autoscaling.v2beta1.HorizontalPodAutoscaler".
@@ -23857,35 +23302,6 @@ func (k *jsiiProxy_KubeHorizontalPodAutoscalerV2Beta1) AddJsonPatch(ops ...cdk8s
 	)
 }
 
-func (k *jsiiProxy_KubeHorizontalPodAutoscalerV2Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeHorizontalPodAutoscalerV2Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeHorizontalPodAutoscalerV2Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeHorizontalPodAutoscalerV2Beta1) ToJson() interface{} {
 	var returns interface{}
 
@@ -23944,6 +23360,8 @@ type KubeHorizontalPodAutoscalerV2Beta2 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -23954,29 +23372,6 @@ type KubeHorizontalPodAutoscalerV2Beta2 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -24048,6 +23443,16 @@ func (j *jsiiProxy_KubeHorizontalPodAutoscalerV2Beta2) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeHorizontalPodAutoscalerV2Beta2) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.autoscaling.v2beta2.HorizontalPodAutoscaler" API object.
 func NewKubeHorizontalPodAutoscalerV2Beta2(scope constructs.Construct, id *string, props *KubeHorizontalPodAutoscalerV2Beta2Props) KubeHorizontalPodAutoscalerV2Beta2 {
@@ -24073,6 +23478,38 @@ func NewKubeHorizontalPodAutoscalerV2Beta2_Override(k KubeHorizontalPodAutoscale
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeHorizontalPodAutoscalerV2Beta2_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeHorizontalPodAutoscalerV2Beta2",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.autoscaling.v2beta2.HorizontalPodAutoscaler".
@@ -24150,35 +23587,6 @@ func (k *jsiiProxy_KubeHorizontalPodAutoscalerV2Beta2) AddJsonPatch(ops ...cdk8s
 	)
 }
 
-func (k *jsiiProxy_KubeHorizontalPodAutoscalerV2Beta2) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeHorizontalPodAutoscalerV2Beta2) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeHorizontalPodAutoscalerV2Beta2) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeHorizontalPodAutoscalerV2Beta2) ToJson() interface{} {
 	var returns interface{}
 
@@ -24237,6 +23645,8 @@ type KubeIngressListV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -24247,29 +23657,6 @@ type KubeIngressListV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -24341,6 +23728,16 @@ func (j *jsiiProxy_KubeIngressListV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeIngressListV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.networking.v1beta1.IngressList" API object.
 func NewKubeIngressListV1Beta1(scope constructs.Construct, id *string, props *KubeIngressListV1Beta1Props) KubeIngressListV1Beta1 {
@@ -24366,6 +23763,38 @@ func NewKubeIngressListV1Beta1_Override(k KubeIngressListV1Beta1, scope construc
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeIngressListV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeIngressListV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.networking.v1beta1.IngressList".
@@ -24443,35 +23872,6 @@ func (k *jsiiProxy_KubeIngressListV1Beta1) AddJsonPatch(ops ...cdk8s.JsonPatch) 
 	)
 }
 
-func (k *jsiiProxy_KubeIngressListV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeIngressListV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeIngressListV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeIngressListV1Beta1) ToJson() interface{} {
 	var returns interface{}
 
@@ -24530,6 +23930,8 @@ type KubeIngressV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -24540,29 +23942,6 @@ type KubeIngressV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -24634,6 +24013,16 @@ func (j *jsiiProxy_KubeIngressV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeIngressV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.networking.v1beta1.Ingress" API object.
 func NewKubeIngressV1Beta1(scope constructs.Construct, id *string, props *KubeIngressV1Beta1Props) KubeIngressV1Beta1 {
@@ -24659,6 +24048,38 @@ func NewKubeIngressV1Beta1_Override(k KubeIngressV1Beta1, scope constructs.Const
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeIngressV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeIngressV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.networking.v1beta1.Ingress".
@@ -24736,35 +24157,6 @@ func (k *jsiiProxy_KubeIngressV1Beta1) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeIngressV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeIngressV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeIngressV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeIngressV1Beta1) ToJson() interface{} {
 	var returns interface{}
 
@@ -24825,6 +24217,8 @@ type KubeJob interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -24835,29 +24229,6 @@ type KubeJob interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -24929,6 +24300,16 @@ func (j *jsiiProxy_KubeJob) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeJob) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.batch.v1.Job" API object.
 func NewKubeJob(scope constructs.Construct, id *string, props *KubeJobProps) KubeJob {
@@ -24954,6 +24335,38 @@ func NewKubeJob_Override(k KubeJob, scope constructs.Construct, id *string, prop
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeJob_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeJob",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.batch.v1.Job".
@@ -25031,35 +24444,6 @@ func (k *jsiiProxy_KubeJob) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeJob) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeJob) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeJob) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeJob) ToJson() interface{} {
 	var returns interface{}
 
@@ -25106,6 +24490,8 @@ type KubeJobList interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -25116,29 +24502,6 @@ type KubeJobList interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -25210,6 +24573,16 @@ func (j *jsiiProxy_KubeJobList) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeJobList) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.batch.v1.JobList" API object.
 func NewKubeJobList(scope constructs.Construct, id *string, props *KubeJobListProps) KubeJobList {
@@ -25235,6 +24608,38 @@ func NewKubeJobList_Override(k KubeJobList, scope constructs.Construct, id *stri
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeJobList_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeJobList",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.batch.v1.JobList".
@@ -25312,35 +24717,6 @@ func (k *jsiiProxy_KubeJobList) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeJobList) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeJobList) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeJobList) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeJobList) ToJson() interface{} {
 	var returns interface{}
 
@@ -25409,6 +24785,8 @@ type KubeLease interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -25419,29 +24797,6 @@ type KubeLease interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -25513,6 +24868,16 @@ func (j *jsiiProxy_KubeLease) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeLease) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.coordination.v1.Lease" API object.
 func NewKubeLease(scope constructs.Construct, id *string, props *KubeLeaseProps) KubeLease {
@@ -25538,6 +24903,38 @@ func NewKubeLease_Override(k KubeLease, scope constructs.Construct, id *string, 
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeLease_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeLease",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.coordination.v1.Lease".
@@ -25615,35 +25012,6 @@ func (k *jsiiProxy_KubeLease) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeLease) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeLease) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeLease) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeLease) ToJson() interface{} {
 	var returns interface{}
 
@@ -25690,6 +25058,8 @@ type KubeLeaseList interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -25700,29 +25070,6 @@ type KubeLeaseList interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -25794,6 +25141,16 @@ func (j *jsiiProxy_KubeLeaseList) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeLeaseList) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.coordination.v1.LeaseList" API object.
 func NewKubeLeaseList(scope constructs.Construct, id *string, props *KubeLeaseListProps) KubeLeaseList {
@@ -25819,6 +25176,38 @@ func NewKubeLeaseList_Override(k KubeLeaseList, scope constructs.Construct, id *
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeLeaseList_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeLeaseList",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.coordination.v1.LeaseList".
@@ -25896,35 +25285,6 @@ func (k *jsiiProxy_KubeLeaseList) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeLeaseList) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeLeaseList) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeLeaseList) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeLeaseList) ToJson() interface{} {
 	var returns interface{}
 
@@ -25981,6 +25341,8 @@ type KubeLeaseListV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -25991,29 +25353,6 @@ type KubeLeaseListV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -26085,6 +25424,16 @@ func (j *jsiiProxy_KubeLeaseListV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeLeaseListV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.coordination.v1beta1.LeaseList" API object.
 func NewKubeLeaseListV1Beta1(scope constructs.Construct, id *string, props *KubeLeaseListV1Beta1Props) KubeLeaseListV1Beta1 {
@@ -26110,6 +25459,38 @@ func NewKubeLeaseListV1Beta1_Override(k KubeLeaseListV1Beta1, scope constructs.C
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeLeaseListV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeLeaseListV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.coordination.v1beta1.LeaseList".
@@ -26187,35 +25568,6 @@ func (k *jsiiProxy_KubeLeaseListV1Beta1) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeLeaseListV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeLeaseListV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeLeaseListV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeLeaseListV1Beta1) ToJson() interface{} {
 	var returns interface{}
 
@@ -26282,6 +25634,8 @@ type KubeLeaseV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -26292,29 +25646,6 @@ type KubeLeaseV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -26386,6 +25717,16 @@ func (j *jsiiProxy_KubeLeaseV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeLeaseV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.coordination.v1beta1.Lease" API object.
 func NewKubeLeaseV1Beta1(scope constructs.Construct, id *string, props *KubeLeaseV1Beta1Props) KubeLeaseV1Beta1 {
@@ -26411,6 +25752,38 @@ func NewKubeLeaseV1Beta1_Override(k KubeLeaseV1Beta1, scope constructs.Construct
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeLeaseV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeLeaseV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.coordination.v1beta1.Lease".
@@ -26488,35 +25861,6 @@ func (k *jsiiProxy_KubeLeaseV1Beta1) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeLeaseV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeLeaseV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeLeaseV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeLeaseV1Beta1) ToJson() interface{} {
 	var returns interface{}
 
@@ -26573,6 +25917,8 @@ type KubeLimitRange interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -26583,29 +25929,6 @@ type KubeLimitRange interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -26677,6 +26000,16 @@ func (j *jsiiProxy_KubeLimitRange) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeLimitRange) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.core.v1.LimitRange" API object.
 func NewKubeLimitRange(scope constructs.Construct, id *string, props *KubeLimitRangeProps) KubeLimitRange {
@@ -26702,6 +26035,38 @@ func NewKubeLimitRange_Override(k KubeLimitRange, scope constructs.Construct, id
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeLimitRange_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeLimitRange",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.core.v1.LimitRange".
@@ -26779,35 +26144,6 @@ func (k *jsiiProxy_KubeLimitRange) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeLimitRange) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeLimitRange) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeLimitRange) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeLimitRange) ToJson() interface{} {
 	var returns interface{}
 
@@ -26854,6 +26190,8 @@ type KubeLimitRangeList interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -26864,29 +26202,6 @@ type KubeLimitRangeList interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -26958,6 +26273,16 @@ func (j *jsiiProxy_KubeLimitRangeList) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeLimitRangeList) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.core.v1.LimitRangeList" API object.
 func NewKubeLimitRangeList(scope constructs.Construct, id *string, props *KubeLimitRangeListProps) KubeLimitRangeList {
@@ -26983,6 +26308,38 @@ func NewKubeLimitRangeList_Override(k KubeLimitRangeList, scope constructs.Const
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeLimitRangeList_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeLimitRangeList",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.core.v1.LimitRangeList".
@@ -27060,35 +26417,6 @@ func (k *jsiiProxy_KubeLimitRangeList) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeLimitRangeList) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeLimitRangeList) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeLimitRangeList) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeLimitRangeList) ToJson() interface{} {
 	var returns interface{}
 
@@ -27161,6 +26489,8 @@ type KubeLocalSubjectAccessReview interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -27171,29 +26501,6 @@ type KubeLocalSubjectAccessReview interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -27265,6 +26572,16 @@ func (j *jsiiProxy_KubeLocalSubjectAccessReview) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeLocalSubjectAccessReview) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.authorization.v1.LocalSubjectAccessReview" API object.
 func NewKubeLocalSubjectAccessReview(scope constructs.Construct, id *string, props *KubeLocalSubjectAccessReviewProps) KubeLocalSubjectAccessReview {
@@ -27290,6 +26607,38 @@ func NewKubeLocalSubjectAccessReview_Override(k KubeLocalSubjectAccessReview, sc
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeLocalSubjectAccessReview_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeLocalSubjectAccessReview",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.authorization.v1.LocalSubjectAccessReview".
@@ -27367,35 +26716,6 @@ func (k *jsiiProxy_KubeLocalSubjectAccessReview) AddJsonPatch(ops ...cdk8s.JsonP
 	)
 }
 
-func (k *jsiiProxy_KubeLocalSubjectAccessReview) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeLocalSubjectAccessReview) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeLocalSubjectAccessReview) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeLocalSubjectAccessReview) ToJson() interface{} {
 	var returns interface{}
 
@@ -27455,6 +26775,8 @@ type KubeLocalSubjectAccessReviewV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -27465,29 +26787,6 @@ type KubeLocalSubjectAccessReviewV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -27559,6 +26858,16 @@ func (j *jsiiProxy_KubeLocalSubjectAccessReviewV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeLocalSubjectAccessReviewV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.authorization.v1beta1.LocalSubjectAccessReview" API object.
 func NewKubeLocalSubjectAccessReviewV1Beta1(scope constructs.Construct, id *string, props *KubeLocalSubjectAccessReviewV1Beta1Props) KubeLocalSubjectAccessReviewV1Beta1 {
@@ -27584,6 +26893,38 @@ func NewKubeLocalSubjectAccessReviewV1Beta1_Override(k KubeLocalSubjectAccessRev
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeLocalSubjectAccessReviewV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeLocalSubjectAccessReviewV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.authorization.v1beta1.LocalSubjectAccessReview".
@@ -27661,35 +27002,6 @@ func (k *jsiiProxy_KubeLocalSubjectAccessReviewV1Beta1) AddJsonPatch(ops ...cdk8
 	)
 }
 
-func (k *jsiiProxy_KubeLocalSubjectAccessReviewV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeLocalSubjectAccessReviewV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeLocalSubjectAccessReviewV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeLocalSubjectAccessReviewV1Beta1) ToJson() interface{} {
 	var returns interface{}
 
@@ -27747,6 +27059,8 @@ type KubeMutatingWebhookConfiguration interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -27757,29 +27071,6 @@ type KubeMutatingWebhookConfiguration interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -27851,6 +27142,16 @@ func (j *jsiiProxy_KubeMutatingWebhookConfiguration) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeMutatingWebhookConfiguration) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.admissionregistration.v1.MutatingWebhookConfiguration" API object.
 func NewKubeMutatingWebhookConfiguration(scope constructs.Construct, id *string, props *KubeMutatingWebhookConfigurationProps) KubeMutatingWebhookConfiguration {
@@ -27876,6 +27177,38 @@ func NewKubeMutatingWebhookConfiguration_Override(k KubeMutatingWebhookConfigura
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeMutatingWebhookConfiguration_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeMutatingWebhookConfiguration",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.admissionregistration.v1.MutatingWebhookConfiguration".
@@ -27953,35 +27286,6 @@ func (k *jsiiProxy_KubeMutatingWebhookConfiguration) AddJsonPatch(ops ...cdk8s.J
 	)
 }
 
-func (k *jsiiProxy_KubeMutatingWebhookConfiguration) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeMutatingWebhookConfiguration) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeMutatingWebhookConfiguration) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeMutatingWebhookConfiguration) ToJson() interface{} {
 	var returns interface{}
 
@@ -28028,6 +27332,8 @@ type KubeMutatingWebhookConfigurationList interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -28038,29 +27344,6 @@ type KubeMutatingWebhookConfigurationList interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -28132,6 +27415,16 @@ func (j *jsiiProxy_KubeMutatingWebhookConfigurationList) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeMutatingWebhookConfigurationList) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.admissionregistration.v1.MutatingWebhookConfigurationList" API object.
 func NewKubeMutatingWebhookConfigurationList(scope constructs.Construct, id *string, props *KubeMutatingWebhookConfigurationListProps) KubeMutatingWebhookConfigurationList {
@@ -28157,6 +27450,38 @@ func NewKubeMutatingWebhookConfigurationList_Override(k KubeMutatingWebhookConfi
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeMutatingWebhookConfigurationList_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeMutatingWebhookConfigurationList",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.admissionregistration.v1.MutatingWebhookConfigurationList".
@@ -28234,35 +27559,6 @@ func (k *jsiiProxy_KubeMutatingWebhookConfigurationList) AddJsonPatch(ops ...cdk
 	)
 }
 
-func (k *jsiiProxy_KubeMutatingWebhookConfigurationList) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeMutatingWebhookConfigurationList) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeMutatingWebhookConfigurationList) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeMutatingWebhookConfigurationList) ToJson() interface{} {
 	var returns interface{}
 
@@ -28319,6 +27615,8 @@ type KubeMutatingWebhookConfigurationListV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -28329,29 +27627,6 @@ type KubeMutatingWebhookConfigurationListV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -28423,6 +27698,16 @@ func (j *jsiiProxy_KubeMutatingWebhookConfigurationListV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeMutatingWebhookConfigurationListV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.admissionregistration.v1beta1.MutatingWebhookConfigurationList" API object.
 func NewKubeMutatingWebhookConfigurationListV1Beta1(scope constructs.Construct, id *string, props *KubeMutatingWebhookConfigurationListV1Beta1Props) KubeMutatingWebhookConfigurationListV1Beta1 {
@@ -28448,6 +27733,38 @@ func NewKubeMutatingWebhookConfigurationListV1Beta1_Override(k KubeMutatingWebho
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeMutatingWebhookConfigurationListV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeMutatingWebhookConfigurationListV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.admissionregistration.v1beta1.MutatingWebhookConfigurationList".
@@ -28525,35 +27842,6 @@ func (k *jsiiProxy_KubeMutatingWebhookConfigurationListV1Beta1) AddJsonPatch(ops
 	)
 }
 
-func (k *jsiiProxy_KubeMutatingWebhookConfigurationListV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeMutatingWebhookConfigurationListV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeMutatingWebhookConfigurationListV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeMutatingWebhookConfigurationListV1Beta1) ToJson() interface{} {
 	var returns interface{}
 
@@ -28622,6 +27910,8 @@ type KubeMutatingWebhookConfigurationV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -28632,29 +27922,6 @@ type KubeMutatingWebhookConfigurationV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -28726,6 +27993,16 @@ func (j *jsiiProxy_KubeMutatingWebhookConfigurationV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeMutatingWebhookConfigurationV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.admissionregistration.v1beta1.MutatingWebhookConfiguration" API object.
 func NewKubeMutatingWebhookConfigurationV1Beta1(scope constructs.Construct, id *string, props *KubeMutatingWebhookConfigurationV1Beta1Props) KubeMutatingWebhookConfigurationV1Beta1 {
@@ -28751,6 +28028,38 @@ func NewKubeMutatingWebhookConfigurationV1Beta1_Override(k KubeMutatingWebhookCo
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeMutatingWebhookConfigurationV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeMutatingWebhookConfigurationV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.admissionregistration.v1beta1.MutatingWebhookConfiguration".
@@ -28828,35 +28137,6 @@ func (k *jsiiProxy_KubeMutatingWebhookConfigurationV1Beta1) AddJsonPatch(ops ...
 	)
 }
 
-func (k *jsiiProxy_KubeMutatingWebhookConfigurationV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeMutatingWebhookConfigurationV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeMutatingWebhookConfigurationV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeMutatingWebhookConfigurationV1Beta1) ToJson() interface{} {
 	var returns interface{}
 
@@ -28917,6 +28197,8 @@ type KubeNamespace interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -28927,29 +28209,6 @@ type KubeNamespace interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -29021,6 +28280,16 @@ func (j *jsiiProxy_KubeNamespace) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeNamespace) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.core.v1.Namespace" API object.
 func NewKubeNamespace(scope constructs.Construct, id *string, props *KubeNamespaceProps) KubeNamespace {
@@ -29046,6 +28315,38 @@ func NewKubeNamespace_Override(k KubeNamespace, scope constructs.Construct, id *
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeNamespace_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeNamespace",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.core.v1.Namespace".
@@ -29123,35 +28424,6 @@ func (k *jsiiProxy_KubeNamespace) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeNamespace) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeNamespace) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeNamespace) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeNamespace) ToJson() interface{} {
 	var returns interface{}
 
@@ -29198,6 +28470,8 @@ type KubeNamespaceList interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -29208,29 +28482,6 @@ type KubeNamespaceList interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -29302,6 +28553,16 @@ func (j *jsiiProxy_KubeNamespaceList) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeNamespaceList) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.core.v1.NamespaceList" API object.
 func NewKubeNamespaceList(scope constructs.Construct, id *string, props *KubeNamespaceListProps) KubeNamespaceList {
@@ -29327,6 +28588,38 @@ func NewKubeNamespaceList_Override(k KubeNamespaceList, scope constructs.Constru
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeNamespaceList_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeNamespaceList",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.core.v1.NamespaceList".
@@ -29404,35 +28697,6 @@ func (k *jsiiProxy_KubeNamespaceList) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeNamespaceList) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeNamespaceList) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeNamespaceList) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeNamespaceList) ToJson() interface{} {
 	var returns interface{}
 
@@ -29505,6 +28769,8 @@ type KubeNetworkPolicy interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -29515,29 +28781,6 @@ type KubeNetworkPolicy interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -29609,6 +28852,16 @@ func (j *jsiiProxy_KubeNetworkPolicy) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeNetworkPolicy) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.networking.v1.NetworkPolicy" API object.
 func NewKubeNetworkPolicy(scope constructs.Construct, id *string, props *KubeNetworkPolicyProps) KubeNetworkPolicy {
@@ -29634,6 +28887,38 @@ func NewKubeNetworkPolicy_Override(k KubeNetworkPolicy, scope constructs.Constru
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeNetworkPolicy_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeNetworkPolicy",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.networking.v1.NetworkPolicy".
@@ -29711,35 +28996,6 @@ func (k *jsiiProxy_KubeNetworkPolicy) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeNetworkPolicy) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeNetworkPolicy) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeNetworkPolicy) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeNetworkPolicy) ToJson() interface{} {
 	var returns interface{}
 
@@ -29786,6 +29042,8 @@ type KubeNetworkPolicyList interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -29796,29 +29054,6 @@ type KubeNetworkPolicyList interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -29890,6 +29125,16 @@ func (j *jsiiProxy_KubeNetworkPolicyList) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeNetworkPolicyList) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.networking.v1.NetworkPolicyList" API object.
 func NewKubeNetworkPolicyList(scope constructs.Construct, id *string, props *KubeNetworkPolicyListProps) KubeNetworkPolicyList {
@@ -29915,6 +29160,38 @@ func NewKubeNetworkPolicyList_Override(k KubeNetworkPolicyList, scope constructs
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeNetworkPolicyList_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeNetworkPolicyList",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.networking.v1.NetworkPolicyList".
@@ -29992,35 +29269,6 @@ func (k *jsiiProxy_KubeNetworkPolicyList) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeNetworkPolicyList) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeNetworkPolicyList) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeNetworkPolicyList) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeNetworkPolicyList) ToJson() interface{} {
 	var returns interface{}
 
@@ -30077,6 +29325,8 @@ type KubeNetworkPolicyListV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -30087,29 +29337,6 @@ type KubeNetworkPolicyListV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -30181,6 +29408,16 @@ func (j *jsiiProxy_KubeNetworkPolicyListV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeNetworkPolicyListV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.extensions.v1beta1.NetworkPolicyList" API object.
 func NewKubeNetworkPolicyListV1Beta1(scope constructs.Construct, id *string, props *KubeNetworkPolicyListV1Beta1Props) KubeNetworkPolicyListV1Beta1 {
@@ -30206,6 +29443,38 @@ func NewKubeNetworkPolicyListV1Beta1_Override(k KubeNetworkPolicyListV1Beta1, sc
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeNetworkPolicyListV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeNetworkPolicyListV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.extensions.v1beta1.NetworkPolicyList".
@@ -30283,35 +29552,6 @@ func (k *jsiiProxy_KubeNetworkPolicyListV1Beta1) AddJsonPatch(ops ...cdk8s.JsonP
 	)
 }
 
-func (k *jsiiProxy_KubeNetworkPolicyListV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeNetworkPolicyListV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeNetworkPolicyListV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeNetworkPolicyListV1Beta1) ToJson() interface{} {
 	var returns interface{}
 
@@ -30378,6 +29618,8 @@ type KubeNetworkPolicyV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -30388,29 +29630,6 @@ type KubeNetworkPolicyV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -30482,6 +29701,16 @@ func (j *jsiiProxy_KubeNetworkPolicyV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeNetworkPolicyV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.extensions.v1beta1.NetworkPolicy" API object.
 func NewKubeNetworkPolicyV1Beta1(scope constructs.Construct, id *string, props *KubeNetworkPolicyV1Beta1Props) KubeNetworkPolicyV1Beta1 {
@@ -30507,6 +29736,38 @@ func NewKubeNetworkPolicyV1Beta1_Override(k KubeNetworkPolicyV1Beta1, scope cons
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeNetworkPolicyV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeNetworkPolicyV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.extensions.v1beta1.NetworkPolicy".
@@ -30584,35 +29845,6 @@ func (k *jsiiProxy_KubeNetworkPolicyV1Beta1) AddJsonPatch(ops ...cdk8s.JsonPatch
 	)
 }
 
-func (k *jsiiProxy_KubeNetworkPolicyV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeNetworkPolicyV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeNetworkPolicyV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeNetworkPolicyV1Beta1) ToJson() interface{} {
 	var returns interface{}
 
@@ -30671,6 +29903,8 @@ type KubeNode interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -30681,29 +29915,6 @@ type KubeNode interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -30775,6 +29986,16 @@ func (j *jsiiProxy_KubeNode) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeNode) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.core.v1.Node" API object.
 func NewKubeNode(scope constructs.Construct, id *string, props *KubeNodeProps) KubeNode {
@@ -30800,6 +30021,38 @@ func NewKubeNode_Override(k KubeNode, scope constructs.Construct, id *string, pr
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeNode_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeNode",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.core.v1.Node".
@@ -30877,35 +30130,6 @@ func (k *jsiiProxy_KubeNode) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeNode) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeNode) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeNode) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeNode) ToJson() interface{} {
 	var returns interface{}
 
@@ -30952,6 +30176,8 @@ type KubeNodeList interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -30962,29 +30188,6 @@ type KubeNodeList interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -31056,6 +30259,16 @@ func (j *jsiiProxy_KubeNodeList) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeNodeList) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.core.v1.NodeList" API object.
 func NewKubeNodeList(scope constructs.Construct, id *string, props *KubeNodeListProps) KubeNodeList {
@@ -31081,6 +30294,38 @@ func NewKubeNodeList_Override(k KubeNodeList, scope constructs.Construct, id *st
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeNodeList_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeNodeList",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.core.v1.NodeList".
@@ -31158,35 +30403,6 @@ func (k *jsiiProxy_KubeNodeList) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeNodeList) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeNodeList) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeNodeList) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeNodeList) ToJson() interface{} {
 	var returns interface{}
 
@@ -31259,6 +30475,8 @@ type KubePersistentVolume interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -31269,29 +30487,6 @@ type KubePersistentVolume interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -31363,6 +30558,16 @@ func (j *jsiiProxy_KubePersistentVolume) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubePersistentVolume) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.core.v1.PersistentVolume" API object.
 func NewKubePersistentVolume(scope constructs.Construct, id *string, props *KubePersistentVolumeProps) KubePersistentVolume {
@@ -31388,6 +30593,38 @@ func NewKubePersistentVolume_Override(k KubePersistentVolume, scope constructs.C
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubePersistentVolume_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubePersistentVolume",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.core.v1.PersistentVolume".
@@ -31465,35 +30702,6 @@ func (k *jsiiProxy_KubePersistentVolume) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubePersistentVolume) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubePersistentVolume) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubePersistentVolume) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubePersistentVolume) ToJson() interface{} {
 	var returns interface{}
 
@@ -31540,6 +30748,8 @@ type KubePersistentVolumeClaim interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -31550,29 +30760,6 @@ type KubePersistentVolumeClaim interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -31644,6 +30831,16 @@ func (j *jsiiProxy_KubePersistentVolumeClaim) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubePersistentVolumeClaim) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.core.v1.PersistentVolumeClaim" API object.
 func NewKubePersistentVolumeClaim(scope constructs.Construct, id *string, props *KubePersistentVolumeClaimProps) KubePersistentVolumeClaim {
@@ -31669,6 +30866,38 @@ func NewKubePersistentVolumeClaim_Override(k KubePersistentVolumeClaim, scope co
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubePersistentVolumeClaim_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubePersistentVolumeClaim",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.core.v1.PersistentVolumeClaim".
@@ -31746,35 +30975,6 @@ func (k *jsiiProxy_KubePersistentVolumeClaim) AddJsonPatch(ops ...cdk8s.JsonPatc
 	)
 }
 
-func (k *jsiiProxy_KubePersistentVolumeClaim) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubePersistentVolumeClaim) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubePersistentVolumeClaim) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubePersistentVolumeClaim) ToJson() interface{} {
 	var returns interface{}
 
@@ -31821,6 +31021,8 @@ type KubePersistentVolumeClaimList interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -31831,29 +31033,6 @@ type KubePersistentVolumeClaimList interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -31925,6 +31104,16 @@ func (j *jsiiProxy_KubePersistentVolumeClaimList) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubePersistentVolumeClaimList) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.core.v1.PersistentVolumeClaimList" API object.
 func NewKubePersistentVolumeClaimList(scope constructs.Construct, id *string, props *KubePersistentVolumeClaimListProps) KubePersistentVolumeClaimList {
@@ -31950,6 +31139,38 @@ func NewKubePersistentVolumeClaimList_Override(k KubePersistentVolumeClaimList, 
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubePersistentVolumeClaimList_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubePersistentVolumeClaimList",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.core.v1.PersistentVolumeClaimList".
@@ -32027,35 +31248,6 @@ func (k *jsiiProxy_KubePersistentVolumeClaimList) AddJsonPatch(ops ...cdk8s.Json
 	)
 }
 
-func (k *jsiiProxy_KubePersistentVolumeClaimList) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubePersistentVolumeClaimList) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubePersistentVolumeClaimList) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubePersistentVolumeClaimList) ToJson() interface{} {
 	var returns interface{}
 
@@ -32126,6 +31318,8 @@ type KubePersistentVolumeList interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -32136,29 +31330,6 @@ type KubePersistentVolumeList interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -32230,6 +31401,16 @@ func (j *jsiiProxy_KubePersistentVolumeList) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubePersistentVolumeList) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.core.v1.PersistentVolumeList" API object.
 func NewKubePersistentVolumeList(scope constructs.Construct, id *string, props *KubePersistentVolumeListProps) KubePersistentVolumeList {
@@ -32255,6 +31436,38 @@ func NewKubePersistentVolumeList_Override(k KubePersistentVolumeList, scope cons
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubePersistentVolumeList_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubePersistentVolumeList",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.core.v1.PersistentVolumeList".
@@ -32332,35 +31545,6 @@ func (k *jsiiProxy_KubePersistentVolumeList) AddJsonPatch(ops ...cdk8s.JsonPatch
 	)
 }
 
-func (k *jsiiProxy_KubePersistentVolumeList) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubePersistentVolumeList) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubePersistentVolumeList) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubePersistentVolumeList) ToJson() interface{} {
 	var returns interface{}
 
@@ -32435,6 +31619,8 @@ type KubePod interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -32445,29 +31631,6 @@ type KubePod interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -32539,6 +31702,16 @@ func (j *jsiiProxy_KubePod) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubePod) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.core.v1.Pod" API object.
 func NewKubePod(scope constructs.Construct, id *string, props *KubePodProps) KubePod {
@@ -32564,6 +31737,38 @@ func NewKubePod_Override(k KubePod, scope constructs.Construct, id *string, prop
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubePod_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubePod",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.core.v1.Pod".
@@ -32641,35 +31846,6 @@ func (k *jsiiProxy_KubePod) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubePod) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubePod) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubePod) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubePod) ToJson() interface{} {
 	var returns interface{}
 
@@ -32716,6 +31892,8 @@ type KubePodDisruptionBudgetListV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -32726,29 +31904,6 @@ type KubePodDisruptionBudgetListV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -32820,6 +31975,16 @@ func (j *jsiiProxy_KubePodDisruptionBudgetListV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubePodDisruptionBudgetListV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.policy.v1beta1.PodDisruptionBudgetList" API object.
 func NewKubePodDisruptionBudgetListV1Beta1(scope constructs.Construct, id *string, props *KubePodDisruptionBudgetListV1Beta1Props) KubePodDisruptionBudgetListV1Beta1 {
@@ -32845,6 +32010,38 @@ func NewKubePodDisruptionBudgetListV1Beta1_Override(k KubePodDisruptionBudgetLis
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubePodDisruptionBudgetListV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubePodDisruptionBudgetListV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.policy.v1beta1.PodDisruptionBudgetList".
@@ -32922,35 +32119,6 @@ func (k *jsiiProxy_KubePodDisruptionBudgetListV1Beta1) AddJsonPatch(ops ...cdk8s
 	)
 }
 
-func (k *jsiiProxy_KubePodDisruptionBudgetListV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubePodDisruptionBudgetListV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubePodDisruptionBudgetListV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubePodDisruptionBudgetListV1Beta1) ToJson() interface{} {
 	var returns interface{}
 
@@ -33003,6 +32171,8 @@ type KubePodDisruptionBudgetV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -33013,29 +32183,6 @@ type KubePodDisruptionBudgetV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -33107,6 +32254,16 @@ func (j *jsiiProxy_KubePodDisruptionBudgetV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubePodDisruptionBudgetV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.policy.v1beta1.PodDisruptionBudget" API object.
 func NewKubePodDisruptionBudgetV1Beta1(scope constructs.Construct, id *string, props *KubePodDisruptionBudgetV1Beta1Props) KubePodDisruptionBudgetV1Beta1 {
@@ -33132,6 +32289,38 @@ func NewKubePodDisruptionBudgetV1Beta1_Override(k KubePodDisruptionBudgetV1Beta1
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubePodDisruptionBudgetV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubePodDisruptionBudgetV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.policy.v1beta1.PodDisruptionBudget".
@@ -33209,35 +32398,6 @@ func (k *jsiiProxy_KubePodDisruptionBudgetV1Beta1) AddJsonPatch(ops ...cdk8s.Jso
 	)
 }
 
-func (k *jsiiProxy_KubePodDisruptionBudgetV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubePodDisruptionBudgetV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubePodDisruptionBudgetV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubePodDisruptionBudgetV1Beta1) ToJson() interface{} {
 	var returns interface{}
 
@@ -33291,6 +32451,8 @@ type KubePodList interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -33301,29 +32463,6 @@ type KubePodList interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -33395,6 +32534,16 @@ func (j *jsiiProxy_KubePodList) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubePodList) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.core.v1.PodList" API object.
 func NewKubePodList(scope constructs.Construct, id *string, props *KubePodListProps) KubePodList {
@@ -33420,6 +32569,38 @@ func NewKubePodList_Override(k KubePodList, scope constructs.Construct, id *stri
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubePodList_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubePodList",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.core.v1.PodList".
@@ -33497,35 +32678,6 @@ func (k *jsiiProxy_KubePodList) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubePodList) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubePodList) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubePodList) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubePodList) ToJson() interface{} {
 	var returns interface{}
 
@@ -33584,6 +32736,8 @@ type KubePodPresetListV1Alpha1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -33594,29 +32748,6 @@ type KubePodPresetListV1Alpha1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -33688,6 +32819,16 @@ func (j *jsiiProxy_KubePodPresetListV1Alpha1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubePodPresetListV1Alpha1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.settings.v1alpha1.PodPresetList" API object.
 func NewKubePodPresetListV1Alpha1(scope constructs.Construct, id *string, props *KubePodPresetListV1Alpha1Props) KubePodPresetListV1Alpha1 {
@@ -33713,6 +32854,38 @@ func NewKubePodPresetListV1Alpha1_Override(k KubePodPresetListV1Alpha1, scope co
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubePodPresetListV1Alpha1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubePodPresetListV1Alpha1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.settings.v1alpha1.PodPresetList".
@@ -33790,35 +32963,6 @@ func (k *jsiiProxy_KubePodPresetListV1Alpha1) AddJsonPatch(ops ...cdk8s.JsonPatc
 	)
 }
 
-func (k *jsiiProxy_KubePodPresetListV1Alpha1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubePodPresetListV1Alpha1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubePodPresetListV1Alpha1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubePodPresetListV1Alpha1) ToJson() interface{} {
 	var returns interface{}
 
@@ -33875,6 +33019,8 @@ type KubePodPresetV1Alpha1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -33885,29 +33031,6 @@ type KubePodPresetV1Alpha1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -33979,6 +33102,16 @@ func (j *jsiiProxy_KubePodPresetV1Alpha1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubePodPresetV1Alpha1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.settings.v1alpha1.PodPreset" API object.
 func NewKubePodPresetV1Alpha1(scope constructs.Construct, id *string, props *KubePodPresetV1Alpha1Props) KubePodPresetV1Alpha1 {
@@ -34004,6 +33137,38 @@ func NewKubePodPresetV1Alpha1_Override(k KubePodPresetV1Alpha1, scope constructs
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubePodPresetV1Alpha1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubePodPresetV1Alpha1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.settings.v1alpha1.PodPreset".
@@ -34081,35 +33246,6 @@ func (k *jsiiProxy_KubePodPresetV1Alpha1) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubePodPresetV1Alpha1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubePodPresetV1Alpha1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubePodPresetV1Alpha1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubePodPresetV1Alpha1) ToJson() interface{} {
 	var returns interface{}
 
@@ -34176,6 +33312,8 @@ type KubePodSecurityPolicyListV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -34186,29 +33324,6 @@ type KubePodSecurityPolicyListV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -34280,6 +33395,16 @@ func (j *jsiiProxy_KubePodSecurityPolicyListV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubePodSecurityPolicyListV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.policy.v1beta1.PodSecurityPolicyList" API object.
 func NewKubePodSecurityPolicyListV1Beta1(scope constructs.Construct, id *string, props *KubePodSecurityPolicyListV1Beta1Props) KubePodSecurityPolicyListV1Beta1 {
@@ -34305,6 +33430,38 @@ func NewKubePodSecurityPolicyListV1Beta1_Override(k KubePodSecurityPolicyListV1B
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubePodSecurityPolicyListV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubePodSecurityPolicyListV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.policy.v1beta1.PodSecurityPolicyList".
@@ -34382,35 +33539,6 @@ func (k *jsiiProxy_KubePodSecurityPolicyListV1Beta1) AddJsonPatch(ops ...cdk8s.J
 	)
 }
 
-func (k *jsiiProxy_KubePodSecurityPolicyListV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubePodSecurityPolicyListV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubePodSecurityPolicyListV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubePodSecurityPolicyListV1Beta1) ToJson() interface{} {
 	var returns interface{}
 
@@ -34467,6 +33595,8 @@ type KubePodSecurityPolicyV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -34477,29 +33607,6 @@ type KubePodSecurityPolicyV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -34571,6 +33678,16 @@ func (j *jsiiProxy_KubePodSecurityPolicyV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubePodSecurityPolicyV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.policy.v1beta1.PodSecurityPolicy" API object.
 func NewKubePodSecurityPolicyV1Beta1(scope constructs.Construct, id *string, props *KubePodSecurityPolicyV1Beta1Props) KubePodSecurityPolicyV1Beta1 {
@@ -34596,6 +33713,38 @@ func NewKubePodSecurityPolicyV1Beta1_Override(k KubePodSecurityPolicyV1Beta1, sc
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubePodSecurityPolicyV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubePodSecurityPolicyV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.policy.v1beta1.PodSecurityPolicy".
@@ -34673,35 +33822,6 @@ func (k *jsiiProxy_KubePodSecurityPolicyV1Beta1) AddJsonPatch(ops ...cdk8s.JsonP
 	)
 }
 
-func (k *jsiiProxy_KubePodSecurityPolicyV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubePodSecurityPolicyV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubePodSecurityPolicyV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubePodSecurityPolicyV1Beta1) ToJson() interface{} {
 	var returns interface{}
 
@@ -34758,6 +33878,8 @@ type KubePodTemplate interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -34768,29 +33890,6 @@ type KubePodTemplate interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -34862,6 +33961,16 @@ func (j *jsiiProxy_KubePodTemplate) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubePodTemplate) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.core.v1.PodTemplate" API object.
 func NewKubePodTemplate(scope constructs.Construct, id *string, props *KubePodTemplateProps) KubePodTemplate {
@@ -34887,6 +33996,38 @@ func NewKubePodTemplate_Override(k KubePodTemplate, scope constructs.Construct, 
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubePodTemplate_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubePodTemplate",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.core.v1.PodTemplate".
@@ -34964,35 +34105,6 @@ func (k *jsiiProxy_KubePodTemplate) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubePodTemplate) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubePodTemplate) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubePodTemplate) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubePodTemplate) ToJson() interface{} {
 	var returns interface{}
 
@@ -35039,6 +34151,8 @@ type KubePodTemplateList interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -35049,29 +34163,6 @@ type KubePodTemplateList interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -35143,6 +34234,16 @@ func (j *jsiiProxy_KubePodTemplateList) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubePodTemplateList) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.core.v1.PodTemplateList" API object.
 func NewKubePodTemplateList(scope constructs.Construct, id *string, props *KubePodTemplateListProps) KubePodTemplateList {
@@ -35168,6 +34269,38 @@ func NewKubePodTemplateList_Override(k KubePodTemplateList, scope constructs.Con
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubePodTemplateList_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubePodTemplateList",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.core.v1.PodTemplateList".
@@ -35245,35 +34378,6 @@ func (k *jsiiProxy_KubePodTemplateList) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubePodTemplateList) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubePodTemplateList) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubePodTemplateList) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubePodTemplateList) ToJson() interface{} {
 	var returns interface{}
 
@@ -35344,6 +34448,8 @@ type KubePriorityClass interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -35354,29 +34460,6 @@ type KubePriorityClass interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -35448,6 +34531,16 @@ func (j *jsiiProxy_KubePriorityClass) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubePriorityClass) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.scheduling.v1.PriorityClass" API object.
 func NewKubePriorityClass(scope constructs.Construct, id *string, props *KubePriorityClassProps) KubePriorityClass {
@@ -35473,6 +34566,38 @@ func NewKubePriorityClass_Override(k KubePriorityClass, scope constructs.Constru
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubePriorityClass_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubePriorityClass",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.scheduling.v1.PriorityClass".
@@ -35550,35 +34675,6 @@ func (k *jsiiProxy_KubePriorityClass) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubePriorityClass) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubePriorityClass) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubePriorityClass) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubePriorityClass) ToJson() interface{} {
 	var returns interface{}
 
@@ -35625,6 +34721,8 @@ type KubePriorityClassList interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -35635,29 +34733,6 @@ type KubePriorityClassList interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -35729,6 +34804,16 @@ func (j *jsiiProxy_KubePriorityClassList) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubePriorityClassList) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.scheduling.v1.PriorityClassList" API object.
 func NewKubePriorityClassList(scope constructs.Construct, id *string, props *KubePriorityClassListProps) KubePriorityClassList {
@@ -35754,6 +34839,38 @@ func NewKubePriorityClassList_Override(k KubePriorityClassList, scope constructs
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubePriorityClassList_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubePriorityClassList",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.scheduling.v1.PriorityClassList".
@@ -35831,35 +34948,6 @@ func (k *jsiiProxy_KubePriorityClassList) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubePriorityClassList) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubePriorityClassList) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubePriorityClassList) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubePriorityClassList) ToJson() interface{} {
 	var returns interface{}
 
@@ -35914,6 +35002,8 @@ type KubePriorityClassListV1Alpha1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -35924,29 +35014,6 @@ type KubePriorityClassListV1Alpha1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -36018,6 +35085,16 @@ func (j *jsiiProxy_KubePriorityClassListV1Alpha1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubePriorityClassListV1Alpha1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.scheduling.v1alpha1.PriorityClassList" API object.
 func NewKubePriorityClassListV1Alpha1(scope constructs.Construct, id *string, props *KubePriorityClassListV1Alpha1Props) KubePriorityClassListV1Alpha1 {
@@ -36043,6 +35120,38 @@ func NewKubePriorityClassListV1Alpha1_Override(k KubePriorityClassListV1Alpha1, 
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubePriorityClassListV1Alpha1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubePriorityClassListV1Alpha1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.scheduling.v1alpha1.PriorityClassList".
@@ -36120,35 +35229,6 @@ func (k *jsiiProxy_KubePriorityClassListV1Alpha1) AddJsonPatch(ops ...cdk8s.Json
 	)
 }
 
-func (k *jsiiProxy_KubePriorityClassListV1Alpha1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubePriorityClassListV1Alpha1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubePriorityClassListV1Alpha1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubePriorityClassListV1Alpha1) ToJson() interface{} {
 	var returns interface{}
 
@@ -36203,6 +35283,8 @@ type KubePriorityClassListV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -36213,29 +35295,6 @@ type KubePriorityClassListV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -36307,6 +35366,16 @@ func (j *jsiiProxy_KubePriorityClassListV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubePriorityClassListV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.scheduling.v1beta1.PriorityClassList" API object.
 func NewKubePriorityClassListV1Beta1(scope constructs.Construct, id *string, props *KubePriorityClassListV1Beta1Props) KubePriorityClassListV1Beta1 {
@@ -36332,6 +35401,38 @@ func NewKubePriorityClassListV1Beta1_Override(k KubePriorityClassListV1Beta1, sc
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubePriorityClassListV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubePriorityClassListV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.scheduling.v1beta1.PriorityClassList".
@@ -36407,35 +35508,6 @@ func (k *jsiiProxy_KubePriorityClassListV1Beta1) AddJsonPatch(ops ...cdk8s.JsonP
 		"addJsonPatch",
 		args,
 	)
-}
-
-func (k *jsiiProxy_KubePriorityClassListV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubePriorityClassListV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubePriorityClassListV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
 }
 
 func (k *jsiiProxy_KubePriorityClassListV1Beta1) ToJson() interface{} {
@@ -36516,6 +35588,8 @@ type KubePriorityClassV1Alpha1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -36526,29 +35600,6 @@ type KubePriorityClassV1Alpha1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -36620,6 +35671,16 @@ func (j *jsiiProxy_KubePriorityClassV1Alpha1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubePriorityClassV1Alpha1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.scheduling.v1alpha1.PriorityClass" API object.
 func NewKubePriorityClassV1Alpha1(scope constructs.Construct, id *string, props *KubePriorityClassV1Alpha1Props) KubePriorityClassV1Alpha1 {
@@ -36645,6 +35706,38 @@ func NewKubePriorityClassV1Alpha1_Override(k KubePriorityClassV1Alpha1, scope co
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubePriorityClassV1Alpha1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubePriorityClassV1Alpha1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.scheduling.v1alpha1.PriorityClass".
@@ -36722,35 +35815,6 @@ func (k *jsiiProxy_KubePriorityClassV1Alpha1) AddJsonPatch(ops ...cdk8s.JsonPatc
 	)
 }
 
-func (k *jsiiProxy_KubePriorityClassV1Alpha1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubePriorityClassV1Alpha1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubePriorityClassV1Alpha1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubePriorityClassV1Alpha1) ToJson() interface{} {
 	var returns interface{}
 
@@ -36819,6 +35883,8 @@ type KubePriorityClassV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -36829,29 +35895,6 @@ type KubePriorityClassV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -36923,6 +35966,16 @@ func (j *jsiiProxy_KubePriorityClassV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubePriorityClassV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.scheduling.v1beta1.PriorityClass" API object.
 func NewKubePriorityClassV1Beta1(scope constructs.Construct, id *string, props *KubePriorityClassV1Beta1Props) KubePriorityClassV1Beta1 {
@@ -36948,6 +36001,38 @@ func NewKubePriorityClassV1Beta1_Override(k KubePriorityClassV1Beta1, scope cons
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubePriorityClassV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubePriorityClassV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.scheduling.v1beta1.PriorityClass".
@@ -37025,35 +36110,6 @@ func (k *jsiiProxy_KubePriorityClassV1Beta1) AddJsonPatch(ops ...cdk8s.JsonPatch
 	)
 }
 
-func (k *jsiiProxy_KubePriorityClassV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubePriorityClassV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubePriorityClassV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubePriorityClassV1Beta1) ToJson() interface{} {
 	var returns interface{}
 
@@ -37122,6 +36178,8 @@ type KubePriorityLevelConfigurationListV1Alpha1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -37132,29 +36190,6 @@ type KubePriorityLevelConfigurationListV1Alpha1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -37226,6 +36261,16 @@ func (j *jsiiProxy_KubePriorityLevelConfigurationListV1Alpha1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubePriorityLevelConfigurationListV1Alpha1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.flowcontrol.v1alpha1.PriorityLevelConfigurationList" API object.
 func NewKubePriorityLevelConfigurationListV1Alpha1(scope constructs.Construct, id *string, props *KubePriorityLevelConfigurationListV1Alpha1Props) KubePriorityLevelConfigurationListV1Alpha1 {
@@ -37251,6 +36296,38 @@ func NewKubePriorityLevelConfigurationListV1Alpha1_Override(k KubePriorityLevelC
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubePriorityLevelConfigurationListV1Alpha1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubePriorityLevelConfigurationListV1Alpha1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.flowcontrol.v1alpha1.PriorityLevelConfigurationList".
@@ -37328,35 +36405,6 @@ func (k *jsiiProxy_KubePriorityLevelConfigurationListV1Alpha1) AddJsonPatch(ops 
 	)
 }
 
-func (k *jsiiProxy_KubePriorityLevelConfigurationListV1Alpha1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubePriorityLevelConfigurationListV1Alpha1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubePriorityLevelConfigurationListV1Alpha1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubePriorityLevelConfigurationListV1Alpha1) ToJson() interface{} {
 	var returns interface{}
 
@@ -37413,6 +36461,8 @@ type KubePriorityLevelConfigurationV1Alpha1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -37423,29 +36473,6 @@ type KubePriorityLevelConfigurationV1Alpha1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -37517,6 +36544,16 @@ func (j *jsiiProxy_KubePriorityLevelConfigurationV1Alpha1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubePriorityLevelConfigurationV1Alpha1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.flowcontrol.v1alpha1.PriorityLevelConfiguration" API object.
 func NewKubePriorityLevelConfigurationV1Alpha1(scope constructs.Construct, id *string, props *KubePriorityLevelConfigurationV1Alpha1Props) KubePriorityLevelConfigurationV1Alpha1 {
@@ -37542,6 +36579,38 @@ func NewKubePriorityLevelConfigurationV1Alpha1_Override(k KubePriorityLevelConfi
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubePriorityLevelConfigurationV1Alpha1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubePriorityLevelConfigurationV1Alpha1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.flowcontrol.v1alpha1.PriorityLevelConfiguration".
@@ -37619,35 +36688,6 @@ func (k *jsiiProxy_KubePriorityLevelConfigurationV1Alpha1) AddJsonPatch(ops ...c
 	)
 }
 
-func (k *jsiiProxy_KubePriorityLevelConfigurationV1Alpha1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubePriorityLevelConfigurationV1Alpha1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubePriorityLevelConfigurationV1Alpha1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubePriorityLevelConfigurationV1Alpha1) ToJson() interface{} {
 	var returns interface{}
 
@@ -37706,6 +36746,8 @@ type KubeReplicaSet interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -37716,29 +36758,6 @@ type KubeReplicaSet interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -37810,6 +36829,16 @@ func (j *jsiiProxy_KubeReplicaSet) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeReplicaSet) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.apps.v1.ReplicaSet" API object.
 func NewKubeReplicaSet(scope constructs.Construct, id *string, props *KubeReplicaSetProps) KubeReplicaSet {
@@ -37835,6 +36864,38 @@ func NewKubeReplicaSet_Override(k KubeReplicaSet, scope constructs.Construct, id
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeReplicaSet_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeReplicaSet",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.apps.v1.ReplicaSet".
@@ -37912,35 +36973,6 @@ func (k *jsiiProxy_KubeReplicaSet) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeReplicaSet) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeReplicaSet) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeReplicaSet) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeReplicaSet) ToJson() interface{} {
 	var returns interface{}
 
@@ -37987,6 +37019,8 @@ type KubeReplicaSetList interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -37997,29 +37031,6 @@ type KubeReplicaSetList interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -38091,6 +37102,16 @@ func (j *jsiiProxy_KubeReplicaSetList) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeReplicaSetList) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.apps.v1.ReplicaSetList" API object.
 func NewKubeReplicaSetList(scope constructs.Construct, id *string, props *KubeReplicaSetListProps) KubeReplicaSetList {
@@ -38116,6 +37137,38 @@ func NewKubeReplicaSetList_Override(k KubeReplicaSetList, scope constructs.Const
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeReplicaSetList_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeReplicaSetList",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.apps.v1.ReplicaSetList".
@@ -38193,35 +37246,6 @@ func (k *jsiiProxy_KubeReplicaSetList) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeReplicaSetList) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeReplicaSetList) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeReplicaSetList) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeReplicaSetList) ToJson() interface{} {
 	var returns interface{}
 
@@ -38280,6 +37304,8 @@ type KubeReplicaSetListV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -38290,29 +37316,6 @@ type KubeReplicaSetListV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -38384,6 +37387,16 @@ func (j *jsiiProxy_KubeReplicaSetListV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeReplicaSetListV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.extensions.v1beta1.ReplicaSetList" API object.
 func NewKubeReplicaSetListV1Beta1(scope constructs.Construct, id *string, props *KubeReplicaSetListV1Beta1Props) KubeReplicaSetListV1Beta1 {
@@ -38409,6 +37422,38 @@ func NewKubeReplicaSetListV1Beta1_Override(k KubeReplicaSetListV1Beta1, scope co
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeReplicaSetListV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeReplicaSetListV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.extensions.v1beta1.ReplicaSetList".
@@ -38486,35 +37531,6 @@ func (k *jsiiProxy_KubeReplicaSetListV1Beta1) AddJsonPatch(ops ...cdk8s.JsonPatc
 	)
 }
 
-func (k *jsiiProxy_KubeReplicaSetListV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeReplicaSetListV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeReplicaSetListV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeReplicaSetListV1Beta1) ToJson() interface{} {
 	var returns interface{}
 
@@ -38573,6 +37589,8 @@ type KubeReplicaSetListV1Beta2 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -38583,29 +37601,6 @@ type KubeReplicaSetListV1Beta2 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -38677,6 +37672,16 @@ func (j *jsiiProxy_KubeReplicaSetListV1Beta2) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeReplicaSetListV1Beta2) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.apps.v1beta2.ReplicaSetList" API object.
 func NewKubeReplicaSetListV1Beta2(scope constructs.Construct, id *string, props *KubeReplicaSetListV1Beta2Props) KubeReplicaSetListV1Beta2 {
@@ -38702,6 +37707,38 @@ func NewKubeReplicaSetListV1Beta2_Override(k KubeReplicaSetListV1Beta2, scope co
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeReplicaSetListV1Beta2_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeReplicaSetListV1Beta2",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.apps.v1beta2.ReplicaSetList".
@@ -38779,35 +37816,6 @@ func (k *jsiiProxy_KubeReplicaSetListV1Beta2) AddJsonPatch(ops ...cdk8s.JsonPatc
 	)
 }
 
-func (k *jsiiProxy_KubeReplicaSetListV1Beta2) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeReplicaSetListV1Beta2) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeReplicaSetListV1Beta2) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeReplicaSetListV1Beta2) ToJson() interface{} {
 	var returns interface{}
 
@@ -38880,6 +37888,8 @@ type KubeReplicaSetV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -38890,29 +37900,6 @@ type KubeReplicaSetV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -38984,6 +37971,16 @@ func (j *jsiiProxy_KubeReplicaSetV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeReplicaSetV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.extensions.v1beta1.ReplicaSet" API object.
 func NewKubeReplicaSetV1Beta1(scope constructs.Construct, id *string, props *KubeReplicaSetV1Beta1Props) KubeReplicaSetV1Beta1 {
@@ -39009,6 +38006,38 @@ func NewKubeReplicaSetV1Beta1_Override(k KubeReplicaSetV1Beta1, scope constructs
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeReplicaSetV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeReplicaSetV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.extensions.v1beta1.ReplicaSet".
@@ -39086,35 +38115,6 @@ func (k *jsiiProxy_KubeReplicaSetV1Beta1) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeReplicaSetV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeReplicaSetV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeReplicaSetV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeReplicaSetV1Beta1) ToJson() interface{} {
 	var returns interface{}
 
@@ -39177,6 +38177,8 @@ type KubeReplicaSetV1Beta2 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -39187,29 +38189,6 @@ type KubeReplicaSetV1Beta2 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -39281,6 +38260,16 @@ func (j *jsiiProxy_KubeReplicaSetV1Beta2) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeReplicaSetV1Beta2) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.apps.v1beta2.ReplicaSet" API object.
 func NewKubeReplicaSetV1Beta2(scope constructs.Construct, id *string, props *KubeReplicaSetV1Beta2Props) KubeReplicaSetV1Beta2 {
@@ -39306,6 +38295,38 @@ func NewKubeReplicaSetV1Beta2_Override(k KubeReplicaSetV1Beta2, scope constructs
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeReplicaSetV1Beta2_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeReplicaSetV1Beta2",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.apps.v1beta2.ReplicaSet".
@@ -39383,35 +38404,6 @@ func (k *jsiiProxy_KubeReplicaSetV1Beta2) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeReplicaSetV1Beta2) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeReplicaSetV1Beta2) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeReplicaSetV1Beta2) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeReplicaSetV1Beta2) ToJson() interface{} {
 	var returns interface{}
 
@@ -39472,6 +38464,8 @@ type KubeReplicationController interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -39482,29 +38476,6 @@ type KubeReplicationController interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -39576,6 +38547,16 @@ func (j *jsiiProxy_KubeReplicationController) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeReplicationController) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.core.v1.ReplicationController" API object.
 func NewKubeReplicationController(scope constructs.Construct, id *string, props *KubeReplicationControllerProps) KubeReplicationController {
@@ -39601,6 +38582,38 @@ func NewKubeReplicationController_Override(k KubeReplicationController, scope co
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeReplicationController_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeReplicationController",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.core.v1.ReplicationController".
@@ -39678,35 +38691,6 @@ func (k *jsiiProxy_KubeReplicationController) AddJsonPatch(ops ...cdk8s.JsonPatc
 	)
 }
 
-func (k *jsiiProxy_KubeReplicationController) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeReplicationController) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeReplicationController) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeReplicationController) ToJson() interface{} {
 	var returns interface{}
 
@@ -39753,6 +38737,8 @@ type KubeReplicationControllerList interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -39763,29 +38749,6 @@ type KubeReplicationControllerList interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -39857,6 +38820,16 @@ func (j *jsiiProxy_KubeReplicationControllerList) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeReplicationControllerList) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.core.v1.ReplicationControllerList" API object.
 func NewKubeReplicationControllerList(scope constructs.Construct, id *string, props *KubeReplicationControllerListProps) KubeReplicationControllerList {
@@ -39882,6 +38855,38 @@ func NewKubeReplicationControllerList_Override(k KubeReplicationControllerList, 
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeReplicationControllerList_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeReplicationControllerList",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.core.v1.ReplicationControllerList".
@@ -39959,35 +38964,6 @@ func (k *jsiiProxy_KubeReplicationControllerList) AddJsonPatch(ops ...cdk8s.Json
 	)
 }
 
-func (k *jsiiProxy_KubeReplicationControllerList) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeReplicationControllerList) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeReplicationControllerList) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeReplicationControllerList) ToJson() interface{} {
 	var returns interface{}
 
@@ -40058,6 +39034,8 @@ type KubeResourceQuota interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -40068,29 +39046,6 @@ type KubeResourceQuota interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -40162,6 +39117,16 @@ func (j *jsiiProxy_KubeResourceQuota) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeResourceQuota) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.core.v1.ResourceQuota" API object.
 func NewKubeResourceQuota(scope constructs.Construct, id *string, props *KubeResourceQuotaProps) KubeResourceQuota {
@@ -40187,6 +39152,38 @@ func NewKubeResourceQuota_Override(k KubeResourceQuota, scope constructs.Constru
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeResourceQuota_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeResourceQuota",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.core.v1.ResourceQuota".
@@ -40264,35 +39261,6 @@ func (k *jsiiProxy_KubeResourceQuota) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeResourceQuota) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeResourceQuota) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeResourceQuota) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeResourceQuota) ToJson() interface{} {
 	var returns interface{}
 
@@ -40339,6 +39307,8 @@ type KubeResourceQuotaList interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -40349,29 +39319,6 @@ type KubeResourceQuotaList interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -40443,6 +39390,16 @@ func (j *jsiiProxy_KubeResourceQuotaList) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeResourceQuotaList) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.core.v1.ResourceQuotaList" API object.
 func NewKubeResourceQuotaList(scope constructs.Construct, id *string, props *KubeResourceQuotaListProps) KubeResourceQuotaList {
@@ -40468,6 +39425,38 @@ func NewKubeResourceQuotaList_Override(k KubeResourceQuotaList, scope constructs
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeResourceQuotaList_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeResourceQuotaList",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.core.v1.ResourceQuotaList".
@@ -40545,35 +39534,6 @@ func (k *jsiiProxy_KubeResourceQuotaList) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeResourceQuotaList) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeResourceQuotaList) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeResourceQuotaList) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeResourceQuotaList) ToJson() interface{} {
 	var returns interface{}
 
@@ -40644,6 +39604,8 @@ type KubeRole interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -40654,29 +39616,6 @@ type KubeRole interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -40748,6 +39687,16 @@ func (j *jsiiProxy_KubeRole) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeRole) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.rbac.v1.Role" API object.
 func NewKubeRole(scope constructs.Construct, id *string, props *KubeRoleProps) KubeRole {
@@ -40773,6 +39722,38 @@ func NewKubeRole_Override(k KubeRole, scope constructs.Construct, id *string, pr
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeRole_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeRole",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.rbac.v1.Role".
@@ -40850,35 +39831,6 @@ func (k *jsiiProxy_KubeRole) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeRole) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeRole) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeRole) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeRole) ToJson() interface{} {
 	var returns interface{}
 
@@ -40927,6 +39879,8 @@ type KubeRoleBinding interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -40937,29 +39891,6 @@ type KubeRoleBinding interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -41031,6 +39962,16 @@ func (j *jsiiProxy_KubeRoleBinding) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeRoleBinding) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.rbac.v1.RoleBinding" API object.
 func NewKubeRoleBinding(scope constructs.Construct, id *string, props *KubeRoleBindingProps) KubeRoleBinding {
@@ -41056,6 +39997,38 @@ func NewKubeRoleBinding_Override(k KubeRoleBinding, scope constructs.Construct, 
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeRoleBinding_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeRoleBinding",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.rbac.v1.RoleBinding".
@@ -41133,35 +40106,6 @@ func (k *jsiiProxy_KubeRoleBinding) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeRoleBinding) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeRoleBinding) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeRoleBinding) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeRoleBinding) ToJson() interface{} {
 	var returns interface{}
 
@@ -41208,6 +40152,8 @@ type KubeRoleBindingList interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -41218,29 +40164,6 @@ type KubeRoleBindingList interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -41312,6 +40235,16 @@ func (j *jsiiProxy_KubeRoleBindingList) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeRoleBindingList) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.rbac.v1.RoleBindingList" API object.
 func NewKubeRoleBindingList(scope constructs.Construct, id *string, props *KubeRoleBindingListProps) KubeRoleBindingList {
@@ -41337,6 +40270,38 @@ func NewKubeRoleBindingList_Override(k KubeRoleBindingList, scope constructs.Con
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeRoleBindingList_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeRoleBindingList",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.rbac.v1.RoleBindingList".
@@ -41414,35 +40379,6 @@ func (k *jsiiProxy_KubeRoleBindingList) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeRoleBindingList) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeRoleBindingList) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeRoleBindingList) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeRoleBindingList) ToJson() interface{} {
 	var returns interface{}
 
@@ -41497,6 +40433,8 @@ type KubeRoleBindingListV1Alpha1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -41507,29 +40445,6 @@ type KubeRoleBindingListV1Alpha1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -41601,6 +40516,16 @@ func (j *jsiiProxy_KubeRoleBindingListV1Alpha1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeRoleBindingListV1Alpha1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.rbac.v1alpha1.RoleBindingList" API object.
 func NewKubeRoleBindingListV1Alpha1(scope constructs.Construct, id *string, props *KubeRoleBindingListV1Alpha1Props) KubeRoleBindingListV1Alpha1 {
@@ -41626,6 +40551,38 @@ func NewKubeRoleBindingListV1Alpha1_Override(k KubeRoleBindingListV1Alpha1, scop
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeRoleBindingListV1Alpha1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeRoleBindingListV1Alpha1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.rbac.v1alpha1.RoleBindingList".
@@ -41703,35 +40660,6 @@ func (k *jsiiProxy_KubeRoleBindingListV1Alpha1) AddJsonPatch(ops ...cdk8s.JsonPa
 	)
 }
 
-func (k *jsiiProxy_KubeRoleBindingListV1Alpha1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeRoleBindingListV1Alpha1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeRoleBindingListV1Alpha1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeRoleBindingListV1Alpha1) ToJson() interface{} {
 	var returns interface{}
 
@@ -41786,6 +40714,8 @@ type KubeRoleBindingListV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -41796,29 +40726,6 @@ type KubeRoleBindingListV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -41890,6 +40797,16 @@ func (j *jsiiProxy_KubeRoleBindingListV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeRoleBindingListV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.rbac.v1beta1.RoleBindingList" API object.
 func NewKubeRoleBindingListV1Beta1(scope constructs.Construct, id *string, props *KubeRoleBindingListV1Beta1Props) KubeRoleBindingListV1Beta1 {
@@ -41915,6 +40832,38 @@ func NewKubeRoleBindingListV1Beta1_Override(k KubeRoleBindingListV1Beta1, scope 
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeRoleBindingListV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeRoleBindingListV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.rbac.v1beta1.RoleBindingList".
@@ -41992,35 +40941,6 @@ func (k *jsiiProxy_KubeRoleBindingListV1Beta1) AddJsonPatch(ops ...cdk8s.JsonPat
 	)
 }
 
-func (k *jsiiProxy_KubeRoleBindingListV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeRoleBindingListV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeRoleBindingListV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeRoleBindingListV1Beta1) ToJson() interface{} {
 	var returns interface{}
 
@@ -42091,6 +41011,8 @@ type KubeRoleBindingV1Alpha1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -42101,29 +41023,6 @@ type KubeRoleBindingV1Alpha1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -42195,6 +41094,16 @@ func (j *jsiiProxy_KubeRoleBindingV1Alpha1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeRoleBindingV1Alpha1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.rbac.v1alpha1.RoleBinding" API object.
 func NewKubeRoleBindingV1Alpha1(scope constructs.Construct, id *string, props *KubeRoleBindingV1Alpha1Props) KubeRoleBindingV1Alpha1 {
@@ -42220,6 +41129,38 @@ func NewKubeRoleBindingV1Alpha1_Override(k KubeRoleBindingV1Alpha1, scope constr
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeRoleBindingV1Alpha1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeRoleBindingV1Alpha1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.rbac.v1alpha1.RoleBinding".
@@ -42297,35 +41238,6 @@ func (k *jsiiProxy_KubeRoleBindingV1Alpha1) AddJsonPatch(ops ...cdk8s.JsonPatch)
 	)
 }
 
-func (k *jsiiProxy_KubeRoleBindingV1Alpha1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeRoleBindingV1Alpha1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeRoleBindingV1Alpha1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeRoleBindingV1Alpha1) ToJson() interface{} {
 	var returns interface{}
 
@@ -42388,6 +41300,8 @@ type KubeRoleBindingV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -42398,29 +41312,6 @@ type KubeRoleBindingV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -42492,6 +41383,16 @@ func (j *jsiiProxy_KubeRoleBindingV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeRoleBindingV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.rbac.v1beta1.RoleBinding" API object.
 func NewKubeRoleBindingV1Beta1(scope constructs.Construct, id *string, props *KubeRoleBindingV1Beta1Props) KubeRoleBindingV1Beta1 {
@@ -42517,6 +41418,38 @@ func NewKubeRoleBindingV1Beta1_Override(k KubeRoleBindingV1Beta1, scope construc
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeRoleBindingV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeRoleBindingV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.rbac.v1beta1.RoleBinding".
@@ -42594,35 +41527,6 @@ func (k *jsiiProxy_KubeRoleBindingV1Beta1) AddJsonPatch(ops ...cdk8s.JsonPatch) 
 	)
 }
 
-func (k *jsiiProxy_KubeRoleBindingV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeRoleBindingV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeRoleBindingV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeRoleBindingV1Beta1) ToJson() interface{} {
 	var returns interface{}
 
@@ -42683,6 +41587,8 @@ type KubeRoleList interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -42693,29 +41599,6 @@ type KubeRoleList interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -42787,6 +41670,16 @@ func (j *jsiiProxy_KubeRoleList) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeRoleList) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.rbac.v1.RoleList" API object.
 func NewKubeRoleList(scope constructs.Construct, id *string, props *KubeRoleListProps) KubeRoleList {
@@ -42812,6 +41705,38 @@ func NewKubeRoleList_Override(k KubeRoleList, scope constructs.Construct, id *st
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeRoleList_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeRoleList",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.rbac.v1.RoleList".
@@ -42889,35 +41814,6 @@ func (k *jsiiProxy_KubeRoleList) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeRoleList) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeRoleList) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeRoleList) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeRoleList) ToJson() interface{} {
 	var returns interface{}
 
@@ -42974,6 +41870,8 @@ type KubeRoleListV1Alpha1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -42984,29 +41882,6 @@ type KubeRoleListV1Alpha1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -43078,6 +41953,16 @@ func (j *jsiiProxy_KubeRoleListV1Alpha1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeRoleListV1Alpha1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.rbac.v1alpha1.RoleList" API object.
 func NewKubeRoleListV1Alpha1(scope constructs.Construct, id *string, props *KubeRoleListV1Alpha1Props) KubeRoleListV1Alpha1 {
@@ -43103,6 +41988,38 @@ func NewKubeRoleListV1Alpha1_Override(k KubeRoleListV1Alpha1, scope constructs.C
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeRoleListV1Alpha1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeRoleListV1Alpha1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.rbac.v1alpha1.RoleList".
@@ -43180,35 +42097,6 @@ func (k *jsiiProxy_KubeRoleListV1Alpha1) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeRoleListV1Alpha1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeRoleListV1Alpha1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeRoleListV1Alpha1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeRoleListV1Alpha1) ToJson() interface{} {
 	var returns interface{}
 
@@ -43265,6 +42153,8 @@ type KubeRoleListV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -43275,29 +42165,6 @@ type KubeRoleListV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -43369,6 +42236,16 @@ func (j *jsiiProxy_KubeRoleListV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeRoleListV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.rbac.v1beta1.RoleList" API object.
 func NewKubeRoleListV1Beta1(scope constructs.Construct, id *string, props *KubeRoleListV1Beta1Props) KubeRoleListV1Beta1 {
@@ -43394,6 +42271,38 @@ func NewKubeRoleListV1Beta1_Override(k KubeRoleListV1Beta1, scope constructs.Con
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeRoleListV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeRoleListV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.rbac.v1beta1.RoleList".
@@ -43471,35 +42380,6 @@ func (k *jsiiProxy_KubeRoleListV1Beta1) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeRoleListV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeRoleListV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeRoleListV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeRoleListV1Beta1) ToJson() interface{} {
 	var returns interface{}
 
@@ -43564,6 +42444,8 @@ type KubeRoleV1Alpha1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -43574,29 +42456,6 @@ type KubeRoleV1Alpha1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -43668,6 +42527,16 @@ func (j *jsiiProxy_KubeRoleV1Alpha1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeRoleV1Alpha1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.rbac.v1alpha1.Role" API object.
 func NewKubeRoleV1Alpha1(scope constructs.Construct, id *string, props *KubeRoleV1Alpha1Props) KubeRoleV1Alpha1 {
@@ -43693,6 +42562,38 @@ func NewKubeRoleV1Alpha1_Override(k KubeRoleV1Alpha1, scope constructs.Construct
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeRoleV1Alpha1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeRoleV1Alpha1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.rbac.v1alpha1.Role".
@@ -43770,35 +42671,6 @@ func (k *jsiiProxy_KubeRoleV1Alpha1) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeRoleV1Alpha1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeRoleV1Alpha1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeRoleV1Alpha1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeRoleV1Alpha1) ToJson() interface{} {
 	var returns interface{}
 
@@ -43857,6 +42729,8 @@ type KubeRoleV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -43867,29 +42741,6 @@ type KubeRoleV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -43961,6 +42812,16 @@ func (j *jsiiProxy_KubeRoleV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeRoleV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.rbac.v1beta1.Role" API object.
 func NewKubeRoleV1Beta1(scope constructs.Construct, id *string, props *KubeRoleV1Beta1Props) KubeRoleV1Beta1 {
@@ -43986,6 +42847,38 @@ func NewKubeRoleV1Beta1_Override(k KubeRoleV1Beta1, scope constructs.Construct, 
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeRoleV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeRoleV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.rbac.v1beta1.Role".
@@ -44063,35 +42956,6 @@ func (k *jsiiProxy_KubeRoleV1Beta1) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeRoleV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeRoleV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeRoleV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeRoleV1Beta1) ToJson() interface{} {
 	var returns interface{}
 
@@ -44148,6 +43012,8 @@ type KubeRuntimeClassListV1Alpha1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -44158,29 +43024,6 @@ type KubeRuntimeClassListV1Alpha1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -44252,6 +43095,16 @@ func (j *jsiiProxy_KubeRuntimeClassListV1Alpha1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeRuntimeClassListV1Alpha1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.node.v1alpha1.RuntimeClassList" API object.
 func NewKubeRuntimeClassListV1Alpha1(scope constructs.Construct, id *string, props *KubeRuntimeClassListV1Alpha1Props) KubeRuntimeClassListV1Alpha1 {
@@ -44277,6 +43130,38 @@ func NewKubeRuntimeClassListV1Alpha1_Override(k KubeRuntimeClassListV1Alpha1, sc
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeRuntimeClassListV1Alpha1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeRuntimeClassListV1Alpha1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.node.v1alpha1.RuntimeClassList".
@@ -44354,35 +43239,6 @@ func (k *jsiiProxy_KubeRuntimeClassListV1Alpha1) AddJsonPatch(ops ...cdk8s.JsonP
 	)
 }
 
-func (k *jsiiProxy_KubeRuntimeClassListV1Alpha1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeRuntimeClassListV1Alpha1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeRuntimeClassListV1Alpha1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeRuntimeClassListV1Alpha1) ToJson() interface{} {
 	var returns interface{}
 
@@ -44439,6 +43295,8 @@ type KubeRuntimeClassListV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -44449,29 +43307,6 @@ type KubeRuntimeClassListV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -44543,6 +43378,16 @@ func (j *jsiiProxy_KubeRuntimeClassListV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeRuntimeClassListV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.node.v1beta1.RuntimeClassList" API object.
 func NewKubeRuntimeClassListV1Beta1(scope constructs.Construct, id *string, props *KubeRuntimeClassListV1Beta1Props) KubeRuntimeClassListV1Beta1 {
@@ -44568,6 +43413,38 @@ func NewKubeRuntimeClassListV1Beta1_Override(k KubeRuntimeClassListV1Beta1, scop
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeRuntimeClassListV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeRuntimeClassListV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.node.v1beta1.RuntimeClassList".
@@ -44645,35 +43522,6 @@ func (k *jsiiProxy_KubeRuntimeClassListV1Beta1) AddJsonPatch(ops ...cdk8s.JsonPa
 	)
 }
 
-func (k *jsiiProxy_KubeRuntimeClassListV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeRuntimeClassListV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeRuntimeClassListV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeRuntimeClassListV1Beta1) ToJson() interface{} {
 	var returns interface{}
 
@@ -44732,6 +43580,8 @@ type KubeRuntimeClassV1Alpha1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -44742,29 +43592,6 @@ type KubeRuntimeClassV1Alpha1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -44836,6 +43663,16 @@ func (j *jsiiProxy_KubeRuntimeClassV1Alpha1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeRuntimeClassV1Alpha1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.node.v1alpha1.RuntimeClass" API object.
 func NewKubeRuntimeClassV1Alpha1(scope constructs.Construct, id *string, props *KubeRuntimeClassV1Alpha1Props) KubeRuntimeClassV1Alpha1 {
@@ -44861,6 +43698,38 @@ func NewKubeRuntimeClassV1Alpha1_Override(k KubeRuntimeClassV1Alpha1, scope cons
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeRuntimeClassV1Alpha1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeRuntimeClassV1Alpha1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.node.v1alpha1.RuntimeClass".
@@ -44938,35 +43807,6 @@ func (k *jsiiProxy_KubeRuntimeClassV1Alpha1) AddJsonPatch(ops ...cdk8s.JsonPatch
 	)
 }
 
-func (k *jsiiProxy_KubeRuntimeClassV1Alpha1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeRuntimeClassV1Alpha1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeRuntimeClassV1Alpha1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeRuntimeClassV1Alpha1) ToJson() interface{} {
 	var returns interface{}
 
@@ -45025,6 +43865,8 @@ type KubeRuntimeClassV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -45035,29 +43877,6 @@ type KubeRuntimeClassV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -45129,6 +43948,16 @@ func (j *jsiiProxy_KubeRuntimeClassV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeRuntimeClassV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.node.v1beta1.RuntimeClass" API object.
 func NewKubeRuntimeClassV1Beta1(scope constructs.Construct, id *string, props *KubeRuntimeClassV1Beta1Props) KubeRuntimeClassV1Beta1 {
@@ -45154,6 +43983,38 @@ func NewKubeRuntimeClassV1Beta1_Override(k KubeRuntimeClassV1Beta1, scope constr
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeRuntimeClassV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeRuntimeClassV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.node.v1beta1.RuntimeClass".
@@ -45231,35 +44092,6 @@ func (k *jsiiProxy_KubeRuntimeClassV1Beta1) AddJsonPatch(ops ...cdk8s.JsonPatch)
 	)
 }
 
-func (k *jsiiProxy_KubeRuntimeClassV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeRuntimeClassV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeRuntimeClassV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeRuntimeClassV1Beta1) ToJson() interface{} {
 	var returns interface{}
 
@@ -45326,6 +44158,8 @@ type KubeScale interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -45336,29 +44170,6 @@ type KubeScale interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -45430,6 +44241,16 @@ func (j *jsiiProxy_KubeScale) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeScale) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.autoscaling.v1.Scale" API object.
 func NewKubeScale(scope constructs.Construct, id *string, props *KubeScaleProps) KubeScale {
@@ -45455,6 +44276,38 @@ func NewKubeScale_Override(k KubeScale, scope constructs.Construct, id *string, 
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeScale_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeScale",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.autoscaling.v1.Scale".
@@ -45532,35 +44385,6 @@ func (k *jsiiProxy_KubeScale) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeScale) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeScale) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeScale) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeScale) ToJson() interface{} {
 	var returns interface{}
 
@@ -45619,6 +44443,8 @@ type KubeScaleV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -45629,29 +44455,6 @@ type KubeScaleV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -45723,6 +44526,16 @@ func (j *jsiiProxy_KubeScaleV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeScaleV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.extensions.v1beta1.Scale" API object.
 func NewKubeScaleV1Beta1(scope constructs.Construct, id *string, props *KubeScaleV1Beta1Props) KubeScaleV1Beta1 {
@@ -45748,6 +44561,38 @@ func NewKubeScaleV1Beta1_Override(k KubeScaleV1Beta1, scope constructs.Construct
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeScaleV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeScaleV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.extensions.v1beta1.Scale".
@@ -45825,35 +44670,6 @@ func (k *jsiiProxy_KubeScaleV1Beta1) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeScaleV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeScaleV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeScaleV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeScaleV1Beta1) ToJson() interface{} {
 	var returns interface{}
 
@@ -45912,6 +44728,8 @@ type KubeScaleV1Beta2 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -45922,29 +44740,6 @@ type KubeScaleV1Beta2 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -46016,6 +44811,16 @@ func (j *jsiiProxy_KubeScaleV1Beta2) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeScaleV1Beta2) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.apps.v1beta2.Scale" API object.
 func NewKubeScaleV1Beta2(scope constructs.Construct, id *string, props *KubeScaleV1Beta2Props) KubeScaleV1Beta2 {
@@ -46041,6 +44846,38 @@ func NewKubeScaleV1Beta2_Override(k KubeScaleV1Beta2, scope constructs.Construct
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeScaleV1Beta2_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeScaleV1Beta2",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.apps.v1beta2.Scale".
@@ -46118,35 +44955,6 @@ func (k *jsiiProxy_KubeScaleV1Beta2) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeScaleV1Beta2) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeScaleV1Beta2) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeScaleV1Beta2) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeScaleV1Beta2) ToJson() interface{} {
 	var returns interface{}
 
@@ -46207,6 +45015,8 @@ type KubeSecret interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -46217,29 +45027,6 @@ type KubeSecret interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -46311,6 +45098,16 @@ func (j *jsiiProxy_KubeSecret) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeSecret) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.core.v1.Secret" API object.
 func NewKubeSecret(scope constructs.Construct, id *string, props *KubeSecretProps) KubeSecret {
@@ -46336,6 +45133,38 @@ func NewKubeSecret_Override(k KubeSecret, scope constructs.Construct, id *string
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeSecret_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeSecret",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.core.v1.Secret".
@@ -46413,35 +45242,6 @@ func (k *jsiiProxy_KubeSecret) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeSecret) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeSecret) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeSecret) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeSecret) ToJson() interface{} {
 	var returns interface{}
 
@@ -46488,6 +45288,8 @@ type KubeSecretList interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -46498,29 +45300,6 @@ type KubeSecretList interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -46592,6 +45371,16 @@ func (j *jsiiProxy_KubeSecretList) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeSecretList) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.core.v1.SecretList" API object.
 func NewKubeSecretList(scope constructs.Construct, id *string, props *KubeSecretListProps) KubeSecretList {
@@ -46617,6 +45406,38 @@ func NewKubeSecretList_Override(k KubeSecretList, scope constructs.Construct, id
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeSecretList_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeSecretList",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.core.v1.SecretList".
@@ -46692,35 +45513,6 @@ func (k *jsiiProxy_KubeSecretList) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 		"addJsonPatch",
 		args,
 	)
-}
-
-func (k *jsiiProxy_KubeSecretList) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeSecretList) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeSecretList) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
 }
 
 func (k *jsiiProxy_KubeSecretList) ToJson() interface{} {
@@ -46803,6 +45595,8 @@ type KubeSelfSubjectAccessReview interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -46813,29 +45607,6 @@ type KubeSelfSubjectAccessReview interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -46907,6 +45678,16 @@ func (j *jsiiProxy_KubeSelfSubjectAccessReview) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeSelfSubjectAccessReview) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.authorization.v1.SelfSubjectAccessReview" API object.
 func NewKubeSelfSubjectAccessReview(scope constructs.Construct, id *string, props *KubeSelfSubjectAccessReviewProps) KubeSelfSubjectAccessReview {
@@ -46932,6 +45713,38 @@ func NewKubeSelfSubjectAccessReview_Override(k KubeSelfSubjectAccessReview, scop
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeSelfSubjectAccessReview_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeSelfSubjectAccessReview",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.authorization.v1.SelfSubjectAccessReview".
@@ -47009,35 +45822,6 @@ func (k *jsiiProxy_KubeSelfSubjectAccessReview) AddJsonPatch(ops ...cdk8s.JsonPa
 	)
 }
 
-func (k *jsiiProxy_KubeSelfSubjectAccessReview) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeSelfSubjectAccessReview) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeSelfSubjectAccessReview) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeSelfSubjectAccessReview) ToJson() interface{} {
 	var returns interface{}
 
@@ -47097,6 +45881,8 @@ type KubeSelfSubjectAccessReviewV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -47107,29 +45893,6 @@ type KubeSelfSubjectAccessReviewV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -47201,6 +45964,16 @@ func (j *jsiiProxy_KubeSelfSubjectAccessReviewV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeSelfSubjectAccessReviewV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.authorization.v1beta1.SelfSubjectAccessReview" API object.
 func NewKubeSelfSubjectAccessReviewV1Beta1(scope constructs.Construct, id *string, props *KubeSelfSubjectAccessReviewV1Beta1Props) KubeSelfSubjectAccessReviewV1Beta1 {
@@ -47226,6 +45999,38 @@ func NewKubeSelfSubjectAccessReviewV1Beta1_Override(k KubeSelfSubjectAccessRevie
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeSelfSubjectAccessReviewV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeSelfSubjectAccessReviewV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.authorization.v1beta1.SelfSubjectAccessReview".
@@ -47303,35 +46108,6 @@ func (k *jsiiProxy_KubeSelfSubjectAccessReviewV1Beta1) AddJsonPatch(ops ...cdk8s
 	)
 }
 
-func (k *jsiiProxy_KubeSelfSubjectAccessReviewV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeSelfSubjectAccessReviewV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeSelfSubjectAccessReviewV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeSelfSubjectAccessReviewV1Beta1) ToJson() interface{} {
 	var returns interface{}
 
@@ -47391,6 +46167,8 @@ type KubeSelfSubjectRulesReview interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -47401,29 +46179,6 @@ type KubeSelfSubjectRulesReview interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -47495,6 +46250,16 @@ func (j *jsiiProxy_KubeSelfSubjectRulesReview) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeSelfSubjectRulesReview) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.authorization.v1.SelfSubjectRulesReview" API object.
 func NewKubeSelfSubjectRulesReview(scope constructs.Construct, id *string, props *KubeSelfSubjectRulesReviewProps) KubeSelfSubjectRulesReview {
@@ -47520,6 +46285,38 @@ func NewKubeSelfSubjectRulesReview_Override(k KubeSelfSubjectRulesReview, scope 
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeSelfSubjectRulesReview_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeSelfSubjectRulesReview",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.authorization.v1.SelfSubjectRulesReview".
@@ -47597,35 +46394,6 @@ func (k *jsiiProxy_KubeSelfSubjectRulesReview) AddJsonPatch(ops ...cdk8s.JsonPat
 	)
 }
 
-func (k *jsiiProxy_KubeSelfSubjectRulesReview) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeSelfSubjectRulesReview) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeSelfSubjectRulesReview) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeSelfSubjectRulesReview) ToJson() interface{} {
 	var returns interface{}
 
@@ -47683,6 +46451,8 @@ type KubeSelfSubjectRulesReviewV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -47693,29 +46463,6 @@ type KubeSelfSubjectRulesReviewV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -47787,6 +46534,16 @@ func (j *jsiiProxy_KubeSelfSubjectRulesReviewV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeSelfSubjectRulesReviewV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.authorization.v1beta1.SelfSubjectRulesReview" API object.
 func NewKubeSelfSubjectRulesReviewV1Beta1(scope constructs.Construct, id *string, props *KubeSelfSubjectRulesReviewV1Beta1Props) KubeSelfSubjectRulesReviewV1Beta1 {
@@ -47812,6 +46569,38 @@ func NewKubeSelfSubjectRulesReviewV1Beta1_Override(k KubeSelfSubjectRulesReviewV
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeSelfSubjectRulesReviewV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeSelfSubjectRulesReviewV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.authorization.v1beta1.SelfSubjectRulesReview".
@@ -47889,35 +46678,6 @@ func (k *jsiiProxy_KubeSelfSubjectRulesReviewV1Beta1) AddJsonPatch(ops ...cdk8s.
 	)
 }
 
-func (k *jsiiProxy_KubeSelfSubjectRulesReviewV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeSelfSubjectRulesReviewV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeSelfSubjectRulesReviewV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeSelfSubjectRulesReviewV1Beta1) ToJson() interface{} {
 	var returns interface{}
 
@@ -47973,6 +46733,8 @@ type KubeService interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -47983,29 +46745,6 @@ type KubeService interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -48077,6 +46816,16 @@ func (j *jsiiProxy_KubeService) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeService) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.core.v1.Service" API object.
 func NewKubeService(scope constructs.Construct, id *string, props *KubeServiceProps) KubeService {
@@ -48102,6 +46851,38 @@ func NewKubeService_Override(k KubeService, scope constructs.Construct, id *stri
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeService_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeService",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.core.v1.Service".
@@ -48179,35 +46960,6 @@ func (k *jsiiProxy_KubeService) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeService) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeService) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeService) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeService) ToJson() interface{} {
 	var returns interface{}
 
@@ -48254,6 +47006,8 @@ type KubeServiceAccount interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -48264,29 +47018,6 @@ type KubeServiceAccount interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -48358,6 +47089,16 @@ func (j *jsiiProxy_KubeServiceAccount) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeServiceAccount) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.core.v1.ServiceAccount" API object.
 func NewKubeServiceAccount(scope constructs.Construct, id *string, props *KubeServiceAccountProps) KubeServiceAccount {
@@ -48383,6 +47124,38 @@ func NewKubeServiceAccount_Override(k KubeServiceAccount, scope constructs.Const
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeServiceAccount_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeServiceAccount",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.core.v1.ServiceAccount".
@@ -48460,35 +47233,6 @@ func (k *jsiiProxy_KubeServiceAccount) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeServiceAccount) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeServiceAccount) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeServiceAccount) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeServiceAccount) ToJson() interface{} {
 	var returns interface{}
 
@@ -48535,6 +47279,8 @@ type KubeServiceAccountList interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -48545,29 +47291,6 @@ type KubeServiceAccountList interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -48639,6 +47362,16 @@ func (j *jsiiProxy_KubeServiceAccountList) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeServiceAccountList) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.core.v1.ServiceAccountList" API object.
 func NewKubeServiceAccountList(scope constructs.Construct, id *string, props *KubeServiceAccountListProps) KubeServiceAccountList {
@@ -48664,6 +47397,38 @@ func NewKubeServiceAccountList_Override(k KubeServiceAccountList, scope construc
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeServiceAccountList_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeServiceAccountList",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.core.v1.ServiceAccountList".
@@ -48739,35 +47504,6 @@ func (k *jsiiProxy_KubeServiceAccountList) AddJsonPatch(ops ...cdk8s.JsonPatch) 
 		"addJsonPatch",
 		args,
 	)
-}
-
-func (k *jsiiProxy_KubeServiceAccountList) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeServiceAccountList) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeServiceAccountList) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
 }
 
 func (k *jsiiProxy_KubeServiceAccountList) ToJson() interface{} {
@@ -48848,6 +47584,8 @@ type KubeServiceList interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -48858,29 +47596,6 @@ type KubeServiceList interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -48952,6 +47667,16 @@ func (j *jsiiProxy_KubeServiceList) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeServiceList) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.core.v1.ServiceList" API object.
 func NewKubeServiceList(scope constructs.Construct, id *string, props *KubeServiceListProps) KubeServiceList {
@@ -48977,6 +47702,38 @@ func NewKubeServiceList_Override(k KubeServiceList, scope constructs.Construct, 
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeServiceList_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeServiceList",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.core.v1.ServiceList".
@@ -49054,35 +47811,6 @@ func (k *jsiiProxy_KubeServiceList) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeServiceList) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeServiceList) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeServiceList) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeServiceList) ToJson() interface{} {
 	var returns interface{}
 
@@ -49156,6 +47884,8 @@ type KubeStatefulSet interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -49166,29 +47896,6 @@ type KubeStatefulSet interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -49260,6 +47967,16 @@ func (j *jsiiProxy_KubeStatefulSet) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeStatefulSet) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.apps.v1.StatefulSet" API object.
 func NewKubeStatefulSet(scope constructs.Construct, id *string, props *KubeStatefulSetProps) KubeStatefulSet {
@@ -49285,6 +48002,38 @@ func NewKubeStatefulSet_Override(k KubeStatefulSet, scope constructs.Construct, 
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeStatefulSet_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeStatefulSet",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.apps.v1.StatefulSet".
@@ -49362,35 +48111,6 @@ func (k *jsiiProxy_KubeStatefulSet) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeStatefulSet) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeStatefulSet) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeStatefulSet) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeStatefulSet) ToJson() interface{} {
 	var returns interface{}
 
@@ -49437,6 +48157,8 @@ type KubeStatefulSetList interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -49447,29 +48169,6 @@ type KubeStatefulSetList interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -49541,6 +48240,16 @@ func (j *jsiiProxy_KubeStatefulSetList) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeStatefulSetList) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.apps.v1.StatefulSetList" API object.
 func NewKubeStatefulSetList(scope constructs.Construct, id *string, props *KubeStatefulSetListProps) KubeStatefulSetList {
@@ -49566,6 +48275,38 @@ func NewKubeStatefulSetList_Override(k KubeStatefulSetList, scope constructs.Con
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeStatefulSetList_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeStatefulSetList",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.apps.v1.StatefulSetList".
@@ -49643,35 +48384,6 @@ func (k *jsiiProxy_KubeStatefulSetList) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeStatefulSetList) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeStatefulSetList) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeStatefulSetList) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeStatefulSetList) ToJson() interface{} {
 	var returns interface{}
 
@@ -49724,6 +48436,8 @@ type KubeStatefulSetListV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -49734,29 +48448,6 @@ type KubeStatefulSetListV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -49828,6 +48519,16 @@ func (j *jsiiProxy_KubeStatefulSetListV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeStatefulSetListV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.apps.v1beta1.StatefulSetList" API object.
 func NewKubeStatefulSetListV1Beta1(scope constructs.Construct, id *string, props *KubeStatefulSetListV1Beta1Props) KubeStatefulSetListV1Beta1 {
@@ -49853,6 +48554,38 @@ func NewKubeStatefulSetListV1Beta1_Override(k KubeStatefulSetListV1Beta1, scope 
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeStatefulSetListV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeStatefulSetListV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.apps.v1beta1.StatefulSetList".
@@ -49930,35 +48663,6 @@ func (k *jsiiProxy_KubeStatefulSetListV1Beta1) AddJsonPatch(ops ...cdk8s.JsonPat
 	)
 }
 
-func (k *jsiiProxy_KubeStatefulSetListV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeStatefulSetListV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeStatefulSetListV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeStatefulSetListV1Beta1) ToJson() interface{} {
 	var returns interface{}
 
@@ -50011,6 +48715,8 @@ type KubeStatefulSetListV1Beta2 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -50021,29 +48727,6 @@ type KubeStatefulSetListV1Beta2 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -50115,6 +48798,16 @@ func (j *jsiiProxy_KubeStatefulSetListV1Beta2) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeStatefulSetListV1Beta2) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.apps.v1beta2.StatefulSetList" API object.
 func NewKubeStatefulSetListV1Beta2(scope constructs.Construct, id *string, props *KubeStatefulSetListV1Beta2Props) KubeStatefulSetListV1Beta2 {
@@ -50140,6 +48833,38 @@ func NewKubeStatefulSetListV1Beta2_Override(k KubeStatefulSetListV1Beta2, scope 
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeStatefulSetListV1Beta2_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeStatefulSetListV1Beta2",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.apps.v1beta2.StatefulSetList".
@@ -50217,35 +48942,6 @@ func (k *jsiiProxy_KubeStatefulSetListV1Beta2) AddJsonPatch(ops ...cdk8s.JsonPat
 	)
 }
 
-func (k *jsiiProxy_KubeStatefulSetListV1Beta2) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeStatefulSetListV1Beta2) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeStatefulSetListV1Beta2) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeStatefulSetListV1Beta2) ToJson() interface{} {
 	var returns interface{}
 
@@ -50315,6 +49011,8 @@ type KubeStatefulSetV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -50325,29 +49023,6 @@ type KubeStatefulSetV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -50419,6 +49094,16 @@ func (j *jsiiProxy_KubeStatefulSetV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeStatefulSetV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.apps.v1beta1.StatefulSet" API object.
 func NewKubeStatefulSetV1Beta1(scope constructs.Construct, id *string, props *KubeStatefulSetV1Beta1Props) KubeStatefulSetV1Beta1 {
@@ -50444,6 +49129,38 @@ func NewKubeStatefulSetV1Beta1_Override(k KubeStatefulSetV1Beta1, scope construc
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeStatefulSetV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeStatefulSetV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.apps.v1beta1.StatefulSet".
@@ -50521,35 +49238,6 @@ func (k *jsiiProxy_KubeStatefulSetV1Beta1) AddJsonPatch(ops ...cdk8s.JsonPatch) 
 	)
 }
 
-func (k *jsiiProxy_KubeStatefulSetV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeStatefulSetV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeStatefulSetV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeStatefulSetV1Beta1) ToJson() interface{} {
 	var returns interface{}
 
@@ -50613,6 +49301,8 @@ type KubeStatefulSetV1Beta2 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -50623,29 +49313,6 @@ type KubeStatefulSetV1Beta2 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -50717,6 +49384,16 @@ func (j *jsiiProxy_KubeStatefulSetV1Beta2) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeStatefulSetV1Beta2) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.apps.v1beta2.StatefulSet" API object.
 func NewKubeStatefulSetV1Beta2(scope constructs.Construct, id *string, props *KubeStatefulSetV1Beta2Props) KubeStatefulSetV1Beta2 {
@@ -50742,6 +49419,38 @@ func NewKubeStatefulSetV1Beta2_Override(k KubeStatefulSetV1Beta2, scope construc
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeStatefulSetV1Beta2_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeStatefulSetV1Beta2",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.apps.v1beta2.StatefulSet".
@@ -50819,35 +49528,6 @@ func (k *jsiiProxy_KubeStatefulSetV1Beta2) AddJsonPatch(ops ...cdk8s.JsonPatch) 
 	)
 }
 
-func (k *jsiiProxy_KubeStatefulSetV1Beta2) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeStatefulSetV1Beta2) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeStatefulSetV1Beta2) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeStatefulSetV1Beta2) ToJson() interface{} {
 	var returns interface{}
 
@@ -50906,6 +49586,8 @@ type KubeStatus interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -50916,29 +49598,6 @@ type KubeStatus interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -51010,6 +49669,16 @@ func (j *jsiiProxy_KubeStatus) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeStatus) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.apimachinery.pkg.apis.meta.v1.Status" API object.
 func NewKubeStatus(scope constructs.Construct, id *string, props *KubeStatusProps) KubeStatus {
@@ -51035,6 +49704,38 @@ func NewKubeStatus_Override(k KubeStatus, scope constructs.Construct, id *string
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeStatus_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeStatus",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.apimachinery.pkg.apis.meta.v1.Status".
@@ -51112,35 +49813,6 @@ func (k *jsiiProxy_KubeStatus) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeStatus) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeStatus) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeStatus) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeStatus) ToJson() interface{} {
 	var returns interface{}
 
@@ -51209,6 +49881,8 @@ type KubeStorageClass interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -51219,29 +49893,6 @@ type KubeStorageClass interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -51313,6 +49964,16 @@ func (j *jsiiProxy_KubeStorageClass) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeStorageClass) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.storage.v1.StorageClass" API object.
 func NewKubeStorageClass(scope constructs.Construct, id *string, props *KubeStorageClassProps) KubeStorageClass {
@@ -51338,6 +49999,38 @@ func NewKubeStorageClass_Override(k KubeStorageClass, scope constructs.Construct
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeStorageClass_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeStorageClass",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.storage.v1.StorageClass".
@@ -51415,35 +50108,6 @@ func (k *jsiiProxy_KubeStorageClass) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeStorageClass) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeStorageClass) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeStorageClass) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeStorageClass) ToJson() interface{} {
 	var returns interface{}
 
@@ -51490,6 +50154,8 @@ type KubeStorageClassList interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -51500,29 +50166,6 @@ type KubeStorageClassList interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -51594,6 +50237,16 @@ func (j *jsiiProxy_KubeStorageClassList) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeStorageClassList) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.storage.v1.StorageClassList" API object.
 func NewKubeStorageClassList(scope constructs.Construct, id *string, props *KubeStorageClassListProps) KubeStorageClassList {
@@ -51619,6 +50272,38 @@ func NewKubeStorageClassList_Override(k KubeStorageClassList, scope constructs.C
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeStorageClassList_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeStorageClassList",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.storage.v1.StorageClassList".
@@ -51696,35 +50381,6 @@ func (k *jsiiProxy_KubeStorageClassList) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeStorageClassList) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeStorageClassList) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeStorageClassList) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeStorageClassList) ToJson() interface{} {
 	var returns interface{}
 
@@ -51779,6 +50435,8 @@ type KubeStorageClassListV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -51789,29 +50447,6 @@ type KubeStorageClassListV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -51883,6 +50518,16 @@ func (j *jsiiProxy_KubeStorageClassListV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeStorageClassListV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.storage.v1beta1.StorageClassList" API object.
 func NewKubeStorageClassListV1Beta1(scope constructs.Construct, id *string, props *KubeStorageClassListV1Beta1Props) KubeStorageClassListV1Beta1 {
@@ -51908,6 +50553,38 @@ func NewKubeStorageClassListV1Beta1_Override(k KubeStorageClassListV1Beta1, scop
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeStorageClassListV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeStorageClassListV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.storage.v1beta1.StorageClassList".
@@ -51983,35 +50660,6 @@ func (k *jsiiProxy_KubeStorageClassListV1Beta1) AddJsonPatch(ops ...cdk8s.JsonPa
 		"addJsonPatch",
 		args,
 	)
-}
-
-func (k *jsiiProxy_KubeStorageClassListV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeStorageClassListV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeStorageClassListV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
 }
 
 func (k *jsiiProxy_KubeStorageClassListV1Beta1) ToJson() interface{} {
@@ -52100,6 +50748,8 @@ type KubeStorageClassV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -52110,29 +50760,6 @@ type KubeStorageClassV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -52204,6 +50831,16 @@ func (j *jsiiProxy_KubeStorageClassV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeStorageClassV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.storage.v1beta1.StorageClass" API object.
 func NewKubeStorageClassV1Beta1(scope constructs.Construct, id *string, props *KubeStorageClassV1Beta1Props) KubeStorageClassV1Beta1 {
@@ -52229,6 +50866,38 @@ func NewKubeStorageClassV1Beta1_Override(k KubeStorageClassV1Beta1, scope constr
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeStorageClassV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeStorageClassV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.storage.v1beta1.StorageClass".
@@ -52304,35 +50973,6 @@ func (k *jsiiProxy_KubeStorageClassV1Beta1) AddJsonPatch(ops ...cdk8s.JsonPatch)
 		"addJsonPatch",
 		args,
 	)
-}
-
-func (k *jsiiProxy_KubeStorageClassV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeStorageClassV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeStorageClassV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
 }
 
 func (k *jsiiProxy_KubeStorageClassV1Beta1) ToJson() interface{} {
@@ -52411,6 +51051,8 @@ type KubeSubjectAccessReview interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -52421,29 +51063,6 @@ type KubeSubjectAccessReview interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -52515,6 +51134,16 @@ func (j *jsiiProxy_KubeSubjectAccessReview) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeSubjectAccessReview) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.authorization.v1.SubjectAccessReview" API object.
 func NewKubeSubjectAccessReview(scope constructs.Construct, id *string, props *KubeSubjectAccessReviewProps) KubeSubjectAccessReview {
@@ -52540,6 +51169,38 @@ func NewKubeSubjectAccessReview_Override(k KubeSubjectAccessReview, scope constr
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeSubjectAccessReview_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeSubjectAccessReview",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.authorization.v1.SubjectAccessReview".
@@ -52617,35 +51278,6 @@ func (k *jsiiProxy_KubeSubjectAccessReview) AddJsonPatch(ops ...cdk8s.JsonPatch)
 	)
 }
 
-func (k *jsiiProxy_KubeSubjectAccessReview) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeSubjectAccessReview) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeSubjectAccessReview) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeSubjectAccessReview) ToJson() interface{} {
 	var returns interface{}
 
@@ -52699,6 +51331,8 @@ type KubeSubjectAccessReviewV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -52709,29 +51343,6 @@ type KubeSubjectAccessReviewV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -52803,6 +51414,16 @@ func (j *jsiiProxy_KubeSubjectAccessReviewV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeSubjectAccessReviewV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.authorization.v1beta1.SubjectAccessReview" API object.
 func NewKubeSubjectAccessReviewV1Beta1(scope constructs.Construct, id *string, props *KubeSubjectAccessReviewV1Beta1Props) KubeSubjectAccessReviewV1Beta1 {
@@ -52828,6 +51449,38 @@ func NewKubeSubjectAccessReviewV1Beta1_Override(k KubeSubjectAccessReviewV1Beta1
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeSubjectAccessReviewV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeSubjectAccessReviewV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.authorization.v1beta1.SubjectAccessReview".
@@ -52905,35 +51558,6 @@ func (k *jsiiProxy_KubeSubjectAccessReviewV1Beta1) AddJsonPatch(ops ...cdk8s.Jso
 	)
 }
 
-func (k *jsiiProxy_KubeSubjectAccessReviewV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeSubjectAccessReviewV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeSubjectAccessReviewV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeSubjectAccessReviewV1Beta1) ToJson() interface{} {
 	var returns interface{}
 
@@ -52987,6 +51611,8 @@ type KubeTokenRequest interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -52997,29 +51623,6 @@ type KubeTokenRequest interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -53091,6 +51694,16 @@ func (j *jsiiProxy_KubeTokenRequest) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeTokenRequest) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.authentication.v1.TokenRequest" API object.
 func NewKubeTokenRequest(scope constructs.Construct, id *string, props *KubeTokenRequestProps) KubeTokenRequest {
@@ -53116,6 +51729,38 @@ func NewKubeTokenRequest_Override(k KubeTokenRequest, scope constructs.Construct
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeTokenRequest_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeTokenRequest",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.authentication.v1.TokenRequest".
@@ -53193,35 +51838,6 @@ func (k *jsiiProxy_KubeTokenRequest) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeTokenRequest) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeTokenRequest) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeTokenRequest) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeTokenRequest) ToJson() interface{} {
 	var returns interface{}
 
@@ -53276,6 +51892,8 @@ type KubeTokenReview interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -53286,29 +51904,6 @@ type KubeTokenReview interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -53380,6 +51975,16 @@ func (j *jsiiProxy_KubeTokenReview) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeTokenReview) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.authentication.v1.TokenReview" API object.
 func NewKubeTokenReview(scope constructs.Construct, id *string, props *KubeTokenReviewProps) KubeTokenReview {
@@ -53405,6 +52010,38 @@ func NewKubeTokenReview_Override(k KubeTokenReview, scope constructs.Construct, 
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeTokenReview_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeTokenReview",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.authentication.v1.TokenReview".
@@ -53482,35 +52119,6 @@ func (k *jsiiProxy_KubeTokenReview) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeTokenReview) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeTokenReview) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeTokenReview) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeTokenReview) ToJson() interface{} {
 	var returns interface{}
 
@@ -53568,6 +52176,8 @@ type KubeTokenReviewV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -53578,29 +52188,6 @@ type KubeTokenReviewV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -53672,6 +52259,16 @@ func (j *jsiiProxy_KubeTokenReviewV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeTokenReviewV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.authentication.v1beta1.TokenReview" API object.
 func NewKubeTokenReviewV1Beta1(scope constructs.Construct, id *string, props *KubeTokenReviewV1Beta1Props) KubeTokenReviewV1Beta1 {
@@ -53697,6 +52294,38 @@ func NewKubeTokenReviewV1Beta1_Override(k KubeTokenReviewV1Beta1, scope construc
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeTokenReviewV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeTokenReviewV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.authentication.v1beta1.TokenReview".
@@ -53774,35 +52403,6 @@ func (k *jsiiProxy_KubeTokenReviewV1Beta1) AddJsonPatch(ops ...cdk8s.JsonPatch) 
 	)
 }
 
-func (k *jsiiProxy_KubeTokenReviewV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeTokenReviewV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeTokenReviewV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeTokenReviewV1Beta1) ToJson() interface{} {
 	var returns interface{}
 
@@ -53858,6 +52458,8 @@ type KubeValidatingWebhookConfiguration interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -53868,29 +52470,6 @@ type KubeValidatingWebhookConfiguration interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -53962,6 +52541,16 @@ func (j *jsiiProxy_KubeValidatingWebhookConfiguration) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeValidatingWebhookConfiguration) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.admissionregistration.v1.ValidatingWebhookConfiguration" API object.
 func NewKubeValidatingWebhookConfiguration(scope constructs.Construct, id *string, props *KubeValidatingWebhookConfigurationProps) KubeValidatingWebhookConfiguration {
@@ -53987,6 +52576,38 @@ func NewKubeValidatingWebhookConfiguration_Override(k KubeValidatingWebhookConfi
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeValidatingWebhookConfiguration_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeValidatingWebhookConfiguration",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.admissionregistration.v1.ValidatingWebhookConfiguration".
@@ -54064,35 +52685,6 @@ func (k *jsiiProxy_KubeValidatingWebhookConfiguration) AddJsonPatch(ops ...cdk8s
 	)
 }
 
-func (k *jsiiProxy_KubeValidatingWebhookConfiguration) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeValidatingWebhookConfiguration) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeValidatingWebhookConfiguration) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeValidatingWebhookConfiguration) ToJson() interface{} {
 	var returns interface{}
 
@@ -54139,6 +52731,8 @@ type KubeValidatingWebhookConfigurationList interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -54149,29 +52743,6 @@ type KubeValidatingWebhookConfigurationList interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -54243,6 +52814,16 @@ func (j *jsiiProxy_KubeValidatingWebhookConfigurationList) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeValidatingWebhookConfigurationList) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.admissionregistration.v1.ValidatingWebhookConfigurationList" API object.
 func NewKubeValidatingWebhookConfigurationList(scope constructs.Construct, id *string, props *KubeValidatingWebhookConfigurationListProps) KubeValidatingWebhookConfigurationList {
@@ -54268,6 +52849,38 @@ func NewKubeValidatingWebhookConfigurationList_Override(k KubeValidatingWebhookC
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeValidatingWebhookConfigurationList_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeValidatingWebhookConfigurationList",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.admissionregistration.v1.ValidatingWebhookConfigurationList".
@@ -54345,35 +52958,6 @@ func (k *jsiiProxy_KubeValidatingWebhookConfigurationList) AddJsonPatch(ops ...c
 	)
 }
 
-func (k *jsiiProxy_KubeValidatingWebhookConfigurationList) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeValidatingWebhookConfigurationList) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeValidatingWebhookConfigurationList) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeValidatingWebhookConfigurationList) ToJson() interface{} {
 	var returns interface{}
 
@@ -54430,6 +53014,8 @@ type KubeValidatingWebhookConfigurationListV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -54440,29 +53026,6 @@ type KubeValidatingWebhookConfigurationListV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -54534,6 +53097,16 @@ func (j *jsiiProxy_KubeValidatingWebhookConfigurationListV1Beta1) Name() *string
 	return returns
 }
 
+func (j *jsiiProxy_KubeValidatingWebhookConfigurationListV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.admissionregistration.v1beta1.ValidatingWebhookConfigurationList" API object.
 func NewKubeValidatingWebhookConfigurationListV1Beta1(scope constructs.Construct, id *string, props *KubeValidatingWebhookConfigurationListV1Beta1Props) KubeValidatingWebhookConfigurationListV1Beta1 {
@@ -54559,6 +53132,38 @@ func NewKubeValidatingWebhookConfigurationListV1Beta1_Override(k KubeValidatingW
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeValidatingWebhookConfigurationListV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeValidatingWebhookConfigurationListV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.admissionregistration.v1beta1.ValidatingWebhookConfigurationList".
@@ -54636,35 +53241,6 @@ func (k *jsiiProxy_KubeValidatingWebhookConfigurationListV1Beta1) AddJsonPatch(o
 	)
 }
 
-func (k *jsiiProxy_KubeValidatingWebhookConfigurationListV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeValidatingWebhookConfigurationListV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeValidatingWebhookConfigurationListV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeValidatingWebhookConfigurationListV1Beta1) ToJson() interface{} {
 	var returns interface{}
 
@@ -54733,6 +53309,8 @@ type KubeValidatingWebhookConfigurationV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -54743,29 +53321,6 @@ type KubeValidatingWebhookConfigurationV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -54837,6 +53392,16 @@ func (j *jsiiProxy_KubeValidatingWebhookConfigurationV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeValidatingWebhookConfigurationV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.admissionregistration.v1beta1.ValidatingWebhookConfiguration" API object.
 func NewKubeValidatingWebhookConfigurationV1Beta1(scope constructs.Construct, id *string, props *KubeValidatingWebhookConfigurationV1Beta1Props) KubeValidatingWebhookConfigurationV1Beta1 {
@@ -54862,6 +53427,38 @@ func NewKubeValidatingWebhookConfigurationV1Beta1_Override(k KubeValidatingWebho
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeValidatingWebhookConfigurationV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeValidatingWebhookConfigurationV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.admissionregistration.v1beta1.ValidatingWebhookConfiguration".
@@ -54939,35 +53536,6 @@ func (k *jsiiProxy_KubeValidatingWebhookConfigurationV1Beta1) AddJsonPatch(ops .
 	)
 }
 
-func (k *jsiiProxy_KubeValidatingWebhookConfigurationV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeValidatingWebhookConfigurationV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeValidatingWebhookConfigurationV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeValidatingWebhookConfigurationV1Beta1) ToJson() interface{} {
 	var returns interface{}
 
@@ -55028,6 +53596,8 @@ type KubeVolumeAttachment interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -55038,29 +53608,6 @@ type KubeVolumeAttachment interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -55132,6 +53679,16 @@ func (j *jsiiProxy_KubeVolumeAttachment) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeVolumeAttachment) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.storage.v1.VolumeAttachment" API object.
 func NewKubeVolumeAttachment(scope constructs.Construct, id *string, props *KubeVolumeAttachmentProps) KubeVolumeAttachment {
@@ -55157,6 +53714,38 @@ func NewKubeVolumeAttachment_Override(k KubeVolumeAttachment, scope constructs.C
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeVolumeAttachment_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeVolumeAttachment",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.storage.v1.VolumeAttachment".
@@ -55234,35 +53823,6 @@ func (k *jsiiProxy_KubeVolumeAttachment) AddJsonPatch(ops ...cdk8s.JsonPatch) {
 	)
 }
 
-func (k *jsiiProxy_KubeVolumeAttachment) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeVolumeAttachment) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeVolumeAttachment) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeVolumeAttachment) ToJson() interface{} {
 	var returns interface{}
 
@@ -55309,6 +53869,8 @@ type KubeVolumeAttachmentList interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -55319,29 +53881,6 @@ type KubeVolumeAttachmentList interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -55413,6 +53952,16 @@ func (j *jsiiProxy_KubeVolumeAttachmentList) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeVolumeAttachmentList) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.storage.v1.VolumeAttachmentList" API object.
 func NewKubeVolumeAttachmentList(scope constructs.Construct, id *string, props *KubeVolumeAttachmentListProps) KubeVolumeAttachmentList {
@@ -55438,6 +53987,38 @@ func NewKubeVolumeAttachmentList_Override(k KubeVolumeAttachmentList, scope cons
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeVolumeAttachmentList_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeVolumeAttachmentList",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.storage.v1.VolumeAttachmentList".
@@ -55515,35 +54096,6 @@ func (k *jsiiProxy_KubeVolumeAttachmentList) AddJsonPatch(ops ...cdk8s.JsonPatch
 	)
 }
 
-func (k *jsiiProxy_KubeVolumeAttachmentList) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeVolumeAttachmentList) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeVolumeAttachmentList) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeVolumeAttachmentList) ToJson() interface{} {
 	var returns interface{}
 
@@ -55598,6 +54150,8 @@ type KubeVolumeAttachmentListV1Alpha1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -55608,29 +54162,6 @@ type KubeVolumeAttachmentListV1Alpha1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -55702,6 +54233,16 @@ func (j *jsiiProxy_KubeVolumeAttachmentListV1Alpha1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeVolumeAttachmentListV1Alpha1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.storage.v1alpha1.VolumeAttachmentList" API object.
 func NewKubeVolumeAttachmentListV1Alpha1(scope constructs.Construct, id *string, props *KubeVolumeAttachmentListV1Alpha1Props) KubeVolumeAttachmentListV1Alpha1 {
@@ -55727,6 +54268,38 @@ func NewKubeVolumeAttachmentListV1Alpha1_Override(k KubeVolumeAttachmentListV1Al
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeVolumeAttachmentListV1Alpha1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeVolumeAttachmentListV1Alpha1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.storage.v1alpha1.VolumeAttachmentList".
@@ -55804,35 +54377,6 @@ func (k *jsiiProxy_KubeVolumeAttachmentListV1Alpha1) AddJsonPatch(ops ...cdk8s.J
 	)
 }
 
-func (k *jsiiProxy_KubeVolumeAttachmentListV1Alpha1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeVolumeAttachmentListV1Alpha1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeVolumeAttachmentListV1Alpha1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeVolumeAttachmentListV1Alpha1) ToJson() interface{} {
 	var returns interface{}
 
@@ -55887,6 +54431,8 @@ type KubeVolumeAttachmentListV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -55897,29 +54443,6 @@ type KubeVolumeAttachmentListV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -55991,6 +54514,16 @@ func (j *jsiiProxy_KubeVolumeAttachmentListV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeVolumeAttachmentListV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.storage.v1beta1.VolumeAttachmentList" API object.
 func NewKubeVolumeAttachmentListV1Beta1(scope constructs.Construct, id *string, props *KubeVolumeAttachmentListV1Beta1Props) KubeVolumeAttachmentListV1Beta1 {
@@ -56016,6 +54549,38 @@ func NewKubeVolumeAttachmentListV1Beta1_Override(k KubeVolumeAttachmentListV1Bet
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeVolumeAttachmentListV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeVolumeAttachmentListV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.storage.v1beta1.VolumeAttachmentList".
@@ -56093,35 +54658,6 @@ func (k *jsiiProxy_KubeVolumeAttachmentListV1Beta1) AddJsonPatch(ops ...cdk8s.Js
 	)
 }
 
-func (k *jsiiProxy_KubeVolumeAttachmentListV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeVolumeAttachmentListV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeVolumeAttachmentListV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeVolumeAttachmentListV1Beta1) ToJson() interface{} {
 	var returns interface{}
 
@@ -56192,6 +54728,8 @@ type KubeVolumeAttachmentV1Alpha1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -56202,29 +54740,6 @@ type KubeVolumeAttachmentV1Alpha1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -56296,6 +54811,16 @@ func (j *jsiiProxy_KubeVolumeAttachmentV1Alpha1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeVolumeAttachmentV1Alpha1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.storage.v1alpha1.VolumeAttachment" API object.
 func NewKubeVolumeAttachmentV1Alpha1(scope constructs.Construct, id *string, props *KubeVolumeAttachmentV1Alpha1Props) KubeVolumeAttachmentV1Alpha1 {
@@ -56321,6 +54846,38 @@ func NewKubeVolumeAttachmentV1Alpha1_Override(k KubeVolumeAttachmentV1Alpha1, sc
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeVolumeAttachmentV1Alpha1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeVolumeAttachmentV1Alpha1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.storage.v1alpha1.VolumeAttachment".
@@ -56398,35 +54955,6 @@ func (k *jsiiProxy_KubeVolumeAttachmentV1Alpha1) AddJsonPatch(ops ...cdk8s.JsonP
 	)
 }
 
-func (k *jsiiProxy_KubeVolumeAttachmentV1Alpha1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeVolumeAttachmentV1Alpha1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeVolumeAttachmentV1Alpha1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (k *jsiiProxy_KubeVolumeAttachmentV1Alpha1) ToJson() interface{} {
 	var returns interface{}
 
@@ -56489,6 +55017,8 @@ type KubeVolumeAttachmentV1Beta1 interface {
 	// `Chart.of(this).generatedObjectName(this)`, which by default uses the
 	// construct path to generate a DNS-compatible name for the resource.
 	Name() *string
+	// The tree node.
+	Node() constructs.Node
 	// Create a dependency between this ApiObject and other constructs.
 	//
 	// These can be other ApiObjects, Charts, or custom.
@@ -56499,29 +55029,6 @@ type KubeVolumeAttachmentV1Beta1 interface {
 	//     kubePod.addJsonPatch(JsonPatch.replace('/spec/enableServiceLinks', true));
 	//
 	AddJsonPatch(ops ...cdk8s.JsonPatch)
-	// Perform final modifications before synthesis.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// final changes before synthesis. prepare() will be called after child
-	// constructs have been prepared.
-	//
-	// This is an advanced framework feature. Only use this if you
-	// understand the implications.
-	OnPrepare()
-	// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-	//
-	// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-	// as they participate in synthesizing the cloud assembly.
-	OnSynthesize(session constructs.ISynthesisSession)
-	// Validate the current construct.
-	//
-	// This method can be implemented by derived constructs in order to perform
-	// validation logic. It is called on all constructs before synthesis.
-	//
-	// Returns: An array of validation error messages, or an empty array if there the construct is valid.
-	// Deprecated: use `Node.addValidation()` to subscribe validation functions on this construct
-	// instead of overriding this method.
-	OnValidate() *[]*string
 	// Renders the object to Kubernetes JSON.
 	ToJson() interface{}
 	// Returns a string representation of this construct.
@@ -56593,6 +55100,16 @@ func (j *jsiiProxy_KubeVolumeAttachmentV1Beta1) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_KubeVolumeAttachmentV1Beta1) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
 
 // Defines a "io.k8s.api.storage.v1beta1.VolumeAttachment" API object.
 func NewKubeVolumeAttachmentV1Beta1(scope constructs.Construct, id *string, props *KubeVolumeAttachmentV1Beta1Props) KubeVolumeAttachmentV1Beta1 {
@@ -56618,6 +55135,38 @@ func NewKubeVolumeAttachmentV1Beta1_Override(k KubeVolumeAttachmentV1Beta1, scop
 		[]interface{}{scope, id, props},
 		k,
 	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubeVolumeAttachmentV1Beta1_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeVolumeAttachmentV1Beta1",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
 }
 
 // Renders a Kubernetes manifest for "io.k8s.api.storage.v1beta1.VolumeAttachment".
@@ -56693,35 +55242,6 @@ func (k *jsiiProxy_KubeVolumeAttachmentV1Beta1) AddJsonPatch(ops ...cdk8s.JsonPa
 		"addJsonPatch",
 		args,
 	)
-}
-
-func (k *jsiiProxy_KubeVolumeAttachmentV1Beta1) OnPrepare() {
-	_jsii_.InvokeVoid(
-		k,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-func (k *jsiiProxy_KubeVolumeAttachmentV1Beta1) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		k,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-func (k *jsiiProxy_KubeVolumeAttachmentV1Beta1) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		k,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
 }
 
 func (k *jsiiProxy_KubeVolumeAttachmentV1Beta1) ToJson() interface{} {
