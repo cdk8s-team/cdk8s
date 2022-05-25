@@ -3,12 +3,12 @@
 A `PersistentVolumeClaim` (PVC) is a request for storage by a pod.
 
 !!! tip ""
-    [API Reference](../reference/cdk8s-plus-22/typescript.md#persistent-volume-claim)
+    [API Reference](../reference/cdk8s-plus-24/typescript.md#persistent-volume-claim)
 
 A `PersistentVolumeClaim` contains the requirements of the request, and the Kubernetes control plane is responsible providing a physical volume that satisfies the claim's requirements.
 
 ```ts
-import * as kplus from 'cdk8s-plus-22';
+import * as kplus from 'cdk8s-plus-24';
 import * as cdk8s from 'cdk8s';
 
 const pod = new kplus.Pod(chart, 'Pod');

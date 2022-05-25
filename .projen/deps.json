@@ -17,15 +17,15 @@
       "type": "build"
     },
     {
-      "name": "cdk8s-plus-20",
-      "type": "build"
-    },
-    {
-      "name": "cdk8s-plus-21",
-      "type": "build"
-    },
-    {
       "name": "cdk8s-plus-22",
+      "type": "build"
+    },
+    {
+      "name": "cdk8s-plus-23",
+      "type": "build"
+    },
+    {
+      "name": "cdk8s-plus-24",
       "type": "build"
     },
     {

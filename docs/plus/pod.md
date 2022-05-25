@@ -3,14 +3,14 @@
 A pod is essentially a collection of containers. It is the most fundamental computation unit that can be provisioned.
 
 !!! tip ""
-    [API Reference](../reference/cdk8s-plus-22/typescript.md#pod)
+    [API Reference](../reference/cdk8s-plus-24/typescript.md#pod)
 
 ## Create a `Pod`
 
 To create a new pod in the cluster:
 
 ```ts
-import * as kplus from 'cdk8s-plus-22';
+import * as kplus from 'cdk8s-plus-24';
 import * as k from 'cdk8s';
 
 const app = new k.App();
@@ -37,7 +37,7 @@ pod.addContainer({ image: 'another-image' });
 Volumes can be added to pod definition either during, or post instantiation:
 
 ```typescript
-import * as kplus from 'cdk8s-plus-22';
+import * as kplus from 'cdk8s-plus-24';
 
 const data1 = kplus.Volume.fromEmptyDir('data1');
 const data2 = kplus.Volume.fromEmptyDir('data2');
@@ -53,7 +53,7 @@ Note that adding a volume to a pod doesn't actually make the volume available
 to its containers. For that, you also need to mount the volume onto a container.
 
 ```ts
-import * as kplus from 'cdk8s-plus-22';
+import * as kplus from 'cdk8s-plus-24';
 
 const data = kplus.Volume.fromEmptyDir('data');
 
@@ -70,7 +70,7 @@ container.mount('/data', data);
 A restart policy can only be specified at instantiation time:
 
 ```typescript
-import * as kplus from 'cdk8s-plus-22';
+import * as kplus from 'cdk8s-plus-24';
 
 const app = new k.App();
 const chart = new k.Chart(app, 'Chart');
@@ -85,7 +85,7 @@ const pod = new kplus.Pod(chart, 'Pod', {
 A service account can only be specified at instantiation time:
 
 ```typescript
-import * as kplus from 'cdk8s-plus-22';
+import * as kplus from 'cdk8s-plus-24';
 
 const app = new k.App();
 const chart = new k.Chart(app, 'Chart');
@@ -105,9 +105,9 @@ cdk8s+ API's, such as [pod selection](./pod.md#pod-selection) during scheduling.
 Selects all pods that have the `app=store` label.
 
 ```ts
-import * as kplus from 'cdk8s-plus-22';
+import * as kplus from 'cdk8s-plus-24';
 
-const pods = kplus.Pods.select({ labels: { app: 'store' }});
+const pods = kplus.Pods.select(this, 'Store', { labels: { app: 'store' }});
 ```
 
 ### Select pods with expressions
@@ -115,9 +115,9 @@ const pods = kplus.Pods.select({ labels: { app: 'store' }});
 Selects all pods that have the `app` label, regardless of the value.
 
 ```ts
-import * as kplus from 'cdk8s-plus-22';
+import * as kplus from 'cdk8s-plus-24';
 
-const pods = kplus.Pods.select({
+const pods = kplus.Pods.select(this, 'App', {
   expressions: [kplus.LabelExpression.exists('app')]
 });
 ```
@@ -130,11 +130,11 @@ This is done using the `namespaces` property, which can accept any [namespace se
 For example, select all pods that have the `app=store` label in the `backoffice` namespace:
 
 ```ts
-import * as kplus from 'cdk8s-plus-22';
+import * as kplus from 'cdk8s-plus-24';
 
-const pods = kplus.Pods.select({
+const pods = kplus.Pods.select(this, 'Pods', {
   labels: { app: 'store' },
-  namespaces: kplus.Namespaces.select({ names: ['backoffice'] }),
+  namespaces: kplus.Namespaces.select(this, 'Backoffice', { names: ['backoffice'] }),
 });
 ```
 
@@ -169,7 +169,7 @@ You can statically assign a pod to a specific node, by using the node's name.
 
 ```ts
 import * as k from 'cdk8s';
-import * as kplus from 'cdk8s-plus-22';
+import * as kplus from 'cdk8s-plus-24';
 
 const app = new k.App();
 const chart = new k.Chart(app, 'Chart');
@@ -190,7 +190,7 @@ An attraction can be either required, or preferred.
 
 ```ts
 import * as k from 'cdk8s';
-import * as kplus from 'cdk8s-plus-22';
+import * as kplus from 'cdk8s-plus-24';
 
 const app = new k.App();
 const chart = new k.Chart(app, 'Chart');
@@ -223,7 +223,7 @@ A toleration can be made to a **set** of nodes, specified by node taints.
 
 ```ts
 import * as k from 'cdk8s';
-import * as kplus from 'cdk8s-plus-22';
+import * as kplus from 'cdk8s-plus-24';
 
 const app = new k.App();
 const chart = new k.Chart(app, 'Chart');
@@ -266,7 +266,7 @@ Similarly to node attractions, co-location can also be either required, or prefe
 
 ```ts
 import * as k from 'cdk8s';
-import * as kplus from 'cdk8s-plus-22';
+import * as kplus from 'cdk8s-plus-24';
 
 const app = new k.App();
 const chart = new k.Chart(app, 'Chart');
@@ -319,7 +319,7 @@ Similarly to co-location, separation can also be either required, or preferred.
 
 ```ts
 import * as k from 'cdk8s';
-import * as kplus from 'cdk8s-plus-22';
+import * as kplus from 'cdk8s-plus-24';
 
 const app = new k.App();
 const chart = new k.Chart(app, 'Chart');
