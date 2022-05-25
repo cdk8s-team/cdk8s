@@ -299,7 +299,7 @@ in the same cdk8s application. You can also co-locate with an externally
 managed pod, by specifying a pod selector:
 
 ```ts
-const redis = kplus.Pods.select({
+const redis = kplus.Pods.select(this, 'Cache', {
   labels: { app: 'cache' },
 });
 web.scheduling.colocate(redis);
@@ -353,7 +353,7 @@ in the same cdk8s application. You can also separate with an externally
 managed pod, by specifying a pod selector:
 
 ```ts
-const redis = kplus.Pods.select({
+const redis = kplus.Pods.select(this, 'Cache', {
   labels: { app: 'cache' },
 });
 web.scheduling.separate(redis);
