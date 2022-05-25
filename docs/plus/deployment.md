@@ -135,3 +135,7 @@ web.scheduling.spread(kplus.Topology.HOSTNAME);
 // ensure a web app pod always runs along side a cache instance
 web.scheduling.colocate(redis);
 ```
+
+## Connections
+
+See [Pod connections](./pod.md#connections).
