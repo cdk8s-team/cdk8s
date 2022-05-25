@@ -378,7 +378,7 @@ To allow connections from a `Pod` to a [peer](./network-policy.md#peers):
 
 ```ts
 import * as k from 'cdk8s';
-import * as kplus from 'cdk8s-plus-22';
+import * as kplus from 'cdk8s-plus-24';
 
 const app = new k.App();
 const chart = new k.Chart(app, 'Chart');
@@ -410,7 +410,7 @@ To allow connections from a [peer](./network-policy.md#peers) to a `Pod`:
 
 ```ts
 import * as k from 'cdk8s';
-import * as kplus from 'cdk8s-plus-22';
+import * as kplus from 'cdk8s-plus-24';
 
 const app = new k.App();
 const chart = new k.Chart(app, 'Chart');
