@@ -3,7 +3,7 @@
 Define containers that run in a pod using the `Container` class.
 
 !!! tip ""
-    [API Reference](../reference/cdk8s-plus-22/typescript.md#container)
+    [API Reference](../reference/cdk8s-plus-24/typescript.md#container)
 
 ## Environment
 
@@ -15,7 +15,7 @@ Environment variables can be added to containers by specifying the
 variable name and value. The value can come from different sources, either dynamic or static.
 
 ```typescript
-import * as kplus from 'cdk8s-plus-22'
+import * as kplus from 'cdk8s-plus-24'
 
 const pod = new kplus.Pod(this, 'Pod');
 const container = pod.addContainer({
@@ -43,7 +43,7 @@ With this method, all the key-value data of the source is added as environment v
 where the key is the env name and the value is the env value.
 
 ```ts
-import * as kplus from 'cdk8s-plus-22'
+import * as kplus from 'cdk8s-plus-24'
 
 const pod = new kplus.Pod(this, 'Pod');
 const cm = new kplus.ConfigMap(this, 'ConfigMap', {
@@ -84,7 +84,7 @@ you would need to duplicate this configuration. This can get complex and clutter
 In contrast, here is how to do this with `cdk8s+`:
 
 ```typescript
-import * as kplus from 'cdk8s-plus-22';
+import * as kplus from 'cdk8s-plus-24';
 
 const config = kplus.ConfigMap.fromConfigMapName('config');
 const volume = kplus.Volume.fromConfigMap(config);

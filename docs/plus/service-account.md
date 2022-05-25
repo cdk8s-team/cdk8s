@@ -3,7 +3,7 @@
 Use service accounts to provide an identity for pods.
 
 !!! tip ""
-    [API Reference](../reference/cdk8s-plus-22/typescript.md#serviceaccount)
+    [API Reference](../reference/cdk8s-plus-24/typescript.md#serviceaccount)
 
 ## Use an existing `ServiceAccount`
 
@@ -11,7 +11,7 @@ To reference a service account created outside of your deployment definition, us
 and will therefore not be included in the resulting manifest.
 
 ```typescript
-import * as kplus from 'cdk8s-plus-22';
+import * as kplus from 'cdk8s-plus-24';
 
 const serviceAccount = kplus.ServiceAccount.fromServiceAccountName('aws-service');
 ```
@@ -21,7 +21,7 @@ const serviceAccount = kplus.ServiceAccount.fromServiceAccountName('aws-service'
 To create a new service account, and give it access to some secrets, use the following:
 
 ```typescript
-import * as kplus from 'cdk8s-plus-22';
+import * as kplus from 'cdk8s-plus-24';
 import * as k from 'cdk8s';
 
 const app = new k.App();
