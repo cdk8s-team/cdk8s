@@ -24,7 +24,7 @@ export class MyChart extends Chart {
       ]
     });
 
-    return kplus.IngressBackend.fromService(deploy.exposeViaService({ port: 5678 }));
+    return kplus.IngressBackend.fromService(deploy.exposeViaService({ ports: [ { port: 5678 } ] }));
   }
 }
 

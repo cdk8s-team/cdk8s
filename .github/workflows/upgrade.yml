@@ -15,7 +15,7 @@ jobs:
       patch_created: ${{ steps.create_patch.outputs.patch_created }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: installing dependencies
         run: tools/install-workflow-deps.sh
       - name: Setup Go
@@ -47,11 +47,11 @@ jobs:
     if: ${{ needs.upgrade.outputs.patch_created }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           token: ${{ secrets.PROJEN_GITHUB_TOKEN }}
       - name: Download patch
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: .repo.patch
           path: ${{ runner.temp }}
