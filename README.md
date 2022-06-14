@@ -13,6 +13,8 @@
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.cdk8s/cdk8s/badge.svg?style=plastic)](https://maven-badges.herokuapp.com/maven-central/org.cdk8s/cdk8s)
 [![Known Vulnerabilities](https://snyk.io/test/github/cdk8s-team/cdk8s/badge.svg)](https://snyk.io/test/github/cdk8s-team/cdk8s)
 
+[![View on Construct Hub](https://constructs.dev/badge?package=cdk8s)](https://constructs.dev/packages/cdk8s)
+
 **cdk8s** is an open-source software development framework for defining Kubernetes applications and reusable abstractions using familiar
 programming languages and rich object-oriented APIs. cdk8s apps synthesize into standard Kubernetes
 manifests which can be applied to any Kubernetes cluster.
