@@ -309,7 +309,7 @@ resources inspired by [paulbouwer](https://github.com/paulbouwer)'s
         // its a little confusing at first glance, but this is an inherent aspect of the constructs
         // programming model, and you will encounter it many times.
         // you can still perform an assignment of course, if you need to access
-        // atrtibutes of the resource in other parts of the code.
+        // attributes of the resource in other parts of the code.
 
         new KubeService(this, 'service', {
           spec: {
