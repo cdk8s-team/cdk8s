@@ -35,21 +35,21 @@ import * as kplus from 'cdk8s-plus-24';
 const app = new App();
 const chart = new Chart(app, 'Chart');
 
-// lets define a database backup job with activeDeadline and backoffLimit
-const databaseBackupJob = new k8splus.Job(this, 'BackupJob', {
+// lets define database backup job properties which we can pass to our CronJob resource
+const dbBackupJobProps: k8splus.JobProps = {
   activeDeadline: Duration.minutes(5),
   backoffLimit: 5,
-});
-
-// lets add a mysql container to our job. This adds this container to all pods created for this job.
-databaseBackupJob.addContainer({
-  image: 'databack/mysql-backup'
-});
+  containers: [
+    {
+      image: 'databack/mysql-backup',
+    }
+  ]
+};
 
 // lets setup a cron job here which backups mysql database.
 const backupCronJob = new k8splus.CronJob(this, 'BackupCronJob', {
-  job: databaseBackupJob,
-  schedule: Schedule.Daily(),
+  jobProperties: dbBackupJobProps,
+  schedule: Schedule.rate(Duration.minutes(5)),
   timezone: k8splus.Timezone.PDT,
   concurrencyPolicy: k8splus.CronJobConcurrencyPolicy.ALLOW,
   startingDeadline: Duration.seconds(30),
@@ -82,7 +82,7 @@ databaseBackupJob.addContainer({
 // lets setup a cron job here using the schedule method of Job construct.
 // schedule method creates a CronJob and returns a CronJob object.
 const backupCronJob = databaseBackupJob.schedule({
-  schedule: Schedule.Daily(),
+  schedule: Schedule.rate(Duration.minutes(5)),
   timezone: k8splus.Timezone.PDT,
   concurrencyPolicy: k8splus.CronJobConcurrencyPolicy.ALLOW,
   startingDeadline: Duration.seconds(30),
