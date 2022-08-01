@@ -14,7 +14,7 @@ A kubernetes deployment is created using the `cdk8s-plus` [`Deployment`](https:/
 
 #### Query Service
 
-A kubecrnetes service that serves the deployment is created using the `cdk8s-plus` [`Service`](https://github.com/cdk8s-team/cdk8s/tree/master/packages/cdk8s-plus#service) construct.
+A kubernetes service that serves the deployment is created using the `cdk8s-plus` [`Service`](https://github.com/cdk8s-team/cdk8s/tree/master/packages/cdk8s-plus#service) construct.
 
 ## Build
 
