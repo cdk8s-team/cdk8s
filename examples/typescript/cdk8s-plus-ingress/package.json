@@ -14,7 +14,6 @@
     "build": "npm run compile && npm run test && npm run synth"
   },
   "dependencies": {
-    "cdk8s": "2.2.87",
-    "constructs": "10.1.12"
+    "cdk8s": "2.2.87"
   }
 }

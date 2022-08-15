@@ -17,7 +17,6 @@
     "synth": "node ./examples/app-example.js"
   },
   "dependencies": {
-    "cdk8s": "2.2.87",
-    "constructs": "10.1.12"
+    "cdk8s": "2.2.87"
   }
 }

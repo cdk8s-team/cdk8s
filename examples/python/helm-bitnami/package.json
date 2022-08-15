@@ -8,10 +8,6 @@
     "synth": "cdk8s synth",
     "test": "echo 'no test for python yet.'"
   },
-  "dependencies": {
-    "cdk8s": "^2.2.87",
-    "constructs": "^10.1.12"
-  },
   "devDependencies": {
     "cdk8s-cli": "2.0.0-rc.3"
   }

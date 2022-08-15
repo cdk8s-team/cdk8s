@@ -3,14 +3,14 @@
 A pod is essentially a collection of containers. It is the most fundamental computation unit that can be provisioned.
 
 !!! tip ""
-    [API Reference](../reference/cdk8s-plus-22/typescript.md#pod)
+    [API Reference](../reference/cdk8s-plus-24/typescript.md#pod)
 
 ## Create a `Pod`
 
 To create a new pod in the cluster:
 
 ```ts
-import * as kplus from 'cdk8s-plus-22';
+import * as kplus from 'cdk8s-plus-24';
 import * as k from 'cdk8s';
 
 const app = new k.App();
@@ -37,7 +37,7 @@ pod.addContainer({ image: 'another-image' });
 Volumes can be added to pod definition either during, or post instantiation:
 
 ```typescript
-import * as kplus from 'cdk8s-plus-22';
+import * as kplus from 'cdk8s-plus-24';
 
 const data1 = kplus.Volume.fromEmptyDir('data1');
 const data2 = kplus.Volume.fromEmptyDir('data2');
@@ -53,7 +53,7 @@ Note that adding a volume to a pod doesn't actually make the volume available
 to its containers. For that, you also need to mount the volume onto a container.
 
 ```ts
-import * as kplus from 'cdk8s-plus-22';
+import * as kplus from 'cdk8s-plus-24';
 
 const data = kplus.Volume.fromEmptyDir('data');
 
@@ -70,7 +70,7 @@ container.mount('/data', data);
 A restart policy can only be specified at instantiation time:
 
 ```typescript
-import * as kplus from 'cdk8s-plus-22';
+import * as kplus from 'cdk8s-plus-24';
 
 const app = new k.App();
 const chart = new k.Chart(app, 'Chart');
@@ -85,7 +85,7 @@ const pod = new kplus.Pod(chart, 'Pod', {
 A service account can only be specified at instantiation time:
 
 ```typescript
-import * as kplus from 'cdk8s-plus-22';
+import * as kplus from 'cdk8s-plus-24';
 
 const app = new k.App();
 const chart = new k.Chart(app, 'Chart');
@@ -105,9 +105,9 @@ cdk8s+ API's, such as [pod selection](./pod.md#pod-selection) during scheduling.
 Selects all pods that have the `app=store` label.
 
 ```ts
-import * as kplus from 'cdk8s-plus-22';
+import * as kplus from 'cdk8s-plus-24';
 
-const pods = kplus.Pods.select({ labels: { app: 'store' }});
+const pods = kplus.Pods.select(this, 'Store', { labels: { app: 'store' }});
 ```
 
 ### Select pods with expressions
@@ -115,9 +115,9 @@ const pods = kplus.Pods.select({ labels: { app: 'store' }});
 Selects all pods that have the `app` label, regardless of the value.
 
 ```ts
-import * as kplus from 'cdk8s-plus-22';
+import * as kplus from 'cdk8s-plus-24';
 
-const pods = kplus.Pods.select({
+const pods = kplus.Pods.select(this, 'App', {
   expressions: [kplus.LabelExpression.exists('app')]
 });
 ```
@@ -130,11 +130,11 @@ This is done using the `namespaces` property, which can accept any [namespace se
 For example, select all pods that have the `app=store` label in the `backoffice` namespace:
 
 ```ts
-import * as kplus from 'cdk8s-plus-22';
+import * as kplus from 'cdk8s-plus-24';
 
-const pods = kplus.Pods.select({
+const pods = kplus.Pods.select(this, 'Pods', {
   labels: { app: 'store' },
-  namespaces: kplus.Namespaces.select({ names: ['backoffice'] }),
+  namespaces: kplus.Namespaces.select(this, 'Backoffice', { names: ['backoffice'] }),
 });
 ```
 
@@ -169,7 +169,7 @@ You can statically assign a pod to a specific node, by using the node's name.
 
 ```ts
 import * as k from 'cdk8s';
-import * as kplus from 'cdk8s-plus-22';
+import * as kplus from 'cdk8s-plus-24';
 
 const app = new k.App();
 const chart = new k.Chart(app, 'Chart');
@@ -190,7 +190,7 @@ An attraction can be either required, or preferred.
 
 ```ts
 import * as k from 'cdk8s';
-import * as kplus from 'cdk8s-plus-22';
+import * as kplus from 'cdk8s-plus-24';
 
 const app = new k.App();
 const chart = new k.Chart(app, 'Chart');
@@ -223,7 +223,7 @@ A toleration can be made to a **set** of nodes, specified by node taints.
 
 ```ts
 import * as k from 'cdk8s';
-import * as kplus from 'cdk8s-plus-22';
+import * as kplus from 'cdk8s-plus-24';
 
 const app = new k.App();
 const chart = new k.Chart(app, 'Chart');
@@ -266,7 +266,7 @@ Similarly to node attractions, co-location can also be either required, or prefe
 
 ```ts
 import * as k from 'cdk8s';
-import * as kplus from 'cdk8s-plus-22';
+import * as kplus from 'cdk8s-plus-24';
 
 const app = new k.App();
 const chart = new k.Chart(app, 'Chart');
@@ -299,7 +299,7 @@ in the same cdk8s application. You can also co-locate with an externally
 managed pod, by specifying a pod selector:
 
 ```ts
-const redis = kplus.Pod.select({
+const redis = kplus.Pods.select(this, 'Cache', {
   labels: { app: 'cache' },
 });
 web.scheduling.colocate(redis);
@@ -319,7 +319,7 @@ Similarly to co-location, separation can also be either required, or preferred.
 
 ```ts
 import * as k from 'cdk8s';
-import * as kplus from 'cdk8s-plus-22';
+import * as kplus from 'cdk8s-plus-24';
 
 const app = new k.App();
 const chart = new k.Chart(app, 'Chart');
@@ -353,7 +353,7 @@ in the same cdk8s application. You can also separate with an externally
 managed pod, by specifying a pod selector:
 
 ```ts
-const redis = kplus.Pod.select({
+const redis = kplus.Pods.select(this, 'Cache', {
   labels: { app: 'cache' },
 });
 web.scheduling.separate(redis);
@@ -364,3 +364,92 @@ whether they are defined in the cdk8s app or not.
 
 > **Under the hood**: Co-location with managed pods will automatically
 > extract its labels and form the appropriate pod selector.
+
+## Connections
+
+Pod connections offer a simplified API to automatically create [network policies](./network-policy.md) on
+both ends of a connection. Accessing this API is done via the `connections` property
+of a specific `Pod`, which serves as one end of the connection.
+The other end is a network policy [peer](./network-policy.md#peers).
+
+### Allow To
+
+To allow connections from a `Pod` to a [peer](./network-policy.md#peers):
+
+```ts
+import * as k from 'cdk8s';
+import * as kplus from 'cdk8s-plus-24';
+
+const app = new k.App();
+const chart = new k.Chart(app, 'Chart');
+
+const redis = new kplus.Pod(chart, 'Redis', {
+  containers: [{ image: 'redis', port: 6379 }]
+});
+const web = new kplus.Pod(chart, 'Web', {
+  containers: [{ image: 'web' }]
+});
+
+web.connections.allowTo(redis);
+```
+
+This will allow the `web` pod to connect to the `redis` port on port 6379,
+and will allow the `redis` pod to accept connections from the `web` pod on port 6379.
+Note that the port is not specified in the `allowTo` invocation, it is automatically
+extracted from the `redis` pod definition.
+
+You can also pass ports explicitly, overriding this extraction:
+
+```ts
+web.connections.allowTo(redis, { ports: [kplus.NetworkPolicyPort.tcp(4444)] });
+```
+
+### Allow From
+
+To allow connections from a [peer](./network-policy.md#peers) to a `Pod`:
+
+```ts
+import * as k from 'cdk8s';
+import * as kplus from 'cdk8s-plus-24';
+
+const app = new k.App();
+const chart = new k.Chart(app, 'Chart');
+
+const redis = new kplus.Pod(chart, 'Redis', {
+  containers: [{ image: 'redis', port: 6379 }]
+});
+const web = new kplus.Pod(chart, 'Web', {
+  containers: [{ image: 'web' }]
+});
+
+redis.connections.allowFrom(web);
+```
+
+This will allow the `redis` pod to accept connection from the `web` pod on port 6379,
+and will allow the `web` pod to connect to the `redis` pod on port 6379.
+Note that the port is not specified in the `allowFrom` invocation, it is automatically
+extracted from the `redis` pod definition.
+
+### Isolation
+
+By default, the `allowXXX` methods will create both an egress policy on the initiating end,
+as well as an ingress policy on the accepting end of the connection.
+
+This means that, if no other policies apply, both sides of the connection will be *isolated*,
+each in the corresponding direction. In the above [example](#allow-to), if the `redis` pod
+needs to be accessed from any pod other than `web`, an explicit policy needs to be applied,
+because the default *non-isolated* behavior is now disabled.
+
+To control the isolation this API incurs, you can use the `isolation` option. It accepts two
+possible values:
+
+- `PodConnectionsIsolation.POD`: Only isolate the pod that offers the `connections` API.
+- `PodConnectionsIsolation.PEER`: Only isolate the peer the pod needs to communicate with.
+
+```ts
+// this will only create an egress policy on the 'web' pod.
+web.connections.allowTo(redis, { isolation: PodConnectionsIsolation.POD });
+
+// this will only create an ingress policy on the 'redis' pod.
+web.connections.allowTo(redis, { isolation: PodConnectionsIsolation.PEER });
+```

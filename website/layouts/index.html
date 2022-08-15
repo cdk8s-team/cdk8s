@@ -1,7 +1,7 @@
 {{- $cdk8s_core_version := getenv "CDK8S_CORE_VERSION" }}
 {{- $cdk8s_plus22_version := getenv "CDK8S_PLUS22_VERSION" }}
-{{- $cdk8s_plus21_version := getenv "CDK8S_PLUS21_VERSION" }}
-{{- $cdk8s_plus20_version := getenv "CDK8S_PLUS20_VERSION" }}
+{{- $cdk8s_plus23_version := getenv "CDK8S_PLUS23_VERSION" }}
+{{- $cdk8s_plus24_version := getenv "CDK8S_PLUS24_VERSION" }}
 {{- $cdk8s_cli_version := getenv "CDK8S_CLI_VERSION" }}
 
 {{- $summary := .Site.Params.summary }}
@@ -27,8 +27,8 @@
 
 {{- $link_cdk8s_ref := (print $docs_root "/reference/cdk8s/typescript") }}
 {{- $link_plus22_ref := (print $docs_root "/reference/cdk8s-plus-22/typescript") }}
-{{- $link_plus21_ref := (print $docs_root "/reference/cdk8s-plus-21/typescript") }}
-{{- $link_plus20_ref := (print $docs_root "/reference/cdk8s-plus-20/typescript") }}
+{{- $link_plus23_ref := (print $docs_root "/reference/cdk8s-plus-23/typescript") }}
+{{- $link_plus24_ref := (print $docs_root "/reference/cdk8s-plus-24/typescript") }}
 {{- $link_cli := (print $docs_root "/cli") }}
 
 {{- $everywhere := .Site.Params.features.everywhere }}
@@ -122,8 +122,8 @@
                         <nav class="dropdown-list w-dropdown-list">
                             <a href="{{ $link_cdk8s_ref }}" class="dropdown-link w-dropdown-link">cdk8s  ({{ $cdk8s_core_version }})</a>
                             <a href="{{ $link_plus22_ref }}" class="dropdown-link w-dropdown-link">cdk8s-plus-22  ({{ $cdk8s_plus22_version }})</a>
-                            <a href="{{ $link_plus21_ref }}" class="dropdown-link w-dropdown-link">cdk8s-plus-21  ({{ $cdk8s_plus21_version }})</a>
-                            <a href="{{ $link_plus20_ref }}" class="dropdown-link w-dropdown-link">cdk8s-plus-20  ({{ $cdk8s_plus20_version }})</a>
+                            <a href="{{ $link_plus23_ref }}" class="dropdown-link w-dropdown-link">cdk8s-plus-23  ({{ $cdk8s_plus23_version }})</a>
+                            <a href="{{ $link_plus24_ref }}" class="dropdown-link w-dropdown-link">cdk8s-plus-24  ({{ $cdk8s_plus24_version }})</a>
                             <a href="{{ $link_cli }}" target="_blank" class="dropdown-link w-dropdown-link">cdk8s-cli ({{ $cdk8s_cli_version }})<a>
                         </nav>
                     </div>

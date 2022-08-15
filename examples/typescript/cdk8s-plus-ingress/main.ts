@@ -1,6 +1,6 @@
 import { Construct } from 'constructs';
 import { App, Chart } from 'cdk8s';
-import * as kplus from 'cdk8s-plus-22';
+import * as kplus from 'cdk8s-plus-24';
 
 export class MyChart extends Chart {
   constructor(scope: Construct, name: string) {
@@ -24,7 +24,7 @@ export class MyChart extends Chart {
       ]
     });
 
-    return kplus.IngressBackend.fromService(deploy.exposeViaService({ port: 5678 }));
+    return kplus.IngressBackend.fromService(deploy.exposeViaService({ ports: [ { port: 5678 } ] }));
   }
 }
 
