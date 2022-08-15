@@ -303,13 +303,13 @@ resources inspired by [paulbouwer](https://github.com/paulbouwer)'s
 
         const label = { app: 'hello-k8s' };
 
-        // notice that there is no assigment necessary when creating resources.
+        // notice that there is no assignment necessary when creating resources.
         // simply instantiating the resource is enough because it adds it to the construct tree via
         // the first argument, which is always the parent construct.
         // its a little confusing at first glance, but this is an inherent aspect of the constructs
         // programming model, and you will encounter it many times.
         // you can still perform an assignment of course, if you need to access
-        // atrtibutes of the resource in other parts of the code.
+        // attributes of the resource in other parts of the code.
 
         new KubeService(this, 'service', {
           spec: {
@@ -368,13 +368,13 @@ resources inspired by [paulbouwer](https://github.com/paulbouwer)'s
             # define resources here
             label = {"app": "hello-k8s"}
 
-            # notice that there is no assigment necessary when creating resources.
+            # notice that there is no assignment necessary when creating resources.
             # simply instantiating the resource is enough because it adds it to the construct tree via
             # the first argument, which is always the parent construct.
             # its a little confusing at first glance, but this is an inherent aspect of the constructs
             # programming model, and you will encounter it many times.
             # you can still perform an assignment of course, if you need to access
-            # atrtibutes of the resource in other parts of the code.
+            # attributes of the resource in other parts of the code.
 
             k8s.KubeService(self, 'service',
                         spec=k8s.ServiceSpec(
@@ -467,13 +467,13 @@ resources inspired by [paulbouwer](https://github.com/paulbouwer)'s
                 .spec(serviceSpec)
                 .build();
 
-            // notice that there is no assigment neccesary when creating resources.
+            // notice that there is no assignment necessary when creating resources.
             // simply instantiating the resource is enough because it adds it to the construct tree via
             // the first argument, which is always the parent construct.
             // its a little confusing at first glance, but this is an inherent aspect of the constructs
             // programming model, and you will encounter it many times.
             // you can still perform an assignment of course, if you need to access
-            // atrtibutes of the resource in other parts of the code.
+            // attributes of the resource in other parts of the code.
 
             new KubeService(this, "service", serviceProps);
 
@@ -562,13 +562,13 @@ resources inspired by [paulbouwer](https://github.com/paulbouwer)'s
         },
       })
 
-      // notice that there is no assigment neccesary when creating resources.
+      // notice that there is no assignment necessary when creating resources.
       // simply instantiating the resource is enough because it adds it to the construct tree via
       // the first argument, which is always the parent construct.
       // its a little confusing at first glance, but this is an inherent aspect of the constructs
       // programming model, and you will encounter it many times.
       // you can still perform an assignment of course, if you need to access
-      // atrtibutes of the resource in other parts of the code.
+      // attributes of the resource in other parts of the code.
 
       k8s.NewKubeDeployment(chart, jsii.String("deployment"), &k8s.KubeDeploymentProps{
         Spec: &k8s.DeploymentSpec{
