@@ -1,4 +1,4 @@
-site_name: cdk8s Documentation
+site_name: cdk8s
 repo_url: https://github.com/cdk8s-team/cdk8s
 repo_name: cdk8s-team/cdk8s
 edit_uri: blob/master/docs
@@ -6,13 +6,24 @@ theme:
   name: material
   favicon: assets/favicon.png
   logo: assets/logo.png
+  icon:
+    repo: fontawesome/brands/github
   palette:
     scheme: default
-    primary: "#133650"
+    primary: '#133650'
   features:
+    # Clicks on all internal links will be intercepted and dispatched via XHR without fully reloading the page
+    # https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#instant-loading
     - navigation.instant
-    # - navigation.tabs
-    - header.autohide
+    # Documents can be directly linked to sections, which is particularly useful for providing overview pages.
+    # https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#section-index-pages
+    - navigation.indexes
+    # The URL in the address bar is automatically updated with the active anchor as highlighted in the table of contents.
+    # https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#anchor-tracking
+    - navigation.tracking
+    # All tabs with the same label will be activated when a user clicks a content tab
+    # https://squidfunk.github.io/mkdocs-material/reference/content-tabs/#linked-content-tabs
+    - content.tabs.link
 
 extra_css:
   - assets/extra.css
@@ -30,16 +41,26 @@ markdown_extensions:
   - toc:
       permalink: true
       toc_depth: 3
+      title: On this page
+  # This configuration enables Markdown table support
+  # https://squidfunk.github.io/mkdocs-material/reference/data-tables/#data-tables
+  - tables
 plugins:
   - search
   - awesome-pages
 
 # footer
 extra:
+  homepage: /
   social:
     - icon: fontawesome/brands/slack
       link: https://cdk.dev
+      name: Join the cdk8s Slack channel
     - icon: fontawesome/brands/github
       link: https://github.com/cdk8s-team/cdk8s
+      name: cdk8s on GitHub
+    - icon: fontawesome/brands/stack-overflow
+      link: https://stackoverflow.com/questions/tagged/cdk8s
+      name: cdk8s on Stack Overflow
 
 copyright: © 2020, Amazon Web Services, Inc. or its affiliates. © cdk8s project authors. All rights reserved.

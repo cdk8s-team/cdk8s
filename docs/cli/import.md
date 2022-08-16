@@ -88,7 +88,7 @@ cdk8s import k8s
 The `import` command will generate files under an "imports" directory inside
 your project with constructs for each API object in the Kubernetes spec.
 
-!!! note
+!!! tip
     It is recommended to _commit_ these generated files into your source
     control.
 

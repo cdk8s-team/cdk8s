@@ -292,7 +292,7 @@ new kplus.NetworkPolicy(chart, 'Policy', {
 
 With this policy in place, no additional policy or policies can cause any incoming connection to those pods to be denied. This policy has no effect on isolation for egress from any pod.
 
-!!! notice
+!!! tip
 
     This differs from the default `DENY` isolation behavior, which is effectively disabled
     when other policies are applied.
@@ -335,7 +335,7 @@ new kplus.NetworkPolicy(chart, 'Policy', {
 
 With this policy in place, no additional policy or policies can cause any outgoing connection from those pods to be denied. This policy has no effect on isolation for ingress to any pod.
 
-!!! notice
+!!! tip
 
     This differs from the default `DENY` isolation behavior, which is effectively disabled
     when other policies are applied.
