@@ -8,11 +8,9 @@ theme:
   logo: assets/logo.png
   palette:
     scheme: default
-    primary: "#133650"
+    primary: '#133650'
   features:
     - navigation.instant
-    # - navigation.tabs
-    - header.autohide
 
 extra_css:
   - assets/extra.css
@@ -20,7 +18,8 @@ extra_css:
 markdown_extensions:
   - pymdownx.highlight
   - pymdownx.superfences
-  - pymdownx.tabbed
+  - pymdownx.tabbed:
+      alternate_style: true
   - pymdownx.details
   - admonition
   - pymdownx.emoji:
