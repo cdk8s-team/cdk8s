@@ -27,6 +27,7 @@ h5 {
   content: "/";
 }
 
+/* Hide the left nav title. It's the same as site title in the header. */
 .md-nav--primary > .md-nav__title{
   display: none;
 }

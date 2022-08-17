@@ -31,7 +31,8 @@ extra_css:
 markdown_extensions:
   - pymdownx.highlight
   - pymdownx.superfences
-  - pymdownx.tabbed
+  - pymdownx.tabbed:
+      alternate_style: true
   - pymdownx.details
   - admonition
   - pymdownx.emoji:
