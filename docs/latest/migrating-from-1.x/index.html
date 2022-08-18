@@ -1607,7 +1607,9 @@
 <p>See <a href="../ecosystem-interoperability/">Ecosystem Interoperability</a> for reasoning behind this change.</p>
 </div>
 <p>Following are instructions on what changes should be performed to use version <code>2.x</code>:</p>
-<div class="tabbed-set" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">TypeScript</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">TypeScript</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">Python</label><label for="__tabbed_1_4">Go</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <p>In <code>package.json</code>, define:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&quot;dependencies&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="nt">&quot;cdk8s&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^2.2.87&quot;</span><span class="p">,</span><span class="w"></span>
@@ -1615,7 +1617,7 @@
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
 </div>
-<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Java</label><div class="tabbed-content">
+<div class="tabbed-block">
 <p>In <code>pom.xml</code>, define:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;dependencies&gt;</span>
   <span class="nt">&lt;dependency&gt;</span>
@@ -1631,14 +1633,14 @@
 <span class="nt">&lt;/dependencies&gt;</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><label for="__tabbed_1_3">Python</label><div class="tabbed-content">
+<div class="tabbed-block">
 <p>In <code>Pipfile</code>, define:</p>
 <div class="highlight"><pre><span></span><code><span class="go">[packages]</span>
 <span class="go">constructs = &quot;~=10.1.12&quot;</span>
 <span class="go">cdk8s = &quot;~=2.2.87&quot;</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><label for="__tabbed_1_4">Go</label><div class="tabbed-content">
+<div class="tabbed-block">
 <p>In <code>go.mod</code>, define:</p>
 <div class="highlight"><pre><span></span><code><span class="nx">require</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
 <span class="w">  </span><span class="nx">github</span><span class="p">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">aws</span><span class="o">/</span><span class="nx">constructs</span><span class="o">-</span><span class="k">go</span><span class="o">/</span><span class="nx">constructs</span><span class="o">/</span><span class="nx">v10</span><span class="w"> </span><span class="nx">v10</span><span class="mf">.1.12</span><span class="w"></span>
@@ -1653,21 +1655,25 @@
 </code></pre></div>
 </div>
 </div>
+</div>
 <h2 id="cli">CLI<a class="headerlink" href="#cli" title="Permanent link">&para;</a></h2>
 <p>Version <code>2.x</code> of the <a href="https://www.npmjs.com/package/cdk8s-cli">cdk8s-cli</a> is identical to version <code>1.x</code> from an API perspective. The only difference is in the project templates <code>cdk8s init</code> generates. CLI version <code>1.x / 2.x</code> will initiate projects utilizing version <code>1.x / 2.x</code> of the core library, accordingly.</p>
 <p>If you&rsquo;d like to continue using version <code>1.x</code> of the CLI:</p>
-<div class="tabbed-set" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Homebrew</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Homebrew</label><label for="__tabbed_2_2">npm</label><label for="__tabbed_2_3">yarn</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <p><a href="https://formulae.brew.sh/formula/cdk8s#default">Locate the latest <code>1.x</code></a> version you&rsquo;d like to install, and:</p>
 <div class="highlight"><pre><span></span><code><span class="go">brew install cdk8s@1.&lt;minor&gt;.&lt;patch&gt;</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">npm</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="go">npm install -g cdk8s-cli@^1</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><label for="__tabbed_2_3">yarn</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="go">yarn global add cdk8s-cli@^1</span>
 </code></pre></div>
+</div>
 </div>
 </div>
 
@@ -1767,7 +1773,7 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "header.autohide"], "search": "../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant"], "search": "../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
       <script src="../assets/javascripts/bundle.9c69f0bc.min.js"></script>

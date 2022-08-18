@@ -1648,46 +1648,52 @@
 <h2 id="install-the-cli">Install the CLI<a class="headerlink" href="#install-the-cli" title="Permanent link">&para;</a></h2>
 <p>cdk8s has a cute little CLI that has a few useful commands. Let&rsquo;s start by
 installing the cdk8s CLI globally. We have three options for this.</p>
-<div class="tabbed-set" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Homebrew</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Homebrew</label><label for="__tabbed_1_2">npm</label><label for="__tabbed_1_3">yarn</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="go">brew install cdk8s</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">npm</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="go">npm install -g cdk8s-cli</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><label for="__tabbed_1_3">yarn</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="go">yarn global add cdk8s-cli</span>
 </code></pre></div>
 </div>
 </div>
+</div>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <p>Set up pre-requisites based on the language you wish to write your cdk8s code in.</p>
-<div class="tabbed-set" data-tabs="2:4"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">TypeScript</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="2:4"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">TypeScript</label><label for="__tabbed_2_2">Python</label><label for="__tabbed_2_3">Java</label><label for="__tabbed_2_4">Go</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <ul>
 <li><a href="https://nodejs.org/en/">Node.js &gt;= 12.13.0</a></li>
 <li>Your favorite editor/IDE</li>
 <li><a href="https://yarnpkg.com/">yarn</a> (optional)</li>
 </ul>
 </div>
-<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">Python</label><div class="tabbed-content">
+<div class="tabbed-block">
 <ul>
 <li><a href="https://www.python.org/downloads/release/python-377/">Python &gt;= 3.7.7</a></li>
 <li><a href="https://pipenv.pypa.io/en/latest">pipenv</a> version 2018.11.26 or above.</li>
 <li>Your favorite editor/IDE</li>
 </ul>
 </div>
-<input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><label for="__tabbed_2_3">Java</label><div class="tabbed-content">
+<div class="tabbed-block">
 <ul>
 <li><a href="https://maven.apache.org/install.html">Maven &gt;= 3.6.3</a></li>
 <li>Your favorite editor/IDE</li>
 </ul>
 </div>
-<input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><label for="__tabbed_2_4">Go</label><div class="tabbed-content">
+<div class="tabbed-block">
 <ul>
 <li><a href="https://golang.org/dl/">Go &gt;= 1.16</a></li>
 <li>Your favorite editor/IDE</li>
 </ul>
+</div>
 </div>
 </div>
 <div class="admonition info">
@@ -1696,7 +1702,9 @@ installing the cdk8s CLI globally. We have three options for this.</p>
 </div>
 <h2 id="new-project">New Project<a class="headerlink" href="#new-project" title="Permanent link">&para;</a></h2>
 <p>Now, we&rsquo;ll use the <code>cdk8s init</code> command to create a new cdk8s app:</p>
-<div class="tabbed-set" data-tabs="3:4"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">TypeScript</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="3:4"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">TypeScript</label><label for="__tabbed_3_2">Python</label><label for="__tabbed_3_3">Java</label><label for="__tabbed_3_4">Go</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>mkdir hello
 <span class="gp">$ </span><span class="nb">cd</span> hello
 <span class="gp">$ </span>cdk8s init typescript-app
@@ -1704,7 +1712,7 @@ installing the cdk8s CLI globally. We have three options for this.</p>
 <span class="go">...</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">Python</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>mkdir hello
 <span class="gp">$ </span><span class="nb">cd</span> hello
 <span class="gp">$ </span>cdk8s init python-app
@@ -1712,7 +1720,7 @@ installing the cdk8s CLI globally. We have three options for this.</p>
 <span class="go">...</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><label for="__tabbed_3_3">Java</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>mkdir hello
 <span class="gp">$ </span><span class="nb">cd</span> hello
 <span class="gp">$ </span>cdk8s init java-app
@@ -1720,12 +1728,13 @@ installing the cdk8s CLI globally. We have three options for this.</p>
 <span class="go">...</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><label for="__tabbed_3_4">Go</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>mkdir hello
 <span class="gp">$ </span><span class="nb">cd</span> hello
 <span class="gp">$ </span>cdk8s init go-app
 <span class="go">Initializing a project from the go-app template</span>
 </code></pre></div>
+</div>
 </div>
 </div>
 <p>This will perform the following:</p>
@@ -1743,7 +1752,9 @@ chart.</p>
 each <code>Chart</code> in your app and will write it to the <code>dist</code> directory. At this point, the YAML
 file should be empty since we haven&rsquo;t defined any resources yet.</p>
 <p>Let have a look at the code:</p>
-<div class="tabbed-set" data-tabs="4:4"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">TypeScript</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="4:4"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">TypeScript</label><label for="__tabbed_4_2">Python</label><label for="__tabbed_4_3">Java</label><label for="__tabbed_4_4">Go</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <p><code>main.ts</code></p>
 <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Construct</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;constructs&#39;</span><span class="p">;</span><span class="w"></span>
 <span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">App</span><span class="p">,</span><span class="w"> </span><span class="nx">Chart</span><span class="p">,</span><span class="w"> </span><span class="nx">ChartProps</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span><span class="w"></span>
@@ -1772,7 +1783,7 @@ file should be empty since we haven&rsquo;t defined any resources yet.</p>
 <p>Note that since TypeScript is a compiled language, we will need to compile <code>.ts</code> files to <code>.js</code> in order to execute our cdk8s app. To avoid explicitly compiling every time, you can run a watch process in the background by running: <code>npm run watch</code></p>
 </blockquote>
 </div>
-<input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><label for="__tabbed_4_2">Python</label><div class="tabbed-content">
+<div class="tabbed-block">
 <p><code>main.py</code></p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="kn">from</span> <span class="nn">constructs</span> <span class="kn">import</span> <span class="n">Construct</span>
@@ -1799,7 +1810,7 @@ file should be empty since we haven&rsquo;t defined any resources yet.</p>
 <span class="go">&lt;EMPTY&gt;</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><label for="__tabbed_4_3">Java</label><div class="tabbed-content">
+<div class="tabbed-block">
 <p><code>src/main/java/com/mycompany/app/Main.java</code></p>
 <div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">com.mycompany.app</span><span class="p">;</span><span class="w"></span>
 
@@ -1837,7 +1848,7 @@ file should be empty since we haven&rsquo;t defined any resources yet.</p>
 <span class="go">&lt;EMPTY&gt;</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><label for="__tabbed_4_4">Go</label><div class="tabbed-content">
+<div class="tabbed-block">
 <p><code>main.go</code></p>
 <div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span><span class="w"></span>
 
@@ -1878,6 +1889,7 @@ file should be empty since we haven&rsquo;t defined any resources yet.</p>
 </code></pre></div>
 </div>
 </div>
+</div>
 <h2 id="importing-constructs-for-the-kubernetes-api">Importing Constructs for the Kubernetes API<a class="headerlink" href="#importing-constructs-for-the-kubernetes-api" title="Permanent link">&para;</a></h2>
 <p>OK, now let&rsquo;s define some Kubernetes API objects inside our chart.</p>
 <p>Similarly to <strong>charts</strong> and <strong>apps</strong>, Kubernetes API Objects are also
@@ -1898,7 +1910,9 @@ contains
 <a href="https://kubernetes.io/docs/concepts/workloads/controllers/deployment">Deployment</a>
 resources inspired by <a href="https://github.com/paulbouwer">paulbouwer</a>&lsquo;s
 <a href="https://github.com/paulbouwer/hello-kubernetes">hello-kubernetes</a> project.</p>
-<div class="tabbed-set" data-tabs="5:4"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><label for="__tabbed_5_1">TypeScript</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="5:4"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><input id="__tabbed_5_4" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">TypeScript</label><label for="__tabbed_5_2">Python</label><label for="__tabbed_5_3">Java</label><label for="__tabbed_5_4">Go</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Construct</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;constructs&#39;</span><span class="p">;</span><span class="w"></span>
 <span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">App</span><span class="p">,</span><span class="w"> </span><span class="nx">Chart</span><span class="p">,</span><span class="w"> </span><span class="nx">ChartProps</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span><span class="w"></span>
 
@@ -1959,7 +1973,7 @@ resources inspired by <a href="https://github.com/paulbouwer">paulbouwer</a>&lsq
 <div class="highlight"><pre><span></span><code>npm run compile <span class="o">&amp;&amp;</span> cdk8s synth
 </code></pre></div>
 </div>
-<input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><label for="__tabbed_5_2">Python</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="kn">from</span> <span class="nn">constructs</span> <span class="kn">import</span> <span class="n">Construct</span>
 <span class="kn">from</span> <span class="nn">cdk8s</span> <span class="kn">import</span> <span class="n">App</span><span class="p">,</span> <span class="n">Chart</span>
@@ -2009,7 +2023,7 @@ resources inspired by <a href="https://github.com/paulbouwer">paulbouwer</a>&lsq
 <div class="highlight"><pre><span></span><code>cdk8s synth
 </code></pre></div>
 </div>
-<input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><label for="__tabbed_5_3">Java</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">com.mycompany.app</span><span class="p">;</span><span class="w"></span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">software.constructs.Construct</span><span class="p">;</span><span class="w"></span>
@@ -2123,7 +2137,7 @@ resources inspired by <a href="https://github.com/paulbouwer">paulbouwer</a>&lsq
 <div class="highlight"><pre><span></span><code>cdk8s synth
 </code></pre></div>
 </div>
-<input id="__tabbed_5_4" name="__tabbed_5" type="radio" /><label for="__tabbed_5_4">Go</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span><span class="w"></span>
 
 <span class="kn">import</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
@@ -2200,6 +2214,7 @@ resources inspired by <a href="https://github.com/paulbouwer">paulbouwer</a>&lsq
 </code></pre></div>
 </div>
 </div>
+</div>
 <p>This will be contents of <code>hello.k8s.yaml</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;v1&quot;</span><span class="w"></span>
 <span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Service&quot;</span><span class="w"></span>
@@ -2260,7 +2275,9 @@ object-oriented programming. For example:</p>
 it will basically be a generalization of the <strong>hello world</strong> program. It&rsquo;s
 actually quite useful.</p>
 <p>For example, this one line will add a hello world service to our chart:</p>
-<div class="tabbed-set" data-tabs="6:4"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><label for="__tabbed_6_1">TypeScript</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="6:4"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><input id="__tabbed_6_4" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">TypeScript</label><label for="__tabbed_6_2">Python</label><label for="__tabbed_6_3">Java</label><label for="__tabbed_6_4">Go</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="ow">new</span><span class="w"> </span><span class="nx">WebService</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;hello-k8s&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;paulbouwer/hello-kubernetes:1.7&#39;</span><span class="w"></span>
 <span class="p">});</span><span class="w"></span>
@@ -2273,7 +2290,7 @@ actually quite useful.</p>
 <span class="p">});</span><span class="w"></span>
 </code></pre></div>
 </div>
-<input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><label for="__tabbed_6_2">Python</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="n">WebService</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;hello&#39;</span><span class="p">,</span>
            <span class="n">image</span><span class="o">=</span><span class="s1">&#39;paulbouwer/hello-kubernetes:1.7&#39;</span><span class="p">)</span>
 </code></pre></div>
@@ -2284,7 +2301,7 @@ actually quite useful.</p>
            <span class="n">replicas</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><label for="__tabbed_6_3">Java</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="k">new</span><span class="w"> </span><span class="n">WebService</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;hello-k8s&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">WebServiceProps</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span><span class="w"></span>
 <span class="w">  </span><span class="p">.</span><span class="na">image</span><span class="p">(</span><span class="s">&quot;paulbouwer/hello-kubernetes:1.7&quot;</span><span class="p">)</span><span class="w"></span>
 <span class="w">  </span><span class="p">.</span><span class="na">build</span><span class="p">());</span><span class="w"></span>
@@ -2296,7 +2313,7 @@ actually quite useful.</p>
 <span class="w">  </span><span class="p">.</span><span class="na">build</span><span class="p">());</span><span class="w"></span>
 </code></pre></div>
 </div>
-<input id="__tabbed_6_4" name="__tabbed_6" type="radio" /><label for="__tabbed_6_4">Go</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="nx">NewWebService</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">),</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">WebServiceProps</span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="nx">Image</span><span class="p">:</span><span class="w">    </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;paulbouwer/hello-kubernetes:1.7&quot;</span><span class="p">),</span><span class="w"></span>
 <span class="p">})</span><span class="w"></span>
@@ -2310,8 +2327,11 @@ actually quite useful.</p>
 </code></pre></div>
 </div>
 </div>
+</div>
 <p>Here&rsquo;s how to implement <code>WebService</code>:</p>
-<div class="tabbed-set" data-tabs="7:4"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><label for="__tabbed_7_1">TypeScript</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="7:4"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><input id="__tabbed_7_3" name="__tabbed_7" type="radio" /><input id="__tabbed_7_4" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">TypeScript</label><label for="__tabbed_7_2">Python</label><label for="__tabbed_7_3">Java</label><label for="__tabbed_7_4">Go</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <p>Create a file <code>lib/web-service.ts</code> (the convention is to use <code>lib</code> for reusable components):</p>
 <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Construct</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;constructs&#39;</span><span class="p">;</span><span class="w"></span>
 <span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Names</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span><span class="w"></span>
@@ -2406,7 +2426,7 @@ actually quite useful.</p>
 <span class="nx">app</span><span class="p">.</span><span class="nx">synth</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 </div>
-<input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><label for="__tabbed_7_2">Python</label><div class="tabbed-content">
+<div class="tabbed-block">
 <p>Create a file <code>webservice.py</code> with the following content:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">constructs</span> <span class="kn">import</span> <span class="n">Construct</span><span class="p">,</span> <span class="n">Node</span>
 
@@ -2463,7 +2483,7 @@ actually quite useful.</p>
 <span class="n">app</span><span class="o">.</span><span class="n">synth</span><span class="p">()</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_7_3" name="__tabbed_7" type="radio" /><label for="__tabbed_7_3">Java</label><div class="tabbed-content">
+<div class="tabbed-block">
 <p><code>src/main/java/com/mycompany/app/WebService.java</code></p>
 <div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">com.mycompany.app</span><span class="p">;</span><span class="w"></span>
 
@@ -2664,7 +2684,7 @@ actually quite useful.</p>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
 </div>
-<input id="__tabbed_7_4" name="__tabbed_7" type="radio" /><label for="__tabbed_7_4">Go</label><div class="tabbed-content">
+<div class="tabbed-block">
 <p>Create a file <code>webservice.go</code> with the following content:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span><span class="w"></span>
 
@@ -2780,6 +2800,7 @@ actually quite useful.</p>
 </code></pre></div>
 </div>
 </div>
+</div>
 <p>As you can see, we now add <code>WebService</code> constructs inside our chart: one
 that runs the <code>paulbouwer/hello-kubernetes</code> image and one with an installation
 of <a href="https://hub.docker.com/_/ghost/">ghost</a>.</p>
@@ -2880,7 +2901,7 @@ of <a href="https://hub.docker.com/_/ghost/">ghost</a>.</p>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "header.autohide"], "search": "../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant"], "search": "../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
       <script src="../assets/javascripts/bundle.9c69f0bc.min.js"></script>
