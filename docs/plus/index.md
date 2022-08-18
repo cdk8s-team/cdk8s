@@ -1,4 +1,4 @@
-# Overview
+# cdk8s+
 
 **cdk8s+** is a library with high level abstractions for authoring Kubernetes
 applications.
@@ -7,7 +7,7 @@ Built on top of the auto-generated building blocks provided by cdk8s, this
 library includes a hand crafted *construct* for each native kubernetes object,
 exposing richer API's with reduced complexity.
 
-!!! notice
+!!! info
 
     The documentation here relates to version `2.x` of the cdk8s toolchain, which is the latest. If you are still using version `1.x`, please refer to the [Migrating from 1.x Guide](../migrating-from-1.x.md).
 
@@ -28,7 +28,7 @@ and is vended as the `cdk8s-plus-24` library.
 Per kubernetes [compatibility guarantees](https://kubernetes.io/docs/concepts/overview/kubernetes-api/#api-groups-and-versioning), **stable** resources in this library are compatible with
 any spec version higher or equal to `1.24.0`. **Non-stable** resources are not guaranteed to be compatible, as they may be removed in future spec versions.
 
-!!! notice
+!!! warning
 
     If you are deploying manifests produced by `cdk8s-plus-24` onto clusters of a lower version, you might encounter some unsupported spec properties or invalid manifests.
 

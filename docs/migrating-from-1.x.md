@@ -12,7 +12,7 @@ We strongly recommend migrating to `2.x` using the instructions stated below.
 
 Version `2.x` of the core [cdk8s](https://www.npmjs.com/package/cdk8s) library is identical to version `1.x` from an API perspective. The only difference is in the dependency they declare on the `constructs` library. This also means that the documentation and code snippets presented throughout the site is compatible with `1.x` as well, in case you'd still like to use it.
 
-!!! Tip
+!!! info
 
     See [Ecosystem Interoperability](./ecosystem-interoperability.md) for reasoning behind this change.
 

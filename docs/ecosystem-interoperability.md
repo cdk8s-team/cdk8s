@@ -2,7 +2,7 @@
 
 As we know, there are many [CDK based libraries](http://constructs.dev/) out there, and you might want to incorporate cdk8s along side other libraries in the same application.
 
-!!! Example
+!!! example
 
     For example, you can use cdk8s to define charts in an AWS CDK application, and [apply them using the EKS construct library](https://docs.aws.amazon.com/cdk/api/v1/docs/aws-eks-readme.html#cdk8s-charts).
 
