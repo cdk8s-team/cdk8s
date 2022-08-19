@@ -84,7 +84,7 @@ This properties helps you to set timezone for your CronJob so that your schedule
   * Allow
   * Forbid
   * Replace
-  If it is not set, the default value is Allow.
+  If it is not set, the default value is Forbid.
 
   ```typescript
   const backupCronJob = new k8splus.CronJob(this, 'BackupCronJob', {
