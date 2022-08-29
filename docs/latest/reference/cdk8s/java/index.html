@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.0">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.2">
     
     
       
@@ -1033,6 +1033,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#cronoptions" class="md-nav__link">
+    CronOptions 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#groupversionkind" class="md-nav__link">
     GroupVersionKind 
   </a>
@@ -1139,6 +1146,13 @@
           <li class="md-nav__item">
   <a href="#names" class="md-nav__link">
     Names 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schedule" class="md-nav__link">
+    Schedule 
   </a>
   
 </li>
@@ -1912,6 +1926,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#cronoptions" class="md-nav__link">
+    CronOptions 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#groupversionkind" class="md-nav__link">
     GroupVersionKind 
   </a>
@@ -2018,6 +2039,13 @@
           <li class="md-nav__item">
   <a href="#names" class="md-nav__link">
     Names 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schedule" class="md-nav__link">
+    Schedule 
   </a>
   
 </li>
@@ -2745,8 +2773,78 @@ framework based on the path of the construct within thes construct tree.</p>
 <p>This namespace will only apply to objects that don&rsquo;t have a
 <code>namespace</code> explicitly defined for them.</p>
 <hr />
-<h3 id="groupversionkind">GroupVersionKind <a name="org.cdk8s.GroupVersionKind"></a><a class="headerlink" href="#groupversionkind" title="Permanent link">&para;</a></h3>
+<h3 id="cronoptions">CronOptions <a name="org.cdk8s.CronOptions"></a><a class="headerlink" href="#cronoptions" title="Permanent link">&para;</a></h3>
+<p>Options to configure a cron expression.</p>
+<p>All fields are strings so you can use complex expressions. Absence of
+a field implies &lsquo;*&rsquo; or &lsquo;?&rsquo;, whichever one is appropriate.</p>
 <h4 id="initializer_4">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_4" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.CronOptions</span><span class="p">;</span><span class="w"></span>
+
+<span class="n">CronOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span><span class="w"></span>
+<span class="c1">//  .day(java.lang.String)</span><span class="w"></span>
+<span class="c1">//  .hour(java.lang.String)</span><span class="w"></span>
+<span class="c1">//  .minute(java.lang.String)</span><span class="w"></span>
+<span class="c1">//  .month(java.lang.String)</span><span class="w"></span>
+<span class="c1">//  .weekDay(java.lang.String)</span><span class="w"></span>
+<span class="c1">//  .year(java.lang.String)</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w"></span>
+</code></pre></div>
+<h5 id="dayoptional"><code>day</code><sup>Optional</sup> <a name="org.cdk8s.CronOptions.property.day"></a><a class="headerlink" href="#dayoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getDay</span><span class="p">();</span><span class="w"></span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+<li><em>Default:</em> Every day of the month</li>
+</ul>
+<p>The day of the month to run this rule at.</p>
+<hr />
+<h5 id="houroptional"><code>hour</code><sup>Optional</sup> <a name="org.cdk8s.CronOptions.property.hour"></a><a class="headerlink" href="#houroptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getHour</span><span class="p">();</span><span class="w"></span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+<li><em>Default:</em> Every hour</li>
+</ul>
+<p>The hour to run this rule at.</p>
+<hr />
+<h5 id="minuteoptional"><code>minute</code><sup>Optional</sup> <a name="org.cdk8s.CronOptions.property.minute"></a><a class="headerlink" href="#minuteoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getMinute</span><span class="p">();</span><span class="w"></span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+<li><em>Default:</em> Every minute</li>
+</ul>
+<p>The minute to run this rule at.</p>
+<hr />
+<h5 id="monthoptional"><code>month</code><sup>Optional</sup> <a name="org.cdk8s.CronOptions.property.month"></a><a class="headerlink" href="#monthoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getMonth</span><span class="p">();</span><span class="w"></span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+<li><em>Default:</em> Every month</li>
+</ul>
+<p>The month to run this rule at.</p>
+<hr />
+<h5 id="weekdayoptional"><code>weekDay</code><sup>Optional</sup> <a name="org.cdk8s.CronOptions.property.weekDay"></a><a class="headerlink" href="#weekdayoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getWeekDay</span><span class="p">();</span><span class="w"></span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+<li><em>Default:</em> Any day of the week</li>
+</ul>
+<p>The day of the week to run this rule at.</p>
+<hr />
+<h5 id="yearoptional"><code>year</code><sup>Optional</sup> <a name="org.cdk8s.CronOptions.property.year"></a><a class="headerlink" href="#yearoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getYear</span><span class="p">();</span><span class="w"></span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+<li><em>Default:</em> Every year</li>
+</ul>
+<p>The year to run this rule at.</p>
+<hr />
+<h3 id="groupversionkind">GroupVersionKind <a name="org.cdk8s.GroupVersionKind"></a><a class="headerlink" href="#groupversionkind" title="Permanent link">&para;</a></h3>
+<h4 id="initializer_5">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_5" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.GroupVersionKind</span><span class="p">;</span><span class="w"></span>
 
 <span class="n">GroupVersionKind</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span><span class="w"></span>
@@ -2772,7 +2870,7 @@ framework based on the path of the construct within thes construct tree.</p>
 <hr />
 <h3 id="helmprops">HelmProps <a name="org.cdk8s.HelmProps"></a><a class="headerlink" href="#helmprops" title="Permanent link">&para;</a></h3>
 <p>Options for <code>Helm</code>.</p>
-<h4 id="initializer_5">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_5" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_6">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_6" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.HelmProps</span><span class="p">;</span><span class="w"></span>
 
 <span class="n">HelmProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span><span class="w"></span>
@@ -2832,7 +2930,7 @@ framework based on the path of the construct within thes construct tree.</p>
 <p>Values to pass to the chart.</p>
 <hr />
 <h3 id="includeprops">IncludeProps <a name="org.cdk8s.IncludeProps"></a><a class="headerlink" href="#includeprops" title="Permanent link">&para;</a></h3>
-<h4 id="initializer_6">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_6" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_7">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_7" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.IncludeProps</span><span class="p">;</span><span class="w"></span>
 
 <span class="n">IncludeProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span><span class="w"></span>
@@ -2849,7 +2947,7 @@ framework based on the path of the construct within thes construct tree.</p>
 <hr />
 <h3 id="nameoptions">NameOptions <a name="org.cdk8s.NameOptions"></a><a class="headerlink" href="#nameoptions" title="Permanent link">&para;</a></h3>
 <p>Options for name generation.</p>
-<h4 id="initializer_7">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_7" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_8">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_8" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.NameOptions</span><span class="p">;</span><span class="w"></span>
 
 <span class="n">NameOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span><span class="w"></span>
@@ -2899,7 +2997,7 @@ framework based on the path of the construct within thes construct tree.</p>
 <p>OwnerReference contains enough information to let you identify an owning object.</p>
 <p>An owning object must be in the same namespace as the dependent, or
 be cluster-scoped, so there is no namespace field.</p>
-<h4 id="initializer_8">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_8" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_9">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_9" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.OwnerReference</span><span class="p">;</span><span class="w"></span>
 
 <span class="n">OwnerReference</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span><span class="w"></span>
@@ -2975,7 +3073,7 @@ returned.</p>
 <hr />
 <h3 id="sizeconversionoptions">SizeConversionOptions <a name="org.cdk8s.SizeConversionOptions"></a><a class="headerlink" href="#sizeconversionoptions" title="Permanent link">&para;</a></h3>
 <p>Options for how to convert time to a different unit.</p>
-<h4 id="initializer_9">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_9" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_10">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_10" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.SizeConversionOptions</span><span class="p">;</span><span class="w"></span>
 
 <span class="n">SizeConversionOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span><span class="w"></span>
@@ -2993,7 +3091,7 @@ returned.</p>
 <hr />
 <h3 id="timeconversionoptions">TimeConversionOptions <a name="org.cdk8s.TimeConversionOptions"></a><a class="headerlink" href="#timeconversionoptions" title="Permanent link">&para;</a></h3>
 <p>Options for how to convert time to a different unit.</p>
-<h4 id="initializer_10">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_10" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_11">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_11" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.TimeConversionOptions</span><span class="p">;</span><span class="w"></span>
 
 <span class="n">TimeConversionOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span><span class="w"></span>
@@ -3356,6 +3454,9 @@ cannot be negative.</p>
 <li><em>Type:</em> <a href="#org.cdk8s.TimeConversionOptions"><code>org.cdk8s.TimeConversionOptions</code></a></li>
 </ul>
 <hr />
+<h5 id="unitlabel"><code>unitLabel</code> <a name="org.cdk8s.Duration.unitLabel"></a><a class="headerlink" href="#unitlabel" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="nf">unitLabel</span><span class="p">()</span><span class="w"></span>
+</code></pre></div>
 <h4 id="static-functions_2">Static Functions <a name="Static Functions"></a><a class="headerlink" href="#static-functions_2" title="Permanent link">&para;</a></h4>
 <h5 id="days"><code>days</code> <a name="org.cdk8s.Duration.days"></a><a class="headerlink" href="#days" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.Duration</span><span class="p">;</span><span class="w"></span>
@@ -3587,6 +3688,56 @@ operations to a JSON document and return the result.</p>
 </ul>
 <p>Name options.</p>
 <hr />
+<h3 id="schedule">Schedule <a name="org.cdk8s.Schedule"></a><a class="headerlink" href="#schedule" title="Permanent link">&para;</a></h3>
+<p>Represents a schedule.</p>
+<p>Note that rates cannot be defined in fractions of minutes.</p>
+<h4 id="initializers_8">Initializers <a name="org.cdk8s.Schedule.Initializer"></a><a class="headerlink" href="#initializers_8" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.Schedule</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">new</span><span class="w"> </span><span class="n">Schedule</span><span class="p">();</span><span class="w"></span>
+</code></pre></div>
+<h4 id="static-functions_6">Static Functions <a name="Static Functions"></a><a class="headerlink" href="#static-functions_6" title="Permanent link">&para;</a></h4>
+<h5 id="cron"><code>cron</code> <a name="org.cdk8s.Schedule.cron"></a><a class="headerlink" href="#cron" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.Schedule</span><span class="p">;</span><span class="w"></span>
+
+<span class="n">Schedule</span><span class="p">.</span><span class="na">cron</span><span class="p">(</span><span class="n">CronOptions</span><span class="w"> </span><span class="n">options</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<h6 id="optionsrequired"><code>options</code><sup>Required</sup> <a name="org.cdk8s.Schedule.parameter.options"></a><a class="headerlink" href="#optionsrequired" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.CronOptions"><code>org.cdk8s.CronOptions</code></a></li>
+</ul>
+<hr />
+<h5 id="expression"><code>expression</code> <a name="org.cdk8s.Schedule.expression"></a><a class="headerlink" href="#expression" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.Schedule</span><span class="p">;</span><span class="w"></span>
+
+<span class="n">Schedule</span><span class="p">.</span><span class="na">expression</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="n">expression</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<h6 id="expressionrequired"><code>expression</code><sup>Required</sup> <a name="org.cdk8s.Schedule.parameter.expression"></a><a class="headerlink" href="#expressionrequired" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+</ul>
+<p>The expression to use.</p>
+<p>Must be in a format of &lsquo;value unit&rsquo;</p>
+<hr />
+<h5 id="rate"><code>rate</code> <a name="org.cdk8s.Schedule.rate"></a><a class="headerlink" href="#rate" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.Schedule</span><span class="p">;</span><span class="w"></span>
+
+<span class="n">Schedule</span><span class="p">.</span><span class="na">rate</span><span class="p">(</span><span class="n">Duration</span><span class="w"> </span><span class="n">duration</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<h6 id="durationrequired_1"><code>duration</code><sup>Required</sup> <a name="org.cdk8s.Schedule.parameter.duration"></a><a class="headerlink" href="#durationrequired_1" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.Duration"><code>org.cdk8s.Duration</code></a></li>
+</ul>
+<hr />
+<h4 id="properties_8">Properties <a name="Properties"></a><a class="headerlink" href="#properties_8" title="Permanent link">&para;</a></h4>
+<h5 id="expressionstringrequired"><code>expressionString</code><sup>Required</sup> <a name="org.cdk8s.Schedule.property.expressionString"></a><a class="headerlink" href="#expressionstringrequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getExpressionString</span><span class="p">();</span><span class="w"></span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+</ul>
+<p>Retrieve the expression for this schedule.</p>
+<hr />
 <h3 id="size">Size <a name="org.cdk8s.Size"></a><a class="headerlink" href="#size" title="Permanent link">&para;</a></h3>
 <p>Represents the amount of digital storage.</p>
 <p>The amount can be specified either as a literal value (e.g: <code>10</code>) which
@@ -3638,7 +3789,7 @@ cannot be negative.</p>
 <li><em>Type:</em> <a href="#org.cdk8s.SizeConversionOptions"><code>org.cdk8s.SizeConversionOptions</code></a></li>
 </ul>
 <hr />
-<h4 id="static-functions_6">Static Functions <a name="Static Functions"></a><a class="headerlink" href="#static-functions_6" title="Permanent link">&para;</a></h4>
+<h4 id="static-functions_7">Static Functions <a name="Static Functions"></a><a class="headerlink" href="#static-functions_7" title="Permanent link">&para;</a></h4>
 <h5 id="gibibytes"><code>gibibytes</code> <a name="org.cdk8s.Size.gibibytes"></a><a class="headerlink" href="#gibibytes" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.Size</span><span class="p">;</span><span class="w"></span>
 
@@ -3691,7 +3842,7 @@ cannot be negative.</p>
 <hr />
 <h3 id="testing">Testing <a name="org.cdk8s.Testing"></a><a class="headerlink" href="#testing" title="Permanent link">&para;</a></h3>
 <p>Testing utilities for cdk8s applications.</p>
-<h4 id="static-functions_7">Static Functions <a name="Static Functions"></a><a class="headerlink" href="#static-functions_7" title="Permanent link">&para;</a></h4>
+<h4 id="static-functions_8">Static Functions <a name="Static Functions"></a><a class="headerlink" href="#static-functions_8" title="Permanent link">&para;</a></h4>
 <h5 id="app_1"><code>app</code> <a name="org.cdk8s.Testing.app"></a><a class="headerlink" href="#app_1" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.Testing</span><span class="p">;</span><span class="w"></span>
 
@@ -3720,7 +3871,7 @@ cannot be negative.</p>
 <hr />
 <h3 id="yaml">Yaml <a name="org.cdk8s.Yaml"></a><a class="headerlink" href="#yaml" title="Permanent link">&para;</a></h3>
 <p>YAML utilities.</p>
-<h4 id="static-functions_8">Static Functions <a name="Static Functions"></a><a class="headerlink" href="#static-functions_8" title="Permanent link">&para;</a></h4>
+<h4 id="static-functions_9">Static Functions <a name="Static Functions"></a><a class="headerlink" href="#static-functions_9" title="Permanent link">&para;</a></h4>
 <h5 id="formatobjects">~~<code>formatObjects</code>~~ <a name="org.cdk8s.Yaml.formatObjects"></a><a class="headerlink" href="#formatobjects" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.Yaml</span><span class="p">;</span><span class="w"></span>
 
