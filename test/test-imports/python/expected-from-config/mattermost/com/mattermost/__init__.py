@@ -8,6 +8,8 @@ import jsii
 import publication
 import typing_extensions
 
+from typeguard import check_type
+
 from ._jsii import *
 
 import cdk8s
@@ -29,8 +31,8 @@ class ClusterInstallation(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        spec: "ClusterInstallationSpec",
-        metadata: typing.Optional[cdk8s.ApiObjectMetadata] = None,
+        spec: typing.Union["ClusterInstallationSpec", typing.Dict[str, typing.Any]],
+        metadata: typing.Optional[typing.Union[cdk8s.ApiObjectMetadata, typing.Dict[str, typing.Any]]] = None,
     ) -> None:
         '''Defines a "ClusterInstallation" API object.
 
@@ -39,17 +41,21 @@ class ClusterInstallation(
         :param spec: Specification of the desired behavior of the Mattermost cluster. More info: https://github.com/kubernetes/community/blob/master/contributors/devel/api-conventions.md#spec-and-status
         :param metadata: 
         '''
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallation.__init__)
+            check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
+            check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = ClusterInstallationProps(spec=spec, metadata=metadata)
 
         jsii.create(self.__class__, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest") # type: ignore[misc]
+    @jsii.member(jsii_name="manifest")
     @builtins.classmethod
     def manifest(
         cls,
         *,
-        spec: "ClusterInstallationSpec",
-        metadata: typing.Optional[cdk8s.ApiObjectMetadata] = None,
+        spec: typing.Union["ClusterInstallationSpec", typing.Dict[str, typing.Any]],
+        metadata: typing.Optional[typing.Union[cdk8s.ApiObjectMetadata, typing.Dict[str, typing.Any]]] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "ClusterInstallation".
 
@@ -67,7 +73,7 @@ class ClusterInstallation(
         '''Renders the object to Kubernetes JSON.'''
         return typing.cast(typing.Any, jsii.invoke(self, "toJson", []))
 
-    @jsii.python.classproperty # type: ignore[misc]
+    @jsii.python.classproperty
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         '''Returns the apiVersion and kind for "ClusterInstallation".'''
@@ -83,8 +89,8 @@ class ClusterInstallationProps:
     def __init__(
         self,
         *,
-        spec: "ClusterInstallationSpec",
-        metadata: typing.Optional[cdk8s.ApiObjectMetadata] = None,
+        spec: typing.Union["ClusterInstallationSpec", typing.Dict[str, typing.Any]],
+        metadata: typing.Optional[typing.Union[cdk8s.ApiObjectMetadata, typing.Dict[str, typing.Any]]] = None,
     ) -> None:
         '''ClusterInstallation is the Schema for the clusterinstallations API.
 
@@ -96,7 +102,11 @@ class ClusterInstallationProps:
         if isinstance(spec, dict):
             spec = ClusterInstallationSpec(**spec)
         if isinstance(metadata, dict):
-            metadata = cdk8s.ApiObjectMetadata(**metadata)
+            metadata = ApiObjectMetadata(**metadata)
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationProps.__init__)
+            check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
+            check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
             "spec": spec,
         }
@@ -166,21 +176,21 @@ class ClusterInstallationSpec:
         self,
         *,
         ingress_name: builtins.str,
-        affinity: typing.Optional["ClusterInstallationSpecAffinity"] = None,
-        blue_green: typing.Optional["ClusterInstallationSpecBlueGreen"] = None,
-        canary: typing.Optional["ClusterInstallationSpecCanary"] = None,
-        database: typing.Optional["ClusterInstallationSpecDatabase"] = None,
-        elastic_search: typing.Optional["ClusterInstallationSpecElasticSearch"] = None,
+        affinity: typing.Optional[typing.Union["ClusterInstallationSpecAffinity", typing.Dict[str, typing.Any]]] = None,
+        blue_green: typing.Optional[typing.Union["ClusterInstallationSpecBlueGreen", typing.Dict[str, typing.Any]]] = None,
+        canary: typing.Optional[typing.Union["ClusterInstallationSpecCanary", typing.Dict[str, typing.Any]]] = None,
+        database: typing.Optional[typing.Union["ClusterInstallationSpecDatabase", typing.Dict[str, typing.Any]]] = None,
+        elastic_search: typing.Optional[typing.Union["ClusterInstallationSpecElasticSearch", typing.Dict[str, typing.Any]]] = None,
         image: typing.Optional[builtins.str] = None,
         ingress_annotations: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
-        liveness_probe: typing.Optional["ClusterInstallationSpecLivenessProbe"] = None,
-        mattermost_env: typing.Optional[typing.Sequence["ClusterInstallationSpecMattermostEnv"]] = None,
+        liveness_probe: typing.Optional[typing.Union["ClusterInstallationSpecLivenessProbe", typing.Dict[str, typing.Any]]] = None,
+        mattermost_env: typing.Optional[typing.Sequence[typing.Union["ClusterInstallationSpecMattermostEnv", typing.Dict[str, typing.Any]]]] = None,
         mattermost_license_secret: typing.Optional[builtins.str] = None,
-        minio: typing.Optional["ClusterInstallationSpecMinio"] = None,
+        minio: typing.Optional[typing.Union["ClusterInstallationSpecMinio", typing.Dict[str, typing.Any]]] = None,
         node_selector: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
-        readiness_probe: typing.Optional["ClusterInstallationSpecReadinessProbe"] = None,
+        readiness_probe: typing.Optional[typing.Union["ClusterInstallationSpecReadinessProbe", typing.Dict[str, typing.Any]]] = None,
         replicas: typing.Optional[jsii.Number] = None,
-        resources: typing.Optional["ClusterInstallationSpecResources"] = None,
+        resources: typing.Optional[typing.Union["ClusterInstallationSpecResources", typing.Dict[str, typing.Any]]] = None,
         service_annotations: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
         size: typing.Optional[builtins.str] = None,
         use_service_load_balancer: typing.Optional[builtins.bool] = None,
@@ -231,6 +241,28 @@ class ClusterInstallationSpec:
             readiness_probe = ClusterInstallationSpecReadinessProbe(**readiness_probe)
         if isinstance(resources, dict):
             resources = ClusterInstallationSpecResources(**resources)
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpec.__init__)
+            check_type(argname="argument ingress_name", value=ingress_name, expected_type=type_hints["ingress_name"])
+            check_type(argname="argument affinity", value=affinity, expected_type=type_hints["affinity"])
+            check_type(argname="argument blue_green", value=blue_green, expected_type=type_hints["blue_green"])
+            check_type(argname="argument canary", value=canary, expected_type=type_hints["canary"])
+            check_type(argname="argument database", value=database, expected_type=type_hints["database"])
+            check_type(argname="argument elastic_search", value=elastic_search, expected_type=type_hints["elastic_search"])
+            check_type(argname="argument image", value=image, expected_type=type_hints["image"])
+            check_type(argname="argument ingress_annotations", value=ingress_annotations, expected_type=type_hints["ingress_annotations"])
+            check_type(argname="argument liveness_probe", value=liveness_probe, expected_type=type_hints["liveness_probe"])
+            check_type(argname="argument mattermost_env", value=mattermost_env, expected_type=type_hints["mattermost_env"])
+            check_type(argname="argument mattermost_license_secret", value=mattermost_license_secret, expected_type=type_hints["mattermost_license_secret"])
+            check_type(argname="argument minio", value=minio, expected_type=type_hints["minio"])
+            check_type(argname="argument node_selector", value=node_selector, expected_type=type_hints["node_selector"])
+            check_type(argname="argument readiness_probe", value=readiness_probe, expected_type=type_hints["readiness_probe"])
+            check_type(argname="argument replicas", value=replicas, expected_type=type_hints["replicas"])
+            check_type(argname="argument resources", value=resources, expected_type=type_hints["resources"])
+            check_type(argname="argument service_annotations", value=service_annotations, expected_type=type_hints["service_annotations"])
+            check_type(argname="argument size", value=size, expected_type=type_hints["size"])
+            check_type(argname="argument use_service_load_balancer", value=use_service_load_balancer, expected_type=type_hints["use_service_load_balancer"])
+            check_type(argname="argument version", value=version, expected_type=type_hints["version"])
         self._values: typing.Dict[str, typing.Any] = {
             "ingress_name": ingress_name,
         }
@@ -494,9 +526,9 @@ class ClusterInstallationSpecAffinity:
     def __init__(
         self,
         *,
-        node_affinity: typing.Optional["ClusterInstallationSpecAffinityNodeAffinity"] = None,
-        pod_affinity: typing.Optional["ClusterInstallationSpecAffinityPodAffinity"] = None,
-        pod_anti_affinity: typing.Optional["ClusterInstallationSpecAffinityPodAntiAffinity"] = None,
+        node_affinity: typing.Optional[typing.Union["ClusterInstallationSpecAffinityNodeAffinity", typing.Dict[str, typing.Any]]] = None,
+        pod_affinity: typing.Optional[typing.Union["ClusterInstallationSpecAffinityPodAffinity", typing.Dict[str, typing.Any]]] = None,
+        pod_anti_affinity: typing.Optional[typing.Union["ClusterInstallationSpecAffinityPodAntiAffinity", typing.Dict[str, typing.Any]]] = None,
     ) -> None:
         '''If specified, affinity will define the pod's scheduling constraints.
 
@@ -512,6 +544,11 @@ class ClusterInstallationSpecAffinity:
             pod_affinity = ClusterInstallationSpecAffinityPodAffinity(**pod_affinity)
         if isinstance(pod_anti_affinity, dict):
             pod_anti_affinity = ClusterInstallationSpecAffinityPodAntiAffinity(**pod_anti_affinity)
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpecAffinity.__init__)
+            check_type(argname="argument node_affinity", value=node_affinity, expected_type=type_hints["node_affinity"])
+            check_type(argname="argument pod_affinity", value=pod_affinity, expected_type=type_hints["pod_affinity"])
+            check_type(argname="argument pod_anti_affinity", value=pod_anti_affinity, expected_type=type_hints["pod_anti_affinity"])
         self._values: typing.Dict[str, typing.Any] = {}
         if node_affinity is not None:
             self._values["node_affinity"] = node_affinity
@@ -577,8 +614,8 @@ class ClusterInstallationSpecAffinityNodeAffinity:
     def __init__(
         self,
         *,
-        preferred_during_scheduling_ignored_during_execution: typing.Optional[typing.Sequence["ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution"]] = None,
-        required_during_scheduling_ignored_during_execution: typing.Optional["ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution"] = None,
+        preferred_during_scheduling_ignored_during_execution: typing.Optional[typing.Sequence[typing.Union["ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution", typing.Dict[str, typing.Any]]]] = None,
+        required_during_scheduling_ignored_during_execution: typing.Optional[typing.Union["ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution", typing.Dict[str, typing.Any]]] = None,
     ) -> None:
         '''Describes node affinity scheduling rules for the pod.
 
@@ -589,6 +626,10 @@ class ClusterInstallationSpecAffinityNodeAffinity:
         '''
         if isinstance(required_during_scheduling_ignored_during_execution, dict):
             required_during_scheduling_ignored_during_execution = ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution(**required_during_scheduling_ignored_during_execution)
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpecAffinityNodeAffinity.__init__)
+            check_type(argname="argument preferred_during_scheduling_ignored_during_execution", value=preferred_during_scheduling_ignored_during_execution, expected_type=type_hints["preferred_during_scheduling_ignored_during_execution"])
+            check_type(argname="argument required_during_scheduling_ignored_during_execution", value=required_during_scheduling_ignored_during_execution, expected_type=type_hints["required_during_scheduling_ignored_during_execution"])
         self._values: typing.Dict[str, typing.Any] = {}
         if preferred_during_scheduling_ignored_during_execution is not None:
             self._values["preferred_during_scheduling_ignored_during_execution"] = preferred_during_scheduling_ignored_during_execution
@@ -642,7 +683,7 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
     def __init__(
         self,
         *,
-        preference: "ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference",
+        preference: typing.Union["ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference", typing.Dict[str, typing.Any]],
         weight: jsii.Number,
     ) -> None:
         '''An empty preferred scheduling term matches all objects with implicit weight 0 (i.e. it's a no-op). A null preferred scheduling term matches no objects (i.e. is also a no-op).
@@ -654,6 +695,10 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
         '''
         if isinstance(preference, dict):
             preference = ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference(**preference)
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution.__init__)
+            check_type(argname="argument preference", value=preference, expected_type=type_hints["preference"])
+            check_type(argname="argument weight", value=weight, expected_type=type_hints["weight"])
         self._values: typing.Dict[str, typing.Any] = {
             "preference": preference,
             "weight": weight,
@@ -705,8 +750,8 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
     def __init__(
         self,
         *,
-        match_expressions: typing.Optional[typing.Sequence["ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions"]] = None,
-        match_fields: typing.Optional[typing.Sequence["ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchFields"]] = None,
+        match_expressions: typing.Optional[typing.Sequence[typing.Union["ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions", typing.Dict[str, typing.Any]]]] = None,
+        match_fields: typing.Optional[typing.Sequence[typing.Union["ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchFields", typing.Dict[str, typing.Any]]]] = None,
     ) -> None:
         '''A node selector term, associated with the corresponding weight.
 
@@ -715,6 +760,10 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
 
         :schema: ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference
         '''
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference.__init__)
+            check_type(argname="argument match_expressions", value=match_expressions, expected_type=type_hints["match_expressions"])
+            check_type(argname="argument match_fields", value=match_fields, expected_type=type_hints["match_fields"])
         self._values: typing.Dict[str, typing.Any] = {}
         if match_expressions is not None:
             self._values["match_expressions"] = match_expressions
@@ -776,6 +825,11 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
 
         :schema: ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions
         '''
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions.__init__)
+            check_type(argname="argument key", value=key, expected_type=type_hints["key"])
+            check_type(argname="argument operator", value=operator, expected_type=type_hints["operator"])
+            check_type(argname="argument values", value=values, expected_type=type_hints["values"])
         self._values: typing.Dict[str, typing.Any] = {
             "key": key,
             "operator": operator,
@@ -849,6 +903,11 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
 
         :schema: ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchFields
         '''
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchFields.__init__)
+            check_type(argname="argument key", value=key, expected_type=type_hints["key"])
+            check_type(argname="argument operator", value=operator, expected_type=type_hints["operator"])
+            check_type(argname="argument values", value=values, expected_type=type_hints["values"])
         self._values: typing.Dict[str, typing.Any] = {
             "key": key,
             "operator": operator,
@@ -910,7 +969,7 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
     def __init__(
         self,
         *,
-        node_selector_terms: typing.Sequence["ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerms"],
+        node_selector_terms: typing.Sequence[typing.Union["ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerms", typing.Dict[str, typing.Any]]],
     ) -> None:
         '''If the affinity requirements specified by this field are not met at scheduling time, the pod will not be scheduled onto the node.
 
@@ -920,6 +979,9 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
 
         :schema: ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution
         '''
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution.__init__)
+            check_type(argname="argument node_selector_terms", value=node_selector_terms, expected_type=type_hints["node_selector_terms"])
         self._values: typing.Dict[str, typing.Any] = {
             "node_selector_terms": node_selector_terms,
         }
@@ -962,8 +1024,8 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
     def __init__(
         self,
         *,
-        match_expressions: typing.Optional[typing.Sequence["ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchExpressions"]] = None,
-        match_fields: typing.Optional[typing.Sequence["ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchFields"]] = None,
+        match_expressions: typing.Optional[typing.Sequence[typing.Union["ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchExpressions", typing.Dict[str, typing.Any]]]] = None,
+        match_fields: typing.Optional[typing.Sequence[typing.Union["ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchFields", typing.Dict[str, typing.Any]]]] = None,
     ) -> None:
         '''A null or empty node selector term matches no objects.
 
@@ -974,6 +1036,10 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
 
         :schema: ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerms
         '''
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerms.__init__)
+            check_type(argname="argument match_expressions", value=match_expressions, expected_type=type_hints["match_expressions"])
+            check_type(argname="argument match_fields", value=match_fields, expected_type=type_hints["match_fields"])
         self._values: typing.Dict[str, typing.Any] = {}
         if match_expressions is not None:
             self._values["match_expressions"] = match_expressions
@@ -1035,6 +1101,11 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
 
         :schema: ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchExpressions
         '''
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchExpressions.__init__)
+            check_type(argname="argument key", value=key, expected_type=type_hints["key"])
+            check_type(argname="argument operator", value=operator, expected_type=type_hints["operator"])
+            check_type(argname="argument values", value=values, expected_type=type_hints["values"])
         self._values: typing.Dict[str, typing.Any] = {
             "key": key,
             "operator": operator,
@@ -1108,6 +1179,11 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
 
         :schema: ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchFields
         '''
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchFields.__init__)
+            check_type(argname="argument key", value=key, expected_type=type_hints["key"])
+            check_type(argname="argument operator", value=operator, expected_type=type_hints["operator"])
+            check_type(argname="argument values", value=values, expected_type=type_hints["values"])
         self._values: typing.Dict[str, typing.Any] = {
             "key": key,
             "operator": operator,
@@ -1172,8 +1248,8 @@ class ClusterInstallationSpecAffinityPodAffinity:
     def __init__(
         self,
         *,
-        preferred_during_scheduling_ignored_during_execution: typing.Optional[typing.Sequence["ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution"]] = None,
-        required_during_scheduling_ignored_during_execution: typing.Optional[typing.Sequence["ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution"]] = None,
+        preferred_during_scheduling_ignored_during_execution: typing.Optional[typing.Sequence[typing.Union["ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution", typing.Dict[str, typing.Any]]]] = None,
+        required_during_scheduling_ignored_during_execution: typing.Optional[typing.Sequence[typing.Union["ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution", typing.Dict[str, typing.Any]]]] = None,
     ) -> None:
         '''Describes pod affinity scheduling rules (e.g. co-locate this pod in the same node, zone, etc. as some other pod(s)).
 
@@ -1182,6 +1258,10 @@ class ClusterInstallationSpecAffinityPodAffinity:
 
         :schema: ClusterInstallationSpecAffinityPodAffinity
         '''
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpecAffinityPodAffinity.__init__)
+            check_type(argname="argument preferred_during_scheduling_ignored_during_execution", value=preferred_during_scheduling_ignored_during_execution, expected_type=type_hints["preferred_during_scheduling_ignored_during_execution"])
+            check_type(argname="argument required_during_scheduling_ignored_during_execution", value=required_during_scheduling_ignored_during_execution, expected_type=type_hints["required_during_scheduling_ignored_during_execution"])
         self._values: typing.Dict[str, typing.Any] = {}
         if preferred_during_scheduling_ignored_during_execution is not None:
             self._values["preferred_during_scheduling_ignored_during_execution"] = preferred_during_scheduling_ignored_during_execution
@@ -1235,7 +1315,7 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
     def __init__(
         self,
         *,
-        pod_affinity_term: "ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm",
+        pod_affinity_term: typing.Union["ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm", typing.Dict[str, typing.Any]],
         weight: jsii.Number,
     ) -> None:
         '''The weights of all of the matched WeightedPodAffinityTerm fields are added per-node to find the most preferred node(s).
@@ -1247,6 +1327,10 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
         '''
         if isinstance(pod_affinity_term, dict):
             pod_affinity_term = ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm(**pod_affinity_term)
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution.__init__)
+            check_type(argname="argument pod_affinity_term", value=pod_affinity_term, expected_type=type_hints["pod_affinity_term"])
+            check_type(argname="argument weight", value=weight, expected_type=type_hints["weight"])
         self._values: typing.Dict[str, typing.Any] = {
             "pod_affinity_term": pod_affinity_term,
             "weight": weight,
@@ -1302,7 +1386,7 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
         self,
         *,
         topology_key: builtins.str,
-        label_selector: typing.Optional["ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector"] = None,
+        label_selector: typing.Optional[typing.Union["ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector", typing.Dict[str, typing.Any]]] = None,
         namespaces: typing.Optional[typing.Sequence[builtins.str]] = None,
     ) -> None:
         '''Required.
@@ -1317,6 +1401,11 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
         '''
         if isinstance(label_selector, dict):
             label_selector = ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector(**label_selector)
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm.__init__)
+            check_type(argname="argument topology_key", value=topology_key, expected_type=type_hints["topology_key"])
+            check_type(argname="argument label_selector", value=label_selector, expected_type=type_hints["label_selector"])
+            check_type(argname="argument namespaces", value=namespaces, expected_type=type_hints["namespaces"])
         self._values: typing.Dict[str, typing.Any] = {
             "topology_key": topology_key,
         }
@@ -1383,7 +1472,7 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
     def __init__(
         self,
         *,
-        match_expressions: typing.Optional[typing.Sequence["ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions"]] = None,
+        match_expressions: typing.Optional[typing.Sequence[typing.Union["ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions", typing.Dict[str, typing.Any]]]] = None,
         match_labels: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
     ) -> None:
         '''A label query over a set of resources, in this case pods.
@@ -1393,6 +1482,10 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
 
         :schema: ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector
         '''
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector.__init__)
+            check_type(argname="argument match_expressions", value=match_expressions, expected_type=type_hints["match_expressions"])
+            check_type(argname="argument match_labels", value=match_labels, expected_type=type_hints["match_labels"])
         self._values: typing.Dict[str, typing.Any] = {}
         if match_expressions is not None:
             self._values["match_expressions"] = match_expressions
@@ -1458,6 +1551,11 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
 
         :schema: ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions
         '''
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions.__init__)
+            check_type(argname="argument key", value=key, expected_type=type_hints["key"])
+            check_type(argname="argument operator", value=operator, expected_type=type_hints["operator"])
+            check_type(argname="argument values", value=values, expected_type=type_hints["values"])
         self._values: typing.Dict[str, typing.Any] = {
             "key": key,
             "operator": operator,
@@ -1524,7 +1622,7 @@ class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredD
         self,
         *,
         topology_key: builtins.str,
-        label_selector: typing.Optional["ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector"] = None,
+        label_selector: typing.Optional[typing.Union["ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector", typing.Dict[str, typing.Any]]] = None,
         namespaces: typing.Optional[typing.Sequence[builtins.str]] = None,
     ) -> None:
         '''Defines a set of pods (namely those matching the labelSelector relative to the given namespace(s)) that this pod should be co-located (affinity) or not co-located (anti-affinity) with, where co-located is defined as running on a node whose value of the label with key  matches that of any node on which a pod of the set of pods is running.
@@ -1537,6 +1635,11 @@ class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredD
         '''
         if isinstance(label_selector, dict):
             label_selector = ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector(**label_selector)
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution.__init__)
+            check_type(argname="argument topology_key", value=topology_key, expected_type=type_hints["topology_key"])
+            check_type(argname="argument label_selector", value=label_selector, expected_type=type_hints["label_selector"])
+            check_type(argname="argument namespaces", value=namespaces, expected_type=type_hints["namespaces"])
         self._values: typing.Dict[str, typing.Any] = {
             "topology_key": topology_key,
         }
@@ -1603,7 +1706,7 @@ class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredD
     def __init__(
         self,
         *,
-        match_expressions: typing.Optional[typing.Sequence["ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions"]] = None,
+        match_expressions: typing.Optional[typing.Sequence[typing.Union["ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions", typing.Dict[str, typing.Any]]]] = None,
         match_labels: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
     ) -> None:
         '''A label query over a set of resources, in this case pods.
@@ -1613,6 +1716,10 @@ class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredD
 
         :schema: ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector
         '''
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector.__init__)
+            check_type(argname="argument match_expressions", value=match_expressions, expected_type=type_hints["match_expressions"])
+            check_type(argname="argument match_labels", value=match_labels, expected_type=type_hints["match_labels"])
         self._values: typing.Dict[str, typing.Any] = {}
         if match_expressions is not None:
             self._values["match_expressions"] = match_expressions
@@ -1678,6 +1785,11 @@ class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredD
 
         :schema: ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions
         '''
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions.__init__)
+            check_type(argname="argument key", value=key, expected_type=type_hints["key"])
+            check_type(argname="argument operator", value=operator, expected_type=type_hints["operator"])
+            check_type(argname="argument values", value=values, expected_type=type_hints["values"])
         self._values: typing.Dict[str, typing.Any] = {
             "key": key,
             "operator": operator,
@@ -1742,8 +1854,8 @@ class ClusterInstallationSpecAffinityPodAntiAffinity:
     def __init__(
         self,
         *,
-        preferred_during_scheduling_ignored_during_execution: typing.Optional[typing.Sequence["ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution"]] = None,
-        required_during_scheduling_ignored_during_execution: typing.Optional[typing.Sequence["ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution"]] = None,
+        preferred_during_scheduling_ignored_during_execution: typing.Optional[typing.Sequence[typing.Union["ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution", typing.Dict[str, typing.Any]]]] = None,
+        required_during_scheduling_ignored_during_execution: typing.Optional[typing.Sequence[typing.Union["ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution", typing.Dict[str, typing.Any]]]] = None,
     ) -> None:
         '''Describes pod anti-affinity scheduling rules (e.g. avoid putting this pod in the same node, zone, etc. as some other pod(s)).
 
@@ -1752,6 +1864,10 @@ class ClusterInstallationSpecAffinityPodAntiAffinity:
 
         :schema: ClusterInstallationSpecAffinityPodAntiAffinity
         '''
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpecAffinityPodAntiAffinity.__init__)
+            check_type(argname="argument preferred_during_scheduling_ignored_during_execution", value=preferred_during_scheduling_ignored_during_execution, expected_type=type_hints["preferred_during_scheduling_ignored_during_execution"])
+            check_type(argname="argument required_during_scheduling_ignored_during_execution", value=required_during_scheduling_ignored_during_execution, expected_type=type_hints["required_during_scheduling_ignored_during_execution"])
         self._values: typing.Dict[str, typing.Any] = {}
         if preferred_during_scheduling_ignored_during_execution is not None:
             self._values["preferred_during_scheduling_ignored_during_execution"] = preferred_during_scheduling_ignored_during_execution
@@ -1805,7 +1921,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
     def __init__(
         self,
         *,
-        pod_affinity_term: "ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm",
+        pod_affinity_term: typing.Union["ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm", typing.Dict[str, typing.Any]],
         weight: jsii.Number,
     ) -> None:
         '''The weights of all of the matched WeightedPodAffinityTerm fields are added per-node to find the most preferred node(s).
@@ -1817,6 +1933,10 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
         '''
         if isinstance(pod_affinity_term, dict):
             pod_affinity_term = ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm(**pod_affinity_term)
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution.__init__)
+            check_type(argname="argument pod_affinity_term", value=pod_affinity_term, expected_type=type_hints["pod_affinity_term"])
+            check_type(argname="argument weight", value=weight, expected_type=type_hints["weight"])
         self._values: typing.Dict[str, typing.Any] = {
             "pod_affinity_term": pod_affinity_term,
             "weight": weight,
@@ -1872,7 +1992,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
         self,
         *,
         topology_key: builtins.str,
-        label_selector: typing.Optional["ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector"] = None,
+        label_selector: typing.Optional[typing.Union["ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector", typing.Dict[str, typing.Any]]] = None,
         namespaces: typing.Optional[typing.Sequence[builtins.str]] = None,
     ) -> None:
         '''Required.
@@ -1887,6 +2007,11 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
         '''
         if isinstance(label_selector, dict):
             label_selector = ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector(**label_selector)
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm.__init__)
+            check_type(argname="argument topology_key", value=topology_key, expected_type=type_hints["topology_key"])
+            check_type(argname="argument label_selector", value=label_selector, expected_type=type_hints["label_selector"])
+            check_type(argname="argument namespaces", value=namespaces, expected_type=type_hints["namespaces"])
         self._values: typing.Dict[str, typing.Any] = {
             "topology_key": topology_key,
         }
@@ -1953,7 +2078,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
     def __init__(
         self,
         *,
-        match_expressions: typing.Optional[typing.Sequence["ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions"]] = None,
+        match_expressions: typing.Optional[typing.Sequence[typing.Union["ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions", typing.Dict[str, typing.Any]]]] = None,
         match_labels: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
     ) -> None:
         '''A label query over a set of resources, in this case pods.
@@ -1963,6 +2088,10 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
 
         :schema: ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector
         '''
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector.__init__)
+            check_type(argname="argument match_expressions", value=match_expressions, expected_type=type_hints["match_expressions"])
+            check_type(argname="argument match_labels", value=match_labels, expected_type=type_hints["match_labels"])
         self._values: typing.Dict[str, typing.Any] = {}
         if match_expressions is not None:
             self._values["match_expressions"] = match_expressions
@@ -2028,6 +2157,11 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
 
         :schema: ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions
         '''
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions.__init__)
+            check_type(argname="argument key", value=key, expected_type=type_hints["key"])
+            check_type(argname="argument operator", value=operator, expected_type=type_hints["operator"])
+            check_type(argname="argument values", value=values, expected_type=type_hints["values"])
         self._values: typing.Dict[str, typing.Any] = {
             "key": key,
             "operator": operator,
@@ -2094,7 +2228,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgno
         self,
         *,
         topology_key: builtins.str,
-        label_selector: typing.Optional["ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector"] = None,
+        label_selector: typing.Optional[typing.Union["ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector", typing.Dict[str, typing.Any]]] = None,
         namespaces: typing.Optional[typing.Sequence[builtins.str]] = None,
     ) -> None:
         '''Defines a set of pods (namely those matching the labelSelector relative to the given namespace(s)) that this pod should be co-located (affinity) or not co-located (anti-affinity) with, where co-located is defined as running on a node whose value of the label with key  matches that of any node on which a pod of the set of pods is running.
@@ -2107,6 +2241,11 @@ class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgno
         '''
         if isinstance(label_selector, dict):
             label_selector = ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector(**label_selector)
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution.__init__)
+            check_type(argname="argument topology_key", value=topology_key, expected_type=type_hints["topology_key"])
+            check_type(argname="argument label_selector", value=label_selector, expected_type=type_hints["label_selector"])
+            check_type(argname="argument namespaces", value=namespaces, expected_type=type_hints["namespaces"])
         self._values: typing.Dict[str, typing.Any] = {
             "topology_key": topology_key,
         }
@@ -2173,7 +2312,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgno
     def __init__(
         self,
         *,
-        match_expressions: typing.Optional[typing.Sequence["ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions"]] = None,
+        match_expressions: typing.Optional[typing.Sequence[typing.Union["ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions", typing.Dict[str, typing.Any]]]] = None,
         match_labels: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
     ) -> None:
         '''A label query over a set of resources, in this case pods.
@@ -2183,6 +2322,10 @@ class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgno
 
         :schema: ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector
         '''
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector.__init__)
+            check_type(argname="argument match_expressions", value=match_expressions, expected_type=type_hints["match_expressions"])
+            check_type(argname="argument match_labels", value=match_labels, expected_type=type_hints["match_labels"])
         self._values: typing.Dict[str, typing.Any] = {}
         if match_expressions is not None:
             self._values["match_expressions"] = match_expressions
@@ -2248,6 +2391,11 @@ class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgno
 
         :schema: ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions
         '''
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions.__init__)
+            check_type(argname="argument key", value=key, expected_type=type_hints["key"])
+            check_type(argname="argument operator", value=operator, expected_type=type_hints["operator"])
+            check_type(argname="argument values", value=values, expected_type=type_hints["values"])
         self._values: typing.Dict[str, typing.Any] = {
             "key": key,
             "operator": operator,
@@ -2314,9 +2462,9 @@ class ClusterInstallationSpecBlueGreen:
     def __init__(
         self,
         *,
-        blue: typing.Optional["ClusterInstallationSpecBlueGreenBlue"] = None,
+        blue: typing.Optional[typing.Union["ClusterInstallationSpecBlueGreenBlue", typing.Dict[str, typing.Any]]] = None,
         enable: typing.Optional[builtins.bool] = None,
-        green: typing.Optional["ClusterInstallationSpecBlueGreenGreen"] = None,
+        green: typing.Optional[typing.Union["ClusterInstallationSpecBlueGreenGreen", typing.Dict[str, typing.Any]]] = None,
         production_deployment: typing.Optional[builtins.str] = None,
     ) -> None:
         '''BlueGreen defines the configuration of BlueGreen deployment for a ClusterInstallation.
@@ -2332,6 +2480,12 @@ class ClusterInstallationSpecBlueGreen:
             blue = ClusterInstallationSpecBlueGreenBlue(**blue)
         if isinstance(green, dict):
             green = ClusterInstallationSpecBlueGreenGreen(**green)
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpecBlueGreen.__init__)
+            check_type(argname="argument blue", value=blue, expected_type=type_hints["blue"])
+            check_type(argname="argument enable", value=enable, expected_type=type_hints["enable"])
+            check_type(argname="argument green", value=green, expected_type=type_hints["green"])
+            check_type(argname="argument production_deployment", value=production_deployment, expected_type=type_hints["production_deployment"])
         self._values: typing.Dict[str, typing.Any] = {}
         if blue is not None:
             self._values["blue"] = blue
@@ -2418,6 +2572,12 @@ class ClusterInstallationSpecBlueGreenBlue:
 
         :schema: ClusterInstallationSpecBlueGreenBlue
         '''
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpecBlueGreenBlue.__init__)
+            check_type(argname="argument image", value=image, expected_type=type_hints["image"])
+            check_type(argname="argument ingress_name", value=ingress_name, expected_type=type_hints["ingress_name"])
+            check_type(argname="argument name", value=name, expected_type=type_hints["name"])
+            check_type(argname="argument version", value=version, expected_type=type_hints["version"])
         self._values: typing.Dict[str, typing.Any] = {}
         if image is not None:
             self._values["image"] = image
@@ -2510,6 +2670,12 @@ class ClusterInstallationSpecBlueGreenGreen:
 
         :schema: ClusterInstallationSpecBlueGreenGreen
         '''
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpecBlueGreenGreen.__init__)
+            check_type(argname="argument image", value=image, expected_type=type_hints["image"])
+            check_type(argname="argument ingress_name", value=ingress_name, expected_type=type_hints["ingress_name"])
+            check_type(argname="argument name", value=name, expected_type=type_hints["name"])
+            check_type(argname="argument version", value=version, expected_type=type_hints["version"])
         self._values: typing.Dict[str, typing.Any] = {}
         if image is not None:
             self._values["image"] = image
@@ -2583,7 +2749,7 @@ class ClusterInstallationSpecCanary:
     def __init__(
         self,
         *,
-        deployment: typing.Optional["ClusterInstallationSpecCanaryDeployment"] = None,
+        deployment: typing.Optional[typing.Union["ClusterInstallationSpecCanaryDeployment", typing.Dict[str, typing.Any]]] = None,
         enable: typing.Optional[builtins.bool] = None,
     ) -> None:
         '''Canary defines the configuration of Canary deployment for a ClusterInstallation.
@@ -2595,6 +2761,10 @@ class ClusterInstallationSpecCanary:
         '''
         if isinstance(deployment, dict):
             deployment = ClusterInstallationSpecCanaryDeployment(**deployment)
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpecCanary.__init__)
+            check_type(argname="argument deployment", value=deployment, expected_type=type_hints["deployment"])
+            check_type(argname="argument enable", value=enable, expected_type=type_hints["enable"])
         self._values: typing.Dict[str, typing.Any] = {}
         if deployment is not None:
             self._values["deployment"] = deployment
@@ -2659,6 +2829,12 @@ class ClusterInstallationSpecCanaryDeployment:
 
         :schema: ClusterInstallationSpecCanaryDeployment
         '''
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpecCanaryDeployment.__init__)
+            check_type(argname="argument image", value=image, expected_type=type_hints["image"])
+            check_type(argname="argument ingress_name", value=ingress_name, expected_type=type_hints["ingress_name"])
+            check_type(argname="argument name", value=name, expected_type=type_hints["name"])
+            check_type(argname="argument version", value=version, expected_type=type_hints["version"])
         self._values: typing.Dict[str, typing.Any] = {}
         if image is not None:
             self._values["image"] = image
@@ -2751,7 +2927,7 @@ class ClusterInstallationSpecDatabase:
         backup_url: typing.Optional[builtins.str] = None,
         init_bucket_url: typing.Optional[builtins.str] = None,
         replicas: typing.Optional[jsii.Number] = None,
-        resources: typing.Optional["ClusterInstallationSpecDatabaseResources"] = None,
+        resources: typing.Optional[typing.Union["ClusterInstallationSpecDatabaseResources", typing.Dict[str, typing.Any]]] = None,
         secret: typing.Optional[builtins.str] = None,
         storage_size: typing.Optional[builtins.str] = None,
         type: typing.Optional[builtins.str] = None,
@@ -2774,6 +2950,19 @@ class ClusterInstallationSpecDatabase:
         '''
         if isinstance(resources, dict):
             resources = ClusterInstallationSpecDatabaseResources(**resources)
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpecDatabase.__init__)
+            check_type(argname="argument backup_remote_delete_policy", value=backup_remote_delete_policy, expected_type=type_hints["backup_remote_delete_policy"])
+            check_type(argname="argument backup_restore_secret_name", value=backup_restore_secret_name, expected_type=type_hints["backup_restore_secret_name"])
+            check_type(argname="argument backup_schedule", value=backup_schedule, expected_type=type_hints["backup_schedule"])
+            check_type(argname="argument backup_secret_name", value=backup_secret_name, expected_type=type_hints["backup_secret_name"])
+            check_type(argname="argument backup_url", value=backup_url, expected_type=type_hints["backup_url"])
+            check_type(argname="argument init_bucket_url", value=init_bucket_url, expected_type=type_hints["init_bucket_url"])
+            check_type(argname="argument replicas", value=replicas, expected_type=type_hints["replicas"])
+            check_type(argname="argument resources", value=resources, expected_type=type_hints["resources"])
+            check_type(argname="argument secret", value=secret, expected_type=type_hints["secret"])
+            check_type(argname="argument storage_size", value=storage_size, expected_type=type_hints["storage_size"])
+            check_type(argname="argument type", value=type, expected_type=type_hints["type"])
         self._values: typing.Dict[str, typing.Any] = {}
         if backup_remote_delete_policy is not None:
             self._values["backup_remote_delete_policy"] = backup_remote_delete_policy
@@ -2937,6 +3126,10 @@ class ClusterInstallationSpecDatabaseResources:
 
         :schema: ClusterInstallationSpecDatabaseResources
         '''
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpecDatabaseResources.__init__)
+            check_type(argname="argument limits", value=limits, expected_type=type_hints["limits"])
+            check_type(argname="argument requests", value=requests, expected_type=type_hints["requests"])
         self._values: typing.Dict[str, typing.Any] = {}
         if limits is not None:
             self._values["limits"] = limits
@@ -2998,6 +3191,11 @@ class ClusterInstallationSpecElasticSearch:
 
         :schema: ClusterInstallationSpecElasticSearch
         '''
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpecElasticSearch.__init__)
+            check_type(argname="argument host", value=host, expected_type=type_hints["host"])
+            check_type(argname="argument password", value=password, expected_type=type_hints["password"])
+            check_type(argname="argument username", value=username, expected_type=type_hints["username"])
         self._values: typing.Dict[str, typing.Any] = {}
         if host is not None:
             self._values["host"] = host
@@ -3060,13 +3258,13 @@ class ClusterInstallationSpecLivenessProbe:
     def __init__(
         self,
         *,
-        exec: typing.Optional["ClusterInstallationSpecLivenessProbeExec"] = None,
+        exec: typing.Optional[typing.Union["ClusterInstallationSpecLivenessProbeExec", typing.Dict[str, typing.Any]]] = None,
         failure_threshold: typing.Optional[jsii.Number] = None,
-        http_get: typing.Optional["ClusterInstallationSpecLivenessProbeHttpGet"] = None,
+        http_get: typing.Optional[typing.Union["ClusterInstallationSpecLivenessProbeHttpGet", typing.Dict[str, typing.Any]]] = None,
         initial_delay_seconds: typing.Optional[jsii.Number] = None,
         period_seconds: typing.Optional[jsii.Number] = None,
         success_threshold: typing.Optional[jsii.Number] = None,
-        tcp_socket: typing.Optional["ClusterInstallationSpecLivenessProbeTcpSocket"] = None,
+        tcp_socket: typing.Optional[typing.Union["ClusterInstallationSpecLivenessProbeTcpSocket", typing.Dict[str, typing.Any]]] = None,
         timeout_seconds: typing.Optional[jsii.Number] = None,
     ) -> None:
         '''Defines the probe to check if the application is up and running.
@@ -3088,6 +3286,16 @@ class ClusterInstallationSpecLivenessProbe:
             http_get = ClusterInstallationSpecLivenessProbeHttpGet(**http_get)
         if isinstance(tcp_socket, dict):
             tcp_socket = ClusterInstallationSpecLivenessProbeTcpSocket(**tcp_socket)
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpecLivenessProbe.__init__)
+            check_type(argname="argument exec", value=exec, expected_type=type_hints["exec"])
+            check_type(argname="argument failure_threshold", value=failure_threshold, expected_type=type_hints["failure_threshold"])
+            check_type(argname="argument http_get", value=http_get, expected_type=type_hints["http_get"])
+            check_type(argname="argument initial_delay_seconds", value=initial_delay_seconds, expected_type=type_hints["initial_delay_seconds"])
+            check_type(argname="argument period_seconds", value=period_seconds, expected_type=type_hints["period_seconds"])
+            check_type(argname="argument success_threshold", value=success_threshold, expected_type=type_hints["success_threshold"])
+            check_type(argname="argument tcp_socket", value=tcp_socket, expected_type=type_hints["tcp_socket"])
+            check_type(argname="argument timeout_seconds", value=timeout_seconds, expected_type=type_hints["timeout_seconds"])
         self._values: typing.Dict[str, typing.Any] = {}
         if exec is not None:
             self._values["exec"] = exec
@@ -3235,6 +3443,9 @@ class ClusterInstallationSpecLivenessProbeExec:
 
         :schema: ClusterInstallationSpecLivenessProbeExec
         '''
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpecLivenessProbeExec.__init__)
+            check_type(argname="argument command", value=command, expected_type=type_hints["command"])
         self._values: typing.Dict[str, typing.Any] = {}
         if command is not None:
             self._values["command"] = command
@@ -3279,7 +3490,7 @@ class ClusterInstallationSpecLivenessProbeHttpGet:
         *,
         port: "ClusterInstallationSpecLivenessProbeHttpGetPort",
         host: typing.Optional[builtins.str] = None,
-        http_headers: typing.Optional[typing.Sequence["ClusterInstallationSpecLivenessProbeHttpGetHttpHeaders"]] = None,
+        http_headers: typing.Optional[typing.Sequence[typing.Union["ClusterInstallationSpecLivenessProbeHttpGetHttpHeaders", typing.Dict[str, typing.Any]]]] = None,
         path: typing.Optional[builtins.str] = None,
         scheme: typing.Optional[builtins.str] = None,
     ) -> None:
@@ -3293,6 +3504,13 @@ class ClusterInstallationSpecLivenessProbeHttpGet:
 
         :schema: ClusterInstallationSpecLivenessProbeHttpGet
         '''
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpecLivenessProbeHttpGet.__init__)
+            check_type(argname="argument port", value=port, expected_type=type_hints["port"])
+            check_type(argname="argument host", value=host, expected_type=type_hints["host"])
+            check_type(argname="argument http_headers", value=http_headers, expected_type=type_hints["http_headers"])
+            check_type(argname="argument path", value=path, expected_type=type_hints["path"])
+            check_type(argname="argument scheme", value=scheme, expected_type=type_hints["scheme"])
         self._values: typing.Dict[str, typing.Any] = {
             "port": port,
         }
@@ -3389,6 +3607,10 @@ class ClusterInstallationSpecLivenessProbeHttpGetHttpHeaders:
 
         :schema: ClusterInstallationSpecLivenessProbeHttpGetHttpHeaders
         '''
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpecLivenessProbeHttpGetHttpHeaders.__init__)
+            check_type(argname="argument name", value=name, expected_type=type_hints["name"])
+            check_type(argname="argument value", value=value, expected_type=type_hints["value"])
         self._values: typing.Dict[str, typing.Any] = {
             "name": name,
             "value": value,
@@ -3437,7 +3659,7 @@ class ClusterInstallationSpecLivenessProbeHttpGetPort(
     :schema: ClusterInstallationSpecLivenessProbeHttpGetPort
     '''
 
-    @jsii.member(jsii_name="fromNumber") # type: ignore[misc]
+    @jsii.member(jsii_name="fromNumber")
     @builtins.classmethod
     def from_number(
         cls,
@@ -3446,9 +3668,12 @@ class ClusterInstallationSpecLivenessProbeHttpGetPort(
         '''
         :param value: -
         '''
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpecLivenessProbeHttpGetPort.from_number)
+            check_type(argname="argument value", value=value, expected_type=type_hints["value"])
         return typing.cast("ClusterInstallationSpecLivenessProbeHttpGetPort", jsii.sinvoke(cls, "fromNumber", [value]))
 
-    @jsii.member(jsii_name="fromString") # type: ignore[misc]
+    @jsii.member(jsii_name="fromString")
     @builtins.classmethod
     def from_string(
         cls,
@@ -3457,9 +3682,12 @@ class ClusterInstallationSpecLivenessProbeHttpGetPort(
         '''
         :param value: -
         '''
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpecLivenessProbeHttpGetPort.from_string)
+            check_type(argname="argument value", value=value, expected_type=type_hints["value"])
         return typing.cast("ClusterInstallationSpecLivenessProbeHttpGetPort", jsii.sinvoke(cls, "fromString", [value]))
 
-    @builtins.property # type: ignore[misc]
+    @builtins.property
     @jsii.member(jsii_name="value")
     def value(self) -> typing.Any:
         return typing.cast(typing.Any, jsii.get(self, "value"))
@@ -3486,6 +3714,10 @@ class ClusterInstallationSpecLivenessProbeTcpSocket:
 
         :schema: ClusterInstallationSpecLivenessProbeTcpSocket
         '''
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpecLivenessProbeTcpSocket.__init__)
+            check_type(argname="argument port", value=port, expected_type=type_hints["port"])
+            check_type(argname="argument host", value=host, expected_type=type_hints["host"])
         self._values: typing.Dict[str, typing.Any] = {
             "port": port,
         }
@@ -3536,7 +3768,7 @@ class ClusterInstallationSpecLivenessProbeTcpSocketPort(
     :schema: ClusterInstallationSpecLivenessProbeTcpSocketPort
     '''
 
-    @jsii.member(jsii_name="fromNumber") # type: ignore[misc]
+    @jsii.member(jsii_name="fromNumber")
     @builtins.classmethod
     def from_number(
         cls,
@@ -3545,9 +3777,12 @@ class ClusterInstallationSpecLivenessProbeTcpSocketPort(
         '''
         :param value: -
         '''
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpecLivenessProbeTcpSocketPort.from_number)
+            check_type(argname="argument value", value=value, expected_type=type_hints["value"])
         return typing.cast("ClusterInstallationSpecLivenessProbeTcpSocketPort", jsii.sinvoke(cls, "fromNumber", [value]))
 
-    @jsii.member(jsii_name="fromString") # type: ignore[misc]
+    @jsii.member(jsii_name="fromString")
     @builtins.classmethod
     def from_string(
         cls,
@@ -3556,9 +3791,12 @@ class ClusterInstallationSpecLivenessProbeTcpSocketPort(
         '''
         :param value: -
         '''
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpecLivenessProbeTcpSocketPort.from_string)
+            check_type(argname="argument value", value=value, expected_type=type_hints["value"])
         return typing.cast("ClusterInstallationSpecLivenessProbeTcpSocketPort", jsii.sinvoke(cls, "fromString", [value]))
 
-    @builtins.property # type: ignore[misc]
+    @builtins.property
     @jsii.member(jsii_name="value")
     def value(self) -> typing.Any:
         return typing.cast(typing.Any, jsii.get(self, "value"))
@@ -3575,7 +3813,7 @@ class ClusterInstallationSpecMattermostEnv:
         *,
         name: builtins.str,
         value: typing.Optional[builtins.str] = None,
-        value_from: typing.Optional["ClusterInstallationSpecMattermostEnvValueFrom"] = None,
+        value_from: typing.Optional[typing.Union["ClusterInstallationSpecMattermostEnvValueFrom", typing.Dict[str, typing.Any]]] = None,
     ) -> None:
         '''EnvVar represents an environment variable present in a Container.
 
@@ -3587,6 +3825,11 @@ class ClusterInstallationSpecMattermostEnv:
         '''
         if isinstance(value_from, dict):
             value_from = ClusterInstallationSpecMattermostEnvValueFrom(**value_from)
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpecMattermostEnv.__init__)
+            check_type(argname="argument name", value=name, expected_type=type_hints["name"])
+            check_type(argname="argument value", value=value, expected_type=type_hints["value"])
+            check_type(argname="argument value_from", value=value_from, expected_type=type_hints["value_from"])
         self._values: typing.Dict[str, typing.Any] = {
             "name": name,
         }
@@ -3659,10 +3902,10 @@ class ClusterInstallationSpecMattermostEnvValueFrom:
     def __init__(
         self,
         *,
-        config_map_key_ref: typing.Optional["ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef"] = None,
-        field_ref: typing.Optional["ClusterInstallationSpecMattermostEnvValueFromFieldRef"] = None,
-        resource_field_ref: typing.Optional["ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef"] = None,
-        secret_key_ref: typing.Optional["ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef"] = None,
+        config_map_key_ref: typing.Optional[typing.Union["ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef", typing.Dict[str, typing.Any]]] = None,
+        field_ref: typing.Optional[typing.Union["ClusterInstallationSpecMattermostEnvValueFromFieldRef", typing.Dict[str, typing.Any]]] = None,
+        resource_field_ref: typing.Optional[typing.Union["ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef", typing.Dict[str, typing.Any]]] = None,
+        secret_key_ref: typing.Optional[typing.Union["ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef", typing.Dict[str, typing.Any]]] = None,
     ) -> None:
         '''Source for the environment variable's value.
 
@@ -3683,6 +3926,12 @@ class ClusterInstallationSpecMattermostEnvValueFrom:
             resource_field_ref = ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef(**resource_field_ref)
         if isinstance(secret_key_ref, dict):
             secret_key_ref = ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef(**secret_key_ref)
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpecMattermostEnvValueFrom.__init__)
+            check_type(argname="argument config_map_key_ref", value=config_map_key_ref, expected_type=type_hints["config_map_key_ref"])
+            check_type(argname="argument field_ref", value=field_ref, expected_type=type_hints["field_ref"])
+            check_type(argname="argument resource_field_ref", value=resource_field_ref, expected_type=type_hints["resource_field_ref"])
+            check_type(argname="argument secret_key_ref", value=secret_key_ref, expected_type=type_hints["secret_key_ref"])
         self._values: typing.Dict[str, typing.Any] = {}
         if config_map_key_ref is not None:
             self._values["config_map_key_ref"] = config_map_key_ref
@@ -3770,6 +4019,11 @@ class ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef:
 
         :schema: ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef
         '''
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef.__init__)
+            check_type(argname="argument key", value=key, expected_type=type_hints["key"])
+            check_type(argname="argument name", value=name, expected_type=type_hints["name"])
+            check_type(argname="argument optional", value=optional, expected_type=type_hints["optional"])
         self._values: typing.Dict[str, typing.Any] = {
             "key": key,
         }
@@ -3839,6 +4093,10 @@ class ClusterInstallationSpecMattermostEnvValueFromFieldRef:
 
         :schema: ClusterInstallationSpecMattermostEnvValueFromFieldRef
         '''
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpecMattermostEnvValueFromFieldRef.__init__)
+            check_type(argname="argument field_path", value=field_path, expected_type=type_hints["field_path"])
+            check_type(argname="argument api_version", value=api_version, expected_type=type_hints["api_version"])
         self._values: typing.Dict[str, typing.Any] = {
             "field_path": field_path,
         }
@@ -3901,6 +4159,11 @@ class ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef:
 
         :schema: ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef
         '''
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef.__init__)
+            check_type(argname="argument resource", value=resource, expected_type=type_hints["resource"])
+            check_type(argname="argument container_name", value=container_name, expected_type=type_hints["container_name"])
+            check_type(argname="argument divisor", value=divisor, expected_type=type_hints["divisor"])
         self._values: typing.Dict[str, typing.Any] = {
             "resource": resource,
         }
@@ -3970,6 +4233,11 @@ class ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef:
 
         :schema: ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef
         '''
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef.__init__)
+            check_type(argname="argument key", value=key, expected_type=type_hints["key"])
+            check_type(argname="argument name", value=name, expected_type=type_hints["name"])
+            check_type(argname="argument optional", value=optional, expected_type=type_hints["optional"])
         self._values: typing.Dict[str, typing.Any] = {
             "key": key,
         }
@@ -4041,7 +4309,7 @@ class ClusterInstallationSpecMinio:
         external_bucket: typing.Optional[builtins.str] = None,
         external_url: typing.Optional[builtins.str] = None,
         replicas: typing.Optional[jsii.Number] = None,
-        resources: typing.Optional["ClusterInstallationSpecMinioResources"] = None,
+        resources: typing.Optional[typing.Union["ClusterInstallationSpecMinioResources", typing.Dict[str, typing.Any]]] = None,
         secret: typing.Optional[builtins.str] = None,
         storage_size: typing.Optional[builtins.str] = None,
     ) -> None:
@@ -4058,6 +4326,14 @@ class ClusterInstallationSpecMinio:
         '''
         if isinstance(resources, dict):
             resources = ClusterInstallationSpecMinioResources(**resources)
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpecMinio.__init__)
+            check_type(argname="argument external_bucket", value=external_bucket, expected_type=type_hints["external_bucket"])
+            check_type(argname="argument external_url", value=external_url, expected_type=type_hints["external_url"])
+            check_type(argname="argument replicas", value=replicas, expected_type=type_hints["replicas"])
+            check_type(argname="argument resources", value=resources, expected_type=type_hints["resources"])
+            check_type(argname="argument secret", value=secret, expected_type=type_hints["secret"])
+            check_type(argname="argument storage_size", value=storage_size, expected_type=type_hints["storage_size"])
         self._values: typing.Dict[str, typing.Any] = {}
         if external_bucket is not None:
             self._values["external_bucket"] = external_bucket
@@ -4165,6 +4441,10 @@ class ClusterInstallationSpecMinioResources:
 
         :schema: ClusterInstallationSpecMinioResources
         '''
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpecMinioResources.__init__)
+            check_type(argname="argument limits", value=limits, expected_type=type_hints["limits"])
+            check_type(argname="argument requests", value=requests, expected_type=type_hints["requests"])
         self._values: typing.Dict[str, typing.Any] = {}
         if limits is not None:
             self._values["limits"] = limits
@@ -4223,13 +4503,13 @@ class ClusterInstallationSpecReadinessProbe:
     def __init__(
         self,
         *,
-        exec: typing.Optional["ClusterInstallationSpecReadinessProbeExec"] = None,
+        exec: typing.Optional[typing.Union["ClusterInstallationSpecReadinessProbeExec", typing.Dict[str, typing.Any]]] = None,
         failure_threshold: typing.Optional[jsii.Number] = None,
-        http_get: typing.Optional["ClusterInstallationSpecReadinessProbeHttpGet"] = None,
+        http_get: typing.Optional[typing.Union["ClusterInstallationSpecReadinessProbeHttpGet", typing.Dict[str, typing.Any]]] = None,
         initial_delay_seconds: typing.Optional[jsii.Number] = None,
         period_seconds: typing.Optional[jsii.Number] = None,
         success_threshold: typing.Optional[jsii.Number] = None,
-        tcp_socket: typing.Optional["ClusterInstallationSpecReadinessProbeTcpSocket"] = None,
+        tcp_socket: typing.Optional[typing.Union["ClusterInstallationSpecReadinessProbeTcpSocket", typing.Dict[str, typing.Any]]] = None,
         timeout_seconds: typing.Optional[jsii.Number] = None,
     ) -> None:
         '''Defines the probe to check if the application is ready to accept traffic.
@@ -4251,6 +4531,16 @@ class ClusterInstallationSpecReadinessProbe:
             http_get = ClusterInstallationSpecReadinessProbeHttpGet(**http_get)
         if isinstance(tcp_socket, dict):
             tcp_socket = ClusterInstallationSpecReadinessProbeTcpSocket(**tcp_socket)
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpecReadinessProbe.__init__)
+            check_type(argname="argument exec", value=exec, expected_type=type_hints["exec"])
+            check_type(argname="argument failure_threshold", value=failure_threshold, expected_type=type_hints["failure_threshold"])
+            check_type(argname="argument http_get", value=http_get, expected_type=type_hints["http_get"])
+            check_type(argname="argument initial_delay_seconds", value=initial_delay_seconds, expected_type=type_hints["initial_delay_seconds"])
+            check_type(argname="argument period_seconds", value=period_seconds, expected_type=type_hints["period_seconds"])
+            check_type(argname="argument success_threshold", value=success_threshold, expected_type=type_hints["success_threshold"])
+            check_type(argname="argument tcp_socket", value=tcp_socket, expected_type=type_hints["tcp_socket"])
+            check_type(argname="argument timeout_seconds", value=timeout_seconds, expected_type=type_hints["timeout_seconds"])
         self._values: typing.Dict[str, typing.Any] = {}
         if exec is not None:
             self._values["exec"] = exec
@@ -4398,6 +4688,9 @@ class ClusterInstallationSpecReadinessProbeExec:
 
         :schema: ClusterInstallationSpecReadinessProbeExec
         '''
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpecReadinessProbeExec.__init__)
+            check_type(argname="argument command", value=command, expected_type=type_hints["command"])
         self._values: typing.Dict[str, typing.Any] = {}
         if command is not None:
             self._values["command"] = command
@@ -4442,7 +4735,7 @@ class ClusterInstallationSpecReadinessProbeHttpGet:
         *,
         port: "ClusterInstallationSpecReadinessProbeHttpGetPort",
         host: typing.Optional[builtins.str] = None,
-        http_headers: typing.Optional[typing.Sequence["ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders"]] = None,
+        http_headers: typing.Optional[typing.Sequence[typing.Union["ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders", typing.Dict[str, typing.Any]]]] = None,
         path: typing.Optional[builtins.str] = None,
         scheme: typing.Optional[builtins.str] = None,
     ) -> None:
@@ -4456,6 +4749,13 @@ class ClusterInstallationSpecReadinessProbeHttpGet:
 
         :schema: ClusterInstallationSpecReadinessProbeHttpGet
         '''
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpecReadinessProbeHttpGet.__init__)
+            check_type(argname="argument port", value=port, expected_type=type_hints["port"])
+            check_type(argname="argument host", value=host, expected_type=type_hints["host"])
+            check_type(argname="argument http_headers", value=http_headers, expected_type=type_hints["http_headers"])
+            check_type(argname="argument path", value=path, expected_type=type_hints["path"])
+            check_type(argname="argument scheme", value=scheme, expected_type=type_hints["scheme"])
         self._values: typing.Dict[str, typing.Any] = {
             "port": port,
         }
@@ -4552,6 +4852,10 @@ class ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders:
 
         :schema: ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders
         '''
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders.__init__)
+            check_type(argname="argument name", value=name, expected_type=type_hints["name"])
+            check_type(argname="argument value", value=value, expected_type=type_hints["value"])
         self._values: typing.Dict[str, typing.Any] = {
             "name": name,
             "value": value,
@@ -4600,7 +4904,7 @@ class ClusterInstallationSpecReadinessProbeHttpGetPort(
     :schema: ClusterInstallationSpecReadinessProbeHttpGetPort
     '''
 
-    @jsii.member(jsii_name="fromNumber") # type: ignore[misc]
+    @jsii.member(jsii_name="fromNumber")
     @builtins.classmethod
     def from_number(
         cls,
@@ -4609,9 +4913,12 @@ class ClusterInstallationSpecReadinessProbeHttpGetPort(
         '''
         :param value: -
         '''
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpecReadinessProbeHttpGetPort.from_number)
+            check_type(argname="argument value", value=value, expected_type=type_hints["value"])
         return typing.cast("ClusterInstallationSpecReadinessProbeHttpGetPort", jsii.sinvoke(cls, "fromNumber", [value]))
 
-    @jsii.member(jsii_name="fromString") # type: ignore[misc]
+    @jsii.member(jsii_name="fromString")
     @builtins.classmethod
     def from_string(
         cls,
@@ -4620,9 +4927,12 @@ class ClusterInstallationSpecReadinessProbeHttpGetPort(
         '''
         :param value: -
         '''
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpecReadinessProbeHttpGetPort.from_string)
+            check_type(argname="argument value", value=value, expected_type=type_hints["value"])
         return typing.cast("ClusterInstallationSpecReadinessProbeHttpGetPort", jsii.sinvoke(cls, "fromString", [value]))
 
-    @builtins.property # type: ignore[misc]
+    @builtins.property
     @jsii.member(jsii_name="value")
     def value(self) -> typing.Any:
         return typing.cast(typing.Any, jsii.get(self, "value"))
@@ -4649,6 +4959,10 @@ class ClusterInstallationSpecReadinessProbeTcpSocket:
 
         :schema: ClusterInstallationSpecReadinessProbeTcpSocket
         '''
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpecReadinessProbeTcpSocket.__init__)
+            check_type(argname="argument port", value=port, expected_type=type_hints["port"])
+            check_type(argname="argument host", value=host, expected_type=type_hints["host"])
         self._values: typing.Dict[str, typing.Any] = {
             "port": port,
         }
@@ -4699,7 +5013,7 @@ class ClusterInstallationSpecReadinessProbeTcpSocketPort(
     :schema: ClusterInstallationSpecReadinessProbeTcpSocketPort
     '''
 
-    @jsii.member(jsii_name="fromNumber") # type: ignore[misc]
+    @jsii.member(jsii_name="fromNumber")
     @builtins.classmethod
     def from_number(
         cls,
@@ -4708,9 +5022,12 @@ class ClusterInstallationSpecReadinessProbeTcpSocketPort(
         '''
         :param value: -
         '''
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpecReadinessProbeTcpSocketPort.from_number)
+            check_type(argname="argument value", value=value, expected_type=type_hints["value"])
         return typing.cast("ClusterInstallationSpecReadinessProbeTcpSocketPort", jsii.sinvoke(cls, "fromNumber", [value]))
 
-    @jsii.member(jsii_name="fromString") # type: ignore[misc]
+    @jsii.member(jsii_name="fromString")
     @builtins.classmethod
     def from_string(
         cls,
@@ -4719,9 +5036,12 @@ class ClusterInstallationSpecReadinessProbeTcpSocketPort(
         '''
         :param value: -
         '''
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpecReadinessProbeTcpSocketPort.from_string)
+            check_type(argname="argument value", value=value, expected_type=type_hints["value"])
         return typing.cast("ClusterInstallationSpecReadinessProbeTcpSocketPort", jsii.sinvoke(cls, "fromString", [value]))
 
-    @builtins.property # type: ignore[misc]
+    @builtins.property
     @jsii.member(jsii_name="value")
     def value(self) -> typing.Any:
         return typing.cast(typing.Any, jsii.get(self, "value"))
@@ -4746,6 +5066,10 @@ class ClusterInstallationSpecResources:
 
         :schema: ClusterInstallationSpecResources
         '''
+        if __debug__:
+            type_hints = typing.get_type_hints(ClusterInstallationSpecResources.__init__)
+            check_type(argname="argument limits", value=limits, expected_type=type_hints["limits"])
+            check_type(argname="argument requests", value=requests, expected_type=type_hints["requests"])
         self._values: typing.Dict[str, typing.Any] = {}
         if limits is not None:
             self._values["limits"] = limits
