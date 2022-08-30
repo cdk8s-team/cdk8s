@@ -96,7 +96,7 @@ class JenkinsProps:
         :schema: Jenkins
         '''
         if isinstance(metadata, dict):
-            metadata = ApiObjectMetadata(**metadata)
+            metadata = cdk8s.ApiObjectMetadata(**metadata)
         if isinstance(spec, dict):
             spec = JenkinsSpec(**spec)
         if __debug__:

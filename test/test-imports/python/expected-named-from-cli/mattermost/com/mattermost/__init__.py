@@ -102,7 +102,7 @@ class ClusterInstallationProps:
         if isinstance(spec, dict):
             spec = ClusterInstallationSpec(**spec)
         if isinstance(metadata, dict):
-            metadata = ApiObjectMetadata(**metadata)
+            metadata = cdk8s.ApiObjectMetadata(**metadata)
         if __debug__:
             type_hints = typing.get_type_hints(ClusterInstallationProps.__init__)
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])

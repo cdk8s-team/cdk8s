@@ -98,7 +98,7 @@ class CronTabProps:
         :schema: CronTab
         '''
         if isinstance(metadata, dict):
-            metadata = ApiObjectMetadata(**metadata)
+            metadata = cdk8s.ApiObjectMetadata(**metadata)
         if isinstance(spec, dict):
             spec = CronTabSpec(**spec)
         if __debug__:
