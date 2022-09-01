@@ -32,6 +32,9 @@ func (j *jsiiProxy_JenkinsSpecMasterContainersReadinessProbeHttpGetPort) Value()
 func JenkinsSpecMasterContainersReadinessProbeHttpGetPort_FromNumber(value *float64) JenkinsSpecMasterContainersReadinessProbeHttpGetPort {
 	_init_.Initialize()
 
+	if err := validateJenkinsSpecMasterContainersReadinessProbeHttpGetPort_FromNumberParameters(value); err != nil {
+		panic(err)
+	}
 	var returns JenkinsSpecMasterContainersReadinessProbeHttpGetPort
 
 	_jsii_.StaticInvoke(
@@ -47,6 +50,9 @@ func JenkinsSpecMasterContainersReadinessProbeHttpGetPort_FromNumber(value *floa
 func JenkinsSpecMasterContainersReadinessProbeHttpGetPort_FromString(value *string) JenkinsSpecMasterContainersReadinessProbeHttpGetPort {
 	_init_.Initialize()
 
+	if err := validateJenkinsSpecMasterContainersReadinessProbeHttpGetPort_FromStringParameters(value); err != nil {
+		panic(err)
+	}
 	var returns JenkinsSpecMasterContainersReadinessProbeHttpGetPort
 
 	_jsii_.StaticInvoke(

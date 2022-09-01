@@ -130,6 +130,9 @@ func (j *jsiiProxy_KubeVolumeAttachmentV1Beta1) Node() constructs.Node {
 func NewKubeVolumeAttachmentV1Beta1(scope constructs.Construct, id *string, props *KubeVolumeAttachmentV1Beta1Props) KubeVolumeAttachmentV1Beta1 {
 	_init_.Initialize()
 
+	if err := validateNewKubeVolumeAttachmentV1Beta1Parameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_KubeVolumeAttachmentV1Beta1{}
 
 	_jsii_.Create(
@@ -172,6 +175,9 @@ func NewKubeVolumeAttachmentV1Beta1_Override(k KubeVolumeAttachmentV1Beta1, scop
 func KubeVolumeAttachmentV1Beta1_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateKubeVolumeAttachmentV1Beta1_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -190,6 +196,9 @@ func KubeVolumeAttachmentV1Beta1_IsConstruct(x interface{}) *bool {
 func KubeVolumeAttachmentV1Beta1_Manifest(props *KubeVolumeAttachmentV1Beta1Props) interface{} {
 	_init_.Initialize()
 
+	if err := validateKubeVolumeAttachmentV1Beta1_ManifestParameters(props); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -210,6 +219,9 @@ func KubeVolumeAttachmentV1Beta1_Manifest(props *KubeVolumeAttachmentV1Beta1Prop
 func KubeVolumeAttachmentV1Beta1_Of(c constructs.IConstruct) cdk8s.ApiObject {
 	_init_.Initialize()
 
+	if err := validateKubeVolumeAttachmentV1Beta1_OfParameters(c); err != nil {
+		panic(err)
+	}
 	var returns cdk8s.ApiObject
 
 	_jsii_.StaticInvoke(

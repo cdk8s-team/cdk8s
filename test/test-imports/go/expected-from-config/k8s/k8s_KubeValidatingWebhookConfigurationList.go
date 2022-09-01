@@ -128,6 +128,9 @@ func (j *jsiiProxy_KubeValidatingWebhookConfigurationList) Node() constructs.Nod
 func NewKubeValidatingWebhookConfigurationList(scope constructs.Construct, id *string, props *KubeValidatingWebhookConfigurationListProps) KubeValidatingWebhookConfigurationList {
 	_init_.Initialize()
 
+	if err := validateNewKubeValidatingWebhookConfigurationListParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_KubeValidatingWebhookConfigurationList{}
 
 	_jsii_.Create(
@@ -170,6 +173,9 @@ func NewKubeValidatingWebhookConfigurationList_Override(k KubeValidatingWebhookC
 func KubeValidatingWebhookConfigurationList_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateKubeValidatingWebhookConfigurationList_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -188,6 +194,9 @@ func KubeValidatingWebhookConfigurationList_IsConstruct(x interface{}) *bool {
 func KubeValidatingWebhookConfigurationList_Manifest(props *KubeValidatingWebhookConfigurationListProps) interface{} {
 	_init_.Initialize()
 
+	if err := validateKubeValidatingWebhookConfigurationList_ManifestParameters(props); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -208,6 +217,9 @@ func KubeValidatingWebhookConfigurationList_Manifest(props *KubeValidatingWebhoo
 func KubeValidatingWebhookConfigurationList_Of(c constructs.IConstruct) cdk8s.ApiObject {
 	_init_.Initialize()
 
+	if err := validateKubeValidatingWebhookConfigurationList_OfParameters(c); err != nil {
+		panic(err)
+	}
 	var returns cdk8s.ApiObject
 
 	_jsii_.StaticInvoke(

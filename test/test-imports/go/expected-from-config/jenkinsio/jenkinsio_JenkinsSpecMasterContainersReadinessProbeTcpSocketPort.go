@@ -32,6 +32,9 @@ func (j *jsiiProxy_JenkinsSpecMasterContainersReadinessProbeTcpSocketPort) Value
 func JenkinsSpecMasterContainersReadinessProbeTcpSocketPort_FromNumber(value *float64) JenkinsSpecMasterContainersReadinessProbeTcpSocketPort {
 	_init_.Initialize()
 
+	if err := validateJenkinsSpecMasterContainersReadinessProbeTcpSocketPort_FromNumberParameters(value); err != nil {
+		panic(err)
+	}
 	var returns JenkinsSpecMasterContainersReadinessProbeTcpSocketPort
 
 	_jsii_.StaticInvoke(
@@ -47,6 +50,9 @@ func JenkinsSpecMasterContainersReadinessProbeTcpSocketPort_FromNumber(value *fl
 func JenkinsSpecMasterContainersReadinessProbeTcpSocketPort_FromString(value *string) JenkinsSpecMasterContainersReadinessProbeTcpSocketPort {
 	_init_.Initialize()
 
+	if err := validateJenkinsSpecMasterContainersReadinessProbeTcpSocketPort_FromStringParameters(value); err != nil {
+		panic(err)
+	}
 	var returns JenkinsSpecMasterContainersReadinessProbeTcpSocketPort
 
 	_jsii_.StaticInvoke(

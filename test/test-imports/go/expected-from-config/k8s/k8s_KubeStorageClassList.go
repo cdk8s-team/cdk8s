@@ -128,6 +128,9 @@ func (j *jsiiProxy_KubeStorageClassList) Node() constructs.Node {
 func NewKubeStorageClassList(scope constructs.Construct, id *string, props *KubeStorageClassListProps) KubeStorageClassList {
 	_init_.Initialize()
 
+	if err := validateNewKubeStorageClassListParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_KubeStorageClassList{}
 
 	_jsii_.Create(
@@ -170,6 +173,9 @@ func NewKubeStorageClassList_Override(k KubeStorageClassList, scope constructs.C
 func KubeStorageClassList_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateKubeStorageClassList_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -188,6 +194,9 @@ func KubeStorageClassList_IsConstruct(x interface{}) *bool {
 func KubeStorageClassList_Manifest(props *KubeStorageClassListProps) interface{} {
 	_init_.Initialize()
 
+	if err := validateKubeStorageClassList_ManifestParameters(props); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -208,6 +217,9 @@ func KubeStorageClassList_Manifest(props *KubeStorageClassListProps) interface{}
 func KubeStorageClassList_Of(c constructs.IConstruct) cdk8s.ApiObject {
 	_init_.Initialize()
 
+	if err := validateKubeStorageClassList_OfParameters(c); err != nil {
+		panic(err)
+	}
 	var returns cdk8s.ApiObject
 
 	_jsii_.StaticInvoke(

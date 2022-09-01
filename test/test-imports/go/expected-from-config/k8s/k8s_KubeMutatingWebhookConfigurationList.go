@@ -128,6 +128,9 @@ func (j *jsiiProxy_KubeMutatingWebhookConfigurationList) Node() constructs.Node 
 func NewKubeMutatingWebhookConfigurationList(scope constructs.Construct, id *string, props *KubeMutatingWebhookConfigurationListProps) KubeMutatingWebhookConfigurationList {
 	_init_.Initialize()
 
+	if err := validateNewKubeMutatingWebhookConfigurationListParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_KubeMutatingWebhookConfigurationList{}
 
 	_jsii_.Create(
@@ -170,6 +173,9 @@ func NewKubeMutatingWebhookConfigurationList_Override(k KubeMutatingWebhookConfi
 func KubeMutatingWebhookConfigurationList_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateKubeMutatingWebhookConfigurationList_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -188,6 +194,9 @@ func KubeMutatingWebhookConfigurationList_IsConstruct(x interface{}) *bool {
 func KubeMutatingWebhookConfigurationList_Manifest(props *KubeMutatingWebhookConfigurationListProps) interface{} {
 	_init_.Initialize()
 
+	if err := validateKubeMutatingWebhookConfigurationList_ManifestParameters(props); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -208,6 +217,9 @@ func KubeMutatingWebhookConfigurationList_Manifest(props *KubeMutatingWebhookCon
 func KubeMutatingWebhookConfigurationList_Of(c constructs.IConstruct) cdk8s.ApiObject {
 	_init_.Initialize()
 
+	if err := validateKubeMutatingWebhookConfigurationList_OfParameters(c); err != nil {
+		panic(err)
+	}
 	var returns cdk8s.ApiObject
 
 	_jsii_.StaticInvoke(

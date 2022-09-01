@@ -128,6 +128,9 @@ func (j *jsiiProxy_Jenkins) Node() constructs.Node {
 func NewJenkins(scope constructs.Construct, id *string, props *JenkinsProps) Jenkins {
 	_init_.Initialize()
 
+	if err := validateNewJenkinsParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_Jenkins{}
 
 	_jsii_.Create(
@@ -170,6 +173,9 @@ func NewJenkins_Override(j Jenkins, scope constructs.Construct, id *string, prop
 func Jenkins_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateJenkins_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -188,6 +194,9 @@ func Jenkins_IsConstruct(x interface{}) *bool {
 func Jenkins_Manifest(props *JenkinsProps) interface{} {
 	_init_.Initialize()
 
+	if err := validateJenkins_ManifestParameters(props); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -208,6 +217,9 @@ func Jenkins_Manifest(props *JenkinsProps) interface{} {
 func Jenkins_Of(c constructs.IConstruct) cdk8s.ApiObject {
 	_init_.Initialize()
 
+	if err := validateJenkins_OfParameters(c); err != nil {
+		panic(err)
+	}
 	var returns cdk8s.ApiObject
 
 	_jsii_.StaticInvoke(

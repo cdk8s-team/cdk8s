@@ -130,6 +130,9 @@ func (j *jsiiProxy_KubePriorityClass) Node() constructs.Node {
 func NewKubePriorityClass(scope constructs.Construct, id *string, props *KubePriorityClassProps) KubePriorityClass {
 	_init_.Initialize()
 
+	if err := validateNewKubePriorityClassParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_KubePriorityClass{}
 
 	_jsii_.Create(
@@ -172,6 +175,9 @@ func NewKubePriorityClass_Override(k KubePriorityClass, scope constructs.Constru
 func KubePriorityClass_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateKubePriorityClass_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -190,6 +196,9 @@ func KubePriorityClass_IsConstruct(x interface{}) *bool {
 func KubePriorityClass_Manifest(props *KubePriorityClassProps) interface{} {
 	_init_.Initialize()
 
+	if err := validateKubePriorityClass_ManifestParameters(props); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -210,6 +219,9 @@ func KubePriorityClass_Manifest(props *KubePriorityClassProps) interface{} {
 func KubePriorityClass_Of(c constructs.IConstruct) cdk8s.ApiObject {
 	_init_.Initialize()
 
+	if err := validateKubePriorityClass_OfParameters(c); err != nil {
+		panic(err)
+	}
 	var returns cdk8s.ApiObject
 
 	_jsii_.StaticInvoke(

@@ -128,6 +128,9 @@ func (j *jsiiProxy_KubeCronJobListV1Beta1) Node() constructs.Node {
 func NewKubeCronJobListV1Beta1(scope constructs.Construct, id *string, props *KubeCronJobListV1Beta1Props) KubeCronJobListV1Beta1 {
 	_init_.Initialize()
 
+	if err := validateNewKubeCronJobListV1Beta1Parameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_KubeCronJobListV1Beta1{}
 
 	_jsii_.Create(
@@ -170,6 +173,9 @@ func NewKubeCronJobListV1Beta1_Override(k KubeCronJobListV1Beta1, scope construc
 func KubeCronJobListV1Beta1_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateKubeCronJobListV1Beta1_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -188,6 +194,9 @@ func KubeCronJobListV1Beta1_IsConstruct(x interface{}) *bool {
 func KubeCronJobListV1Beta1_Manifest(props *KubeCronJobListV1Beta1Props) interface{} {
 	_init_.Initialize()
 
+	if err := validateKubeCronJobListV1Beta1_ManifestParameters(props); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -208,6 +217,9 @@ func KubeCronJobListV1Beta1_Manifest(props *KubeCronJobListV1Beta1Props) interfa
 func KubeCronJobListV1Beta1_Of(c constructs.IConstruct) cdk8s.ApiObject {
 	_init_.Initialize()
 
+	if err := validateKubeCronJobListV1Beta1_OfParameters(c); err != nil {
+		panic(err)
+	}
 	var returns cdk8s.ApiObject
 
 	_jsii_.StaticInvoke(

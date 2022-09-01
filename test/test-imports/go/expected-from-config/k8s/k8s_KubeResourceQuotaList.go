@@ -128,6 +128,9 @@ func (j *jsiiProxy_KubeResourceQuotaList) Node() constructs.Node {
 func NewKubeResourceQuotaList(scope constructs.Construct, id *string, props *KubeResourceQuotaListProps) KubeResourceQuotaList {
 	_init_.Initialize()
 
+	if err := validateNewKubeResourceQuotaListParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_KubeResourceQuotaList{}
 
 	_jsii_.Create(
@@ -170,6 +173,9 @@ func NewKubeResourceQuotaList_Override(k KubeResourceQuotaList, scope constructs
 func KubeResourceQuotaList_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateKubeResourceQuotaList_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -188,6 +194,9 @@ func KubeResourceQuotaList_IsConstruct(x interface{}) *bool {
 func KubeResourceQuotaList_Manifest(props *KubeResourceQuotaListProps) interface{} {
 	_init_.Initialize()
 
+	if err := validateKubeResourceQuotaList_ManifestParameters(props); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -208,6 +217,9 @@ func KubeResourceQuotaList_Manifest(props *KubeResourceQuotaListProps) interface
 func KubeResourceQuotaList_Of(c constructs.IConstruct) cdk8s.ApiObject {
 	_init_.Initialize()
 
+	if err := validateKubeResourceQuotaList_OfParameters(c); err != nil {
+		panic(err)
+	}
 	var returns cdk8s.ApiObject
 
 	_jsii_.StaticInvoke(

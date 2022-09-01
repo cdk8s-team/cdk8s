@@ -29,6 +29,9 @@ func (j *jsiiProxy_IntOrString) Value() interface{} {
 func IntOrString_FromNumber(value *float64) IntOrString {
 	_init_.Initialize()
 
+	if err := validateIntOrString_FromNumberParameters(value); err != nil {
+		panic(err)
+	}
 	var returns IntOrString
 
 	_jsii_.StaticInvoke(
@@ -44,6 +47,9 @@ func IntOrString_FromNumber(value *float64) IntOrString {
 func IntOrString_FromString(value *string) IntOrString {
 	_init_.Initialize()
 
+	if err := validateIntOrString_FromStringParameters(value); err != nil {
+		panic(err)
+	}
 	var returns IntOrString
 
 	_jsii_.StaticInvoke(

@@ -128,6 +128,9 @@ func (j *jsiiProxy_KubeServiceAccount) Node() constructs.Node {
 func NewKubeServiceAccount(scope constructs.Construct, id *string, props *KubeServiceAccountProps) KubeServiceAccount {
 	_init_.Initialize()
 
+	if err := validateNewKubeServiceAccountParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_KubeServiceAccount{}
 
 	_jsii_.Create(
@@ -170,6 +173,9 @@ func NewKubeServiceAccount_Override(k KubeServiceAccount, scope constructs.Const
 func KubeServiceAccount_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateKubeServiceAccount_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -188,6 +194,9 @@ func KubeServiceAccount_IsConstruct(x interface{}) *bool {
 func KubeServiceAccount_Manifest(props *KubeServiceAccountProps) interface{} {
 	_init_.Initialize()
 
+	if err := validateKubeServiceAccount_ManifestParameters(props); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -208,6 +217,9 @@ func KubeServiceAccount_Manifest(props *KubeServiceAccountProps) interface{} {
 func KubeServiceAccount_Of(c constructs.IConstruct) cdk8s.ApiObject {
 	_init_.Initialize()
 
+	if err := validateKubeServiceAccount_OfParameters(c); err != nil {
+		panic(err)
+	}
 	var returns cdk8s.ApiObject
 
 	_jsii_.StaticInvoke(

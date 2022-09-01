@@ -128,6 +128,9 @@ func (j *jsiiProxy_KubeAuditSinkV1Alpha1) Node() constructs.Node {
 func NewKubeAuditSinkV1Alpha1(scope constructs.Construct, id *string, props *KubeAuditSinkV1Alpha1Props) KubeAuditSinkV1Alpha1 {
 	_init_.Initialize()
 
+	if err := validateNewKubeAuditSinkV1Alpha1Parameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_KubeAuditSinkV1Alpha1{}
 
 	_jsii_.Create(
@@ -170,6 +173,9 @@ func NewKubeAuditSinkV1Alpha1_Override(k KubeAuditSinkV1Alpha1, scope constructs
 func KubeAuditSinkV1Alpha1_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateKubeAuditSinkV1Alpha1_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -188,6 +194,9 @@ func KubeAuditSinkV1Alpha1_IsConstruct(x interface{}) *bool {
 func KubeAuditSinkV1Alpha1_Manifest(props *KubeAuditSinkV1Alpha1Props) interface{} {
 	_init_.Initialize()
 
+	if err := validateKubeAuditSinkV1Alpha1_ManifestParameters(props); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -208,6 +217,9 @@ func KubeAuditSinkV1Alpha1_Manifest(props *KubeAuditSinkV1Alpha1Props) interface
 func KubeAuditSinkV1Alpha1_Of(c constructs.IConstruct) cdk8s.ApiObject {
 	_init_.Initialize()
 
+	if err := validateKubeAuditSinkV1Alpha1_OfParameters(c); err != nil {
+		panic(err)
+	}
 	var returns cdk8s.ApiObject
 
 	_jsii_.StaticInvoke(

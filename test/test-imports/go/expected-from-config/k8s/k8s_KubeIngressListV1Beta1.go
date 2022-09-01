@@ -128,6 +128,9 @@ func (j *jsiiProxy_KubeIngressListV1Beta1) Node() constructs.Node {
 func NewKubeIngressListV1Beta1(scope constructs.Construct, id *string, props *KubeIngressListV1Beta1Props) KubeIngressListV1Beta1 {
 	_init_.Initialize()
 
+	if err := validateNewKubeIngressListV1Beta1Parameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_KubeIngressListV1Beta1{}
 
 	_jsii_.Create(
@@ -170,6 +173,9 @@ func NewKubeIngressListV1Beta1_Override(k KubeIngressListV1Beta1, scope construc
 func KubeIngressListV1Beta1_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateKubeIngressListV1Beta1_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -188,6 +194,9 @@ func KubeIngressListV1Beta1_IsConstruct(x interface{}) *bool {
 func KubeIngressListV1Beta1_Manifest(props *KubeIngressListV1Beta1Props) interface{} {
 	_init_.Initialize()
 
+	if err := validateKubeIngressListV1Beta1_ManifestParameters(props); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -208,6 +217,9 @@ func KubeIngressListV1Beta1_Manifest(props *KubeIngressListV1Beta1Props) interfa
 func KubeIngressListV1Beta1_Of(c constructs.IConstruct) cdk8s.ApiObject {
 	_init_.Initialize()
 
+	if err := validateKubeIngressListV1Beta1_OfParameters(c); err != nil {
+		panic(err)
+	}
 	var returns cdk8s.ApiObject
 
 	_jsii_.StaticInvoke(

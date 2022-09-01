@@ -128,6 +128,9 @@ func (j *jsiiProxy_KubeSubjectAccessReview) Node() constructs.Node {
 func NewKubeSubjectAccessReview(scope constructs.Construct, id *string, props *KubeSubjectAccessReviewProps) KubeSubjectAccessReview {
 	_init_.Initialize()
 
+	if err := validateNewKubeSubjectAccessReviewParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_KubeSubjectAccessReview{}
 
 	_jsii_.Create(
@@ -170,6 +173,9 @@ func NewKubeSubjectAccessReview_Override(k KubeSubjectAccessReview, scope constr
 func KubeSubjectAccessReview_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateKubeSubjectAccessReview_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -188,6 +194,9 @@ func KubeSubjectAccessReview_IsConstruct(x interface{}) *bool {
 func KubeSubjectAccessReview_Manifest(props *KubeSubjectAccessReviewProps) interface{} {
 	_init_.Initialize()
 
+	if err := validateKubeSubjectAccessReview_ManifestParameters(props); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -208,6 +217,9 @@ func KubeSubjectAccessReview_Manifest(props *KubeSubjectAccessReviewProps) inter
 func KubeSubjectAccessReview_Of(c constructs.IConstruct) cdk8s.ApiObject {
 	_init_.Initialize()
 
+	if err := validateKubeSubjectAccessReview_OfParameters(c); err != nil {
+		panic(err)
+	}
 	var returns cdk8s.ApiObject
 
 	_jsii_.StaticInvoke(

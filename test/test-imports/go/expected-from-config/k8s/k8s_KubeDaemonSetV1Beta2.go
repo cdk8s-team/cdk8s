@@ -130,6 +130,9 @@ func (j *jsiiProxy_KubeDaemonSetV1Beta2) Node() constructs.Node {
 func NewKubeDaemonSetV1Beta2(scope constructs.Construct, id *string, props *KubeDaemonSetV1Beta2Props) KubeDaemonSetV1Beta2 {
 	_init_.Initialize()
 
+	if err := validateNewKubeDaemonSetV1Beta2Parameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_KubeDaemonSetV1Beta2{}
 
 	_jsii_.Create(
@@ -172,6 +175,9 @@ func NewKubeDaemonSetV1Beta2_Override(k KubeDaemonSetV1Beta2, scope constructs.C
 func KubeDaemonSetV1Beta2_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateKubeDaemonSetV1Beta2_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -190,6 +196,9 @@ func KubeDaemonSetV1Beta2_IsConstruct(x interface{}) *bool {
 func KubeDaemonSetV1Beta2_Manifest(props *KubeDaemonSetV1Beta2Props) interface{} {
 	_init_.Initialize()
 
+	if err := validateKubeDaemonSetV1Beta2_ManifestParameters(props); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -210,6 +219,9 @@ func KubeDaemonSetV1Beta2_Manifest(props *KubeDaemonSetV1Beta2Props) interface{}
 func KubeDaemonSetV1Beta2_Of(c constructs.IConstruct) cdk8s.ApiObject {
 	_init_.Initialize()
 
+	if err := validateKubeDaemonSetV1Beta2_OfParameters(c); err != nil {
+		panic(err)
+	}
 	var returns cdk8s.ApiObject
 
 	_jsii_.StaticInvoke(

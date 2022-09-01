@@ -128,6 +128,9 @@ func (j *jsiiProxy_KubeLease) Node() constructs.Node {
 func NewKubeLease(scope constructs.Construct, id *string, props *KubeLeaseProps) KubeLease {
 	_init_.Initialize()
 
+	if err := validateNewKubeLeaseParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_KubeLease{}
 
 	_jsii_.Create(
@@ -170,6 +173,9 @@ func NewKubeLease_Override(k KubeLease, scope constructs.Construct, id *string, 
 func KubeLease_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateKubeLease_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -188,6 +194,9 @@ func KubeLease_IsConstruct(x interface{}) *bool {
 func KubeLease_Manifest(props *KubeLeaseProps) interface{} {
 	_init_.Initialize()
 
+	if err := validateKubeLease_ManifestParameters(props); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -208,6 +217,9 @@ func KubeLease_Manifest(props *KubeLeaseProps) interface{} {
 func KubeLease_Of(c constructs.IConstruct) cdk8s.ApiObject {
 	_init_.Initialize()
 
+	if err := validateKubeLease_OfParameters(c); err != nil {
+		panic(err)
+	}
 	var returns cdk8s.ApiObject
 
 	_jsii_.StaticInvoke(

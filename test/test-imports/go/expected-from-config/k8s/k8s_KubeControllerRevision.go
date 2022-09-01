@@ -130,6 +130,9 @@ func (j *jsiiProxy_KubeControllerRevision) Node() constructs.Node {
 func NewKubeControllerRevision(scope constructs.Construct, id *string, props *KubeControllerRevisionProps) KubeControllerRevision {
 	_init_.Initialize()
 
+	if err := validateNewKubeControllerRevisionParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_KubeControllerRevision{}
 
 	_jsii_.Create(
@@ -172,6 +175,9 @@ func NewKubeControllerRevision_Override(k KubeControllerRevision, scope construc
 func KubeControllerRevision_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateKubeControllerRevision_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -190,6 +196,9 @@ func KubeControllerRevision_IsConstruct(x interface{}) *bool {
 func KubeControllerRevision_Manifest(props *KubeControllerRevisionProps) interface{} {
 	_init_.Initialize()
 
+	if err := validateKubeControllerRevision_ManifestParameters(props); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -210,6 +219,9 @@ func KubeControllerRevision_Manifest(props *KubeControllerRevisionProps) interfa
 func KubeControllerRevision_Of(c constructs.IConstruct) cdk8s.ApiObject {
 	_init_.Initialize()
 
+	if err := validateKubeControllerRevision_OfParameters(c); err != nil {
+		panic(err)
+	}
 	var returns cdk8s.ApiObject
 
 	_jsii_.StaticInvoke(

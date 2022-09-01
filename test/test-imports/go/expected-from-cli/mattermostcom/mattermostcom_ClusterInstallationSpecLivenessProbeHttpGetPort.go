@@ -32,6 +32,9 @@ func (j *jsiiProxy_ClusterInstallationSpecLivenessProbeHttpGetPort) Value() inte
 func ClusterInstallationSpecLivenessProbeHttpGetPort_FromNumber(value *float64) ClusterInstallationSpecLivenessProbeHttpGetPort {
 	_init_.Initialize()
 
+	if err := validateClusterInstallationSpecLivenessProbeHttpGetPort_FromNumberParameters(value); err != nil {
+		panic(err)
+	}
 	var returns ClusterInstallationSpecLivenessProbeHttpGetPort
 
 	_jsii_.StaticInvoke(
@@ -47,6 +50,9 @@ func ClusterInstallationSpecLivenessProbeHttpGetPort_FromNumber(value *float64) 
 func ClusterInstallationSpecLivenessProbeHttpGetPort_FromString(value *string) ClusterInstallationSpecLivenessProbeHttpGetPort {
 	_init_.Initialize()
 
+	if err := validateClusterInstallationSpecLivenessProbeHttpGetPort_FromStringParameters(value); err != nil {
+		panic(err)
+	}
 	var returns ClusterInstallationSpecLivenessProbeHttpGetPort
 
 	_jsii_.StaticInvoke(

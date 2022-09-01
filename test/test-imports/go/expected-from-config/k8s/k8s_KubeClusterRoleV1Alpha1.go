@@ -130,6 +130,9 @@ func (j *jsiiProxy_KubeClusterRoleV1Alpha1) Node() constructs.Node {
 func NewKubeClusterRoleV1Alpha1(scope constructs.Construct, id *string, props *KubeClusterRoleV1Alpha1Props) KubeClusterRoleV1Alpha1 {
 	_init_.Initialize()
 
+	if err := validateNewKubeClusterRoleV1Alpha1Parameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_KubeClusterRoleV1Alpha1{}
 
 	_jsii_.Create(
@@ -172,6 +175,9 @@ func NewKubeClusterRoleV1Alpha1_Override(k KubeClusterRoleV1Alpha1, scope constr
 func KubeClusterRoleV1Alpha1_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateKubeClusterRoleV1Alpha1_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -190,6 +196,9 @@ func KubeClusterRoleV1Alpha1_IsConstruct(x interface{}) *bool {
 func KubeClusterRoleV1Alpha1_Manifest(props *KubeClusterRoleV1Alpha1Props) interface{} {
 	_init_.Initialize()
 
+	if err := validateKubeClusterRoleV1Alpha1_ManifestParameters(props); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -210,6 +219,9 @@ func KubeClusterRoleV1Alpha1_Manifest(props *KubeClusterRoleV1Alpha1Props) inter
 func KubeClusterRoleV1Alpha1_Of(c constructs.IConstruct) cdk8s.ApiObject {
 	_init_.Initialize()
 
+	if err := validateKubeClusterRoleV1Alpha1_OfParameters(c); err != nil {
+		panic(err)
+	}
 	var returns cdk8s.ApiObject
 
 	_jsii_.StaticInvoke(

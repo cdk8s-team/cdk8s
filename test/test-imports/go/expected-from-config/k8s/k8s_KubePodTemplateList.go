@@ -128,6 +128,9 @@ func (j *jsiiProxy_KubePodTemplateList) Node() constructs.Node {
 func NewKubePodTemplateList(scope constructs.Construct, id *string, props *KubePodTemplateListProps) KubePodTemplateList {
 	_init_.Initialize()
 
+	if err := validateNewKubePodTemplateListParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_KubePodTemplateList{}
 
 	_jsii_.Create(
@@ -170,6 +173,9 @@ func NewKubePodTemplateList_Override(k KubePodTemplateList, scope constructs.Con
 func KubePodTemplateList_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateKubePodTemplateList_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -188,6 +194,9 @@ func KubePodTemplateList_IsConstruct(x interface{}) *bool {
 func KubePodTemplateList_Manifest(props *KubePodTemplateListProps) interface{} {
 	_init_.Initialize()
 
+	if err := validateKubePodTemplateList_ManifestParameters(props); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -208,6 +217,9 @@ func KubePodTemplateList_Manifest(props *KubePodTemplateListProps) interface{} {
 func KubePodTemplateList_Of(c constructs.IConstruct) cdk8s.ApiObject {
 	_init_.Initialize()
 
+	if err := validateKubePodTemplateList_OfParameters(c); err != nil {
+		panic(err)
+	}
 	var returns cdk8s.ApiObject
 
 	_jsii_.StaticInvoke(

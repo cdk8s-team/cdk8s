@@ -128,6 +128,9 @@ func (j *jsiiProxy_KubeLimitRangeList) Node() constructs.Node {
 func NewKubeLimitRangeList(scope constructs.Construct, id *string, props *KubeLimitRangeListProps) KubeLimitRangeList {
 	_init_.Initialize()
 
+	if err := validateNewKubeLimitRangeListParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_KubeLimitRangeList{}
 
 	_jsii_.Create(
@@ -170,6 +173,9 @@ func NewKubeLimitRangeList_Override(k KubeLimitRangeList, scope constructs.Const
 func KubeLimitRangeList_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateKubeLimitRangeList_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -188,6 +194,9 @@ func KubeLimitRangeList_IsConstruct(x interface{}) *bool {
 func KubeLimitRangeList_Manifest(props *KubeLimitRangeListProps) interface{} {
 	_init_.Initialize()
 
+	if err := validateKubeLimitRangeList_ManifestParameters(props); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -208,6 +217,9 @@ func KubeLimitRangeList_Manifest(props *KubeLimitRangeListProps) interface{} {
 func KubeLimitRangeList_Of(c constructs.IConstruct) cdk8s.ApiObject {
 	_init_.Initialize()
 
+	if err := validateKubeLimitRangeList_OfParameters(c); err != nil {
+		panic(err)
+	}
 	var returns cdk8s.ApiObject
 
 	_jsii_.StaticInvoke(

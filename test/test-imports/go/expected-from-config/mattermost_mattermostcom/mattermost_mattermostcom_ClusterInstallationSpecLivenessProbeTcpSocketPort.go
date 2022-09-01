@@ -32,6 +32,9 @@ func (j *jsiiProxy_ClusterInstallationSpecLivenessProbeTcpSocketPort) Value() in
 func ClusterInstallationSpecLivenessProbeTcpSocketPort_FromNumber(value *float64) ClusterInstallationSpecLivenessProbeTcpSocketPort {
 	_init_.Initialize()
 
+	if err := validateClusterInstallationSpecLivenessProbeTcpSocketPort_FromNumberParameters(value); err != nil {
+		panic(err)
+	}
 	var returns ClusterInstallationSpecLivenessProbeTcpSocketPort
 
 	_jsii_.StaticInvoke(
@@ -47,6 +50,9 @@ func ClusterInstallationSpecLivenessProbeTcpSocketPort_FromNumber(value *float64
 func ClusterInstallationSpecLivenessProbeTcpSocketPort_FromString(value *string) ClusterInstallationSpecLivenessProbeTcpSocketPort {
 	_init_.Initialize()
 
+	if err := validateClusterInstallationSpecLivenessProbeTcpSocketPort_FromStringParameters(value); err != nil {
+		panic(err)
+	}
 	var returns ClusterInstallationSpecLivenessProbeTcpSocketPort
 
 	_jsii_.StaticInvoke(

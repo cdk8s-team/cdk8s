@@ -128,6 +128,9 @@ func (j *jsiiProxy_KubeScaleV1Beta2) Node() constructs.Node {
 func NewKubeScaleV1Beta2(scope constructs.Construct, id *string, props *KubeScaleV1Beta2Props) KubeScaleV1Beta2 {
 	_init_.Initialize()
 
+	if err := validateNewKubeScaleV1Beta2Parameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_KubeScaleV1Beta2{}
 
 	_jsii_.Create(
@@ -170,6 +173,9 @@ func NewKubeScaleV1Beta2_Override(k KubeScaleV1Beta2, scope constructs.Construct
 func KubeScaleV1Beta2_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateKubeScaleV1Beta2_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -188,6 +194,9 @@ func KubeScaleV1Beta2_IsConstruct(x interface{}) *bool {
 func KubeScaleV1Beta2_Manifest(props *KubeScaleV1Beta2Props) interface{} {
 	_init_.Initialize()
 
+	if err := validateKubeScaleV1Beta2_ManifestParameters(props); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -208,6 +217,9 @@ func KubeScaleV1Beta2_Manifest(props *KubeScaleV1Beta2Props) interface{} {
 func KubeScaleV1Beta2_Of(c constructs.IConstruct) cdk8s.ApiObject {
 	_init_.Initialize()
 
+	if err := validateKubeScaleV1Beta2_OfParameters(c); err != nil {
+		panic(err)
+	}
 	var returns cdk8s.ApiObject
 
 	_jsii_.StaticInvoke(

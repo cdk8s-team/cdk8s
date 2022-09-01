@@ -128,6 +128,9 @@ func (j *jsiiProxy_KubeNetworkPolicyList) Node() constructs.Node {
 func NewKubeNetworkPolicyList(scope constructs.Construct, id *string, props *KubeNetworkPolicyListProps) KubeNetworkPolicyList {
 	_init_.Initialize()
 
+	if err := validateNewKubeNetworkPolicyListParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_KubeNetworkPolicyList{}
 
 	_jsii_.Create(
@@ -170,6 +173,9 @@ func NewKubeNetworkPolicyList_Override(k KubeNetworkPolicyList, scope constructs
 func KubeNetworkPolicyList_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateKubeNetworkPolicyList_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -188,6 +194,9 @@ func KubeNetworkPolicyList_IsConstruct(x interface{}) *bool {
 func KubeNetworkPolicyList_Manifest(props *KubeNetworkPolicyListProps) interface{} {
 	_init_.Initialize()
 
+	if err := validateKubeNetworkPolicyList_ManifestParameters(props); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -208,6 +217,9 @@ func KubeNetworkPolicyList_Manifest(props *KubeNetworkPolicyListProps) interface
 func KubeNetworkPolicyList_Of(c constructs.IConstruct) cdk8s.ApiObject {
 	_init_.Initialize()
 
+	if err := validateKubeNetworkPolicyList_OfParameters(c); err != nil {
+		panic(err)
+	}
 	var returns cdk8s.ApiObject
 
 	_jsii_.StaticInvoke(

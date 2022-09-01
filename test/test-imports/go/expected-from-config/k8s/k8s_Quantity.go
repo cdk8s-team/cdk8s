@@ -29,6 +29,9 @@ func (j *jsiiProxy_Quantity) Value() interface{} {
 func Quantity_FromNumber(value *float64) Quantity {
 	_init_.Initialize()
 
+	if err := validateQuantity_FromNumberParameters(value); err != nil {
+		panic(err)
+	}
 	var returns Quantity
 
 	_jsii_.StaticInvoke(
@@ -44,6 +47,9 @@ func Quantity_FromNumber(value *float64) Quantity {
 func Quantity_FromString(value *string) Quantity {
 	_init_.Initialize()
 
+	if err := validateQuantity_FromStringParameters(value); err != nil {
+		panic(err)
+	}
 	var returns Quantity
 
 	_jsii_.StaticInvoke(

@@ -128,6 +128,9 @@ func (j *jsiiProxy_KubeEndpointsList) Node() constructs.Node {
 func NewKubeEndpointsList(scope constructs.Construct, id *string, props *KubeEndpointsListProps) KubeEndpointsList {
 	_init_.Initialize()
 
+	if err := validateNewKubeEndpointsListParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_KubeEndpointsList{}
 
 	_jsii_.Create(
@@ -170,6 +173,9 @@ func NewKubeEndpointsList_Override(k KubeEndpointsList, scope constructs.Constru
 func KubeEndpointsList_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateKubeEndpointsList_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -188,6 +194,9 @@ func KubeEndpointsList_IsConstruct(x interface{}) *bool {
 func KubeEndpointsList_Manifest(props *KubeEndpointsListProps) interface{} {
 	_init_.Initialize()
 
+	if err := validateKubeEndpointsList_ManifestParameters(props); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -208,6 +217,9 @@ func KubeEndpointsList_Manifest(props *KubeEndpointsListProps) interface{} {
 func KubeEndpointsList_Of(c constructs.IConstruct) cdk8s.ApiObject {
 	_init_.Initialize()
 
+	if err := validateKubeEndpointsList_OfParameters(c); err != nil {
+		panic(err)
+	}
 	var returns cdk8s.ApiObject
 
 	_jsii_.StaticInvoke(

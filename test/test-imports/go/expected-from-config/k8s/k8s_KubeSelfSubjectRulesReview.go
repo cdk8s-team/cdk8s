@@ -130,6 +130,9 @@ func (j *jsiiProxy_KubeSelfSubjectRulesReview) Node() constructs.Node {
 func NewKubeSelfSubjectRulesReview(scope constructs.Construct, id *string, props *KubeSelfSubjectRulesReviewProps) KubeSelfSubjectRulesReview {
 	_init_.Initialize()
 
+	if err := validateNewKubeSelfSubjectRulesReviewParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_KubeSelfSubjectRulesReview{}
 
 	_jsii_.Create(
@@ -172,6 +175,9 @@ func NewKubeSelfSubjectRulesReview_Override(k KubeSelfSubjectRulesReview, scope 
 func KubeSelfSubjectRulesReview_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateKubeSelfSubjectRulesReview_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -190,6 +196,9 @@ func KubeSelfSubjectRulesReview_IsConstruct(x interface{}) *bool {
 func KubeSelfSubjectRulesReview_Manifest(props *KubeSelfSubjectRulesReviewProps) interface{} {
 	_init_.Initialize()
 
+	if err := validateKubeSelfSubjectRulesReview_ManifestParameters(props); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -210,6 +219,9 @@ func KubeSelfSubjectRulesReview_Manifest(props *KubeSelfSubjectRulesReviewProps)
 func KubeSelfSubjectRulesReview_Of(c constructs.IConstruct) cdk8s.ApiObject {
 	_init_.Initialize()
 
+	if err := validateKubeSelfSubjectRulesReview_OfParameters(c); err != nil {
+		panic(err)
+	}
 	var returns cdk8s.ApiObject
 
 	_jsii_.StaticInvoke(

@@ -128,6 +128,9 @@ func (j *jsiiProxy_KubeCronJobV2Alpha1) Node() constructs.Node {
 func NewKubeCronJobV2Alpha1(scope constructs.Construct, id *string, props *KubeCronJobV2Alpha1Props) KubeCronJobV2Alpha1 {
 	_init_.Initialize()
 
+	if err := validateNewKubeCronJobV2Alpha1Parameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_KubeCronJobV2Alpha1{}
 
 	_jsii_.Create(
@@ -170,6 +173,9 @@ func NewKubeCronJobV2Alpha1_Override(k KubeCronJobV2Alpha1, scope constructs.Con
 func KubeCronJobV2Alpha1_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateKubeCronJobV2Alpha1_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -188,6 +194,9 @@ func KubeCronJobV2Alpha1_IsConstruct(x interface{}) *bool {
 func KubeCronJobV2Alpha1_Manifest(props *KubeCronJobV2Alpha1Props) interface{} {
 	_init_.Initialize()
 
+	if err := validateKubeCronJobV2Alpha1_ManifestParameters(props); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -208,6 +217,9 @@ func KubeCronJobV2Alpha1_Manifest(props *KubeCronJobV2Alpha1Props) interface{} {
 func KubeCronJobV2Alpha1_Of(c constructs.IConstruct) cdk8s.ApiObject {
 	_init_.Initialize()
 
+	if err := validateKubeCronJobV2Alpha1_OfParameters(c); err != nil {
+		panic(err)
+	}
 	var returns cdk8s.ApiObject
 
 	_jsii_.StaticInvoke(

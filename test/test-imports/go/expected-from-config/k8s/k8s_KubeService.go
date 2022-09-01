@@ -128,6 +128,9 @@ func (j *jsiiProxy_KubeService) Node() constructs.Node {
 func NewKubeService(scope constructs.Construct, id *string, props *KubeServiceProps) KubeService {
 	_init_.Initialize()
 
+	if err := validateNewKubeServiceParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_KubeService{}
 
 	_jsii_.Create(
@@ -170,6 +173,9 @@ func NewKubeService_Override(k KubeService, scope constructs.Construct, id *stri
 func KubeService_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateKubeService_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -188,6 +194,9 @@ func KubeService_IsConstruct(x interface{}) *bool {
 func KubeService_Manifest(props *KubeServiceProps) interface{} {
 	_init_.Initialize()
 
+	if err := validateKubeService_ManifestParameters(props); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -208,6 +217,9 @@ func KubeService_Manifest(props *KubeServiceProps) interface{} {
 func KubeService_Of(c constructs.IConstruct) cdk8s.ApiObject {
 	_init_.Initialize()
 
+	if err := validateKubeService_OfParameters(c); err != nil {
+		panic(err)
+	}
 	var returns cdk8s.ApiObject
 
 	_jsii_.StaticInvoke(
