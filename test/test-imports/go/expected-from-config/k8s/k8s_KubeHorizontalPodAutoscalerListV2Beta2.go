@@ -128,6 +128,9 @@ func (j *jsiiProxy_KubeHorizontalPodAutoscalerListV2Beta2) Node() constructs.Nod
 func NewKubeHorizontalPodAutoscalerListV2Beta2(scope constructs.Construct, id *string, props *KubeHorizontalPodAutoscalerListV2Beta2Props) KubeHorizontalPodAutoscalerListV2Beta2 {
 	_init_.Initialize()
 
+	if err := validateNewKubeHorizontalPodAutoscalerListV2Beta2Parameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_KubeHorizontalPodAutoscalerListV2Beta2{}
 
 	_jsii_.Create(
@@ -170,6 +173,9 @@ func NewKubeHorizontalPodAutoscalerListV2Beta2_Override(k KubeHorizontalPodAutos
 func KubeHorizontalPodAutoscalerListV2Beta2_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateKubeHorizontalPodAutoscalerListV2Beta2_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -188,6 +194,9 @@ func KubeHorizontalPodAutoscalerListV2Beta2_IsConstruct(x interface{}) *bool {
 func KubeHorizontalPodAutoscalerListV2Beta2_Manifest(props *KubeHorizontalPodAutoscalerListV2Beta2Props) interface{} {
 	_init_.Initialize()
 
+	if err := validateKubeHorizontalPodAutoscalerListV2Beta2_ManifestParameters(props); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -208,6 +217,9 @@ func KubeHorizontalPodAutoscalerListV2Beta2_Manifest(props *KubeHorizontalPodAut
 func KubeHorizontalPodAutoscalerListV2Beta2_Of(c constructs.IConstruct) cdk8s.ApiObject {
 	_init_.Initialize()
 
+	if err := validateKubeHorizontalPodAutoscalerListV2Beta2_OfParameters(c); err != nil {
+		panic(err)
+	}
 	var returns cdk8s.ApiObject
 
 	_jsii_.StaticInvoke(

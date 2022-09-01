@@ -130,6 +130,9 @@ func (j *jsiiProxy_KubePod) Node() constructs.Node {
 func NewKubePod(scope constructs.Construct, id *string, props *KubePodProps) KubePod {
 	_init_.Initialize()
 
+	if err := validateNewKubePodParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_KubePod{}
 
 	_jsii_.Create(
@@ -172,6 +175,9 @@ func NewKubePod_Override(k KubePod, scope constructs.Construct, id *string, prop
 func KubePod_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateKubePod_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -190,6 +196,9 @@ func KubePod_IsConstruct(x interface{}) *bool {
 func KubePod_Manifest(props *KubePodProps) interface{} {
 	_init_.Initialize()
 
+	if err := validateKubePod_ManifestParameters(props); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -210,6 +219,9 @@ func KubePod_Manifest(props *KubePodProps) interface{} {
 func KubePod_Of(c constructs.IConstruct) cdk8s.ApiObject {
 	_init_.Initialize()
 
+	if err := validateKubePod_OfParameters(c); err != nil {
+		panic(err)
+	}
 	var returns cdk8s.ApiObject
 
 	_jsii_.StaticInvoke(

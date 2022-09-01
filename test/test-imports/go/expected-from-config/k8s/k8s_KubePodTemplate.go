@@ -128,6 +128,9 @@ func (j *jsiiProxy_KubePodTemplate) Node() constructs.Node {
 func NewKubePodTemplate(scope constructs.Construct, id *string, props *KubePodTemplateProps) KubePodTemplate {
 	_init_.Initialize()
 
+	if err := validateNewKubePodTemplateParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_KubePodTemplate{}
 
 	_jsii_.Create(
@@ -170,6 +173,9 @@ func NewKubePodTemplate_Override(k KubePodTemplate, scope constructs.Construct, 
 func KubePodTemplate_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateKubePodTemplate_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -188,6 +194,9 @@ func KubePodTemplate_IsConstruct(x interface{}) *bool {
 func KubePodTemplate_Manifest(props *KubePodTemplateProps) interface{} {
 	_init_.Initialize()
 
+	if err := validateKubePodTemplate_ManifestParameters(props); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -208,6 +217,9 @@ func KubePodTemplate_Manifest(props *KubePodTemplateProps) interface{} {
 func KubePodTemplate_Of(c constructs.IConstruct) cdk8s.ApiObject {
 	_init_.Initialize()
 
+	if err := validateKubePodTemplate_OfParameters(c); err != nil {
+		panic(err)
+	}
 	var returns cdk8s.ApiObject
 
 	_jsii_.StaticInvoke(

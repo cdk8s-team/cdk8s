@@ -128,6 +128,9 @@ func (j *jsiiProxy_KubePodDisruptionBudgetListV1Beta1) Node() constructs.Node {
 func NewKubePodDisruptionBudgetListV1Beta1(scope constructs.Construct, id *string, props *KubePodDisruptionBudgetListV1Beta1Props) KubePodDisruptionBudgetListV1Beta1 {
 	_init_.Initialize()
 
+	if err := validateNewKubePodDisruptionBudgetListV1Beta1Parameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_KubePodDisruptionBudgetListV1Beta1{}
 
 	_jsii_.Create(
@@ -170,6 +173,9 @@ func NewKubePodDisruptionBudgetListV1Beta1_Override(k KubePodDisruptionBudgetLis
 func KubePodDisruptionBudgetListV1Beta1_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateKubePodDisruptionBudgetListV1Beta1_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -188,6 +194,9 @@ func KubePodDisruptionBudgetListV1Beta1_IsConstruct(x interface{}) *bool {
 func KubePodDisruptionBudgetListV1Beta1_Manifest(props *KubePodDisruptionBudgetListV1Beta1Props) interface{} {
 	_init_.Initialize()
 
+	if err := validateKubePodDisruptionBudgetListV1Beta1_ManifestParameters(props); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -208,6 +217,9 @@ func KubePodDisruptionBudgetListV1Beta1_Manifest(props *KubePodDisruptionBudgetL
 func KubePodDisruptionBudgetListV1Beta1_Of(c constructs.IConstruct) cdk8s.ApiObject {
 	_init_.Initialize()
 
+	if err := validateKubePodDisruptionBudgetListV1Beta1_OfParameters(c); err != nil {
+		panic(err)
+	}
 	var returns cdk8s.ApiObject
 
 	_jsii_.StaticInvoke(

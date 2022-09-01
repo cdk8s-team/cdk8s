@@ -130,6 +130,9 @@ func (j *jsiiProxy_KubeVolumeAttachment) Node() constructs.Node {
 func NewKubeVolumeAttachment(scope constructs.Construct, id *string, props *KubeVolumeAttachmentProps) KubeVolumeAttachment {
 	_init_.Initialize()
 
+	if err := validateNewKubeVolumeAttachmentParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_KubeVolumeAttachment{}
 
 	_jsii_.Create(
@@ -172,6 +175,9 @@ func NewKubeVolumeAttachment_Override(k KubeVolumeAttachment, scope constructs.C
 func KubeVolumeAttachment_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateKubeVolumeAttachment_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -190,6 +196,9 @@ func KubeVolumeAttachment_IsConstruct(x interface{}) *bool {
 func KubeVolumeAttachment_Manifest(props *KubeVolumeAttachmentProps) interface{} {
 	_init_.Initialize()
 
+	if err := validateKubeVolumeAttachment_ManifestParameters(props); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -210,6 +219,9 @@ func KubeVolumeAttachment_Manifest(props *KubeVolumeAttachmentProps) interface{}
 func KubeVolumeAttachment_Of(c constructs.IConstruct) cdk8s.ApiObject {
 	_init_.Initialize()
 
+	if err := validateKubeVolumeAttachment_OfParameters(c); err != nil {
+		panic(err)
+	}
 	var returns cdk8s.ApiObject
 
 	_jsii_.StaticInvoke(

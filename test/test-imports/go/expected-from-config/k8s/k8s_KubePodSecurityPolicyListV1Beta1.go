@@ -128,6 +128,9 @@ func (j *jsiiProxy_KubePodSecurityPolicyListV1Beta1) Node() constructs.Node {
 func NewKubePodSecurityPolicyListV1Beta1(scope constructs.Construct, id *string, props *KubePodSecurityPolicyListV1Beta1Props) KubePodSecurityPolicyListV1Beta1 {
 	_init_.Initialize()
 
+	if err := validateNewKubePodSecurityPolicyListV1Beta1Parameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_KubePodSecurityPolicyListV1Beta1{}
 
 	_jsii_.Create(
@@ -170,6 +173,9 @@ func NewKubePodSecurityPolicyListV1Beta1_Override(k KubePodSecurityPolicyListV1B
 func KubePodSecurityPolicyListV1Beta1_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateKubePodSecurityPolicyListV1Beta1_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -188,6 +194,9 @@ func KubePodSecurityPolicyListV1Beta1_IsConstruct(x interface{}) *bool {
 func KubePodSecurityPolicyListV1Beta1_Manifest(props *KubePodSecurityPolicyListV1Beta1Props) interface{} {
 	_init_.Initialize()
 
+	if err := validateKubePodSecurityPolicyListV1Beta1_ManifestParameters(props); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -208,6 +217,9 @@ func KubePodSecurityPolicyListV1Beta1_Manifest(props *KubePodSecurityPolicyListV
 func KubePodSecurityPolicyListV1Beta1_Of(c constructs.IConstruct) cdk8s.ApiObject {
 	_init_.Initialize()
 
+	if err := validateKubePodSecurityPolicyListV1Beta1_OfParameters(c); err != nil {
+		panic(err)
+	}
 	var returns cdk8s.ApiObject
 
 	_jsii_.StaticInvoke(

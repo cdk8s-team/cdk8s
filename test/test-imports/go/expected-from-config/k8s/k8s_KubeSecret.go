@@ -130,6 +130,9 @@ func (j *jsiiProxy_KubeSecret) Node() constructs.Node {
 func NewKubeSecret(scope constructs.Construct, id *string, props *KubeSecretProps) KubeSecret {
 	_init_.Initialize()
 
+	if err := validateNewKubeSecretParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_KubeSecret{}
 
 	_jsii_.Create(
@@ -172,6 +175,9 @@ func NewKubeSecret_Override(k KubeSecret, scope constructs.Construct, id *string
 func KubeSecret_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateKubeSecret_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -190,6 +196,9 @@ func KubeSecret_IsConstruct(x interface{}) *bool {
 func KubeSecret_Manifest(props *KubeSecretProps) interface{} {
 	_init_.Initialize()
 
+	if err := validateKubeSecret_ManifestParameters(props); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -210,6 +219,9 @@ func KubeSecret_Manifest(props *KubeSecretProps) interface{} {
 func KubeSecret_Of(c constructs.IConstruct) cdk8s.ApiObject {
 	_init_.Initialize()
 
+	if err := validateKubeSecret_OfParameters(c); err != nil {
+		panic(err)
+	}
 	var returns cdk8s.ApiObject
 
 	_jsii_.StaticInvoke(

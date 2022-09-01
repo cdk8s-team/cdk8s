@@ -130,6 +130,9 @@ func (j *jsiiProxy_KubeClusterRoleBinding) Node() constructs.Node {
 func NewKubeClusterRoleBinding(scope constructs.Construct, id *string, props *KubeClusterRoleBindingProps) KubeClusterRoleBinding {
 	_init_.Initialize()
 
+	if err := validateNewKubeClusterRoleBindingParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_KubeClusterRoleBinding{}
 
 	_jsii_.Create(
@@ -172,6 +175,9 @@ func NewKubeClusterRoleBinding_Override(k KubeClusterRoleBinding, scope construc
 func KubeClusterRoleBinding_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateKubeClusterRoleBinding_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -190,6 +196,9 @@ func KubeClusterRoleBinding_IsConstruct(x interface{}) *bool {
 func KubeClusterRoleBinding_Manifest(props *KubeClusterRoleBindingProps) interface{} {
 	_init_.Initialize()
 
+	if err := validateKubeClusterRoleBinding_ManifestParameters(props); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -210,6 +219,9 @@ func KubeClusterRoleBinding_Manifest(props *KubeClusterRoleBindingProps) interfa
 func KubeClusterRoleBinding_Of(c constructs.IConstruct) cdk8s.ApiObject {
 	_init_.Initialize()
 
+	if err := validateKubeClusterRoleBinding_OfParameters(c); err != nil {
+		panic(err)
+	}
 	var returns cdk8s.ApiObject
 
 	_jsii_.StaticInvoke(

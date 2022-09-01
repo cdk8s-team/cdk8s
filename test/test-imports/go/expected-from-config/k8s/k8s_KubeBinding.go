@@ -130,6 +130,9 @@ func (j *jsiiProxy_KubeBinding) Node() constructs.Node {
 func NewKubeBinding(scope constructs.Construct, id *string, props *KubeBindingProps) KubeBinding {
 	_init_.Initialize()
 
+	if err := validateNewKubeBindingParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_KubeBinding{}
 
 	_jsii_.Create(
@@ -172,6 +175,9 @@ func NewKubeBinding_Override(k KubeBinding, scope constructs.Construct, id *stri
 func KubeBinding_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateKubeBinding_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -190,6 +196,9 @@ func KubeBinding_IsConstruct(x interface{}) *bool {
 func KubeBinding_Manifest(props *KubeBindingProps) interface{} {
 	_init_.Initialize()
 
+	if err := validateKubeBinding_ManifestParameters(props); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -210,6 +219,9 @@ func KubeBinding_Manifest(props *KubeBindingProps) interface{} {
 func KubeBinding_Of(c constructs.IConstruct) cdk8s.ApiObject {
 	_init_.Initialize()
 
+	if err := validateKubeBinding_OfParameters(c); err != nil {
+		panic(err)
+	}
 	var returns cdk8s.ApiObject
 
 	_jsii_.StaticInvoke(

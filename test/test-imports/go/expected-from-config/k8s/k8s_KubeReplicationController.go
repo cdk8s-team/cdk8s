@@ -128,6 +128,9 @@ func (j *jsiiProxy_KubeReplicationController) Node() constructs.Node {
 func NewKubeReplicationController(scope constructs.Construct, id *string, props *KubeReplicationControllerProps) KubeReplicationController {
 	_init_.Initialize()
 
+	if err := validateNewKubeReplicationControllerParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_KubeReplicationController{}
 
 	_jsii_.Create(
@@ -170,6 +173,9 @@ func NewKubeReplicationController_Override(k KubeReplicationController, scope co
 func KubeReplicationController_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateKubeReplicationController_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -188,6 +194,9 @@ func KubeReplicationController_IsConstruct(x interface{}) *bool {
 func KubeReplicationController_Manifest(props *KubeReplicationControllerProps) interface{} {
 	_init_.Initialize()
 
+	if err := validateKubeReplicationController_ManifestParameters(props); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -208,6 +217,9 @@ func KubeReplicationController_Manifest(props *KubeReplicationControllerProps) i
 func KubeReplicationController_Of(c constructs.IConstruct) cdk8s.ApiObject {
 	_init_.Initialize()
 
+	if err := validateKubeReplicationController_OfParameters(c); err != nil {
+		panic(err)
+	}
 	var returns cdk8s.ApiObject
 
 	_jsii_.StaticInvoke(

@@ -130,6 +130,9 @@ func (j *jsiiProxy_KubeRoleBinding) Node() constructs.Node {
 func NewKubeRoleBinding(scope constructs.Construct, id *string, props *KubeRoleBindingProps) KubeRoleBinding {
 	_init_.Initialize()
 
+	if err := validateNewKubeRoleBindingParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_KubeRoleBinding{}
 
 	_jsii_.Create(
@@ -172,6 +175,9 @@ func NewKubeRoleBinding_Override(k KubeRoleBinding, scope constructs.Construct, 
 func KubeRoleBinding_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateKubeRoleBinding_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -190,6 +196,9 @@ func KubeRoleBinding_IsConstruct(x interface{}) *bool {
 func KubeRoleBinding_Manifest(props *KubeRoleBindingProps) interface{} {
 	_init_.Initialize()
 
+	if err := validateKubeRoleBinding_ManifestParameters(props); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -210,6 +219,9 @@ func KubeRoleBinding_Manifest(props *KubeRoleBindingProps) interface{} {
 func KubeRoleBinding_Of(c constructs.IConstruct) cdk8s.ApiObject {
 	_init_.Initialize()
 
+	if err := validateKubeRoleBinding_OfParameters(c); err != nil {
+		panic(err)
+	}
 	var returns cdk8s.ApiObject
 
 	_jsii_.StaticInvoke(

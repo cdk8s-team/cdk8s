@@ -130,6 +130,9 @@ func (j *jsiiProxy_KubeCsiNode) Node() constructs.Node {
 func NewKubeCsiNode(scope constructs.Construct, id *string, props *KubeCsiNodeProps) KubeCsiNode {
 	_init_.Initialize()
 
+	if err := validateNewKubeCsiNodeParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_KubeCsiNode{}
 
 	_jsii_.Create(
@@ -172,6 +175,9 @@ func NewKubeCsiNode_Override(k KubeCsiNode, scope constructs.Construct, id *stri
 func KubeCsiNode_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateKubeCsiNode_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -190,6 +196,9 @@ func KubeCsiNode_IsConstruct(x interface{}) *bool {
 func KubeCsiNode_Manifest(props *KubeCsiNodeProps) interface{} {
 	_init_.Initialize()
 
+	if err := validateKubeCsiNode_ManifestParameters(props); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -210,6 +219,9 @@ func KubeCsiNode_Manifest(props *KubeCsiNodeProps) interface{} {
 func KubeCsiNode_Of(c constructs.IConstruct) cdk8s.ApiObject {
 	_init_.Initialize()
 
+	if err := validateKubeCsiNode_OfParameters(c); err != nil {
+		panic(err)
+	}
 	var returns cdk8s.ApiObject
 
 	_jsii_.StaticInvoke(

@@ -128,6 +128,9 @@ func (j *jsiiProxy_KubeNodeList) Node() constructs.Node {
 func NewKubeNodeList(scope constructs.Construct, id *string, props *KubeNodeListProps) KubeNodeList {
 	_init_.Initialize()
 
+	if err := validateNewKubeNodeListParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_KubeNodeList{}
 
 	_jsii_.Create(
@@ -170,6 +173,9 @@ func NewKubeNodeList_Override(k KubeNodeList, scope constructs.Construct, id *st
 func KubeNodeList_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateKubeNodeList_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -188,6 +194,9 @@ func KubeNodeList_IsConstruct(x interface{}) *bool {
 func KubeNodeList_Manifest(props *KubeNodeListProps) interface{} {
 	_init_.Initialize()
 
+	if err := validateKubeNodeList_ManifestParameters(props); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -208,6 +217,9 @@ func KubeNodeList_Manifest(props *KubeNodeListProps) interface{} {
 func KubeNodeList_Of(c constructs.IConstruct) cdk8s.ApiObject {
 	_init_.Initialize()
 
+	if err := validateKubeNodeList_OfParameters(c); err != nil {
+		panic(err)
+	}
 	var returns cdk8s.ApiObject
 
 	_jsii_.StaticInvoke(

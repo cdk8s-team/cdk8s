@@ -127,6 +127,9 @@ func (j *jsiiProxy_CronTab) Node() constructs.Node {
 func NewCronTab(scope constructs.Construct, id *string, props *CronTabProps) CronTab {
 	_init_.Initialize()
 
+	if err := validateNewCronTabParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_CronTab{}
 
 	_jsii_.Create(
@@ -169,6 +172,9 @@ func NewCronTab_Override(c CronTab, scope constructs.Construct, id *string, prop
 func CronTab_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateCronTab_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -187,6 +193,9 @@ func CronTab_IsConstruct(x interface{}) *bool {
 func CronTab_Manifest(props *CronTabProps) interface{} {
 	_init_.Initialize()
 
+	if err := validateCronTab_ManifestParameters(props); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -207,6 +216,9 @@ func CronTab_Manifest(props *CronTabProps) interface{} {
 func CronTab_Of(c constructs.IConstruct) cdk8s.ApiObject {
 	_init_.Initialize()
 
+	if err := validateCronTab_OfParameters(c); err != nil {
+		panic(err)
+	}
 	var returns cdk8s.ApiObject
 
 	_jsii_.StaticInvoke(

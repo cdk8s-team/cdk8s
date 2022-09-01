@@ -130,6 +130,9 @@ func (j *jsiiProxy_KubeReplicaSetV1Beta2) Node() constructs.Node {
 func NewKubeReplicaSetV1Beta2(scope constructs.Construct, id *string, props *KubeReplicaSetV1Beta2Props) KubeReplicaSetV1Beta2 {
 	_init_.Initialize()
 
+	if err := validateNewKubeReplicaSetV1Beta2Parameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_KubeReplicaSetV1Beta2{}
 
 	_jsii_.Create(
@@ -172,6 +175,9 @@ func NewKubeReplicaSetV1Beta2_Override(k KubeReplicaSetV1Beta2, scope constructs
 func KubeReplicaSetV1Beta2_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateKubeReplicaSetV1Beta2_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -190,6 +196,9 @@ func KubeReplicaSetV1Beta2_IsConstruct(x interface{}) *bool {
 func KubeReplicaSetV1Beta2_Manifest(props *KubeReplicaSetV1Beta2Props) interface{} {
 	_init_.Initialize()
 
+	if err := validateKubeReplicaSetV1Beta2_ManifestParameters(props); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -210,6 +219,9 @@ func KubeReplicaSetV1Beta2_Manifest(props *KubeReplicaSetV1Beta2Props) interface
 func KubeReplicaSetV1Beta2_Of(c constructs.IConstruct) cdk8s.ApiObject {
 	_init_.Initialize()
 
+	if err := validateKubeReplicaSetV1Beta2_OfParameters(c); err != nil {
+		panic(err)
+	}
 	var returns cdk8s.ApiObject
 
 	_jsii_.StaticInvoke(

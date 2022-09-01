@@ -128,6 +128,9 @@ func (j *jsiiProxy_KubeJobList) Node() constructs.Node {
 func NewKubeJobList(scope constructs.Construct, id *string, props *KubeJobListProps) KubeJobList {
 	_init_.Initialize()
 
+	if err := validateNewKubeJobListParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_KubeJobList{}
 
 	_jsii_.Create(
@@ -170,6 +173,9 @@ func NewKubeJobList_Override(k KubeJobList, scope constructs.Construct, id *stri
 func KubeJobList_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateKubeJobList_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -188,6 +194,9 @@ func KubeJobList_IsConstruct(x interface{}) *bool {
 func KubeJobList_Manifest(props *KubeJobListProps) interface{} {
 	_init_.Initialize()
 
+	if err := validateKubeJobList_ManifestParameters(props); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -208,6 +217,9 @@ func KubeJobList_Manifest(props *KubeJobListProps) interface{} {
 func KubeJobList_Of(c constructs.IConstruct) cdk8s.ApiObject {
 	_init_.Initialize()
 
+	if err := validateKubeJobList_OfParameters(c); err != nil {
+		panic(err)
+	}
 	var returns cdk8s.ApiObject
 
 	_jsii_.StaticInvoke(

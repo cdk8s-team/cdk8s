@@ -128,6 +128,9 @@ func (j *jsiiProxy_KubeReplicaSetList) Node() constructs.Node {
 func NewKubeReplicaSetList(scope constructs.Construct, id *string, props *KubeReplicaSetListProps) KubeReplicaSetList {
 	_init_.Initialize()
 
+	if err := validateNewKubeReplicaSetListParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_KubeReplicaSetList{}
 
 	_jsii_.Create(
@@ -170,6 +173,9 @@ func NewKubeReplicaSetList_Override(k KubeReplicaSetList, scope constructs.Const
 func KubeReplicaSetList_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateKubeReplicaSetList_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -188,6 +194,9 @@ func KubeReplicaSetList_IsConstruct(x interface{}) *bool {
 func KubeReplicaSetList_Manifest(props *KubeReplicaSetListProps) interface{} {
 	_init_.Initialize()
 
+	if err := validateKubeReplicaSetList_ManifestParameters(props); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -208,6 +217,9 @@ func KubeReplicaSetList_Manifest(props *KubeReplicaSetListProps) interface{} {
 func KubeReplicaSetList_Of(c constructs.IConstruct) cdk8s.ApiObject {
 	_init_.Initialize()
 
+	if err := validateKubeReplicaSetList_OfParameters(c); err != nil {
+		panic(err)
+	}
 	var returns cdk8s.ApiObject
 
 	_jsii_.StaticInvoke(

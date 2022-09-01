@@ -128,6 +128,9 @@ func (j *jsiiProxy_KubeStatefulSetList) Node() constructs.Node {
 func NewKubeStatefulSetList(scope constructs.Construct, id *string, props *KubeStatefulSetListProps) KubeStatefulSetList {
 	_init_.Initialize()
 
+	if err := validateNewKubeStatefulSetListParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_KubeStatefulSetList{}
 
 	_jsii_.Create(
@@ -170,6 +173,9 @@ func NewKubeStatefulSetList_Override(k KubeStatefulSetList, scope constructs.Con
 func KubeStatefulSetList_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateKubeStatefulSetList_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -188,6 +194,9 @@ func KubeStatefulSetList_IsConstruct(x interface{}) *bool {
 func KubeStatefulSetList_Manifest(props *KubeStatefulSetListProps) interface{} {
 	_init_.Initialize()
 
+	if err := validateKubeStatefulSetList_ManifestParameters(props); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -208,6 +217,9 @@ func KubeStatefulSetList_Manifest(props *KubeStatefulSetListProps) interface{} {
 func KubeStatefulSetList_Of(c constructs.IConstruct) cdk8s.ApiObject {
 	_init_.Initialize()
 
+	if err := validateKubeStatefulSetList_OfParameters(c); err != nil {
+		panic(err)
+	}
 	var returns cdk8s.ApiObject
 
 	_jsii_.StaticInvoke(

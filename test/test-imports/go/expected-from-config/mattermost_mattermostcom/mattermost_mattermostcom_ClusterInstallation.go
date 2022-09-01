@@ -128,6 +128,9 @@ func (j *jsiiProxy_ClusterInstallation) Node() constructs.Node {
 func NewClusterInstallation(scope constructs.Construct, id *string, props *ClusterInstallationProps) ClusterInstallation {
 	_init_.Initialize()
 
+	if err := validateNewClusterInstallationParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_ClusterInstallation{}
 
 	_jsii_.Create(
@@ -170,6 +173,9 @@ func NewClusterInstallation_Override(c ClusterInstallation, scope constructs.Con
 func ClusterInstallation_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateClusterInstallation_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -188,6 +194,9 @@ func ClusterInstallation_IsConstruct(x interface{}) *bool {
 func ClusterInstallation_Manifest(props *ClusterInstallationProps) interface{} {
 	_init_.Initialize()
 
+	if err := validateClusterInstallation_ManifestParameters(props); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -208,6 +217,9 @@ func ClusterInstallation_Manifest(props *ClusterInstallationProps) interface{} {
 func ClusterInstallation_Of(c constructs.IConstruct) cdk8s.ApiObject {
 	_init_.Initialize()
 
+	if err := validateClusterInstallation_OfParameters(c); err != nil {
+		panic(err)
+	}
 	var returns cdk8s.ApiObject
 
 	_jsii_.StaticInvoke(

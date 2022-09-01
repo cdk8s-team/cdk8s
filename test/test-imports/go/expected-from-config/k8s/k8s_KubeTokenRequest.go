@@ -128,6 +128,9 @@ func (j *jsiiProxy_KubeTokenRequest) Node() constructs.Node {
 func NewKubeTokenRequest(scope constructs.Construct, id *string, props *KubeTokenRequestProps) KubeTokenRequest {
 	_init_.Initialize()
 
+	if err := validateNewKubeTokenRequestParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_KubeTokenRequest{}
 
 	_jsii_.Create(
@@ -170,6 +173,9 @@ func NewKubeTokenRequest_Override(k KubeTokenRequest, scope constructs.Construct
 func KubeTokenRequest_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateKubeTokenRequest_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -188,6 +194,9 @@ func KubeTokenRequest_IsConstruct(x interface{}) *bool {
 func KubeTokenRequest_Manifest(props *KubeTokenRequestProps) interface{} {
 	_init_.Initialize()
 
+	if err := validateKubeTokenRequest_ManifestParameters(props); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -208,6 +217,9 @@ func KubeTokenRequest_Manifest(props *KubeTokenRequestProps) interface{} {
 func KubeTokenRequest_Of(c constructs.IConstruct) cdk8s.ApiObject {
 	_init_.Initialize()
 
+	if err := validateKubeTokenRequest_OfParameters(c); err != nil {
+		panic(err)
+	}
 	var returns cdk8s.ApiObject
 
 	_jsii_.StaticInvoke(

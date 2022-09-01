@@ -128,6 +128,9 @@ func (j *jsiiProxy_KubePriorityClassList) Node() constructs.Node {
 func NewKubePriorityClassList(scope constructs.Construct, id *string, props *KubePriorityClassListProps) KubePriorityClassList {
 	_init_.Initialize()
 
+	if err := validateNewKubePriorityClassListParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_KubePriorityClassList{}
 
 	_jsii_.Create(
@@ -170,6 +173,9 @@ func NewKubePriorityClassList_Override(k KubePriorityClassList, scope constructs
 func KubePriorityClassList_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateKubePriorityClassList_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -188,6 +194,9 @@ func KubePriorityClassList_IsConstruct(x interface{}) *bool {
 func KubePriorityClassList_Manifest(props *KubePriorityClassListProps) interface{} {
 	_init_.Initialize()
 
+	if err := validateKubePriorityClassList_ManifestParameters(props); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -208,6 +217,9 @@ func KubePriorityClassList_Manifest(props *KubePriorityClassListProps) interface
 func KubePriorityClassList_Of(c constructs.IConstruct) cdk8s.ApiObject {
 	_init_.Initialize()
 
+	if err := validateKubePriorityClassList_OfParameters(c); err != nil {
+		panic(err)
+	}
 	var returns cdk8s.ApiObject
 
 	_jsii_.StaticInvoke(

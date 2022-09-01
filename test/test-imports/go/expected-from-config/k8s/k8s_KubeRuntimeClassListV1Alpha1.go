@@ -128,6 +128,9 @@ func (j *jsiiProxy_KubeRuntimeClassListV1Alpha1) Node() constructs.Node {
 func NewKubeRuntimeClassListV1Alpha1(scope constructs.Construct, id *string, props *KubeRuntimeClassListV1Alpha1Props) KubeRuntimeClassListV1Alpha1 {
 	_init_.Initialize()
 
+	if err := validateNewKubeRuntimeClassListV1Alpha1Parameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_KubeRuntimeClassListV1Alpha1{}
 
 	_jsii_.Create(
@@ -170,6 +173,9 @@ func NewKubeRuntimeClassListV1Alpha1_Override(k KubeRuntimeClassListV1Alpha1, sc
 func KubeRuntimeClassListV1Alpha1_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateKubeRuntimeClassListV1Alpha1_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -188,6 +194,9 @@ func KubeRuntimeClassListV1Alpha1_IsConstruct(x interface{}) *bool {
 func KubeRuntimeClassListV1Alpha1_Manifest(props *KubeRuntimeClassListV1Alpha1Props) interface{} {
 	_init_.Initialize()
 
+	if err := validateKubeRuntimeClassListV1Alpha1_ManifestParameters(props); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -208,6 +217,9 @@ func KubeRuntimeClassListV1Alpha1_Manifest(props *KubeRuntimeClassListV1Alpha1Pr
 func KubeRuntimeClassListV1Alpha1_Of(c constructs.IConstruct) cdk8s.ApiObject {
 	_init_.Initialize()
 
+	if err := validateKubeRuntimeClassListV1Alpha1_OfParameters(c); err != nil {
+		panic(err)
+	}
 	var returns cdk8s.ApiObject
 
 	_jsii_.StaticInvoke(

@@ -32,6 +32,9 @@ func (j *jsiiProxy_JenkinsSpecMasterContainersLifecyclePostStartHttpGetPort) Val
 func JenkinsSpecMasterContainersLifecyclePostStartHttpGetPort_FromNumber(value *float64) JenkinsSpecMasterContainersLifecyclePostStartHttpGetPort {
 	_init_.Initialize()
 
+	if err := validateJenkinsSpecMasterContainersLifecyclePostStartHttpGetPort_FromNumberParameters(value); err != nil {
+		panic(err)
+	}
 	var returns JenkinsSpecMasterContainersLifecyclePostStartHttpGetPort
 
 	_jsii_.StaticInvoke(
@@ -47,6 +50,9 @@ func JenkinsSpecMasterContainersLifecyclePostStartHttpGetPort_FromNumber(value *
 func JenkinsSpecMasterContainersLifecyclePostStartHttpGetPort_FromString(value *string) JenkinsSpecMasterContainersLifecyclePostStartHttpGetPort {
 	_init_.Initialize()
 
+	if err := validateJenkinsSpecMasterContainersLifecyclePostStartHttpGetPort_FromStringParameters(value); err != nil {
+		panic(err)
+	}
 	var returns JenkinsSpecMasterContainersLifecyclePostStartHttpGetPort
 
 	_jsii_.StaticInvoke(

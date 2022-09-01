@@ -128,6 +128,9 @@ func (j *jsiiProxy_KubeConfigMapList) Node() constructs.Node {
 func NewKubeConfigMapList(scope constructs.Construct, id *string, props *KubeConfigMapListProps) KubeConfigMapList {
 	_init_.Initialize()
 
+	if err := validateNewKubeConfigMapListParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_KubeConfigMapList{}
 
 	_jsii_.Create(
@@ -170,6 +173,9 @@ func NewKubeConfigMapList_Override(k KubeConfigMapList, scope constructs.Constru
 func KubeConfigMapList_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateKubeConfigMapList_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -188,6 +194,9 @@ func KubeConfigMapList_IsConstruct(x interface{}) *bool {
 func KubeConfigMapList_Manifest(props *KubeConfigMapListProps) interface{} {
 	_init_.Initialize()
 
+	if err := validateKubeConfigMapList_ManifestParameters(props); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -208,6 +217,9 @@ func KubeConfigMapList_Manifest(props *KubeConfigMapListProps) interface{} {
 func KubeConfigMapList_Of(c constructs.IConstruct) cdk8s.ApiObject {
 	_init_.Initialize()
 
+	if err := validateKubeConfigMapList_OfParameters(c); err != nil {
+		panic(err)
+	}
 	var returns cdk8s.ApiObject
 
 	_jsii_.StaticInvoke(

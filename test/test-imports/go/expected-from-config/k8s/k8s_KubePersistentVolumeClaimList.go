@@ -128,6 +128,9 @@ func (j *jsiiProxy_KubePersistentVolumeClaimList) Node() constructs.Node {
 func NewKubePersistentVolumeClaimList(scope constructs.Construct, id *string, props *KubePersistentVolumeClaimListProps) KubePersistentVolumeClaimList {
 	_init_.Initialize()
 
+	if err := validateNewKubePersistentVolumeClaimListParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_KubePersistentVolumeClaimList{}
 
 	_jsii_.Create(
@@ -170,6 +173,9 @@ func NewKubePersistentVolumeClaimList_Override(k KubePersistentVolumeClaimList, 
 func KubePersistentVolumeClaimList_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateKubePersistentVolumeClaimList_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -188,6 +194,9 @@ func KubePersistentVolumeClaimList_IsConstruct(x interface{}) *bool {
 func KubePersistentVolumeClaimList_Manifest(props *KubePersistentVolumeClaimListProps) interface{} {
 	_init_.Initialize()
 
+	if err := validateKubePersistentVolumeClaimList_ManifestParameters(props); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -208,6 +217,9 @@ func KubePersistentVolumeClaimList_Manifest(props *KubePersistentVolumeClaimList
 func KubePersistentVolumeClaimList_Of(c constructs.IConstruct) cdk8s.ApiObject {
 	_init_.Initialize()
 
+	if err := validateKubePersistentVolumeClaimList_OfParameters(c); err != nil {
+		panic(err)
+	}
 	var returns cdk8s.ApiObject
 
 	_jsii_.StaticInvoke(

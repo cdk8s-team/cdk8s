@@ -128,6 +128,9 @@ func (j *jsiiProxy_KubeCustomResourceDefinitionList) Node() constructs.Node {
 func NewKubeCustomResourceDefinitionList(scope constructs.Construct, id *string, props *KubeCustomResourceDefinitionListProps) KubeCustomResourceDefinitionList {
 	_init_.Initialize()
 
+	if err := validateNewKubeCustomResourceDefinitionListParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_KubeCustomResourceDefinitionList{}
 
 	_jsii_.Create(
@@ -170,6 +173,9 @@ func NewKubeCustomResourceDefinitionList_Override(k KubeCustomResourceDefinition
 func KubeCustomResourceDefinitionList_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateKubeCustomResourceDefinitionList_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -188,6 +194,9 @@ func KubeCustomResourceDefinitionList_IsConstruct(x interface{}) *bool {
 func KubeCustomResourceDefinitionList_Manifest(props *KubeCustomResourceDefinitionListProps) interface{} {
 	_init_.Initialize()
 
+	if err := validateKubeCustomResourceDefinitionList_ManifestParameters(props); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -208,6 +217,9 @@ func KubeCustomResourceDefinitionList_Manifest(props *KubeCustomResourceDefiniti
 func KubeCustomResourceDefinitionList_Of(c constructs.IConstruct) cdk8s.ApiObject {
 	_init_.Initialize()
 
+	if err := validateKubeCustomResourceDefinitionList_OfParameters(c); err != nil {
+		panic(err)
+	}
 	var returns cdk8s.ApiObject
 
 	_jsii_.StaticInvoke(

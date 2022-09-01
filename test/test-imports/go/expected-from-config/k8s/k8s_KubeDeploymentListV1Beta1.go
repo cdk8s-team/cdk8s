@@ -128,6 +128,9 @@ func (j *jsiiProxy_KubeDeploymentListV1Beta1) Node() constructs.Node {
 func NewKubeDeploymentListV1Beta1(scope constructs.Construct, id *string, props *KubeDeploymentListV1Beta1Props) KubeDeploymentListV1Beta1 {
 	_init_.Initialize()
 
+	if err := validateNewKubeDeploymentListV1Beta1Parameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_KubeDeploymentListV1Beta1{}
 
 	_jsii_.Create(
@@ -170,6 +173,9 @@ func NewKubeDeploymentListV1Beta1_Override(k KubeDeploymentListV1Beta1, scope co
 func KubeDeploymentListV1Beta1_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateKubeDeploymentListV1Beta1_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -188,6 +194,9 @@ func KubeDeploymentListV1Beta1_IsConstruct(x interface{}) *bool {
 func KubeDeploymentListV1Beta1_Manifest(props *KubeDeploymentListV1Beta1Props) interface{} {
 	_init_.Initialize()
 
+	if err := validateKubeDeploymentListV1Beta1_ManifestParameters(props); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -208,6 +217,9 @@ func KubeDeploymentListV1Beta1_Manifest(props *KubeDeploymentListV1Beta1Props) i
 func KubeDeploymentListV1Beta1_Of(c constructs.IConstruct) cdk8s.ApiObject {
 	_init_.Initialize()
 
+	if err := validateKubeDeploymentListV1Beta1_OfParameters(c); err != nil {
+		panic(err)
+	}
 	var returns cdk8s.ApiObject
 
 	_jsii_.StaticInvoke(

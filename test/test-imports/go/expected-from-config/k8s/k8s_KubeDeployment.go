@@ -128,6 +128,9 @@ func (j *jsiiProxy_KubeDeployment) Node() constructs.Node {
 func NewKubeDeployment(scope constructs.Construct, id *string, props *KubeDeploymentProps) KubeDeployment {
 	_init_.Initialize()
 
+	if err := validateNewKubeDeploymentParameters(scope, id, props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_KubeDeployment{}
 
 	_jsii_.Create(
@@ -170,6 +173,9 @@ func NewKubeDeployment_Override(k KubeDeployment, scope constructs.Construct, id
 func KubeDeployment_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
+	if err := validateKubeDeployment_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
 	var returns *bool
 
 	_jsii_.StaticInvoke(
@@ -188,6 +194,9 @@ func KubeDeployment_IsConstruct(x interface{}) *bool {
 func KubeDeployment_Manifest(props *KubeDeploymentProps) interface{} {
 	_init_.Initialize()
 
+	if err := validateKubeDeployment_ManifestParameters(props); err != nil {
+		panic(err)
+	}
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
@@ -208,6 +217,9 @@ func KubeDeployment_Manifest(props *KubeDeploymentProps) interface{} {
 func KubeDeployment_Of(c constructs.IConstruct) cdk8s.ApiObject {
 	_init_.Initialize()
 
+	if err := validateKubeDeployment_OfParameters(c); err != nil {
+		panic(err)
+	}
 	var returns cdk8s.ApiObject
 
 	_jsii_.StaticInvoke(
