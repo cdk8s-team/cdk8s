@@ -384,7 +384,7 @@ const app = new k.App();
 const chart = new k.Chart(app, 'Chart');
 
 const redis = new kplus.Pod(chart, 'Redis', {
-  containers: [{ image: 'redis', port: 6379 }]
+  containers: [{ image: 'redis', portNumber: 6379 }]
 });
 const web = new kplus.Pod(chart, 'Web', {
   containers: [{ image: 'web' }]
@@ -416,7 +416,7 @@ const app = new k.App();
 const chart = new k.Chart(app, 'Chart');
 
 const redis = new kplus.Pod(chart, 'Redis', {
-  containers: [{ image: 'redis', port: 6379 }]
+  containers: [{ image: 'redis', portNumber: 6379 }]
 });
 const web = new kplus.Pod(chart, 'Web', {
   containers: [{ image: 'web' }]

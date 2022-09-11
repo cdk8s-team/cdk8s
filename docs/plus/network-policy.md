@@ -131,11 +131,11 @@ const web = new kplus.Pod(chart, 'Web', {
 });
 
 const cache = new kplus.Pod(chart, 'Cache', {
-  containers: [{ image: 'cache', port: 6379 }],
+  containers: [{ image: 'cache', portNumber: 6379 }],
 });
 
 const db = new kplus.Pod(chart, 'DB', {
-  containers: [{ image: 'db', port: 6378 }],
+  containers: [{ image: 'db', portNumber: 6378 }],
 });
 
 // create a policy with an egress rule at instantiation
@@ -164,11 +164,11 @@ const web = new kplus.Pod(chart, 'Web', {
 });
 
 const cache = new kplus.Pod(chart, 'Cache', {
-  containers: [{ image: 'cache', port: 6379 }],
+  containers: [{ image: 'cache', portNumber: 6379 }],
 });
 
 const db = new kplus.Pod(chart, 'DB', {
-  containers: [{ image: 'db', port: 6378 }],
+  containers: [{ image: 'db', portNumber: 6378 }],
 });
 
 // create a policy with an ingress rule at instantiation
@@ -201,7 +201,7 @@ const web = new kplus.Pod(chart, 'Web', {
 });
 
 const redis = new kplus.Pod(chart, 'Redis', {
-  containers: [{ image: 'redis', port: 6379 }],
+  containers: [{ image: 'redis', portNumber: 6379 }],
   metadata: { namespace: 'n2' },
 });
 
@@ -239,7 +239,7 @@ const web = new kplus.Pod(chart, 'Web', {
 });
 
 const redis = new kplus.Pod(chart, 'Redis', {
-  containers: [{ image: 'redis', port: 6379 }],
+  containers: [{ image: 'redis', portNumber: 6379 }],
   metadata: { namespace: 'n2' },
 });
 
