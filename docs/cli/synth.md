@@ -48,13 +48,40 @@ With this configuration, `cdk8s` will dynamically install the `datree-cdk8s-plug
 synthesis, and produce a violation report. For example:
 
 ```console
-╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
-║                                failure | Validation Report | datree-cdk8s-plugin (v0.0.1)                                                   ║
-╟───────────────────────────┬───────────────────────────────────────────────────────────────┬──────────────────────────────┬──────────────────╢
-║ Resource                  │ Message                                                       │ Manifest                     │ Construct        ║
-╟───────────────────────────┼───────────────────────────────────────────────────────────────┼──────────────────────────────┼──────────────────╢
-║ chart-deployment-c8a3b439 │ Deployments should set the restartPolicy to 'Always'          │ dist/chart-c86185a7.k8s.yaml │ Chart/Deployment ║
-╚═══════════════════════════╧═══════════════════════════════════════════════════════════════╧══════════════════════════════╧══════════════════╝
+Validation Report (datree-cdk8s-plugin@0.0.1)
+---------------------------------------------------------
+
+(Summary)
+
+╔═════════╤═════════════════════════════════╗
+║ Status  │ failure                         ║
+╟─────────┼─────────────────────────────────╢
+║ Plugin  │ datree-cdk8s-plugin             ║
+╟─────────┼─────────────────────────────────╢
+║ Version │ 0.0.1                           ║
+╚═════════╧═════════════════════════════════╝
+
+
+(Violations)
+
+Ensure deployment-like resource is using a valid restart policy (2 occurrences)
+
+  Occurrences:
+
+    - construct.path: Chart/Deployment1
+    - manifest.path: dist/chart-c86185a7.k8s.yaml
+    - resource.name: chart-deployment1-c874f36f
+    - locations:
+      > spec.template.spec.restartPolicy
+
+    - construct.path: Chart/Deployment2
+    - manifest.path: dist/chart-c86185a7.k8s.yaml
+    - resource.name: chart-deployment2-c884ba93
+    - locations:
+      > spec.template.spec.restartPolicy
+
+  Recommendation: Incorrect value for key `restartPolicy` - any other value than `Always` is not supported by this resource
+  How to fix: https://hub.datree.io/built-in-rules/ensure-valid-restart-policy
 ```
 
 If the report resulted in a failure, the `cdk8s synth` command will fail.
