@@ -21,7 +21,7 @@ const app = new k.App();
 const chart = new k.Chart(app, 'Chart');
 
 // let's define a job spec, and set a 1 second TTL.
-const load = new kplus.Job(chart, 'LoadData', {
+const job = new kplus.Job(chart, 'LoadData', {
   ttlAfterFinished: kplus.Duration.seconds(1)
  });
 
