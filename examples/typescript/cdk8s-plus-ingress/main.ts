@@ -19,7 +19,8 @@ export class MyChart extends Chart {
       containers: [
         {
           image: 'hashicorp/http-echo',
-          args: [ '-text', text ]
+          args: [ '-text', text ],
+          portNumber: 5678,
         }
       ]
     });
