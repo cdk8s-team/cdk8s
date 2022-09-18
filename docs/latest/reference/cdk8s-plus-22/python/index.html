@@ -4752,7 +4752,7 @@ Limits are applied to init containers in a similar fashion.</p>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s_plus_22.PodSecurityContextProps"><code>cdk8s_plus_22.PodSecurityContextProps</code></a></li>
 <li><em>Default:</em> fsGroupChangePolicy: FsGroupChangePolicy.FsGroupChangePolicy.ALWAYS
-  ensureNonRoot: false</li>
+  ensureNonRoot: true</li>
 </ul>
 <p>SecurityContext holds pod-level security attributes and common container settings.</p>
 <hr />
@@ -4938,9 +4938,12 @@ In case more advanced configuartion is required, use the <code>ports</code> prop
 <h6 id="security_contextoptional_1"><code>security_context</code><sup>Optional</sup> <a name="cdk8s_plus_22.ContainerProps.parameter.security_context"></a><a class="headerlink" href="#security_contextoptional_1" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s_plus_22.ContainerSecurityContextProps"><code>cdk8s_plus_22.ContainerSecurityContextProps</code></a></li>
-<li><em>Default:</em> ensureNonRoot: false
+<li><em>Default:</em> ensureNonRoot: true
   privileged: false
-  readOnlyRootFilesystem: true</li>
+  readOnlyRootFilesystem: true
+  allowPrivilegeEscalation: false
+  user: 25000
+  group: 26000</li>
 </ul>
 <p>SecurityContext defines the security options the container should be run with.</p>
 <p>If set, the fields override equivalent fields of the pod&rsquo;s security context.</p>
@@ -5146,9 +5149,12 @@ In case more advanced configuartion is required, use the <code>ports</code> prop
 <h6 id="security_contextoptional_2"><code>security_context</code><sup>Optional</sup> <a name="cdk8s_plus_22.ContainerProps.parameter.security_context"></a><a class="headerlink" href="#security_contextoptional_2" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s_plus_22.ContainerSecurityContextProps"><code>cdk8s_plus_22.ContainerSecurityContextProps</code></a></li>
-<li><em>Default:</em> ensureNonRoot: false
+<li><em>Default:</em> ensureNonRoot: true
   privileged: false
-  readOnlyRootFilesystem: true</li>
+  readOnlyRootFilesystem: true
+  allowPrivilegeEscalation: false
+  user: 25000
+  group: 26000</li>
 </ul>
 <p>SecurityContext defines the security options the container should be run with.</p>
 <p>If set, the fields override equivalent fields of the pod&rsquo;s security context.</p>
@@ -6384,7 +6390,7 @@ Limits are applied to init containers in a similar fashion.</p>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s_plus_22.PodSecurityContextProps"><code>cdk8s_plus_22.PodSecurityContextProps</code></a></li>
 <li><em>Default:</em> fsGroupChangePolicy: FsGroupChangePolicy.FsGroupChangePolicy.ALWAYS
-  ensureNonRoot: false</li>
+  ensureNonRoot: true</li>
 </ul>
 <p>SecurityContext holds pod-level security attributes and common container settings.</p>
 <hr />
@@ -6701,7 +6707,7 @@ Limits are applied to init containers in a similar fashion.</p>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s_plus_22.PodSecurityContextProps"><code>cdk8s_plus_22.PodSecurityContextProps</code></a></li>
 <li><em>Default:</em> fsGroupChangePolicy: FsGroupChangePolicy.FsGroupChangePolicy.ALWAYS
-  ensureNonRoot: false</li>
+  ensureNonRoot: true</li>
 </ul>
 <p>SecurityContext holds pod-level security attributes and common container settings.</p>
 <hr />
@@ -6910,7 +6916,7 @@ Limits are applied to init containers in a similar fashion.</p>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s_plus_22.PodSecurityContextProps"><code>cdk8s_plus_22.PodSecurityContextProps</code></a></li>
 <li><em>Default:</em> fsGroupChangePolicy: FsGroupChangePolicy.FsGroupChangePolicy.ALWAYS
-  ensureNonRoot: false</li>
+  ensureNonRoot: true</li>
 </ul>
 <p>SecurityContext holds pod-level security attributes and common container settings.</p>
 <hr />
@@ -7747,7 +7753,7 @@ Limits are applied to init containers in a similar fashion.</p>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s_plus_22.PodSecurityContextProps"><code>cdk8s_plus_22.PodSecurityContextProps</code></a></li>
 <li><em>Default:</em> fsGroupChangePolicy: FsGroupChangePolicy.FsGroupChangePolicy.ALWAYS
-  ensureNonRoot: false</li>
+  ensureNonRoot: true</li>
 </ul>
 <p>SecurityContext holds pod-level security attributes and common container settings.</p>
 <hr />
@@ -8798,7 +8804,7 @@ Limits are applied to init containers in a similar fashion.</p>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s_plus_22.PodSecurityContextProps"><code>cdk8s_plus_22.PodSecurityContextProps</code></a></li>
 <li><em>Default:</em> fsGroupChangePolicy: FsGroupChangePolicy.FsGroupChangePolicy.ALWAYS
-  ensureNonRoot: false</li>
+  ensureNonRoot: true</li>
 </ul>
 <p>SecurityContext holds pod-level security attributes and common container settings.</p>
 <hr />
@@ -10138,7 +10144,7 @@ Limits are applied to init containers in a similar fashion.</p>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s_plus_22.PodSecurityContextProps"><code>cdk8s_plus_22.PodSecurityContextProps</code></a></li>
 <li><em>Default:</em> fsGroupChangePolicy: FsGroupChangePolicy.FsGroupChangePolicy.ALWAYS
-  ensureNonRoot: false</li>
+  ensureNonRoot: true</li>
 </ul>
 <p>SecurityContext holds pod-level security attributes and common container settings.</p>
 <hr />
@@ -11000,7 +11006,7 @@ Limits are applied to init containers in a similar fashion.</p>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s_plus_22.PodSecurityContextProps"><code>cdk8s_plus_22.PodSecurityContextProps</code></a></li>
 <li><em>Default:</em> fsGroupChangePolicy: FsGroupChangePolicy.FsGroupChangePolicy.ALWAYS
-  ensureNonRoot: false</li>
+  ensureNonRoot: true</li>
 </ul>
 <p>SecurityContext holds pod-level security attributes and common container settings.</p>
 <hr />
@@ -11218,7 +11224,7 @@ Limits are applied to init containers in a similar fashion.</p>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s_plus_22.PodSecurityContextProps"><code>cdk8s_plus_22.PodSecurityContextProps</code></a></li>
 <li><em>Default:</em> fsGroupChangePolicy: FsGroupChangePolicy.FsGroupChangePolicy.ALWAYS
-  ensureNonRoot: false</li>
+  ensureNonRoot: true</li>
 </ul>
 <p>SecurityContext holds pod-level security attributes and common container settings.</p>
 <hr />
@@ -12453,9 +12459,12 @@ In case more advanced configuartion is required, use the <code>ports</code> prop
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s_plus_22.ContainerSecurityContextProps"><code>cdk8s_plus_22.ContainerSecurityContextProps</code></a></li>
-<li><em>Default:</em> ensureNonRoot: false
+<li><em>Default:</em> ensureNonRoot: true
   privileged: false
-  readOnlyRootFilesystem: true</li>
+  readOnlyRootFilesystem: true
+  allowPrivilegeEscalation: false
+  user: 25000
+  group: 26000</li>
 </ul>
 <p>SecurityContext defines the security options the container should be run with.</p>
 <p>If set, the fields override equivalent fields of the pod&rsquo;s security context.</p>
@@ -12533,6 +12542,7 @@ Otherwise, no startup probe is defined.</li>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_22</span>
 
 <span class="n">cdk8s_plus_22</span><span class="o">.</span><span class="n">ContainerSecurityContextProps</span><span class="p">(</span>
+  <span class="n">allow_privilege_escalation</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">ensure_non_root</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">group</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">privileged</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -12540,12 +12550,21 @@ Otherwise, no startup probe is defined.</li>
   <span class="n">user</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="p">)</span>
 </code></pre></div>
+<h5 id="allow_privilege_escalationoptional"><code>allow_privilege_escalation</code><sup>Optional</sup> <a name="cdk8s_plus_22.ContainerSecurityContextProps.property.allow_privilege_escalation"></a><a class="headerlink" href="#allow_privilege_escalationoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">allow_privilege_escalation</span><span class="p">:</span> <span class="nb">bool</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>bool</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Whether a process can gain more privileges than its parent process.</p>
+<hr />
 <h5 id="ensure_non_rootoptional"><code>ensure_non_root</code><sup>Optional</sup> <a name="cdk8s_plus_22.ContainerSecurityContextProps.property.ensure_non_root"></a><a class="headerlink" href="#ensure_non_rootoptional" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="n">ensure_non_root</span><span class="p">:</span> <span class="nb">bool</span>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <code>bool</code></li>
-<li><em>Default:</em> false</li>
+<li><em>Default:</em> true</li>
 </ul>
 <p>Indicates that the container must run as a non-root user.</p>
 <p>If true, the Kubelet will validate the image at runtime to ensure that it does
@@ -12746,7 +12765,7 @@ Limits are applied to init containers in a similar fashion.</p>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s_plus_22.PodSecurityContextProps"><code>cdk8s_plus_22.PodSecurityContextProps</code></a></li>
 <li><em>Default:</em> fsGroupChangePolicy: FsGroupChangePolicy.FsGroupChangePolicy.ALWAYS
-  ensureNonRoot: false</li>
+  ensureNonRoot: true</li>
 </ul>
 <p>SecurityContext holds pod-level security attributes and common container settings.</p>
 <hr />
@@ -13025,7 +13044,7 @@ Limits are applied to init containers in a similar fashion.</p>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s_plus_22.PodSecurityContextProps"><code>cdk8s_plus_22.PodSecurityContextProps</code></a></li>
 <li><em>Default:</em> fsGroupChangePolicy: FsGroupChangePolicy.FsGroupChangePolicy.ALWAYS
-  ensureNonRoot: false</li>
+  ensureNonRoot: true</li>
 </ul>
 <p>SecurityContext holds pod-level security attributes and common container settings.</p>
 <hr />
@@ -13253,7 +13272,7 @@ Limits are applied to init containers in a similar fashion.</p>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s_plus_22.PodSecurityContextProps"><code>cdk8s_plus_22.PodSecurityContextProps</code></a></li>
 <li><em>Default:</em> fsGroupChangePolicy: FsGroupChangePolicy.FsGroupChangePolicy.ALWAYS
-  ensureNonRoot: false</li>
+  ensureNonRoot: true</li>
 </ul>
 <p>SecurityContext holds pod-level security attributes and common container settings.</p>
 <hr />
@@ -14398,7 +14417,7 @@ Limits are applied to init containers in a similar fashion.</p>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s_plus_22.PodSecurityContextProps"><code>cdk8s_plus_22.PodSecurityContextProps</code></a></li>
 <li><em>Default:</em> fsGroupChangePolicy: FsGroupChangePolicy.FsGroupChangePolicy.ALWAYS
-  ensureNonRoot: false</li>
+  ensureNonRoot: true</li>
 </ul>
 <p>SecurityContext holds pod-level security attributes and common container settings.</p>
 <hr />
@@ -15457,7 +15476,7 @@ Limits are applied to init containers in a similar fashion.</p>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s_plus_22.PodSecurityContextProps"><code>cdk8s_plus_22.PodSecurityContextProps</code></a></li>
 <li><em>Default:</em> fsGroupChangePolicy: FsGroupChangePolicy.FsGroupChangePolicy.ALWAYS
-  ensureNonRoot: false</li>
+  ensureNonRoot: true</li>
 </ul>
 <p>SecurityContext holds pod-level security attributes and common container settings.</p>
 <hr />
@@ -15604,7 +15623,7 @@ Account (for example, default).</p>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <code>bool</code></li>
-<li><em>Default:</em> false</li>
+<li><em>Default:</em> true</li>
 </ul>
 <p>Indicates that the container must run as a non-root user.</p>
 <p>If true, the Kubelet will validate the image at runtime to ensure that it does
@@ -16531,7 +16550,7 @@ Limits are applied to init containers in a similar fashion.</p>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s_plus_22.PodSecurityContextProps"><code>cdk8s_plus_22.PodSecurityContextProps</code></a></li>
 <li><em>Default:</em> fsGroupChangePolicy: FsGroupChangePolicy.FsGroupChangePolicy.ALWAYS
-  ensureNonRoot: false</li>
+  ensureNonRoot: true</li>
 </ul>
 <p>SecurityContext holds pod-level security attributes and common container settings.</p>
 <hr />
@@ -17070,7 +17089,7 @@ Limits are applied to init containers in a similar fashion.</p>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s_plus_22.PodSecurityContextProps"><code>cdk8s_plus_22.PodSecurityContextProps</code></a></li>
 <li><em>Default:</em> fsGroupChangePolicy: FsGroupChangePolicy.FsGroupChangePolicy.ALWAYS
-  ensureNonRoot: false</li>
+  ensureNonRoot: true</li>
 </ul>
 <p>SecurityContext holds pod-level security attributes and common container settings.</p>
 <hr />
@@ -17698,9 +17717,12 @@ In case more advanced configuartion is required, use the <code>ports</code> prop
 <h5 id="security_contextoptional_19"><code>security_context</code><sup>Optional</sup> <a name="cdk8s_plus_22.ContainerProps.parameter.security_context"></a><a class="headerlink" href="#security_contextoptional_19" title="Permanent link">&para;</a></h5>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s_plus_22.ContainerSecurityContextProps"><code>cdk8s_plus_22.ContainerSecurityContextProps</code></a></li>
-<li><em>Default:</em> ensureNonRoot: false
+<li><em>Default:</em> ensureNonRoot: true
   privileged: false
-  readOnlyRootFilesystem: true</li>
+  readOnlyRootFilesystem: true
+  allowPrivilegeEscalation: false
+  user: 25000
+  group: 26000</li>
 </ul>
 <p>SecurityContext defines the security options the container should be run with.</p>
 <p>If set, the fields override equivalent fields of the pod&rsquo;s security context.</p>
@@ -17961,6 +17983,7 @@ port configuration is stored in the <code>ports</code> field.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_22</span>
 
 <span class="n">cdk8s_plus_22</span><span class="o">.</span><span class="n">ContainerSecurityContext</span><span class="p">(</span>
+  <span class="n">allow_privilege_escalation</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">ensure_non_root</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">group</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">privileged</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -17968,10 +17991,17 @@ port configuration is stored in the <code>ports</code> field.</p>
   <span class="n">user</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="p">)</span>
 </code></pre></div>
-<h5 id="ensure_non_rootoptional_2"><code>ensure_non_root</code><sup>Optional</sup> <a name="cdk8s_plus_22.ContainerSecurityContextProps.parameter.ensure_non_root"></a><a class="headerlink" href="#ensure_non_rootoptional_2" title="Permanent link">&para;</a></h5>
+<h5 id="allow_privilege_escalationoptional_1"><code>allow_privilege_escalation</code><sup>Optional</sup> <a name="cdk8s_plus_22.ContainerSecurityContextProps.parameter.allow_privilege_escalation"></a><a class="headerlink" href="#allow_privilege_escalationoptional_1" title="Permanent link">&para;</a></h5>
 <ul>
 <li><em>Type:</em> <code>bool</code></li>
 <li><em>Default:</em> false</li>
+</ul>
+<p>Whether a process can gain more privileges than its parent process.</p>
+<hr />
+<h5 id="ensure_non_rootoptional_2"><code>ensure_non_root</code><sup>Optional</sup> <a name="cdk8s_plus_22.ContainerSecurityContextProps.parameter.ensure_non_root"></a><a class="headerlink" href="#ensure_non_rootoptional_2" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>bool</code></li>
+<li><em>Default:</em> true</li>
 </ul>
 <p>Indicates that the container must run as a non-root user.</p>
 <p>If true, the Kubelet will validate the image at runtime to ensure that it does
@@ -18027,6 +18057,13 @@ somehow it manages to get access to host file system.</li>
 <hr />
 <h5 id="read_only_root_filesystemrequired"><code>read_only_root_filesystem</code><sup>Required</sup> <a name="cdk8s_plus_22.ContainerSecurityContext.property.read_only_root_filesystem"></a><a class="headerlink" href="#read_only_root_filesystemrequired" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="n">read_only_root_filesystem</span><span class="p">:</span> <span class="nb">bool</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>bool</code></li>
+</ul>
+<hr />
+<h5 id="allow_privilege_escalationoptional_2"><code>allow_privilege_escalation</code><sup>Optional</sup> <a name="cdk8s_plus_22.ContainerSecurityContext.property.allow_privilege_escalation"></a><a class="headerlink" href="#allow_privilege_escalationoptional_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">allow_privilege_escalation</span><span class="p">:</span> <span class="nb">bool</span>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <code>bool</code></li>
@@ -19494,7 +19531,7 @@ Duplicate domain names are removed.</p>
 <h5 id="ensure_non_rootoptional_3"><code>ensure_non_root</code><sup>Optional</sup> <a name="cdk8s_plus_22.PodSecurityContextProps.parameter.ensure_non_root"></a><a class="headerlink" href="#ensure_non_rootoptional_3" title="Permanent link">&para;</a></h5>
 <ul>
 <li><em>Type:</em> <code>bool</code></li>
-<li><em>Default:</em> false</li>
+<li><em>Default:</em> true</li>
 </ul>
 <p>Indicates that the container must run as a non-root user.</p>
 <p>If true, the Kubelet will validate the image at runtime to ensure that it does

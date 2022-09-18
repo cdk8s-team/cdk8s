@@ -9048,7 +9048,10 @@ In case more advanced configuartion is required, use the <code>ports</code> prop
 <li><em>Type:</em> <a href="#cdk8s-plus-24.ContainerSecurityContextProps"><code>cdk8s-plus-24.ContainerSecurityContextProps</code></a></li>
 <li><em>Default:</em> ensureNonRoot: true
   privileged: false
-  readOnlyRootFilesystem: true</li>
+  readOnlyRootFilesystem: true
+  allowPrivilegeEscalation: false
+  user: 25000
+  group: 26000</li>
 </ul>
 <p>SecurityContext defines the security options the container should be run with.</p>
 <p>If set, the fields override equivalent fields of the pod&rsquo;s security context.</p>
@@ -9123,6 +9126,15 @@ Otherwise, no startup probe is defined.</li>
 
 <span class="kd">const</span><span class="w"> </span><span class="nx">containerSecurityContextProps</span><span class="o">:</span><span class="w"> </span><span class="kt">ContainerSecurityContextProps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 </code></pre></div>
+<h5 id="allowprivilegeescalationoptional"><code>allowPrivilegeEscalation</code><sup>Optional</sup> <a name="cdk8s-plus-24.ContainerSecurityContextProps.property.allowPrivilegeEscalation"></a><a class="headerlink" href="#allowprivilegeescalationoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">allowPrivilegeEscalation</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Whether a process can gain more privileges than its parent process.</p>
+<hr />
 <h5 id="ensurenonrootoptional"><code>ensureNonRoot</code><sup>Optional</sup> <a name="cdk8s-plus-24.ContainerSecurityContextProps.property.ensureNonRoot"></a><a class="headerlink" href="#ensurenonrootoptional" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">ensureNonRoot</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
@@ -13886,6 +13898,13 @@ port configuration is stored in the <code>ports</code> field.</p>
 <hr />
 <h5 id="readonlyrootfilesystemrequired"><code>readOnlyRootFilesystem</code><sup>Required</sup> <a name="cdk8s-plus-24.ContainerSecurityContext.property.readOnlyRootFilesystem"></a><a class="headerlink" href="#readonlyrootfilesystemrequired" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">readOnlyRootFilesystem</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>boolean</code></li>
+</ul>
+<hr />
+<h5 id="allowprivilegeescalationoptional_1"><code>allowPrivilegeEscalation</code><sup>Optional</sup> <a name="cdk8s-plus-24.ContainerSecurityContext.property.allowPrivilegeEscalation"></a><a class="headerlink" href="#allowprivilegeescalationoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">allowPrivilegeEscalation</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <code>boolean</code></li>
