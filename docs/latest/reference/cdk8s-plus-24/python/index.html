@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.5.1">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.5.2">
     
     
       
@@ -17,7 +17,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.2e8b5541.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.9f9400aa.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.cbb835fc.min.css">
@@ -4679,7 +4679,7 @@
 <h5 id="automount_service_account_tokenoptional"><code>automount_service_account_token</code><sup>Optional</sup> <a name="cdk8s_plus_24.AbstractPodProps.parameter.automount_service_account_token"></a><a class="headerlink" href="#automount_service_account_tokenoptional" title="Permanent link">&para;</a></h5>
 <ul>
 <li><em>Type:</em> <code>bool</code></li>
-<li><em>Default:</em> true</li>
+<li><em>Default:</em> false</li>
 </ul>
 <p>Indicates whether a service account token should be automatically mounted.</p>
 <blockquote>
@@ -6318,7 +6318,7 @@ is enforced during validation process.</p>
 <h5 id="automount_service_account_tokenoptional_1"><code>automount_service_account_token</code><sup>Optional</sup> <a name="cdk8s_plus_24.CronJobProps.parameter.automount_service_account_token"></a><a class="headerlink" href="#automount_service_account_tokenoptional_1" title="Permanent link">&para;</a></h5>
 <ul>
 <li><em>Type:</em> <code>bool</code></li>
-<li><em>Default:</em> true</li>
+<li><em>Default:</em> false</li>
 </ul>
 <p>Indicates whether a service account token should be automatically mounted.</p>
 <blockquote>
@@ -6654,7 +6654,7 @@ but with different flags and/or different memory and cpu requests for different 
 <h5 id="automount_service_account_tokenoptional_2"><code>automount_service_account_token</code><sup>Optional</sup> <a name="cdk8s_plus_24.DaemonSetProps.parameter.automount_service_account_token"></a><a class="headerlink" href="#automount_service_account_tokenoptional_2" title="Permanent link">&para;</a></h5>
 <ul>
 <li><em>Type:</em> <code>bool</code></li>
-<li><em>Default:</em> true</li>
+<li><em>Default:</em> false</li>
 </ul>
 <p>Indicates whether a service account token should be automatically mounted.</p>
 <blockquote>
@@ -6863,7 +6863,7 @@ existing Deployments and adopt all their resources with new Deployments.</p>
 <h5 id="automount_service_account_tokenoptional_3"><code>automount_service_account_token</code><sup>Optional</sup> <a name="cdk8s_plus_24.DeploymentProps.parameter.automount_service_account_token"></a><a class="headerlink" href="#automount_service_account_tokenoptional_3" title="Permanent link">&para;</a></h5>
 <ul>
 <li><em>Type:</em> <code>bool</code></li>
-<li><em>Default:</em> true</li>
+<li><em>Default:</em> false</li>
 </ul>
 <p>Indicates whether a service account token should be automatically mounted.</p>
 <blockquote>
@@ -7010,7 +7010,7 @@ reason will be surfaced in the deployment status.</p>
 <h5 id="replicasoptional"><code>replicas</code><sup>Optional</sup> <a name="cdk8s_plus_24.DeploymentProps.parameter.replicas"></a><a class="headerlink" href="#replicasoptional" title="Permanent link">&para;</a></h5>
 <ul>
 <li><em>Type:</em> <code>typing.Union[int, float]</code></li>
-<li><em>Default:</em> 1</li>
+<li><em>Default:</em> 2</li>
 </ul>
 <p>Number of desired pods.</p>
 <hr />
@@ -7700,7 +7700,7 @@ You can also use a Job to run multiple Pods in parallel.</p>
 <h5 id="automount_service_account_tokenoptional_4"><code>automount_service_account_token</code><sup>Optional</sup> <a name="cdk8s_plus_24.JobProps.parameter.automount_service_account_token"></a><a class="headerlink" href="#automount_service_account_tokenoptional_4" title="Permanent link">&para;</a></h5>
 <ul>
 <li><em>Type:</em> <code>bool</code></li>
-<li><em>Default:</em> true</li>
+<li><em>Default:</em> false</li>
 </ul>
 <p>Indicates whether a service account token should be automatically mounted.</p>
 <blockquote>
@@ -8751,7 +8751,7 @@ created by clients and scheduled onto hosts.</p>
 <h5 id="automount_service_account_tokenoptional_5"><code>automount_service_account_token</code><sup>Optional</sup> <a name="cdk8s_plus_24.PodProps.parameter.automount_service_account_token"></a><a class="headerlink" href="#automount_service_account_tokenoptional_5" title="Permanent link">&para;</a></h5>
 <ul>
 <li><em>Type:</em> <code>bool</code></li>
-<li><em>Default:</em> true</li>
+<li><em>Default:</em> false</li>
 </ul>
 <p>Indicates whether a service account token should be automatically mounted.</p>
 <blockquote>
@@ -9849,7 +9849,7 @@ example, default).</p>
 <h5 id="automount_tokenoptional"><code>automount_token</code><sup>Optional</sup> <a name="cdk8s_plus_24.ServiceAccountProps.parameter.automount_token"></a><a class="headerlink" href="#automount_tokenoptional" title="Permanent link">&para;</a></h5>
 <ul>
 <li><em>Type:</em> <code>bool</code></li>
-<li><em>Default:</em> true</li>
+<li><em>Default:</em> false</li>
 </ul>
 <p>Indicates whether pods running as this service account should have an API token automatically mounted.</p>
 <p>Can be overridden at the pod level.</p>
@@ -10091,7 +10091,7 @@ volumes to the new Pods that replace any that have failed.</p>
 <h5 id="automount_service_account_tokenoptional_6"><code>automount_service_account_token</code><sup>Optional</sup> <a name="cdk8s_plus_24.StatefulSetProps.parameter.automount_service_account_token"></a><a class="headerlink" href="#automount_service_account_tokenoptional_6" title="Permanent link">&para;</a></h5>
 <ul>
 <li><em>Type:</em> <code>bool</code></li>
-<li><em>Default:</em> true</li>
+<li><em>Default:</em> false</li>
 </ul>
 <p>Indicates whether a service account token should be automatically mounted.</p>
 <blockquote>
@@ -10953,7 +10953,7 @@ In Kubernetes, a Pod represents a set of running containers on your cluster.</p>
 <h5 id="automount_service_account_tokenoptional_7"><code>automount_service_account_token</code><sup>Optional</sup> <a name="cdk8s_plus_24.WorkloadProps.parameter.automount_service_account_token"></a><a class="headerlink" href="#automount_service_account_tokenoptional_7" title="Permanent link">&para;</a></h5>
 <ul>
 <li><em>Type:</em> <code>bool</code></li>
-<li><em>Default:</em> true</li>
+<li><em>Default:</em> false</li>
 </ul>
 <p>Indicates whether a service account token should be automatically mounted.</p>
 <blockquote>
@@ -11157,7 +11157,7 @@ its pod template.</p>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <code>bool</code></li>
-<li><em>Default:</em> true</li>
+<li><em>Default:</em> false</li>
 </ul>
 <p>Indicates whether a service account token should be automatically mounted.</p>
 <blockquote>
@@ -12699,7 +12699,7 @@ somehow it manages to get access to host file system.</li>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <code>bool</code></li>
-<li><em>Default:</em> true</li>
+<li><em>Default:</em> false</li>
 </ul>
 <p>Indicates whether a service account token should be automatically mounted.</p>
 <blockquote>
@@ -12991,7 +12991,7 @@ start a new execution at 10:22:00.</p>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <code>bool</code></li>
-<li><em>Default:</em> true</li>
+<li><em>Default:</em> false</li>
 </ul>
 <p>Indicates whether a service account token should be automatically mounted.</p>
 <blockquote>
@@ -13219,7 +13219,7 @@ you must explicitly set a name starting from the second expose call.</p>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <code>bool</code></li>
-<li><em>Default:</em> true</li>
+<li><em>Default:</em> false</li>
 </ul>
 <p>Indicates whether a service account token should be automatically mounted.</p>
 <blockquote>
@@ -13394,7 +13394,7 @@ reason will be surfaced in the deployment status.</p>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <code>typing.Union[int, float]</code></li>
-<li><em>Default:</em> 1</li>
+<li><em>Default:</em> 2</li>
 </ul>
 <p>Number of desired pods.</p>
 <hr />
@@ -14364,7 +14364,7 @@ termination and value of the Host header is used for routing.</p>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <code>bool</code></li>
-<li><em>Default:</em> true</li>
+<li><em>Default:</em> false</li>
 </ul>
 <p>Indicates whether a service account token should be automatically mounted.</p>
 <blockquote>
@@ -15423,7 +15423,7 @@ Duplicate domain names are removed.</p>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <code>bool</code></li>
-<li><em>Default:</em> true</li>
+<li><em>Default:</em> false</li>
 </ul>
 <p>Indicates whether a service account token should be automatically mounted.</p>
 <blockquote>
@@ -16104,7 +16104,7 @@ contain the &lsquo;..&rsquo; path or start with &lsquo;..&rsquo;.</p>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <code>bool</code></li>
-<li><em>Default:</em> true</li>
+<li><em>Default:</em> false</li>
 </ul>
 <p>Indicates whether pods running as this service account should have an API token automatically mounted.</p>
 <p>Can be overridden at the pod level.</p>
@@ -16497,7 +16497,7 @@ its endpoints, which Kubernetes will not modify.</li>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <code>bool</code></li>
-<li><em>Default:</em> true</li>
+<li><em>Default:</em> false</li>
 </ul>
 <p>Indicates whether a service account token should be automatically mounted.</p>
 <blockquote>
@@ -17036,7 +17036,7 @@ contain &lsquo;:&rsquo;.</p>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <code>bool</code></li>
-<li><em>Default:</em> true</li>
+<li><em>Default:</em> false</li>
 </ul>
 <p>Indicates whether a service account token should be automatically mounted.</p>
 <blockquote>
@@ -21055,7 +21055,7 @@ are automatically created.</p>
     <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.indexes", "navigation.tracking", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.d691e9de.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.39f04ddb.min.js"></script>
       
     
   </body>
