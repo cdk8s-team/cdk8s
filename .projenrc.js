@@ -64,6 +64,12 @@ project.tasks.removeTask('test:compile');
 // no package task is needed
 project.packageTask.reset();
 
+project.package.addPackageResolutions(
+  // Pin version of @types/responselike and got, see: https://github.com/sindresorhus/got/issues/2129
+  "@types/responselike@1.0.0",
+  "got@12.3.1"
+);
+
 // integ tests
 const integTask = project.addTask('integ', {
   exec: 'bash test/test-all.sh',

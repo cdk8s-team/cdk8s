@@ -67,7 +67,7 @@ export class MyChart extends Chart {
     const volume = kplus.Volume.fromConfigMap(this, 'Volume', configMap);
     container.mount(workingDir, volume);
 
-    deployment.exposeViaService({ ports: [ { port: 9000 } ] });
+    deployment.exposeViaService();
 
   }
 }
