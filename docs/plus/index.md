@@ -1,4 +1,4 @@
-# Overview
+# cdk8s+
 
 **cdk8s+** is a library with high level abstractions for authoring Kubernetes
 applications.
@@ -7,7 +7,7 @@ Built on top of the auto-generated building blocks provided by cdk8s, this
 library includes a hand crafted *construct* for each native kubernetes object,
 exposing richer API's with reduced complexity.
 
-!!! notice
+!!! info
 
     The documentation here relates to version `2.x` of the cdk8s toolchain, which is the latest. If you are still using version `1.x`, please refer to the [Migrating from 1.x Guide](../migrating-from-1.x.md).
 
@@ -28,7 +28,7 @@ and is vended as the `cdk8s-plus-24` library.
 Per kubernetes [compatibility guarantees](https://kubernetes.io/docs/concepts/overview/kubernetes-api/#api-groups-and-versioning), **stable** resources in this library are compatible with
 any spec version higher or equal to `1.24.0`. **Non-stable** resources are not guaranteed to be compatible, as they may be removed in future spec versions.
 
-!!! notice
+!!! warning
 
     If you are deploying manifests produced by `cdk8s-plus-24` onto clusters of a lower version, you might encounter some unsupported spec properties or invalid manifests.
 
@@ -194,13 +194,34 @@ app.synth();
 
 ## Getting Started
 
-=== "TypeScript/JavaScript"
+=== "TypeScript"
 
-    `❯ npm install cdk8s-plus-24 cdk8s`
+    `❯ npm install cdk8s-plus-24 cdk8s constructs`
 
     ```typescript
     import * as kplus from 'cdk8s-plus-24';
     import * as cdk8s from 'cdk8s';
+
+    const app = new cdk8s.App();
+    const chart = new cdk8s.Chart(app, 'Chart');
+
+    new kplus.Deployment(chart, 'Deployment', {
+      replicas: 3,
+      containers: [{
+        image: 'ubuntu',
+      }],
+    });
+
+    app.synth();
+    ```
+
+=== "JavaScript"
+
+    `❯ npm install cdk8s-plus-24 cdk8s constructs`
+
+    ```typescript
+    const kplus = require('cdk8s-plus-24');
+    const cdk8s = require('cdk8s');
 
     const app = new cdk8s.App();
     const chart = new cdk8s.Chart(app, 'Chart');
@@ -292,3 +313,44 @@ app.synth();
 
     app.Synth()
     ```
+
+## Overcoming Coverage Gaps
+
+As mentioned, the APIs offered by **cdk8s+** are hand-written by the team as well as the community.
+As such, you might encounter coverage gaps from time to time; that is, you are trying to configure
+something but the API doesn't expose it. There are two kinds of gaps:
+
+### Missing Resource
+
+When an entire resource is missing, you can supplement it by dropping to the L1 layer of constructs,
+which are available from within **cdk8s+**, so you don't need to install an additional library,
+or [import](https://cdk8s.io/docs/latest/cli/import/) any resources. For example:
+
+```ts
+import * as kplus from 'cdk8s-plus-24';
+import * as cdk8s from 'cdk8s';
+
+const app = new cdk8s.App();
+const chart = new cdk8s.Chart(app, 'Chart');
+
+// a Deployment exists as a higher level objects,
+// so we use it.
+new kplus.Deployment(chart, 'Deployment', {
+  replicas: 3,
+  containers: [{
+    image: 'ubuntu',
+  }],
+});
+
+// a StorageClass doesn't, so we use the low level objects.
+// notice the '.k8s.' addition.
+new kplus.k8s.KubeStorageClass(chart, 'StorageClass', {
+  provisioner: 'kubernetes.io/aws-ebs'
+});
+
+app.synth();
+```
+
+### Missing Property
+
+See https://cdk8s.io/docs/latest/basics/escape-hatches/#patching-api-objects-behind-higher-level-apis

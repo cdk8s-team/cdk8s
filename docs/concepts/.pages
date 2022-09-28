@@ -1,8 +1,0 @@
-nav:
-  - index.md
-  - constructs.md
-  - chart.md
-  - api-object.md
-  - deps.md
-  - ...
-  - testing.md  

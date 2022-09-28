@@ -131,11 +131,11 @@ const web = new kplus.Pod(chart, 'Web', {
 });
 
 const cache = new kplus.Pod(chart, 'Cache', {
-  containers: [{ image: 'cache', port: 6379 }],
+  containers: [{ image: 'cache', portNumber: 6379 }],
 });
 
 const db = new kplus.Pod(chart, 'DB', {
-  containers: [{ image: 'db', port: 6378 }],
+  containers: [{ image: 'db', portNumber: 6378 }],
 });
 
 // create a policy with an egress rule at instantiation
@@ -164,11 +164,11 @@ const web = new kplus.Pod(chart, 'Web', {
 });
 
 const cache = new kplus.Pod(chart, 'Cache', {
-  containers: [{ image: 'cache', port: 6379 }],
+  containers: [{ image: 'cache', portNumber: 6379 }],
 });
 
 const db = new kplus.Pod(chart, 'DB', {
-  containers: [{ image: 'db', port: 6378 }],
+  containers: [{ image: 'db', portNumber: 6378 }],
 });
 
 // create a policy with an ingress rule at instantiation
@@ -201,7 +201,7 @@ const web = new kplus.Pod(chart, 'Web', {
 });
 
 const redis = new kplus.Pod(chart, 'Redis', {
-  containers: [{ image: 'redis', port: 6379 }],
+  containers: [{ image: 'redis', portNumber: 6379 }],
   metadata: { namespace: 'n2' },
 });
 
@@ -239,7 +239,7 @@ const web = new kplus.Pod(chart, 'Web', {
 });
 
 const redis = new kplus.Pod(chart, 'Redis', {
-  containers: [{ image: 'redis', port: 6379 }],
+  containers: [{ image: 'redis', portNumber: 6379 }],
   metadata: { namespace: 'n2' },
 });
 
@@ -292,7 +292,7 @@ new kplus.NetworkPolicy(chart, 'Policy', {
 
 With this policy in place, no additional policy or policies can cause any incoming connection to those pods to be denied. This policy has no effect on isolation for egress from any pod.
 
-!!! notice
+!!! tip
 
     This differs from the default `DENY` isolation behavior, which is effectively disabled
     when other policies are applied.
@@ -335,7 +335,7 @@ new kplus.NetworkPolicy(chart, 'Policy', {
 
 With this policy in place, no additional policy or policies can cause any outgoing connection from those pods to be denied. This policy has no effect on isolation for ingress to any pod.
 
-!!! notice
+!!! tip
 
     This differs from the default `DENY` isolation behavior, which is effectively disabled
     when other policies are applied.

@@ -1,6 +1,2 @@
 nav:
-  - Overview: index.md
-  - hello.md
-  - web-service.md
-  - crd.md
-  - ...
+  - index.md

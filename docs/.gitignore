@@ -1,1 +1,6 @@
 !*.js
+
+# These are copied from outside during build.sh
+CHANGELOG.md
+CONTRIBUTING.md
+ROADMAP.md

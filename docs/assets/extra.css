@@ -11,3 +11,23 @@ h5 {
 .md-source__fact--version {
   display: none;
 }
+
+/* Search key hint. @see https://github.com/squidfunk/mkdocs-material/issues/2574 */
+[data-md-toggle="search"]:not(:checked) ~ .md-header .md-search__form::after {
+  position: absolute;
+  top: .3rem;
+  right: .3rem;
+  display: block;
+  padding: .1rem .4rem;
+  color: var(--md-default-bg-color);
+  font-weight: bold;
+  font-size: .8rem;
+  border: .05rem solid var(--md-default-bg-color--lighter);
+  border-radius: .1rem;
+  content: "/";
+}
+
+/* Hide the left nav title. It's the same as site title in the header. */
+.md-nav--primary > .md-nav__title{
+  display: none;
+}

@@ -16,9 +16,9 @@ cd ${scriptdir}/..
 pip3 install -r docs/requirements.txt
 
 # stage some content from the repo
-cp CHANGELOG.md docs/project/
-cp CONTRIBUTING.md docs/project/
-cp ROADMAP.md docs/project/
+cp CHANGELOG.md docs/
+cp CONTRIBUTING.md docs/
+cp ROADMAP.md docs/
 
 for module in cdk8s cdk8s-plus-22 cdk8s-plus-23 cdk8s-plus-24; do
   javamd=$(node -p "require.resolve('${module}/docs/java.md')")
