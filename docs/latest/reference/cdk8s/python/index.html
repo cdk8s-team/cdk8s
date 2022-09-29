@@ -2292,6 +2292,7 @@ construct path to generate a DNS-compatible name for the resource.</p>
 <span class="n">cdk8s</span><span class="o">.</span><span class="n">App</span><span class="p">(</span>
   <span class="n">outdir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">output_file_extension</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">record_construct_metadata</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">yaml_output_type</span><span class="p">:</span> <span class="n">YamlOutputType</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="p">)</span>
 </code></pre></div>
@@ -2308,6 +2309,13 @@ construct path to generate a DNS-compatible name for the resource.</p>
 <li><em>Default:</em> .k8s.yaml</li>
 </ul>
 <p>The file extension to use for rendered YAML files.</p>
+<hr />
+<h5 id="record_construct_metadataoptional"><code>record_construct_metadata</code><sup>Optional</sup> <a name="cdk8s.AppProps.parameter.record_construct_metadata"></a><a class="headerlink" href="#record_construct_metadataoptional" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>bool</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>When set to true, the output directory will contain a <code>construct-metadata.json</code> file that holds construct related metadata on every resource in the app.</p>
 <hr />
 <h5 id="yaml_output_typeoptional"><code>yaml_output_type</code><sup>Optional</sup> <a name="cdk8s.AppProps.parameter.yaml_output_type"></a><a class="headerlink" href="#yaml_output_typeoptional" title="Permanent link">&para;</a></h5>
 <ul>
@@ -2740,6 +2748,7 @@ framework based on the path of the construct within thes construct tree.</p>
 <span class="n">cdk8s</span><span class="o">.</span><span class="n">AppProps</span><span class="p">(</span>
   <span class="n">outdir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">output_file_extension</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">record_construct_metadata</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">yaml_output_type</span><span class="p">:</span> <span class="n">YamlOutputType</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="p">)</span>
 </code></pre></div>
@@ -2760,6 +2769,15 @@ framework based on the path of the construct within thes construct tree.</p>
 <li><em>Default:</em> .k8s.yaml</li>
 </ul>
 <p>The file extension to use for rendered YAML files.</p>
+<hr />
+<h5 id="record_construct_metadataoptional_1"><code>record_construct_metadata</code><sup>Optional</sup> <a name="cdk8s.AppProps.property.record_construct_metadata"></a><a class="headerlink" href="#record_construct_metadataoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">record_construct_metadata</span><span class="p">:</span> <span class="nb">bool</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>bool</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>When set to true, the output directory will contain a <code>construct-metadata.json</code> file that holds construct related metadata on every resource in the app.</p>
 <hr />
 <h5 id="yaml_output_typeoptional_1"><code>yaml_output_type</code><sup>Optional</sup> <a name="cdk8s.AppProps.property.yaml_output_type"></a><a class="headerlink" href="#yaml_output_typeoptional_1" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="n">yaml_output_type</span><span class="p">:</span> <span class="n">YamlOutputType</span>
@@ -4146,6 +4164,7 @@ cannot be negative.</p>
 <span class="n">cdk8s</span><span class="o">.</span><span class="n">Testing</span><span class="o">.</span><span class="n">app</span><span class="p">(</span>
   <span class="n">outdir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">output_file_extension</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">record_construct_metadata</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">yaml_output_type</span><span class="p">:</span> <span class="n">YamlOutputType</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="p">)</span>
 </code></pre></div>
@@ -4162,6 +4181,13 @@ cannot be negative.</p>
 <li><em>Default:</em> .k8s.yaml</li>
 </ul>
 <p>The file extension to use for rendered YAML files.</p>
+<hr />
+<h6 id="record_construct_metadataoptional_2"><code>record_construct_metadata</code><sup>Optional</sup> <a name="cdk8s.AppProps.parameter.record_construct_metadata"></a><a class="headerlink" href="#record_construct_metadataoptional_2" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <code>bool</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>When set to true, the output directory will contain a <code>construct-metadata.json</code> file that holds construct related metadata on every resource in the app.</p>
 <hr />
 <h6 id="yaml_output_typeoptional_2"><code>yaml_output_type</code><sup>Optional</sup> <a name="cdk8s.AppProps.parameter.yaml_output_type"></a><a class="headerlink" href="#yaml_output_typeoptional_2" title="Permanent link">&para;</a></h6>
 <ul>
