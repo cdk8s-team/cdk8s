@@ -5827,6 +5827,7 @@ is enforced during validation process.</p>
 <span class="c1">//  .volumes(java.util.List&lt;Volume&gt;)</span><span class="w"></span>
 <span class="c1">//  .podMetadata(ApiObjectMetadata)</span><span class="w"></span>
 <span class="c1">//  .select(java.lang.Boolean)</span><span class="w"></span>
+<span class="c1">//  .spread(java.lang.Boolean)</span><span class="w"></span>
 <span class="c1">//  .activeDeadline(Duration)</span><span class="w"></span>
 <span class="c1">//  .backoffLimit(java.lang.Number)</span><span class="w"></span>
 <span class="c1">//  .ttlAfterFinished(Duration)</span><span class="w"></span>
@@ -5976,6 +5977,16 @@ Account (for example, default).</p>
 <p>Automatically allocates a pod label selector for this workload and add it to the pod metadata.</p>
 <p>This ensures this workload manages pods created by
 its pod template.</p>
+<hr />
+<h5 id="spreadoptional"><code>spread</code><sup>Optional</sup> <a name="org.cdk8s.plus24.CronJobProps.parameter.spread"></a><a class="headerlink" href="#spreadoptional" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Automatically spread pods across hostname and zones.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/#internal-default-constraints</p>
+</blockquote>
 <hr />
 <h5 id="activedeadlineoptional"><code>activeDeadline</code><sup>Optional</sup> <a name="org.cdk8s.plus24.CronJobProps.parameter.activeDeadline"></a><a class="headerlink" href="#activedeadlineoptional" title="Permanent link">&para;</a></h5>
 <ul>
@@ -6170,6 +6181,7 @@ but with different flags and/or different memory and cpu requests for different 
 <span class="c1">//  .volumes(java.util.List&lt;Volume&gt;)</span><span class="w"></span>
 <span class="c1">//  .podMetadata(ApiObjectMetadata)</span><span class="w"></span>
 <span class="c1">//  .select(java.lang.Boolean)</span><span class="w"></span>
+<span class="c1">//  .spread(java.lang.Boolean)</span><span class="w"></span>
 <span class="c1">//  .minReadySeconds(java.lang.Number)</span><span class="w"></span>
 <span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
@@ -6311,6 +6323,16 @@ Account (for example, default).</p>
 <p>This ensures this workload manages pods created by
 its pod template.</p>
 <hr />
+<h5 id="spreadoptional_1"><code>spread</code><sup>Optional</sup> <a name="org.cdk8s.plus24.DaemonSetProps.parameter.spread"></a><a class="headerlink" href="#spreadoptional_1" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Automatically spread pods across hostname and zones.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/#internal-default-constraints</p>
+</blockquote>
+<hr />
 <h5 id="minreadysecondsoptional"><code>minReadySeconds</code><sup>Optional</sup> <a name="org.cdk8s.plus24.DaemonSetProps.parameter.minReadySeconds"></a><a class="headerlink" href="#minreadysecondsoptional" title="Permanent link">&para;</a></h5>
 <ul>
 <li><em>Type:</em> <code>java.lang.Number</code></li>
@@ -6374,6 +6396,7 @@ existing Deployments and adopt all their resources with new Deployments.</p>
 <span class="c1">//  .volumes(java.util.List&lt;Volume&gt;)</span><span class="w"></span>
 <span class="c1">//  .podMetadata(ApiObjectMetadata)</span><span class="w"></span>
 <span class="c1">//  .select(java.lang.Boolean)</span><span class="w"></span>
+<span class="c1">//  .spread(java.lang.Boolean)</span><span class="w"></span>
 <span class="c1">//  .minReady(Duration)</span><span class="w"></span>
 <span class="c1">//  .progressDeadline(Duration)</span><span class="w"></span>
 <span class="c1">//  .replicas(java.lang.Number)</span><span class="w"></span>
@@ -6517,6 +6540,16 @@ Account (for example, default).</p>
 <p>Automatically allocates a pod label selector for this workload and add it to the pod metadata.</p>
 <p>This ensures this workload manages pods created by
 its pod template.</p>
+<hr />
+<h5 id="spreadoptional_2"><code>spread</code><sup>Optional</sup> <a name="org.cdk8s.plus24.DeploymentProps.parameter.spread"></a><a class="headerlink" href="#spreadoptional_2" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Automatically spread pods across hostname and zones.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/#internal-default-constraints</p>
+</blockquote>
 <hr />
 <h5 id="minreadyoptional"><code>minReady</code><sup>Optional</sup> <a name="org.cdk8s.plus24.DeploymentProps.parameter.minReady"></a><a class="headerlink" href="#minreadyoptional" title="Permanent link">&para;</a></h5>
 <ul>
@@ -7090,6 +7123,7 @@ You can also use a Job to run multiple Pods in parallel.</p>
 <span class="c1">//  .volumes(java.util.List&lt;Volume&gt;)</span><span class="w"></span>
 <span class="c1">//  .podMetadata(ApiObjectMetadata)</span><span class="w"></span>
 <span class="c1">//  .select(java.lang.Boolean)</span><span class="w"></span>
+<span class="c1">//  .spread(java.lang.Boolean)</span><span class="w"></span>
 <span class="c1">//  .activeDeadline(Duration)</span><span class="w"></span>
 <span class="c1">//  .backoffLimit(java.lang.Number)</span><span class="w"></span>
 <span class="c1">//  .ttlAfterFinished(Duration)</span><span class="w"></span>
@@ -7232,6 +7266,16 @@ Account (for example, default).</p>
 <p>Automatically allocates a pod label selector for this workload and add it to the pod metadata.</p>
 <p>This ensures this workload manages pods created by
 its pod template.</p>
+<hr />
+<h5 id="spreadoptional_3"><code>spread</code><sup>Optional</sup> <a name="org.cdk8s.plus24.JobProps.parameter.spread"></a><a class="headerlink" href="#spreadoptional_3" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Automatically spread pods across hostname and zones.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/#internal-default-constraints</p>
+</blockquote>
 <hr />
 <h5 id="activedeadlineoptional_1"><code>activeDeadline</code><sup>Optional</sup> <a name="org.cdk8s.plus24.JobProps.parameter.activeDeadline"></a><a class="headerlink" href="#activedeadlineoptional_1" title="Permanent link">&para;</a></h5>
 <ul>
@@ -9256,6 +9300,7 @@ volumes to the new Pods that replace any that have failed.</p>
 <span class="c1">//  .volumes(java.util.List&lt;Volume&gt;)</span><span class="w"></span>
 <span class="c1">//  .podMetadata(ApiObjectMetadata)</span><span class="w"></span>
 <span class="c1">//  .select(java.lang.Boolean)</span><span class="w"></span>
+<span class="c1">//  .spread(java.lang.Boolean)</span><span class="w"></span>
 <span class="w">    </span><span class="p">.</span><span class="na">service</span><span class="p">(</span><span class="n">Service</span><span class="p">)</span><span class="w"></span>
 <span class="c1">//  .minReady(Duration)</span><span class="w"></span>
 <span class="c1">//  .podManagementPolicy(PodManagementPolicy)</span><span class="w"></span>
@@ -9400,6 +9445,16 @@ Account (for example, default).</p>
 <p>Automatically allocates a pod label selector for this workload and add it to the pod metadata.</p>
 <p>This ensures this workload manages pods created by
 its pod template.</p>
+<hr />
+<h5 id="spreadoptional_4"><code>spread</code><sup>Optional</sup> <a name="org.cdk8s.plus24.StatefulSetProps.parameter.spread"></a><a class="headerlink" href="#spreadoptional_4" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Automatically spread pods across hostname and zones.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/#internal-default-constraints</p>
+</blockquote>
 <hr />
 <h5 id="servicerequired"><code>service</code><sup>Required</sup> <a name="org.cdk8s.plus24.StatefulSetProps.parameter.service"></a><a class="headerlink" href="#servicerequired" title="Permanent link">&para;</a></h5>
 <ul>
@@ -9865,6 +9920,7 @@ In Kubernetes, a Pod represents a set of running containers on your cluster.</p>
 <span class="c1">//  .volumes(java.util.List&lt;Volume&gt;)</span><span class="w"></span>
 <span class="c1">//  .podMetadata(ApiObjectMetadata)</span><span class="w"></span>
 <span class="c1">//  .select(java.lang.Boolean)</span><span class="w"></span>
+<span class="c1">//  .spread(java.lang.Boolean)</span><span class="w"></span>
 <span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <h5 id="scoperequired_56"><code>scope</code><sup>Required</sup> <a name="org.cdk8s.plus24.Workload.parameter.scope"></a><a class="headerlink" href="#scoperequired_56" title="Permanent link">&para;</a></h5>
@@ -10004,6 +10060,16 @@ Account (for example, default).</p>
 <p>Automatically allocates a pod label selector for this workload and add it to the pod metadata.</p>
 <p>This ensures this workload manages pods created by
 its pod template.</p>
+<hr />
+<h5 id="spreadoptional_5"><code>spread</code><sup>Optional</sup> <a name="org.cdk8s.plus24.WorkloadProps.parameter.spread"></a><a class="headerlink" href="#spreadoptional_5" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Automatically spread pods across hostname and zones.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/#internal-default-constraints</p>
+</blockquote>
 <hr />
 <h4 id="methods_22">Methods <a name="Methods"></a><a class="headerlink" href="#methods_22" title="Permanent link">&para;</a></h4>
 <h5 id="select_3"><code>select</code> <a name="org.cdk8s.plus24.Workload.select"></a><a class="headerlink" href="#select_3" title="Permanent link">&para;</a></h5>
@@ -11095,7 +11161,7 @@ file mode, like fsGroup, and the result can be other mode bits set.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">PathMapping</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getItems</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus24.PathMapping">klzzwxh:10955</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus24.PathMapping">klzzwxh:11033</a>></li>
 <li><em>Default:</em> no mapping</li>
 </ul>
 <p>If unspecified, each key-value pair in the Data field of the referenced ConfigMap will be projected into the volume as a file whose name is the key and content is the value.</p>
@@ -11305,7 +11371,7 @@ with a duplicate key will take precedence.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">EnvValue</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getEnvVariables</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus24.EnvValue">klzzwxh:10909</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus24.EnvValue">klzzwxh:10987</a>></li>
 <li><em>Default:</em> No environment variables.</li>
 </ul>
 <p>Environment variables to set in the container.</p>
@@ -11605,6 +11671,7 @@ somehow it manages to get access to host file system.</li>
 <span class="c1">//  .volumes(java.util.List&lt;Volume&gt;)</span><span class="w"></span>
 <span class="c1">//  .podMetadata(ApiObjectMetadata)</span><span class="w"></span>
 <span class="c1">//  .select(java.lang.Boolean)</span><span class="w"></span>
+<span class="c1">//  .spread(java.lang.Boolean)</span><span class="w"></span>
 <span class="c1">//  .activeDeadline(Duration)</span><span class="w"></span>
 <span class="c1">//  .backoffLimit(java.lang.Number)</span><span class="w"></span>
 <span class="c1">//  .ttlAfterFinished(Duration)</span><span class="w"></span>
@@ -11771,6 +11838,18 @@ Account (for example, default).</p>
 <p>This ensures this workload manages pods created by
 its pod template.</p>
 <hr />
+<h5 id="spreadoptional_6"><code>spread</code><sup>Optional</sup> <a name="org.cdk8s.plus24.CronJobProps.property.spread"></a><a class="headerlink" href="#spreadoptional_6" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span><span class="w"> </span><span class="nf">getSpread</span><span class="p">();</span><span class="w"></span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Automatically spread pods across hostname and zones.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/#internal-default-constraints</p>
+</blockquote>
+<hr />
 <h5 id="activedeadlineoptional_3"><code>activeDeadline</code><sup>Optional</sup> <a name="org.cdk8s.plus24.CronJobProps.property.activeDeadline"></a><a class="headerlink" href="#activedeadlineoptional_3" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">Duration</span><span class="w"> </span><span class="nf">getActiveDeadline</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
@@ -11906,6 +11985,7 @@ start a new execution at 10:22:00.</p>
 <span class="c1">//  .volumes(java.util.List&lt;Volume&gt;)</span><span class="w"></span>
 <span class="c1">//  .podMetadata(ApiObjectMetadata)</span><span class="w"></span>
 <span class="c1">//  .select(java.lang.Boolean)</span><span class="w"></span>
+<span class="c1">//  .spread(java.lang.Boolean)</span><span class="w"></span>
 <span class="c1">//  .minReadySeconds(java.lang.Number)</span><span class="w"></span>
 <span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
@@ -12063,6 +12143,18 @@ Account (for example, default).</p>
 <p>This ensures this workload manages pods created by
 its pod template.</p>
 <hr />
+<h5 id="spreadoptional_7"><code>spread</code><sup>Optional</sup> <a name="org.cdk8s.plus24.DaemonSetProps.property.spread"></a><a class="headerlink" href="#spreadoptional_7" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span><span class="w"> </span><span class="nf">getSpread</span><span class="p">();</span><span class="w"></span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Automatically spread pods across hostname and zones.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/#internal-default-constraints</p>
+</blockquote>
+<hr />
 <h5 id="minreadysecondsoptional_1"><code>minReadySeconds</code><sup>Optional</sup> <a name="org.cdk8s.plus24.DaemonSetProps.property.minReadySeconds"></a><a class="headerlink" href="#minreadysecondsoptional_1" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span><span class="w"> </span><span class="nf">getMinReadySeconds</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
@@ -12131,6 +12223,7 @@ you must explicitly set a name starting from the second expose call.</p>
 <span class="c1">//  .volumes(java.util.List&lt;Volume&gt;)</span><span class="w"></span>
 <span class="c1">//  .podMetadata(ApiObjectMetadata)</span><span class="w"></span>
 <span class="c1">//  .select(java.lang.Boolean)</span><span class="w"></span>
+<span class="c1">//  .spread(java.lang.Boolean)</span><span class="w"></span>
 <span class="c1">//  .minReady(Duration)</span><span class="w"></span>
 <span class="c1">//  .progressDeadline(Duration)</span><span class="w"></span>
 <span class="c1">//  .replicas(java.lang.Number)</span><span class="w"></span>
@@ -12290,6 +12383,18 @@ Account (for example, default).</p>
 <p>Automatically allocates a pod label selector for this workload and add it to the pod metadata.</p>
 <p>This ensures this workload manages pods created by
 its pod template.</p>
+<hr />
+<h5 id="spreadoptional_8"><code>spread</code><sup>Optional</sup> <a name="org.cdk8s.plus24.DeploymentProps.property.spread"></a><a class="headerlink" href="#spreadoptional_8" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span><span class="w"> </span><span class="nf">getSpread</span><span class="p">();</span><span class="w"></span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Automatically spread pods across hostname and zones.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/#internal-default-constraints</p>
+</blockquote>
 <hr />
 <h5 id="minreadyoptional_2"><code>minReady</code><sup>Optional</sup> <a name="org.cdk8s.plus24.DeploymentProps.property.minReady"></a><a class="headerlink" href="#minreadyoptional_2" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">Duration</span><span class="w"> </span><span class="nf">getMinReady</span><span class="p">();</span><span class="w"></span>
@@ -13277,6 +13382,7 @@ termination and value of the Host header is used for routing.</p>
 <span class="c1">//  .volumes(java.util.List&lt;Volume&gt;)</span><span class="w"></span>
 <span class="c1">//  .podMetadata(ApiObjectMetadata)</span><span class="w"></span>
 <span class="c1">//  .select(java.lang.Boolean)</span><span class="w"></span>
+<span class="c1">//  .spread(java.lang.Boolean)</span><span class="w"></span>
 <span class="c1">//  .activeDeadline(Duration)</span><span class="w"></span>
 <span class="c1">//  .backoffLimit(java.lang.Number)</span><span class="w"></span>
 <span class="c1">//  .ttlAfterFinished(Duration)</span><span class="w"></span>
@@ -13435,6 +13541,18 @@ Account (for example, default).</p>
 <p>Automatically allocates a pod label selector for this workload and add it to the pod metadata.</p>
 <p>This ensures this workload manages pods created by
 its pod template.</p>
+<hr />
+<h5 id="spreadoptional_9"><code>spread</code><sup>Optional</sup> <a name="org.cdk8s.plus24.JobProps.property.spread"></a><a class="headerlink" href="#spreadoptional_9" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span><span class="w"> </span><span class="nf">getSpread</span><span class="p">();</span><span class="w"></span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Automatically spread pods across hostname and zones.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/#internal-default-constraints</p>
+</blockquote>
 <hr />
 <h5 id="activedeadlineoptional_4"><code>activeDeadline</code><sup>Optional</sup> <a name="org.cdk8s.plus24.JobProps.property.activeDeadline"></a><a class="headerlink" href="#activedeadlineoptional_4" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">Duration</span><span class="w"> </span><span class="nf">getActiveDeadline</span><span class="p">();</span><span class="w"></span>
@@ -14983,7 +15101,7 @@ file mode, like fsGroup, and the result can be other mode bits set.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">PathMapping</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getItems</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus24.PathMapping">klzzwxh:9985</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus24.PathMapping">klzzwxh:10051</a>></li>
 <li><em>Default:</em> no mapping</li>
 </ul>
 <p>If unspecified, each key-value pair in the Data field of the referenced secret will be projected into the volume as a file whose name is the key and content is the value.</p>
@@ -15408,6 +15526,7 @@ its endpoints, which Kubernetes will not modify.</li>
 <span class="c1">//  .volumes(java.util.List&lt;Volume&gt;)</span><span class="w"></span>
 <span class="c1">//  .podMetadata(ApiObjectMetadata)</span><span class="w"></span>
 <span class="c1">//  .select(java.lang.Boolean)</span><span class="w"></span>
+<span class="c1">//  .spread(java.lang.Boolean)</span><span class="w"></span>
 <span class="w">    </span><span class="p">.</span><span class="na">service</span><span class="p">(</span><span class="n">Service</span><span class="p">)</span><span class="w"></span>
 <span class="c1">//  .minReady(Duration)</span><span class="w"></span>
 <span class="c1">//  .podManagementPolicy(PodManagementPolicy)</span><span class="w"></span>
@@ -15568,6 +15687,18 @@ Account (for example, default).</p>
 <p>Automatically allocates a pod label selector for this workload and add it to the pod metadata.</p>
 <p>This ensures this workload manages pods created by
 its pod template.</p>
+<hr />
+<h5 id="spreadoptional_10"><code>spread</code><sup>Optional</sup> <a name="org.cdk8s.plus24.StatefulSetProps.property.spread"></a><a class="headerlink" href="#spreadoptional_10" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span><span class="w"> </span><span class="nf">getSpread</span><span class="p">();</span><span class="w"></span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Automatically spread pods across hostname and zones.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/#internal-default-constraints</p>
+</blockquote>
 <hr />
 <h5 id="servicerequired_1"><code>service</code><sup>Required</sup> <a name="org.cdk8s.plus24.StatefulSetProps.property.service"></a><a class="headerlink" href="#servicerequired_1" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">Service</span><span class="w"> </span><span class="nf">getService</span><span class="p">();</span><span class="w"></span>
@@ -15952,6 +16083,7 @@ contain &lsquo;:&rsquo;.</p>
 <span class="c1">//  .volumes(java.util.List&lt;Volume&gt;)</span><span class="w"></span>
 <span class="c1">//  .podMetadata(ApiObjectMetadata)</span><span class="w"></span>
 <span class="c1">//  .select(java.lang.Boolean)</span><span class="w"></span>
+<span class="c1">//  .spread(java.lang.Boolean)</span><span class="w"></span>
 <span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <h5 id="metadataoptional_59"><code>metadata</code><sup>Optional</sup> <a name="org.cdk8s.plus24.WorkloadProps.property.metadata"></a><a class="headerlink" href="#metadataoptional_59" title="Permanent link">&para;</a></h5>
@@ -16107,6 +16239,18 @@ Account (for example, default).</p>
 <p>Automatically allocates a pod label selector for this workload and add it to the pod metadata.</p>
 <p>This ensures this workload manages pods created by
 its pod template.</p>
+<hr />
+<h5 id="spreadoptional_11"><code>spread</code><sup>Optional</sup> <a name="org.cdk8s.plus24.WorkloadProps.property.spread"></a><a class="headerlink" href="#spreadoptional_11" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span><span class="w"> </span><span class="nf">getSpread</span><span class="p">();</span><span class="w"></span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Automatically spread pods across hostname and zones.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/#internal-default-constraints</p>
+</blockquote>
 <hr />
 <h3 id="workloadschedulingspreadoptions">WorkloadSchedulingSpreadOptions <a name="org.cdk8s.plus24.WorkloadSchedulingSpreadOptions"></a><a class="headerlink" href="#workloadschedulingspreadoptions" title="Permanent link">&para;</a></h3>
 <p>Options for <code>WorkloadScheduling.spread</code>.</p>
@@ -16582,7 +16726,7 @@ with a duplicate key will take precedence.</p>
 <hr />
 <h5 id="envvariablesoptional_1"><code>envVariables</code><sup>Optional</sup> <a name="org.cdk8s.plus24.ContainerProps.parameter.envVariables"></a><a class="headerlink" href="#envvariablesoptional_1" title="Permanent link">&para;</a></h5>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus24.EnvValue">klzzwxh:9511</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus24.EnvValue">klzzwxh:9571</a>></li>
 <li><em>Default:</em> No environment variables.</li>
 </ul>
 <p>Environment variables to set in the container.</p>
@@ -17022,7 +17166,7 @@ somehow it manages to get access to host file system.</li>
 <hr />
 <h5 id="variablesrequired"><code>variables</code><sup>Required</sup> <a name="org.cdk8s.plus24.Env.parameter.variables"></a><a class="headerlink" href="#variablesrequired" title="Permanent link">&para;</a></h5>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus24.EnvValue">klzzwxh:9371</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus24.EnvValue">klzzwxh:9431</a>></li>
 </ul>
 <hr />
 <h4 id="methods_25">Methods <a name="Methods"></a><a class="headerlink" href="#methods_25" title="Permanent link">&para;</a></h4>
@@ -17088,7 +17232,7 @@ somehow it manages to get access to host file system.</li>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">EnvValue</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getVariables</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus24.EnvValue">klzzwxh:9348</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus24.EnvValue">klzzwxh:9408</a>></li>
 </ul>
 <p>The environment variables for this container.</p>
 <p>Returns a copy. To add environment variables use <code>container.env.addVariable()</code>.</p>

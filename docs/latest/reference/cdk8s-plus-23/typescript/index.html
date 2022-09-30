@@ -9361,6 +9361,18 @@ Account (for example, default).</p>
 <p>This ensures this workload manages pods created by
 its pod template.</p>
 <hr />
+<h5 id="spreadoptional"><code>spread</code><sup>Optional</sup> <a name="cdk8s-plus-23.CronJobProps.property.spread"></a><a class="headerlink" href="#spreadoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">spread</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Automatically spread pods across hostname and zones.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/#internal-default-constraints</p>
+</blockquote>
+<hr />
 <h5 id="activedeadlineoptional_1"><code>activeDeadline</code><sup>Optional</sup> <a name="cdk8s-plus-23.CronJobProps.property.activeDeadline"></a><a class="headerlink" href="#activedeadlineoptional_1" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">activeDeadline</span><span class="o">:</span><span class="w"> </span><span class="kt">Duration</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
@@ -9625,6 +9637,18 @@ Account (for example, default).</p>
 <p>This ensures this workload manages pods created by
 its pod template.</p>
 <hr />
+<h5 id="spreadoptional_1"><code>spread</code><sup>Optional</sup> <a name="cdk8s-plus-23.DaemonSetProps.property.spread"></a><a class="headerlink" href="#spreadoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">spread</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Automatically spread pods across hostname and zones.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/#internal-default-constraints</p>
+</blockquote>
+<hr />
 <h5 id="minreadysecondsoptional"><code>minReadySeconds</code><sup>Optional</sup> <a name="cdk8s-plus-23.DaemonSetProps.property.minReadySeconds"></a><a class="headerlink" href="#minreadysecondsoptional" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">minReadySeconds</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
@@ -9830,6 +9854,18 @@ Account (for example, default).</p>
 <p>Automatically allocates a pod label selector for this workload and add it to the pod metadata.</p>
 <p>This ensures this workload manages pods created by
 its pod template.</p>
+<hr />
+<h5 id="spreadoptional_2"><code>spread</code><sup>Optional</sup> <a name="cdk8s-plus-23.DeploymentProps.property.spread"></a><a class="headerlink" href="#spreadoptional_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">spread</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Automatically spread pods across hostname and zones.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/#internal-default-constraints</p>
+</blockquote>
 <hr />
 <h5 id="minreadyoptional"><code>minReady</code><sup>Optional</sup> <a name="cdk8s-plus-23.DeploymentProps.property.minReady"></a><a class="headerlink" href="#minreadyoptional" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">minReady</span><span class="o">:</span><span class="w"> </span><span class="kt">Duration</span><span class="p">;</span><span class="w"></span>
@@ -10871,6 +10907,18 @@ Account (for example, default).</p>
 <p>Automatically allocates a pod label selector for this workload and add it to the pod metadata.</p>
 <p>This ensures this workload manages pods created by
 its pod template.</p>
+<hr />
+<h5 id="spreadoptional_3"><code>spread</code><sup>Optional</sup> <a name="cdk8s-plus-23.JobProps.property.spread"></a><a class="headerlink" href="#spreadoptional_3" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">spread</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Automatically spread pods across hostname and zones.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/#internal-default-constraints</p>
+</blockquote>
 <hr />
 <h5 id="activedeadlineoptional_2"><code>activeDeadline</code><sup>Optional</sup> <a name="cdk8s-plus-23.JobProps.property.activeDeadline"></a><a class="headerlink" href="#activedeadlineoptional_2" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">activeDeadline</span><span class="o">:</span><span class="w"> </span><span class="kt">Duration</span><span class="p">;</span><span class="w"></span>
@@ -12799,6 +12847,18 @@ Account (for example, default).</p>
 <p>This ensures this workload manages pods created by
 its pod template.</p>
 <hr />
+<h5 id="spreadoptional_4"><code>spread</code><sup>Optional</sup> <a name="cdk8s-plus-23.StatefulSetProps.property.spread"></a><a class="headerlink" href="#spreadoptional_4" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">spread</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Automatically spread pods across hostname and zones.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/#internal-default-constraints</p>
+</blockquote>
+<hr />
 <h5 id="servicerequired"><code>service</code><sup>Required</sup> <a name="cdk8s-plus-23.StatefulSetProps.property.service"></a><a class="headerlink" href="#servicerequired" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">service</span><span class="o">:</span><span class="w"> </span><span class="kt">Service</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
@@ -13293,6 +13353,18 @@ Account (for example, default).</p>
 <p>Automatically allocates a pod label selector for this workload and add it to the pod metadata.</p>
 <p>This ensures this workload manages pods created by
 its pod template.</p>
+<hr />
+<h5 id="spreadoptional_5"><code>spread</code><sup>Optional</sup> <a name="cdk8s-plus-23.WorkloadProps.property.spread"></a><a class="headerlink" href="#spreadoptional_5" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">spread</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Automatically spread pods across hostname and zones.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/#internal-default-constraints</p>
+</blockquote>
 <hr />
 <h3 id="workloadschedulingspreadoptions">WorkloadSchedulingSpreadOptions <a name="cdk8s-plus-23.WorkloadSchedulingSpreadOptions"></a><a class="headerlink" href="#workloadschedulingspreadoptions" title="Permanent link">&para;</a></h3>
 <p>Options for <code>WorkloadScheduling.spread</code>.</p>
