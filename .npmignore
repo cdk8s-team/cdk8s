@@ -4,4 +4,5 @@
 /test-reports/
 junit.xml
 /coverage/
+permissions-backup.acl
 /.mergify.yml
