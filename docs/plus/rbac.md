@@ -4,7 +4,8 @@ Role Based Access Control(RBAC) helps you restrict actions that can be performed
 
 These roles can then be binded to Kubernetes subjects, which could be User, Group or ServiceAccount. 
 
-**NOTE:** Rules or permissions are purely additive and there are no deny rules.
+!!! note
+    Rules or permissions are purely additive and there are no deny rules.
 
 Now, there are two types of roles available,
 * Role: These set permissions within a particular namespace i.e. is for namespaced resources, like, pods, deployments.
@@ -14,11 +15,9 @@ and, similarly there are two types of binding available,
 * RoleBinding: These grant permissions within a specific namespace.
 * ClusterRoleBinding: These grant cluster wide permissions .
 
-!!! tip ""
-    [Role API Reference](../reference/cdk8s-plus-24/typescript.md#role)
-
-!!! tip ""
-    [RoleBinding API Reference](../reference/cdk8s-plus-24/typescript.md#role-binding)
+!!! tip "Learn more"
+    * [Role API Reference](../reference/cdk8s-plus-24/typescript.md#role)
+    * [RoleBinding API Reference](../reference/cdk8s-plus-24/typescript.md#role-binding)
 
 ## Role
 
