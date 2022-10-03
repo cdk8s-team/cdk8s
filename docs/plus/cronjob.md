@@ -1,178 +1,67 @@
 # CronJob
 
-CronJob resource is responsible for creating recurring [Jobs](https://kubernetes.io/docs/concepts/workloads/controllers/job/). The job recurrence is determined by a [Schedule](https://github.com/cdk8s-team/cdk8s-core/blob/2.x/src/schedule.ts).
+CronJob resource is responsible for creating recurring [Jobs](https://kubernetes.io/docs/concepts/workloads/controllers/job/). The job recurrence is determined by a [Cron](https://github.com/cdk8s-team/cdk8s-core/blob/2.x/src/cron.ts) expression.
 
 CronJob is similar to a [job](https://cdk8s.io/docs/latest/plus/job/) but it is suitable when there is a need to run a job indefinitely following a schedule. These repetitive jobs can be utilized for recurring tasks such as backing up a database, pinging a server for health checks, creating snapshots of systems and much more.
 
 !!! tip "" 
      [API Reference](../reference/cdk8s-plus-24/typescript.md#cronjob)
 
-## Creating a CronJob
-
-You can create a cronjob using a cdk8s+ CronJob construct. The library provides a set of defaults, so to provision a CronJob instance you just need to provide it with the job's properties.
-
-### Creating a CronJob using CronJob construct:
+## Creating a `CronJob`
 
 ```typescript
-import { App, Chart, Duration, Schedule } from 'cdk8s';
 import * as kplus from 'cdk8s-plus-24';
+import { Construct } from 'constructs';
+import { App, Chart, ChartProps, Cron } from 'cdk8s';
+
+export class MyChart extends Chart {
+  constructor(scope: Construct, id: string, props: ChartProps = { }) {
+    super(scope, id, props);
+
+    new kplus.CronJob(this, 'CronJob', {
+      containers: [{
+        image: 'databack/mysql-backup',
+      }],
+      // You can pass a custom cron schedule using our Cron class
+      schedule: Cron.schedule({
+        minute: '*',
+        hour: '*',
+        day: '*',
+        month: '*',
+        weekDay: '*',
+      }),
+    });
+  }
+}
 
 const app = new App();
-const chart = new Chart(app, 'Chart');
+new MyChart(app, 'cronjob-readme');
+app.synth();
 
-// lets setup a cron job here which backups mysql database
-// by default cronjob would schedule job to run every minute
-const backupCronJob = new k8splus.CronJob(this, 'BackupCronJob', {
-  jobProperties: {
-    activeDeadline: Duration.minutes(5),
-    backoffLimit: 5,
-    },
-  containers: [
-      {
-        image: 'databack/mysql-backup',
-      }
-    ]
+```
+
+### Defaults
+
+The above would create a cronjob resource which would schedule `databack/mysql-backup` to run every minute. With this resource, we also set some meaningful defaults. For instance, this cronjob would not run jobs concurrently by default. It will also retain 3 instance of successful job runs and 1 instance of a failed run for debugging later if needed. To customize the properties, see [API Reference](../reference/cdk8s-plus-24/typescript.md#cronjob).
+
+### Helper Functions
+
+As we see in the previous example, we can pass custom cron expression for scheduling our jobs. But, we have also have added helper functions that would make it easy to mention some of the commonly used schedules. These include scheduling jobs to run every minute, hour, day, week, month or year. For instance, the same example mentioned before could be written as,
+
+```typescript
+new kplus.CronJob(this, 'CronJob', {
+  containers: [{
+    image: 'databack/mysql-backup',
+  }],
+  // This would schedule jobs to be scheduled to run every minute
+  schedule: Cron.everyMinute(),
 });
 ```
 
-### You can also configure the parameters of a CronJob:
+### Validations
 
-* ### `schedule`
-This enables you to provide the CronJob with a schedule. The job recurrence is then set based on provided schedule. If it is not provided, by default your job would run every minute.
+The cronjob construct also validates some of the properties so that the manifest created works as expected. 
 
-  ```typescript
-  const backupCronJob = new k8splus.CronJob(this, 'BackupCronJob', {
-    jobProperties: {
-      activeDeadline: Duration.minutes(5),
-      backoffLimit: 5,
-      },
-    schedule: {
-      minute: '5',
-      hour: '*',
-      day: '*',
-      month: '*',
-      year: '*',
-    },
-    containers: [
-      {
-        image: 'databack/mysql-backup',
-      }
-    ]
-  });
-  ```
+* You cannot pass `startingDeadline` property value less that 10 seconds. This is because the Kubernetes CronJobController checks things every 10 seconds and if the value passed is less than 10 then the jobs would not be scheduled.
 
-* ### `timezone`
-This properties helps you to set timezone for your CronJob so that your scheduled job works as expected. If it is not set, the timezone is set to the timezone of the kube-controller-manager. 
-  
-  ```typescript
-  const backupCronJob = new k8splus.CronJob(this, 'BackupCronJob', {
-    jobProperties: {
-      activeDeadline: Duration.minutes(5),
-      backoffLimit: 5,
-      },
-    timezone: 'America/Los_Angeles',
-    containers: [
-      {
-        image: 'databack/mysql-backup',
-      }
-    ]
-  });
-  ```
-
-* ### `concurrencyPolicy`
-  This policy helps your CronJob to determine how to handle concurrent executions of jobs. The valid values for this policy are, 
-  * Allow
-  * Forbid
-  * Replace
-  If it is not set, the default value is Forbid.
-
-  ```typescript
-  const backupCronJob = new k8splus.CronJob(this, 'BackupCronJob', {
-    jobProperties: {
-      activeDeadline: Duration.minutes(5),
-      backoffLimit: 5,
-      },
-    concurrencyPolicy: k8splus.ConcurrencyPolicy.ALLOW,
-    containers: [
-      {
-        image: 'databack/mysql-backup',
-      }
-    ]
-  });
-  ```
-
-* ### `startingDeadline`
-  This deadline helps your CronJob know by when the next execution of job should start by. If the job is not scheduled by this time, it is considered to be failing.
-  
-  For instance, if a job was scheduled to run every 5 minutes and you have mentioned a *startingDeadline* of 30 seconds. Then the job status would be updated as failed if the job does not start by 5 minutes and 30 seconds after the start time of previous job.
-
-  By default, there is no deadline.
-
-  ```typescript
-  const backupCronJob = new k8splus.CronJob(this, 'BackupCronJob', {
-    jobProperties: {
-      activeDeadline: Duration.minutes(5),
-      backoffLimit: 5,
-      },
-    startingDeadline: Duration.seconds(30),
-    containers: [
-      {
-        image: 'databack/mysql-backup',
-      }
-    ]
-  });
-  ```
-
-* ### `suspend`
-  You can use this to stop the subsequent executions of the recurring job.If not set, it sets to default.
-
-  ```typescript
-  const backupCronJob = new k8splus.CronJob(this, 'BackupCronJob', {
-    jobProperties: {
-      activeDeadline: Duration.minutes(5),
-      backoffLimit: 5,
-      },
-    suspend: false,
-    containers: [
-      {
-        image: 'databack/mysql-backup',
-      }
-    ]
-  });
-  ```
-
-* ### `successfulJobsRetained`
-  By specifying this, you can retain certain number of successful job run's history. This can help evaluate logs of these job runs. Be default, this is set to 3.
-
-  ```typescript
-  const backupCronJob = new k8splus.CronJob(this, 'BackupCronJob', {
-    jobProperties: {
-      activeDeadline: Duration.minutes(5),
-      backoffLimit: 5,
-      },
-    successfulJobsRetained: 5,
-    containers: [
-      {
-        image: 'databack/mysql-backup',
-      }
-    ]
-  });
-  ```
-
-* ### `failedJobsRetained`
-  By specifying this, you can retain certain number of unsuccessful job run's history. This can help evaluate logs of these job runs. Be default, this is set to 1.
-
-  ```typescript
-  const backupCronJob = new k8splus.CronJob(this, 'BackupCronJob', {
-    jobProperties: {
-      activeDeadline: Duration.minutes(5),
-      backoffLimit: 5,
-      },
-    failedJobsRetained: 5,
-    containers: [
-      {
-        image: 'databack/mysql-backup',
-      }
-    ]
-  });
-  ```
+* `ttlAfterFinished` job property limits the lifetime of a job that has finished execution. You cannot pass the `ttlAfterFinished` property with any/both of the `successfulJobsRetained` and `failedJobsRetained` property since this would not let retention of jobs work in a expected manner.
