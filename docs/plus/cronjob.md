@@ -62,6 +62,6 @@ new kplus.CronJob(this, 'CronJob', {
 
 The cronjob construct also validates some of the properties so that the manifest created works as expected. 
 
-* You cannot pass `startingDeadline` property value less that 10 seconds. This is because the Kubernetes CronJobController checks things every 10 seconds and if the value passed is less than 10 then the jobs would not be scheduled.
+* You cannot pass `startingDeadline` property value less that 10 seconds. This is because the Kubernetes CronJobController checks things every 10 seconds and if the value passed is less than that then the jobs would not be scheduled.
 
-* `ttlAfterFinished` job property limits the lifetime of a job that has finished execution. You cannot pass the `ttlAfterFinished` property with any/both of the `successfulJobsRetained` and `failedJobsRetained` property since this would not let retention of jobs work in a expected manner.
+* `ttlAfterFinished` job property limits the lifetime of a job that has finished execution. You cannot pass the `ttlAfterFinished` property with any/both of the `successfulJobsRetained` and `failedJobsRetained` property since this would not let retention of jobs work in an expected manner.
