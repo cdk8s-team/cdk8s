@@ -2310,6 +2310,12 @@ construct path to generate a DNS-compatible name for the resource.</p>
 <li><em>Default:</em> CDK8S_OUTDIR if defined, otherwise &ldquo;dist&rdquo;</li>
 </ul>
 <p>The directory to output Kubernetes manifests.</p>
+<p>If you synthesize your application using <code>cdk8s synth</code>, you must
+also pass this value to the CLI using the <code>--output</code> option or
+the <code>output</code> property in the <code>cdk8s.yaml</code> configuration file.
+Otherwise, the CLI will not know about the output directory,
+and synthesis will fail.</p>
+<p>This property is intended for internal and testing use.</p>
 <hr />
 <h5 id="outputfileextensionoptional"><code>outputFileExtension</code><sup>Optional</sup> <a name="org.cdk8s.AppProps.parameter.outputFileExtension"></a><a class="headerlink" href="#outputfileextensionoptional" title="Permanent link">&para;</a></h5>
 <ul>
@@ -2754,6 +2760,12 @@ framework based on the path of the construct within thes construct tree.</p>
 <li><em>Default:</em> CDK8S_OUTDIR if defined, otherwise &ldquo;dist&rdquo;</li>
 </ul>
 <p>The directory to output Kubernetes manifests.</p>
+<p>If you synthesize your application using <code>cdk8s synth</code>, you must
+also pass this value to the CLI using the <code>--output</code> option or
+the <code>output</code> property in the <code>cdk8s.yaml</code> configuration file.
+Otherwise, the CLI will not know about the output directory,
+and synthesis will fail.</p>
+<p>This property is intended for internal and testing use.</p>
 <hr />
 <h5 id="outputfileextensionoptional_1"><code>outputFileExtension</code><sup>Optional</sup> <a name="org.cdk8s.AppProps.property.outputFileExtension"></a><a class="headerlink" href="#outputfileextensionoptional_1" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getOutputFileExtension</span><span class="p">();</span><span class="w"></span>

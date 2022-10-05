@@ -2318,6 +2318,12 @@ construct path to generate a DNS-compatible name for the resource.</p>
 <li><em>Default:</em> CDK8S_OUTDIR if defined, otherwise &ldquo;dist&rdquo;</li>
 </ul>
 <p>The directory to output Kubernetes manifests.</p>
+<p>If you synthesize your application using <code>cdk8s synth</code>, you must
+also pass this value to the CLI using the <code>--output</code> option or
+the <code>output</code> property in the <code>cdk8s.yaml</code> configuration file.
+Otherwise, the CLI will not know about the output directory,
+and synthesis will fail.</p>
+<p>This property is intended for internal and testing use.</p>
 <hr />
 <h5 id="output_file_extensionoptional"><code>output_file_extension</code><sup>Optional</sup> <a name="cdk8s.AppProps.parameter.output_file_extension"></a><a class="headerlink" href="#output_file_extensionoptional" title="Permanent link">&para;</a></h5>
 <ul>
@@ -2776,6 +2782,12 @@ framework based on the path of the construct within thes construct tree.</p>
 <li><em>Default:</em> CDK8S_OUTDIR if defined, otherwise &ldquo;dist&rdquo;</li>
 </ul>
 <p>The directory to output Kubernetes manifests.</p>
+<p>If you synthesize your application using <code>cdk8s synth</code>, you must
+also pass this value to the CLI using the <code>--output</code> option or
+the <code>output</code> property in the <code>cdk8s.yaml</code> configuration file.
+Otherwise, the CLI will not know about the output directory,
+and synthesis will fail.</p>
+<p>This property is intended for internal and testing use.</p>
 <hr />
 <h5 id="output_file_extensionoptional_1"><code>output_file_extension</code><sup>Optional</sup> <a name="cdk8s.AppProps.property.output_file_extension"></a><a class="headerlink" href="#output_file_extensionoptional_1" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="n">output_file_extension</span><span class="p">:</span> <span class="nb">str</span>
@@ -4190,6 +4202,12 @@ cannot be negative.</p>
 <li><em>Default:</em> CDK8S_OUTDIR if defined, otherwise &ldquo;dist&rdquo;</li>
 </ul>
 <p>The directory to output Kubernetes manifests.</p>
+<p>If you synthesize your application using <code>cdk8s synth</code>, you must
+also pass this value to the CLI using the <code>--output</code> option or
+the <code>output</code> property in the <code>cdk8s.yaml</code> configuration file.
+Otherwise, the CLI will not know about the output directory,
+and synthesis will fail.</p>
+<p>This property is intended for internal and testing use.</p>
 <hr />
 <h6 id="output_file_extensionoptional_2"><code>output_file_extension</code><sup>Optional</sup> <a name="cdk8s.AppProps.parameter.output_file_extension"></a><a class="headerlink" href="#output_file_extensionoptional_2" title="Permanent link">&para;</a></h6>
 <ul>
