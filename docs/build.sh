@@ -20,6 +20,7 @@ cp CHANGELOG.md docs/
 cp CONTRIBUTING.md docs/
 cp ROADMAP.md docs/
 
+# copy API reference docs
 for module in cdk8s cdk8s-plus-22 cdk8s-plus-23 cdk8s-plus-24; do
   javamd=$(node -p "require.resolve('${module}/docs/java.md')")
   pythonmd=$(node -p "require.resolve('${module}/docs/python.md')")
@@ -28,6 +29,12 @@ for module in cdk8s cdk8s-plus-22 cdk8s-plus-23 cdk8s-plus-24; do
   cat $pythonmd | sed "s/# API Reference/# ${module} (Python)/" > "docs/reference/${module}/python.md"
   cat $typescriptmd | sed "s/# API Reference/# ${module} (TypeScript)/" > "docs/reference/${module}/typescript.md"
 done
+
+# copy API /plus docs
+for module in cdk8s cdk8s-plus-22 cdk8s-plus-23 cdk8s-plus-24; do
+  cp -r '${module}/docs/plus' 'docs/plus'
+done
+
 
 # repo root
 cd ${scriptdir}/..
