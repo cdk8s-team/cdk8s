@@ -20,7 +20,7 @@ cp CHANGELOG.md docs/
 cp CONTRIBUTING.md docs/
 cp ROADMAP.md docs/
 
-for module in cdk8s cdk8s-plus-22 cdk8s-plus-23 cdk8s-plus-24; do
+for module in cdk8s cdk8s-plus-22 cdk8s-plus-23 cdk8s-plus-24 cdk8s-plus-25; do
   javamd=$(node -p "require.resolve('${module}/docs/java.md')")
   pythonmd=$(node -p "require.resolve('${module}/docs/python.md')")
   typescriptmd=$(node -p "require.resolve('${module}/docs/typescript.md')")
