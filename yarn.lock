@@ -2336,6 +2336,13 @@ cdk8s-plus-24@^2.0.0-rc.139:
   dependencies:
     minimatch "^3.1.2"
 
+cdk8s-plus-25@^2.0.0-rc.0:
+  version "2.0.0-rc.0"
+  resolved "https://registry.yarnpkg.com/cdk8s-plus-25/-/cdk8s-plus-25-2.0.0-rc.0.tgz#8b1d0c25571d70698a72d5dd3e10cbde9cef3ac4"
+  integrity sha512-XZw+EOZS9KDCegSlPHRJ3GkRZCTFN3IOoIXuIzP0FMqxuaddtX1r1R+jczh9UNuVYi7g1NG/adQkP6Y+Snlgdw==
+  dependencies:
+    minimatch "^3.1.2"
+
 cdk8s@2.2.87:
   version "2.2.87"
   resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-2.2.87.tgz#404100fc008f59c39fe8198016c777a3ab79e939"
