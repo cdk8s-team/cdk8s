@@ -20,6 +20,7 @@ cp CHANGELOG.md docs/
 cp CONTRIBUTING.md docs/
 cp ROADMAP.md docs/
 
+# copy API reference docs from cdk8s and each cdk8s+ package version
 for module in cdk8s cdk8s-plus-22 cdk8s-plus-23 cdk8s-plus-24 cdk8s-plus-25; do
   javamd=$(node -p "require.resolve('${module}/docs/java.md')")
   pythonmd=$(node -p "require.resolve('${module}/docs/python.md')")
@@ -27,6 +28,13 @@ for module in cdk8s cdk8s-plus-22 cdk8s-plus-23 cdk8s-plus-24 cdk8s-plus-25; do
   cat $javamd | sed "s/# API Reference/# ${module} (Java)/" > "docs/reference/${module}/java.md"
   cat $pythonmd | sed "s/# API Reference/# ${module} (Python)/" > "docs/reference/${module}/python.md"
   cat $typescriptmd | sed "s/# API Reference/# ${module} (TypeScript)/" > "docs/reference/${module}/typescript.md"
+done
+
+# copy /plus docs from each cdk8s+ package version into separate docs/plus/$version sub-dirs
+for module in cdk8s-plus-22 cdk8s-plus-23 cdk8s-plus-24 cdk8s-plus-25; do
+  cp -r "${module}/docs/plus" "docs/plus/${module}"
+  # The latest cdk8s+ version's overview page is used as the /plus overview page
+  cp "${module}/docs/plus/index.md" "docs/plus/index.md"
 done
 
 # repo root
