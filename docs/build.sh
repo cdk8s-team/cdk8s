@@ -32,7 +32,7 @@ done
 
 # copy /plus docs from each cdk8s+ package version into separate docs/plus/$version sub-dirs
 for module in cdk8s-plus-22 cdk8s-plus-23 cdk8s-plus-24 cdk8s-plus-25; do
-  cp -r "${module}/docs/plus" "docs/plus/${module}"
+  cp -r "${module}/docs/plus/" "docs/plus/${module}"
   # The latest cdk8s+ version's overview page is used as the /plus overview page
   cp "${module}/docs/plus/index.md" "docs/plus/index.md"
 done
