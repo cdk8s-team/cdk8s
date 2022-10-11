@@ -3,6 +3,7 @@ set -euo pipefail
 set -x
 
 scriptdir=$(cd $(dirname $0) && pwd)
+nodemodulesdir=${scriptdir}/../node_modules
 outdir=${1:-${scriptdir}/../website/public/docs}
 
 # resolve path
@@ -32,9 +33,10 @@ done
 
 # copy /plus docs from each cdk8s+ package version into separate docs/plus/$version sub-dirs
 for module in cdk8s-plus-22 cdk8s-plus-23 cdk8s-plus-24 cdk8s-plus-25; do
-  cp -r "${module}/docs/plus/" "docs/plus/${module}"
+  mkdir -p "docs/plus/${module}/"
+  cp -r "${nodemodulesdir}/${module}/docs/plus/" "docs/plus/${module}"
   # The latest cdk8s+ version's overview page is used as the /plus overview page
-  cp "${module}/docs/plus/index.md" "docs/plus/index.md"
+  cp "${nodemodulesdir}/${module}/docs/plus/index.md" "docs/plus/index.md"
 done
 
 # repo root
