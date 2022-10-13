@@ -22,7 +22,7 @@ cp CONTRIBUTING.md docs/
 cp ROADMAP.md docs/
 
 # copy API reference docs from cdk8s and each cdk8s+ package version
-for module in cdk8s cdk8s-plus-22 cdk8s-plus-23 cdk8s-plus-24; do
+for module in cdk8s cdk8s-plus-22 cdk8s-plus-23 cdk8s-plus-24 cdk8s-plus-25; do
   javamd=$(node -p "require.resolve('${module}/docs/java.md')")
   pythonmd=$(node -p "require.resolve('${module}/docs/python.md')")
   typescriptmd=$(node -p "require.resolve('${module}/docs/typescript.md')")
@@ -32,7 +32,7 @@ for module in cdk8s cdk8s-plus-22 cdk8s-plus-23 cdk8s-plus-24; do
 done
 
 # copy /plus docs from each cdk8s+ package version into separate docs/plus/$version sub-dirs
-for module in cdk8s-plus-22 cdk8s-plus-23 cdk8s-plus-24; do
+for module in cdk8s-plus-22 cdk8s-plus-23 cdk8s-plus-24 cdk8s-plus-25; do
   mkdir -p "docs/plus/${module}/"
   cp -r "${nodemodulesdir}/${module}/docs/plus/" "docs/plus/${module}"
   # The latest cdk8s+ version's overview page is used as the /plus overview page

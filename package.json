@@ -24,6 +24,7 @@
     "cdk8s-plus-22": "^2.0.0-rc.144",
     "cdk8s-plus-23": "^2.0.0-rc.144",
     "cdk8s-plus-24": "^2.0.0-rc.144",
+    "cdk8s-plus-25": "^2.0.0-rc.1",
     "constructs": "^10.1.127",
     "jest": "^27",
     "jest-junit": "^13",
