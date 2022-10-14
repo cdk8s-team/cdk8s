@@ -29,6 +29,10 @@
       "type": "build"
     },
     {
+      "name": "cdk8s-plus-25",
+      "type": "build"
+    },
+    {
       "name": "constructs",
       "type": "build"
     },
