@@ -34,7 +34,7 @@ for module in cdk8s ${CDK8S_PLUS_VERSIONS[@]}; do
 done
 
 # copy /plus/* docs from each cdk8s+ version into separate docs/plus/$version sub-dirs
-overviewpage="docs/plus/index.md"
+overviewpage='docs/plus/index.md'
 for module in ${CDK8S_PLUS_VERSIONS[@]}; do
   mkdir -p "docs/plus/${module}/"
   cp -r "${nodemodulesdir}/${module}/docs/plus/" "docs/plus/${module}"
@@ -43,10 +43,12 @@ for module in ${CDK8S_PLUS_VERSIONS[@]}; do
 done
 
 # remove version from the title of /plus overview page
-sed -i '' 's/# cdk8s+ v[0-9]*/# cdk8s+/' "$overviewpage"
+content=$(<$overviewpage)
+echo "$content" | sed "s/# cdk8s+ v[0-9][0-9]$/# cdk8s+/" > "${overviewpage}"
 
 # reduce all relative links by 1 level in the /plus overview page
-sed -i '' 's/(\.\.\//(\.\//g' "$overviewpage"
+content=$(<$overviewpage)
+echo "$content" | sed 's/(\.\.\//(\.\//g' > $overviewpage
 
 # append to /plus overview page a list of links to the docs of each cdk8s+ version
 NEW_LINE=$'\n'
