@@ -37,7 +37,7 @@ done
 overviewpage='docs/plus/index.md'
 for module in ${CDK8S_PLUS_VERSIONS[@]}; do
   mkdir -p "docs/plus/${module}/"
-  cp -r "${nodemodulesdir}/${module}/docs/plus/." "docs/plus/${module}"
+  cp -R "${nodemodulesdir}/${module}"/docs/plus/* "docs/plus/${module}"
   # The latest cdk8s+ version's overview page is used as the /plus overview page
   cp "${nodemodulesdir}/${module}/$overviewpage" $overviewpage
 done
