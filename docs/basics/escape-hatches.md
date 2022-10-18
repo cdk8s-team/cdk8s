@@ -51,7 +51,7 @@ To do that, you will need to "peak" into the construct tree and find the underly
 API object, so you can apply the patch to it:
 
 ```ts
-import { Pod } from 'cdk8s-plus-24';
+import { Pod } from 'cdk8s-plus-25';
 import { ApiObject } from 'cdk8s';
 
 const pod = new Pod(...);
