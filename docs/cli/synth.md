@@ -48,40 +48,45 @@ With this configuration, `cdk8s` will dynamically install the `datree-cdk8s-plug
 synthesis, and produce a violation report. For example:
 
 ```console
-Validation Report (datree-cdk8s-plugin@0.0.1)
----------------------------------------------------------
+Validation Report (@datreeio/datree-cdk8s@1.3.4)
+------------------------------------------------
 
 (Summary)
 
-╔═════════╤═════════════════════════════════╗
-║ Status  │ failure                         ║
-╟─────────┼─────────────────────────────────╢
-║ Plugin  │ datree-cdk8s-plugin             ║
-╟─────────┼─────────────────────────────────╢
-║ Version │ 0.0.1                           ║
-╚═════════╧═════════════════════════════════╝
+╔═══════════╤════════════════════════╗
+║ Status    │ failure                ║
+╟───────────┼────────────────────────╢
+║ Plugin    │ @datreeio/datree-cdk8s ║
+╟───────────┼────────────────────────╢
+║ Version   │ 1.3.4                  ║
+╟───────────┼────────────────────────╢
+║ Customize │ https://app.datree.io  ║
+║ policy    │                        ║
+╚═══════════╧════════════════════════╝
 
 
 (Violations)
 
-Ensure deployment-like resource is using a valid restart policy (2 occurrences)
+Ensure each container image has a pinned (tag) version (2 occurrences)
 
   Occurrences:
 
-    - construct.path: Chart/Deployment1
-    - manifest.path: dist/chart-c86185a7.k8s.yaml
-    - resource.name: chart-deployment1-c874f36f
-    - locations:
-      > spec.template.spec.restartPolicy
+    - Construct Path: cdk8s-app/Web/Resource
+    - Manifest Path: ./dist/cdk8s-app.k8s.yaml
+    - Resource Name: cdk8s-app-web-c825557e
+    - Locations:
+      > spec/template/spec/containers/0/image (line: 31:18)
 
-    - construct.path: Chart/Deployment2
-    - manifest.path: dist/chart-c86185a7.k8s.yaml
-    - resource.name: chart-deployment2-c884ba93
-    - locations:
-      > spec.template.spec.restartPolicy
+    - Construct Path: cdk8s-app/Cache/Resource
+    - Manifest Path: ./dist/cdk8s-app.k8s.yaml
+    - Resource Name: cdk8s-app-cache-c8fee821
+    - Locations:
+      > spec/template/spec/containers/0/image (line: 112:18)
 
-  Recommendation: Incorrect value for key `restartPolicy` - any other value than `Always` is not supported by this resource
-  How to fix: https://hub.datree.io/built-in-rules/ensure-valid-restart-policy
+  Recommendation: Incorrect value for key `image` - specify an image version to avoid unpleasant "version surprises" in the future
+  How to fix: https://hub.datree.io/ensure-image-pinned-version
+
+Validation failed. See above reports for details
 ```
 
 If the report resulted in a failure, the `cdk8s synth` command will fail.
