@@ -146,7 +146,7 @@ You can also control the plugins storage directory by one of:
 
 ### Available Plugins
 
-- [DaTree](https://github.com/datreeio/datree-cdk8s-plugin)
+- [Datree](https://github.com/datreeio/datree-cdk8s)
 
 ### Writing Plugins
 
