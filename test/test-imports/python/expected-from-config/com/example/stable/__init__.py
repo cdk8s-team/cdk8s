@@ -8,6 +8,8 @@ import jsii
 import publication
 import typing_extensions
 
+from typeguard import check_type
+
 from ._jsii import *
 
 import cdk8s
@@ -28,8 +30,8 @@ class CronTab(
         scope: constructs.Construct,
         id: builtins.str,
         *,
-        metadata: typing.Optional[cdk8s.ApiObjectMetadata] = None,
-        spec: typing.Optional["CronTabSpec"] = None,
+        metadata: typing.Optional[typing.Union[cdk8s.ApiObjectMetadata, typing.Dict[str, typing.Any]]] = None,
+        spec: typing.Optional[typing.Union["CronTabSpec", typing.Dict[str, typing.Any]]] = None,
     ) -> None:
         '''Defines a "CronTab" API object.
 
@@ -38,17 +40,21 @@ class CronTab(
         :param metadata: 
         :param spec: 
         '''
+        if __debug__:
+            type_hints = typing.get_type_hints(CronTab.__init__)
+            check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
+            check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = CronTabProps(metadata=metadata, spec=spec)
 
         jsii.create(self.__class__, self, [scope, id, props])
 
-    @jsii.member(jsii_name="manifest") # type: ignore[misc]
+    @jsii.member(jsii_name="manifest")
     @builtins.classmethod
     def manifest(
         cls,
         *,
-        metadata: typing.Optional[cdk8s.ApiObjectMetadata] = None,
-        spec: typing.Optional["CronTabSpec"] = None,
+        metadata: typing.Optional[typing.Union[cdk8s.ApiObjectMetadata, typing.Dict[str, typing.Any]]] = None,
+        spec: typing.Optional[typing.Union["CronTabSpec", typing.Dict[str, typing.Any]]] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "CronTab".
 
@@ -66,7 +72,7 @@ class CronTab(
         '''Renders the object to Kubernetes JSON.'''
         return typing.cast(typing.Any, jsii.invoke(self, "toJson", []))
 
-    @jsii.python.classproperty # type: ignore[misc]
+    @jsii.python.classproperty
     @jsii.member(jsii_name="GVK")
     def GVK(cls) -> cdk8s.GroupVersionKind:
         '''Returns the apiVersion and kind for "CronTab".'''
@@ -82,8 +88,8 @@ class CronTabProps:
     def __init__(
         self,
         *,
-        metadata: typing.Optional[cdk8s.ApiObjectMetadata] = None,
-        spec: typing.Optional["CronTabSpec"] = None,
+        metadata: typing.Optional[typing.Union[cdk8s.ApiObjectMetadata, typing.Dict[str, typing.Any]]] = None,
+        spec: typing.Optional[typing.Union["CronTabSpec", typing.Dict[str, typing.Any]]] = None,
     ) -> None:
         '''
         :param metadata: 
@@ -95,6 +101,10 @@ class CronTabProps:
             metadata = cdk8s.ApiObjectMetadata(**metadata)
         if isinstance(spec, dict):
             spec = CronTabSpec(**spec)
+        if __debug__:
+            type_hints = typing.get_type_hints(CronTabProps.__init__)
+            check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
+            check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
         self._values: typing.Dict[str, typing.Any] = {}
         if metadata is not None:
             self._values["metadata"] = metadata
@@ -149,6 +159,11 @@ class CronTabSpec:
 
         :schema: CronTabSpec
         '''
+        if __debug__:
+            type_hints = typing.get_type_hints(CronTabSpec.__init__)
+            check_type(argname="argument cron_spec", value=cron_spec, expected_type=type_hints["cron_spec"])
+            check_type(argname="argument image", value=image, expected_type=type_hints["image"])
+            check_type(argname="argument replicas", value=replicas, expected_type=type_hints["replicas"])
         self._values: typing.Dict[str, typing.Any] = {}
         if cron_spec is not None:
             self._values["cron_spec"] = cron_spec
