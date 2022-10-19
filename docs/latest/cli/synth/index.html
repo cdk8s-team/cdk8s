@@ -1753,6 +1753,47 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#validating-manifests" class="md-nav__link">
+    Validating Manifests
+  </a>
+  
+    <nav class="md-nav" aria-label="Validating Manifests">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#private-validation-plugins" class="md-nav__link">
+    Private Validation Plugins
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pre-installing-plugins" class="md-nav__link">
+    Pre-Installing Plugins
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#available-plugins" class="md-nav__link">
+    Available Plugins
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#writing-plugins" class="md-nav__link">
+    Writing Plugins
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2606,6 +2647,47 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#validating-manifests" class="md-nav__link">
+    Validating Manifests
+  </a>
+  
+    <nav class="md-nav" aria-label="Validating Manifests">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#private-validation-plugins" class="md-nav__link">
+    Private Validation Plugins
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pre-installing-plugins" class="md-nav__link">
+    Pre-Installing Plugins
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#available-plugins" class="md-nav__link">
+    Available Plugins
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#writing-plugins" class="md-nav__link">
+    Writing Plugins
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2634,7 +2716,9 @@ the application defined in <code>cdk8s.yaml</code> under <code>app</code>.</p>
 </code></pre></div>
 <p>Then, <code>cdk8s synth</code> will execute <code>node app.js</code>.</p>
 <h2 id="configuring-synth-output">Configuring synth output<a class="headerlink" href="#configuring-synth-output" title="Permanent link">&para;</a></h2>
-<p>The properties of the synthesized YAML from <code>cdk8s synth</code> can be modified by the properties of the <code>App</code> construct. Things like file extensions, how API objects are distributed between files, and the output directory can all be configured in your <a href="https://github.com/cdk8s-team/cdk8s-core/blob/2.x/docs/typescript.md#appprops-"><code>AppProps</code></a></p>
+<p>The properties of the synthesized YAML from <code>cdk8s synth</code> can be modified by the properties of the <code>App</code> construct.
+Things like file extensions, how API objects are distributed between files, and the output directory can all
+be configured in your <a href="https://github.com/cdk8s-team/cdk8s-core/blob/2.x/docs/typescript.md#appprops-"><code>AppProps</code></a></p>
 <p>For example:</p>
 <div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">App</span><span class="p">({</span><span class="w"></span>
 <span class="w">  </span><span class="c1">// Instead of the default &quot;dist&quot;</span><span class="w"></span>
@@ -2645,6 +2729,105 @@ the application defined in <code>cdk8s.yaml</code> under <code>app</code>.</p>
 <span class="w">  </span><span class="nx">yamlOutputType</span><span class="o">:</span><span class="w"> </span><span class="kt">YamlOutputType.FILE_PER_RESOURCE</span><span class="p">,</span><span class="w"></span>
 <span class="p">});</span><span class="w"></span>
 </code></pre></div>
+<h2 id="validating-manifests">Validating Manifests<a class="headerlink" href="#validating-manifests" title="Permanent link">&para;</a></h2>
+<p>You can perform validation on the manifests produced by cdk8s by configuring third-party validation
+plugins. To do so, use the <code>validations</code> property in the <code>cdk8s.yaml</code> configuration file:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">typescript</span><span class="w"></span>
+<span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ts-node main.ts</span><span class="w"></span>
+<span class="nt">validations</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">package</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;@datreeio/datree-cdk8s&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">class</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DatreeValidation</span><span class="w"></span>
+<span class="w">    </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.3.4</span><span class="w"></span>
+</code></pre></div>
+<p>With this configuration, <code>cdk8s</code> will dynamically install the <code>@datreeio/datree-cdk8s</code> package from NPM during
+synthesis, and produce a violation report. For example:</p>
+<div class="highlight"><pre><span></span><code><span class="go">Validation Report (@datreeio/datree-cdk8s@1.3.4)</span>
+<span class="go">------------------------------------------------</span>
+
+<span class="gp gp-VirtualEnv">(Summary)</span>
+
+<span class="go">╔═══════════╤════════════════════════╗</span>
+<span class="go">║ Status    │ failure                ║</span>
+<span class="go">╟───────────┼────────────────────────╢</span>
+<span class="go">║ Plugin    │ @datreeio/datree-cdk8s ║</span>
+<span class="go">╟───────────┼────────────────────────╢</span>
+<span class="go">║ Version   │ 1.3.4                  ║</span>
+<span class="go">╟───────────┼────────────────────────╢</span>
+<span class="go">║ Customize │ https://app.datree.io  ║</span>
+<span class="go">║ policy    │                        ║</span>
+<span class="go">╚═══════════╧════════════════════════╝</span>
+
+
+<span class="gp gp-VirtualEnv">(Violations)</span>
+
+<span class="go">Ensure each container image has a pinned (tag) version (2 occurrences)</span>
+
+<span class="go">  Occurrences:</span>
+
+<span class="go">    - Construct Path: cdk8s-app/Web/Resource</span>
+<span class="go">    - Manifest Path: ./dist/cdk8s-app.k8s.yaml</span>
+<span class="go">    - Resource Name: cdk8s-app-web-c825557e</span>
+<span class="go">    - Locations:</span>
+<span class="go">      &gt; spec/template/spec/containers/0/image (line: 31:18)</span>
+
+<span class="go">    - Construct Path: cdk8s-app/Cache/Resource</span>
+<span class="go">    - Manifest Path: ./dist/cdk8s-app.k8s.yaml</span>
+<span class="go">    - Resource Name: cdk8s-app-cache-c8fee821</span>
+<span class="go">    - Locations:</span>
+<span class="go">      &gt; spec/template/spec/containers/0/image (line: 112:18)</span>
+
+<span class="go">  Recommendation: Incorrect value for key `image` - specify an image version to avoid unpleasant &quot;version surprises&quot; in the future</span>
+<span class="go">  How to fix: https://hub.datree.io/ensure-image-pinned-version</span>
+
+<span class="go">Validation failed. See above reports for details</span>
+</code></pre></div>
+<p>If the report resulted in a failure, the <code>cdk8s synth</code> command will fail.
+You can also put the contents of the <code>validation</code> property into a separate file (either remote or local),
+and refer to it:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">typescript</span><span class="w"></span>
+<span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ts-node main.ts</span><span class="w"></span>
+<span class="nt">validations</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://path/to/validations.yaml</span><span class="w"></span>
+</code></pre></div>
+<h3 id="private-validation-plugins">Private Validation Plugins<a class="headerlink" href="#private-validation-plugins" title="Permanent link">&para;</a></h3>
+<p>To use a validation plugin that is hosted in a private NPM registry, use the <code>installEnv</code>
+property to specify a custom registry:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">typescript</span><span class="w"></span>
+<span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ts-node main.ts</span><span class="w"></span>
+<span class="nt">validations</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">package</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-private-plugin</span><span class="w"></span>
+<span class="w">    </span><span class="nt">class</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MyValidation</span><span class="w"></span>
+<span class="w">    </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0.1</span><span class="w"></span>
+<span class="w">    </span><span class="nt">installEnv</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">npm_config_registry</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://my/custom/registry</span><span class="w"></span>
+</code></pre></div>
+<blockquote>
+<p>All key value pairs in the <code>installEnv</code> property will be passed as is to the <code>npm</code> command that <code>cdk8s</code>
+executes when it installs your plugin.</p>
+</blockquote>
+<h3 id="pre-installing-plugins">Pre-Installing Plugins<a class="headerlink" href="#pre-installing-plugins" title="Permanent link">&para;</a></h3>
+<p>You can prevent <code>cdk8s</code> from contacting NPM during synthesis by providing it with the necessary plugins.
+Plugins are stored in the <code>~/.cdk8s/plugins</code> directory, and <code>cdk8s</code> will first check if a plugin
+is already installed before trying to install it.</p>
+<p>If you pre-populate the plugins directory correctly, you can prevent <code>cdk8s</code> from contacting NPM.
+This can be useful for air-gapped synthesis scenarios for example.</p>
+<p>Here is how <code>cdk8s</code> expects the directory to be structured, assuming the plugin package is called <code>plugin1</code>, and its version is <code>0.0.1</code></p>
+<p><code>~/.cdk8s/plugins/plugin1/0.0.1/node_modules/plugin1/package.json</code></p>
+<p>You can achieve this structure by running the following commands:</p>
+<div class="highlight"><pre><span></span><code><span class="go">mkdir -p ~/.cdk8s/plugins/plugin1/0.0.1/node_modules/plugin1</span>
+<span class="go">npm install --prefix ~/.cdk8s/plugins/plugin1/0.0.1/node_modules/plugin1 plugin1@0.0.1</span>
+</code></pre></div>
+<p>You can also control the plugins storage directory by one of:</p>
+<ul>
+<li><code>--plugins-dir</code> in the <code>cdk8s synth</code> command.</li>
+<li><code>CDK8S_PLUGINS_DIR</code> environment variable.</li>
+<li><code>pluginsDirectory</code> key in the <code>cdk8s.yaml</code> configuration file.</li>
+</ul>
+<h3 id="available-plugins">Available Plugins<a class="headerlink" href="#available-plugins" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://github.com/datreeio/datree-cdk8s">Datree</a></li>
+</ul>
+<h3 id="writing-plugins">Writing Plugins<a class="headerlink" href="#writing-plugins" title="Permanent link">&para;</a></h3>
+<p>See <a href="https://github.com/cdk8s-team/cdk8s-validation-plugin-example">cdk8s-validation-plugin-example</a></p>
 
 
 
