@@ -108,8 +108,8 @@ property to specify a custom registry:
 language: typescript
 app: ts-node main.ts
 validations:
-  - package: datree-cdk8s-plugin
-    class: DatreeValidation
+  - package: my-private-plugin
+    class: MyValidation
     version: 0.0.1
     installEnv:
       npm_config_registry: http://my/custom/registry
