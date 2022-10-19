@@ -44,7 +44,7 @@ validations:
     version: 1.3.4
 ```
 
-With this configuration, `cdk8s` will dynamically install the `datree-cdk8s-plugin` package from NPM during
+With this configuration, `cdk8s` will dynamically install the `@datreeio/datree-cdk8s` package from NPM during
 synthesis, and produce a violation report. For example:
 
 ```console
