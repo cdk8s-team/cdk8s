@@ -55,4 +55,7 @@ dist/
 /docs/reference/cdk8s-plus-24/java.md
 /docs/reference/cdk8s-plus-24/typescript.md
 /docs/reference/cdk8s-plus-24/python.md
+/docs/reference/cdk8s-plus-25/java.md
+/docs/reference/cdk8s-plus-25/typescript.md
+/docs/reference/cdk8s-plus-25/python.md
 !/.github/workflows/integ.yml

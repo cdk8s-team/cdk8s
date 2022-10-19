@@ -30,6 +30,7 @@ const project = new javascript.NodeProject({
     'cdk8s-plus-22',
     'cdk8s-plus-23',
     'cdk8s-plus-24',
+    'cdk8s-plus-25',
     'constructs',
     'lerna@^4',
     'semver',
@@ -63,6 +64,12 @@ project.tasks.removeTask('test:compile');
 
 // no package task is needed
 project.packageTask.reset();
+
+project.package.addPackageResolutions(
+  // Pin version of @types/responselike and got, see: https://github.com/sindresorhus/got/issues/2129
+  "@types/responselike@1.0.0",
+  "got@12.3.1"
+);
 
 // integ tests
 const integTask = project.addTask('integ', {
@@ -148,7 +155,8 @@ const packages = [
   'cdk8s',
   'cdk8s-plus-22',
   'cdk8s-plus-23',
-  'cdk8s-plus-24'
+  'cdk8s-plus-24',
+  'cdk8s-plus-25',
 ];
 for (const pkg of packages) {
   for (const language of ['java', 'typescript', 'python']) {
