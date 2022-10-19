@@ -39,9 +39,9 @@ plugins. To do so, use the `validations` property in the `cdk8s.yaml` configurat
 language: typescript
 app: ts-node main.ts
 validations:
-  - package: datree-cdk8s-plugin
+  - package: '@datreeio/datree-cdk8s'
     class: DatreeValidation
-    version: 0.0.1
+    version: 1.3.4
 ```
 
 With this configuration, `cdk8s` will dynamically install the `datree-cdk8s-plugin` package from NPM during
