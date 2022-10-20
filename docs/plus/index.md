@@ -23,7 +23,7 @@ any spec version higher or equal to `1.XX.0`. **Non-stable** resources are not g
 
 !!! notice
 
-    We maintain support only for the 3 latest Kubernetes releases. So, if the latest release is N, `cdk8s-plus-N`, `cdk8s-plus-(N-1)` and `cdk8s-plus-(N-2)` will be continously updated
+    cdk8s+ libraries are maintained only for the 3 latest Kubernetes releases. So, if the latest Kubernetes release is N, `cdk8s-plus-N`, `cdk8s-plus-(N-1)` and `cdk8s-plus-(N-2)` will be continously updated
     and supported. However, `cdk8s-plus-(N-3)` and so on will no longer be actively maintained.
 
 ### Naming conventions
