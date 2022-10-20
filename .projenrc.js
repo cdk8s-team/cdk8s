@@ -18,7 +18,7 @@ const project = new javascript.NodeProject({
       name: 'Setup Go',
       uses: 'actions/setup-go@v2',
       with: {
-        'go-version': '1.16',
+        'go-version': '1.18',
       },
     },
   ],
