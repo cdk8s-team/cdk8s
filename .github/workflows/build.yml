@@ -29,13 +29,13 @@ jobs:
         run: yarn install --check-files
       - name: build
         run: npx projen build
-      - name: Find mutations
-        id: self_mutation
+      - id: self_mutation
+        name: Find mutations
         run: |-
           git add .
           git diff --staged --patch --exit-code > .repo.patch || echo "::set-output name=self_mutation_happened::true"
-      - name: Upload patch
-        if: steps.self_mutation.outputs.self_mutation_happened
+      - if: steps.self_mutation.outputs.self_mutation_happened
+        name: Upload patch
         uses: actions/upload-artifact@v2
         with:
           name: .repo.patch

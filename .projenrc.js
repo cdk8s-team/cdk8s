@@ -27,7 +27,6 @@ const project = new javascript.NodeProject({
     '@types/node',
     'cdk8s',
     'cdk8s-cli',
-    'cdk8s-plus-22',
     'cdk8s-plus-23',
     'cdk8s-plus-24',
     'cdk8s-plus-25',
