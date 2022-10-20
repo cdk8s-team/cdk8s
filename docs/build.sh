@@ -34,31 +34,10 @@ for module in cdk8s ${CDK8S_PLUS_VERSIONS[@]}; do
 done
 
 # copy /plus/* docs from each cdk8s+ version into separate docs/plus/$version sub-dirs
-overviewpage='docs/plus/index.md'
 for module in ${CDK8S_PLUS_VERSIONS[@]}; do
   mkdir -p "docs/plus/${module}/"
   cp -R "${nodemodulesdir}/${module}"/docs/plus/* "docs/plus/${module}"
-  # The latest cdk8s+ version's overview page is used as the /plus overview page
-  cp "${nodemodulesdir}/${module}/$overviewpage" $overviewpage
 done
-
-# remove version from the title of /plus overview page
-content=$(<$overviewpage)
-echo "$content" | sed "s/# cdk8s+ v[0-9][0-9]$/# cdk8s+/" > "${overviewpage}"
-
-# reduce all relative links by 1 level in the /plus overview page
-content=$(<$overviewpage)
-echo "$content" | sed 's/(\.\.\//(\.\//g' > $overviewpage
-
-# append to /plus overview page a list of links to the docs of each cdk8s+ version
-NEW_LINE=$'\n'
-table="## cdk8s+ versions$NEW_LINE"
-for module in ${CDK8S_PLUS_VERSIONS[@]}; do
-  table="$table$NEW_LINE* [**$module**](./$module/) · Kubernetes v1.${module: -2}.0"
-done
-echo "$NEW_LINE$table" >> "$overviewpage"
-
-
 
 # repo root
 cd ${scriptdir}/..
