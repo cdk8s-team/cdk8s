@@ -48,7 +48,14 @@ class Affinity:
         if isinstance(pod_anti_affinity, dict):
             pod_anti_affinity = PodAntiAffinity(**pod_anti_affinity)
         if __debug__:
-            type_hints = typing.get_type_hints(Affinity.__init__)
+            def stub(
+                *,
+                node_affinity: typing.Optional[typing.Union["NodeAffinity", typing.Dict[str, typing.Any]]] = None,
+                pod_affinity: typing.Optional[typing.Union["PodAffinity", typing.Dict[str, typing.Any]]] = None,
+                pod_anti_affinity: typing.Optional[typing.Union["PodAntiAffinity", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument node_affinity", value=node_affinity, expected_type=type_hints["node_affinity"])
             check_type(argname="argument pod_affinity", value=pod_affinity, expected_type=type_hints["pod_affinity"])
             check_type(argname="argument pod_anti_affinity", value=pod_anti_affinity, expected_type=type_hints["pod_anti_affinity"])
@@ -117,7 +124,12 @@ class AggregationRule:
         :schema: io.k8s.api.rbac.v1.AggregationRule
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(AggregationRule.__init__)
+            def stub(
+                *,
+                cluster_role_selectors: typing.Optional[typing.Sequence[typing.Union["LabelSelector", typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument cluster_role_selectors", value=cluster_role_selectors, expected_type=type_hints["cluster_role_selectors"])
         self._values: typing.Dict[str, typing.Any] = {}
         if cluster_role_selectors is not None:
@@ -164,7 +176,12 @@ class AggregationRuleV1Alpha1:
         :schema: io.k8s.api.rbac.v1alpha1.AggregationRule
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(AggregationRuleV1Alpha1.__init__)
+            def stub(
+                *,
+                cluster_role_selectors: typing.Optional[typing.Sequence[typing.Union["LabelSelector", typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument cluster_role_selectors", value=cluster_role_selectors, expected_type=type_hints["cluster_role_selectors"])
         self._values: typing.Dict[str, typing.Any] = {}
         if cluster_role_selectors is not None:
@@ -211,7 +228,12 @@ class AggregationRuleV1Beta1:
         :schema: io.k8s.api.rbac.v1beta1.AggregationRule
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(AggregationRuleV1Beta1.__init__)
+            def stub(
+                *,
+                cluster_role_selectors: typing.Optional[typing.Sequence[typing.Union["LabelSelector", typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument cluster_role_selectors", value=cluster_role_selectors, expected_type=type_hints["cluster_role_selectors"])
         self._values: typing.Dict[str, typing.Any] = {}
         if cluster_role_selectors is not None:
@@ -254,7 +276,9 @@ class AllowedCsiDriverV1Beta1:
         :schema: io.k8s.api.policy.v1beta1.AllowedCSIDriver
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(AllowedCsiDriverV1Beta1.__init__)
+            def stub(*, name: builtins.str) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
         self._values: typing.Dict[str, typing.Any] = {
             "name": name,
@@ -296,7 +320,9 @@ class AllowedFlexVolumeV1Beta1:
         :schema: io.k8s.api.policy.v1beta1.AllowedFlexVolume
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(AllowedFlexVolumeV1Beta1.__init__)
+            def stub(*, driver: builtins.str) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument driver", value=driver, expected_type=type_hints["driver"])
         self._values: typing.Dict[str, typing.Any] = {
             "driver": driver,
@@ -346,7 +372,13 @@ class AllowedHostPathV1Beta1:
         :schema: io.k8s.api.policy.v1beta1.AllowedHostPath
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(AllowedHostPathV1Beta1.__init__)
+            def stub(
+                *,
+                path_prefix: typing.Optional[builtins.str] = None,
+                read_only: typing.Optional[builtins.bool] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument path_prefix", value=path_prefix, expected_type=type_hints["path_prefix"])
             check_type(argname="argument read_only", value=read_only, expected_type=type_hints["read_only"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -431,7 +463,18 @@ class ApiServiceSpec:
         if isinstance(service, dict):
             service = ServiceReference(**service)
         if __debug__:
-            type_hints = typing.get_type_hints(ApiServiceSpec.__init__)
+            def stub(
+                *,
+                group_priority_minimum: jsii.Number,
+                service: typing.Union["ServiceReference", typing.Dict[str, typing.Any]],
+                version_priority: jsii.Number,
+                ca_bundle: typing.Optional[builtins.str] = None,
+                group: typing.Optional[builtins.str] = None,
+                insecure_skip_tls_verify: typing.Optional[builtins.bool] = None,
+                version: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument group_priority_minimum", value=group_priority_minimum, expected_type=type_hints["group_priority_minimum"])
             check_type(argname="argument service", value=service, expected_type=type_hints["service"])
             check_type(argname="argument version_priority", value=version_priority, expected_type=type_hints["version_priority"])
@@ -585,7 +628,18 @@ class ApiServiceSpecV1Beta1:
         if isinstance(service, dict):
             service = ServiceReferenceV1Beta1(**service)
         if __debug__:
-            type_hints = typing.get_type_hints(ApiServiceSpecV1Beta1.__init__)
+            def stub(
+                *,
+                group_priority_minimum: jsii.Number,
+                service: typing.Union["ServiceReferenceV1Beta1", typing.Dict[str, typing.Any]],
+                version_priority: jsii.Number,
+                ca_bundle: typing.Optional[builtins.str] = None,
+                group: typing.Optional[builtins.str] = None,
+                insecure_skip_tls_verify: typing.Optional[builtins.bool] = None,
+                version: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument group_priority_minimum", value=group_priority_minimum, expected_type=type_hints["group_priority_minimum"])
             check_type(argname="argument service", value=service, expected_type=type_hints["service"])
             check_type(argname="argument version_priority", value=version_priority, expected_type=type_hints["version_priority"])
@@ -721,7 +775,13 @@ class AuditSinkSpecV1Alpha1:
         if isinstance(webhook, dict):
             webhook = WebhookV1Alpha1(**webhook)
         if __debug__:
-            type_hints = typing.get_type_hints(AuditSinkSpecV1Alpha1.__init__)
+            def stub(
+                *,
+                policy: typing.Union["PolicyV1Alpha1", typing.Dict[str, typing.Any]],
+                webhook: typing.Union["WebhookV1Alpha1", typing.Dict[str, typing.Any]],
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument policy", value=policy, expected_type=type_hints["policy"])
             check_type(argname="argument webhook", value=webhook, expected_type=type_hints["webhook"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -792,7 +852,15 @@ class AwsElasticBlockStoreVolumeSource:
         :schema: io.k8s.api.core.v1.AWSElasticBlockStoreVolumeSource
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(AwsElasticBlockStoreVolumeSource.__init__)
+            def stub(
+                *,
+                volume_id: builtins.str,
+                fs_type: typing.Optional[builtins.str] = None,
+                partition: typing.Optional[jsii.Number] = None,
+                read_only: typing.Optional[builtins.bool] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument volume_id", value=volume_id, expected_type=type_hints["volume_id"])
             check_type(argname="argument fs_type", value=fs_type, expected_type=type_hints["fs_type"])
             check_type(argname="argument partition", value=partition, expected_type=type_hints["partition"])
@@ -899,7 +967,17 @@ class AzureDiskVolumeSource:
         :schema: io.k8s.api.core.v1.AzureDiskVolumeSource
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(AzureDiskVolumeSource.__init__)
+            def stub(
+                *,
+                disk_name: builtins.str,
+                disk_uri: builtins.str,
+                caching_mode: typing.Optional[builtins.str] = None,
+                fs_type: typing.Optional[builtins.str] = None,
+                kind: typing.Optional[builtins.str] = None,
+                read_only: typing.Optional[builtins.bool] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument disk_name", value=disk_name, expected_type=type_hints["disk_name"])
             check_type(argname="argument disk_uri", value=disk_uri, expected_type=type_hints["disk_uri"])
             check_type(argname="argument caching_mode", value=caching_mode, expected_type=type_hints["caching_mode"])
@@ -1024,7 +1102,15 @@ class AzureFilePersistentVolumeSource:
         :schema: io.k8s.api.core.v1.AzureFilePersistentVolumeSource
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(AzureFilePersistentVolumeSource.__init__)
+            def stub(
+                *,
+                secret_name: builtins.str,
+                share_name: builtins.str,
+                read_only: typing.Optional[builtins.bool] = None,
+                secret_namespace: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument secret_name", value=secret_name, expected_type=type_hints["secret_name"])
             check_type(argname="argument share_name", value=share_name, expected_type=type_hints["share_name"])
             check_type(argname="argument read_only", value=read_only, expected_type=type_hints["read_only"])
@@ -1118,7 +1204,14 @@ class AzureFileVolumeSource:
         :schema: io.k8s.api.core.v1.AzureFileVolumeSource
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(AzureFileVolumeSource.__init__)
+            def stub(
+                *,
+                secret_name: builtins.str,
+                share_name: builtins.str,
+                read_only: typing.Optional[builtins.bool] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument secret_name", value=secret_name, expected_type=type_hints["secret_name"])
             check_type(argname="argument share_name", value=share_name, expected_type=type_hints["share_name"])
             check_type(argname="argument read_only", value=read_only, expected_type=type_hints["read_only"])
@@ -1203,7 +1296,15 @@ class BoundObjectReference:
         :schema: io.k8s.api.authentication.v1.BoundObjectReference
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(BoundObjectReference.__init__)
+            def stub(
+                *,
+                api_version: typing.Optional[builtins.str] = None,
+                kind: typing.Optional[builtins.str] = None,
+                name: typing.Optional[builtins.str] = None,
+                uid: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument api_version", value=api_version, expected_type=type_hints["api_version"])
             check_type(argname="argument kind", value=kind, expected_type=type_hints["kind"])
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
@@ -1288,7 +1389,13 @@ class Capabilities:
         :schema: io.k8s.api.core.v1.Capabilities
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(Capabilities.__init__)
+            def stub(
+                *,
+                add: typing.Optional[typing.Sequence[builtins.str]] = None,
+                drop: typing.Optional[typing.Sequence[builtins.str]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument add", value=add, expected_type=type_hints["add"])
             check_type(argname="argument drop", value=drop, expected_type=type_hints["drop"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -1364,7 +1471,17 @@ class CephFsPersistentVolumeSource:
         if isinstance(secret_ref, dict):
             secret_ref = SecretReference(**secret_ref)
         if __debug__:
-            type_hints = typing.get_type_hints(CephFsPersistentVolumeSource.__init__)
+            def stub(
+                *,
+                monitors: typing.Sequence[builtins.str],
+                path: typing.Optional[builtins.str] = None,
+                read_only: typing.Optional[builtins.bool] = None,
+                secret_file: typing.Optional[builtins.str] = None,
+                secret_ref: typing.Optional[typing.Union["SecretReference", typing.Dict[str, typing.Any]]] = None,
+                user: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument monitors", value=monitors, expected_type=type_hints["monitors"])
             check_type(argname="argument path", value=path, expected_type=type_hints["path"])
             check_type(argname="argument read_only", value=read_only, expected_type=type_hints["read_only"])
@@ -1495,7 +1612,17 @@ class CephFsVolumeSource:
         if isinstance(secret_ref, dict):
             secret_ref = LocalObjectReference(**secret_ref)
         if __debug__:
-            type_hints = typing.get_type_hints(CephFsVolumeSource.__init__)
+            def stub(
+                *,
+                monitors: typing.Sequence[builtins.str],
+                path: typing.Optional[builtins.str] = None,
+                read_only: typing.Optional[builtins.bool] = None,
+                secret_file: typing.Optional[builtins.str] = None,
+                secret_ref: typing.Optional[typing.Union["LocalObjectReference", typing.Dict[str, typing.Any]]] = None,
+                user: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument monitors", value=monitors, expected_type=type_hints["monitors"])
             check_type(argname="argument path", value=path, expected_type=type_hints["path"])
             check_type(argname="argument read_only", value=read_only, expected_type=type_hints["read_only"])
@@ -1626,7 +1753,17 @@ class CertificateSigningRequestSpecV1Beta1:
         :schema: io.k8s.api.certificates.v1beta1.CertificateSigningRequestSpec
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(CertificateSigningRequestSpecV1Beta1.__init__)
+            def stub(
+                *,
+                request: builtins.str,
+                extra: typing.Optional[typing.Mapping[builtins.str, typing.Sequence[builtins.str]]] = None,
+                groups: typing.Optional[typing.Sequence[builtins.str]] = None,
+                uid: typing.Optional[builtins.str] = None,
+                usages: typing.Optional[typing.Sequence[builtins.str]] = None,
+                username: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument request", value=request, expected_type=type_hints["request"])
             check_type(argname="argument extra", value=extra, expected_type=type_hints["extra"])
             check_type(argname="argument groups", value=groups, expected_type=type_hints["groups"])
@@ -1760,7 +1897,15 @@ class CinderPersistentVolumeSource:
         if isinstance(secret_ref, dict):
             secret_ref = SecretReference(**secret_ref)
         if __debug__:
-            type_hints = typing.get_type_hints(CinderPersistentVolumeSource.__init__)
+            def stub(
+                *,
+                volume_id: builtins.str,
+                fs_type: typing.Optional[builtins.str] = None,
+                read_only: typing.Optional[builtins.bool] = None,
+                secret_ref: typing.Optional[typing.Union["SecretReference", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument volume_id", value=volume_id, expected_type=type_hints["volume_id"])
             check_type(argname="argument fs_type", value=fs_type, expected_type=type_hints["fs_type"])
             check_type(argname="argument read_only", value=read_only, expected_type=type_hints["read_only"])
@@ -1865,7 +2010,15 @@ class CinderVolumeSource:
         if isinstance(secret_ref, dict):
             secret_ref = LocalObjectReference(**secret_ref)
         if __debug__:
-            type_hints = typing.get_type_hints(CinderVolumeSource.__init__)
+            def stub(
+                *,
+                volume_id: builtins.str,
+                fs_type: typing.Optional[builtins.str] = None,
+                read_only: typing.Optional[builtins.bool] = None,
+                secret_ref: typing.Optional[typing.Union["LocalObjectReference", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument volume_id", value=volume_id, expected_type=type_hints["volume_id"])
             check_type(argname="argument fs_type", value=fs_type, expected_type=type_hints["fs_type"])
             check_type(argname="argument read_only", value=read_only, expected_type=type_hints["read_only"])
@@ -1951,7 +2104,9 @@ class ClientIpConfig:
         :schema: io.k8s.api.core.v1.ClientIPConfig
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(ClientIpConfig.__init__)
+            def stub(*, timeout_seconds: typing.Optional[jsii.Number] = None) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument timeout_seconds", value=timeout_seconds, expected_type=type_hints["timeout_seconds"])
         self._values: typing.Dict[str, typing.Any] = {}
         if timeout_seconds is not None:
@@ -2009,7 +2164,15 @@ class ComponentCondition:
         :schema: io.k8s.api.core.v1.ComponentCondition
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(ComponentCondition.__init__)
+            def stub(
+                *,
+                status: builtins.str,
+                type: builtins.str,
+                error: typing.Optional[builtins.str] = None,
+                message: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument status", value=status, expected_type=type_hints["status"])
             check_type(argname="argument type", value=type, expected_type=type_hints["type"])
             check_type(argname="argument error", value=error, expected_type=type_hints["error"])
@@ -2103,7 +2266,13 @@ class ConfigMapEnvSource:
         :schema: io.k8s.api.core.v1.ConfigMapEnvSource
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(ConfigMapEnvSource.__init__)
+            def stub(
+                *,
+                name: typing.Optional[builtins.str] = None,
+                optional: typing.Optional[builtins.bool] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
             check_type(argname="argument optional", value=optional, expected_type=type_hints["optional"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -2166,7 +2335,14 @@ class ConfigMapKeySelector:
         :schema: io.k8s.api.core.v1.ConfigMapKeySelector
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(ConfigMapKeySelector.__init__)
+            def stub(
+                *,
+                key: builtins.str,
+                name: typing.Optional[builtins.str] = None,
+                optional: typing.Optional[builtins.bool] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument key", value=key, expected_type=type_hints["key"])
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
             check_type(argname="argument optional", value=optional, expected_type=type_hints["optional"])
@@ -2252,7 +2428,16 @@ class ConfigMapNodeConfigSource:
         :schema: io.k8s.api.core.v1.ConfigMapNodeConfigSource
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(ConfigMapNodeConfigSource.__init__)
+            def stub(
+                *,
+                kubelet_config_key: builtins.str,
+                name: builtins.str,
+                namespace: builtins.str,
+                resource_version: typing.Optional[builtins.str] = None,
+                uid: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument kubelet_config_key", value=kubelet_config_key, expected_type=type_hints["kubelet_config_key"])
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
             check_type(argname="argument namespace", value=namespace, expected_type=type_hints["namespace"])
@@ -2352,7 +2537,14 @@ class ConfigMapProjection:
         :schema: io.k8s.api.core.v1.ConfigMapProjection
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(ConfigMapProjection.__init__)
+            def stub(
+                *,
+                items: typing.Optional[typing.Sequence[typing.Union["KeyToPath", typing.Dict[str, typing.Any]]]] = None,
+                name: typing.Optional[builtins.str] = None,
+                optional: typing.Optional[builtins.bool] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
             check_type(argname="argument optional", value=optional, expected_type=type_hints["optional"])
@@ -2438,7 +2630,15 @@ class ConfigMapVolumeSource:
         :schema: io.k8s.api.core.v1.ConfigMapVolumeSource
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(ConfigMapVolumeSource.__init__)
+            def stub(
+                *,
+                default_mode: typing.Optional[jsii.Number] = None,
+                items: typing.Optional[typing.Sequence[typing.Union["KeyToPath", typing.Dict[str, typing.Any]]]] = None,
+                name: typing.Optional[builtins.str] = None,
+                optional: typing.Optional[builtins.bool] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument default_mode", value=default_mode, expected_type=type_hints["default_mode"])
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
@@ -2604,7 +2804,33 @@ class Container:
         if isinstance(startup_probe, dict):
             startup_probe = Probe(**startup_probe)
         if __debug__:
-            type_hints = typing.get_type_hints(Container.__init__)
+            def stub(
+                *,
+                name: builtins.str,
+                args: typing.Optional[typing.Sequence[builtins.str]] = None,
+                command: typing.Optional[typing.Sequence[builtins.str]] = None,
+                env: typing.Optional[typing.Sequence[typing.Union["EnvVar", typing.Dict[str, typing.Any]]]] = None,
+                env_from: typing.Optional[typing.Sequence[typing.Union["EnvFromSource", typing.Dict[str, typing.Any]]]] = None,
+                image: typing.Optional[builtins.str] = None,
+                image_pull_policy: typing.Optional[builtins.str] = None,
+                lifecycle: typing.Optional[typing.Union["Lifecycle", typing.Dict[str, typing.Any]]] = None,
+                liveness_probe: typing.Optional[typing.Union["Probe", typing.Dict[str, typing.Any]]] = None,
+                ports: typing.Optional[typing.Sequence[typing.Union["ContainerPort", typing.Dict[str, typing.Any]]]] = None,
+                readiness_probe: typing.Optional[typing.Union["Probe", typing.Dict[str, typing.Any]]] = None,
+                resources: typing.Optional[typing.Union["ResourceRequirements", typing.Dict[str, typing.Any]]] = None,
+                security_context: typing.Optional[typing.Union["SecurityContext", typing.Dict[str, typing.Any]]] = None,
+                startup_probe: typing.Optional[typing.Union["Probe", typing.Dict[str, typing.Any]]] = None,
+                stdin: typing.Optional[builtins.bool] = None,
+                stdin_once: typing.Optional[builtins.bool] = None,
+                termination_message_path: typing.Optional[builtins.str] = None,
+                termination_message_policy: typing.Optional[builtins.str] = None,
+                tty: typing.Optional[builtins.bool] = None,
+                volume_devices: typing.Optional[typing.Sequence[typing.Union["VolumeDevice", typing.Dict[str, typing.Any]]]] = None,
+                volume_mounts: typing.Optional[typing.Sequence[typing.Union["VolumeMount", typing.Dict[str, typing.Any]]]] = None,
+                working_dir: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
             check_type(argname="argument args", value=args, expected_type=type_hints["args"])
             check_type(argname="argument command", value=command, expected_type=type_hints["command"])
@@ -2972,7 +3198,16 @@ class ContainerPort:
         :schema: io.k8s.api.core.v1.ContainerPort
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(ContainerPort.__init__)
+            def stub(
+                *,
+                container_port: jsii.Number,
+                host_ip: typing.Optional[builtins.str] = None,
+                host_port: typing.Optional[jsii.Number] = None,
+                name: typing.Optional[builtins.str] = None,
+                protocol: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument container_port", value=container_port, expected_type=type_hints["container_port"])
             check_type(argname="argument host_ip", value=host_ip, expected_type=type_hints["host_ip"])
             check_type(argname="argument host_port", value=host_port, expected_type=type_hints["host_port"])
@@ -3098,7 +3333,18 @@ class CronJobSpecV1Beta1:
         if isinstance(job_template, dict):
             job_template = JobTemplateSpecV1Beta1(**job_template)
         if __debug__:
-            type_hints = typing.get_type_hints(CronJobSpecV1Beta1.__init__)
+            def stub(
+                *,
+                job_template: typing.Union["JobTemplateSpecV1Beta1", typing.Dict[str, typing.Any]],
+                schedule: builtins.str,
+                concurrency_policy: typing.Optional[builtins.str] = None,
+                failed_jobs_history_limit: typing.Optional[jsii.Number] = None,
+                starting_deadline_seconds: typing.Optional[jsii.Number] = None,
+                successful_jobs_history_limit: typing.Optional[jsii.Number] = None,
+                suspend: typing.Optional[builtins.bool] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument job_template", value=job_template, expected_type=type_hints["job_template"])
             check_type(argname="argument schedule", value=schedule, expected_type=type_hints["schedule"])
             check_type(argname="argument concurrency_policy", value=concurrency_policy, expected_type=type_hints["concurrency_policy"])
@@ -3254,7 +3500,18 @@ class CronJobSpecV2Alpha1:
         if isinstance(job_template, dict):
             job_template = JobTemplateSpecV2Alpha1(**job_template)
         if __debug__:
-            type_hints = typing.get_type_hints(CronJobSpecV2Alpha1.__init__)
+            def stub(
+                *,
+                job_template: typing.Union["JobTemplateSpecV2Alpha1", typing.Dict[str, typing.Any]],
+                schedule: builtins.str,
+                concurrency_policy: typing.Optional[builtins.str] = None,
+                failed_jobs_history_limit: typing.Optional[jsii.Number] = None,
+                starting_deadline_seconds: typing.Optional[jsii.Number] = None,
+                successful_jobs_history_limit: typing.Optional[jsii.Number] = None,
+                suspend: typing.Optional[builtins.bool] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument job_template", value=job_template, expected_type=type_hints["job_template"])
             check_type(argname="argument schedule", value=schedule, expected_type=type_hints["schedule"])
             check_type(argname="argument concurrency_policy", value=concurrency_policy, expected_type=type_hints["concurrency_policy"])
@@ -3388,7 +3645,14 @@ class CrossVersionObjectReference:
         :schema: io.k8s.api.autoscaling.v1.CrossVersionObjectReference
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(CrossVersionObjectReference.__init__)
+            def stub(
+                *,
+                kind: builtins.str,
+                name: builtins.str,
+                api_version: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument kind", value=kind, expected_type=type_hints["kind"])
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
             check_type(argname="argument api_version", value=api_version, expected_type=type_hints["api_version"])
@@ -3466,7 +3730,14 @@ class CrossVersionObjectReferenceV2Beta1:
         :schema: io.k8s.api.autoscaling.v2beta1.CrossVersionObjectReference
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(CrossVersionObjectReferenceV2Beta1.__init__)
+            def stub(
+                *,
+                kind: builtins.str,
+                name: builtins.str,
+                api_version: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument kind", value=kind, expected_type=type_hints["kind"])
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
             check_type(argname="argument api_version", value=api_version, expected_type=type_hints["api_version"])
@@ -3544,7 +3815,14 @@ class CrossVersionObjectReferenceV2Beta2:
         :schema: io.k8s.api.autoscaling.v2beta2.CrossVersionObjectReference
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(CrossVersionObjectReferenceV2Beta2.__init__)
+            def stub(
+                *,
+                kind: builtins.str,
+                name: builtins.str,
+                api_version: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument kind", value=kind, expected_type=type_hints["kind"])
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
             check_type(argname="argument api_version", value=api_version, expected_type=type_hints["api_version"])
@@ -3626,7 +3904,14 @@ class CsiDriverSpecV1Beta1:
         :schema: io.k8s.api.storage.v1beta1.CSIDriverSpec
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(CsiDriverSpecV1Beta1.__init__)
+            def stub(
+                *,
+                attach_required: typing.Optional[builtins.bool] = None,
+                pod_info_on_mount: typing.Optional[builtins.bool] = None,
+                volume_lifecycle_modes: typing.Optional[typing.Sequence[builtins.str]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument attach_required", value=attach_required, expected_type=type_hints["attach_required"])
             check_type(argname="argument pod_info_on_mount", value=pod_info_on_mount, expected_type=type_hints["pod_info_on_mount"])
             check_type(argname="argument volume_lifecycle_modes", value=volume_lifecycle_modes, expected_type=type_hints["volume_lifecycle_modes"])
@@ -3716,7 +4001,15 @@ class CsiNodeDriver:
         if isinstance(allocatable, dict):
             allocatable = VolumeNodeResources(**allocatable)
         if __debug__:
-            type_hints = typing.get_type_hints(CsiNodeDriver.__init__)
+            def stub(
+                *,
+                name: builtins.str,
+                node_id: builtins.str,
+                allocatable: typing.Optional[typing.Union["VolumeNodeResources", typing.Dict[str, typing.Any]]] = None,
+                topology_keys: typing.Optional[typing.Sequence[builtins.str]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
             check_type(argname="argument node_id", value=node_id, expected_type=type_hints["node_id"])
             check_type(argname="argument allocatable", value=allocatable, expected_type=type_hints["allocatable"])
@@ -3819,7 +4112,15 @@ class CsiNodeDriverV1Beta1:
         if isinstance(allocatable, dict):
             allocatable = VolumeNodeResourcesV1Beta1(**allocatable)
         if __debug__:
-            type_hints = typing.get_type_hints(CsiNodeDriverV1Beta1.__init__)
+            def stub(
+                *,
+                name: builtins.str,
+                node_id: builtins.str,
+                allocatable: typing.Optional[typing.Union["VolumeNodeResourcesV1Beta1", typing.Dict[str, typing.Any]]] = None,
+                topology_keys: typing.Optional[typing.Sequence[builtins.str]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
             check_type(argname="argument node_id", value=node_id, expected_type=type_hints["node_id"])
             check_type(argname="argument allocatable", value=allocatable, expected_type=type_hints["allocatable"])
@@ -3907,7 +4208,12 @@ class CsiNodeSpec:
         :schema: io.k8s.api.storage.v1.CSINodeSpec
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(CsiNodeSpec.__init__)
+            def stub(
+                *,
+                drivers: typing.Sequence[typing.Union[CsiNodeDriver, typing.Dict[str, typing.Any]]],
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument drivers", value=drivers, expected_type=type_hints["drivers"])
         self._values: typing.Dict[str, typing.Any] = {
             "drivers": drivers,
@@ -3955,7 +4261,12 @@ class CsiNodeSpecV1Beta1:
         :schema: io.k8s.api.storage.v1beta1.CSINodeSpec
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(CsiNodeSpecV1Beta1.__init__)
+            def stub(
+                *,
+                drivers: typing.Sequence[typing.Union[CsiNodeDriverV1Beta1, typing.Dict[str, typing.Any]]],
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument drivers", value=drivers, expected_type=type_hints["drivers"])
         self._values: typing.Dict[str, typing.Any] = {
             "drivers": drivers,
@@ -4037,7 +4348,20 @@ class CsiPersistentVolumeSource:
         if isinstance(node_stage_secret_ref, dict):
             node_stage_secret_ref = SecretReference(**node_stage_secret_ref)
         if __debug__:
-            type_hints = typing.get_type_hints(CsiPersistentVolumeSource.__init__)
+            def stub(
+                *,
+                driver: builtins.str,
+                volume_handle: builtins.str,
+                controller_expand_secret_ref: typing.Optional[typing.Union["SecretReference", typing.Dict[str, typing.Any]]] = None,
+                controller_publish_secret_ref: typing.Optional[typing.Union["SecretReference", typing.Dict[str, typing.Any]]] = None,
+                fs_type: typing.Optional[builtins.str] = None,
+                node_publish_secret_ref: typing.Optional[typing.Union["SecretReference", typing.Dict[str, typing.Any]]] = None,
+                node_stage_secret_ref: typing.Optional[typing.Union["SecretReference", typing.Dict[str, typing.Any]]] = None,
+                read_only: typing.Optional[builtins.bool] = None,
+                volume_attributes: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument driver", value=driver, expected_type=type_hints["driver"])
             check_type(argname="argument volume_handle", value=volume_handle, expected_type=type_hints["volume_handle"])
             check_type(argname="argument controller_expand_secret_ref", value=controller_expand_secret_ref, expected_type=type_hints["controller_expand_secret_ref"])
@@ -4215,7 +4539,16 @@ class CsiVolumeSource:
         if isinstance(node_publish_secret_ref, dict):
             node_publish_secret_ref = LocalObjectReference(**node_publish_secret_ref)
         if __debug__:
-            type_hints = typing.get_type_hints(CsiVolumeSource.__init__)
+            def stub(
+                *,
+                driver: builtins.str,
+                fs_type: typing.Optional[builtins.str] = None,
+                node_publish_secret_ref: typing.Optional[typing.Union["LocalObjectReference", typing.Dict[str, typing.Any]]] = None,
+                read_only: typing.Optional[builtins.bool] = None,
+                volume_attributes: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument driver", value=driver, expected_type=type_hints["driver"])
             check_type(argname="argument fs_type", value=fs_type, expected_type=type_hints["fs_type"])
             check_type(argname="argument node_publish_secret_ref", value=node_publish_secret_ref, expected_type=type_hints["node_publish_secret_ref"])
@@ -4340,7 +4673,17 @@ class CustomResourceColumnDefinition:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceColumnDefinition
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(CustomResourceColumnDefinition.__init__)
+            def stub(
+                *,
+                json_path: builtins.str,
+                name: builtins.str,
+                type: builtins.str,
+                description: typing.Optional[builtins.str] = None,
+                format: typing.Optional[builtins.str] = None,
+                priority: typing.Optional[jsii.Number] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument json_path", value=json_path, expected_type=type_hints["json_path"])
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
             check_type(argname="argument type", value=type, expected_type=type_hints["type"])
@@ -4469,7 +4812,17 @@ class CustomResourceColumnDefinitionV1Beta1:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceColumnDefinition
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(CustomResourceColumnDefinitionV1Beta1.__init__)
+            def stub(
+                *,
+                json_path: builtins.str,
+                name: builtins.str,
+                type: builtins.str,
+                description: typing.Optional[builtins.str] = None,
+                format: typing.Optional[builtins.str] = None,
+                priority: typing.Optional[jsii.Number] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument json_path", value=json_path, expected_type=type_hints["json_path"])
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
             check_type(argname="argument type", value=type, expected_type=type_hints["type"])
@@ -4585,7 +4938,13 @@ class CustomResourceConversion:
         if isinstance(webhook, dict):
             webhook = WebhookConversion(**webhook)
         if __debug__:
-            type_hints = typing.get_type_hints(CustomResourceConversion.__init__)
+            def stub(
+                *,
+                strategy: builtins.str,
+                webhook: typing.Optional[typing.Union["WebhookConversion", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument strategy", value=strategy, expected_type=type_hints["strategy"])
             check_type(argname="argument webhook", value=webhook, expected_type=type_hints["webhook"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -4658,7 +5017,14 @@ class CustomResourceConversionV1Beta1:
         if isinstance(webhook_client_config, dict):
             webhook_client_config = WebhookClientConfigV1Beta1(**webhook_client_config)
         if __debug__:
-            type_hints = typing.get_type_hints(CustomResourceConversionV1Beta1.__init__)
+            def stub(
+                *,
+                strategy: builtins.str,
+                conversion_review_versions: typing.Optional[typing.Sequence[builtins.str]] = None,
+                webhook_client_config: typing.Optional[typing.Union["WebhookClientConfigV1Beta1", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument strategy", value=strategy, expected_type=type_hints["strategy"])
             check_type(argname="argument conversion_review_versions", value=conversion_review_versions, expected_type=type_hints["conversion_review_versions"])
             check_type(argname="argument webhook_client_config", value=webhook_client_config, expected_type=type_hints["webhook_client_config"])
@@ -4754,7 +5120,17 @@ class CustomResourceDefinitionNames:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinitionNames
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(CustomResourceDefinitionNames.__init__)
+            def stub(
+                *,
+                kind: builtins.str,
+                plural: builtins.str,
+                categories: typing.Optional[typing.Sequence[builtins.str]] = None,
+                list_kind: typing.Optional[builtins.str] = None,
+                short_names: typing.Optional[typing.Sequence[builtins.str]] = None,
+                singular: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument kind", value=kind, expected_type=type_hints["kind"])
             check_type(argname="argument plural", value=plural, expected_type=type_hints["plural"])
             check_type(argname="argument categories", value=categories, expected_type=type_hints["categories"])
@@ -4891,7 +5267,17 @@ class CustomResourceDefinitionNamesV1Beta1:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionNames
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(CustomResourceDefinitionNamesV1Beta1.__init__)
+            def stub(
+                *,
+                kind: builtins.str,
+                plural: builtins.str,
+                categories: typing.Optional[typing.Sequence[builtins.str]] = None,
+                list_kind: typing.Optional[builtins.str] = None,
+                short_names: typing.Optional[typing.Sequence[builtins.str]] = None,
+                singular: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument kind", value=kind, expected_type=type_hints["kind"])
             check_type(argname="argument plural", value=plural, expected_type=type_hints["plural"])
             check_type(argname="argument categories", value=categories, expected_type=type_hints["categories"])
@@ -5032,7 +5418,17 @@ class CustomResourceDefinitionSpec:
         if isinstance(conversion, dict):
             conversion = CustomResourceConversion(**conversion)
         if __debug__:
-            type_hints = typing.get_type_hints(CustomResourceDefinitionSpec.__init__)
+            def stub(
+                *,
+                group: builtins.str,
+                names: typing.Union[CustomResourceDefinitionNames, typing.Dict[str, typing.Any]],
+                scope: builtins.str,
+                versions: typing.Sequence[typing.Union["CustomResourceDefinitionVersion", typing.Dict[str, typing.Any]]],
+                conversion: typing.Optional[typing.Union[CustomResourceConversion, typing.Dict[str, typing.Any]]] = None,
+                preserve_unknown_fields: typing.Optional[builtins.bool] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument group", value=group, expected_type=type_hints["group"])
             check_type(argname="argument names", value=names, expected_type=type_hints["names"])
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
@@ -5183,7 +5579,21 @@ class CustomResourceDefinitionSpecV1Beta1:
         if isinstance(validation, dict):
             validation = CustomResourceValidationV1Beta1(**validation)
         if __debug__:
-            type_hints = typing.get_type_hints(CustomResourceDefinitionSpecV1Beta1.__init__)
+            def stub(
+                *,
+                group: builtins.str,
+                names: typing.Union[CustomResourceDefinitionNamesV1Beta1, typing.Dict[str, typing.Any]],
+                scope: builtins.str,
+                additional_printer_columns: typing.Optional[typing.Sequence[typing.Union[CustomResourceColumnDefinitionV1Beta1, typing.Dict[str, typing.Any]]]] = None,
+                conversion: typing.Optional[typing.Union[CustomResourceConversionV1Beta1, typing.Dict[str, typing.Any]]] = None,
+                preserve_unknown_fields: typing.Optional[builtins.bool] = None,
+                subresources: typing.Optional[typing.Union["CustomResourceSubresourcesV1Beta1", typing.Dict[str, typing.Any]]] = None,
+                validation: typing.Optional[typing.Union["CustomResourceValidationV1Beta1", typing.Dict[str, typing.Any]]] = None,
+                version: typing.Optional[builtins.str] = None,
+                versions: typing.Optional[typing.Sequence[typing.Union["CustomResourceDefinitionVersionV1Beta1", typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument group", value=group, expected_type=type_hints["group"])
             check_type(argname="argument names", value=names, expected_type=type_hints["names"])
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
@@ -5382,7 +5792,17 @@ class CustomResourceDefinitionVersion:
         if isinstance(subresources, dict):
             subresources = CustomResourceSubresources(**subresources)
         if __debug__:
-            type_hints = typing.get_type_hints(CustomResourceDefinitionVersion.__init__)
+            def stub(
+                *,
+                name: builtins.str,
+                served: builtins.bool,
+                storage: builtins.bool,
+                additional_printer_columns: typing.Optional[typing.Sequence[typing.Union[CustomResourceColumnDefinition, typing.Dict[str, typing.Any]]]] = None,
+                schema: typing.Optional[typing.Union["CustomResourceValidation", typing.Dict[str, typing.Any]]] = None,
+                subresources: typing.Optional[typing.Union["CustomResourceSubresources", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
             check_type(argname="argument served", value=served, expected_type=type_hints["served"])
             check_type(argname="argument storage", value=storage, expected_type=type_hints["storage"])
@@ -5515,7 +5935,17 @@ class CustomResourceDefinitionVersionV1Beta1:
         if isinstance(subresources, dict):
             subresources = CustomResourceSubresourcesV1Beta1(**subresources)
         if __debug__:
-            type_hints = typing.get_type_hints(CustomResourceDefinitionVersionV1Beta1.__init__)
+            def stub(
+                *,
+                name: builtins.str,
+                served: builtins.bool,
+                storage: builtins.bool,
+                additional_printer_columns: typing.Optional[typing.Sequence[typing.Union[CustomResourceColumnDefinitionV1Beta1, typing.Dict[str, typing.Any]]]] = None,
+                schema: typing.Optional[typing.Union["CustomResourceValidationV1Beta1", typing.Dict[str, typing.Any]]] = None,
+                subresources: typing.Optional[typing.Union["CustomResourceSubresourcesV1Beta1", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
             check_type(argname="argument served", value=served, expected_type=type_hints["served"])
             check_type(argname="argument storage", value=storage, expected_type=type_hints["storage"])
@@ -5639,7 +6069,14 @@ class CustomResourceSubresourceScale:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceSubresourceScale
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(CustomResourceSubresourceScale.__init__)
+            def stub(
+                *,
+                spec_replicas_path: builtins.str,
+                status_replicas_path: builtins.str,
+                label_selector_path: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument spec_replicas_path", value=spec_replicas_path, expected_type=type_hints["spec_replicas_path"])
             check_type(argname="argument status_replicas_path", value=status_replicas_path, expected_type=type_hints["status_replicas_path"])
             check_type(argname="argument label_selector_path", value=label_selector_path, expected_type=type_hints["label_selector_path"])
@@ -5717,7 +6154,14 @@ class CustomResourceSubresourceScaleV1Beta1:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceSubresourceScale
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(CustomResourceSubresourceScaleV1Beta1.__init__)
+            def stub(
+                *,
+                spec_replicas_path: builtins.str,
+                status_replicas_path: builtins.str,
+                label_selector_path: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument spec_replicas_path", value=spec_replicas_path, expected_type=type_hints["spec_replicas_path"])
             check_type(argname="argument status_replicas_path", value=status_replicas_path, expected_type=type_hints["status_replicas_path"])
             check_type(argname="argument label_selector_path", value=label_selector_path, expected_type=type_hints["label_selector_path"])
@@ -5791,7 +6235,13 @@ class CustomResourceSubresources:
         if isinstance(scale, dict):
             scale = CustomResourceSubresourceScale(**scale)
         if __debug__:
-            type_hints = typing.get_type_hints(CustomResourceSubresources.__init__)
+            def stub(
+                *,
+                scale: typing.Optional[typing.Union[CustomResourceSubresourceScale, typing.Dict[str, typing.Any]]] = None,
+                status: typing.Any = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scale", value=scale, expected_type=type_hints["scale"])
             check_type(argname="argument status", value=status, expected_type=type_hints["status"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -5854,7 +6304,13 @@ class CustomResourceSubresourcesV1Beta1:
         if isinstance(scale, dict):
             scale = CustomResourceSubresourceScaleV1Beta1(**scale)
         if __debug__:
-            type_hints = typing.get_type_hints(CustomResourceSubresourcesV1Beta1.__init__)
+            def stub(
+                *,
+                scale: typing.Optional[typing.Union[CustomResourceSubresourceScaleV1Beta1, typing.Dict[str, typing.Any]]] = None,
+                status: typing.Any = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scale", value=scale, expected_type=type_hints["scale"])
             check_type(argname="argument status", value=status, expected_type=type_hints["status"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -5915,7 +6371,12 @@ class CustomResourceValidation:
         if isinstance(open_apiv3_schema, dict):
             open_apiv3_schema = JsonSchemaProps(**open_apiv3_schema)
         if __debug__:
-            type_hints = typing.get_type_hints(CustomResourceValidation.__init__)
+            def stub(
+                *,
+                open_apiv3_schema: typing.Optional[typing.Union["JsonSchemaProps", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument open_apiv3_schema", value=open_apiv3_schema, expected_type=type_hints["open_apiv3_schema"])
         self._values: typing.Dict[str, typing.Any] = {}
         if open_apiv3_schema is not None:
@@ -5962,7 +6423,12 @@ class CustomResourceValidationV1Beta1:
         if isinstance(open_apiv3_schema, dict):
             open_apiv3_schema = JsonSchemaPropsV1Beta1(**open_apiv3_schema)
         if __debug__:
-            type_hints = typing.get_type_hints(CustomResourceValidationV1Beta1.__init__)
+            def stub(
+                *,
+                open_apiv3_schema: typing.Optional[typing.Union["JsonSchemaPropsV1Beta1", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument open_apiv3_schema", value=open_apiv3_schema, expected_type=type_hints["open_apiv3_schema"])
         self._values: typing.Dict[str, typing.Any] = {}
         if open_apiv3_schema is not None:
@@ -6027,7 +6493,16 @@ class DaemonSetSpec:
         if isinstance(update_strategy, dict):
             update_strategy = DaemonSetUpdateStrategy(**update_strategy)
         if __debug__:
-            type_hints = typing.get_type_hints(DaemonSetSpec.__init__)
+            def stub(
+                *,
+                selector: typing.Union["LabelSelector", typing.Dict[str, typing.Any]],
+                template: typing.Union["PodTemplateSpec", typing.Dict[str, typing.Any]],
+                min_ready_seconds: typing.Optional[jsii.Number] = None,
+                revision_history_limit: typing.Optional[jsii.Number] = None,
+                update_strategy: typing.Optional[typing.Union["DaemonSetUpdateStrategy", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument selector", value=selector, expected_type=type_hints["selector"])
             check_type(argname="argument template", value=template, expected_type=type_hints["template"])
             check_type(argname="argument min_ready_seconds", value=min_ready_seconds, expected_type=type_hints["min_ready_seconds"])
@@ -6156,7 +6631,17 @@ class DaemonSetSpecV1Beta1:
         if isinstance(update_strategy, dict):
             update_strategy = DaemonSetUpdateStrategyV1Beta1(**update_strategy)
         if __debug__:
-            type_hints = typing.get_type_hints(DaemonSetSpecV1Beta1.__init__)
+            def stub(
+                *,
+                template: typing.Union["PodTemplateSpec", typing.Dict[str, typing.Any]],
+                min_ready_seconds: typing.Optional[jsii.Number] = None,
+                revision_history_limit: typing.Optional[jsii.Number] = None,
+                selector: typing.Optional[typing.Union["LabelSelector", typing.Dict[str, typing.Any]]] = None,
+                template_generation: typing.Optional[jsii.Number] = None,
+                update_strategy: typing.Optional[typing.Union["DaemonSetUpdateStrategyV1Beta1", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument template", value=template, expected_type=type_hints["template"])
             check_type(argname="argument min_ready_seconds", value=min_ready_seconds, expected_type=type_hints["min_ready_seconds"])
             check_type(argname="argument revision_history_limit", value=revision_history_limit, expected_type=type_hints["revision_history_limit"])
@@ -6296,7 +6781,16 @@ class DaemonSetSpecV1Beta2:
         if isinstance(update_strategy, dict):
             update_strategy = DaemonSetUpdateStrategyV1Beta2(**update_strategy)
         if __debug__:
-            type_hints = typing.get_type_hints(DaemonSetSpecV1Beta2.__init__)
+            def stub(
+                *,
+                selector: typing.Union["LabelSelector", typing.Dict[str, typing.Any]],
+                template: typing.Union["PodTemplateSpec", typing.Dict[str, typing.Any]],
+                min_ready_seconds: typing.Optional[jsii.Number] = None,
+                revision_history_limit: typing.Optional[jsii.Number] = None,
+                update_strategy: typing.Optional[typing.Union["DaemonSetUpdateStrategyV1Beta2", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument selector", value=selector, expected_type=type_hints["selector"])
             check_type(argname="argument template", value=template, expected_type=type_hints["template"])
             check_type(argname="argument min_ready_seconds", value=min_ready_seconds, expected_type=type_hints["min_ready_seconds"])
@@ -6406,7 +6900,13 @@ class DaemonSetUpdateStrategy:
         if isinstance(rolling_update, dict):
             rolling_update = RollingUpdateDaemonSet(**rolling_update)
         if __debug__:
-            type_hints = typing.get_type_hints(DaemonSetUpdateStrategy.__init__)
+            def stub(
+                *,
+                rolling_update: typing.Optional[typing.Union["RollingUpdateDaemonSet", typing.Dict[str, typing.Any]]] = None,
+                type: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument rolling_update", value=rolling_update, expected_type=type_hints["rolling_update"])
             check_type(argname="argument type", value=type, expected_type=type_hints["type"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -6472,7 +6972,13 @@ class DaemonSetUpdateStrategyV1Beta1:
         if isinstance(rolling_update, dict):
             rolling_update = RollingUpdateDaemonSetV1Beta1(**rolling_update)
         if __debug__:
-            type_hints = typing.get_type_hints(DaemonSetUpdateStrategyV1Beta1.__init__)
+            def stub(
+                *,
+                rolling_update: typing.Optional[typing.Union["RollingUpdateDaemonSetV1Beta1", typing.Dict[str, typing.Any]]] = None,
+                type: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument rolling_update", value=rolling_update, expected_type=type_hints["rolling_update"])
             check_type(argname="argument type", value=type, expected_type=type_hints["type"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -6539,7 +7045,13 @@ class DaemonSetUpdateStrategyV1Beta2:
         if isinstance(rolling_update, dict):
             rolling_update = RollingUpdateDaemonSetV1Beta2(**rolling_update)
         if __debug__:
-            type_hints = typing.get_type_hints(DaemonSetUpdateStrategyV1Beta2.__init__)
+            def stub(
+                *,
+                rolling_update: typing.Optional[typing.Union["RollingUpdateDaemonSetV1Beta2", typing.Dict[str, typing.Any]]] = None,
+                type: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument rolling_update", value=rolling_update, expected_type=type_hints["rolling_update"])
             check_type(argname="argument type", value=type, expected_type=type_hints["type"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -6624,7 +7136,18 @@ class DeleteOptions:
         if isinstance(preconditions, dict):
             preconditions = Preconditions(**preconditions)
         if __debug__:
-            type_hints = typing.get_type_hints(DeleteOptions.__init__)
+            def stub(
+                *,
+                api_version: typing.Optional[builtins.str] = None,
+                dry_run: typing.Optional[typing.Sequence[builtins.str]] = None,
+                grace_period_seconds: typing.Optional[jsii.Number] = None,
+                kind: typing.Optional["IoK8SApimachineryPkgApisMetaV1DeleteOptionsKind"] = None,
+                orphan_dependents: typing.Optional[builtins.bool] = None,
+                preconditions: typing.Optional[typing.Union["Preconditions", typing.Dict[str, typing.Any]]] = None,
+                propagation_policy: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument api_version", value=api_version, expected_type=type_hints["api_version"])
             check_type(argname="argument dry_run", value=dry_run, expected_type=type_hints["dry_run"])
             check_type(argname="argument grace_period_seconds", value=grace_period_seconds, expected_type=type_hints["grace_period_seconds"])
@@ -6786,7 +7309,19 @@ class DeploymentSpec:
         if isinstance(strategy, dict):
             strategy = DeploymentStrategy(**strategy)
         if __debug__:
-            type_hints = typing.get_type_hints(DeploymentSpec.__init__)
+            def stub(
+                *,
+                selector: typing.Union["LabelSelector", typing.Dict[str, typing.Any]],
+                template: typing.Union["PodTemplateSpec", typing.Dict[str, typing.Any]],
+                min_ready_seconds: typing.Optional[jsii.Number] = None,
+                paused: typing.Optional[builtins.bool] = None,
+                progress_deadline_seconds: typing.Optional[jsii.Number] = None,
+                replicas: typing.Optional[jsii.Number] = None,
+                revision_history_limit: typing.Optional[jsii.Number] = None,
+                strategy: typing.Optional[typing.Union["DeploymentStrategy", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument selector", value=selector, expected_type=type_hints["selector"])
             check_type(argname="argument template", value=template, expected_type=type_hints["template"])
             check_type(argname="argument min_ready_seconds", value=min_ready_seconds, expected_type=type_hints["min_ready_seconds"])
@@ -6968,7 +7503,20 @@ class DeploymentSpecV1Beta1:
         if isinstance(strategy, dict):
             strategy = DeploymentStrategyV1Beta1(**strategy)
         if __debug__:
-            type_hints = typing.get_type_hints(DeploymentSpecV1Beta1.__init__)
+            def stub(
+                *,
+                template: typing.Union["PodTemplateSpec", typing.Dict[str, typing.Any]],
+                min_ready_seconds: typing.Optional[jsii.Number] = None,
+                paused: typing.Optional[builtins.bool] = None,
+                progress_deadline_seconds: typing.Optional[jsii.Number] = None,
+                replicas: typing.Optional[jsii.Number] = None,
+                revision_history_limit: typing.Optional[jsii.Number] = None,
+                rollback_to: typing.Optional[typing.Union["RollbackConfigV1Beta1", typing.Dict[str, typing.Any]]] = None,
+                selector: typing.Optional[typing.Union["LabelSelector", typing.Dict[str, typing.Any]]] = None,
+                strategy: typing.Optional[typing.Union["DeploymentStrategyV1Beta1", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument template", value=template, expected_type=type_hints["template"])
             check_type(argname="argument min_ready_seconds", value=min_ready_seconds, expected_type=type_hints["min_ready_seconds"])
             check_type(argname="argument paused", value=paused, expected_type=type_hints["paused"])
@@ -7155,7 +7703,19 @@ class DeploymentSpecV1Beta2:
         if isinstance(strategy, dict):
             strategy = DeploymentStrategyV1Beta2(**strategy)
         if __debug__:
-            type_hints = typing.get_type_hints(DeploymentSpecV1Beta2.__init__)
+            def stub(
+                *,
+                selector: typing.Union["LabelSelector", typing.Dict[str, typing.Any]],
+                template: typing.Union["PodTemplateSpec", typing.Dict[str, typing.Any]],
+                min_ready_seconds: typing.Optional[jsii.Number] = None,
+                paused: typing.Optional[builtins.bool] = None,
+                progress_deadline_seconds: typing.Optional[jsii.Number] = None,
+                replicas: typing.Optional[jsii.Number] = None,
+                revision_history_limit: typing.Optional[jsii.Number] = None,
+                strategy: typing.Optional[typing.Union["DeploymentStrategyV1Beta2", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument selector", value=selector, expected_type=type_hints["selector"])
             check_type(argname="argument template", value=template, expected_type=type_hints["template"])
             check_type(argname="argument min_ready_seconds", value=min_ready_seconds, expected_type=type_hints["min_ready_seconds"])
@@ -7307,7 +7867,13 @@ class DeploymentStrategy:
         if isinstance(rolling_update, dict):
             rolling_update = RollingUpdateDeployment(**rolling_update)
         if __debug__:
-            type_hints = typing.get_type_hints(DeploymentStrategy.__init__)
+            def stub(
+                *,
+                rolling_update: typing.Optional[typing.Union["RollingUpdateDeployment", typing.Dict[str, typing.Any]]] = None,
+                type: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument rolling_update", value=rolling_update, expected_type=type_hints["rolling_update"])
             check_type(argname="argument type", value=type, expected_type=type_hints["type"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -7374,7 +7940,13 @@ class DeploymentStrategyV1Beta1:
         if isinstance(rolling_update, dict):
             rolling_update = RollingUpdateDeploymentV1Beta1(**rolling_update)
         if __debug__:
-            type_hints = typing.get_type_hints(DeploymentStrategyV1Beta1.__init__)
+            def stub(
+                *,
+                rolling_update: typing.Optional[typing.Union["RollingUpdateDeploymentV1Beta1", typing.Dict[str, typing.Any]]] = None,
+                type: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument rolling_update", value=rolling_update, expected_type=type_hints["rolling_update"])
             check_type(argname="argument type", value=type, expected_type=type_hints["type"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -7441,7 +8013,13 @@ class DeploymentStrategyV1Beta2:
         if isinstance(rolling_update, dict):
             rolling_update = RollingUpdateDeploymentV1Beta2(**rolling_update)
         if __debug__:
-            type_hints = typing.get_type_hints(DeploymentStrategyV1Beta2.__init__)
+            def stub(
+                *,
+                rolling_update: typing.Optional[typing.Union["RollingUpdateDeploymentV1Beta2", typing.Dict[str, typing.Any]]] = None,
+                type: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument rolling_update", value=rolling_update, expected_type=type_hints["rolling_update"])
             check_type(argname="argument type", value=type, expected_type=type_hints["type"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -7506,7 +8084,12 @@ class DownwardApiProjection:
         :schema: io.k8s.api.core.v1.DownwardAPIProjection
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(DownwardApiProjection.__init__)
+            def stub(
+                *,
+                items: typing.Optional[typing.Sequence[typing.Union["DownwardApiVolumeFile", typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
         self._values: typing.Dict[str, typing.Any] = {}
         if items is not None:
@@ -7566,7 +8149,15 @@ class DownwardApiVolumeFile:
         if isinstance(resource_field_ref, dict):
             resource_field_ref = ResourceFieldSelector(**resource_field_ref)
         if __debug__:
-            type_hints = typing.get_type_hints(DownwardApiVolumeFile.__init__)
+            def stub(
+                *,
+                path: builtins.str,
+                field_ref: typing.Optional[typing.Union["ObjectFieldSelector", typing.Dict[str, typing.Any]]] = None,
+                mode: typing.Optional[jsii.Number] = None,
+                resource_field_ref: typing.Optional[typing.Union["ResourceFieldSelector", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument path", value=path, expected_type=type_hints["path"])
             check_type(argname="argument field_ref", value=field_ref, expected_type=type_hints["field_ref"])
             check_type(argname="argument mode", value=mode, expected_type=type_hints["mode"])
@@ -7656,7 +8247,13 @@ class DownwardApiVolumeSource:
         :schema: io.k8s.api.core.v1.DownwardAPIVolumeSource
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(DownwardApiVolumeSource.__init__)
+            def stub(
+                *,
+                default_mode: typing.Optional[jsii.Number] = None,
+                items: typing.Optional[typing.Sequence[typing.Union[DownwardApiVolumeFile, typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument default_mode", value=default_mode, expected_type=type_hints["default_mode"])
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -7721,7 +8318,13 @@ class EmptyDirVolumeSource:
         :schema: io.k8s.api.core.v1.EmptyDirVolumeSource
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(EmptyDirVolumeSource.__init__)
+            def stub(
+                *,
+                medium: typing.Optional[builtins.str] = None,
+                size_limit: typing.Optional["Quantity"] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument medium", value=medium, expected_type=type_hints["medium"])
             check_type(argname="argument size_limit", value=size_limit, expected_type=type_hints["size_limit"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -7795,7 +8398,15 @@ class EndpointAddress:
         if isinstance(target_ref, dict):
             target_ref = ObjectReference(**target_ref)
         if __debug__:
-            type_hints = typing.get_type_hints(EndpointAddress.__init__)
+            def stub(
+                *,
+                ip: builtins.str,
+                hostname: typing.Optional[builtins.str] = None,
+                node_name: typing.Optional[builtins.str] = None,
+                target_ref: typing.Optional[typing.Union["ObjectReference", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument ip", value=ip, expected_type=type_hints["ip"])
             check_type(argname="argument hostname", value=hostname, expected_type=type_hints["hostname"])
             check_type(argname="argument node_name", value=node_name, expected_type=type_hints["node_name"])
@@ -7877,7 +8488,9 @@ class EndpointConditionsV1Beta1:
         :schema: io.k8s.api.discovery.v1beta1.EndpointConditions
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(EndpointConditionsV1Beta1.__init__)
+            def stub(*, ready: typing.Optional[builtins.bool] = None) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument ready", value=ready, expected_type=type_hints["ready"])
         self._values: typing.Dict[str, typing.Any] = {}
         if ready is not None:
@@ -7928,7 +8541,14 @@ class EndpointPort:
         :schema: io.k8s.api.core.v1.EndpointPort
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(EndpointPort.__init__)
+            def stub(
+                *,
+                port: jsii.Number,
+                name: typing.Optional[builtins.str] = None,
+                protocol: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument port", value=port, expected_type=type_hints["port"])
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
             check_type(argname="argument protocol", value=protocol, expected_type=type_hints["protocol"])
@@ -8015,7 +8635,15 @@ class EndpointPortV1Beta1:
         :schema: io.k8s.api.discovery.v1beta1.EndpointPort
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(EndpointPortV1Beta1.__init__)
+            def stub(
+                *,
+                app_protocol: typing.Optional[builtins.str] = None,
+                name: typing.Optional[builtins.str] = None,
+                port: typing.Optional[jsii.Number] = None,
+                protocol: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument app_protocol", value=app_protocol, expected_type=type_hints["app_protocol"])
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
             check_type(argname="argument port", value=port, expected_type=type_hints["port"])
@@ -8127,7 +8755,14 @@ class EndpointSubset:
         :schema: io.k8s.api.core.v1.EndpointSubset
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(EndpointSubset.__init__)
+            def stub(
+                *,
+                addresses: typing.Optional[typing.Sequence[typing.Union[EndpointAddress, typing.Dict[str, typing.Any]]]] = None,
+                not_ready_addresses: typing.Optional[typing.Sequence[typing.Union[EndpointAddress, typing.Dict[str, typing.Any]]]] = None,
+                ports: typing.Optional[typing.Sequence[typing.Union[EndpointPort, typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument addresses", value=addresses, expected_type=type_hints["addresses"])
             check_type(argname="argument not_ready_addresses", value=not_ready_addresses, expected_type=type_hints["not_ready_addresses"])
             check_type(argname="argument ports", value=ports, expected_type=type_hints["ports"])
@@ -8216,7 +8851,16 @@ class EndpointV1Beta1:
         if isinstance(target_ref, dict):
             target_ref = ObjectReference(**target_ref)
         if __debug__:
-            type_hints = typing.get_type_hints(EndpointV1Beta1.__init__)
+            def stub(
+                *,
+                addresses: typing.Sequence[builtins.str],
+                conditions: typing.Optional[typing.Union[EndpointConditionsV1Beta1, typing.Dict[str, typing.Any]]] = None,
+                hostname: typing.Optional[builtins.str] = None,
+                target_ref: typing.Optional[typing.Union["ObjectReference", typing.Dict[str, typing.Any]]] = None,
+                topology: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument addresses", value=addresses, expected_type=type_hints["addresses"])
             check_type(argname="argument conditions", value=conditions, expected_type=type_hints["conditions"])
             check_type(argname="argument hostname", value=hostname, expected_type=type_hints["hostname"])
@@ -8335,7 +8979,14 @@ class EnvFromSource:
         if isinstance(secret_ref, dict):
             secret_ref = SecretEnvSource(**secret_ref)
         if __debug__:
-            type_hints = typing.get_type_hints(EnvFromSource.__init__)
+            def stub(
+                *,
+                config_map_ref: typing.Optional[typing.Union[ConfigMapEnvSource, typing.Dict[str, typing.Any]]] = None,
+                prefix: typing.Optional[builtins.str] = None,
+                secret_ref: typing.Optional[typing.Union["SecretEnvSource", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument config_map_ref", value=config_map_ref, expected_type=type_hints["config_map_ref"])
             check_type(argname="argument prefix", value=prefix, expected_type=type_hints["prefix"])
             check_type(argname="argument secret_ref", value=secret_ref, expected_type=type_hints["secret_ref"])
@@ -8412,7 +9063,14 @@ class EnvVar:
         if isinstance(value_from, dict):
             value_from = EnvVarSource(**value_from)
         if __debug__:
-            type_hints = typing.get_type_hints(EnvVar.__init__)
+            def stub(
+                *,
+                name: builtins.str,
+                value: typing.Optional[builtins.str] = None,
+                value_from: typing.Optional[typing.Union["EnvVarSource", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
             check_type(argname="argument value", value=value, expected_type=type_hints["value"])
             check_type(argname="argument value_from", value=value_from, expected_type=type_hints["value_from"])
@@ -8509,7 +9167,15 @@ class EnvVarSource:
         if isinstance(secret_key_ref, dict):
             secret_key_ref = SecretKeySelector(**secret_key_ref)
         if __debug__:
-            type_hints = typing.get_type_hints(EnvVarSource.__init__)
+            def stub(
+                *,
+                config_map_key_ref: typing.Optional[typing.Union[ConfigMapKeySelector, typing.Dict[str, typing.Any]]] = None,
+                field_ref: typing.Optional[typing.Union["ObjectFieldSelector", typing.Dict[str, typing.Any]]] = None,
+                resource_field_ref: typing.Optional[typing.Union["ResourceFieldSelector", typing.Dict[str, typing.Any]]] = None,
+                secret_key_ref: typing.Optional[typing.Union["SecretKeySelector", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument config_map_key_ref", value=config_map_key_ref, expected_type=type_hints["config_map_key_ref"])
             check_type(argname="argument field_ref", value=field_ref, expected_type=type_hints["field_ref"])
             check_type(argname="argument resource_field_ref", value=resource_field_ref, expected_type=type_hints["resource_field_ref"])
@@ -8672,7 +9338,34 @@ class EphemeralContainer:
         if isinstance(startup_probe, dict):
             startup_probe = Probe(**startup_probe)
         if __debug__:
-            type_hints = typing.get_type_hints(EphemeralContainer.__init__)
+            def stub(
+                *,
+                name: builtins.str,
+                args: typing.Optional[typing.Sequence[builtins.str]] = None,
+                command: typing.Optional[typing.Sequence[builtins.str]] = None,
+                env: typing.Optional[typing.Sequence[typing.Union[EnvVar, typing.Dict[str, typing.Any]]]] = None,
+                env_from: typing.Optional[typing.Sequence[typing.Union[EnvFromSource, typing.Dict[str, typing.Any]]]] = None,
+                image: typing.Optional[builtins.str] = None,
+                image_pull_policy: typing.Optional[builtins.str] = None,
+                lifecycle: typing.Optional[typing.Union["Lifecycle", typing.Dict[str, typing.Any]]] = None,
+                liveness_probe: typing.Optional[typing.Union["Probe", typing.Dict[str, typing.Any]]] = None,
+                ports: typing.Optional[typing.Sequence[typing.Union[ContainerPort, typing.Dict[str, typing.Any]]]] = None,
+                readiness_probe: typing.Optional[typing.Union["Probe", typing.Dict[str, typing.Any]]] = None,
+                resources: typing.Optional[typing.Union["ResourceRequirements", typing.Dict[str, typing.Any]]] = None,
+                security_context: typing.Optional[typing.Union["SecurityContext", typing.Dict[str, typing.Any]]] = None,
+                startup_probe: typing.Optional[typing.Union["Probe", typing.Dict[str, typing.Any]]] = None,
+                stdin: typing.Optional[builtins.bool] = None,
+                stdin_once: typing.Optional[builtins.bool] = None,
+                target_container_name: typing.Optional[builtins.str] = None,
+                termination_message_path: typing.Optional[builtins.str] = None,
+                termination_message_policy: typing.Optional[builtins.str] = None,
+                tty: typing.Optional[builtins.bool] = None,
+                volume_devices: typing.Optional[typing.Sequence[typing.Union["VolumeDevice", typing.Dict[str, typing.Any]]]] = None,
+                volume_mounts: typing.Optional[typing.Sequence[typing.Union["VolumeMount", typing.Dict[str, typing.Any]]]] = None,
+                working_dir: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
             check_type(argname="argument args", value=args, expected_type=type_hints["args"])
             check_type(argname="argument command", value=command, expected_type=type_hints["command"])
@@ -9036,7 +9729,14 @@ class EventSeries:
         :schema: io.k8s.api.core.v1.EventSeries
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(EventSeries.__init__)
+            def stub(
+                *,
+                count: typing.Optional[jsii.Number] = None,
+                last_observed_time: typing.Optional[datetime.datetime] = None,
+                state: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument count", value=count, expected_type=type_hints["count"])
             check_type(argname="argument last_observed_time", value=last_observed_time, expected_type=type_hints["last_observed_time"])
             check_type(argname="argument state", value=state, expected_type=type_hints["state"])
@@ -9115,7 +9815,14 @@ class EventSeriesV1Beta1:
         :schema: io.k8s.api.events.v1beta1.EventSeries
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(EventSeriesV1Beta1.__init__)
+            def stub(
+                *,
+                count: jsii.Number,
+                last_observed_time: datetime.datetime,
+                state: builtins.str,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument count", value=count, expected_type=type_hints["count"])
             check_type(argname="argument last_observed_time", value=last_observed_time, expected_type=type_hints["last_observed_time"])
             check_type(argname="argument state", value=state, expected_type=type_hints["state"])
@@ -9189,7 +9896,13 @@ class EventSource:
         :schema: io.k8s.api.core.v1.EventSource
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(EventSource.__init__)
+            def stub(
+                *,
+                component: typing.Optional[builtins.str] = None,
+                host: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument component", value=component, expected_type=type_hints["component"])
             check_type(argname="argument host", value=host, expected_type=type_hints["host"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -9246,7 +9959,12 @@ class ExecAction:
         :schema: io.k8s.api.core.v1.ExecAction
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(ExecAction.__init__)
+            def stub(
+                *,
+                command: typing.Optional[typing.Sequence[builtins.str]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument command", value=command, expected_type=type_hints["command"])
         self._values: typing.Dict[str, typing.Any] = {}
         if command is not None:
@@ -9295,7 +10013,13 @@ class ExternalDocumentation:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.ExternalDocumentation
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(ExternalDocumentation.__init__)
+            def stub(
+                *,
+                description: typing.Optional[builtins.str] = None,
+                url: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument description", value=description, expected_type=type_hints["description"])
             check_type(argname="argument url", value=url, expected_type=type_hints["url"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -9352,7 +10076,13 @@ class ExternalDocumentationV1Beta1:
         :schema: io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.ExternalDocumentation
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(ExternalDocumentationV1Beta1.__init__)
+            def stub(
+                *,
+                description: typing.Optional[builtins.str] = None,
+                url: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument description", value=description, expected_type=type_hints["description"])
             check_type(argname="argument url", value=url, expected_type=type_hints["url"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -9422,7 +10152,15 @@ class ExternalMetricSourceV2Beta1:
         if isinstance(metric_selector, dict):
             metric_selector = LabelSelector(**metric_selector)
         if __debug__:
-            type_hints = typing.get_type_hints(ExternalMetricSourceV2Beta1.__init__)
+            def stub(
+                *,
+                metric_name: builtins.str,
+                metric_selector: typing.Optional[typing.Union["LabelSelector", typing.Dict[str, typing.Any]]] = None,
+                target_average_value: typing.Optional["Quantity"] = None,
+                target_value: typing.Optional["Quantity"] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metric_name", value=metric_name, expected_type=type_hints["metric_name"])
             check_type(argname="argument metric_selector", value=metric_selector, expected_type=type_hints["metric_selector"])
             check_type(argname="argument target_average_value", value=target_average_value, expected_type=type_hints["target_average_value"])
@@ -9514,7 +10252,13 @@ class ExternalMetricSourceV2Beta2:
         if isinstance(target, dict):
             target = MetricTargetV2Beta2(**target)
         if __debug__:
-            type_hints = typing.get_type_hints(ExternalMetricSourceV2Beta2.__init__)
+            def stub(
+                *,
+                metric: typing.Union["MetricIdentifierV2Beta2", typing.Dict[str, typing.Any]],
+                target: typing.Union["MetricTargetV2Beta2", typing.Dict[str, typing.Any]],
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metric", value=metric, expected_type=type_hints["metric"])
             check_type(argname="argument target", value=target, expected_type=type_hints["target"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -9588,7 +10332,16 @@ class FcVolumeSource:
         :schema: io.k8s.api.core.v1.FCVolumeSource
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(FcVolumeSource.__init__)
+            def stub(
+                *,
+                fs_type: typing.Optional[builtins.str] = None,
+                lun: typing.Optional[jsii.Number] = None,
+                read_only: typing.Optional[builtins.bool] = None,
+                target_ww_ns: typing.Optional[typing.Sequence[builtins.str]] = None,
+                wwids: typing.Optional[typing.Sequence[builtins.str]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument fs_type", value=fs_type, expected_type=type_hints["fs_type"])
             check_type(argname="argument lun", value=lun, expected_type=type_hints["lun"])
             check_type(argname="argument read_only", value=read_only, expected_type=type_hints["read_only"])
@@ -9703,7 +10456,16 @@ class FlexPersistentVolumeSource:
         if isinstance(secret_ref, dict):
             secret_ref = SecretReference(**secret_ref)
         if __debug__:
-            type_hints = typing.get_type_hints(FlexPersistentVolumeSource.__init__)
+            def stub(
+                *,
+                driver: builtins.str,
+                fs_type: typing.Optional[builtins.str] = None,
+                options: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
+                read_only: typing.Optional[builtins.bool] = None,
+                secret_ref: typing.Optional[typing.Union["SecretReference", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument driver", value=driver, expected_type=type_hints["driver"])
             check_type(argname="argument fs_type", value=fs_type, expected_type=type_hints["fs_type"])
             check_type(argname="argument options", value=options, expected_type=type_hints["options"])
@@ -9821,7 +10583,16 @@ class FlexVolumeSource:
         if isinstance(secret_ref, dict):
             secret_ref = LocalObjectReference(**secret_ref)
         if __debug__:
-            type_hints = typing.get_type_hints(FlexVolumeSource.__init__)
+            def stub(
+                *,
+                driver: builtins.str,
+                fs_type: typing.Optional[builtins.str] = None,
+                options: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
+                read_only: typing.Optional[builtins.bool] = None,
+                secret_ref: typing.Optional[typing.Union["LocalObjectReference", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument driver", value=driver, expected_type=type_hints["driver"])
             check_type(argname="argument fs_type", value=fs_type, expected_type=type_hints["fs_type"])
             check_type(argname="argument options", value=options, expected_type=type_hints["options"])
@@ -9927,7 +10698,13 @@ class FlockerVolumeSource:
         :schema: io.k8s.api.core.v1.FlockerVolumeSource
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(FlockerVolumeSource.__init__)
+            def stub(
+                *,
+                dataset_name: typing.Optional[builtins.str] = None,
+                dataset_uuid: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument dataset_name", value=dataset_name, expected_type=type_hints["dataset_name"])
             check_type(argname="argument dataset_uuid", value=dataset_uuid, expected_type=type_hints["dataset_uuid"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -9982,7 +10759,9 @@ class FlowDistinguisherMethodV1Alpha1:
         :schema: io.k8s.api.flowcontrol.v1alpha1.FlowDistinguisherMethod
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(FlowDistinguisherMethodV1Alpha1.__init__)
+            def stub(*, type: builtins.str) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument type", value=type, expected_type=type_hints["type"])
         self._values: typing.Dict[str, typing.Any] = {
             "type": type,
@@ -10045,7 +10824,15 @@ class FlowSchemaSpecV1Alpha1:
         if isinstance(distinguisher_method, dict):
             distinguisher_method = FlowDistinguisherMethodV1Alpha1(**distinguisher_method)
         if __debug__:
-            type_hints = typing.get_type_hints(FlowSchemaSpecV1Alpha1.__init__)
+            def stub(
+                *,
+                priority_level_configuration: typing.Union["PriorityLevelConfigurationReferenceV1Alpha1", typing.Dict[str, typing.Any]],
+                distinguisher_method: typing.Optional[typing.Union[FlowDistinguisherMethodV1Alpha1, typing.Dict[str, typing.Any]]] = None,
+                matching_precedence: typing.Optional[jsii.Number] = None,
+                rules: typing.Optional[typing.Sequence[typing.Union["PolicyRulesWithSubjectsV1Alpha1", typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument priority_level_configuration", value=priority_level_configuration, expected_type=type_hints["priority_level_configuration"])
             check_type(argname="argument distinguisher_method", value=distinguisher_method, expected_type=type_hints["distinguisher_method"])
             check_type(argname="argument matching_precedence", value=matching_precedence, expected_type=type_hints["matching_precedence"])
@@ -10139,7 +10926,13 @@ class FsGroupStrategyOptionsV1Beta1:
         :schema: io.k8s.api.policy.v1beta1.FSGroupStrategyOptions
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(FsGroupStrategyOptionsV1Beta1.__init__)
+            def stub(
+                *,
+                ranges: typing.Optional[typing.Sequence[typing.Union["IdRangeV1Beta1", typing.Dict[str, typing.Any]]]] = None,
+                rule: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument ranges", value=ranges, expected_type=type_hints["ranges"])
             check_type(argname="argument rule", value=rule, expected_type=type_hints["rule"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -10211,7 +11004,15 @@ class GcePersistentDiskVolumeSource:
         :schema: io.k8s.api.core.v1.GCEPersistentDiskVolumeSource
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(GcePersistentDiskVolumeSource.__init__)
+            def stub(
+                *,
+                pd_name: builtins.str,
+                fs_type: typing.Optional[builtins.str] = None,
+                partition: typing.Optional[jsii.Number] = None,
+                read_only: typing.Optional[builtins.bool] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument pd_name", value=pd_name, expected_type=type_hints["pd_name"])
             check_type(argname="argument fs_type", value=fs_type, expected_type=type_hints["fs_type"])
             check_type(argname="argument partition", value=partition, expected_type=type_hints["partition"])
@@ -10315,7 +11116,14 @@ class GitRepoVolumeSource:
         :schema: io.k8s.api.core.v1.GitRepoVolumeSource
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(GitRepoVolumeSource.__init__)
+            def stub(
+                *,
+                repository: builtins.str,
+                directory: typing.Optional[builtins.str] = None,
+                revision: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument repository", value=repository, expected_type=type_hints["repository"])
             check_type(argname="argument directory", value=directory, expected_type=type_hints["directory"])
             check_type(argname="argument revision", value=revision, expected_type=type_hints["revision"])
@@ -10400,7 +11208,15 @@ class GlusterfsPersistentVolumeSource:
         :schema: io.k8s.api.core.v1.GlusterfsPersistentVolumeSource
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(GlusterfsPersistentVolumeSource.__init__)
+            def stub(
+                *,
+                endpoints: builtins.str,
+                path: builtins.str,
+                endpoints_namespace: typing.Optional[builtins.str] = None,
+                read_only: typing.Optional[builtins.bool] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument endpoints", value=endpoints, expected_type=type_hints["endpoints"])
             check_type(argname="argument path", value=path, expected_type=type_hints["path"])
             check_type(argname="argument endpoints_namespace", value=endpoints_namespace, expected_type=type_hints["endpoints_namespace"])
@@ -10498,7 +11314,14 @@ class GlusterfsVolumeSource:
         :schema: io.k8s.api.core.v1.GlusterfsVolumeSource
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(GlusterfsVolumeSource.__init__)
+            def stub(
+                *,
+                endpoints: builtins.str,
+                path: builtins.str,
+                read_only: typing.Optional[builtins.bool] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument endpoints", value=endpoints, expected_type=type_hints["endpoints"])
             check_type(argname="argument path", value=path, expected_type=type_hints["path"])
             check_type(argname="argument read_only", value=read_only, expected_type=type_hints["read_only"])
@@ -10586,7 +11409,14 @@ class Handler:
         if isinstance(tcp_socket, dict):
             tcp_socket = TcpSocketAction(**tcp_socket)
         if __debug__:
-            type_hints = typing.get_type_hints(Handler.__init__)
+            def stub(
+                *,
+                exec: typing.Optional[typing.Union[ExecAction, typing.Dict[str, typing.Any]]] = None,
+                http_get: typing.Optional[typing.Union["HttpGetAction", typing.Dict[str, typing.Any]]] = None,
+                tcp_socket: typing.Optional[typing.Union["TcpSocketAction", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument exec", value=exec, expected_type=type_hints["exec"])
             check_type(argname="argument http_get", value=http_get, expected_type=type_hints["http_get"])
             check_type(argname="argument tcp_socket", value=tcp_socket, expected_type=type_hints["tcp_socket"])
@@ -10672,7 +11502,15 @@ class HorizontalPodAutoscalerSpec:
         if isinstance(scale_target_ref, dict):
             scale_target_ref = CrossVersionObjectReference(**scale_target_ref)
         if __debug__:
-            type_hints = typing.get_type_hints(HorizontalPodAutoscalerSpec.__init__)
+            def stub(
+                *,
+                max_replicas: jsii.Number,
+                scale_target_ref: typing.Union[CrossVersionObjectReference, typing.Dict[str, typing.Any]],
+                min_replicas: typing.Optional[jsii.Number] = None,
+                target_cpu_utilization_percentage: typing.Optional[jsii.Number] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument max_replicas", value=max_replicas, expected_type=type_hints["max_replicas"])
             check_type(argname="argument scale_target_ref", value=scale_target_ref, expected_type=type_hints["scale_target_ref"])
             check_type(argname="argument min_replicas", value=min_replicas, expected_type=type_hints["min_replicas"])
@@ -10775,7 +11613,15 @@ class HorizontalPodAutoscalerSpecV2Beta1:
         if isinstance(scale_target_ref, dict):
             scale_target_ref = CrossVersionObjectReferenceV2Beta1(**scale_target_ref)
         if __debug__:
-            type_hints = typing.get_type_hints(HorizontalPodAutoscalerSpecV2Beta1.__init__)
+            def stub(
+                *,
+                max_replicas: jsii.Number,
+                scale_target_ref: typing.Union[CrossVersionObjectReferenceV2Beta1, typing.Dict[str, typing.Any]],
+                metrics: typing.Optional[typing.Sequence[typing.Union["MetricSpecV2Beta1", typing.Dict[str, typing.Any]]]] = None,
+                min_replicas: typing.Optional[jsii.Number] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument max_replicas", value=max_replicas, expected_type=type_hints["max_replicas"])
             check_type(argname="argument scale_target_ref", value=scale_target_ref, expected_type=type_hints["scale_target_ref"])
             check_type(argname="argument metrics", value=metrics, expected_type=type_hints["metrics"])
@@ -10876,7 +11722,15 @@ class HorizontalPodAutoscalerSpecV2Beta2:
         if isinstance(scale_target_ref, dict):
             scale_target_ref = CrossVersionObjectReferenceV2Beta2(**scale_target_ref)
         if __debug__:
-            type_hints = typing.get_type_hints(HorizontalPodAutoscalerSpecV2Beta2.__init__)
+            def stub(
+                *,
+                max_replicas: jsii.Number,
+                scale_target_ref: typing.Union[CrossVersionObjectReferenceV2Beta2, typing.Dict[str, typing.Any]],
+                metrics: typing.Optional[typing.Sequence[typing.Union["MetricSpecV2Beta2", typing.Dict[str, typing.Any]]]] = None,
+                min_replicas: typing.Optional[jsii.Number] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument max_replicas", value=max_replicas, expected_type=type_hints["max_replicas"])
             check_type(argname="argument scale_target_ref", value=scale_target_ref, expected_type=type_hints["scale_target_ref"])
             check_type(argname="argument metrics", value=metrics, expected_type=type_hints["metrics"])
@@ -10966,7 +11820,13 @@ class HostAlias:
         :schema: io.k8s.api.core.v1.HostAlias
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(HostAlias.__init__)
+            def stub(
+                *,
+                hostnames: typing.Optional[typing.Sequence[builtins.str]] = None,
+                ip: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument hostnames", value=hostnames, expected_type=type_hints["hostnames"])
             check_type(argname="argument ip", value=ip, expected_type=type_hints["ip"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -11027,7 +11887,13 @@ class HostPathVolumeSource:
         :schema: io.k8s.api.core.v1.HostPathVolumeSource
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(HostPathVolumeSource.__init__)
+            def stub(
+                *,
+                path: builtins.str,
+                type: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument path", value=path, expected_type=type_hints["path"])
             check_type(argname="argument type", value=type, expected_type=type_hints["type"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -11088,7 +11954,9 @@ class HostPortRangeV1Beta1:
         :schema: io.k8s.api.policy.v1beta1.HostPortRange
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(HostPortRangeV1Beta1.__init__)
+            def stub(*, max: jsii.Number, min: jsii.Number) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument max", value=max, expected_type=type_hints["max"])
             check_type(argname="argument min", value=min, expected_type=type_hints["min"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -11160,7 +12028,16 @@ class HttpGetAction:
         :schema: io.k8s.api.core.v1.HTTPGetAction
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(HttpGetAction.__init__)
+            def stub(
+                *,
+                port: "IntOrString",
+                host: typing.Optional[builtins.str] = None,
+                http_headers: typing.Optional[typing.Sequence[typing.Union["HttpHeader", typing.Dict[str, typing.Any]]]] = None,
+                path: typing.Optional[builtins.str] = None,
+                scheme: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument port", value=port, expected_type=type_hints["port"])
             check_type(argname="argument host", value=host, expected_type=type_hints["host"])
             check_type(argname="argument http_headers", value=http_headers, expected_type=type_hints["http_headers"])
@@ -11261,7 +12138,9 @@ class HttpHeader:
         :schema: io.k8s.api.core.v1.HTTPHeader
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(HttpHeader.__init__)
+            def stub(*, name: builtins.str, value: builtins.str) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
             check_type(argname="argument value", value=value, expected_type=type_hints["value"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -11325,7 +12204,13 @@ class HttpIngressPathV1Beta1:
         if isinstance(backend, dict):
             backend = IngressBackendV1Beta1(**backend)
         if __debug__:
-            type_hints = typing.get_type_hints(HttpIngressPathV1Beta1.__init__)
+            def stub(
+                *,
+                backend: typing.Union["IngressBackendV1Beta1", typing.Dict[str, typing.Any]],
+                path: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument backend", value=backend, expected_type=type_hints["backend"])
             check_type(argname="argument path", value=path, expected_type=type_hints["path"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -11385,7 +12270,12 @@ class HttpIngressRuleValueV1Beta1:
         :schema: io.k8s.api.networking.v1beta1.HTTPIngressRuleValue
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(HttpIngressRuleValueV1Beta1.__init__)
+            def stub(
+                *,
+                paths: typing.Sequence[typing.Union[HttpIngressPathV1Beta1, typing.Dict[str, typing.Any]]],
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument paths", value=paths, expected_type=type_hints["paths"])
         self._values: typing.Dict[str, typing.Any] = {
             "paths": paths,
@@ -11428,7 +12318,9 @@ class IdRangeV1Beta1:
         :schema: io.k8s.api.policy.v1beta1.IDRange
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(IdRangeV1Beta1.__init__)
+            def stub(*, max: jsii.Number, min: jsii.Number) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument max", value=max, expected_type=type_hints["max"])
             check_type(argname="argument min", value=min, expected_type=type_hints["min"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -11488,7 +12380,13 @@ class IngressBackendV1Beta1:
         :schema: io.k8s.api.networking.v1beta1.IngressBackend
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(IngressBackendV1Beta1.__init__)
+            def stub(
+                *,
+                service_name: builtins.str,
+                service_port: "IntOrString",
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument service_name", value=service_name, expected_type=type_hints["service_name"])
             check_type(argname="argument service_port", value=service_port, expected_type=type_hints["service_port"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -11552,7 +12450,13 @@ class IngressRuleV1Beta1:
         if isinstance(http, dict):
             http = HttpIngressRuleValueV1Beta1(**http)
         if __debug__:
-            type_hints = typing.get_type_hints(IngressRuleV1Beta1.__init__)
+            def stub(
+                *,
+                host: typing.Optional[builtins.str] = None,
+                http: typing.Optional[typing.Union[HttpIngressRuleValueV1Beta1, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument host", value=host, expected_type=type_hints["host"])
             check_type(argname="argument http", value=http, expected_type=type_hints["http"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -11621,7 +12525,14 @@ class IngressSpecV1Beta1:
         if isinstance(backend, dict):
             backend = IngressBackendV1Beta1(**backend)
         if __debug__:
-            type_hints = typing.get_type_hints(IngressSpecV1Beta1.__init__)
+            def stub(
+                *,
+                backend: typing.Optional[typing.Union[IngressBackendV1Beta1, typing.Dict[str, typing.Any]]] = None,
+                rules: typing.Optional[typing.Sequence[typing.Union[IngressRuleV1Beta1, typing.Dict[str, typing.Any]]]] = None,
+                tls: typing.Optional[typing.Sequence[typing.Union["IngressTlsv1Beta1", typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument backend", value=backend, expected_type=type_hints["backend"])
             check_type(argname="argument rules", value=rules, expected_type=type_hints["rules"])
             check_type(argname="argument tls", value=tls, expected_type=type_hints["tls"])
@@ -11698,7 +12609,13 @@ class IngressTlsv1Beta1:
         :schema: io.k8s.api.networking.v1beta1.IngressTLS
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(IngressTlsv1Beta1.__init__)
+            def stub(
+                *,
+                hosts: typing.Optional[typing.Sequence[builtins.str]] = None,
+                secret_name: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument hosts", value=hosts, expected_type=type_hints["hosts"])
             check_type(argname="argument secret_name", value=secret_name, expected_type=type_hints["secret_name"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -11755,7 +12672,9 @@ class IntOrString(metaclass=jsii.JSIIMeta, jsii_type="k8s.IntOrString"):
         :param value: -
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(IntOrString.from_number)
+            def stub(value: jsii.Number) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument value", value=value, expected_type=type_hints["value"])
         return typing.cast("IntOrString", jsii.sinvoke(cls, "fromNumber", [value]))
 
@@ -11766,7 +12685,9 @@ class IntOrString(metaclass=jsii.JSIIMeta, jsii_type="k8s.IntOrString"):
         :param value: -
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(IntOrString.from_string)
+            def stub(value: builtins.str) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument value", value=value, expected_type=type_hints["value"])
         return typing.cast("IntOrString", jsii.sinvoke(cls, "fromString", [value]))
 
@@ -11811,7 +12732,13 @@ class IpBlock:
         :schema: io.k8s.api.networking.v1.IPBlock
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(IpBlock.__init__)
+            def stub(
+                *,
+                cidr: builtins.str,
+                except_: typing.Optional[typing.Sequence[builtins.str]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument cidr", value=cidr, expected_type=type_hints["cidr"])
             check_type(argname="argument except_", value=except_, expected_type=type_hints["except_"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -11871,7 +12798,13 @@ class IpBlockV1Beta1:
         :schema: io.k8s.api.extensions.v1beta1.IPBlock
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(IpBlockV1Beta1.__init__)
+            def stub(
+                *,
+                cidr: builtins.str,
+                except_: typing.Optional[typing.Sequence[builtins.str]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument cidr", value=cidr, expected_type=type_hints["cidr"])
             check_type(argname="argument except_", value=except_, expected_type=type_hints["except_"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -11965,7 +12898,22 @@ class IscsiPersistentVolumeSource:
         if isinstance(secret_ref, dict):
             secret_ref = SecretReference(**secret_ref)
         if __debug__:
-            type_hints = typing.get_type_hints(IscsiPersistentVolumeSource.__init__)
+            def stub(
+                *,
+                iqn: builtins.str,
+                lun: jsii.Number,
+                target_portal: builtins.str,
+                chap_auth_discovery: typing.Optional[builtins.bool] = None,
+                chap_auth_session: typing.Optional[builtins.bool] = None,
+                fs_type: typing.Optional[builtins.str] = None,
+                initiator_name: typing.Optional[builtins.str] = None,
+                iscsi_interface: typing.Optional[builtins.str] = None,
+                portals: typing.Optional[typing.Sequence[builtins.str]] = None,
+                read_only: typing.Optional[builtins.bool] = None,
+                secret_ref: typing.Optional[typing.Union["SecretReference", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument iqn", value=iqn, expected_type=type_hints["iqn"])
             check_type(argname="argument lun", value=lun, expected_type=type_hints["lun"])
             check_type(argname="argument target_portal", value=target_portal, expected_type=type_hints["target_portal"])
@@ -12183,7 +13131,22 @@ class IscsiVolumeSource:
         if isinstance(secret_ref, dict):
             secret_ref = LocalObjectReference(**secret_ref)
         if __debug__:
-            type_hints = typing.get_type_hints(IscsiVolumeSource.__init__)
+            def stub(
+                *,
+                iqn: builtins.str,
+                lun: jsii.Number,
+                target_portal: builtins.str,
+                chap_auth_discovery: typing.Optional[builtins.bool] = None,
+                chap_auth_session: typing.Optional[builtins.bool] = None,
+                fs_type: typing.Optional[builtins.str] = None,
+                initiator_name: typing.Optional[builtins.str] = None,
+                iscsi_interface: typing.Optional[builtins.str] = None,
+                portals: typing.Optional[typing.Sequence[builtins.str]] = None,
+                read_only: typing.Optional[builtins.bool] = None,
+                secret_ref: typing.Optional[typing.Union["LocalObjectReference", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument iqn", value=iqn, expected_type=type_hints["iqn"])
             check_type(argname="argument lun", value=lun, expected_type=type_hints["lun"])
             check_type(argname="argument target_portal", value=target_portal, expected_type=type_hints["target_portal"])
@@ -12392,7 +13355,19 @@ class JobSpec:
         if isinstance(selector, dict):
             selector = LabelSelector(**selector)
         if __debug__:
-            type_hints = typing.get_type_hints(JobSpec.__init__)
+            def stub(
+                *,
+                template: typing.Union["PodTemplateSpec", typing.Dict[str, typing.Any]],
+                active_deadline_seconds: typing.Optional[jsii.Number] = None,
+                backoff_limit: typing.Optional[jsii.Number] = None,
+                completions: typing.Optional[jsii.Number] = None,
+                manual_selector: typing.Optional[builtins.bool] = None,
+                parallelism: typing.Optional[jsii.Number] = None,
+                selector: typing.Optional[typing.Union["LabelSelector", typing.Dict[str, typing.Any]]] = None,
+                ttl_seconds_after_finished: typing.Optional[jsii.Number] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument template", value=template, expected_type=type_hints["template"])
             check_type(argname="argument active_deadline_seconds", value=active_deadline_seconds, expected_type=type_hints["active_deadline_seconds"])
             check_type(argname="argument backoff_limit", value=backoff_limit, expected_type=type_hints["backoff_limit"])
@@ -12546,7 +13521,13 @@ class JobTemplateSpecV1Beta1:
         if isinstance(spec, dict):
             spec = JobSpec(**spec)
         if __debug__:
-            type_hints = typing.get_type_hints(JobTemplateSpecV1Beta1.__init__)
+            def stub(
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[JobSpec, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -12613,7 +13594,13 @@ class JobTemplateSpecV2Alpha1:
         if isinstance(spec, dict):
             spec = JobSpec(**spec)
         if __debug__:
-            type_hints = typing.get_type_hints(JobTemplateSpecV2Alpha1.__init__)
+            def stub(
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[JobSpec, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -12806,7 +13793,54 @@ class JsonSchemaProps:
         if isinstance(not_, dict):
             not_ = JsonSchemaProps(**not_)
         if __debug__:
-            type_hints = typing.get_type_hints(JsonSchemaProps.__init__)
+            def stub(
+                *,
+                additional_items: typing.Any = None,
+                additional_properties: typing.Any = None,
+                all_of: typing.Optional[typing.Sequence[typing.Union["JsonSchemaProps", typing.Dict[str, typing.Any]]]] = None,
+                any_of: typing.Optional[typing.Sequence[typing.Union["JsonSchemaProps", typing.Dict[str, typing.Any]]]] = None,
+                default: typing.Any = None,
+                definitions: typing.Optional[typing.Mapping[builtins.str, typing.Union["JsonSchemaProps", typing.Dict[str, typing.Any]]]] = None,
+                dependencies: typing.Optional[typing.Mapping[builtins.str, typing.Any]] = None,
+                description: typing.Optional[builtins.str] = None,
+                enum: typing.Optional[typing.Sequence[typing.Any]] = None,
+                example: typing.Any = None,
+                exclusive_maximum: typing.Optional[builtins.bool] = None,
+                exclusive_minimum: typing.Optional[builtins.bool] = None,
+                external_docs: typing.Optional[typing.Union[ExternalDocumentation, typing.Dict[str, typing.Any]]] = None,
+                format: typing.Optional[builtins.str] = None,
+                id: typing.Optional[builtins.str] = None,
+                items: typing.Any = None,
+                maximum: typing.Optional[jsii.Number] = None,
+                max_items: typing.Optional[jsii.Number] = None,
+                max_length: typing.Optional[jsii.Number] = None,
+                max_properties: typing.Optional[jsii.Number] = None,
+                minimum: typing.Optional[jsii.Number] = None,
+                min_items: typing.Optional[jsii.Number] = None,
+                min_length: typing.Optional[jsii.Number] = None,
+                min_properties: typing.Optional[jsii.Number] = None,
+                multiple_of: typing.Optional[jsii.Number] = None,
+                not_: typing.Optional[typing.Union["JsonSchemaProps", typing.Dict[str, typing.Any]]] = None,
+                nullable: typing.Optional[builtins.bool] = None,
+                one_of: typing.Optional[typing.Sequence[typing.Union["JsonSchemaProps", typing.Dict[str, typing.Any]]]] = None,
+                pattern: typing.Optional[builtins.str] = None,
+                pattern_properties: typing.Optional[typing.Mapping[builtins.str, typing.Union["JsonSchemaProps", typing.Dict[str, typing.Any]]]] = None,
+                properties: typing.Optional[typing.Mapping[builtins.str, typing.Union["JsonSchemaProps", typing.Dict[str, typing.Any]]]] = None,
+                ref: typing.Optional[builtins.str] = None,
+                required: typing.Optional[typing.Sequence[builtins.str]] = None,
+                schema: typing.Optional[builtins.str] = None,
+                title: typing.Optional[builtins.str] = None,
+                type: typing.Optional[builtins.str] = None,
+                unique_items: typing.Optional[builtins.bool] = None,
+                x_kubernetes_embedded_resource: typing.Optional[builtins.bool] = None,
+                x_kubernetes_int_or_string: typing.Optional[builtins.bool] = None,
+                x_kubernetes_list_map_keys: typing.Optional[typing.Sequence[builtins.str]] = None,
+                x_kubernetes_list_type: typing.Optional[builtins.str] = None,
+                x_kubernetes_map_type: typing.Optional[builtins.str] = None,
+                x_kubernetes_preserve_unknown_fields: typing.Optional[builtins.bool] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument additional_items", value=additional_items, expected_type=type_hints["additional_items"])
             check_type(argname="argument additional_properties", value=additional_properties, expected_type=type_hints["additional_properties"])
             check_type(argname="argument all_of", value=all_of, expected_type=type_hints["all_of"])
@@ -13506,7 +14540,54 @@ class JsonSchemaPropsV1Beta1:
         if isinstance(not_, dict):
             not_ = JsonSchemaPropsV1Beta1(**not_)
         if __debug__:
-            type_hints = typing.get_type_hints(JsonSchemaPropsV1Beta1.__init__)
+            def stub(
+                *,
+                additional_items: typing.Any = None,
+                additional_properties: typing.Any = None,
+                all_of: typing.Optional[typing.Sequence[typing.Union["JsonSchemaPropsV1Beta1", typing.Dict[str, typing.Any]]]] = None,
+                any_of: typing.Optional[typing.Sequence[typing.Union["JsonSchemaPropsV1Beta1", typing.Dict[str, typing.Any]]]] = None,
+                default: typing.Any = None,
+                definitions: typing.Optional[typing.Mapping[builtins.str, typing.Union["JsonSchemaPropsV1Beta1", typing.Dict[str, typing.Any]]]] = None,
+                dependencies: typing.Optional[typing.Mapping[builtins.str, typing.Any]] = None,
+                description: typing.Optional[builtins.str] = None,
+                enum: typing.Optional[typing.Sequence[typing.Any]] = None,
+                example: typing.Any = None,
+                exclusive_maximum: typing.Optional[builtins.bool] = None,
+                exclusive_minimum: typing.Optional[builtins.bool] = None,
+                external_docs: typing.Optional[typing.Union[ExternalDocumentationV1Beta1, typing.Dict[str, typing.Any]]] = None,
+                format: typing.Optional[builtins.str] = None,
+                id: typing.Optional[builtins.str] = None,
+                items: typing.Any = None,
+                maximum: typing.Optional[jsii.Number] = None,
+                max_items: typing.Optional[jsii.Number] = None,
+                max_length: typing.Optional[jsii.Number] = None,
+                max_properties: typing.Optional[jsii.Number] = None,
+                minimum: typing.Optional[jsii.Number] = None,
+                min_items: typing.Optional[jsii.Number] = None,
+                min_length: typing.Optional[jsii.Number] = None,
+                min_properties: typing.Optional[jsii.Number] = None,
+                multiple_of: typing.Optional[jsii.Number] = None,
+                not_: typing.Optional[typing.Union["JsonSchemaPropsV1Beta1", typing.Dict[str, typing.Any]]] = None,
+                nullable: typing.Optional[builtins.bool] = None,
+                one_of: typing.Optional[typing.Sequence[typing.Union["JsonSchemaPropsV1Beta1", typing.Dict[str, typing.Any]]]] = None,
+                pattern: typing.Optional[builtins.str] = None,
+                pattern_properties: typing.Optional[typing.Mapping[builtins.str, typing.Union["JsonSchemaPropsV1Beta1", typing.Dict[str, typing.Any]]]] = None,
+                properties: typing.Optional[typing.Mapping[builtins.str, typing.Union["JsonSchemaPropsV1Beta1", typing.Dict[str, typing.Any]]]] = None,
+                ref: typing.Optional[builtins.str] = None,
+                required: typing.Optional[typing.Sequence[builtins.str]] = None,
+                schema: typing.Optional[builtins.str] = None,
+                title: typing.Optional[builtins.str] = None,
+                type: typing.Optional[builtins.str] = None,
+                unique_items: typing.Optional[builtins.bool] = None,
+                x_kubernetes_embedded_resource: typing.Optional[builtins.bool] = None,
+                x_kubernetes_int_or_string: typing.Optional[builtins.bool] = None,
+                x_kubernetes_list_map_keys: typing.Optional[typing.Sequence[builtins.str]] = None,
+                x_kubernetes_list_type: typing.Optional[builtins.str] = None,
+                x_kubernetes_map_type: typing.Optional[builtins.str] = None,
+                x_kubernetes_preserve_unknown_fields: typing.Optional[builtins.bool] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument additional_items", value=additional_items, expected_type=type_hints["additional_items"])
             check_type(argname="argument additional_properties", value=additional_properties, expected_type=type_hints["additional_properties"])
             check_type(argname="argument all_of", value=all_of, expected_type=type_hints["all_of"])
@@ -14078,7 +15159,14 @@ class KeyToPath:
         :schema: io.k8s.api.core.v1.KeyToPath
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KeyToPath.__init__)
+            def stub(
+                *,
+                key: builtins.str,
+                path: builtins.str,
+                mode: typing.Optional[jsii.Number] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument key", value=key, expected_type=type_hints["key"])
             check_type(argname="argument path", value=path, expected_type=type_hints["path"])
             check_type(argname="argument mode", value=mode, expected_type=type_hints["mode"])
@@ -14162,7 +15250,15 @@ class KubeApiService(
         :param spec: Spec contains information for locating and communicating with a server.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeApiService.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[ApiServiceSpec, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeApiServiceProps(metadata=metadata, spec=spec)
@@ -14226,7 +15322,15 @@ class KubeApiServiceList(
         :param metadata: 
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeApiServiceList.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeApiServiceProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeApiServiceListProps(items=items, metadata=metadata)
@@ -14286,7 +15390,13 @@ class KubeApiServiceListProps:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeApiServiceListProps.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeApiServiceProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -14350,7 +15460,15 @@ class KubeApiServiceListV1Beta1(
         :param metadata: 
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeApiServiceListV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeApiServiceV1Beta1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeApiServiceListV1Beta1Props(items=items, metadata=metadata)
@@ -14410,7 +15528,13 @@ class KubeApiServiceListV1Beta1Props:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeApiServiceListV1Beta1Props.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeApiServiceV1Beta1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -14474,7 +15598,13 @@ class KubeApiServiceProps:
         if isinstance(spec, dict):
             spec = ApiServiceSpec(**spec)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeApiServiceProps.__init__)
+            def stub(
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[ApiServiceSpec, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -14540,7 +15670,15 @@ class KubeApiServiceV1Beta1(
         :param spec: Spec contains information for locating and communicating with a server.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeApiServiceV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[ApiServiceSpecV1Beta1, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeApiServiceV1Beta1Props(metadata=metadata, spec=spec)
@@ -14604,7 +15742,13 @@ class KubeApiServiceV1Beta1Props:
         if isinstance(spec, dict):
             spec = ApiServiceSpecV1Beta1(**spec)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeApiServiceV1Beta1Props.__init__)
+            def stub(
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[ApiServiceSpecV1Beta1, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -14668,7 +15812,15 @@ class KubeAuditSinkListV1Alpha1(
         :param metadata: 
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeAuditSinkListV1Alpha1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeAuditSinkV1Alpha1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeAuditSinkListV1Alpha1Props(items=items, metadata=metadata)
@@ -14728,7 +15880,13 @@ class KubeAuditSinkListV1Alpha1Props:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeAuditSinkListV1Alpha1Props.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeAuditSinkV1Alpha1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -14793,7 +15951,15 @@ class KubeAuditSinkV1Alpha1(
         :param spec: Spec defines the audit configuration spec.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeAuditSinkV1Alpha1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[AuditSinkSpecV1Alpha1, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeAuditSinkV1Alpha1Props(metadata=metadata, spec=spec)
@@ -14855,7 +16021,13 @@ class KubeAuditSinkV1Alpha1Props:
         if isinstance(spec, dict):
             spec = AuditSinkSpecV1Alpha1(**spec)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeAuditSinkV1Alpha1Props.__init__)
+            def stub(
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[AuditSinkSpecV1Alpha1, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -14921,7 +16093,15 @@ class KubeBinding(
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeBinding.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                target: typing.Union["ObjectReference", typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeBindingProps(target=target, metadata=metadata)
@@ -14985,7 +16165,13 @@ class KubeBindingProps:
         if isinstance(metadata, dict):
             metadata = ObjectMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeBindingProps.__init__)
+            def stub(
+                *,
+                target: typing.Union["ObjectReference", typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument target", value=target, expected_type=type_hints["target"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -15052,7 +16238,15 @@ class KubeCertificateSigningRequestListV1Beta1(
         :param metadata: 
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeCertificateSigningRequestListV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeCertificateSigningRequestV1Beta1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeCertificateSigningRequestListV1Beta1Props(
@@ -15115,7 +16309,13 @@ class KubeCertificateSigningRequestListV1Beta1Props:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeCertificateSigningRequestListV1Beta1Props.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeCertificateSigningRequestV1Beta1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -15179,7 +16379,15 @@ class KubeCertificateSigningRequestV1Beta1(
         :param spec: The certificate request itself and any additional information.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeCertificateSigningRequestV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[CertificateSigningRequestSpecV1Beta1, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeCertificateSigningRequestV1Beta1Props(metadata=metadata, spec=spec)
@@ -15241,7 +16449,13 @@ class KubeCertificateSigningRequestV1Beta1Props:
         if isinstance(spec, dict):
             spec = CertificateSigningRequestSpecV1Beta1(**spec)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeCertificateSigningRequestV1Beta1Props.__init__)
+            def stub(
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[CertificateSigningRequestSpecV1Beta1, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -15307,7 +16521,16 @@ class KubeClusterRole(
         :param rules: Rules holds all the PolicyRules for this ClusterRole.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeClusterRole.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                aggregation_rule: typing.Optional[typing.Union[AggregationRule, typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                rules: typing.Optional[typing.Sequence[typing.Union["PolicyRule", typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeClusterRoleProps(
@@ -15381,7 +16604,16 @@ class KubeClusterRoleBinding(
         :param subjects: Subjects holds references to the objects the role applies to.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeClusterRoleBinding.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                role_ref: typing.Union["RoleRef", typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                subjects: typing.Optional[typing.Sequence[typing.Union["Subject", typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeClusterRoleBindingProps(
@@ -15451,7 +16683,15 @@ class KubeClusterRoleBindingList(
         :param metadata: Standard object's metadata.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeClusterRoleBindingList.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeClusterRoleBindingProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeClusterRoleBindingListProps(items=items, metadata=metadata)
@@ -15511,7 +16751,13 @@ class KubeClusterRoleBindingListProps:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeClusterRoleBindingListProps.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeClusterRoleBindingProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -15579,7 +16825,15 @@ class KubeClusterRoleBindingListV1Alpha1(
         :param metadata: Standard object's metadata.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeClusterRoleBindingListV1Alpha1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeClusterRoleBindingV1Alpha1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeClusterRoleBindingListV1Alpha1Props(items=items, metadata=metadata)
@@ -15641,7 +16895,13 @@ class KubeClusterRoleBindingListV1Alpha1Props:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeClusterRoleBindingListV1Alpha1Props.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeClusterRoleBindingV1Alpha1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -15709,7 +16969,15 @@ class KubeClusterRoleBindingListV1Beta1(
         :param metadata: Standard object's metadata.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeClusterRoleBindingListV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeClusterRoleBindingV1Beta1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeClusterRoleBindingListV1Beta1Props(items=items, metadata=metadata)
@@ -15771,7 +17039,13 @@ class KubeClusterRoleBindingListV1Beta1Props:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeClusterRoleBindingListV1Beta1Props.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeClusterRoleBindingV1Beta1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -15843,7 +17117,14 @@ class KubeClusterRoleBindingProps:
         if isinstance(metadata, dict):
             metadata = ObjectMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeClusterRoleBindingProps.__init__)
+            def stub(
+                *,
+                role_ref: typing.Union["RoleRef", typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                subjects: typing.Optional[typing.Sequence[typing.Union["Subject", typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument role_ref", value=role_ref, expected_type=type_hints["role_ref"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument subjects", value=subjects, expected_type=type_hints["subjects"])
@@ -15927,7 +17208,16 @@ class KubeClusterRoleBindingV1Alpha1(
         :param subjects: Subjects holds references to the objects the role applies to.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeClusterRoleBindingV1Alpha1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                role_ref: typing.Union["RoleRefV1Alpha1", typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                subjects: typing.Optional[typing.Sequence[typing.Union["SubjectV1Alpha1", typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeClusterRoleBindingV1Alpha1Props(
@@ -16003,7 +17293,14 @@ class KubeClusterRoleBindingV1Alpha1Props:
         if isinstance(metadata, dict):
             metadata = ObjectMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeClusterRoleBindingV1Alpha1Props.__init__)
+            def stub(
+                *,
+                role_ref: typing.Union["RoleRefV1Alpha1", typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                subjects: typing.Optional[typing.Sequence[typing.Union["SubjectV1Alpha1", typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument role_ref", value=role_ref, expected_type=type_hints["role_ref"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument subjects", value=subjects, expected_type=type_hints["subjects"])
@@ -16087,7 +17384,16 @@ class KubeClusterRoleBindingV1Beta1(
         :param subjects: Subjects holds references to the objects the role applies to.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeClusterRoleBindingV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                role_ref: typing.Union["RoleRefV1Beta1", typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                subjects: typing.Optional[typing.Sequence[typing.Union["SubjectV1Beta1", typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeClusterRoleBindingV1Beta1Props(
@@ -16163,7 +17469,14 @@ class KubeClusterRoleBindingV1Beta1Props:
         if isinstance(metadata, dict):
             metadata = ObjectMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeClusterRoleBindingV1Beta1Props.__init__)
+            def stub(
+                *,
+                role_ref: typing.Union["RoleRefV1Beta1", typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                subjects: typing.Optional[typing.Sequence[typing.Union["SubjectV1Beta1", typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument role_ref", value=role_ref, expected_type=type_hints["role_ref"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument subjects", value=subjects, expected_type=type_hints["subjects"])
@@ -16243,7 +17556,15 @@ class KubeClusterRoleList(
         :param metadata: Standard object's metadata.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeClusterRoleList.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeClusterRoleProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeClusterRoleListProps(items=items, metadata=metadata)
@@ -16303,7 +17624,13 @@ class KubeClusterRoleListProps:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeClusterRoleListProps.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeClusterRoleProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -16371,7 +17698,15 @@ class KubeClusterRoleListV1Alpha1(
         :param metadata: Standard object's metadata.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeClusterRoleListV1Alpha1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeClusterRoleV1Alpha1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeClusterRoleListV1Alpha1Props(items=items, metadata=metadata)
@@ -16433,7 +17768,13 @@ class KubeClusterRoleListV1Alpha1Props:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeClusterRoleListV1Alpha1Props.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeClusterRoleV1Alpha1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -16501,7 +17842,15 @@ class KubeClusterRoleListV1Beta1(
         :param metadata: Standard object's metadata.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeClusterRoleListV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeClusterRoleV1Beta1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeClusterRoleListV1Beta1Props(items=items, metadata=metadata)
@@ -16563,7 +17912,13 @@ class KubeClusterRoleListV1Beta1Props:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeClusterRoleListV1Beta1Props.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeClusterRoleV1Beta1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -16633,7 +17988,14 @@ class KubeClusterRoleProps:
         if isinstance(metadata, dict):
             metadata = ObjectMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeClusterRoleProps.__init__)
+            def stub(
+                *,
+                aggregation_rule: typing.Optional[typing.Union[AggregationRule, typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                rules: typing.Optional[typing.Sequence[typing.Union["PolicyRule", typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument aggregation_rule", value=aggregation_rule, expected_type=type_hints["aggregation_rule"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument rules", value=rules, expected_type=type_hints["rules"])
@@ -16716,7 +18078,16 @@ class KubeClusterRoleV1Alpha1(
         :param rules: Rules holds all the PolicyRules for this ClusterRole.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeClusterRoleV1Alpha1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                aggregation_rule: typing.Optional[typing.Union[AggregationRuleV1Alpha1, typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                rules: typing.Optional[typing.Sequence[typing.Union["PolicyRuleV1Alpha1", typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeClusterRoleV1Alpha1Props(
@@ -16792,7 +18163,14 @@ class KubeClusterRoleV1Alpha1Props:
         if isinstance(metadata, dict):
             metadata = ObjectMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeClusterRoleV1Alpha1Props.__init__)
+            def stub(
+                *,
+                aggregation_rule: typing.Optional[typing.Union[AggregationRuleV1Alpha1, typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                rules: typing.Optional[typing.Sequence[typing.Union["PolicyRuleV1Alpha1", typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument aggregation_rule", value=aggregation_rule, expected_type=type_hints["aggregation_rule"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument rules", value=rules, expected_type=type_hints["rules"])
@@ -16875,7 +18253,16 @@ class KubeClusterRoleV1Beta1(
         :param rules: Rules holds all the PolicyRules for this ClusterRole.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeClusterRoleV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                aggregation_rule: typing.Optional[typing.Union[AggregationRuleV1Beta1, typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                rules: typing.Optional[typing.Sequence[typing.Union["PolicyRuleV1Beta1", typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeClusterRoleV1Beta1Props(
@@ -16951,7 +18338,14 @@ class KubeClusterRoleV1Beta1Props:
         if isinstance(metadata, dict):
             metadata = ObjectMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeClusterRoleV1Beta1Props.__init__)
+            def stub(
+                *,
+                aggregation_rule: typing.Optional[typing.Union[AggregationRuleV1Beta1, typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                rules: typing.Optional[typing.Sequence[typing.Union["PolicyRuleV1Beta1", typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument aggregation_rule", value=aggregation_rule, expected_type=type_hints["aggregation_rule"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument rules", value=rules, expected_type=type_hints["rules"])
@@ -17030,7 +18424,15 @@ class KubeComponentStatus(
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeComponentStatus.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                conditions: typing.Optional[typing.Sequence[typing.Union[ComponentCondition, typing.Dict[str, typing.Any]]]] = None,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeComponentStatusProps(conditions=conditions, metadata=metadata)
@@ -17094,7 +18496,15 @@ class KubeComponentStatusList(
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeComponentStatusList.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeComponentStatusProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeComponentStatusListProps(items=items, metadata=metadata)
@@ -17154,7 +18564,13 @@ class KubeComponentStatusListProps:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeComponentStatusListProps.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeComponentStatusProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -17218,7 +18634,13 @@ class KubeComponentStatusProps:
         if isinstance(metadata, dict):
             metadata = ObjectMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeComponentStatusProps.__init__)
+            def stub(
+                *,
+                conditions: typing.Optional[typing.Sequence[typing.Union[ComponentCondition, typing.Dict[str, typing.Any]]]] = None,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument conditions", value=conditions, expected_type=type_hints["conditions"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -17287,7 +18709,16 @@ class KubeConfigMap(
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeConfigMap.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                binary_data: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
+                data: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeConfigMapProps(
@@ -17357,7 +18788,15 @@ class KubeConfigMapList(
         :param metadata: More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeConfigMapList.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeConfigMapProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeConfigMapListProps(items=items, metadata=metadata)
@@ -17417,7 +18856,13 @@ class KubeConfigMapListProps:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeConfigMapListProps.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeConfigMapProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -17481,7 +18926,14 @@ class KubeConfigMapProps:
         if isinstance(metadata, dict):
             metadata = ObjectMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeConfigMapProps.__init__)
+            def stub(
+                *,
+                binary_data: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
+                data: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument binary_data", value=binary_data, expected_type=type_hints["binary_data"])
             check_type(argname="argument data", value=data, expected_type=type_hints["data"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
@@ -17570,7 +19022,16 @@ class KubeControllerRevision(
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeControllerRevision.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                revision: jsii.Number,
+                data: typing.Any = None,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeControllerRevisionProps(
@@ -17640,7 +19101,15 @@ class KubeControllerRevisionList(
         :param metadata: More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeControllerRevisionList.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeControllerRevisionProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeControllerRevisionListProps(items=items, metadata=metadata)
@@ -17700,7 +19169,13 @@ class KubeControllerRevisionListProps:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeControllerRevisionListProps.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeControllerRevisionProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -17766,7 +19241,15 @@ class KubeControllerRevisionListV1Beta1(
         :param metadata: More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeControllerRevisionListV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeControllerRevisionV1Beta1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeControllerRevisionListV1Beta1Props(items=items, metadata=metadata)
@@ -17826,7 +19309,13 @@ class KubeControllerRevisionListV1Beta1Props:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeControllerRevisionListV1Beta1Props.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeControllerRevisionV1Beta1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -17892,7 +19381,15 @@ class KubeControllerRevisionListV1Beta2(
         :param metadata: More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeControllerRevisionListV1Beta2.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeControllerRevisionV1Beta2Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeControllerRevisionListV1Beta2Props(items=items, metadata=metadata)
@@ -17952,7 +19449,13 @@ class KubeControllerRevisionListV1Beta2Props:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeControllerRevisionListV1Beta2Props.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeControllerRevisionV1Beta2Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -18018,7 +19521,14 @@ class KubeControllerRevisionProps:
         if isinstance(metadata, dict):
             metadata = ObjectMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeControllerRevisionProps.__init__)
+            def stub(
+                *,
+                revision: jsii.Number,
+                data: typing.Any = None,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument revision", value=revision, expected_type=type_hints["revision"])
             check_type(argname="argument data", value=data, expected_type=type_hints["data"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
@@ -18102,7 +19612,16 @@ class KubeControllerRevisionV1Beta1(
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeControllerRevisionV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                revision: jsii.Number,
+                data: typing.Any = None,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeControllerRevisionV1Beta1Props(
@@ -18172,7 +19691,14 @@ class KubeControllerRevisionV1Beta1Props:
         if isinstance(metadata, dict):
             metadata = ObjectMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeControllerRevisionV1Beta1Props.__init__)
+            def stub(
+                *,
+                revision: jsii.Number,
+                data: typing.Any = None,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument revision", value=revision, expected_type=type_hints["revision"])
             check_type(argname="argument data", value=data, expected_type=type_hints["data"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
@@ -18256,7 +19782,16 @@ class KubeControllerRevisionV1Beta2(
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeControllerRevisionV1Beta2.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                revision: jsii.Number,
+                data: typing.Any = None,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeControllerRevisionV1Beta2Props(
@@ -18326,7 +19861,14 @@ class KubeControllerRevisionV1Beta2Props:
         if isinstance(metadata, dict):
             metadata = ObjectMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeControllerRevisionV1Beta2Props.__init__)
+            def stub(
+                *,
+                revision: jsii.Number,
+                data: typing.Any = None,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument revision", value=revision, expected_type=type_hints["revision"])
             check_type(argname="argument data", value=data, expected_type=type_hints["data"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
@@ -18406,7 +19948,15 @@ class KubeCronJobListV1Beta1(
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeCronJobListV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeCronJobV1Beta1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeCronJobListV1Beta1Props(items=items, metadata=metadata)
@@ -18466,7 +20016,13 @@ class KubeCronJobListV1Beta1Props:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeCronJobListV1Beta1Props.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeCronJobV1Beta1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -18534,7 +20090,15 @@ class KubeCronJobListV2Alpha1(
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeCronJobListV2Alpha1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeCronJobV2Alpha1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeCronJobListV2Alpha1Props(items=items, metadata=metadata)
@@ -18594,7 +20158,13 @@ class KubeCronJobListV2Alpha1Props:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeCronJobListV2Alpha1Props.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeCronJobV2Alpha1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -18662,7 +20232,15 @@ class KubeCronJobV1Beta1(
         :param spec: Specification of the desired behavior of a cron job, including the schedule. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeCronJobV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[CronJobSpecV1Beta1, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeCronJobV1Beta1Props(metadata=metadata, spec=spec)
@@ -18724,7 +20302,13 @@ class KubeCronJobV1Beta1Props:
         if isinstance(spec, dict):
             spec = CronJobSpecV1Beta1(**spec)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeCronJobV1Beta1Props.__init__)
+            def stub(
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[CronJobSpecV1Beta1, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -18793,7 +20377,15 @@ class KubeCronJobV2Alpha1(
         :param spec: Specification of the desired behavior of a cron job, including the schedule. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeCronJobV2Alpha1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[CronJobSpecV2Alpha1, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeCronJobV2Alpha1Props(metadata=metadata, spec=spec)
@@ -18855,7 +20447,13 @@ class KubeCronJobV2Alpha1Props:
         if isinstance(spec, dict):
             spec = CronJobSpecV2Alpha1(**spec)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeCronJobV2Alpha1Props.__init__)
+            def stub(
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[CronJobSpecV2Alpha1, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -18924,7 +20522,15 @@ class KubeCsiDriverListV1Beta1(
         :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeCsiDriverListV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeCsiDriverV1Beta1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeCsiDriverListV1Beta1Props(items=items, metadata=metadata)
@@ -18984,7 +20590,13 @@ class KubeCsiDriverListV1Beta1Props:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeCsiDriverListV1Beta1Props.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeCsiDriverV1Beta1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -19052,7 +20664,15 @@ class KubeCsiDriverV1Beta1(
         :param metadata: Standard object metadata. metadata.Name indicates the name of the CSI driver that this object refers to; it MUST be the same name returned by the CSI GetPluginName() call for that driver. The driver name must be 63 characters or less, beginning and ending with an alphanumeric character ([a-z0-9A-Z]) with dashes (-), dots (.), and alphanumerics between. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeCsiDriverV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                spec: typing.Union[CsiDriverSpecV1Beta1, typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeCsiDriverV1Beta1Props(spec=spec, metadata=metadata)
@@ -19116,7 +20736,13 @@ class KubeCsiDriverV1Beta1Props:
         if isinstance(metadata, dict):
             metadata = ObjectMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeCsiDriverV1Beta1Props.__init__)
+            def stub(
+                *,
+                spec: typing.Union[CsiDriverSpecV1Beta1, typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -19186,7 +20812,15 @@ class KubeCsiNode(
         :param metadata: metadata.name must be the Kubernetes node name.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeCsiNode.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                spec: typing.Union[CsiNodeSpec, typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeCsiNodeProps(spec=spec, metadata=metadata)
@@ -19250,7 +20884,15 @@ class KubeCsiNodeList(
         :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeCsiNodeList.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeCsiNodeProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeCsiNodeListProps(items=items, metadata=metadata)
@@ -19310,7 +20952,13 @@ class KubeCsiNodeListProps:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeCsiNodeListProps.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeCsiNodeProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -19376,7 +21024,15 @@ class KubeCsiNodeListV1Beta1(
         :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeCsiNodeListV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeCsiNodeV1Beta1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeCsiNodeListV1Beta1Props(items=items, metadata=metadata)
@@ -19436,7 +21092,13 @@ class KubeCsiNodeListV1Beta1Props:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeCsiNodeListV1Beta1Props.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeCsiNodeV1Beta1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -19502,7 +21164,13 @@ class KubeCsiNodeProps:
         if isinstance(metadata, dict):
             metadata = ObjectMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeCsiNodeProps.__init__)
+            def stub(
+                *,
+                spec: typing.Union[CsiNodeSpec, typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -19570,7 +21238,15 @@ class KubeCsiNodeV1Beta1(
         :param metadata: metadata.name must be the Kubernetes node name.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeCsiNodeV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                spec: typing.Union[CsiNodeSpecV1Beta1, typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeCsiNodeV1Beta1Props(spec=spec, metadata=metadata)
@@ -19634,7 +21310,13 @@ class KubeCsiNodeV1Beta1Props:
         if isinstance(metadata, dict):
             metadata = ObjectMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeCsiNodeV1Beta1Props.__init__)
+            def stub(
+                *,
+                spec: typing.Union[CsiNodeSpecV1Beta1, typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -19702,7 +21384,15 @@ class KubeCustomResourceDefinition(
         :param metadata: 
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeCustomResourceDefinition.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                spec: typing.Union[CustomResourceDefinitionSpec, typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeCustomResourceDefinitionProps(spec=spec, metadata=metadata)
@@ -19766,7 +21456,15 @@ class KubeCustomResourceDefinitionList(
         :param metadata: 
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeCustomResourceDefinitionList.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeCustomResourceDefinitionProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeCustomResourceDefinitionListProps(items=items, metadata=metadata)
@@ -19826,7 +21524,13 @@ class KubeCustomResourceDefinitionListProps:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeCustomResourceDefinitionListProps.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeCustomResourceDefinitionProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -19891,7 +21595,15 @@ class KubeCustomResourceDefinitionListV1Beta1(
         :param metadata: 
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeCustomResourceDefinitionListV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeCustomResourceDefinitionV1Beta1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeCustomResourceDefinitionListV1Beta1Props(
@@ -19955,7 +21667,13 @@ class KubeCustomResourceDefinitionListV1Beta1Props:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeCustomResourceDefinitionListV1Beta1Props.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeCustomResourceDefinitionV1Beta1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -20020,7 +21738,13 @@ class KubeCustomResourceDefinitionProps:
         if isinstance(metadata, dict):
             metadata = ObjectMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeCustomResourceDefinitionProps.__init__)
+            def stub(
+                *,
+                spec: typing.Union[CustomResourceDefinitionSpec, typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -20087,7 +21811,15 @@ class KubeCustomResourceDefinitionV1Beta1(
         :param metadata: 
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeCustomResourceDefinitionV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                spec: typing.Union[CustomResourceDefinitionSpecV1Beta1, typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeCustomResourceDefinitionV1Beta1Props(spec=spec, metadata=metadata)
@@ -20151,7 +21883,13 @@ class KubeCustomResourceDefinitionV1Beta1Props:
         if isinstance(metadata, dict):
             metadata = ObjectMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeCustomResourceDefinitionV1Beta1Props.__init__)
+            def stub(
+                *,
+                spec: typing.Union[CustomResourceDefinitionSpecV1Beta1, typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -20216,7 +21954,15 @@ class KubeDaemonSet(
         :param spec: The desired behavior of this daemon set. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeDaemonSet.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[DaemonSetSpec, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeDaemonSetProps(metadata=metadata, spec=spec)
@@ -20280,7 +22026,15 @@ class KubeDaemonSetList(
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeDaemonSetList.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeDaemonSetProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeDaemonSetListProps(items=items, metadata=metadata)
@@ -20340,7 +22094,13 @@ class KubeDaemonSetListProps:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeDaemonSetListProps.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeDaemonSetProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -20408,7 +22168,15 @@ class KubeDaemonSetListV1Beta1(
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeDaemonSetListV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeDaemonSetV1Beta1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeDaemonSetListV1Beta1Props(items=items, metadata=metadata)
@@ -20468,7 +22236,13 @@ class KubeDaemonSetListV1Beta1Props:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeDaemonSetListV1Beta1Props.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeDaemonSetV1Beta1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -20536,7 +22310,15 @@ class KubeDaemonSetListV1Beta2(
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeDaemonSetListV1Beta2.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeDaemonSetV1Beta2Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeDaemonSetListV1Beta2Props(items=items, metadata=metadata)
@@ -20596,7 +22378,13 @@ class KubeDaemonSetListV1Beta2Props:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeDaemonSetListV1Beta2Props.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeDaemonSetV1Beta2Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -20662,7 +22450,13 @@ class KubeDaemonSetProps:
         if isinstance(spec, dict):
             spec = DaemonSetSpec(**spec)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeDaemonSetProps.__init__)
+            def stub(
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[DaemonSetSpec, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -20733,7 +22527,15 @@ class KubeDaemonSetV1Beta1(
         :param spec: The desired behavior of this daemon set. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeDaemonSetV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[DaemonSetSpecV1Beta1, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeDaemonSetV1Beta1Props(metadata=metadata, spec=spec)
@@ -20797,7 +22599,13 @@ class KubeDaemonSetV1Beta1Props:
         if isinstance(spec, dict):
             spec = DaemonSetSpecV1Beta1(**spec)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeDaemonSetV1Beta1Props.__init__)
+            def stub(
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[DaemonSetSpecV1Beta1, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -20868,7 +22676,15 @@ class KubeDaemonSetV1Beta2(
         :param spec: The desired behavior of this daemon set. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeDaemonSetV1Beta2.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[DaemonSetSpecV1Beta2, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeDaemonSetV1Beta2Props(metadata=metadata, spec=spec)
@@ -20932,7 +22748,13 @@ class KubeDaemonSetV1Beta2Props:
         if isinstance(spec, dict):
             spec = DaemonSetSpecV1Beta2(**spec)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeDaemonSetV1Beta2Props.__init__)
+            def stub(
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[DaemonSetSpecV1Beta2, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -21001,7 +22823,15 @@ class KubeDeployment(
         :param spec: Specification of the desired behavior of the Deployment.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeDeployment.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[DeploymentSpec, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeDeploymentProps(metadata=metadata, spec=spec)
@@ -21065,7 +22895,15 @@ class KubeDeploymentList(
         :param metadata: Standard list metadata.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeDeploymentList.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeDeploymentProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeDeploymentListProps(items=items, metadata=metadata)
@@ -21125,7 +22963,13 @@ class KubeDeploymentListProps:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeDeploymentListProps.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeDeploymentProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -21191,7 +23035,15 @@ class KubeDeploymentListV1Beta1(
         :param metadata: Standard list metadata.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeDeploymentListV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeDeploymentV1Beta1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeDeploymentListV1Beta1Props(items=items, metadata=metadata)
@@ -21251,7 +23103,13 @@ class KubeDeploymentListV1Beta1Props:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeDeploymentListV1Beta1Props.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeDeploymentV1Beta1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -21317,7 +23175,15 @@ class KubeDeploymentListV1Beta2(
         :param metadata: Standard list metadata.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeDeploymentListV1Beta2.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeDeploymentV1Beta2Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeDeploymentListV1Beta2Props(items=items, metadata=metadata)
@@ -21377,7 +23243,13 @@ class KubeDeploymentListV1Beta2Props:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeDeploymentListV1Beta2Props.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeDeploymentV1Beta2Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -21441,7 +23313,13 @@ class KubeDeploymentProps:
         if isinstance(spec, dict):
             spec = DeploymentSpec(**spec)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeDeploymentProps.__init__)
+            def stub(
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[DeploymentSpec, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -21508,7 +23386,15 @@ class KubeDeploymentV1Beta1(
         :param spec: Specification of the desired behavior of the Deployment.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeDeploymentV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[DeploymentSpecV1Beta1, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeDeploymentV1Beta1Props(metadata=metadata, spec=spec)
@@ -21572,7 +23458,13 @@ class KubeDeploymentV1Beta1Props:
         if isinstance(spec, dict):
             spec = DeploymentSpecV1Beta1(**spec)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeDeploymentV1Beta1Props.__init__)
+            def stub(
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[DeploymentSpecV1Beta1, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -21639,7 +23531,15 @@ class KubeDeploymentV1Beta2(
         :param spec: Specification of the desired behavior of the Deployment.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeDeploymentV1Beta2.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[DeploymentSpecV1Beta2, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeDeploymentV1Beta2Props(metadata=metadata, spec=spec)
@@ -21703,7 +23603,13 @@ class KubeDeploymentV1Beta2Props:
         if isinstance(spec, dict):
             spec = DeploymentSpecV1Beta2(**spec)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeDeploymentV1Beta2Props.__init__)
+            def stub(
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[DeploymentSpecV1Beta2, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -21768,7 +23674,15 @@ class KubeEndpointSliceListV1Beta1(
         :param metadata: Standard list metadata.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeEndpointSliceListV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeEndpointSliceV1Beta1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeEndpointSliceListV1Beta1Props(items=items, metadata=metadata)
@@ -21828,7 +23742,13 @@ class KubeEndpointSliceListV1Beta1Props:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeEndpointSliceListV1Beta1Props.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeEndpointSliceV1Beta1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -21900,7 +23820,17 @@ class KubeEndpointSliceV1Beta1(
         :param ports: ports specifies the list of network ports exposed by each endpoint in this slice. Each port must have a unique name. When ports is empty, it indicates that there are no defined ports. When a port is defined with a nil port value, it indicates "all ports". Each slice may include a maximum of 100 ports.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeEndpointSliceV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                address_type: builtins.str,
+                endpoints: typing.Sequence[typing.Union[EndpointV1Beta1, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                ports: typing.Optional[typing.Sequence[typing.Union[EndpointPortV1Beta1, typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeEndpointSliceV1Beta1Props(
@@ -21985,7 +23915,15 @@ class KubeEndpointSliceV1Beta1Props:
         if isinstance(metadata, dict):
             metadata = ObjectMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeEndpointSliceV1Beta1Props.__init__)
+            def stub(
+                *,
+                address_type: builtins.str,
+                endpoints: typing.Sequence[typing.Union[EndpointV1Beta1, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                ports: typing.Optional[typing.Sequence[typing.Union[EndpointPortV1Beta1, typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument address_type", value=address_type, expected_type=type_hints["address_type"])
             check_type(argname="argument endpoints", value=endpoints, expected_type=type_hints["endpoints"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
@@ -22094,7 +24032,15 @@ class KubeEndpoints(
         :param subsets: The set of all endpoints is the union of all subsets. Addresses are placed into subsets according to the IPs they share. A single address with multiple ports, some of which are ready and some of which are not (because they come from different containers) will result in the address being displayed in different subsets for the different ports. No address will appear in both Addresses and NotReadyAddresses in the same subset. Sets of addresses and ports that comprise a service.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeEndpoints.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                subsets: typing.Optional[typing.Sequence[typing.Union[EndpointSubset, typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeEndpointsProps(metadata=metadata, subsets=subsets)
@@ -22158,7 +24104,15 @@ class KubeEndpointsList(
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeEndpointsList.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeEndpointsProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeEndpointsListProps(items=items, metadata=metadata)
@@ -22218,7 +24172,13 @@ class KubeEndpointsListProps:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeEndpointsListProps.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeEndpointsProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -22295,7 +24255,13 @@ class KubeEndpointsProps:
         if isinstance(metadata, dict):
             metadata = ObjectMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeEndpointsProps.__init__)
+            def stub(
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                subsets: typing.Optional[typing.Sequence[typing.Union[EndpointSubset, typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument subsets", value=subsets, expected_type=type_hints["subsets"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -22386,7 +24352,28 @@ class KubeEvent(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeEve
         :param type: Type of this event (Normal, Warning), new types could be added in the future.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeEvent.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                involved_object: typing.Union["ObjectReference", typing.Dict[str, typing.Any]],
+                metadata: typing.Union["ObjectMeta", typing.Dict[str, typing.Any]],
+                action: typing.Optional[builtins.str] = None,
+                count: typing.Optional[jsii.Number] = None,
+                event_time: typing.Optional[datetime.datetime] = None,
+                first_timestamp: typing.Optional[datetime.datetime] = None,
+                last_timestamp: typing.Optional[datetime.datetime] = None,
+                message: typing.Optional[builtins.str] = None,
+                reason: typing.Optional[builtins.str] = None,
+                related: typing.Optional[typing.Union["ObjectReference", typing.Dict[str, typing.Any]]] = None,
+                reporting_component: typing.Optional[builtins.str] = None,
+                reporting_instance: typing.Optional[builtins.str] = None,
+                series: typing.Optional[typing.Union[EventSeries, typing.Dict[str, typing.Any]]] = None,
+                source: typing.Optional[typing.Union[EventSource, typing.Dict[str, typing.Any]]] = None,
+                type: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeEventProps(
@@ -22508,7 +24495,15 @@ class KubeEventList(
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeEventList.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeEventProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeEventListProps(items=items, metadata=metadata)
@@ -22568,7 +24563,13 @@ class KubeEventListProps:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeEventListProps.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeEventProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -22636,7 +24637,15 @@ class KubeEventListV1Beta1(
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeEventListV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeEventV1Beta1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeEventListV1Beta1Props(items=items, metadata=metadata)
@@ -22696,7 +24705,13 @@ class KubeEventListV1Beta1Props:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeEventListV1Beta1Props.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeEventV1Beta1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -22810,7 +24825,26 @@ class KubeEventProps:
         if isinstance(source, dict):
             source = EventSource(**source)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeEventProps.__init__)
+            def stub(
+                *,
+                involved_object: typing.Union["ObjectReference", typing.Dict[str, typing.Any]],
+                metadata: typing.Union["ObjectMeta", typing.Dict[str, typing.Any]],
+                action: typing.Optional[builtins.str] = None,
+                count: typing.Optional[jsii.Number] = None,
+                event_time: typing.Optional[datetime.datetime] = None,
+                first_timestamp: typing.Optional[datetime.datetime] = None,
+                last_timestamp: typing.Optional[datetime.datetime] = None,
+                message: typing.Optional[builtins.str] = None,
+                reason: typing.Optional[builtins.str] = None,
+                related: typing.Optional[typing.Union["ObjectReference", typing.Dict[str, typing.Any]]] = None,
+                reporting_component: typing.Optional[builtins.str] = None,
+                reporting_instance: typing.Optional[builtins.str] = None,
+                series: typing.Optional[typing.Union[EventSeries, typing.Dict[str, typing.Any]]] = None,
+                source: typing.Optional[typing.Union[EventSource, typing.Dict[str, typing.Any]]] = None,
+                type: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument involved_object", value=involved_object, expected_type=type_hints["involved_object"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument action", value=action, expected_type=type_hints["action"])
@@ -23066,7 +25100,28 @@ class KubeEventV1Beta1(
         :param type: Type of this event (Normal, Warning), new types could be added in the future.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeEventV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                event_time: datetime.datetime,
+                action: typing.Optional[builtins.str] = None,
+                deprecated_count: typing.Optional[jsii.Number] = None,
+                deprecated_first_timestamp: typing.Optional[datetime.datetime] = None,
+                deprecated_last_timestamp: typing.Optional[datetime.datetime] = None,
+                deprecated_source: typing.Optional[typing.Union[EventSource, typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                note: typing.Optional[builtins.str] = None,
+                reason: typing.Optional[builtins.str] = None,
+                regarding: typing.Optional[typing.Union["ObjectReference", typing.Dict[str, typing.Any]]] = None,
+                related: typing.Optional[typing.Union["ObjectReference", typing.Dict[str, typing.Any]]] = None,
+                reporting_controller: typing.Optional[builtins.str] = None,
+                reporting_instance: typing.Optional[builtins.str] = None,
+                series: typing.Optional[typing.Union[EventSeriesV1Beta1, typing.Dict[str, typing.Any]]] = None,
+                type: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeEventV1Beta1Props(
@@ -23236,7 +25291,26 @@ class KubeEventV1Beta1Props:
         if isinstance(series, dict):
             series = EventSeriesV1Beta1(**series)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeEventV1Beta1Props.__init__)
+            def stub(
+                *,
+                event_time: datetime.datetime,
+                action: typing.Optional[builtins.str] = None,
+                deprecated_count: typing.Optional[jsii.Number] = None,
+                deprecated_first_timestamp: typing.Optional[datetime.datetime] = None,
+                deprecated_last_timestamp: typing.Optional[datetime.datetime] = None,
+                deprecated_source: typing.Optional[typing.Union[EventSource, typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                note: typing.Optional[builtins.str] = None,
+                reason: typing.Optional[builtins.str] = None,
+                regarding: typing.Optional[typing.Union["ObjectReference", typing.Dict[str, typing.Any]]] = None,
+                related: typing.Optional[typing.Union["ObjectReference", typing.Dict[str, typing.Any]]] = None,
+                reporting_controller: typing.Optional[builtins.str] = None,
+                reporting_instance: typing.Optional[builtins.str] = None,
+                series: typing.Optional[typing.Union[EventSeriesV1Beta1, typing.Dict[str, typing.Any]]] = None,
+                type: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument event_time", value=event_time, expected_type=type_hints["event_time"])
             check_type(argname="argument action", value=action, expected_type=type_hints["action"])
             check_type(argname="argument deprecated_count", value=deprecated_count, expected_type=type_hints["deprecated_count"])
@@ -23467,7 +25541,15 @@ class KubeEvictionV1Beta1(
         :param metadata: ObjectMeta describes the pod that is being evicted.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeEvictionV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                delete_options: typing.Optional[typing.Union[DeleteOptions, typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeEvictionV1Beta1Props(
@@ -23535,7 +25617,13 @@ class KubeEvictionV1Beta1Props:
         if isinstance(metadata, dict):
             metadata = ObjectMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeEvictionV1Beta1Props.__init__)
+            def stub(
+                *,
+                delete_options: typing.Optional[typing.Union[DeleteOptions, typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument delete_options", value=delete_options, expected_type=type_hints["delete_options"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -23600,7 +25688,15 @@ class KubeFlowSchemaListV1Alpha1(
         :param metadata: ``metadata`` is the standard list metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeFlowSchemaListV1Alpha1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeFlowSchemaV1Alpha1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeFlowSchemaListV1Alpha1Props(items=items, metadata=metadata)
@@ -23660,7 +25756,13 @@ class KubeFlowSchemaListV1Alpha1Props:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeFlowSchemaListV1Alpha1Props.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeFlowSchemaV1Alpha1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -23730,7 +25832,15 @@ class KubeFlowSchemaV1Alpha1(
         :param spec: ``spec`` is the specification of the desired behavior of a FlowSchema. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeFlowSchemaV1Alpha1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[FlowSchemaSpecV1Alpha1, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeFlowSchemaV1Alpha1Props(metadata=metadata, spec=spec)
@@ -23794,7 +25904,13 @@ class KubeFlowSchemaV1Alpha1Props:
         if isinstance(spec, dict):
             spec = FlowSchemaSpecV1Alpha1(**spec)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeFlowSchemaV1Alpha1Props.__init__)
+            def stub(
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[FlowSchemaSpecV1Alpha1, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -23863,7 +25979,15 @@ class KubeHorizontalPodAutoscaler(
         :param spec: behaviour of autoscaler. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeHorizontalPodAutoscaler.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[HorizontalPodAutoscalerSpec, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeHorizontalPodAutoscalerProps(metadata=metadata, spec=spec)
@@ -23927,7 +26051,15 @@ class KubeHorizontalPodAutoscalerList(
         :param metadata: Standard list metadata.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeHorizontalPodAutoscalerList.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeHorizontalPodAutoscalerProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeHorizontalPodAutoscalerListProps(items=items, metadata=metadata)
@@ -23987,7 +26119,13 @@ class KubeHorizontalPodAutoscalerListProps:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeHorizontalPodAutoscalerListProps.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeHorizontalPodAutoscalerProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -24053,7 +26191,15 @@ class KubeHorizontalPodAutoscalerListV2Beta1(
         :param metadata: metadata is the standard list metadata.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeHorizontalPodAutoscalerListV2Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeHorizontalPodAutoscalerV2Beta1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeHorizontalPodAutoscalerListV2Beta1Props(
@@ -24117,7 +26263,13 @@ class KubeHorizontalPodAutoscalerListV2Beta1Props:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeHorizontalPodAutoscalerListV2Beta1Props.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeHorizontalPodAutoscalerV2Beta1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -24183,7 +26335,15 @@ class KubeHorizontalPodAutoscalerListV2Beta2(
         :param metadata: metadata is the standard list metadata.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeHorizontalPodAutoscalerListV2Beta2.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeHorizontalPodAutoscalerV2Beta2Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeHorizontalPodAutoscalerListV2Beta2Props(
@@ -24247,7 +26407,13 @@ class KubeHorizontalPodAutoscalerListV2Beta2Props:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeHorizontalPodAutoscalerListV2Beta2Props.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeHorizontalPodAutoscalerV2Beta2Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -24311,7 +26477,13 @@ class KubeHorizontalPodAutoscalerProps:
         if isinstance(spec, dict):
             spec = HorizontalPodAutoscalerSpec(**spec)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeHorizontalPodAutoscalerProps.__init__)
+            def stub(
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[HorizontalPodAutoscalerSpec, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -24380,7 +26552,15 @@ class KubeHorizontalPodAutoscalerV2Beta1(
         :param spec: spec is the specification for the behaviour of the autoscaler. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeHorizontalPodAutoscalerV2Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[HorizontalPodAutoscalerSpecV2Beta1, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeHorizontalPodAutoscalerV2Beta1Props(metadata=metadata, spec=spec)
@@ -24442,7 +26622,13 @@ class KubeHorizontalPodAutoscalerV2Beta1Props:
         if isinstance(spec, dict):
             spec = HorizontalPodAutoscalerSpecV2Beta1(**spec)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeHorizontalPodAutoscalerV2Beta1Props.__init__)
+            def stub(
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[HorizontalPodAutoscalerSpecV2Beta1, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -24511,7 +26697,15 @@ class KubeHorizontalPodAutoscalerV2Beta2(
         :param spec: spec is the specification for the behaviour of the autoscaler. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeHorizontalPodAutoscalerV2Beta2.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[HorizontalPodAutoscalerSpecV2Beta2, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeHorizontalPodAutoscalerV2Beta2Props(metadata=metadata, spec=spec)
@@ -24573,7 +26767,13 @@ class KubeHorizontalPodAutoscalerV2Beta2Props:
         if isinstance(spec, dict):
             spec = HorizontalPodAutoscalerSpecV2Beta2(**spec)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeHorizontalPodAutoscalerV2Beta2Props.__init__)
+            def stub(
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[HorizontalPodAutoscalerSpecV2Beta2, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -24642,7 +26842,15 @@ class KubeIngressListV1Beta1(
         :param metadata: Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeIngressListV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeIngressV1Beta1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeIngressListV1Beta1Props(items=items, metadata=metadata)
@@ -24702,7 +26910,13 @@ class KubeIngressListV1Beta1Props:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeIngressListV1Beta1Props.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeIngressV1Beta1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -24772,7 +26986,15 @@ class KubeIngressV1Beta1(
         :param spec: Spec is the desired state of the Ingress. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeIngressV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[IngressSpecV1Beta1, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeIngressV1Beta1Props(metadata=metadata, spec=spec)
@@ -24836,7 +27058,13 @@ class KubeIngressV1Beta1Props:
         if isinstance(spec, dict):
             spec = IngressSpecV1Beta1(**spec)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeIngressV1Beta1Props.__init__)
+            def stub(
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[IngressSpecV1Beta1, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -24901,7 +27129,15 @@ class KubeJob(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeJob")
         :param spec: Specification of the desired behavior of a job. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeJob.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[JobSpec, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeJobProps(metadata=metadata, spec=spec)
@@ -24965,7 +27201,15 @@ class KubeJobList(
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeJobList.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeJobProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeJobListProps(items=items, metadata=metadata)
@@ -25025,7 +27269,13 @@ class KubeJobListProps:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeJobListProps.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeJobProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -25091,7 +27341,13 @@ class KubeJobProps:
         if isinstance(spec, dict):
             spec = JobSpec(**spec)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeJobProps.__init__)
+            def stub(
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[JobSpec, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -25156,7 +27412,15 @@ class KubeLease(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeLea
         :param spec: Specification of the Lease. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeLease.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union["LeaseSpec", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeLeaseProps(metadata=metadata, spec=spec)
@@ -25220,7 +27484,15 @@ class KubeLeaseList(
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeLeaseList.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeLeaseProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeLeaseListProps(items=items, metadata=metadata)
@@ -25280,7 +27552,13 @@ class KubeLeaseListProps:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeLeaseListProps.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeLeaseProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -25348,7 +27626,15 @@ class KubeLeaseListV1Beta1(
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeLeaseListV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeLeaseV1Beta1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeLeaseListV1Beta1Props(items=items, metadata=metadata)
@@ -25408,7 +27694,13 @@ class KubeLeaseListV1Beta1Props:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeLeaseListV1Beta1Props.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeLeaseV1Beta1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -25474,7 +27766,13 @@ class KubeLeaseProps:
         if isinstance(spec, dict):
             spec = LeaseSpec(**spec)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeLeaseProps.__init__)
+            def stub(
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union["LeaseSpec", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -25541,7 +27839,15 @@ class KubeLeaseV1Beta1(
         :param spec: Specification of the Lease. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeLeaseV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union["LeaseSpecV1Beta1", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeLeaseV1Beta1Props(metadata=metadata, spec=spec)
@@ -25603,7 +27909,13 @@ class KubeLeaseV1Beta1Props:
         if isinstance(spec, dict):
             spec = LeaseSpecV1Beta1(**spec)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeLeaseV1Beta1Props.__init__)
+            def stub(
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union["LeaseSpecV1Beta1", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -25670,7 +27982,15 @@ class KubeLimitRange(
         :param spec: Spec defines the limits enforced. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeLimitRange.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union["LimitRangeSpec", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeLimitRangeProps(metadata=metadata, spec=spec)
@@ -25734,7 +28054,15 @@ class KubeLimitRangeList(
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeLimitRangeList.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeLimitRangeProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeLimitRangeListProps(items=items, metadata=metadata)
@@ -25794,7 +28122,13 @@ class KubeLimitRangeListProps:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeLimitRangeListProps.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeLimitRangeProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -25862,7 +28196,13 @@ class KubeLimitRangeProps:
         if isinstance(spec, dict):
             spec = LimitRangeSpec(**spec)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeLimitRangeProps.__init__)
+            def stub(
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union["LimitRangeSpec", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -25933,7 +28273,15 @@ class KubeLocalSubjectAccessReview(
         :param metadata: 
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeLocalSubjectAccessReview.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                spec: typing.Union["SubjectAccessReviewSpec", typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeLocalSubjectAccessReviewProps(spec=spec, metadata=metadata)
@@ -25997,7 +28345,13 @@ class KubeLocalSubjectAccessReviewProps:
         if isinstance(metadata, dict):
             metadata = ObjectMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeLocalSubjectAccessReviewProps.__init__)
+            def stub(
+                *,
+                spec: typing.Union["SubjectAccessReviewSpec", typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -26066,7 +28420,15 @@ class KubeLocalSubjectAccessReviewV1Beta1(
         :param metadata: 
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeLocalSubjectAccessReviewV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                spec: typing.Union["SubjectAccessReviewSpecV1Beta1", typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeLocalSubjectAccessReviewV1Beta1Props(spec=spec, metadata=metadata)
@@ -26130,7 +28492,13 @@ class KubeLocalSubjectAccessReviewV1Beta1Props:
         if isinstance(metadata, dict):
             metadata = ObjectMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeLocalSubjectAccessReviewV1Beta1Props.__init__)
+            def stub(
+                *,
+                spec: typing.Union["SubjectAccessReviewSpecV1Beta1", typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -26197,7 +28565,15 @@ class KubeMutatingWebhookConfiguration(
         :param webhooks: Webhooks is a list of webhooks and the affected resources and operations.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeMutatingWebhookConfiguration.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                webhooks: typing.Optional[typing.Sequence[typing.Union["MutatingWebhook", typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeMutatingWebhookConfigurationProps(
@@ -26265,7 +28641,15 @@ class KubeMutatingWebhookConfigurationList(
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeMutatingWebhookConfigurationList.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeMutatingWebhookConfigurationProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeMutatingWebhookConfigurationListProps(
@@ -26329,7 +28713,13 @@ class KubeMutatingWebhookConfigurationListProps:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeMutatingWebhookConfigurationListProps.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeMutatingWebhookConfigurationProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -26397,7 +28787,15 @@ class KubeMutatingWebhookConfigurationListV1Beta1(
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeMutatingWebhookConfigurationListV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeMutatingWebhookConfigurationV1Beta1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeMutatingWebhookConfigurationListV1Beta1Props(
@@ -26461,7 +28859,13 @@ class KubeMutatingWebhookConfigurationListV1Beta1Props:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeMutatingWebhookConfigurationListV1Beta1Props.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeMutatingWebhookConfigurationV1Beta1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -26525,7 +28929,13 @@ class KubeMutatingWebhookConfigurationProps:
         if isinstance(metadata, dict):
             metadata = ObjectMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeMutatingWebhookConfigurationProps.__init__)
+            def stub(
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                webhooks: typing.Optional[typing.Sequence[typing.Union["MutatingWebhook", typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument webhooks", value=webhooks, expected_type=type_hints["webhooks"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -26594,7 +29004,15 @@ class KubeMutatingWebhookConfigurationV1Beta1(
         :param webhooks: Webhooks is a list of webhooks and the affected resources and operations.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeMutatingWebhookConfigurationV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                webhooks: typing.Optional[typing.Sequence[typing.Union["MutatingWebhookV1Beta1", typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeMutatingWebhookConfigurationV1Beta1Props(
@@ -26660,7 +29078,13 @@ class KubeMutatingWebhookConfigurationV1Beta1Props:
         if isinstance(metadata, dict):
             metadata = ObjectMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeMutatingWebhookConfigurationV1Beta1Props.__init__)
+            def stub(
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                webhooks: typing.Optional[typing.Sequence[typing.Union["MutatingWebhookV1Beta1", typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument webhooks", value=webhooks, expected_type=type_hints["webhooks"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -26729,7 +29153,15 @@ class KubeNamespace(
         :param spec: Spec defines the behavior of the Namespace. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeNamespace.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union["NamespaceSpec", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeNamespaceProps(metadata=metadata, spec=spec)
@@ -26793,7 +29225,15 @@ class KubeNamespaceList(
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeNamespaceList.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeNamespaceProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeNamespaceListProps(items=items, metadata=metadata)
@@ -26853,7 +29293,13 @@ class KubeNamespaceListProps:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeNamespaceListProps.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeNamespaceProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -26923,7 +29369,13 @@ class KubeNamespaceProps:
         if isinstance(spec, dict):
             spec = NamespaceSpec(**spec)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeNamespaceProps.__init__)
+            def stub(
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union["NamespaceSpec", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -26992,7 +29444,15 @@ class KubeNetworkPolicy(
         :param spec: Specification of the desired behavior for this NetworkPolicy.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeNetworkPolicy.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union["NetworkPolicySpec", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeNetworkPolicyProps(metadata=metadata, spec=spec)
@@ -27056,7 +29516,15 @@ class KubeNetworkPolicyList(
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeNetworkPolicyList.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeNetworkPolicyProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeNetworkPolicyListProps(items=items, metadata=metadata)
@@ -27116,7 +29584,13 @@ class KubeNetworkPolicyListProps:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeNetworkPolicyListProps.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeNetworkPolicyProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -27184,7 +29658,15 @@ class KubeNetworkPolicyListV1Beta1(
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeNetworkPolicyListV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeNetworkPolicyV1Beta1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeNetworkPolicyListV1Beta1Props(items=items, metadata=metadata)
@@ -27244,7 +29726,13 @@ class KubeNetworkPolicyListV1Beta1Props:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeNetworkPolicyListV1Beta1Props.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeNetworkPolicyV1Beta1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -27310,7 +29798,13 @@ class KubeNetworkPolicyProps:
         if isinstance(spec, dict):
             spec = NetworkPolicySpec(**spec)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeNetworkPolicyProps.__init__)
+            def stub(
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union["NetworkPolicySpec", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -27377,7 +29871,15 @@ class KubeNetworkPolicyV1Beta1(
         :param spec: Specification of the desired behavior for this NetworkPolicy.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeNetworkPolicyV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union["NetworkPolicySpecV1Beta1", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeNetworkPolicyV1Beta1Props(metadata=metadata, spec=spec)
@@ -27439,7 +29941,13 @@ class KubeNetworkPolicyV1Beta1Props:
         if isinstance(spec, dict):
             spec = NetworkPolicySpecV1Beta1(**spec)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeNetworkPolicyV1Beta1Props.__init__)
+            def stub(
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union["NetworkPolicySpecV1Beta1", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -27504,7 +30012,15 @@ class KubeNode(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeNode
         :param spec: Spec defines the behavior of a node. https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeNode.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union["NodeSpec", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeNodeProps(metadata=metadata, spec=spec)
@@ -27568,7 +30084,15 @@ class KubeNodeList(
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeNodeList.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeNodeProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeNodeListProps(items=items, metadata=metadata)
@@ -27628,7 +30152,13 @@ class KubeNodeListProps:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeNodeListProps.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeNodeProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -27696,7 +30226,13 @@ class KubeNodeProps:
         if isinstance(spec, dict):
             spec = NodeSpec(**spec)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeNodeProps.__init__)
+            def stub(
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union["NodeSpec", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -27767,7 +30303,15 @@ class KubePersistentVolume(
         :param spec: Spec defines a specification of a persistent volume owned by the cluster. Provisioned by an administrator. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistent-volumes
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubePersistentVolume.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union["PersistentVolumeSpec", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubePersistentVolumeProps(metadata=metadata, spec=spec)
@@ -27831,7 +30375,15 @@ class KubePersistentVolumeClaim(
         :param spec: Spec defines the desired characteristics of a volume requested by a pod author. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubePersistentVolumeClaim.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union["PersistentVolumeClaimSpec", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubePersistentVolumeClaimProps(metadata=metadata, spec=spec)
@@ -27895,7 +30447,15 @@ class KubePersistentVolumeClaimList(
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubePersistentVolumeClaimList.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubePersistentVolumeClaimProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubePersistentVolumeClaimListProps(items=items, metadata=metadata)
@@ -27955,7 +30515,13 @@ class KubePersistentVolumeClaimListProps:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubePersistentVolumeClaimListProps.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubePersistentVolumeClaimProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -28023,7 +30589,13 @@ class KubePersistentVolumeClaimProps:
         if isinstance(spec, dict):
             spec = PersistentVolumeClaimSpec(**spec)
         if __debug__:
-            type_hints = typing.get_type_hints(KubePersistentVolumeClaimProps.__init__)
+            def stub(
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union["PersistentVolumeClaimSpec", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -28092,7 +30664,15 @@ class KubePersistentVolumeList(
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubePersistentVolumeList.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubePersistentVolumeProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubePersistentVolumeListProps(items=items, metadata=metadata)
@@ -28152,7 +30732,13 @@ class KubePersistentVolumeListProps:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubePersistentVolumeListProps.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubePersistentVolumeProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -28222,7 +30808,13 @@ class KubePersistentVolumeProps:
         if isinstance(spec, dict):
             spec = PersistentVolumeSpec(**spec)
         if __debug__:
-            type_hints = typing.get_type_hints(KubePersistentVolumeProps.__init__)
+            def stub(
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union["PersistentVolumeSpec", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -28289,7 +30881,15 @@ class KubePod(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubePod")
         :param spec: Specification of the desired behavior of the pod. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubePod.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union["PodSpec", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubePodProps(metadata=metadata, spec=spec)
@@ -28353,7 +30953,15 @@ class KubePodDisruptionBudgetListV1Beta1(
         :param metadata: 
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubePodDisruptionBudgetListV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubePodDisruptionBudgetV1Beta1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubePodDisruptionBudgetListV1Beta1Props(items=items, metadata=metadata)
@@ -28413,7 +31021,13 @@ class KubePodDisruptionBudgetListV1Beta1Props:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubePodDisruptionBudgetListV1Beta1Props.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubePodDisruptionBudgetV1Beta1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -28477,7 +31091,15 @@ class KubePodDisruptionBudgetV1Beta1(
         :param spec: Specification of the desired behavior of the PodDisruptionBudget.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubePodDisruptionBudgetV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union["PodDisruptionBudgetSpecV1Beta1", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubePodDisruptionBudgetV1Beta1Props(metadata=metadata, spec=spec)
@@ -28539,7 +31161,13 @@ class KubePodDisruptionBudgetV1Beta1Props:
         if isinstance(spec, dict):
             spec = PodDisruptionBudgetSpecV1Beta1(**spec)
         if __debug__:
-            type_hints = typing.get_type_hints(KubePodDisruptionBudgetV1Beta1Props.__init__)
+            def stub(
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union["PodDisruptionBudgetSpecV1Beta1", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -28603,7 +31231,15 @@ class KubePodList(
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubePodList.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubePodProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubePodListProps(items=items, metadata=metadata)
@@ -28663,7 +31299,13 @@ class KubePodListProps:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubePodListProps.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubePodProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -28733,7 +31375,15 @@ class KubePodPresetListV1Alpha1(
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubePodPresetListV1Alpha1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubePodPresetV1Alpha1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubePodPresetListV1Alpha1Props(items=items, metadata=metadata)
@@ -28793,7 +31443,13 @@ class KubePodPresetListV1Alpha1Props:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubePodPresetListV1Alpha1Props.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubePodPresetV1Alpha1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -28861,7 +31517,15 @@ class KubePodPresetV1Alpha1(
         :param spec: 
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubePodPresetV1Alpha1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union["PodPresetSpecV1Alpha1", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubePodPresetV1Alpha1Props(metadata=metadata, spec=spec)
@@ -28923,7 +31587,13 @@ class KubePodPresetV1Alpha1Props:
         if isinstance(spec, dict):
             spec = PodPresetSpecV1Alpha1(**spec)
         if __debug__:
-            type_hints = typing.get_type_hints(KubePodPresetV1Alpha1Props.__init__)
+            def stub(
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union["PodPresetSpecV1Alpha1", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -28986,7 +31656,13 @@ class KubePodProps:
         if isinstance(spec, dict):
             spec = PodSpec(**spec)
         if __debug__:
-            type_hints = typing.get_type_hints(KubePodProps.__init__)
+            def stub(
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union["PodSpec", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -29055,7 +31731,15 @@ class KubePodSecurityPolicyListV1Beta1(
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubePodSecurityPolicyListV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubePodSecurityPolicyV1Beta1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubePodSecurityPolicyListV1Beta1Props(items=items, metadata=metadata)
@@ -29115,7 +31799,13 @@ class KubePodSecurityPolicyListV1Beta1Props:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubePodSecurityPolicyListV1Beta1Props.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubePodSecurityPolicyV1Beta1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -29183,7 +31873,15 @@ class KubePodSecurityPolicyV1Beta1(
         :param spec: spec defines the policy enforced.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubePodSecurityPolicyV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union["PodSecurityPolicySpecV1Beta1", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubePodSecurityPolicyV1Beta1Props(metadata=metadata, spec=spec)
@@ -29245,7 +31943,13 @@ class KubePodSecurityPolicyV1Beta1Props:
         if isinstance(spec, dict):
             spec = PodSecurityPolicySpecV1Beta1(**spec)
         if __debug__:
-            type_hints = typing.get_type_hints(KubePodSecurityPolicyV1Beta1Props.__init__)
+            def stub(
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union["PodSecurityPolicySpecV1Beta1", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -29312,7 +32016,15 @@ class KubePodTemplate(
         :param template: Template defines the pods that will be created from this pod template. https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubePodTemplate.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                template: typing.Optional[typing.Union["PodTemplateSpec", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubePodTemplateProps(metadata=metadata, template=template)
@@ -29376,7 +32088,15 @@ class KubePodTemplateList(
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubePodTemplateList.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubePodTemplateProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubePodTemplateListProps(items=items, metadata=metadata)
@@ -29436,7 +32156,13 @@ class KubePodTemplateListProps:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubePodTemplateListProps.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubePodTemplateProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -29502,7 +32228,13 @@ class KubePodTemplateProps:
         if isinstance(template, dict):
             template = PodTemplateSpec(**template)
         if __debug__:
-            type_hints = typing.get_type_hints(KubePodTemplateProps.__init__)
+            def stub(
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                template: typing.Optional[typing.Union["PodTemplateSpec", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument template", value=template, expected_type=type_hints["template"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -29579,7 +32311,18 @@ class KubePriorityClass(
         :param preemption_policy: PreemptionPolicy is the Policy for preempting pods with lower priority. One of Never, PreemptLowerPriority. Defaults to PreemptLowerPriority if unset. This field is alpha-level and is only honored by servers that enable the NonPreemptingPriority feature. Default: PreemptLowerPriority if unset. This field is alpha-level and is only honored by servers that enable the NonPreemptingPriority feature.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubePriorityClass.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                value: jsii.Number,
+                description: typing.Optional[builtins.str] = None,
+                global_default: typing.Optional[builtins.bool] = None,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                preemption_policy: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubePriorityClassProps(
@@ -29661,7 +32404,15 @@ class KubePriorityClassList(
         :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubePriorityClassList.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubePriorityClassProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubePriorityClassListProps(items=items, metadata=metadata)
@@ -29721,7 +32472,13 @@ class KubePriorityClassListProps:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubePriorityClassListProps.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubePriorityClassProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -29787,7 +32544,15 @@ class KubePriorityClassListV1Alpha1(
         :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubePriorityClassListV1Alpha1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubePriorityClassV1Alpha1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubePriorityClassListV1Alpha1Props(items=items, metadata=metadata)
@@ -29847,7 +32612,13 @@ class KubePriorityClassListV1Alpha1Props:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubePriorityClassListV1Alpha1Props.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubePriorityClassV1Alpha1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -29913,7 +32684,15 @@ class KubePriorityClassListV1Beta1(
         :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubePriorityClassListV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubePriorityClassV1Beta1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubePriorityClassListV1Beta1Props(items=items, metadata=metadata)
@@ -29973,7 +32752,13 @@ class KubePriorityClassListV1Beta1Props:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubePriorityClassListV1Beta1Props.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubePriorityClassV1Beta1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -30049,7 +32834,16 @@ class KubePriorityClassProps:
         if isinstance(metadata, dict):
             metadata = ObjectMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubePriorityClassProps.__init__)
+            def stub(
+                *,
+                value: jsii.Number,
+                description: typing.Optional[builtins.str] = None,
+                global_default: typing.Optional[builtins.bool] = None,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                preemption_policy: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument value", value=value, expected_type=type_hints["value"])
             check_type(argname="argument description", value=description, expected_type=type_hints["description"])
             check_type(argname="argument global_default", value=global_default, expected_type=type_hints["global_default"])
@@ -30167,7 +32961,18 @@ class KubePriorityClassV1Alpha1(
         :param preemption_policy: PreemptionPolicy is the Policy for preempting pods with lower priority. One of Never, PreemptLowerPriority. Defaults to PreemptLowerPriority if unset. This field is alpha-level and is only honored by servers that enable the NonPreemptingPriority feature. Default: PreemptLowerPriority if unset. This field is alpha-level and is only honored by servers that enable the NonPreemptingPriority feature.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubePriorityClassV1Alpha1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                value: jsii.Number,
+                description: typing.Optional[builtins.str] = None,
+                global_default: typing.Optional[builtins.bool] = None,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                preemption_policy: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubePriorityClassV1Alpha1Props(
@@ -30257,7 +33062,16 @@ class KubePriorityClassV1Alpha1Props:
         if isinstance(metadata, dict):
             metadata = ObjectMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubePriorityClassV1Alpha1Props.__init__)
+            def stub(
+                *,
+                value: jsii.Number,
+                description: typing.Optional[builtins.str] = None,
+                global_default: typing.Optional[builtins.bool] = None,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                preemption_policy: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument value", value=value, expected_type=type_hints["value"])
             check_type(argname="argument description", value=description, expected_type=type_hints["description"])
             check_type(argname="argument global_default", value=global_default, expected_type=type_hints["global_default"])
@@ -30375,7 +33189,18 @@ class KubePriorityClassV1Beta1(
         :param preemption_policy: PreemptionPolicy is the Policy for preempting pods with lower priority. One of Never, PreemptLowerPriority. Defaults to PreemptLowerPriority if unset. This field is alpha-level and is only honored by servers that enable the NonPreemptingPriority feature. Default: PreemptLowerPriority if unset. This field is alpha-level and is only honored by servers that enable the NonPreemptingPriority feature.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubePriorityClassV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                value: jsii.Number,
+                description: typing.Optional[builtins.str] = None,
+                global_default: typing.Optional[builtins.bool] = None,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                preemption_policy: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubePriorityClassV1Beta1Props(
@@ -30465,7 +33290,16 @@ class KubePriorityClassV1Beta1Props:
         if isinstance(metadata, dict):
             metadata = ObjectMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubePriorityClassV1Beta1Props.__init__)
+            def stub(
+                *,
+                value: jsii.Number,
+                description: typing.Optional[builtins.str] = None,
+                global_default: typing.Optional[builtins.bool] = None,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                preemption_policy: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument value", value=value, expected_type=type_hints["value"])
             check_type(argname="argument description", value=description, expected_type=type_hints["description"])
             check_type(argname="argument global_default", value=global_default, expected_type=type_hints["global_default"])
@@ -30577,7 +33411,15 @@ class KubePriorityLevelConfigurationListV1Alpha1(
         :param metadata: ``metadata`` is the standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubePriorityLevelConfigurationListV1Alpha1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubePriorityLevelConfigurationV1Alpha1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubePriorityLevelConfigurationListV1Alpha1Props(
@@ -30641,7 +33483,13 @@ class KubePriorityLevelConfigurationListV1Alpha1Props:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubePriorityLevelConfigurationListV1Alpha1Props.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubePriorityLevelConfigurationV1Alpha1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -30709,7 +33557,15 @@ class KubePriorityLevelConfigurationV1Alpha1(
         :param spec: ``spec`` is the specification of the desired behavior of a "request-priority". More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubePriorityLevelConfigurationV1Alpha1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union["PriorityLevelConfigurationSpecV1Alpha1", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubePriorityLevelConfigurationV1Alpha1Props(
@@ -30775,7 +33631,13 @@ class KubePriorityLevelConfigurationV1Alpha1Props:
         if isinstance(spec, dict):
             spec = PriorityLevelConfigurationSpecV1Alpha1(**spec)
         if __debug__:
-            type_hints = typing.get_type_hints(KubePriorityLevelConfigurationV1Alpha1Props.__init__)
+            def stub(
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union["PriorityLevelConfigurationSpecV1Alpha1", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -30844,7 +33706,15 @@ class KubeReplicaSet(
         :param spec: Spec defines the specification of the desired behavior of the ReplicaSet. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeReplicaSet.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union["ReplicaSetSpec", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeReplicaSetProps(metadata=metadata, spec=spec)
@@ -30908,7 +33778,15 @@ class KubeReplicaSetList(
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeReplicaSetList.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeReplicaSetProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeReplicaSetListProps(items=items, metadata=metadata)
@@ -30968,7 +33846,13 @@ class KubeReplicaSetListProps:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeReplicaSetListProps.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeReplicaSetProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -31038,7 +33922,15 @@ class KubeReplicaSetListV1Beta1(
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeReplicaSetListV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeReplicaSetV1Beta1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeReplicaSetListV1Beta1Props(items=items, metadata=metadata)
@@ -31098,7 +33990,13 @@ class KubeReplicaSetListV1Beta1Props:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeReplicaSetListV1Beta1Props.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeReplicaSetV1Beta1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -31168,7 +34066,15 @@ class KubeReplicaSetListV1Beta2(
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeReplicaSetListV1Beta2.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeReplicaSetV1Beta2Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeReplicaSetListV1Beta2Props(items=items, metadata=metadata)
@@ -31228,7 +34134,13 @@ class KubeReplicaSetListV1Beta2Props:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeReplicaSetListV1Beta2Props.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeReplicaSetV1Beta2Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -31296,7 +34208,13 @@ class KubeReplicaSetProps:
         if isinstance(spec, dict):
             spec = ReplicaSetSpec(**spec)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeReplicaSetProps.__init__)
+            def stub(
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union["ReplicaSetSpec", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -31367,7 +34285,15 @@ class KubeReplicaSetV1Beta1(
         :param spec: Spec defines the specification of the desired behavior of the ReplicaSet. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeReplicaSetV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union["ReplicaSetSpecV1Beta1", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeReplicaSetV1Beta1Props(metadata=metadata, spec=spec)
@@ -31431,7 +34357,13 @@ class KubeReplicaSetV1Beta1Props:
         if isinstance(spec, dict):
             spec = ReplicaSetSpecV1Beta1(**spec)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeReplicaSetV1Beta1Props.__init__)
+            def stub(
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union["ReplicaSetSpecV1Beta1", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -31502,7 +34434,15 @@ class KubeReplicaSetV1Beta2(
         :param spec: Spec defines the specification of the desired behavior of the ReplicaSet. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeReplicaSetV1Beta2.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union["ReplicaSetSpecV1Beta2", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeReplicaSetV1Beta2Props(metadata=metadata, spec=spec)
@@ -31566,7 +34506,13 @@ class KubeReplicaSetV1Beta2Props:
         if isinstance(spec, dict):
             spec = ReplicaSetSpecV1Beta2(**spec)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeReplicaSetV1Beta2Props.__init__)
+            def stub(
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union["ReplicaSetSpecV1Beta2", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -31635,7 +34581,15 @@ class KubeReplicationController(
         :param spec: Spec defines the specification of the desired behavior of the replication controller. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeReplicationController.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union["ReplicationControllerSpec", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeReplicationControllerProps(metadata=metadata, spec=spec)
@@ -31699,7 +34653,15 @@ class KubeReplicationControllerList(
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeReplicationControllerList.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeReplicationControllerProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeReplicationControllerListProps(items=items, metadata=metadata)
@@ -31759,7 +34721,13 @@ class KubeReplicationControllerListProps:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeReplicationControllerListProps.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeReplicationControllerProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -31827,7 +34795,13 @@ class KubeReplicationControllerProps:
         if isinstance(spec, dict):
             spec = ReplicationControllerSpec(**spec)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeReplicationControllerProps.__init__)
+            def stub(
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union["ReplicationControllerSpec", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -31896,7 +34870,15 @@ class KubeResourceQuota(
         :param spec: Spec defines the desired quota. https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeResourceQuota.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union["ResourceQuotaSpec", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeResourceQuotaProps(metadata=metadata, spec=spec)
@@ -31960,7 +34942,15 @@ class KubeResourceQuotaList(
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeResourceQuotaList.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeResourceQuotaProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeResourceQuotaListProps(items=items, metadata=metadata)
@@ -32020,7 +35010,13 @@ class KubeResourceQuotaListProps:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeResourceQuotaListProps.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeResourceQuotaProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -32088,7 +35084,13 @@ class KubeResourceQuotaProps:
         if isinstance(spec, dict):
             spec = ResourceQuotaSpec(**spec)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeResourceQuotaProps.__init__)
+            def stub(
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union["ResourceQuotaSpec", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -32153,7 +35155,15 @@ class KubeRole(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeRole
         :param rules: Rules holds all the PolicyRules for this Role.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeRole.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                rules: typing.Optional[typing.Sequence[typing.Union["PolicyRule", typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeRoleProps(metadata=metadata, rules=rules)
@@ -32221,7 +35231,16 @@ class KubeRoleBinding(
         :param subjects: Subjects holds references to the objects the role applies to.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeRoleBinding.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                role_ref: typing.Union["RoleRef", typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                subjects: typing.Optional[typing.Sequence[typing.Union["Subject", typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeRoleBindingProps(
@@ -32291,7 +35310,15 @@ class KubeRoleBindingList(
         :param metadata: Standard object's metadata.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeRoleBindingList.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeRoleBindingProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeRoleBindingListProps(items=items, metadata=metadata)
@@ -32351,7 +35378,13 @@ class KubeRoleBindingListProps:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeRoleBindingListProps.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeRoleBindingProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -32417,7 +35450,15 @@ class KubeRoleBindingListV1Alpha1(
         :param metadata: Standard object's metadata.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeRoleBindingListV1Alpha1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeRoleBindingV1Alpha1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeRoleBindingListV1Alpha1Props(items=items, metadata=metadata)
@@ -32477,7 +35518,13 @@ class KubeRoleBindingListV1Alpha1Props:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeRoleBindingListV1Alpha1Props.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeRoleBindingV1Alpha1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -32543,7 +35590,15 @@ class KubeRoleBindingListV1Beta1(
         :param metadata: Standard object's metadata.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeRoleBindingListV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeRoleBindingV1Beta1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeRoleBindingListV1Beta1Props(items=items, metadata=metadata)
@@ -32603,7 +35658,13 @@ class KubeRoleBindingListV1Beta1Props:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeRoleBindingListV1Beta1Props.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeRoleBindingV1Beta1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -32675,7 +35736,14 @@ class KubeRoleBindingProps:
         if isinstance(metadata, dict):
             metadata = ObjectMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeRoleBindingProps.__init__)
+            def stub(
+                *,
+                role_ref: typing.Union["RoleRef", typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                subjects: typing.Optional[typing.Sequence[typing.Union["Subject", typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument role_ref", value=role_ref, expected_type=type_hints["role_ref"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument subjects", value=subjects, expected_type=type_hints["subjects"])
@@ -32759,7 +35827,16 @@ class KubeRoleBindingV1Alpha1(
         :param subjects: Subjects holds references to the objects the role applies to.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeRoleBindingV1Alpha1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                role_ref: typing.Union["RoleRefV1Alpha1", typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                subjects: typing.Optional[typing.Sequence[typing.Union["SubjectV1Alpha1", typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeRoleBindingV1Alpha1Props(
@@ -32835,7 +35912,14 @@ class KubeRoleBindingV1Alpha1Props:
         if isinstance(metadata, dict):
             metadata = ObjectMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeRoleBindingV1Alpha1Props.__init__)
+            def stub(
+                *,
+                role_ref: typing.Union["RoleRefV1Alpha1", typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                subjects: typing.Optional[typing.Sequence[typing.Union["SubjectV1Alpha1", typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument role_ref", value=role_ref, expected_type=type_hints["role_ref"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument subjects", value=subjects, expected_type=type_hints["subjects"])
@@ -32919,7 +36003,16 @@ class KubeRoleBindingV1Beta1(
         :param subjects: Subjects holds references to the objects the role applies to.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeRoleBindingV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                role_ref: typing.Union["RoleRefV1Beta1", typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                subjects: typing.Optional[typing.Sequence[typing.Union["SubjectV1Beta1", typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeRoleBindingV1Beta1Props(
@@ -32995,7 +36088,14 @@ class KubeRoleBindingV1Beta1Props:
         if isinstance(metadata, dict):
             metadata = ObjectMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeRoleBindingV1Beta1Props.__init__)
+            def stub(
+                *,
+                role_ref: typing.Union["RoleRefV1Beta1", typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                subjects: typing.Optional[typing.Sequence[typing.Union["SubjectV1Beta1", typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument role_ref", value=role_ref, expected_type=type_hints["role_ref"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument subjects", value=subjects, expected_type=type_hints["subjects"])
@@ -33075,7 +36175,15 @@ class KubeRoleList(
         :param metadata: Standard object's metadata.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeRoleList.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeRoleProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeRoleListProps(items=items, metadata=metadata)
@@ -33135,7 +36243,13 @@ class KubeRoleListProps:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeRoleListProps.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeRoleProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -33203,7 +36317,15 @@ class KubeRoleListV1Alpha1(
         :param metadata: Standard object's metadata.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeRoleListV1Alpha1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeRoleV1Alpha1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeRoleListV1Alpha1Props(items=items, metadata=metadata)
@@ -33265,7 +36387,13 @@ class KubeRoleListV1Alpha1Props:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeRoleListV1Alpha1Props.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeRoleV1Alpha1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -33331,7 +36459,15 @@ class KubeRoleListV1Beta1(
         :param metadata: Standard object's metadata.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeRoleListV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeRoleV1Beta1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeRoleListV1Beta1Props(items=items, metadata=metadata)
@@ -33391,7 +36527,13 @@ class KubeRoleListV1Beta1Props:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeRoleListV1Beta1Props.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeRoleV1Beta1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -33453,7 +36595,13 @@ class KubeRoleProps:
         if isinstance(metadata, dict):
             metadata = ObjectMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeRoleProps.__init__)
+            def stub(
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                rules: typing.Optional[typing.Sequence[typing.Union["PolicyRule", typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument rules", value=rules, expected_type=type_hints["rules"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -33520,7 +36668,15 @@ class KubeRoleV1Alpha1(
         :param rules: Rules holds all the PolicyRules for this Role.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeRoleV1Alpha1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                rules: typing.Optional[typing.Sequence[typing.Union["PolicyRuleV1Alpha1", typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeRoleV1Alpha1Props(metadata=metadata, rules=rules)
@@ -33582,7 +36738,13 @@ class KubeRoleV1Alpha1Props:
         if isinstance(metadata, dict):
             metadata = ObjectMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeRoleV1Alpha1Props.__init__)
+            def stub(
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                rules: typing.Optional[typing.Sequence[typing.Union["PolicyRuleV1Alpha1", typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument rules", value=rules, expected_type=type_hints["rules"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -33649,7 +36811,15 @@ class KubeRoleV1Beta1(
         :param rules: Rules holds all the PolicyRules for this Role.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeRoleV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                rules: typing.Optional[typing.Sequence[typing.Union["PolicyRuleV1Beta1", typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeRoleV1Beta1Props(metadata=metadata, rules=rules)
@@ -33711,7 +36881,13 @@ class KubeRoleV1Beta1Props:
         if isinstance(metadata, dict):
             metadata = ObjectMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeRoleV1Beta1Props.__init__)
+            def stub(
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                rules: typing.Optional[typing.Sequence[typing.Union["PolicyRuleV1Beta1", typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument rules", value=rules, expected_type=type_hints["rules"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -33776,7 +36952,15 @@ class KubeRuntimeClassListV1Alpha1(
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeRuntimeClassListV1Alpha1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeRuntimeClassV1Alpha1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeRuntimeClassListV1Alpha1Props(items=items, metadata=metadata)
@@ -33836,7 +37020,13 @@ class KubeRuntimeClassListV1Alpha1Props:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeRuntimeClassListV1Alpha1Props.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeRuntimeClassV1Alpha1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -33904,7 +37094,15 @@ class KubeRuntimeClassListV1Beta1(
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeRuntimeClassListV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeRuntimeClassV1Beta1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeRuntimeClassListV1Beta1Props(items=items, metadata=metadata)
@@ -33964,7 +37162,13 @@ class KubeRuntimeClassListV1Beta1Props:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeRuntimeClassListV1Beta1Props.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeRuntimeClassV1Beta1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -34034,7 +37238,15 @@ class KubeRuntimeClassV1Alpha1(
         :param metadata: More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeRuntimeClassV1Alpha1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                spec: typing.Union["RuntimeClassSpecV1Alpha1", typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeRuntimeClassV1Alpha1Props(spec=spec, metadata=metadata)
@@ -34098,7 +37310,13 @@ class KubeRuntimeClassV1Alpha1Props:
         if isinstance(metadata, dict):
             metadata = ObjectMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeRuntimeClassV1Alpha1Props.__init__)
+            def stub(
+                *,
+                spec: typing.Union["RuntimeClassSpecV1Alpha1", typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -34170,7 +37388,17 @@ class KubeRuntimeClassV1Beta1(
         :param scheduling: Scheduling holds the scheduling constraints to ensure that pods running with this RuntimeClass are scheduled to nodes that support it. If scheduling is nil, this RuntimeClass is assumed to be supported by all nodes.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeRuntimeClassV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                handler: builtins.str,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                overhead: typing.Optional[typing.Union["OverheadV1Beta1", typing.Dict[str, typing.Any]]] = None,
+                scheduling: typing.Optional[typing.Union["SchedulingV1Beta1", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeRuntimeClassV1Beta1Props(
@@ -34259,7 +37487,15 @@ class KubeRuntimeClassV1Beta1Props:
         if isinstance(scheduling, dict):
             scheduling = SchedulingV1Beta1(**scheduling)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeRuntimeClassV1Beta1Props.__init__)
+            def stub(
+                *,
+                handler: builtins.str,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                overhead: typing.Optional[typing.Union["OverheadV1Beta1", typing.Dict[str, typing.Any]]] = None,
+                scheduling: typing.Optional[typing.Union["SchedulingV1Beta1", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument handler", value=handler, expected_type=type_hints["handler"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument overhead", value=overhead, expected_type=type_hints["overhead"])
@@ -34351,7 +37587,15 @@ class KubeScale(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeSca
         :param spec: defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeScale.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union["ScaleSpec", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeScaleProps(metadata=metadata, spec=spec)
@@ -34413,7 +37657,13 @@ class KubeScaleProps:
         if isinstance(spec, dict):
             spec = ScaleSpec(**spec)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeScaleProps.__init__)
+            def stub(
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union["ScaleSpec", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -34482,7 +37732,15 @@ class KubeScaleV1Beta1(
         :param spec: defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeScaleV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union["ScaleSpecV1Beta1", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeScaleV1Beta1Props(metadata=metadata, spec=spec)
@@ -34544,7 +37802,13 @@ class KubeScaleV1Beta1Props:
         if isinstance(spec, dict):
             spec = ScaleSpecV1Beta1(**spec)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeScaleV1Beta1Props.__init__)
+            def stub(
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union["ScaleSpecV1Beta1", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -34613,7 +37877,15 @@ class KubeScaleV1Beta2(
         :param spec: defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeScaleV1Beta2.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union["ScaleSpecV1Beta2", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeScaleV1Beta2Props(metadata=metadata, spec=spec)
@@ -34675,7 +37947,13 @@ class KubeScaleV1Beta2Props:
         if isinstance(spec, dict):
             spec = ScaleSpecV1Beta2(**spec)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeScaleV1Beta2Props.__init__)
+            def stub(
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union["ScaleSpecV1Beta2", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -34746,7 +38024,17 @@ class KubeSecret(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeSe
         :param type: Used to facilitate programmatic handling of secret data.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeSecret.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                data: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                string_data: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
+                type: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeSecretProps(
@@ -34818,7 +38106,15 @@ class KubeSecretList(
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeSecretList.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeSecretProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeSecretListProps(items=items, metadata=metadata)
@@ -34878,7 +38174,13 @@ class KubeSecretListProps:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeSecretListProps.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeSecretProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -34955,7 +38257,15 @@ class KubeSecretProps:
         if isinstance(metadata, dict):
             metadata = ObjectMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeSecretProps.__init__)
+            def stub(
+                *,
+                data: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                string_data: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
+                type: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument data", value=data, expected_type=type_hints["data"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument string_data", value=string_data, expected_type=type_hints["string_data"])
@@ -35054,7 +38364,15 @@ class KubeSelfSubjectAccessReview(
         :param metadata: 
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeSelfSubjectAccessReview.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                spec: typing.Union["SelfSubjectAccessReviewSpec", typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeSelfSubjectAccessReviewProps(spec=spec, metadata=metadata)
@@ -35118,7 +38436,13 @@ class KubeSelfSubjectAccessReviewProps:
         if isinstance(metadata, dict):
             metadata = ObjectMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeSelfSubjectAccessReviewProps.__init__)
+            def stub(
+                *,
+                spec: typing.Union["SelfSubjectAccessReviewSpec", typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -35187,7 +38511,15 @@ class KubeSelfSubjectAccessReviewV1Beta1(
         :param metadata: 
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeSelfSubjectAccessReviewV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                spec: typing.Union["SelfSubjectAccessReviewSpecV1Beta1", typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeSelfSubjectAccessReviewV1Beta1Props(spec=spec, metadata=metadata)
@@ -35251,7 +38583,13 @@ class KubeSelfSubjectAccessReviewV1Beta1Props:
         if isinstance(metadata, dict):
             metadata = ObjectMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeSelfSubjectAccessReviewV1Beta1Props.__init__)
+            def stub(
+                *,
+                spec: typing.Union["SelfSubjectAccessReviewSpecV1Beta1", typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -35320,7 +38658,15 @@ class KubeSelfSubjectRulesReview(
         :param metadata: 
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeSelfSubjectRulesReview.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                spec: typing.Union["SelfSubjectRulesReviewSpec", typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeSelfSubjectRulesReviewProps(spec=spec, metadata=metadata)
@@ -35384,7 +38730,13 @@ class KubeSelfSubjectRulesReviewProps:
         if isinstance(metadata, dict):
             metadata = ObjectMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeSelfSubjectRulesReviewProps.__init__)
+            def stub(
+                *,
+                spec: typing.Union["SelfSubjectRulesReviewSpec", typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -35451,7 +38803,15 @@ class KubeSelfSubjectRulesReviewV1Beta1(
         :param metadata: 
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeSelfSubjectRulesReviewV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                spec: typing.Union["SelfSubjectRulesReviewSpecV1Beta1", typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeSelfSubjectRulesReviewV1Beta1Props(spec=spec, metadata=metadata)
@@ -35515,7 +38875,13 @@ class KubeSelfSubjectRulesReviewV1Beta1Props:
         if isinstance(metadata, dict):
             metadata = ObjectMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeSelfSubjectRulesReviewV1Beta1Props.__init__)
+            def stub(
+                *,
+                spec: typing.Union["SelfSubjectRulesReviewSpecV1Beta1", typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -35580,7 +38946,15 @@ class KubeService(
         :param spec: Spec defines the behavior of a service. https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeService.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union["ServiceSpec", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeServiceProps(metadata=metadata, spec=spec)
@@ -35648,7 +39022,17 @@ class KubeServiceAccount(
         :param secrets: Secrets is the list of secrets allowed to be used by pods running using this ServiceAccount. More info: https://kubernetes.io/docs/concepts/configuration/secret
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeServiceAccount.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                automount_service_account_token: typing.Optional[builtins.bool] = None,
+                image_pull_secrets: typing.Optional[typing.Sequence[typing.Union["LocalObjectReference", typing.Dict[str, typing.Any]]]] = None,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                secrets: typing.Optional[typing.Sequence[typing.Union["ObjectReference", typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeServiceAccountProps(
@@ -35726,7 +39110,15 @@ class KubeServiceAccountList(
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeServiceAccountList.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeServiceAccountProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeServiceAccountListProps(items=items, metadata=metadata)
@@ -35786,7 +39178,13 @@ class KubeServiceAccountListProps:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeServiceAccountListProps.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeServiceAccountProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -35861,7 +39259,15 @@ class KubeServiceAccountProps:
         if isinstance(metadata, dict):
             metadata = ObjectMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeServiceAccountProps.__init__)
+            def stub(
+                *,
+                automount_service_account_token: typing.Optional[builtins.bool] = None,
+                image_pull_secrets: typing.Optional[typing.Sequence[typing.Union["LocalObjectReference", typing.Dict[str, typing.Any]]]] = None,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                secrets: typing.Optional[typing.Sequence[typing.Union["ObjectReference", typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument automount_service_account_token", value=automount_service_account_token, expected_type=type_hints["automount_service_account_token"])
             check_type(argname="argument image_pull_secrets", value=image_pull_secrets, expected_type=type_hints["image_pull_secrets"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
@@ -35960,7 +39366,15 @@ class KubeServiceList(
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeServiceList.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeServiceProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeServiceListProps(items=items, metadata=metadata)
@@ -36020,7 +39434,13 @@ class KubeServiceListProps:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeServiceListProps.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeServiceProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -36086,7 +39506,13 @@ class KubeServiceProps:
         if isinstance(spec, dict):
             spec = ServiceSpec(**spec)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeServiceProps.__init__)
+            def stub(
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union["ServiceSpec", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -36161,7 +39587,15 @@ class KubeStatefulSet(
         :param spec: Spec defines the desired identities of pods in this set.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeStatefulSet.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union["StatefulSetSpec", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeStatefulSetProps(metadata=metadata, spec=spec)
@@ -36225,7 +39659,15 @@ class KubeStatefulSetList(
         :param metadata: 
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeStatefulSetList.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeStatefulSetProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeStatefulSetListProps(items=items, metadata=metadata)
@@ -36285,7 +39727,13 @@ class KubeStatefulSetListProps:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeStatefulSetListProps.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeStatefulSetProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -36349,7 +39797,15 @@ class KubeStatefulSetListV1Beta1(
         :param metadata: 
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeStatefulSetListV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeStatefulSetV1Beta1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeStatefulSetListV1Beta1Props(items=items, metadata=metadata)
@@ -36409,7 +39865,13 @@ class KubeStatefulSetListV1Beta1Props:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeStatefulSetListV1Beta1Props.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeStatefulSetV1Beta1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -36473,7 +39935,15 @@ class KubeStatefulSetListV1Beta2(
         :param metadata: 
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeStatefulSetListV1Beta2.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeStatefulSetV1Beta2Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeStatefulSetListV1Beta2Props(items=items, metadata=metadata)
@@ -36533,7 +40003,13 @@ class KubeStatefulSetListV1Beta2Props:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeStatefulSetListV1Beta2Props.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeStatefulSetV1Beta2Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -36601,7 +40077,13 @@ class KubeStatefulSetProps:
         if isinstance(spec, dict):
             spec = StatefulSetSpec(**spec)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeStatefulSetProps.__init__)
+            def stub(
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union["StatefulSetSpec", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -36671,7 +40153,15 @@ class KubeStatefulSetV1Beta1(
         :param spec: Spec defines the desired identities of pods in this set.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeStatefulSetV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union["StatefulSetSpecV1Beta1", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeStatefulSetV1Beta1Props(metadata=metadata, spec=spec)
@@ -36739,7 +40229,13 @@ class KubeStatefulSetV1Beta1Props:
         if isinstance(spec, dict):
             spec = StatefulSetSpecV1Beta1(**spec)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeStatefulSetV1Beta1Props.__init__)
+            def stub(
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union["StatefulSetSpecV1Beta1", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -36809,7 +40305,15 @@ class KubeStatefulSetV1Beta2(
         :param spec: Spec defines the desired identities of pods in this set.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeStatefulSetV1Beta2.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union["StatefulSetSpecV1Beta2", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeStatefulSetV1Beta2Props(metadata=metadata, spec=spec)
@@ -36877,7 +40381,13 @@ class KubeStatefulSetV1Beta2Props:
         if isinstance(spec, dict):
             spec = StatefulSetSpecV1Beta2(**spec)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeStatefulSetV1Beta2Props.__init__)
+            def stub(
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union["StatefulSetSpecV1Beta2", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -36943,7 +40453,18 @@ class KubeStatus(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeSt
         :param reason: A machine-readable description of why this operation is in the "Failure" status. If this value is empty there is no information available. A Reason clarifies an HTTP status code but does not override it.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeStatus.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                code: typing.Optional[jsii.Number] = None,
+                details: typing.Optional[typing.Union["StatusDetails", typing.Dict[str, typing.Any]]] = None,
+                message: typing.Optional[builtins.str] = None,
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                reason: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeStatusProps(
@@ -37035,7 +40556,16 @@ class KubeStatusProps:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeStatusProps.__init__)
+            def stub(
+                *,
+                code: typing.Optional[jsii.Number] = None,
+                details: typing.Optional[typing.Union["StatusDetails", typing.Dict[str, typing.Any]]] = None,
+                message: typing.Optional[builtins.str] = None,
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                reason: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument code", value=code, expected_type=type_hints["code"])
             check_type(argname="argument details", value=details, expected_type=type_hints["details"])
             check_type(argname="argument message", value=message, expected_type=type_hints["message"])
@@ -37156,7 +40686,21 @@ class KubeStorageClass(
         :param volume_binding_mode: VolumeBindingMode indicates how PersistentVolumeClaims should be provisioned and bound. When unset, VolumeBindingImmediate is used. This field is only honored by servers that enable the VolumeScheduling feature.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeStorageClass.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                provisioner: builtins.str,
+                allowed_topologies: typing.Optional[typing.Sequence[typing.Union["TopologySelectorTerm", typing.Dict[str, typing.Any]]]] = None,
+                allow_volume_expansion: typing.Optional[builtins.bool] = None,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                mount_options: typing.Optional[typing.Sequence[builtins.str]] = None,
+                parameters: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
+                reclaim_policy: typing.Optional[builtins.str] = None,
+                volume_binding_mode: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeStorageClassProps(
@@ -37250,7 +40794,15 @@ class KubeStorageClassList(
         :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeStorageClassList.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeStorageClassProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeStorageClassListProps(items=items, metadata=metadata)
@@ -37310,7 +40862,13 @@ class KubeStorageClassListProps:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeStorageClassListProps.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeStorageClassProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -37376,7 +40934,15 @@ class KubeStorageClassListV1Beta1(
         :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeStorageClassListV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeStorageClassV1Beta1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeStorageClassListV1Beta1Props(items=items, metadata=metadata)
@@ -37436,7 +41002,13 @@ class KubeStorageClassListV1Beta1Props:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeStorageClassListV1Beta1Props.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeStorageClassV1Beta1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -37521,7 +41093,19 @@ class KubeStorageClassProps:
         if isinstance(metadata, dict):
             metadata = ObjectMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeStorageClassProps.__init__)
+            def stub(
+                *,
+                provisioner: builtins.str,
+                allowed_topologies: typing.Optional[typing.Sequence[typing.Union["TopologySelectorTerm", typing.Dict[str, typing.Any]]]] = None,
+                allow_volume_expansion: typing.Optional[builtins.bool] = None,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                mount_options: typing.Optional[typing.Sequence[builtins.str]] = None,
+                parameters: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
+                reclaim_policy: typing.Optional[builtins.str] = None,
+                volume_binding_mode: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument provisioner", value=provisioner, expected_type=type_hints["provisioner"])
             check_type(argname="argument allowed_topologies", value=allowed_topologies, expected_type=type_hints["allowed_topologies"])
             check_type(argname="argument allow_volume_expansion", value=allow_volume_expansion, expected_type=type_hints["allow_volume_expansion"])
@@ -37685,7 +41269,21 @@ class KubeStorageClassV1Beta1(
         :param volume_binding_mode: VolumeBindingMode indicates how PersistentVolumeClaims should be provisioned and bound. When unset, VolumeBindingImmediate is used. This field is only honored by servers that enable the VolumeScheduling feature.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeStorageClassV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                provisioner: builtins.str,
+                allowed_topologies: typing.Optional[typing.Sequence[typing.Union["TopologySelectorTerm", typing.Dict[str, typing.Any]]]] = None,
+                allow_volume_expansion: typing.Optional[builtins.bool] = None,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                mount_options: typing.Optional[typing.Sequence[builtins.str]] = None,
+                parameters: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
+                reclaim_policy: typing.Optional[builtins.str] = None,
+                volume_binding_mode: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeStorageClassV1Beta1Props(
@@ -37798,7 +41396,19 @@ class KubeStorageClassV1Beta1Props:
         if isinstance(metadata, dict):
             metadata = ObjectMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeStorageClassV1Beta1Props.__init__)
+            def stub(
+                *,
+                provisioner: builtins.str,
+                allowed_topologies: typing.Optional[typing.Sequence[typing.Union["TopologySelectorTerm", typing.Dict[str, typing.Any]]]] = None,
+                allow_volume_expansion: typing.Optional[builtins.bool] = None,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                mount_options: typing.Optional[typing.Sequence[builtins.str]] = None,
+                parameters: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
+                reclaim_policy: typing.Optional[builtins.str] = None,
+                volume_binding_mode: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument provisioner", value=provisioner, expected_type=type_hints["provisioner"])
             check_type(argname="argument allowed_topologies", value=allowed_topologies, expected_type=type_hints["allowed_topologies"])
             check_type(argname="argument allow_volume_expansion", value=allow_volume_expansion, expected_type=type_hints["allow_volume_expansion"])
@@ -37948,7 +41558,15 @@ class KubeSubjectAccessReview(
         :param metadata: 
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeSubjectAccessReview.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                spec: typing.Union["SubjectAccessReviewSpec", typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeSubjectAccessReviewProps(spec=spec, metadata=metadata)
@@ -38010,7 +41628,13 @@ class KubeSubjectAccessReviewProps:
         if isinstance(metadata, dict):
             metadata = ObjectMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeSubjectAccessReviewProps.__init__)
+            def stub(
+                *,
+                spec: typing.Union["SubjectAccessReviewSpec", typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -38075,7 +41699,15 @@ class KubeSubjectAccessReviewV1Beta1(
         :param metadata: 
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeSubjectAccessReviewV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                spec: typing.Union["SubjectAccessReviewSpecV1Beta1", typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeSubjectAccessReviewV1Beta1Props(spec=spec, metadata=metadata)
@@ -38137,7 +41769,13 @@ class KubeSubjectAccessReviewV1Beta1Props:
         if isinstance(metadata, dict):
             metadata = ObjectMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeSubjectAccessReviewV1Beta1Props.__init__)
+            def stub(
+                *,
+                spec: typing.Union["SubjectAccessReviewSpecV1Beta1", typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -38202,7 +41840,15 @@ class KubeTokenRequest(
         :param metadata: 
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeTokenRequest.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                spec: typing.Union["TokenRequestSpec", typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeTokenRequestProps(spec=spec, metadata=metadata)
@@ -38264,7 +41910,13 @@ class KubeTokenRequestProps:
         if isinstance(metadata, dict):
             metadata = ObjectMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeTokenRequestProps.__init__)
+            def stub(
+                *,
+                spec: typing.Union["TokenRequestSpec", typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -38330,7 +41982,15 @@ class KubeTokenReview(
         :param metadata: 
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeTokenReview.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                spec: typing.Union["TokenReviewSpec", typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeTokenReviewProps(spec=spec, metadata=metadata)
@@ -38394,7 +42054,13 @@ class KubeTokenReviewProps:
         if isinstance(metadata, dict):
             metadata = ObjectMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeTokenReviewProps.__init__)
+            def stub(
+                *,
+                spec: typing.Union["TokenReviewSpec", typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -38461,7 +42127,15 @@ class KubeTokenReviewV1Beta1(
         :param metadata: 
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeTokenReviewV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                spec: typing.Union["TokenReviewSpecV1Beta1", typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeTokenReviewV1Beta1Props(spec=spec, metadata=metadata)
@@ -38525,7 +42199,13 @@ class KubeTokenReviewV1Beta1Props:
         if isinstance(metadata, dict):
             metadata = ObjectMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeTokenReviewV1Beta1Props.__init__)
+            def stub(
+                *,
+                spec: typing.Union["TokenReviewSpecV1Beta1", typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -38590,7 +42270,15 @@ class KubeValidatingWebhookConfiguration(
         :param webhooks: Webhooks is a list of webhooks and the affected resources and operations.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeValidatingWebhookConfiguration.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                webhooks: typing.Optional[typing.Sequence[typing.Union["ValidatingWebhook", typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeValidatingWebhookConfigurationProps(
@@ -38658,7 +42346,15 @@ class KubeValidatingWebhookConfigurationList(
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeValidatingWebhookConfigurationList.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeValidatingWebhookConfigurationProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeValidatingWebhookConfigurationListProps(
@@ -38722,7 +42418,13 @@ class KubeValidatingWebhookConfigurationListProps:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeValidatingWebhookConfigurationListProps.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeValidatingWebhookConfigurationProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -38790,7 +42492,15 @@ class KubeValidatingWebhookConfigurationListV1Beta1(
         :param metadata: Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeValidatingWebhookConfigurationListV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeValidatingWebhookConfigurationV1Beta1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeValidatingWebhookConfigurationListV1Beta1Props(
@@ -38854,7 +42564,13 @@ class KubeValidatingWebhookConfigurationListV1Beta1Props:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeValidatingWebhookConfigurationListV1Beta1Props.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeValidatingWebhookConfigurationV1Beta1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -38918,7 +42634,13 @@ class KubeValidatingWebhookConfigurationProps:
         if isinstance(metadata, dict):
             metadata = ObjectMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeValidatingWebhookConfigurationProps.__init__)
+            def stub(
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                webhooks: typing.Optional[typing.Sequence[typing.Union["ValidatingWebhook", typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument webhooks", value=webhooks, expected_type=type_hints["webhooks"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -38987,7 +42709,15 @@ class KubeValidatingWebhookConfigurationV1Beta1(
         :param webhooks: Webhooks is a list of webhooks and the affected resources and operations.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeValidatingWebhookConfigurationV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                webhooks: typing.Optional[typing.Sequence[typing.Union["ValidatingWebhookV1Beta1", typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeValidatingWebhookConfigurationV1Beta1Props(
@@ -39053,7 +42783,13 @@ class KubeValidatingWebhookConfigurationV1Beta1Props:
         if isinstance(metadata, dict):
             metadata = ObjectMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeValidatingWebhookConfigurationV1Beta1Props.__init__)
+            def stub(
+                *,
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                webhooks: typing.Optional[typing.Sequence[typing.Union["ValidatingWebhookV1Beta1", typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument webhooks", value=webhooks, expected_type=type_hints["webhooks"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -39122,7 +42858,15 @@ class KubeVolumeAttachment(
         :param metadata: Standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeVolumeAttachment.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                spec: typing.Union["VolumeAttachmentSpec", typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeVolumeAttachmentProps(spec=spec, metadata=metadata)
@@ -39186,7 +42930,15 @@ class KubeVolumeAttachmentList(
         :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeVolumeAttachmentList.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeVolumeAttachmentProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeVolumeAttachmentListProps(items=items, metadata=metadata)
@@ -39246,7 +42998,13 @@ class KubeVolumeAttachmentListProps:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeVolumeAttachmentListProps.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeVolumeAttachmentProps", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -39312,7 +43070,15 @@ class KubeVolumeAttachmentListV1Alpha1(
         :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeVolumeAttachmentListV1Alpha1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeVolumeAttachmentV1Alpha1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeVolumeAttachmentListV1Alpha1Props(items=items, metadata=metadata)
@@ -39372,7 +43138,13 @@ class KubeVolumeAttachmentListV1Alpha1Props:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeVolumeAttachmentListV1Alpha1Props.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeVolumeAttachmentV1Alpha1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -39438,7 +43210,15 @@ class KubeVolumeAttachmentListV1Beta1(
         :param metadata: Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeVolumeAttachmentListV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                items: typing.Sequence[typing.Union["KubeVolumeAttachmentV1Beta1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeVolumeAttachmentListV1Beta1Props(items=items, metadata=metadata)
@@ -39498,7 +43278,13 @@ class KubeVolumeAttachmentListV1Beta1Props:
         if isinstance(metadata, dict):
             metadata = ListMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeVolumeAttachmentListV1Beta1Props.__init__)
+            def stub(
+                *,
+                items: typing.Sequence[typing.Union["KubeVolumeAttachmentV1Beta1Props", typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -39564,7 +43350,13 @@ class KubeVolumeAttachmentProps:
         if isinstance(metadata, dict):
             metadata = ObjectMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeVolumeAttachmentProps.__init__)
+            def stub(
+                *,
+                spec: typing.Union["VolumeAttachmentSpec", typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -39636,7 +43428,15 @@ class KubeVolumeAttachmentV1Alpha1(
         :param metadata: Standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeVolumeAttachmentV1Alpha1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                spec: typing.Union["VolumeAttachmentSpecV1Alpha1", typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeVolumeAttachmentV1Alpha1Props(spec=spec, metadata=metadata)
@@ -39700,7 +43500,13 @@ class KubeVolumeAttachmentV1Alpha1Props:
         if isinstance(metadata, dict):
             metadata = ObjectMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeVolumeAttachmentV1Alpha1Props.__init__)
+            def stub(
+                *,
+                spec: typing.Union["VolumeAttachmentSpecV1Alpha1", typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -39772,7 +43578,15 @@ class KubeVolumeAttachmentV1Beta1(
         :param metadata: Standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(KubeVolumeAttachmentV1Beta1.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                spec: typing.Union["VolumeAttachmentSpecV1Beta1", typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = KubeVolumeAttachmentV1Beta1Props(spec=spec, metadata=metadata)
@@ -39836,7 +43650,13 @@ class KubeVolumeAttachmentV1Beta1Props:
         if isinstance(metadata, dict):
             metadata = ObjectMeta(**metadata)
         if __debug__:
-            type_hints = typing.get_type_hints(KubeVolumeAttachmentV1Beta1Props.__init__)
+            def stub(
+                *,
+                spec: typing.Union["VolumeAttachmentSpecV1Beta1", typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -39905,7 +43725,13 @@ class LabelSelector:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.LabelSelector
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(LabelSelector.__init__)
+            def stub(
+                *,
+                match_expressions: typing.Optional[typing.Sequence[typing.Union["LabelSelectorRequirement", typing.Dict[str, typing.Any]]]] = None,
+                match_labels: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument match_expressions", value=match_expressions, expected_type=type_hints["match_expressions"])
             check_type(argname="argument match_labels", value=match_labels, expected_type=type_hints["match_labels"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -39974,7 +43800,14 @@ class LabelSelectorRequirement:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.LabelSelectorRequirement
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(LabelSelectorRequirement.__init__)
+            def stub(
+                *,
+                key: builtins.str,
+                operator: builtins.str,
+                values: typing.Optional[typing.Sequence[builtins.str]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument key", value=key, expected_type=type_hints["key"])
             check_type(argname="argument operator", value=operator, expected_type=type_hints["operator"])
             check_type(argname="argument values", value=values, expected_type=type_hints["values"])
@@ -40062,7 +43895,16 @@ class LeaseSpec:
         :schema: io.k8s.api.coordination.v1.LeaseSpec
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(LeaseSpec.__init__)
+            def stub(
+                *,
+                acquire_time: typing.Optional[datetime.datetime] = None,
+                holder_identity: typing.Optional[builtins.str] = None,
+                lease_duration_seconds: typing.Optional[jsii.Number] = None,
+                lease_transitions: typing.Optional[jsii.Number] = None,
+                renew_time: typing.Optional[datetime.datetime] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument acquire_time", value=acquire_time, expected_type=type_hints["acquire_time"])
             check_type(argname="argument holder_identity", value=holder_identity, expected_type=type_hints["holder_identity"])
             check_type(argname="argument lease_duration_seconds", value=lease_duration_seconds, expected_type=type_hints["lease_duration_seconds"])
@@ -40171,7 +44013,16 @@ class LeaseSpecV1Beta1:
         :schema: io.k8s.api.coordination.v1beta1.LeaseSpec
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(LeaseSpecV1Beta1.__init__)
+            def stub(
+                *,
+                acquire_time: typing.Optional[datetime.datetime] = None,
+                holder_identity: typing.Optional[builtins.str] = None,
+                lease_duration_seconds: typing.Optional[jsii.Number] = None,
+                lease_transitions: typing.Optional[jsii.Number] = None,
+                renew_time: typing.Optional[datetime.datetime] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument acquire_time", value=acquire_time, expected_type=type_hints["acquire_time"])
             check_type(argname="argument holder_identity", value=holder_identity, expected_type=type_hints["holder_identity"])
             check_type(argname="argument lease_duration_seconds", value=lease_duration_seconds, expected_type=type_hints["lease_duration_seconds"])
@@ -40274,7 +44125,13 @@ class Lifecycle:
         if isinstance(pre_stop, dict):
             pre_stop = Handler(**pre_stop)
         if __debug__:
-            type_hints = typing.get_type_hints(Lifecycle.__init__)
+            def stub(
+                *,
+                post_start: typing.Optional[typing.Union[Handler, typing.Dict[str, typing.Any]]] = None,
+                pre_stop: typing.Optional[typing.Union[Handler, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument post_start", value=post_start, expected_type=type_hints["post_start"])
             check_type(argname="argument pre_stop", value=pre_stop, expected_type=type_hints["pre_stop"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -40352,7 +44209,17 @@ class LimitRangeItem:
         :schema: io.k8s.api.core.v1.LimitRangeItem
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(LimitRangeItem.__init__)
+            def stub(
+                *,
+                default: typing.Optional[typing.Mapping[builtins.str, "Quantity"]] = None,
+                default_request: typing.Optional[typing.Mapping[builtins.str, "Quantity"]] = None,
+                max: typing.Optional[typing.Mapping[builtins.str, "Quantity"]] = None,
+                max_limit_request_ratio: typing.Optional[typing.Mapping[builtins.str, "Quantity"]] = None,
+                min: typing.Optional[typing.Mapping[builtins.str, "Quantity"]] = None,
+                type: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument default", value=default, expected_type=type_hints["default"])
             check_type(argname="argument default_request", value=default_request, expected_type=type_hints["default_request"])
             check_type(argname="argument max", value=max, expected_type=type_hints["max"])
@@ -40463,7 +44330,12 @@ class LimitRangeSpec:
         :schema: io.k8s.api.core.v1.LimitRangeSpec
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(LimitRangeSpec.__init__)
+            def stub(
+                *,
+                limits: typing.Sequence[typing.Union[LimitRangeItem, typing.Dict[str, typing.Any]]],
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument limits", value=limits, expected_type=type_hints["limits"])
         self._values: typing.Dict[str, typing.Any] = {
             "limits": limits,
@@ -40513,7 +44385,13 @@ class LimitResponseV1Alpha1:
         if isinstance(queuing, dict):
             queuing = QueuingConfigurationV1Alpha1(**queuing)
         if __debug__:
-            type_hints = typing.get_type_hints(LimitResponseV1Alpha1.__init__)
+            def stub(
+                *,
+                type: builtins.str,
+                queuing: typing.Optional[typing.Union["QueuingConfigurationV1Alpha1", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument type", value=type, expected_type=type_hints["type"])
             check_type(argname="argument queuing", value=queuing, expected_type=type_hints["queuing"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -40587,7 +44465,13 @@ class LimitedPriorityLevelConfigurationV1Alpha1:
         if isinstance(limit_response, dict):
             limit_response = LimitResponseV1Alpha1(**limit_response)
         if __debug__:
-            type_hints = typing.get_type_hints(LimitedPriorityLevelConfigurationV1Alpha1.__init__)
+            def stub(
+                *,
+                assured_concurrency_shares: typing.Optional[jsii.Number] = None,
+                limit_response: typing.Optional[typing.Union[LimitResponseV1Alpha1, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument assured_concurrency_shares", value=assured_concurrency_shares, expected_type=type_hints["assured_concurrency_shares"])
             check_type(argname="argument limit_response", value=limit_response, expected_type=type_hints["limit_response"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -40663,7 +44547,15 @@ class ListMeta:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(ListMeta.__init__)
+            def stub(
+                *,
+                continue_: typing.Optional[builtins.str] = None,
+                remaining_item_count: typing.Optional[jsii.Number] = None,
+                resource_version: typing.Optional[builtins.str] = None,
+                self_link: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument continue_", value=continue_, expected_type=type_hints["continue_"])
             check_type(argname="argument remaining_item_count", value=remaining_item_count, expected_type=type_hints["remaining_item_count"])
             check_type(argname="argument resource_version", value=resource_version, expected_type=type_hints["resource_version"])
@@ -40748,7 +44640,9 @@ class LocalObjectReference:
         :schema: io.k8s.api.core.v1.LocalObjectReference
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(LocalObjectReference.__init__)
+            def stub(*, name: typing.Optional[builtins.str] = None) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
         self._values: typing.Dict[str, typing.Any] = {}
         if name is not None:
@@ -40797,7 +44691,13 @@ class LocalVolumeSource:
         :schema: io.k8s.api.core.v1.LocalVolumeSource
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(LocalVolumeSource.__init__)
+            def stub(
+                *,
+                path: builtins.str,
+                fs_type: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument path", value=path, expected_type=type_hints["path"])
             check_type(argname="argument fs_type", value=fs_type, expected_type=type_hints["fs_type"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -40876,7 +44776,17 @@ class ManagedFieldsEntry:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.ManagedFieldsEntry
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(ManagedFieldsEntry.__init__)
+            def stub(
+                *,
+                api_version: typing.Optional[builtins.str] = None,
+                fields_type: typing.Optional[builtins.str] = None,
+                fields_v1: typing.Any = None,
+                manager: typing.Optional[builtins.str] = None,
+                operation: typing.Optional[builtins.str] = None,
+                time: typing.Optional[datetime.datetime] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument api_version", value=api_version, expected_type=type_hints["api_version"])
             check_type(argname="argument fields_type", value=fields_type, expected_type=type_hints["fields_type"])
             check_type(argname="argument fields_v1", value=fields_v1, expected_type=type_hints["fields_v1"])
@@ -40993,7 +44903,13 @@ class MetricIdentifierV2Beta2:
         if isinstance(selector, dict):
             selector = LabelSelector(**selector)
         if __debug__:
-            type_hints = typing.get_type_hints(MetricIdentifierV2Beta2.__init__)
+            def stub(
+                *,
+                name: builtins.str,
+                selector: typing.Optional[typing.Union[LabelSelector, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
             check_type(argname="argument selector", value=selector, expected_type=type_hints["selector"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -41075,7 +44991,16 @@ class MetricSpecV2Beta1:
         if isinstance(resource, dict):
             resource = ResourceMetricSourceV2Beta1(**resource)
         if __debug__:
-            type_hints = typing.get_type_hints(MetricSpecV2Beta1.__init__)
+            def stub(
+                *,
+                type: builtins.str,
+                external: typing.Optional[typing.Union[ExternalMetricSourceV2Beta1, typing.Dict[str, typing.Any]]] = None,
+                object: typing.Optional[typing.Union["ObjectMetricSourceV2Beta1", typing.Dict[str, typing.Any]]] = None,
+                pods: typing.Optional[typing.Union["PodsMetricSourceV2Beta1", typing.Dict[str, typing.Any]]] = None,
+                resource: typing.Optional[typing.Union["ResourceMetricSourceV2Beta1", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument type", value=type, expected_type=type_hints["type"])
             check_type(argname="argument external", value=external, expected_type=type_hints["external"])
             check_type(argname="argument object", value=object, expected_type=type_hints["object"])
@@ -41197,7 +45122,16 @@ class MetricSpecV2Beta2:
         if isinstance(resource, dict):
             resource = ResourceMetricSourceV2Beta2(**resource)
         if __debug__:
-            type_hints = typing.get_type_hints(MetricSpecV2Beta2.__init__)
+            def stub(
+                *,
+                type: builtins.str,
+                external: typing.Optional[typing.Union[ExternalMetricSourceV2Beta2, typing.Dict[str, typing.Any]]] = None,
+                object: typing.Optional[typing.Union["ObjectMetricSourceV2Beta2", typing.Dict[str, typing.Any]]] = None,
+                pods: typing.Optional[typing.Union["PodsMetricSourceV2Beta2", typing.Dict[str, typing.Any]]] = None,
+                resource: typing.Optional[typing.Union["ResourceMetricSourceV2Beta2", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument type", value=type, expected_type=type_hints["type"])
             check_type(argname="argument external", value=external, expected_type=type_hints["external"])
             check_type(argname="argument object", value=object, expected_type=type_hints["object"])
@@ -41308,7 +45242,15 @@ class MetricTargetV2Beta2:
         :schema: io.k8s.api.autoscaling.v2beta2.MetricTarget
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(MetricTargetV2Beta2.__init__)
+            def stub(
+                *,
+                type: builtins.str,
+                average_utilization: typing.Optional[jsii.Number] = None,
+                average_value: typing.Optional["Quantity"] = None,
+                value: typing.Optional["Quantity"] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument type", value=type, expected_type=type_hints["type"])
             check_type(argname="argument average_utilization", value=average_utilization, expected_type=type_hints["average_utilization"])
             check_type(argname="argument average_value", value=average_value, expected_type=type_hints["average_value"])
@@ -41430,7 +45372,22 @@ class MutatingWebhook:
         if isinstance(object_selector, dict):
             object_selector = LabelSelector(**object_selector)
         if __debug__:
-            type_hints = typing.get_type_hints(MutatingWebhook.__init__)
+            def stub(
+                *,
+                admission_review_versions: typing.Sequence[builtins.str],
+                client_config: typing.Union["WebhookClientConfig", typing.Dict[str, typing.Any]],
+                name: builtins.str,
+                side_effects: builtins.str,
+                failure_policy: typing.Optional[builtins.str] = None,
+                match_policy: typing.Optional[builtins.str] = None,
+                namespace_selector: typing.Optional[typing.Union[LabelSelector, typing.Dict[str, typing.Any]]] = None,
+                object_selector: typing.Optional[typing.Union[LabelSelector, typing.Dict[str, typing.Any]]] = None,
+                reinvocation_policy: typing.Optional[builtins.str] = None,
+                rules: typing.Optional[typing.Sequence[typing.Union["RuleWithOperations", typing.Dict[str, typing.Any]]]] = None,
+                timeout_seconds: typing.Optional[jsii.Number] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument admission_review_versions", value=admission_review_versions, expected_type=type_hints["admission_review_versions"])
             check_type(argname="argument client_config", value=client_config, expected_type=type_hints["client_config"])
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
@@ -41707,7 +45664,22 @@ class MutatingWebhookV1Beta1:
         if isinstance(object_selector, dict):
             object_selector = LabelSelector(**object_selector)
         if __debug__:
-            type_hints = typing.get_type_hints(MutatingWebhookV1Beta1.__init__)
+            def stub(
+                *,
+                client_config: typing.Union["WebhookClientConfigV1Beta1", typing.Dict[str, typing.Any]],
+                name: builtins.str,
+                admission_review_versions: typing.Optional[typing.Sequence[builtins.str]] = None,
+                failure_policy: typing.Optional[builtins.str] = None,
+                match_policy: typing.Optional[builtins.str] = None,
+                namespace_selector: typing.Optional[typing.Union[LabelSelector, typing.Dict[str, typing.Any]]] = None,
+                object_selector: typing.Optional[typing.Union[LabelSelector, typing.Dict[str, typing.Any]]] = None,
+                reinvocation_policy: typing.Optional[builtins.str] = None,
+                rules: typing.Optional[typing.Sequence[typing.Union["RuleWithOperationsV1Beta1", typing.Dict[str, typing.Any]]]] = None,
+                side_effects: typing.Optional[builtins.str] = None,
+                timeout_seconds: typing.Optional[jsii.Number] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument client_config", value=client_config, expected_type=type_hints["client_config"])
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
             check_type(argname="argument admission_review_versions", value=admission_review_versions, expected_type=type_hints["admission_review_versions"])
@@ -41950,7 +45922,12 @@ class NamespaceSpec:
         :schema: io.k8s.api.core.v1.NamespaceSpec
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(NamespaceSpec.__init__)
+            def stub(
+                *,
+                finalizers: typing.Optional[typing.Sequence[builtins.str]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument finalizers", value=finalizers, expected_type=type_hints["finalizers"])
         self._values: typing.Dict[str, typing.Any] = {}
         if finalizers is not None:
@@ -42001,7 +45978,13 @@ class NetworkPolicyEgressRule:
         :schema: io.k8s.api.networking.v1.NetworkPolicyEgressRule
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(NetworkPolicyEgressRule.__init__)
+            def stub(
+                *,
+                ports: typing.Optional[typing.Sequence[typing.Union["NetworkPolicyPort", typing.Dict[str, typing.Any]]]] = None,
+                to: typing.Optional[typing.Sequence[typing.Union["NetworkPolicyPeer", typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument ports", value=ports, expected_type=type_hints["ports"])
             check_type(argname="argument to", value=to, expected_type=type_hints["to"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -42064,7 +46047,13 @@ class NetworkPolicyEgressRuleV1Beta1:
         :schema: io.k8s.api.extensions.v1beta1.NetworkPolicyEgressRule
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(NetworkPolicyEgressRuleV1Beta1.__init__)
+            def stub(
+                *,
+                ports: typing.Optional[typing.Sequence[typing.Union["NetworkPolicyPortV1Beta1", typing.Dict[str, typing.Any]]]] = None,
+                to: typing.Optional[typing.Sequence[typing.Union["NetworkPolicyPeerV1Beta1", typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument ports", value=ports, expected_type=type_hints["ports"])
             check_type(argname="argument to", value=to, expected_type=type_hints["to"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -42129,7 +46118,13 @@ class NetworkPolicyIngressRule:
         :schema: io.k8s.api.networking.v1.NetworkPolicyIngressRule
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(NetworkPolicyIngressRule.__init__)
+            def stub(
+                *,
+                from_: typing.Optional[typing.Sequence[typing.Union["NetworkPolicyPeer", typing.Dict[str, typing.Any]]]] = None,
+                ports: typing.Optional[typing.Sequence[typing.Union["NetworkPolicyPort", typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument from_", value=from_, expected_type=type_hints["from_"])
             check_type(argname="argument ports", value=ports, expected_type=type_hints["ports"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -42192,7 +46187,13 @@ class NetworkPolicyIngressRuleV1Beta1:
         :schema: io.k8s.api.extensions.v1beta1.NetworkPolicyIngressRule
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(NetworkPolicyIngressRuleV1Beta1.__init__)
+            def stub(
+                *,
+                from_: typing.Optional[typing.Sequence[typing.Union["NetworkPolicyPeerV1Beta1", typing.Dict[str, typing.Any]]]] = None,
+                ports: typing.Optional[typing.Sequence[typing.Union["NetworkPolicyPortV1Beta1", typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument from_", value=from_, expected_type=type_hints["from_"])
             check_type(argname="argument ports", value=ports, expected_type=type_hints["ports"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -42269,7 +46270,14 @@ class NetworkPolicyPeer:
         if isinstance(pod_selector, dict):
             pod_selector = LabelSelector(**pod_selector)
         if __debug__:
-            type_hints = typing.get_type_hints(NetworkPolicyPeer.__init__)
+            def stub(
+                *,
+                ip_block: typing.Optional[typing.Union[IpBlock, typing.Dict[str, typing.Any]]] = None,
+                namespace_selector: typing.Optional[typing.Union[LabelSelector, typing.Dict[str, typing.Any]]] = None,
+                pod_selector: typing.Optional[typing.Union[LabelSelector, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument ip_block", value=ip_block, expected_type=type_hints["ip_block"])
             check_type(argname="argument namespace_selector", value=namespace_selector, expected_type=type_hints["namespace_selector"])
             check_type(argname="argument pod_selector", value=pod_selector, expected_type=type_hints["pod_selector"])
@@ -42362,7 +46370,14 @@ class NetworkPolicyPeerV1Beta1:
         if isinstance(pod_selector, dict):
             pod_selector = LabelSelector(**pod_selector)
         if __debug__:
-            type_hints = typing.get_type_hints(NetworkPolicyPeerV1Beta1.__init__)
+            def stub(
+                *,
+                ip_block: typing.Optional[typing.Union[IpBlockV1Beta1, typing.Dict[str, typing.Any]]] = None,
+                namespace_selector: typing.Optional[typing.Union[LabelSelector, typing.Dict[str, typing.Any]]] = None,
+                pod_selector: typing.Optional[typing.Union[LabelSelector, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument ip_block", value=ip_block, expected_type=type_hints["ip_block"])
             check_type(argname="argument namespace_selector", value=namespace_selector, expected_type=type_hints["namespace_selector"])
             check_type(argname="argument pod_selector", value=pod_selector, expected_type=type_hints["pod_selector"])
@@ -42443,7 +46458,13 @@ class NetworkPolicyPort:
         :schema: io.k8s.api.networking.v1.NetworkPolicyPort
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(NetworkPolicyPort.__init__)
+            def stub(
+                *,
+                port: typing.Optional[IntOrString] = None,
+                protocol: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument port", value=port, expected_type=type_hints["port"])
             check_type(argname="argument protocol", value=protocol, expected_type=type_hints["protocol"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -42506,7 +46527,13 @@ class NetworkPolicyPortV1Beta1:
         :schema: io.k8s.api.extensions.v1beta1.NetworkPolicyPort
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(NetworkPolicyPortV1Beta1.__init__)
+            def stub(
+                *,
+                port: typing.Optional[IntOrString] = None,
+                protocol: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument port", value=port, expected_type=type_hints["port"])
             check_type(argname="argument protocol", value=protocol, expected_type=type_hints["protocol"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -42580,7 +46607,15 @@ class NetworkPolicySpec:
         if isinstance(pod_selector, dict):
             pod_selector = LabelSelector(**pod_selector)
         if __debug__:
-            type_hints = typing.get_type_hints(NetworkPolicySpec.__init__)
+            def stub(
+                *,
+                pod_selector: typing.Union[LabelSelector, typing.Dict[str, typing.Any]],
+                egress: typing.Optional[typing.Sequence[typing.Union[NetworkPolicyEgressRule, typing.Dict[str, typing.Any]]]] = None,
+                ingress: typing.Optional[typing.Sequence[typing.Union[NetworkPolicyIngressRule, typing.Dict[str, typing.Any]]]] = None,
+                policy_types: typing.Optional[typing.Sequence[builtins.str]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument pod_selector", value=pod_selector, expected_type=type_hints["pod_selector"])
             check_type(argname="argument egress", value=egress, expected_type=type_hints["egress"])
             check_type(argname="argument ingress", value=ingress, expected_type=type_hints["ingress"])
@@ -42683,7 +46718,15 @@ class NetworkPolicySpecV1Beta1:
         if isinstance(pod_selector, dict):
             pod_selector = LabelSelector(**pod_selector)
         if __debug__:
-            type_hints = typing.get_type_hints(NetworkPolicySpecV1Beta1.__init__)
+            def stub(
+                *,
+                pod_selector: typing.Union[LabelSelector, typing.Dict[str, typing.Any]],
+                egress: typing.Optional[typing.Sequence[typing.Union[NetworkPolicyEgressRuleV1Beta1, typing.Dict[str, typing.Any]]]] = None,
+                ingress: typing.Optional[typing.Sequence[typing.Union[NetworkPolicyIngressRuleV1Beta1, typing.Dict[str, typing.Any]]]] = None,
+                policy_types: typing.Optional[typing.Sequence[builtins.str]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument pod_selector", value=pod_selector, expected_type=type_hints["pod_selector"])
             check_type(argname="argument egress", value=egress, expected_type=type_hints["egress"])
             check_type(argname="argument ingress", value=ingress, expected_type=type_hints["ingress"])
@@ -42779,7 +46822,14 @@ class NfsVolumeSource:
         :schema: io.k8s.api.core.v1.NFSVolumeSource
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(NfsVolumeSource.__init__)
+            def stub(
+                *,
+                path: builtins.str,
+                server: builtins.str,
+                read_only: typing.Optional[builtins.bool] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument path", value=path, expected_type=type_hints["path"])
             check_type(argname="argument server", value=server, expected_type=type_hints["server"])
             check_type(argname="argument read_only", value=read_only, expected_type=type_hints["read_only"])
@@ -42864,7 +46914,13 @@ class NodeAffinity:
         if isinstance(required_during_scheduling_ignored_during_execution, dict):
             required_during_scheduling_ignored_during_execution = NodeSelector(**required_during_scheduling_ignored_during_execution)
         if __debug__:
-            type_hints = typing.get_type_hints(NodeAffinity.__init__)
+            def stub(
+                *,
+                preferred_during_scheduling_ignored_during_execution: typing.Optional[typing.Sequence[typing.Union["PreferredSchedulingTerm", typing.Dict[str, typing.Any]]]] = None,
+                required_during_scheduling_ignored_during_execution: typing.Optional[typing.Union["NodeSelector", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument preferred_during_scheduling_ignored_during_execution", value=preferred_during_scheduling_ignored_during_execution, expected_type=type_hints["preferred_during_scheduling_ignored_during_execution"])
             check_type(argname="argument required_during_scheduling_ignored_during_execution", value=required_during_scheduling_ignored_during_execution, expected_type=type_hints["required_during_scheduling_ignored_during_execution"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -42933,7 +46989,12 @@ class NodeConfigSource:
         if isinstance(config_map, dict):
             config_map = ConfigMapNodeConfigSource(**config_map)
         if __debug__:
-            type_hints = typing.get_type_hints(NodeConfigSource.__init__)
+            def stub(
+                *,
+                config_map: typing.Optional[typing.Union[ConfigMapNodeConfigSource, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument config_map", value=config_map, expected_type=type_hints["config_map"])
         self._values: typing.Dict[str, typing.Any] = {}
         if config_map is not None:
@@ -42980,7 +47041,12 @@ class NodeSelector:
         :schema: io.k8s.api.core.v1.NodeSelector
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(NodeSelector.__init__)
+            def stub(
+                *,
+                node_selector_terms: typing.Sequence[typing.Union["NodeSelectorTerm", typing.Dict[str, typing.Any]]],
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument node_selector_terms", value=node_selector_terms, expected_type=type_hints["node_selector_terms"])
         self._values: typing.Dict[str, typing.Any] = {
             "node_selector_terms": node_selector_terms,
@@ -43032,7 +47098,14 @@ class NodeSelectorRequirement:
         :schema: io.k8s.api.core.v1.NodeSelectorRequirement
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(NodeSelectorRequirement.__init__)
+            def stub(
+                *,
+                key: builtins.str,
+                operator: builtins.str,
+                values: typing.Optional[typing.Sequence[builtins.str]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument key", value=key, expected_type=type_hints["key"])
             check_type(argname="argument operator", value=operator, expected_type=type_hints["operator"])
             check_type(argname="argument values", value=values, expected_type=type_hints["values"])
@@ -43113,7 +47186,13 @@ class NodeSelectorTerm:
         :schema: io.k8s.api.core.v1.NodeSelectorTerm
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(NodeSelectorTerm.__init__)
+            def stub(
+                *,
+                match_expressions: typing.Optional[typing.Sequence[typing.Union[NodeSelectorRequirement, typing.Dict[str, typing.Any]]]] = None,
+                match_fields: typing.Optional[typing.Sequence[typing.Union[NodeSelectorRequirement, typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument match_expressions", value=match_expressions, expected_type=type_hints["match_expressions"])
             check_type(argname="argument match_fields", value=match_fields, expected_type=type_hints["match_fields"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -43194,7 +47273,18 @@ class NodeSpec:
         if isinstance(config_source, dict):
             config_source = NodeConfigSource(**config_source)
         if __debug__:
-            type_hints = typing.get_type_hints(NodeSpec.__init__)
+            def stub(
+                *,
+                config_source: typing.Optional[typing.Union[NodeConfigSource, typing.Dict[str, typing.Any]]] = None,
+                external_id: typing.Optional[builtins.str] = None,
+                pod_cidr: typing.Optional[builtins.str] = None,
+                pod_cid_rs: typing.Optional[typing.Sequence[builtins.str]] = None,
+                provider_id: typing.Optional[builtins.str] = None,
+                taints: typing.Optional[typing.Sequence[typing.Union["Taint", typing.Dict[str, typing.Any]]]] = None,
+                unschedulable: typing.Optional[builtins.bool] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument config_source", value=config_source, expected_type=type_hints["config_source"])
             check_type(argname="argument external_id", value=external_id, expected_type=type_hints["external_id"])
             check_type(argname="argument pod_cidr", value=pod_cidr, expected_type=type_hints["pod_cidr"])
@@ -43319,7 +47409,13 @@ class NonResourceAttributes:
         :schema: io.k8s.api.authorization.v1.NonResourceAttributes
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(NonResourceAttributes.__init__)
+            def stub(
+                *,
+                path: typing.Optional[builtins.str] = None,
+                verb: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument path", value=path, expected_type=type_hints["path"])
             check_type(argname="argument verb", value=verb, expected_type=type_hints["verb"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -43378,7 +47474,13 @@ class NonResourceAttributesV1Beta1:
         :schema: io.k8s.api.authorization.v1beta1.NonResourceAttributes
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(NonResourceAttributesV1Beta1.__init__)
+            def stub(
+                *,
+                path: typing.Optional[builtins.str] = None,
+                verb: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument path", value=path, expected_type=type_hints["path"])
             check_type(argname="argument verb", value=verb, expected_type=type_hints["verb"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -43439,7 +47541,13 @@ class NonResourcePolicyRuleV1Alpha1:
         :schema: io.k8s.api.flowcontrol.v1alpha1.NonResourcePolicyRule
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(NonResourcePolicyRuleV1Alpha1.__init__)
+            def stub(
+                *,
+                non_resource_ur_ls: typing.Sequence[builtins.str],
+                verbs: typing.Sequence[builtins.str],
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument non_resource_ur_ls", value=non_resource_ur_ls, expected_type=type_hints["non_resource_ur_ls"])
             check_type(argname="argument verbs", value=verbs, expected_type=type_hints["verbs"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -43510,7 +47618,13 @@ class ObjectFieldSelector:
         :schema: io.k8s.api.core.v1.ObjectFieldSelector
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(ObjectFieldSelector.__init__)
+            def stub(
+                *,
+                field_path: builtins.str,
+                api_version: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument field_path", value=field_path, expected_type=type_hints["field_path"])
             check_type(argname="argument api_version", value=api_version, expected_type=type_hints["api_version"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -43615,7 +47729,27 @@ class ObjectMeta:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(ObjectMeta.__init__)
+            def stub(
+                *,
+                annotations: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
+                cluster_name: typing.Optional[builtins.str] = None,
+                creation_timestamp: typing.Optional[datetime.datetime] = None,
+                deletion_grace_period_seconds: typing.Optional[jsii.Number] = None,
+                deletion_timestamp: typing.Optional[datetime.datetime] = None,
+                finalizers: typing.Optional[typing.Sequence[builtins.str]] = None,
+                generate_name: typing.Optional[builtins.str] = None,
+                generation: typing.Optional[jsii.Number] = None,
+                labels: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
+                managed_fields: typing.Optional[typing.Sequence[typing.Union[ManagedFieldsEntry, typing.Dict[str, typing.Any]]]] = None,
+                name: typing.Optional[builtins.str] = None,
+                namespace: typing.Optional[builtins.str] = None,
+                owner_references: typing.Optional[typing.Sequence[typing.Union["OwnerReference", typing.Dict[str, typing.Any]]]] = None,
+                resource_version: typing.Optional[builtins.str] = None,
+                self_link: typing.Optional[builtins.str] = None,
+                uid: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument annotations", value=annotations, expected_type=type_hints["annotations"])
             check_type(argname="argument cluster_name", value=cluster_name, expected_type=type_hints["cluster_name"])
             check_type(argname="argument creation_timestamp", value=creation_timestamp, expected_type=type_hints["creation_timestamp"])
@@ -43906,7 +48040,16 @@ class ObjectMetricSourceV2Beta1:
         if isinstance(selector, dict):
             selector = LabelSelector(**selector)
         if __debug__:
-            type_hints = typing.get_type_hints(ObjectMetricSourceV2Beta1.__init__)
+            def stub(
+                *,
+                metric_name: builtins.str,
+                target: typing.Union[CrossVersionObjectReferenceV2Beta1, typing.Dict[str, typing.Any]],
+                target_value: "Quantity",
+                average_value: typing.Optional["Quantity"] = None,
+                selector: typing.Optional[typing.Union[LabelSelector, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metric_name", value=metric_name, expected_type=type_hints["metric_name"])
             check_type(argname="argument target", value=target, expected_type=type_hints["target"])
             check_type(argname="argument target_value", value=target_value, expected_type=type_hints["target_value"])
@@ -44014,7 +48157,14 @@ class ObjectMetricSourceV2Beta2:
         if isinstance(target, dict):
             target = MetricTargetV2Beta2(**target)
         if __debug__:
-            type_hints = typing.get_type_hints(ObjectMetricSourceV2Beta2.__init__)
+            def stub(
+                *,
+                described_object: typing.Union[CrossVersionObjectReferenceV2Beta2, typing.Dict[str, typing.Any]],
+                metric: typing.Union[MetricIdentifierV2Beta2, typing.Dict[str, typing.Any]],
+                target: typing.Union[MetricTargetV2Beta2, typing.Dict[str, typing.Any]],
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument described_object", value=described_object, expected_type=type_hints["described_object"])
             check_type(argname="argument metric", value=metric, expected_type=type_hints["metric"])
             check_type(argname="argument target", value=target, expected_type=type_hints["target"])
@@ -44103,7 +48253,18 @@ class ObjectReference:
         :schema: io.k8s.api.core.v1.ObjectReference
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(ObjectReference.__init__)
+            def stub(
+                *,
+                api_version: typing.Optional[builtins.str] = None,
+                field_path: typing.Optional[builtins.str] = None,
+                kind: typing.Optional[builtins.str] = None,
+                name: typing.Optional[builtins.str] = None,
+                namespace: typing.Optional[builtins.str] = None,
+                resource_version: typing.Optional[builtins.str] = None,
+                uid: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument api_version", value=api_version, expected_type=type_hints["api_version"])
             check_type(argname="argument field_path", value=field_path, expected_type=type_hints["field_path"])
             check_type(argname="argument kind", value=kind, expected_type=type_hints["kind"])
@@ -44230,7 +48391,12 @@ class OverheadV1Alpha1:
         :schema: io.k8s.api.node.v1alpha1.Overhead
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(OverheadV1Alpha1.__init__)
+            def stub(
+                *,
+                pod_fixed: typing.Optional[typing.Mapping[builtins.str, "Quantity"]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument pod_fixed", value=pod_fixed, expected_type=type_hints["pod_fixed"])
         self._values: typing.Dict[str, typing.Any] = {}
         if pod_fixed is not None:
@@ -44275,7 +48441,12 @@ class OverheadV1Beta1:
         :schema: io.k8s.api.node.v1beta1.Overhead
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(OverheadV1Beta1.__init__)
+            def stub(
+                *,
+                pod_fixed: typing.Optional[typing.Mapping[builtins.str, "Quantity"]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument pod_fixed", value=pod_fixed, expected_type=type_hints["pod_fixed"])
         self._values: typing.Dict[str, typing.Any] = {}
         if pod_fixed is not None:
@@ -44339,7 +48510,17 @@ class OwnerReference:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.OwnerReference
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(OwnerReference.__init__)
+            def stub(
+                *,
+                api_version: builtins.str,
+                kind: builtins.str,
+                name: builtins.str,
+                uid: builtins.str,
+                block_owner_deletion: typing.Optional[builtins.bool] = None,
+                controller: typing.Optional[builtins.bool] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument api_version", value=api_version, expected_type=type_hints["api_version"])
             check_type(argname="argument kind", value=kind, expected_type=type_hints["kind"])
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
@@ -44481,7 +48662,18 @@ class PersistentVolumeClaimSpec:
         if isinstance(selector, dict):
             selector = LabelSelector(**selector)
         if __debug__:
-            type_hints = typing.get_type_hints(PersistentVolumeClaimSpec.__init__)
+            def stub(
+                *,
+                access_modes: typing.Optional[typing.Sequence[builtins.str]] = None,
+                data_source: typing.Optional[typing.Union["TypedLocalObjectReference", typing.Dict[str, typing.Any]]] = None,
+                resources: typing.Optional[typing.Union["ResourceRequirements", typing.Dict[str, typing.Any]]] = None,
+                selector: typing.Optional[typing.Union[LabelSelector, typing.Dict[str, typing.Any]]] = None,
+                storage_class_name: typing.Optional[builtins.str] = None,
+                volume_mode: typing.Optional[builtins.str] = None,
+                volume_name: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument access_modes", value=access_modes, expected_type=type_hints["access_modes"])
             check_type(argname="argument data_source", value=data_source, expected_type=type_hints["data_source"])
             check_type(argname="argument resources", value=resources, expected_type=type_hints["resources"])
@@ -44612,7 +48804,13 @@ class PersistentVolumeClaimVolumeSource:
         :schema: io.k8s.api.core.v1.PersistentVolumeClaimVolumeSource
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(PersistentVolumeClaimVolumeSource.__init__)
+            def stub(
+                *,
+                claim_name: builtins.str,
+                read_only: typing.Optional[builtins.bool] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument claim_name", value=claim_name, expected_type=type_hints["claim_name"])
             check_type(argname="argument read_only", value=read_only, expected_type=type_hints["read_only"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -44811,7 +49009,41 @@ class PersistentVolumeSpec:
         if isinstance(vsphere_volume, dict):
             vsphere_volume = VsphereVirtualDiskVolumeSource(**vsphere_volume)
         if __debug__:
-            type_hints = typing.get_type_hints(PersistentVolumeSpec.__init__)
+            def stub(
+                *,
+                access_modes: typing.Optional[typing.Sequence[builtins.str]] = None,
+                aws_elastic_block_store: typing.Optional[typing.Union[AwsElasticBlockStoreVolumeSource, typing.Dict[str, typing.Any]]] = None,
+                azure_disk: typing.Optional[typing.Union[AzureDiskVolumeSource, typing.Dict[str, typing.Any]]] = None,
+                azure_file: typing.Optional[typing.Union[AzureFilePersistentVolumeSource, typing.Dict[str, typing.Any]]] = None,
+                capacity: typing.Optional[typing.Mapping[builtins.str, "Quantity"]] = None,
+                cephfs: typing.Optional[typing.Union[CephFsPersistentVolumeSource, typing.Dict[str, typing.Any]]] = None,
+                cinder: typing.Optional[typing.Union[CinderPersistentVolumeSource, typing.Dict[str, typing.Any]]] = None,
+                claim_ref: typing.Optional[typing.Union[ObjectReference, typing.Dict[str, typing.Any]]] = None,
+                csi: typing.Optional[typing.Union[CsiPersistentVolumeSource, typing.Dict[str, typing.Any]]] = None,
+                fc: typing.Optional[typing.Union[FcVolumeSource, typing.Dict[str, typing.Any]]] = None,
+                flex_volume: typing.Optional[typing.Union[FlexPersistentVolumeSource, typing.Dict[str, typing.Any]]] = None,
+                flocker: typing.Optional[typing.Union[FlockerVolumeSource, typing.Dict[str, typing.Any]]] = None,
+                gce_persistent_disk: typing.Optional[typing.Union[GcePersistentDiskVolumeSource, typing.Dict[str, typing.Any]]] = None,
+                glusterfs: typing.Optional[typing.Union[GlusterfsPersistentVolumeSource, typing.Dict[str, typing.Any]]] = None,
+                host_path: typing.Optional[typing.Union[HostPathVolumeSource, typing.Dict[str, typing.Any]]] = None,
+                iscsi: typing.Optional[typing.Union[IscsiPersistentVolumeSource, typing.Dict[str, typing.Any]]] = None,
+                local: typing.Optional[typing.Union[LocalVolumeSource, typing.Dict[str, typing.Any]]] = None,
+                mount_options: typing.Optional[typing.Sequence[builtins.str]] = None,
+                nfs: typing.Optional[typing.Union[NfsVolumeSource, typing.Dict[str, typing.Any]]] = None,
+                node_affinity: typing.Optional[typing.Union["VolumeNodeAffinity", typing.Dict[str, typing.Any]]] = None,
+                persistent_volume_reclaim_policy: typing.Optional[builtins.str] = None,
+                photon_persistent_disk: typing.Optional[typing.Union["PhotonPersistentDiskVolumeSource", typing.Dict[str, typing.Any]]] = None,
+                portworx_volume: typing.Optional[typing.Union["PortworxVolumeSource", typing.Dict[str, typing.Any]]] = None,
+                quobyte: typing.Optional[typing.Union["QuobyteVolumeSource", typing.Dict[str, typing.Any]]] = None,
+                rbd: typing.Optional[typing.Union["RbdPersistentVolumeSource", typing.Dict[str, typing.Any]]] = None,
+                scale_io: typing.Optional[typing.Union["ScaleIoPersistentVolumeSource", typing.Dict[str, typing.Any]]] = None,
+                storage_class_name: typing.Optional[builtins.str] = None,
+                storageos: typing.Optional[typing.Union["StorageOsPersistentVolumeSource", typing.Dict[str, typing.Any]]] = None,
+                volume_mode: typing.Optional[builtins.str] = None,
+                vsphere_volume: typing.Optional[typing.Union["VsphereVirtualDiskVolumeSource", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument access_modes", value=access_modes, expected_type=type_hints["access_modes"])
             check_type(argname="argument aws_elastic_block_store", value=aws_elastic_block_store, expected_type=type_hints["aws_elastic_block_store"])
             check_type(argname="argument azure_disk", value=azure_disk, expected_type=type_hints["azure_disk"])
@@ -45242,7 +49474,13 @@ class PhotonPersistentDiskVolumeSource:
         :schema: io.k8s.api.core.v1.PhotonPersistentDiskVolumeSource
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(PhotonPersistentDiskVolumeSource.__init__)
+            def stub(
+                *,
+                pd_id: builtins.str,
+                fs_type: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument pd_id", value=pd_id, expected_type=type_hints["pd_id"])
             check_type(argname="argument fs_type", value=fs_type, expected_type=type_hints["fs_type"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -45307,7 +49545,13 @@ class PodAffinity:
         :schema: io.k8s.api.core.v1.PodAffinity
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(PodAffinity.__init__)
+            def stub(
+                *,
+                preferred_during_scheduling_ignored_during_execution: typing.Optional[typing.Sequence[typing.Union["WeightedPodAffinityTerm", typing.Dict[str, typing.Any]]]] = None,
+                required_during_scheduling_ignored_during_execution: typing.Optional[typing.Sequence[typing.Union["PodAffinityTerm", typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument preferred_during_scheduling_ignored_during_execution", value=preferred_during_scheduling_ignored_during_execution, expected_type=type_hints["preferred_during_scheduling_ignored_during_execution"])
             check_type(argname="argument required_during_scheduling_ignored_during_execution", value=required_during_scheduling_ignored_during_execution, expected_type=type_hints["required_during_scheduling_ignored_during_execution"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -45382,7 +49626,14 @@ class PodAffinityTerm:
         if isinstance(label_selector, dict):
             label_selector = LabelSelector(**label_selector)
         if __debug__:
-            type_hints = typing.get_type_hints(PodAffinityTerm.__init__)
+            def stub(
+                *,
+                topology_key: builtins.str,
+                label_selector: typing.Optional[typing.Union[LabelSelector, typing.Dict[str, typing.Any]]] = None,
+                namespaces: typing.Optional[typing.Sequence[builtins.str]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument topology_key", value=topology_key, expected_type=type_hints["topology_key"])
             check_type(argname="argument label_selector", value=label_selector, expected_type=type_hints["label_selector"])
             check_type(argname="argument namespaces", value=namespaces, expected_type=type_hints["namespaces"])
@@ -45461,7 +49712,13 @@ class PodAntiAffinity:
         :schema: io.k8s.api.core.v1.PodAntiAffinity
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(PodAntiAffinity.__init__)
+            def stub(
+                *,
+                preferred_during_scheduling_ignored_during_execution: typing.Optional[typing.Sequence[typing.Union["WeightedPodAffinityTerm", typing.Dict[str, typing.Any]]]] = None,
+                required_during_scheduling_ignored_during_execution: typing.Optional[typing.Sequence[typing.Union[PodAffinityTerm, typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument preferred_during_scheduling_ignored_during_execution", value=preferred_during_scheduling_ignored_during_execution, expected_type=type_hints["preferred_during_scheduling_ignored_during_execution"])
             check_type(argname="argument required_during_scheduling_ignored_during_execution", value=required_during_scheduling_ignored_during_execution, expected_type=type_hints["required_during_scheduling_ignored_during_execution"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -45536,7 +49793,14 @@ class PodDisruptionBudgetSpecV1Beta1:
         if isinstance(selector, dict):
             selector = LabelSelector(**selector)
         if __debug__:
-            type_hints = typing.get_type_hints(PodDisruptionBudgetSpecV1Beta1.__init__)
+            def stub(
+                *,
+                max_unavailable: typing.Optional[IntOrString] = None,
+                min_available: typing.Optional[IntOrString] = None,
+                selector: typing.Optional[typing.Union[LabelSelector, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument max_unavailable", value=max_unavailable, expected_type=type_hints["max_unavailable"])
             check_type(argname="argument min_available", value=min_available, expected_type=type_hints["min_available"])
             check_type(argname="argument selector", value=selector, expected_type=type_hints["selector"])
@@ -45613,7 +49877,14 @@ class PodDnsConfig:
         :schema: io.k8s.api.core.v1.PodDNSConfig
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(PodDnsConfig.__init__)
+            def stub(
+                *,
+                nameservers: typing.Optional[typing.Sequence[builtins.str]] = None,
+                options: typing.Optional[typing.Sequence[typing.Union["PodDnsConfigOption", typing.Dict[str, typing.Any]]]] = None,
+                searches: typing.Optional[typing.Sequence[builtins.str]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument nameservers", value=nameservers, expected_type=type_hints["nameservers"])
             check_type(argname="argument options", value=options, expected_type=type_hints["options"])
             check_type(argname="argument searches", value=searches, expected_type=type_hints["searches"])
@@ -45690,7 +49961,13 @@ class PodDnsConfigOption:
         :schema: io.k8s.api.core.v1.PodDNSConfigOption
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(PodDnsConfigOption.__init__)
+            def stub(
+                *,
+                name: typing.Optional[builtins.str] = None,
+                value: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
             check_type(argname="argument value", value=value, expected_type=type_hints["value"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -45762,7 +50039,16 @@ class PodPresetSpecV1Alpha1:
         if isinstance(selector, dict):
             selector = LabelSelector(**selector)
         if __debug__:
-            type_hints = typing.get_type_hints(PodPresetSpecV1Alpha1.__init__)
+            def stub(
+                *,
+                env: typing.Optional[typing.Sequence[typing.Union[EnvVar, typing.Dict[str, typing.Any]]]] = None,
+                env_from: typing.Optional[typing.Sequence[typing.Union[EnvFromSource, typing.Dict[str, typing.Any]]]] = None,
+                selector: typing.Optional[typing.Union[LabelSelector, typing.Dict[str, typing.Any]]] = None,
+                volume_mounts: typing.Optional[typing.Sequence[typing.Union["VolumeMount", typing.Dict[str, typing.Any]]]] = None,
+                volumes: typing.Optional[typing.Sequence[typing.Union["Volume", typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument env", value=env, expected_type=type_hints["env"])
             check_type(argname="argument env_from", value=env_from, expected_type=type_hints["env_from"])
             check_type(argname="argument selector", value=selector, expected_type=type_hints["selector"])
@@ -45853,7 +50139,9 @@ class PodReadinessGate:
         :schema: io.k8s.api.core.v1.PodReadinessGate
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(PodReadinessGate.__init__)
+            def stub(*, condition_type: builtins.str) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument condition_type", value=condition_type, expected_type=type_hints["condition_type"])
         self._values: typing.Dict[str, typing.Any] = {
             "condition_type": condition_type,
@@ -45928,7 +50216,19 @@ class PodSecurityContext:
         if isinstance(windows_options, dict):
             windows_options = WindowsSecurityContextOptions(**windows_options)
         if __debug__:
-            type_hints = typing.get_type_hints(PodSecurityContext.__init__)
+            def stub(
+                *,
+                fs_group: typing.Optional[jsii.Number] = None,
+                run_as_group: typing.Optional[jsii.Number] = None,
+                run_as_non_root: typing.Optional[builtins.bool] = None,
+                run_as_user: typing.Optional[jsii.Number] = None,
+                se_linux_options: typing.Optional[typing.Union["SeLinuxOptions", typing.Dict[str, typing.Any]]] = None,
+                supplemental_groups: typing.Optional[typing.Sequence[jsii.Number]] = None,
+                sysctls: typing.Optional[typing.Sequence[typing.Union["Sysctl", typing.Dict[str, typing.Any]]]] = None,
+                windows_options: typing.Optional[typing.Union["WindowsSecurityContextOptions", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument fs_group", value=fs_group, expected_type=type_hints["fs_group"])
             check_type(argname="argument run_as_group", value=run_as_group, expected_type=type_hints["run_as_group"])
             check_type(argname="argument run_as_non_root", value=run_as_non_root, expected_type=type_hints["run_as_non_root"])
@@ -46162,7 +50462,35 @@ class PodSecurityPolicySpecV1Beta1:
         if isinstance(runtime_class, dict):
             runtime_class = RuntimeClassStrategyOptionsV1Beta1(**runtime_class)
         if __debug__:
-            type_hints = typing.get_type_hints(PodSecurityPolicySpecV1Beta1.__init__)
+            def stub(
+                *,
+                fs_group: typing.Union[FsGroupStrategyOptionsV1Beta1, typing.Dict[str, typing.Any]],
+                run_as_user: typing.Union["RunAsUserStrategyOptionsV1Beta1", typing.Dict[str, typing.Any]],
+                se_linux: typing.Union["SeLinuxStrategyOptionsV1Beta1", typing.Dict[str, typing.Any]],
+                supplemental_groups: typing.Union["SupplementalGroupsStrategyOptionsV1Beta1", typing.Dict[str, typing.Any]],
+                allowed_capabilities: typing.Optional[typing.Sequence[builtins.str]] = None,
+                allowed_csi_drivers: typing.Optional[typing.Sequence[typing.Union[AllowedCsiDriverV1Beta1, typing.Dict[str, typing.Any]]]] = None,
+                allowed_flex_volumes: typing.Optional[typing.Sequence[typing.Union[AllowedFlexVolumeV1Beta1, typing.Dict[str, typing.Any]]]] = None,
+                allowed_host_paths: typing.Optional[typing.Sequence[typing.Union[AllowedHostPathV1Beta1, typing.Dict[str, typing.Any]]]] = None,
+                allowed_proc_mount_types: typing.Optional[typing.Sequence[builtins.str]] = None,
+                allowed_unsafe_sysctls: typing.Optional[typing.Sequence[builtins.str]] = None,
+                allow_privilege_escalation: typing.Optional[builtins.bool] = None,
+                default_add_capabilities: typing.Optional[typing.Sequence[builtins.str]] = None,
+                default_allow_privilege_escalation: typing.Optional[builtins.bool] = None,
+                forbidden_sysctls: typing.Optional[typing.Sequence[builtins.str]] = None,
+                host_ipc: typing.Optional[builtins.bool] = None,
+                host_network: typing.Optional[builtins.bool] = None,
+                host_pid: typing.Optional[builtins.bool] = None,
+                host_ports: typing.Optional[typing.Sequence[typing.Union[HostPortRangeV1Beta1, typing.Dict[str, typing.Any]]]] = None,
+                privileged: typing.Optional[builtins.bool] = None,
+                read_only_root_filesystem: typing.Optional[builtins.bool] = None,
+                required_drop_capabilities: typing.Optional[typing.Sequence[builtins.str]] = None,
+                run_as_group: typing.Optional[typing.Union["RunAsGroupStrategyOptionsV1Beta1", typing.Dict[str, typing.Any]]] = None,
+                runtime_class: typing.Optional[typing.Union["RuntimeClassStrategyOptionsV1Beta1", typing.Dict[str, typing.Any]]] = None,
+                volumes: typing.Optional[typing.Sequence[builtins.str]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument fs_group", value=fs_group, expected_type=type_hints["fs_group"])
             check_type(argname="argument run_as_user", value=run_as_user, expected_type=type_hints["run_as_user"])
             check_type(argname="argument se_linux", value=se_linux, expected_type=type_hints["se_linux"])
@@ -46629,7 +50957,45 @@ class PodSpec:
         if isinstance(security_context, dict):
             security_context = PodSecurityContext(**security_context)
         if __debug__:
-            type_hints = typing.get_type_hints(PodSpec.__init__)
+            def stub(
+                *,
+                containers: typing.Sequence[typing.Union[Container, typing.Dict[str, typing.Any]]],
+                active_deadline_seconds: typing.Optional[jsii.Number] = None,
+                affinity: typing.Optional[typing.Union[Affinity, typing.Dict[str, typing.Any]]] = None,
+                automount_service_account_token: typing.Optional[builtins.bool] = None,
+                dns_config: typing.Optional[typing.Union[PodDnsConfig, typing.Dict[str, typing.Any]]] = None,
+                dns_policy: typing.Optional[builtins.str] = None,
+                enable_service_links: typing.Optional[builtins.bool] = None,
+                ephemeral_containers: typing.Optional[typing.Sequence[typing.Union[EphemeralContainer, typing.Dict[str, typing.Any]]]] = None,
+                host_aliases: typing.Optional[typing.Sequence[typing.Union[HostAlias, typing.Dict[str, typing.Any]]]] = None,
+                host_ipc: typing.Optional[builtins.bool] = None,
+                hostname: typing.Optional[builtins.str] = None,
+                host_network: typing.Optional[builtins.bool] = None,
+                host_pid: typing.Optional[builtins.bool] = None,
+                image_pull_secrets: typing.Optional[typing.Sequence[typing.Union[LocalObjectReference, typing.Dict[str, typing.Any]]]] = None,
+                init_containers: typing.Optional[typing.Sequence[typing.Union[Container, typing.Dict[str, typing.Any]]]] = None,
+                node_name: typing.Optional[builtins.str] = None,
+                node_selector: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
+                overhead: typing.Optional[typing.Mapping[builtins.str, "Quantity"]] = None,
+                preemption_policy: typing.Optional[builtins.str] = None,
+                priority: typing.Optional[jsii.Number] = None,
+                priority_class_name: typing.Optional[builtins.str] = None,
+                readiness_gates: typing.Optional[typing.Sequence[typing.Union[PodReadinessGate, typing.Dict[str, typing.Any]]]] = None,
+                restart_policy: typing.Optional[builtins.str] = None,
+                runtime_class_name: typing.Optional[builtins.str] = None,
+                scheduler_name: typing.Optional[builtins.str] = None,
+                security_context: typing.Optional[typing.Union[PodSecurityContext, typing.Dict[str, typing.Any]]] = None,
+                service_account: typing.Optional[builtins.str] = None,
+                service_account_name: typing.Optional[builtins.str] = None,
+                share_process_namespace: typing.Optional[builtins.bool] = None,
+                subdomain: typing.Optional[builtins.str] = None,
+                termination_grace_period_seconds: typing.Optional[jsii.Number] = None,
+                tolerations: typing.Optional[typing.Sequence[typing.Union["Toleration", typing.Dict[str, typing.Any]]]] = None,
+                topology_spread_constraints: typing.Optional[typing.Sequence[typing.Union["TopologySpreadConstraint", typing.Dict[str, typing.Any]]]] = None,
+                volumes: typing.Optional[typing.Sequence[typing.Union["Volume", typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument containers", value=containers, expected_type=type_hints["containers"])
             check_type(argname="argument active_deadline_seconds", value=active_deadline_seconds, expected_type=type_hints["active_deadline_seconds"])
             check_type(argname="argument affinity", value=affinity, expected_type=type_hints["affinity"])
@@ -47157,7 +51523,13 @@ class PodTemplateSpec:
         if isinstance(spec, dict):
             spec = PodSpec(**spec)
         if __debug__:
-            type_hints = typing.get_type_hints(PodTemplateSpec.__init__)
+            def stub(
+                *,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[PodSpec, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -47230,7 +51602,14 @@ class PodsMetricSourceV2Beta1:
         if isinstance(selector, dict):
             selector = LabelSelector(**selector)
         if __debug__:
-            type_hints = typing.get_type_hints(PodsMetricSourceV2Beta1.__init__)
+            def stub(
+                *,
+                metric_name: builtins.str,
+                target_average_value: "Quantity",
+                selector: typing.Optional[typing.Union[LabelSelector, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metric_name", value=metric_name, expected_type=type_hints["metric_name"])
             check_type(argname="argument target_average_value", value=target_average_value, expected_type=type_hints["target_average_value"])
             check_type(argname="argument selector", value=selector, expected_type=type_hints["selector"])
@@ -47308,7 +51687,13 @@ class PodsMetricSourceV2Beta2:
         if isinstance(target, dict):
             target = MetricTargetV2Beta2(**target)
         if __debug__:
-            type_hints = typing.get_type_hints(PodsMetricSourceV2Beta2.__init__)
+            def stub(
+                *,
+                metric: typing.Union[MetricIdentifierV2Beta2, typing.Dict[str, typing.Any]],
+                target: typing.Union[MetricTargetV2Beta2, typing.Dict[str, typing.Any]],
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metric", value=metric, expected_type=type_hints["metric"])
             check_type(argname="argument target", value=target, expected_type=type_hints["target"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -47380,7 +51765,16 @@ class PolicyRule:
         :schema: io.k8s.api.rbac.v1.PolicyRule
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(PolicyRule.__init__)
+            def stub(
+                *,
+                verbs: typing.Sequence[builtins.str],
+                api_groups: typing.Optional[typing.Sequence[builtins.str]] = None,
+                non_resource_ur_ls: typing.Optional[typing.Sequence[builtins.str]] = None,
+                resource_names: typing.Optional[typing.Sequence[builtins.str]] = None,
+                resources: typing.Optional[typing.Sequence[builtins.str]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument verbs", value=verbs, expected_type=type_hints["verbs"])
             check_type(argname="argument api_groups", value=api_groups, expected_type=type_hints["api_groups"])
             check_type(argname="argument non_resource_ur_ls", value=non_resource_ur_ls, expected_type=type_hints["non_resource_ur_ls"])
@@ -47498,7 +51892,16 @@ class PolicyRuleV1Alpha1:
         :schema: io.k8s.api.rbac.v1alpha1.PolicyRule
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(PolicyRuleV1Alpha1.__init__)
+            def stub(
+                *,
+                verbs: typing.Sequence[builtins.str],
+                api_groups: typing.Optional[typing.Sequence[builtins.str]] = None,
+                non_resource_ur_ls: typing.Optional[typing.Sequence[builtins.str]] = None,
+                resource_names: typing.Optional[typing.Sequence[builtins.str]] = None,
+                resources: typing.Optional[typing.Sequence[builtins.str]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument verbs", value=verbs, expected_type=type_hints["verbs"])
             check_type(argname="argument api_groups", value=api_groups, expected_type=type_hints["api_groups"])
             check_type(argname="argument non_resource_ur_ls", value=non_resource_ur_ls, expected_type=type_hints["non_resource_ur_ls"])
@@ -47616,7 +52019,16 @@ class PolicyRuleV1Beta1:
         :schema: io.k8s.api.rbac.v1beta1.PolicyRule
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(PolicyRuleV1Beta1.__init__)
+            def stub(
+                *,
+                verbs: typing.Sequence[builtins.str],
+                api_groups: typing.Optional[typing.Sequence[builtins.str]] = None,
+                non_resource_ur_ls: typing.Optional[typing.Sequence[builtins.str]] = None,
+                resource_names: typing.Optional[typing.Sequence[builtins.str]] = None,
+                resources: typing.Optional[typing.Sequence[builtins.str]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument verbs", value=verbs, expected_type=type_hints["verbs"])
             check_type(argname="argument api_groups", value=api_groups, expected_type=type_hints["api_groups"])
             check_type(argname="argument non_resource_ur_ls", value=non_resource_ur_ls, expected_type=type_hints["non_resource_ur_ls"])
@@ -47730,7 +52142,14 @@ class PolicyRulesWithSubjectsV1Alpha1:
         :schema: io.k8s.api.flowcontrol.v1alpha1.PolicyRulesWithSubjects
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(PolicyRulesWithSubjectsV1Alpha1.__init__)
+            def stub(
+                *,
+                subjects: typing.Sequence[typing.Union["SubjectV1Alpha1", typing.Dict[str, typing.Any]]],
+                non_resource_rules: typing.Optional[typing.Sequence[typing.Union[NonResourcePolicyRuleV1Alpha1, typing.Dict[str, typing.Any]]]] = None,
+                resource_rules: typing.Optional[typing.Sequence[typing.Union["ResourcePolicyRuleV1Alpha1", typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument subjects", value=subjects, expected_type=type_hints["subjects"])
             check_type(argname="argument non_resource_rules", value=non_resource_rules, expected_type=type_hints["non_resource_rules"])
             check_type(argname="argument resource_rules", value=resource_rules, expected_type=type_hints["resource_rules"])
@@ -47810,7 +52229,13 @@ class PolicyV1Alpha1:
         :schema: io.k8s.api.auditregistration.v1alpha1.Policy
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(PolicyV1Alpha1.__init__)
+            def stub(
+                *,
+                level: builtins.str,
+                stages: typing.Optional[typing.Sequence[builtins.str]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument level", value=level, expected_type=type_hints["level"])
             check_type(argname="argument stages", value=stages, expected_type=type_hints["stages"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -47878,7 +52303,14 @@ class PortworxVolumeSource:
         :schema: io.k8s.api.core.v1.PortworxVolumeSource
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(PortworxVolumeSource.__init__)
+            def stub(
+                *,
+                volume_id: builtins.str,
+                fs_type: typing.Optional[builtins.str] = None,
+                read_only: typing.Optional[builtins.bool] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument volume_id", value=volume_id, expected_type=type_hints["volume_id"])
             check_type(argname="argument fs_type", value=fs_type, expected_type=type_hints["fs_type"])
             check_type(argname="argument read_only", value=read_only, expected_type=type_hints["read_only"])
@@ -47956,7 +52388,13 @@ class Preconditions:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.Preconditions
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(Preconditions.__init__)
+            def stub(
+                *,
+                resource_version: typing.Optional[builtins.str] = None,
+                uid: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument resource_version", value=resource_version, expected_type=type_hints["resource_version"])
             check_type(argname="argument uid", value=uid, expected_type=type_hints["uid"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -48017,7 +52455,13 @@ class PreferredSchedulingTerm:
         if isinstance(preference, dict):
             preference = NodeSelectorTerm(**preference)
         if __debug__:
-            type_hints = typing.get_type_hints(PreferredSchedulingTerm.__init__)
+            def stub(
+                *,
+                preference: typing.Union[NodeSelectorTerm, typing.Dict[str, typing.Any]],
+                weight: jsii.Number,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument preference", value=preference, expected_type=type_hints["preference"])
             check_type(argname="argument weight", value=weight, expected_type=type_hints["weight"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -48071,7 +52515,9 @@ class PriorityLevelConfigurationReferenceV1Alpha1:
         :schema: io.k8s.api.flowcontrol.v1alpha1.PriorityLevelConfigurationReference
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(PriorityLevelConfigurationReferenceV1Alpha1.__init__)
+            def stub(*, name: builtins.str) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
         self._values: typing.Dict[str, typing.Any] = {
             "name": name,
@@ -48121,7 +52567,13 @@ class PriorityLevelConfigurationSpecV1Alpha1:
         if isinstance(limited, dict):
             limited = LimitedPriorityLevelConfigurationV1Alpha1(**limited)
         if __debug__:
-            type_hints = typing.get_type_hints(PriorityLevelConfigurationSpecV1Alpha1.__init__)
+            def stub(
+                *,
+                type: builtins.str,
+                limited: typing.Optional[typing.Union[LimitedPriorityLevelConfigurationV1Alpha1, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument type", value=type, expected_type=type_hints["type"])
             check_type(argname="argument limited", value=limited, expected_type=type_hints["limited"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -48212,7 +52664,19 @@ class Probe:
         if isinstance(tcp_socket, dict):
             tcp_socket = TcpSocketAction(**tcp_socket)
         if __debug__:
-            type_hints = typing.get_type_hints(Probe.__init__)
+            def stub(
+                *,
+                exec: typing.Optional[typing.Union[ExecAction, typing.Dict[str, typing.Any]]] = None,
+                failure_threshold: typing.Optional[jsii.Number] = None,
+                http_get: typing.Optional[typing.Union[HttpGetAction, typing.Dict[str, typing.Any]]] = None,
+                initial_delay_seconds: typing.Optional[jsii.Number] = None,
+                period_seconds: typing.Optional[jsii.Number] = None,
+                success_threshold: typing.Optional[jsii.Number] = None,
+                tcp_socket: typing.Optional[typing.Union["TcpSocketAction", typing.Dict[str, typing.Any]]] = None,
+                timeout_seconds: typing.Optional[jsii.Number] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument exec", value=exec, expected_type=type_hints["exec"])
             check_type(argname="argument failure_threshold", value=failure_threshold, expected_type=type_hints["failure_threshold"])
             check_type(argname="argument http_get", value=http_get, expected_type=type_hints["http_get"])
@@ -48365,7 +52829,13 @@ class ProjectedVolumeSource:
         :schema: io.k8s.api.core.v1.ProjectedVolumeSource
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(ProjectedVolumeSource.__init__)
+            def stub(
+                *,
+                sources: typing.Sequence[typing.Union["VolumeProjection", typing.Dict[str, typing.Any]]],
+                default_mode: typing.Optional[jsii.Number] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument sources", value=sources, expected_type=type_hints["sources"])
             check_type(argname="argument default_mode", value=default_mode, expected_type=type_hints["default_mode"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -48419,7 +52889,9 @@ class Quantity(metaclass=jsii.JSIIMeta, jsii_type="k8s.Quantity"):
         :param value: -
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(Quantity.from_number)
+            def stub(value: jsii.Number) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument value", value=value, expected_type=type_hints["value"])
         return typing.cast("Quantity", jsii.sinvoke(cls, "fromNumber", [value]))
 
@@ -48430,7 +52902,9 @@ class Quantity(metaclass=jsii.JSIIMeta, jsii_type="k8s.Quantity"):
         :param value: -
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(Quantity.from_string)
+            def stub(value: builtins.str) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument value", value=value, expected_type=type_hints["value"])
         return typing.cast("Quantity", jsii.sinvoke(cls, "fromString", [value]))
 
@@ -48466,7 +52940,14 @@ class QueuingConfigurationV1Alpha1:
         :schema: io.k8s.api.flowcontrol.v1alpha1.QueuingConfiguration
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(QueuingConfigurationV1Alpha1.__init__)
+            def stub(
+                *,
+                hand_size: typing.Optional[jsii.Number] = None,
+                queue_length_limit: typing.Optional[jsii.Number] = None,
+                queues: typing.Optional[jsii.Number] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument hand_size", value=hand_size, expected_type=type_hints["hand_size"])
             check_type(argname="argument queue_length_limit", value=queue_length_limit, expected_type=type_hints["queue_length_limit"])
             check_type(argname="argument queues", value=queues, expected_type=type_hints["queues"])
@@ -48560,7 +53041,17 @@ class QuobyteVolumeSource:
         :schema: io.k8s.api.core.v1.QuobyteVolumeSource
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(QuobyteVolumeSource.__init__)
+            def stub(
+                *,
+                registry: builtins.str,
+                volume: builtins.str,
+                group: typing.Optional[builtins.str] = None,
+                read_only: typing.Optional[builtins.bool] = None,
+                tenant: typing.Optional[builtins.str] = None,
+                user: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument registry", value=registry, expected_type=type_hints["registry"])
             check_type(argname="argument volume", value=volume, expected_type=type_hints["volume"])
             check_type(argname="argument group", value=group, expected_type=type_hints["group"])
@@ -48701,7 +53192,19 @@ class RbdPersistentVolumeSource:
         if isinstance(secret_ref, dict):
             secret_ref = SecretReference(**secret_ref)
         if __debug__:
-            type_hints = typing.get_type_hints(RbdPersistentVolumeSource.__init__)
+            def stub(
+                *,
+                image: builtins.str,
+                monitors: typing.Sequence[builtins.str],
+                fs_type: typing.Optional[builtins.str] = None,
+                keyring: typing.Optional[builtins.str] = None,
+                pool: typing.Optional[builtins.str] = None,
+                read_only: typing.Optional[builtins.bool] = None,
+                secret_ref: typing.Optional[typing.Union["SecretReference", typing.Dict[str, typing.Any]]] = None,
+                user: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument image", value=image, expected_type=type_hints["image"])
             check_type(argname="argument monitors", value=monitors, expected_type=type_hints["monitors"])
             check_type(argname="argument fs_type", value=fs_type, expected_type=type_hints["fs_type"])
@@ -48884,7 +53387,19 @@ class RbdVolumeSource:
         if isinstance(secret_ref, dict):
             secret_ref = LocalObjectReference(**secret_ref)
         if __debug__:
-            type_hints = typing.get_type_hints(RbdVolumeSource.__init__)
+            def stub(
+                *,
+                image: builtins.str,
+                monitors: typing.Sequence[builtins.str],
+                fs_type: typing.Optional[builtins.str] = None,
+                keyring: typing.Optional[builtins.str] = None,
+                pool: typing.Optional[builtins.str] = None,
+                read_only: typing.Optional[builtins.bool] = None,
+                secret_ref: typing.Optional[typing.Union[LocalObjectReference, typing.Dict[str, typing.Any]]] = None,
+                user: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument image", value=image, expected_type=type_hints["image"])
             check_type(argname="argument monitors", value=monitors, expected_type=type_hints["monitors"])
             check_type(argname="argument fs_type", value=fs_type, expected_type=type_hints["fs_type"])
@@ -49055,7 +53570,15 @@ class ReplicaSetSpec:
         if isinstance(template, dict):
             template = PodTemplateSpec(**template)
         if __debug__:
-            type_hints = typing.get_type_hints(ReplicaSetSpec.__init__)
+            def stub(
+                *,
+                selector: typing.Union[LabelSelector, typing.Dict[str, typing.Any]],
+                min_ready_seconds: typing.Optional[jsii.Number] = None,
+                replicas: typing.Optional[jsii.Number] = None,
+                template: typing.Optional[typing.Union[PodTemplateSpec, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument selector", value=selector, expected_type=type_hints["selector"])
             check_type(argname="argument min_ready_seconds", value=min_ready_seconds, expected_type=type_hints["min_ready_seconds"])
             check_type(argname="argument replicas", value=replicas, expected_type=type_hints["replicas"])
@@ -49164,7 +53687,15 @@ class ReplicaSetSpecV1Beta1:
         if isinstance(template, dict):
             template = PodTemplateSpec(**template)
         if __debug__:
-            type_hints = typing.get_type_hints(ReplicaSetSpecV1Beta1.__init__)
+            def stub(
+                *,
+                min_ready_seconds: typing.Optional[jsii.Number] = None,
+                replicas: typing.Optional[jsii.Number] = None,
+                selector: typing.Optional[typing.Union[LabelSelector, typing.Dict[str, typing.Any]]] = None,
+                template: typing.Optional[typing.Union[PodTemplateSpec, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument min_ready_seconds", value=min_ready_seconds, expected_type=type_hints["min_ready_seconds"])
             check_type(argname="argument replicas", value=replicas, expected_type=type_hints["replicas"])
             check_type(argname="argument selector", value=selector, expected_type=type_hints["selector"])
@@ -49272,7 +53803,15 @@ class ReplicaSetSpecV1Beta2:
         if isinstance(template, dict):
             template = PodTemplateSpec(**template)
         if __debug__:
-            type_hints = typing.get_type_hints(ReplicaSetSpecV1Beta2.__init__)
+            def stub(
+                *,
+                selector: typing.Union[LabelSelector, typing.Dict[str, typing.Any]],
+                min_ready_seconds: typing.Optional[jsii.Number] = None,
+                replicas: typing.Optional[jsii.Number] = None,
+                template: typing.Optional[typing.Union[PodTemplateSpec, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument selector", value=selector, expected_type=type_hints["selector"])
             check_type(argname="argument min_ready_seconds", value=min_ready_seconds, expected_type=type_hints["min_ready_seconds"])
             check_type(argname="argument replicas", value=replicas, expected_type=type_hints["replicas"])
@@ -49379,7 +53918,15 @@ class ReplicationControllerSpec:
         if isinstance(template, dict):
             template = PodTemplateSpec(**template)
         if __debug__:
-            type_hints = typing.get_type_hints(ReplicationControllerSpec.__init__)
+            def stub(
+                *,
+                min_ready_seconds: typing.Optional[jsii.Number] = None,
+                replicas: typing.Optional[jsii.Number] = None,
+                selector: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
+                template: typing.Optional[typing.Union[PodTemplateSpec, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument min_ready_seconds", value=min_ready_seconds, expected_type=type_hints["min_ready_seconds"])
             check_type(argname="argument replicas", value=replicas, expected_type=type_hints["replicas"])
             check_type(argname="argument selector", value=selector, expected_type=type_hints["selector"])
@@ -49492,7 +54039,18 @@ class ResourceAttributes:
         :schema: io.k8s.api.authorization.v1.ResourceAttributes
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(ResourceAttributes.__init__)
+            def stub(
+                *,
+                group: typing.Optional[builtins.str] = None,
+                name: typing.Optional[builtins.str] = None,
+                namespace: typing.Optional[builtins.str] = None,
+                resource: typing.Optional[builtins.str] = None,
+                subresource: typing.Optional[builtins.str] = None,
+                verb: typing.Optional[builtins.str] = None,
+                version: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument group", value=group, expected_type=type_hints["group"])
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
             check_type(argname="argument namespace", value=namespace, expected_type=type_hints["namespace"])
@@ -49643,7 +54201,18 @@ class ResourceAttributesV1Beta1:
         :schema: io.k8s.api.authorization.v1beta1.ResourceAttributes
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(ResourceAttributesV1Beta1.__init__)
+            def stub(
+                *,
+                group: typing.Optional[builtins.str] = None,
+                name: typing.Optional[builtins.str] = None,
+                namespace: typing.Optional[builtins.str] = None,
+                resource: typing.Optional[builtins.str] = None,
+                subresource: typing.Optional[builtins.str] = None,
+                verb: typing.Optional[builtins.str] = None,
+                version: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument group", value=group, expected_type=type_hints["group"])
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
             check_type(argname="argument namespace", value=namespace, expected_type=type_hints["namespace"])
@@ -49782,7 +54351,14 @@ class ResourceFieldSelector:
         :schema: io.k8s.api.core.v1.ResourceFieldSelector
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(ResourceFieldSelector.__init__)
+            def stub(
+                *,
+                resource: builtins.str,
+                container_name: typing.Optional[builtins.str] = None,
+                divisor: typing.Optional[Quantity] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument resource", value=resource, expected_type=type_hints["resource"])
             check_type(argname="argument container_name", value=container_name, expected_type=type_hints["container_name"])
             check_type(argname="argument divisor", value=divisor, expected_type=type_hints["divisor"])
@@ -49860,7 +54436,14 @@ class ResourceMetricSourceV2Beta1:
         :schema: io.k8s.api.autoscaling.v2beta1.ResourceMetricSource
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(ResourceMetricSourceV2Beta1.__init__)
+            def stub(
+                *,
+                name: builtins.str,
+                target_average_utilization: typing.Optional[jsii.Number] = None,
+                target_average_value: typing.Optional[Quantity] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
             check_type(argname="argument target_average_utilization", value=target_average_utilization, expected_type=type_hints["target_average_utilization"])
             check_type(argname="argument target_average_value", value=target_average_value, expected_type=type_hints["target_average_value"])
@@ -49934,7 +54517,13 @@ class ResourceMetricSourceV2Beta2:
         if isinstance(target, dict):
             target = MetricTargetV2Beta2(**target)
         if __debug__:
-            type_hints = typing.get_type_hints(ResourceMetricSourceV2Beta2.__init__)
+            def stub(
+                *,
+                name: builtins.str,
+                target: typing.Union[MetricTargetV2Beta2, typing.Dict[str, typing.Any]],
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
             check_type(argname="argument target", value=target, expected_type=type_hints["target"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -50008,7 +54597,16 @@ class ResourcePolicyRuleV1Alpha1:
         :schema: io.k8s.api.flowcontrol.v1alpha1.ResourcePolicyRule
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(ResourcePolicyRuleV1Alpha1.__init__)
+            def stub(
+                *,
+                api_groups: typing.Sequence[builtins.str],
+                resources: typing.Sequence[builtins.str],
+                verbs: typing.Sequence[builtins.str],
+                cluster_scope: typing.Optional[builtins.bool] = None,
+                namespaces: typing.Optional[typing.Sequence[builtins.str]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument api_groups", value=api_groups, expected_type=type_hints["api_groups"])
             check_type(argname="argument resources", value=resources, expected_type=type_hints["resources"])
             check_type(argname="argument verbs", value=verbs, expected_type=type_hints["verbs"])
@@ -50120,7 +54718,14 @@ class ResourceQuotaSpec:
         if isinstance(scope_selector, dict):
             scope_selector = ScopeSelector(**scope_selector)
         if __debug__:
-            type_hints = typing.get_type_hints(ResourceQuotaSpec.__init__)
+            def stub(
+                *,
+                hard: typing.Optional[typing.Mapping[builtins.str, Quantity]] = None,
+                scopes: typing.Optional[typing.Sequence[builtins.str]] = None,
+                scope_selector: typing.Optional[typing.Union["ScopeSelector", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument hard", value=hard, expected_type=type_hints["hard"])
             check_type(argname="argument scopes", value=scopes, expected_type=type_hints["scopes"])
             check_type(argname="argument scope_selector", value=scope_selector, expected_type=type_hints["scope_selector"])
@@ -50197,7 +54802,13 @@ class ResourceRequirements:
         :schema: io.k8s.api.core.v1.ResourceRequirements
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(ResourceRequirements.__init__)
+            def stub(
+                *,
+                limits: typing.Optional[typing.Mapping[builtins.str, Quantity]] = None,
+                requests: typing.Optional[typing.Mapping[builtins.str, Quantity]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument limits", value=limits, expected_type=type_hints["limits"])
             check_type(argname="argument requests", value=requests, expected_type=type_hints["requests"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -50262,7 +54873,14 @@ class RoleRef:
         :schema: io.k8s.api.rbac.v1.RoleRef
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(RoleRef.__init__)
+            def stub(
+                *,
+                api_group: builtins.str,
+                kind: builtins.str,
+                name: builtins.str,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument api_group", value=api_group, expected_type=type_hints["api_group"])
             check_type(argname="argument kind", value=kind, expected_type=type_hints["kind"])
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
@@ -50336,7 +54954,14 @@ class RoleRefV1Alpha1:
         :schema: io.k8s.api.rbac.v1alpha1.RoleRef
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(RoleRefV1Alpha1.__init__)
+            def stub(
+                *,
+                api_group: builtins.str,
+                kind: builtins.str,
+                name: builtins.str,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument api_group", value=api_group, expected_type=type_hints["api_group"])
             check_type(argname="argument kind", value=kind, expected_type=type_hints["kind"])
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
@@ -50410,7 +55035,14 @@ class RoleRefV1Beta1:
         :schema: io.k8s.api.rbac.v1beta1.RoleRef
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(RoleRefV1Beta1.__init__)
+            def stub(
+                *,
+                api_group: builtins.str,
+                kind: builtins.str,
+                name: builtins.str,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument api_group", value=api_group, expected_type=type_hints["api_group"])
             check_type(argname="argument kind", value=kind, expected_type=type_hints["kind"])
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
@@ -50476,7 +55108,9 @@ class RollbackConfigV1Beta1:
         :schema: io.k8s.api.extensions.v1beta1.RollbackConfig
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(RollbackConfigV1Beta1.__init__)
+            def stub(*, revision: typing.Optional[jsii.Number] = None) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument revision", value=revision, expected_type=type_hints["revision"])
         self._values: typing.Dict[str, typing.Any] = {}
         if revision is not None:
@@ -50519,7 +55153,9 @@ class RollingUpdateDaemonSet:
         :schema: io.k8s.api.apps.v1.RollingUpdateDaemonSet
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(RollingUpdateDaemonSet.__init__)
+            def stub(*, max_unavailable: typing.Optional[IntOrString] = None) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument max_unavailable", value=max_unavailable, expected_type=type_hints["max_unavailable"])
         self._values: typing.Dict[str, typing.Any] = {}
         if max_unavailable is not None:
@@ -50562,7 +55198,9 @@ class RollingUpdateDaemonSetV1Beta1:
         :schema: io.k8s.api.extensions.v1beta1.RollingUpdateDaemonSet
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(RollingUpdateDaemonSetV1Beta1.__init__)
+            def stub(*, max_unavailable: typing.Optional[IntOrString] = None) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument max_unavailable", value=max_unavailable, expected_type=type_hints["max_unavailable"])
         self._values: typing.Dict[str, typing.Any] = {}
         if max_unavailable is not None:
@@ -50605,7 +55243,9 @@ class RollingUpdateDaemonSetV1Beta2:
         :schema: io.k8s.api.apps.v1beta2.RollingUpdateDaemonSet
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(RollingUpdateDaemonSetV1Beta2.__init__)
+            def stub(*, max_unavailable: typing.Optional[IntOrString] = None) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument max_unavailable", value=max_unavailable, expected_type=type_hints["max_unavailable"])
         self._values: typing.Dict[str, typing.Any] = {}
         if max_unavailable is not None:
@@ -50654,7 +55294,13 @@ class RollingUpdateDeployment:
         :schema: io.k8s.api.apps.v1.RollingUpdateDeployment
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(RollingUpdateDeployment.__init__)
+            def stub(
+                *,
+                max_surge: typing.Optional[IntOrString] = None,
+                max_unavailable: typing.Optional[IntOrString] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument max_surge", value=max_surge, expected_type=type_hints["max_surge"])
             check_type(argname="argument max_unavailable", value=max_unavailable, expected_type=type_hints["max_unavailable"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -50721,7 +55367,13 @@ class RollingUpdateDeploymentV1Beta1:
         :schema: io.k8s.api.extensions.v1beta1.RollingUpdateDeployment
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(RollingUpdateDeploymentV1Beta1.__init__)
+            def stub(
+                *,
+                max_surge: typing.Optional[IntOrString] = None,
+                max_unavailable: typing.Optional[IntOrString] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument max_surge", value=max_surge, expected_type=type_hints["max_surge"])
             check_type(argname="argument max_unavailable", value=max_unavailable, expected_type=type_hints["max_unavailable"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -50784,7 +55436,13 @@ class RollingUpdateDeploymentV1Beta2:
         :schema: io.k8s.api.apps.v1beta2.RollingUpdateDeployment
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(RollingUpdateDeploymentV1Beta2.__init__)
+            def stub(
+                *,
+                max_surge: typing.Optional[IntOrString] = None,
+                max_unavailable: typing.Optional[IntOrString] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument max_surge", value=max_surge, expected_type=type_hints["max_surge"])
             check_type(argname="argument max_unavailable", value=max_unavailable, expected_type=type_hints["max_unavailable"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -50845,7 +55503,9 @@ class RollingUpdateStatefulSetStrategy:
         :schema: io.k8s.api.apps.v1.RollingUpdateStatefulSetStrategy
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(RollingUpdateStatefulSetStrategy.__init__)
+            def stub(*, partition: typing.Optional[jsii.Number] = None) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument partition", value=partition, expected_type=type_hints["partition"])
         self._values: typing.Dict[str, typing.Any] = {}
         if partition is not None:
@@ -50888,7 +55548,9 @@ class RollingUpdateStatefulSetStrategyV1Beta1:
         :schema: io.k8s.api.apps.v1beta1.RollingUpdateStatefulSetStrategy
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(RollingUpdateStatefulSetStrategyV1Beta1.__init__)
+            def stub(*, partition: typing.Optional[jsii.Number] = None) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument partition", value=partition, expected_type=type_hints["partition"])
         self._values: typing.Dict[str, typing.Any] = {}
         if partition is not None:
@@ -50929,7 +55591,9 @@ class RollingUpdateStatefulSetStrategyV1Beta2:
         :schema: io.k8s.api.apps.v1beta2.RollingUpdateStatefulSetStrategy
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(RollingUpdateStatefulSetStrategyV1Beta2.__init__)
+            def stub(*, partition: typing.Optional[jsii.Number] = None) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument partition", value=partition, expected_type=type_hints["partition"])
         self._values: typing.Dict[str, typing.Any] = {}
         if partition is not None:
@@ -50992,7 +55656,16 @@ class RuleWithOperations:
         :schema: io.k8s.api.admissionregistration.v1.RuleWithOperations
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(RuleWithOperations.__init__)
+            def stub(
+                *,
+                api_groups: typing.Optional[typing.Sequence[builtins.str]] = None,
+                api_versions: typing.Optional[typing.Sequence[builtins.str]] = None,
+                operations: typing.Optional[typing.Sequence[builtins.str]] = None,
+                resources: typing.Optional[typing.Sequence[builtins.str]] = None,
+                scope: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument api_groups", value=api_groups, expected_type=type_hints["api_groups"])
             check_type(argname="argument api_versions", value=api_versions, expected_type=type_hints["api_versions"])
             check_type(argname="argument operations", value=operations, expected_type=type_hints["operations"])
@@ -51117,7 +55790,16 @@ class RuleWithOperationsV1Beta1:
         :schema: io.k8s.api.admissionregistration.v1beta1.RuleWithOperations
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(RuleWithOperationsV1Beta1.__init__)
+            def stub(
+                *,
+                api_groups: typing.Optional[typing.Sequence[builtins.str]] = None,
+                api_versions: typing.Optional[typing.Sequence[builtins.str]] = None,
+                operations: typing.Optional[typing.Sequence[builtins.str]] = None,
+                resources: typing.Optional[typing.Sequence[builtins.str]] = None,
+                scope: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument api_groups", value=api_groups, expected_type=type_hints["api_groups"])
             check_type(argname="argument api_versions", value=api_versions, expected_type=type_hints["api_versions"])
             check_type(argname="argument operations", value=operations, expected_type=type_hints["operations"])
@@ -51228,7 +55910,13 @@ class RunAsGroupStrategyOptionsV1Beta1:
         :schema: io.k8s.api.policy.v1beta1.RunAsGroupStrategyOptions
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(RunAsGroupStrategyOptionsV1Beta1.__init__)
+            def stub(
+                *,
+                rule: builtins.str,
+                ranges: typing.Optional[typing.Sequence[typing.Union[IdRangeV1Beta1, typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument rule", value=rule, expected_type=type_hints["rule"])
             check_type(argname="argument ranges", value=ranges, expected_type=type_hints["ranges"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -51290,7 +55978,13 @@ class RunAsUserStrategyOptionsV1Beta1:
         :schema: io.k8s.api.policy.v1beta1.RunAsUserStrategyOptions
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(RunAsUserStrategyOptionsV1Beta1.__init__)
+            def stub(
+                *,
+                rule: builtins.str,
+                ranges: typing.Optional[typing.Sequence[typing.Union[IdRangeV1Beta1, typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument rule", value=rule, expected_type=type_hints["rule"])
             check_type(argname="argument ranges", value=ranges, expected_type=type_hints["ranges"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -51364,7 +56058,14 @@ class RuntimeClassSpecV1Alpha1:
         if isinstance(scheduling, dict):
             scheduling = SchedulingV1Alpha1(**scheduling)
         if __debug__:
-            type_hints = typing.get_type_hints(RuntimeClassSpecV1Alpha1.__init__)
+            def stub(
+                *,
+                runtime_handler: builtins.str,
+                overhead: typing.Optional[typing.Union[OverheadV1Alpha1, typing.Dict[str, typing.Any]]] = None,
+                scheduling: typing.Optional[typing.Union["SchedulingV1Alpha1", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument runtime_handler", value=runtime_handler, expected_type=type_hints["runtime_handler"])
             check_type(argname="argument overhead", value=overhead, expected_type=type_hints["overhead"])
             check_type(argname="argument scheduling", value=scheduling, expected_type=type_hints["scheduling"])
@@ -51445,7 +56146,13 @@ class RuntimeClassStrategyOptionsV1Beta1:
         :schema: io.k8s.api.policy.v1beta1.RuntimeClassStrategyOptions
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(RuntimeClassStrategyOptionsV1Beta1.__init__)
+            def stub(
+                *,
+                allowed_runtime_class_names: typing.Sequence[builtins.str],
+                default_runtime_class_name: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument allowed_runtime_class_names", value=allowed_runtime_class_names, expected_type=type_hints["allowed_runtime_class_names"])
             check_type(argname="argument default_runtime_class_name", value=default_runtime_class_name, expected_type=type_hints["default_runtime_class_name"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -51538,7 +56245,21 @@ class ScaleIoPersistentVolumeSource:
         if isinstance(secret_ref, dict):
             secret_ref = SecretReference(**secret_ref)
         if __debug__:
-            type_hints = typing.get_type_hints(ScaleIoPersistentVolumeSource.__init__)
+            def stub(
+                *,
+                gateway: builtins.str,
+                secret_ref: typing.Union["SecretReference", typing.Dict[str, typing.Any]],
+                system: builtins.str,
+                fs_type: typing.Optional[builtins.str] = None,
+                protection_domain: typing.Optional[builtins.str] = None,
+                read_only: typing.Optional[builtins.bool] = None,
+                ssl_enabled: typing.Optional[builtins.bool] = None,
+                storage_mode: typing.Optional[builtins.str] = None,
+                storage_pool: typing.Optional[builtins.str] = None,
+                volume_name: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument gateway", value=gateway, expected_type=type_hints["gateway"])
             check_type(argname="argument secret_ref", value=secret_ref, expected_type=type_hints["secret_ref"])
             check_type(argname="argument system", value=system, expected_type=type_hints["system"])
@@ -51737,7 +56458,21 @@ class ScaleIoVolumeSource:
         if isinstance(secret_ref, dict):
             secret_ref = LocalObjectReference(**secret_ref)
         if __debug__:
-            type_hints = typing.get_type_hints(ScaleIoVolumeSource.__init__)
+            def stub(
+                *,
+                gateway: builtins.str,
+                secret_ref: typing.Union[LocalObjectReference, typing.Dict[str, typing.Any]],
+                system: builtins.str,
+                fs_type: typing.Optional[builtins.str] = None,
+                protection_domain: typing.Optional[builtins.str] = None,
+                read_only: typing.Optional[builtins.bool] = None,
+                ssl_enabled: typing.Optional[builtins.bool] = None,
+                storage_mode: typing.Optional[builtins.str] = None,
+                storage_pool: typing.Optional[builtins.str] = None,
+                volume_name: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument gateway", value=gateway, expected_type=type_hints["gateway"])
             check_type(argname="argument secret_ref", value=secret_ref, expected_type=type_hints["secret_ref"])
             check_type(argname="argument system", value=system, expected_type=type_hints["system"])
@@ -51901,7 +56636,9 @@ class ScaleSpec:
         :schema: io.k8s.api.autoscaling.v1.ScaleSpec
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(ScaleSpec.__init__)
+            def stub(*, replicas: typing.Optional[jsii.Number] = None) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument replicas", value=replicas, expected_type=type_hints["replicas"])
         self._values: typing.Dict[str, typing.Any] = {}
         if replicas is not None:
@@ -51942,7 +56679,9 @@ class ScaleSpecV1Beta1:
         :schema: io.k8s.api.extensions.v1beta1.ScaleSpec
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(ScaleSpecV1Beta1.__init__)
+            def stub(*, replicas: typing.Optional[jsii.Number] = None) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument replicas", value=replicas, expected_type=type_hints["replicas"])
         self._values: typing.Dict[str, typing.Any] = {}
         if replicas is not None:
@@ -51983,7 +56722,9 @@ class ScaleSpecV1Beta2:
         :schema: io.k8s.api.apps.v1beta2.ScaleSpec
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(ScaleSpecV1Beta2.__init__)
+            def stub(*, replicas: typing.Optional[jsii.Number] = None) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument replicas", value=replicas, expected_type=type_hints["replicas"])
         self._values: typing.Dict[str, typing.Any] = {}
         if replicas is not None:
@@ -52030,7 +56771,13 @@ class SchedulingV1Alpha1:
         :schema: io.k8s.api.node.v1alpha1.Scheduling
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(SchedulingV1Alpha1.__init__)
+            def stub(
+                *,
+                node_selector: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
+                tolerations: typing.Optional[typing.Sequence[typing.Union["Toleration", typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument node_selector", value=node_selector, expected_type=type_hints["node_selector"])
             check_type(argname="argument tolerations", value=tolerations, expected_type=type_hints["tolerations"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -52093,7 +56840,13 @@ class SchedulingV1Beta1:
         :schema: io.k8s.api.node.v1beta1.Scheduling
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(SchedulingV1Beta1.__init__)
+            def stub(
+                *,
+                node_selector: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
+                tolerations: typing.Optional[typing.Sequence[typing.Union["Toleration", typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument node_selector", value=node_selector, expected_type=type_hints["node_selector"])
             check_type(argname="argument tolerations", value=tolerations, expected_type=type_hints["tolerations"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -52154,7 +56907,12 @@ class ScopeSelector:
         :schema: io.k8s.api.core.v1.ScopeSelector
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(ScopeSelector.__init__)
+            def stub(
+                *,
+                match_expressions: typing.Optional[typing.Sequence[typing.Union["ScopedResourceSelectorRequirement", typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument match_expressions", value=match_expressions, expected_type=type_hints["match_expressions"])
         self._values: typing.Dict[str, typing.Any] = {}
         if match_expressions is not None:
@@ -52209,7 +56967,14 @@ class ScopedResourceSelectorRequirement:
         :schema: io.k8s.api.core.v1.ScopedResourceSelectorRequirement
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(ScopedResourceSelectorRequirement.__init__)
+            def stub(
+                *,
+                operator: builtins.str,
+                scope_name: builtins.str,
+                values: typing.Optional[typing.Sequence[builtins.str]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument operator", value=operator, expected_type=type_hints["operator"])
             check_type(argname="argument scope_name", value=scope_name, expected_type=type_hints["scope_name"])
             check_type(argname="argument values", value=values, expected_type=type_hints["values"])
@@ -52289,7 +57054,15 @@ class SeLinuxOptions:
         :schema: io.k8s.api.core.v1.SELinuxOptions
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(SeLinuxOptions.__init__)
+            def stub(
+                *,
+                level: typing.Optional[builtins.str] = None,
+                role: typing.Optional[builtins.str] = None,
+                type: typing.Optional[builtins.str] = None,
+                user: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument level", value=level, expected_type=type_hints["level"])
             check_type(argname="argument role", value=role, expected_type=type_hints["role"])
             check_type(argname="argument type", value=type, expected_type=type_hints["type"])
@@ -52374,7 +57147,13 @@ class SeLinuxStrategyOptionsV1Beta1:
         if isinstance(se_linux_options, dict):
             se_linux_options = SeLinuxOptions(**se_linux_options)
         if __debug__:
-            type_hints = typing.get_type_hints(SeLinuxStrategyOptionsV1Beta1.__init__)
+            def stub(
+                *,
+                rule: builtins.str,
+                se_linux_options: typing.Optional[typing.Union[SeLinuxOptions, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument rule", value=rule, expected_type=type_hints["rule"])
             check_type(argname="argument se_linux_options", value=se_linux_options, expected_type=type_hints["se_linux_options"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -52438,7 +57217,13 @@ class SecretEnvSource:
         :schema: io.k8s.api.core.v1.SecretEnvSource
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(SecretEnvSource.__init__)
+            def stub(
+                *,
+                name: typing.Optional[builtins.str] = None,
+                optional: typing.Optional[builtins.bool] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
             check_type(argname="argument optional", value=optional, expected_type=type_hints["optional"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -52501,7 +57286,14 @@ class SecretKeySelector:
         :schema: io.k8s.api.core.v1.SecretKeySelector
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(SecretKeySelector.__init__)
+            def stub(
+                *,
+                key: builtins.str,
+                name: typing.Optional[builtins.str] = None,
+                optional: typing.Optional[builtins.bool] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument key", value=key, expected_type=type_hints["key"])
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
             check_type(argname="argument optional", value=optional, expected_type=type_hints["optional"])
@@ -52581,7 +57373,14 @@ class SecretProjection:
         :schema: io.k8s.api.core.v1.SecretProjection
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(SecretProjection.__init__)
+            def stub(
+                *,
+                items: typing.Optional[typing.Sequence[typing.Union[KeyToPath, typing.Dict[str, typing.Any]]]] = None,
+                name: typing.Optional[builtins.str] = None,
+                optional: typing.Optional[builtins.bool] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
             check_type(argname="argument optional", value=optional, expected_type=type_hints["optional"])
@@ -52658,7 +57457,13 @@ class SecretReference:
         :schema: io.k8s.api.core.v1.SecretReference
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(SecretReference.__init__)
+            def stub(
+                *,
+                name: typing.Optional[builtins.str] = None,
+                namespace: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
             check_type(argname="argument namespace", value=namespace, expected_type=type_hints["namespace"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -52728,7 +57533,15 @@ class SecretVolumeSource:
         :schema: io.k8s.api.core.v1.SecretVolumeSource
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(SecretVolumeSource.__init__)
+            def stub(
+                *,
+                default_mode: typing.Optional[jsii.Number] = None,
+                items: typing.Optional[typing.Sequence[typing.Union[KeyToPath, typing.Dict[str, typing.Any]]]] = None,
+                optional: typing.Optional[builtins.bool] = None,
+                secret_name: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument default_mode", value=default_mode, expected_type=type_hints["default_mode"])
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument optional", value=optional, expected_type=type_hints["optional"])
@@ -52854,7 +57667,21 @@ class SecurityContext:
         if isinstance(windows_options, dict):
             windows_options = WindowsSecurityContextOptions(**windows_options)
         if __debug__:
-            type_hints = typing.get_type_hints(SecurityContext.__init__)
+            def stub(
+                *,
+                allow_privilege_escalation: typing.Optional[builtins.bool] = None,
+                capabilities: typing.Optional[typing.Union[Capabilities, typing.Dict[str, typing.Any]]] = None,
+                privileged: typing.Optional[builtins.bool] = None,
+                proc_mount: typing.Optional[builtins.str] = None,
+                read_only_root_filesystem: typing.Optional[builtins.bool] = None,
+                run_as_group: typing.Optional[jsii.Number] = None,
+                run_as_non_root: typing.Optional[builtins.bool] = None,
+                run_as_user: typing.Optional[jsii.Number] = None,
+                se_linux_options: typing.Optional[typing.Union[SeLinuxOptions, typing.Dict[str, typing.Any]]] = None,
+                windows_options: typing.Optional[typing.Union["WindowsSecurityContextOptions", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument allow_privilege_escalation", value=allow_privilege_escalation, expected_type=type_hints["allow_privilege_escalation"])
             check_type(argname="argument capabilities", value=capabilities, expected_type=type_hints["capabilities"])
             check_type(argname="argument privileged", value=privileged, expected_type=type_hints["privileged"])
@@ -53046,7 +57873,13 @@ class SelfSubjectAccessReviewSpec:
         if isinstance(resource_attributes, dict):
             resource_attributes = ResourceAttributes(**resource_attributes)
         if __debug__:
-            type_hints = typing.get_type_hints(SelfSubjectAccessReviewSpec.__init__)
+            def stub(
+                *,
+                non_resource_attributes: typing.Optional[typing.Union[NonResourceAttributes, typing.Dict[str, typing.Any]]] = None,
+                resource_attributes: typing.Optional[typing.Union[ResourceAttributes, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument non_resource_attributes", value=non_resource_attributes, expected_type=type_hints["non_resource_attributes"])
             check_type(argname="argument resource_attributes", value=resource_attributes, expected_type=type_hints["resource_attributes"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -53114,7 +57947,13 @@ class SelfSubjectAccessReviewSpecV1Beta1:
         if isinstance(resource_attributes, dict):
             resource_attributes = ResourceAttributesV1Beta1(**resource_attributes)
         if __debug__:
-            type_hints = typing.get_type_hints(SelfSubjectAccessReviewSpecV1Beta1.__init__)
+            def stub(
+                *,
+                non_resource_attributes: typing.Optional[typing.Union[NonResourceAttributesV1Beta1, typing.Dict[str, typing.Any]]] = None,
+                resource_attributes: typing.Optional[typing.Union[ResourceAttributesV1Beta1, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument non_resource_attributes", value=non_resource_attributes, expected_type=type_hints["non_resource_attributes"])
             check_type(argname="argument resource_attributes", value=resource_attributes, expected_type=type_hints["resource_attributes"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -53166,7 +58005,9 @@ class SelfSubjectRulesReviewSpec:
         :schema: io.k8s.api.authorization.v1.SelfSubjectRulesReviewSpec
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(SelfSubjectRulesReviewSpec.__init__)
+            def stub(*, namespace: typing.Optional[builtins.str] = None) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument namespace", value=namespace, expected_type=type_hints["namespace"])
         self._values: typing.Dict[str, typing.Any] = {}
         if namespace is not None:
@@ -53208,7 +58049,9 @@ class SelfSubjectRulesReviewSpecV1Beta1:
         :schema: io.k8s.api.authorization.v1beta1.SelfSubjectRulesReviewSpec
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(SelfSubjectRulesReviewSpecV1Beta1.__init__)
+            def stub(*, namespace: typing.Optional[builtins.str] = None) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument namespace", value=namespace, expected_type=type_hints["namespace"])
         self._values: typing.Dict[str, typing.Any] = {}
         if namespace is not None:
@@ -53265,7 +58108,14 @@ class ServiceAccountTokenProjection:
         :schema: io.k8s.api.core.v1.ServiceAccountTokenProjection
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(ServiceAccountTokenProjection.__init__)
+            def stub(
+                *,
+                path: builtins.str,
+                audience: typing.Optional[builtins.str] = None,
+                expiration_seconds: typing.Optional[jsii.Number] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument path", value=path, expected_type=type_hints["path"])
             check_type(argname="argument audience", value=audience, expected_type=type_hints["audience"])
             check_type(argname="argument expiration_seconds", value=expiration_seconds, expected_type=type_hints["expiration_seconds"])
@@ -53355,7 +58205,16 @@ class ServicePort:
         :schema: io.k8s.api.core.v1.ServicePort
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(ServicePort.__init__)
+            def stub(
+                *,
+                port: jsii.Number,
+                name: typing.Optional[builtins.str] = None,
+                node_port: typing.Optional[jsii.Number] = None,
+                protocol: typing.Optional[builtins.str] = None,
+                target_port: typing.Optional[IntOrString] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument port", value=port, expected_type=type_hints["port"])
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
             check_type(argname="argument node_port", value=node_port, expected_type=type_hints["node_port"])
@@ -53472,7 +58331,15 @@ class ServiceReference:
         :schema: io.k8s.api.admissionregistration.v1.ServiceReference
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(ServiceReference.__init__)
+            def stub(
+                *,
+                name: builtins.str,
+                namespace: builtins.str,
+                path: typing.Optional[builtins.str] = None,
+                port: typing.Optional[jsii.Number] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
             check_type(argname="argument namespace", value=namespace, expected_type=type_hints["namespace"])
             check_type(argname="argument path", value=path, expected_type=type_hints["path"])
@@ -53573,7 +58440,15 @@ class ServiceReferenceV1Alpha1:
         :schema: io.k8s.api.auditregistration.v1alpha1.ServiceReference
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(ServiceReferenceV1Alpha1.__init__)
+            def stub(
+                *,
+                name: builtins.str,
+                namespace: builtins.str,
+                path: typing.Optional[builtins.str] = None,
+                port: typing.Optional[jsii.Number] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
             check_type(argname="argument namespace", value=namespace, expected_type=type_hints["namespace"])
             check_type(argname="argument path", value=path, expected_type=type_hints["path"])
@@ -53674,7 +58549,15 @@ class ServiceReferenceV1Beta1:
         :schema: io.k8s.api.admissionregistration.v1beta1.ServiceReference
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(ServiceReferenceV1Beta1.__init__)
+            def stub(
+                *,
+                name: builtins.str,
+                namespace: builtins.str,
+                path: typing.Optional[builtins.str] = None,
+                port: typing.Optional[jsii.Number] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
             check_type(argname="argument namespace", value=namespace, expected_type=type_hints["namespace"])
             check_type(argname="argument path", value=path, expected_type=type_hints["path"])
@@ -53810,7 +58693,26 @@ class ServiceSpec:
         if isinstance(session_affinity_config, dict):
             session_affinity_config = SessionAffinityConfig(**session_affinity_config)
         if __debug__:
-            type_hints = typing.get_type_hints(ServiceSpec.__init__)
+            def stub(
+                *,
+                cluster_ip: typing.Optional[builtins.str] = None,
+                external_i_ps: typing.Optional[typing.Sequence[builtins.str]] = None,
+                external_name: typing.Optional[builtins.str] = None,
+                external_traffic_policy: typing.Optional[builtins.str] = None,
+                health_check_node_port: typing.Optional[jsii.Number] = None,
+                ip_family: typing.Optional[builtins.str] = None,
+                load_balancer_ip: typing.Optional[builtins.str] = None,
+                load_balancer_source_ranges: typing.Optional[typing.Sequence[builtins.str]] = None,
+                ports: typing.Optional[typing.Sequence[typing.Union[ServicePort, typing.Dict[str, typing.Any]]]] = None,
+                publish_not_ready_addresses: typing.Optional[builtins.bool] = None,
+                selector: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
+                session_affinity: typing.Optional[builtins.str] = None,
+                session_affinity_config: typing.Optional[typing.Union["SessionAffinityConfig", typing.Dict[str, typing.Any]]] = None,
+                topology_keys: typing.Optional[typing.Sequence[builtins.str]] = None,
+                type: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument cluster_ip", value=cluster_ip, expected_type=type_hints["cluster_ip"])
             check_type(argname="argument external_i_ps", value=external_i_ps, expected_type=type_hints["external_i_ps"])
             check_type(argname="argument external_name", value=external_name, expected_type=type_hints["external_name"])
@@ -54055,7 +58957,12 @@ class SessionAffinityConfig:
         if isinstance(client_ip, dict):
             client_ip = ClientIpConfig(**client_ip)
         if __debug__:
-            type_hints = typing.get_type_hints(SessionAffinityConfig.__init__)
+            def stub(
+                *,
+                client_ip: typing.Optional[typing.Union[ClientIpConfig, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument client_ip", value=client_ip, expected_type=type_hints["client_ip"])
         self._values: typing.Dict[str, typing.Any] = {}
         if client_ip is not None:
@@ -54129,7 +59036,19 @@ class StatefulSetSpec:
         if isinstance(update_strategy, dict):
             update_strategy = StatefulSetUpdateStrategy(**update_strategy)
         if __debug__:
-            type_hints = typing.get_type_hints(StatefulSetSpec.__init__)
+            def stub(
+                *,
+                selector: typing.Union[LabelSelector, typing.Dict[str, typing.Any]],
+                service_name: builtins.str,
+                template: typing.Union[PodTemplateSpec, typing.Dict[str, typing.Any]],
+                pod_management_policy: typing.Optional[builtins.str] = None,
+                replicas: typing.Optional[jsii.Number] = None,
+                revision_history_limit: typing.Optional[jsii.Number] = None,
+                update_strategy: typing.Optional[typing.Union["StatefulSetUpdateStrategy", typing.Dict[str, typing.Any]]] = None,
+                volume_claim_templates: typing.Optional[typing.Sequence[typing.Union[KubePersistentVolumeClaimProps, typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument selector", value=selector, expected_type=type_hints["selector"])
             check_type(argname="argument service_name", value=service_name, expected_type=type_hints["service_name"])
             check_type(argname="argument template", value=template, expected_type=type_hints["template"])
@@ -54304,7 +59223,19 @@ class StatefulSetSpecV1Beta1:
         if isinstance(update_strategy, dict):
             update_strategy = StatefulSetUpdateStrategyV1Beta1(**update_strategy)
         if __debug__:
-            type_hints = typing.get_type_hints(StatefulSetSpecV1Beta1.__init__)
+            def stub(
+                *,
+                service_name: builtins.str,
+                template: typing.Union[PodTemplateSpec, typing.Dict[str, typing.Any]],
+                pod_management_policy: typing.Optional[builtins.str] = None,
+                replicas: typing.Optional[jsii.Number] = None,
+                revision_history_limit: typing.Optional[jsii.Number] = None,
+                selector: typing.Optional[typing.Union[LabelSelector, typing.Dict[str, typing.Any]]] = None,
+                update_strategy: typing.Optional[typing.Union["StatefulSetUpdateStrategyV1Beta1", typing.Dict[str, typing.Any]]] = None,
+                volume_claim_templates: typing.Optional[typing.Sequence[typing.Union[KubePersistentVolumeClaimProps, typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument service_name", value=service_name, expected_type=type_hints["service_name"])
             check_type(argname="argument template", value=template, expected_type=type_hints["template"])
             check_type(argname="argument pod_management_policy", value=pod_management_policy, expected_type=type_hints["pod_management_policy"])
@@ -54479,7 +59410,19 @@ class StatefulSetSpecV1Beta2:
         if isinstance(update_strategy, dict):
             update_strategy = StatefulSetUpdateStrategyV1Beta2(**update_strategy)
         if __debug__:
-            type_hints = typing.get_type_hints(StatefulSetSpecV1Beta2.__init__)
+            def stub(
+                *,
+                selector: typing.Union[LabelSelector, typing.Dict[str, typing.Any]],
+                service_name: builtins.str,
+                template: typing.Union[PodTemplateSpec, typing.Dict[str, typing.Any]],
+                pod_management_policy: typing.Optional[builtins.str] = None,
+                replicas: typing.Optional[jsii.Number] = None,
+                revision_history_limit: typing.Optional[jsii.Number] = None,
+                update_strategy: typing.Optional[typing.Union["StatefulSetUpdateStrategyV1Beta2", typing.Dict[str, typing.Any]]] = None,
+                volume_claim_templates: typing.Optional[typing.Sequence[typing.Union[KubePersistentVolumeClaimProps, typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument selector", value=selector, expected_type=type_hints["selector"])
             check_type(argname="argument service_name", value=service_name, expected_type=type_hints["service_name"])
             check_type(argname="argument template", value=template, expected_type=type_hints["template"])
@@ -54631,7 +59574,13 @@ class StatefulSetUpdateStrategy:
         if isinstance(rolling_update, dict):
             rolling_update = RollingUpdateStatefulSetStrategy(**rolling_update)
         if __debug__:
-            type_hints = typing.get_type_hints(StatefulSetUpdateStrategy.__init__)
+            def stub(
+                *,
+                rolling_update: typing.Optional[typing.Union[RollingUpdateStatefulSetStrategy, typing.Dict[str, typing.Any]]] = None,
+                type: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument rolling_update", value=rolling_update, expected_type=type_hints["rolling_update"])
             check_type(argname="argument type", value=type, expected_type=type_hints["type"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -54698,7 +59647,13 @@ class StatefulSetUpdateStrategyV1Beta1:
         if isinstance(rolling_update, dict):
             rolling_update = RollingUpdateStatefulSetStrategyV1Beta1(**rolling_update)
         if __debug__:
-            type_hints = typing.get_type_hints(StatefulSetUpdateStrategyV1Beta1.__init__)
+            def stub(
+                *,
+                rolling_update: typing.Optional[typing.Union[RollingUpdateStatefulSetStrategyV1Beta1, typing.Dict[str, typing.Any]]] = None,
+                type: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument rolling_update", value=rolling_update, expected_type=type_hints["rolling_update"])
             check_type(argname="argument type", value=type, expected_type=type_hints["type"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -54763,7 +59718,13 @@ class StatefulSetUpdateStrategyV1Beta2:
         if isinstance(rolling_update, dict):
             rolling_update = RollingUpdateStatefulSetStrategyV1Beta2(**rolling_update)
         if __debug__:
-            type_hints = typing.get_type_hints(StatefulSetUpdateStrategyV1Beta2.__init__)
+            def stub(
+                *,
+                rolling_update: typing.Optional[typing.Union[RollingUpdateStatefulSetStrategyV1Beta2, typing.Dict[str, typing.Any]]] = None,
+                type: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument rolling_update", value=rolling_update, expected_type=type_hints["rolling_update"])
             check_type(argname="argument type", value=type, expected_type=type_hints["type"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -54830,7 +59791,14 @@ class StatusCause:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.StatusCause
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(StatusCause.__init__)
+            def stub(
+                *,
+                field: typing.Optional[builtins.str] = None,
+                message: typing.Optional[builtins.str] = None,
+                reason: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument field", value=field, expected_type=type_hints["field"])
             check_type(argname="argument message", value=message, expected_type=type_hints["message"])
             check_type(argname="argument reason", value=reason, expected_type=type_hints["reason"])
@@ -54928,7 +59896,17 @@ class StatusDetails:
         :schema: io.k8s.apimachinery.pkg.apis.meta.v1.StatusDetails
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(StatusDetails.__init__)
+            def stub(
+                *,
+                causes: typing.Optional[typing.Sequence[typing.Union[StatusCause, typing.Dict[str, typing.Any]]]] = None,
+                group: typing.Optional[builtins.str] = None,
+                kind: typing.Optional[builtins.str] = None,
+                name: typing.Optional[builtins.str] = None,
+                retry_after_seconds: typing.Optional[jsii.Number] = None,
+                uid: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument causes", value=causes, expected_type=type_hints["causes"])
             check_type(argname="argument group", value=group, expected_type=type_hints["group"])
             check_type(argname="argument kind", value=kind, expected_type=type_hints["kind"])
@@ -55057,7 +60035,16 @@ class StorageOsPersistentVolumeSource:
         if isinstance(secret_ref, dict):
             secret_ref = ObjectReference(**secret_ref)
         if __debug__:
-            type_hints = typing.get_type_hints(StorageOsPersistentVolumeSource.__init__)
+            def stub(
+                *,
+                fs_type: typing.Optional[builtins.str] = None,
+                read_only: typing.Optional[builtins.bool] = None,
+                secret_ref: typing.Optional[typing.Union[ObjectReference, typing.Dict[str, typing.Any]]] = None,
+                volume_name: typing.Optional[builtins.str] = None,
+                volume_namespace: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument fs_type", value=fs_type, expected_type=type_hints["fs_type"])
             check_type(argname="argument read_only", value=read_only, expected_type=type_hints["read_only"])
             check_type(argname="argument secret_ref", value=secret_ref, expected_type=type_hints["secret_ref"])
@@ -55178,7 +60165,16 @@ class StorageOsVolumeSource:
         if isinstance(secret_ref, dict):
             secret_ref = LocalObjectReference(**secret_ref)
         if __debug__:
-            type_hints = typing.get_type_hints(StorageOsVolumeSource.__init__)
+            def stub(
+                *,
+                fs_type: typing.Optional[builtins.str] = None,
+                read_only: typing.Optional[builtins.bool] = None,
+                secret_ref: typing.Optional[typing.Union[LocalObjectReference, typing.Dict[str, typing.Any]]] = None,
+                volume_name: typing.Optional[builtins.str] = None,
+                volume_namespace: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument fs_type", value=fs_type, expected_type=type_hints["fs_type"])
             check_type(argname="argument read_only", value=read_only, expected_type=type_hints["read_only"])
             check_type(argname="argument secret_ref", value=secret_ref, expected_type=type_hints["secret_ref"])
@@ -55296,7 +60292,15 @@ class Subject:
         :schema: io.k8s.api.rbac.v1.Subject
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(Subject.__init__)
+            def stub(
+                *,
+                kind: builtins.str,
+                name: builtins.str,
+                api_group: typing.Optional[builtins.str] = None,
+                namespace: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument kind", value=kind, expected_type=type_hints["kind"])
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
             check_type(argname="argument api_group", value=api_group, expected_type=type_hints["api_group"])
@@ -55409,7 +60413,17 @@ class SubjectAccessReviewSpec:
         if isinstance(resource_attributes, dict):
             resource_attributes = ResourceAttributes(**resource_attributes)
         if __debug__:
-            type_hints = typing.get_type_hints(SubjectAccessReviewSpec.__init__)
+            def stub(
+                *,
+                extra: typing.Optional[typing.Mapping[builtins.str, typing.Sequence[builtins.str]]] = None,
+                groups: typing.Optional[typing.Sequence[builtins.str]] = None,
+                non_resource_attributes: typing.Optional[typing.Union[NonResourceAttributes, typing.Dict[str, typing.Any]]] = None,
+                resource_attributes: typing.Optional[typing.Union[ResourceAttributes, typing.Dict[str, typing.Any]]] = None,
+                uid: typing.Optional[builtins.str] = None,
+                user: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument extra", value=extra, expected_type=type_hints["extra"])
             check_type(argname="argument groups", value=groups, expected_type=type_hints["groups"])
             check_type(argname="argument non_resource_attributes", value=non_resource_attributes, expected_type=type_hints["non_resource_attributes"])
@@ -55541,7 +60555,17 @@ class SubjectAccessReviewSpecV1Beta1:
         if isinstance(resource_attributes, dict):
             resource_attributes = ResourceAttributesV1Beta1(**resource_attributes)
         if __debug__:
-            type_hints = typing.get_type_hints(SubjectAccessReviewSpecV1Beta1.__init__)
+            def stub(
+                *,
+                extra: typing.Optional[typing.Mapping[builtins.str, typing.Sequence[builtins.str]]] = None,
+                group: typing.Optional[typing.Sequence[builtins.str]] = None,
+                non_resource_attributes: typing.Optional[typing.Union[NonResourceAttributesV1Beta1, typing.Dict[str, typing.Any]]] = None,
+                resource_attributes: typing.Optional[typing.Union[ResourceAttributesV1Beta1, typing.Dict[str, typing.Any]]] = None,
+                uid: typing.Optional[builtins.str] = None,
+                user: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument extra", value=extra, expected_type=type_hints["extra"])
             check_type(argname="argument group", value=group, expected_type=type_hints["group"])
             check_type(argname="argument non_resource_attributes", value=non_resource_attributes, expected_type=type_hints["non_resource_attributes"])
@@ -55663,7 +60687,15 @@ class SubjectV1Alpha1:
         :schema: io.k8s.api.rbac.v1alpha1.Subject
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(SubjectV1Alpha1.__init__)
+            def stub(
+                *,
+                kind: builtins.str,
+                name: builtins.str,
+                api_version: typing.Optional[builtins.str] = None,
+                namespace: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument kind", value=kind, expected_type=type_hints["kind"])
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
             check_type(argname="argument api_version", value=api_version, expected_type=type_hints["api_version"])
@@ -55766,7 +60798,15 @@ class SubjectV1Beta1:
         :schema: io.k8s.api.rbac.v1beta1.Subject
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(SubjectV1Beta1.__init__)
+            def stub(
+                *,
+                kind: builtins.str,
+                name: builtins.str,
+                api_group: typing.Optional[builtins.str] = None,
+                namespace: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument kind", value=kind, expected_type=type_hints["kind"])
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
             check_type(argname="argument api_group", value=api_group, expected_type=type_hints["api_group"])
@@ -55858,7 +60898,13 @@ class SupplementalGroupsStrategyOptionsV1Beta1:
         :schema: io.k8s.api.policy.v1beta1.SupplementalGroupsStrategyOptions
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(SupplementalGroupsStrategyOptionsV1Beta1.__init__)
+            def stub(
+                *,
+                ranges: typing.Optional[typing.Sequence[typing.Union[IdRangeV1Beta1, typing.Dict[str, typing.Any]]]] = None,
+                rule: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument ranges", value=ranges, expected_type=type_hints["ranges"])
             check_type(argname="argument rule", value=rule, expected_type=type_hints["rule"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -55914,7 +60960,9 @@ class Sysctl:
         :schema: io.k8s.api.core.v1.Sysctl
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(Sysctl.__init__)
+            def stub(*, name: builtins.str, value: builtins.str) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
             check_type(argname="argument value", value=value, expected_type=type_hints["value"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -55983,7 +61031,15 @@ class Taint:
         :schema: io.k8s.api.core.v1.Taint
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(Taint.__init__)
+            def stub(
+                *,
+                effect: builtins.str,
+                key: builtins.str,
+                time_added: typing.Optional[datetime.datetime] = None,
+                value: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument effect", value=effect, expected_type=type_hints["effect"])
             check_type(argname="argument key", value=key, expected_type=type_hints["key"])
             check_type(argname="argument time_added", value=time_added, expected_type=type_hints["time_added"])
@@ -56075,7 +61131,13 @@ class TcpSocketAction:
         :schema: io.k8s.api.core.v1.TCPSocketAction
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(TcpSocketAction.__init__)
+            def stub(
+                *,
+                port: IntOrString,
+                host: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument port", value=port, expected_type=type_hints["port"])
             check_type(argname="argument host", value=host, expected_type=type_hints["host"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -56145,7 +61207,14 @@ class TokenRequestSpec:
         if isinstance(bound_object_ref, dict):
             bound_object_ref = BoundObjectReference(**bound_object_ref)
         if __debug__:
-            type_hints = typing.get_type_hints(TokenRequestSpec.__init__)
+            def stub(
+                *,
+                audiences: typing.Sequence[builtins.str],
+                bound_object_ref: typing.Optional[typing.Union[BoundObjectReference, typing.Dict[str, typing.Any]]] = None,
+                expiration_seconds: typing.Optional[jsii.Number] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument audiences", value=audiences, expected_type=type_hints["audiences"])
             check_type(argname="argument bound_object_ref", value=bound_object_ref, expected_type=type_hints["bound_object_ref"])
             check_type(argname="argument expiration_seconds", value=expiration_seconds, expected_type=type_hints["expiration_seconds"])
@@ -56223,7 +61292,13 @@ class TokenReviewSpec:
         :schema: io.k8s.api.authentication.v1.TokenReviewSpec
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(TokenReviewSpec.__init__)
+            def stub(
+                *,
+                audiences: typing.Optional[typing.Sequence[builtins.str]] = None,
+                token: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument audiences", value=audiences, expected_type=type_hints["audiences"])
             check_type(argname="argument token", value=token, expected_type=type_hints["token"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -56284,7 +61359,13 @@ class TokenReviewSpecV1Beta1:
         :schema: io.k8s.api.authentication.v1beta1.TokenReviewSpec
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(TokenReviewSpecV1Beta1.__init__)
+            def stub(
+                *,
+                audiences: typing.Optional[typing.Sequence[builtins.str]] = None,
+                token: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument audiences", value=audiences, expected_type=type_hints["audiences"])
             check_type(argname="argument token", value=token, expected_type=type_hints["token"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -56357,7 +61438,16 @@ class Toleration:
         :schema: io.k8s.api.core.v1.Toleration
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(Toleration.__init__)
+            def stub(
+                *,
+                effect: typing.Optional[builtins.str] = None,
+                key: typing.Optional[builtins.str] = None,
+                operator: typing.Optional[builtins.str] = None,
+                toleration_seconds: typing.Optional[jsii.Number] = None,
+                value: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument effect", value=effect, expected_type=type_hints["effect"])
             check_type(argname="argument key", value=key, expected_type=type_hints["key"])
             check_type(argname="argument operator", value=operator, expected_type=type_hints["operator"])
@@ -56466,7 +61556,13 @@ class TopologySelectorLabelRequirement:
         :schema: io.k8s.api.core.v1.TopologySelectorLabelRequirement
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(TopologySelectorLabelRequirement.__init__)
+            def stub(
+                *,
+                key: builtins.str,
+                values: typing.Sequence[builtins.str],
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument key", value=key, expected_type=type_hints["key"])
             check_type(argname="argument values", value=values, expected_type=type_hints["values"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -56528,7 +61624,12 @@ class TopologySelectorTerm:
         :schema: io.k8s.api.core.v1.TopologySelectorTerm
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(TopologySelectorTerm.__init__)
+            def stub(
+                *,
+                match_label_expressions: typing.Optional[typing.Sequence[typing.Union[TopologySelectorLabelRequirement, typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument match_label_expressions", value=match_label_expressions, expected_type=type_hints["match_label_expressions"])
         self._values: typing.Dict[str, typing.Any] = {}
         if match_label_expressions is not None:
@@ -56588,7 +61689,15 @@ class TopologySpreadConstraint:
         if isinstance(label_selector, dict):
             label_selector = LabelSelector(**label_selector)
         if __debug__:
-            type_hints = typing.get_type_hints(TopologySpreadConstraint.__init__)
+            def stub(
+                *,
+                max_skew: jsii.Number,
+                topology_key: builtins.str,
+                when_unsatisfiable: builtins.str,
+                label_selector: typing.Optional[typing.Union[LabelSelector, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument max_skew", value=max_skew, expected_type=type_hints["max_skew"])
             check_type(argname="argument topology_key", value=topology_key, expected_type=type_hints["topology_key"])
             check_type(argname="argument when_unsatisfiable", value=when_unsatisfiable, expected_type=type_hints["when_unsatisfiable"])
@@ -56682,7 +61791,14 @@ class TypedLocalObjectReference:
         :schema: io.k8s.api.core.v1.TypedLocalObjectReference
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(TypedLocalObjectReference.__init__)
+            def stub(
+                *,
+                kind: builtins.str,
+                name: builtins.str,
+                api_group: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument kind", value=kind, expected_type=type_hints["kind"])
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
             check_type(argname="argument api_group", value=api_group, expected_type=type_hints["api_group"])
@@ -56789,7 +61905,21 @@ class ValidatingWebhook:
         if isinstance(object_selector, dict):
             object_selector = LabelSelector(**object_selector)
         if __debug__:
-            type_hints = typing.get_type_hints(ValidatingWebhook.__init__)
+            def stub(
+                *,
+                admission_review_versions: typing.Sequence[builtins.str],
+                client_config: typing.Union["WebhookClientConfig", typing.Dict[str, typing.Any]],
+                name: builtins.str,
+                side_effects: builtins.str,
+                failure_policy: typing.Optional[builtins.str] = None,
+                match_policy: typing.Optional[builtins.str] = None,
+                namespace_selector: typing.Optional[typing.Union[LabelSelector, typing.Dict[str, typing.Any]]] = None,
+                object_selector: typing.Optional[typing.Union[LabelSelector, typing.Dict[str, typing.Any]]] = None,
+                rules: typing.Optional[typing.Sequence[typing.Union[RuleWithOperations, typing.Dict[str, typing.Any]]]] = None,
+                timeout_seconds: typing.Optional[jsii.Number] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument admission_review_versions", value=admission_review_versions, expected_type=type_hints["admission_review_versions"])
             check_type(argname="argument client_config", value=client_config, expected_type=type_hints["client_config"])
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
@@ -57041,7 +62171,21 @@ class ValidatingWebhookV1Beta1:
         if isinstance(object_selector, dict):
             object_selector = LabelSelector(**object_selector)
         if __debug__:
-            type_hints = typing.get_type_hints(ValidatingWebhookV1Beta1.__init__)
+            def stub(
+                *,
+                client_config: typing.Union["WebhookClientConfigV1Beta1", typing.Dict[str, typing.Any]],
+                name: builtins.str,
+                admission_review_versions: typing.Optional[typing.Sequence[builtins.str]] = None,
+                failure_policy: typing.Optional[builtins.str] = None,
+                match_policy: typing.Optional[builtins.str] = None,
+                namespace_selector: typing.Optional[typing.Union[LabelSelector, typing.Dict[str, typing.Any]]] = None,
+                object_selector: typing.Optional[typing.Union[LabelSelector, typing.Dict[str, typing.Any]]] = None,
+                rules: typing.Optional[typing.Sequence[typing.Union[RuleWithOperationsV1Beta1, typing.Dict[str, typing.Any]]]] = None,
+                side_effects: typing.Optional[builtins.str] = None,
+                timeout_seconds: typing.Optional[jsii.Number] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument client_config", value=client_config, expected_type=type_hints["client_config"])
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
             check_type(argname="argument admission_review_versions", value=admission_review_versions, expected_type=type_hints["admission_review_versions"])
@@ -57404,7 +62548,40 @@ class Volume:
         if isinstance(vsphere_volume, dict):
             vsphere_volume = VsphereVirtualDiskVolumeSource(**vsphere_volume)
         if __debug__:
-            type_hints = typing.get_type_hints(Volume.__init__)
+            def stub(
+                *,
+                name: builtins.str,
+                aws_elastic_block_store: typing.Optional[typing.Union[AwsElasticBlockStoreVolumeSource, typing.Dict[str, typing.Any]]] = None,
+                azure_disk: typing.Optional[typing.Union[AzureDiskVolumeSource, typing.Dict[str, typing.Any]]] = None,
+                azure_file: typing.Optional[typing.Union[AzureFileVolumeSource, typing.Dict[str, typing.Any]]] = None,
+                cephfs: typing.Optional[typing.Union[CephFsVolumeSource, typing.Dict[str, typing.Any]]] = None,
+                cinder: typing.Optional[typing.Union[CinderVolumeSource, typing.Dict[str, typing.Any]]] = None,
+                config_map: typing.Optional[typing.Union[ConfigMapVolumeSource, typing.Dict[str, typing.Any]]] = None,
+                csi: typing.Optional[typing.Union[CsiVolumeSource, typing.Dict[str, typing.Any]]] = None,
+                downward_api: typing.Optional[typing.Union[DownwardApiVolumeSource, typing.Dict[str, typing.Any]]] = None,
+                empty_dir: typing.Optional[typing.Union[EmptyDirVolumeSource, typing.Dict[str, typing.Any]]] = None,
+                fc: typing.Optional[typing.Union[FcVolumeSource, typing.Dict[str, typing.Any]]] = None,
+                flex_volume: typing.Optional[typing.Union[FlexVolumeSource, typing.Dict[str, typing.Any]]] = None,
+                flocker: typing.Optional[typing.Union[FlockerVolumeSource, typing.Dict[str, typing.Any]]] = None,
+                gce_persistent_disk: typing.Optional[typing.Union[GcePersistentDiskVolumeSource, typing.Dict[str, typing.Any]]] = None,
+                git_repo: typing.Optional[typing.Union[GitRepoVolumeSource, typing.Dict[str, typing.Any]]] = None,
+                glusterfs: typing.Optional[typing.Union[GlusterfsVolumeSource, typing.Dict[str, typing.Any]]] = None,
+                host_path: typing.Optional[typing.Union[HostPathVolumeSource, typing.Dict[str, typing.Any]]] = None,
+                iscsi: typing.Optional[typing.Union[IscsiVolumeSource, typing.Dict[str, typing.Any]]] = None,
+                nfs: typing.Optional[typing.Union[NfsVolumeSource, typing.Dict[str, typing.Any]]] = None,
+                persistent_volume_claim: typing.Optional[typing.Union[PersistentVolumeClaimVolumeSource, typing.Dict[str, typing.Any]]] = None,
+                photon_persistent_disk: typing.Optional[typing.Union[PhotonPersistentDiskVolumeSource, typing.Dict[str, typing.Any]]] = None,
+                portworx_volume: typing.Optional[typing.Union[PortworxVolumeSource, typing.Dict[str, typing.Any]]] = None,
+                projected: typing.Optional[typing.Union[ProjectedVolumeSource, typing.Dict[str, typing.Any]]] = None,
+                quobyte: typing.Optional[typing.Union[QuobyteVolumeSource, typing.Dict[str, typing.Any]]] = None,
+                rbd: typing.Optional[typing.Union[RbdVolumeSource, typing.Dict[str, typing.Any]]] = None,
+                scale_io: typing.Optional[typing.Union[ScaleIoVolumeSource, typing.Dict[str, typing.Any]]] = None,
+                secret: typing.Optional[typing.Union[SecretVolumeSource, typing.Dict[str, typing.Any]]] = None,
+                storageos: typing.Optional[typing.Union[StorageOsVolumeSource, typing.Dict[str, typing.Any]]] = None,
+                vsphere_volume: typing.Optional[typing.Union["VsphereVirtualDiskVolumeSource", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
             check_type(argname="argument aws_elastic_block_store", value=aws_elastic_block_store, expected_type=type_hints["aws_elastic_block_store"])
             check_type(argname="argument azure_disk", value=azure_disk, expected_type=type_hints["azure_disk"])
@@ -57827,7 +63004,13 @@ class VolumeAttachmentSource:
         if isinstance(inline_volume_spec, dict):
             inline_volume_spec = PersistentVolumeSpec(**inline_volume_spec)
         if __debug__:
-            type_hints = typing.get_type_hints(VolumeAttachmentSource.__init__)
+            def stub(
+                *,
+                inline_volume_spec: typing.Optional[typing.Union[PersistentVolumeSpec, typing.Dict[str, typing.Any]]] = None,
+                persistent_volume_name: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument inline_volume_spec", value=inline_volume_spec, expected_type=type_hints["inline_volume_spec"])
             check_type(argname="argument persistent_volume_name", value=persistent_volume_name, expected_type=type_hints["persistent_volume_name"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -57895,7 +63078,13 @@ class VolumeAttachmentSourceV1Alpha1:
         if isinstance(inline_volume_spec, dict):
             inline_volume_spec = PersistentVolumeSpec(**inline_volume_spec)
         if __debug__:
-            type_hints = typing.get_type_hints(VolumeAttachmentSourceV1Alpha1.__init__)
+            def stub(
+                *,
+                inline_volume_spec: typing.Optional[typing.Union[PersistentVolumeSpec, typing.Dict[str, typing.Any]]] = None,
+                persistent_volume_name: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument inline_volume_spec", value=inline_volume_spec, expected_type=type_hints["inline_volume_spec"])
             check_type(argname="argument persistent_volume_name", value=persistent_volume_name, expected_type=type_hints["persistent_volume_name"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -57963,7 +63152,13 @@ class VolumeAttachmentSourceV1Beta1:
         if isinstance(inline_volume_spec, dict):
             inline_volume_spec = PersistentVolumeSpec(**inline_volume_spec)
         if __debug__:
-            type_hints = typing.get_type_hints(VolumeAttachmentSourceV1Beta1.__init__)
+            def stub(
+                *,
+                inline_volume_spec: typing.Optional[typing.Union[PersistentVolumeSpec, typing.Dict[str, typing.Any]]] = None,
+                persistent_volume_name: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument inline_volume_spec", value=inline_volume_spec, expected_type=type_hints["inline_volume_spec"])
             check_type(argname="argument persistent_volume_name", value=persistent_volume_name, expected_type=type_hints["persistent_volume_name"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -58028,7 +63223,14 @@ class VolumeAttachmentSpec:
         if isinstance(source, dict):
             source = VolumeAttachmentSource(**source)
         if __debug__:
-            type_hints = typing.get_type_hints(VolumeAttachmentSpec.__init__)
+            def stub(
+                *,
+                attacher: builtins.str,
+                node_name: builtins.str,
+                source: typing.Union[VolumeAttachmentSource, typing.Dict[str, typing.Any]],
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument attacher", value=attacher, expected_type=type_hints["attacher"])
             check_type(argname="argument node_name", value=node_name, expected_type=type_hints["node_name"])
             check_type(argname="argument source", value=source, expected_type=type_hints["source"])
@@ -58106,7 +63308,14 @@ class VolumeAttachmentSpecV1Alpha1:
         if isinstance(source, dict):
             source = VolumeAttachmentSourceV1Alpha1(**source)
         if __debug__:
-            type_hints = typing.get_type_hints(VolumeAttachmentSpecV1Alpha1.__init__)
+            def stub(
+                *,
+                attacher: builtins.str,
+                node_name: builtins.str,
+                source: typing.Union[VolumeAttachmentSourceV1Alpha1, typing.Dict[str, typing.Any]],
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument attacher", value=attacher, expected_type=type_hints["attacher"])
             check_type(argname="argument node_name", value=node_name, expected_type=type_hints["node_name"])
             check_type(argname="argument source", value=source, expected_type=type_hints["source"])
@@ -58184,7 +63393,14 @@ class VolumeAttachmentSpecV1Beta1:
         if isinstance(source, dict):
             source = VolumeAttachmentSourceV1Beta1(**source)
         if __debug__:
-            type_hints = typing.get_type_hints(VolumeAttachmentSpecV1Beta1.__init__)
+            def stub(
+                *,
+                attacher: builtins.str,
+                node_name: builtins.str,
+                source: typing.Union[VolumeAttachmentSourceV1Beta1, typing.Dict[str, typing.Any]],
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument attacher", value=attacher, expected_type=type_hints["attacher"])
             check_type(argname="argument node_name", value=node_name, expected_type=type_hints["node_name"])
             check_type(argname="argument source", value=source, expected_type=type_hints["source"])
@@ -58253,7 +63469,9 @@ class VolumeDevice:
         :schema: io.k8s.api.core.v1.VolumeDevice
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(VolumeDevice.__init__)
+            def stub(*, device_path: builtins.str, name: builtins.str) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument device_path", value=device_path, expected_type=type_hints["device_path"])
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -58328,7 +63546,17 @@ class VolumeMount:
         :schema: io.k8s.api.core.v1.VolumeMount
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(VolumeMount.__init__)
+            def stub(
+                *,
+                mount_path: builtins.str,
+                name: builtins.str,
+                mount_propagation: typing.Optional[builtins.str] = None,
+                read_only: typing.Optional[builtins.bool] = None,
+                sub_path: typing.Optional[builtins.str] = None,
+                sub_path_expr: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument mount_path", value=mount_path, expected_type=type_hints["mount_path"])
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
             check_type(argname="argument mount_propagation", value=mount_propagation, expected_type=type_hints["mount_propagation"])
@@ -58452,7 +63680,12 @@ class VolumeNodeAffinity:
         if isinstance(required, dict):
             required = NodeSelector(**required)
         if __debug__:
-            type_hints = typing.get_type_hints(VolumeNodeAffinity.__init__)
+            def stub(
+                *,
+                required: typing.Optional[typing.Union[NodeSelector, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument required", value=required, expected_type=type_hints["required"])
         self._values: typing.Dict[str, typing.Any] = {}
         if required is not None:
@@ -58493,7 +63726,9 @@ class VolumeNodeResources:
         :schema: io.k8s.api.storage.v1.VolumeNodeResources
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(VolumeNodeResources.__init__)
+            def stub(*, count: typing.Optional[jsii.Number] = None) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument count", value=count, expected_type=type_hints["count"])
         self._values: typing.Dict[str, typing.Any] = {}
         if count is not None:
@@ -58536,7 +63771,9 @@ class VolumeNodeResourcesV1Beta1:
         :schema: io.k8s.api.storage.v1beta1.VolumeNodeResources
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(VolumeNodeResourcesV1Beta1.__init__)
+            def stub(*, count: typing.Optional[jsii.Number] = None) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument count", value=count, expected_type=type_hints["count"])
         self._values: typing.Dict[str, typing.Any] = {}
         if count is not None:
@@ -58602,7 +63839,15 @@ class VolumeProjection:
         if isinstance(service_account_token, dict):
             service_account_token = ServiceAccountTokenProjection(**service_account_token)
         if __debug__:
-            type_hints = typing.get_type_hints(VolumeProjection.__init__)
+            def stub(
+                *,
+                config_map: typing.Optional[typing.Union[ConfigMapProjection, typing.Dict[str, typing.Any]]] = None,
+                downward_api: typing.Optional[typing.Union[DownwardApiProjection, typing.Dict[str, typing.Any]]] = None,
+                secret: typing.Optional[typing.Union[SecretProjection, typing.Dict[str, typing.Any]]] = None,
+                service_account_token: typing.Optional[typing.Union[ServiceAccountTokenProjection, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument config_map", value=config_map, expected_type=type_hints["config_map"])
             check_type(argname="argument downward_api", value=downward_api, expected_type=type_hints["downward_api"])
             check_type(argname="argument secret", value=secret, expected_type=type_hints["secret"])
@@ -58694,7 +63939,15 @@ class VsphereVirtualDiskVolumeSource:
         :schema: io.k8s.api.core.v1.VsphereVirtualDiskVolumeSource
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(VsphereVirtualDiskVolumeSource.__init__)
+            def stub(
+                *,
+                volume_path: builtins.str,
+                fs_type: typing.Optional[builtins.str] = None,
+                storage_policy_id: typing.Optional[builtins.str] = None,
+                storage_policy_name: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument volume_path", value=volume_path, expected_type=type_hints["volume_path"])
             check_type(argname="argument fs_type", value=fs_type, expected_type=type_hints["fs_type"])
             check_type(argname="argument storage_policy_id", value=storage_policy_id, expected_type=type_hints["storage_policy_id"])
@@ -58784,7 +64037,14 @@ class WebhookClientConfig:
         if isinstance(service, dict):
             service = ServiceReference(**service)
         if __debug__:
-            type_hints = typing.get_type_hints(WebhookClientConfig.__init__)
+            def stub(
+                *,
+                ca_bundle: typing.Optional[builtins.str] = None,
+                service: typing.Optional[typing.Union[ServiceReference, typing.Dict[str, typing.Any]]] = None,
+                url: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument ca_bundle", value=ca_bundle, expected_type=type_hints["ca_bundle"])
             check_type(argname="argument service", value=service, expected_type=type_hints["service"])
             check_type(argname="argument url", value=url, expected_type=type_hints["url"])
@@ -58875,7 +64135,14 @@ class WebhookClientConfigV1Alpha1:
         if isinstance(service, dict):
             service = ServiceReferenceV1Alpha1(**service)
         if __debug__:
-            type_hints = typing.get_type_hints(WebhookClientConfigV1Alpha1.__init__)
+            def stub(
+                *,
+                ca_bundle: typing.Optional[builtins.str] = None,
+                service: typing.Optional[typing.Union[ServiceReferenceV1Alpha1, typing.Dict[str, typing.Any]]] = None,
+                url: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument ca_bundle", value=ca_bundle, expected_type=type_hints["ca_bundle"])
             check_type(argname="argument service", value=service, expected_type=type_hints["service"])
             check_type(argname="argument url", value=url, expected_type=type_hints["url"])
@@ -58966,7 +64233,14 @@ class WebhookClientConfigV1Beta1:
         if isinstance(service, dict):
             service = ServiceReferenceV1Beta1(**service)
         if __debug__:
-            type_hints = typing.get_type_hints(WebhookClientConfigV1Beta1.__init__)
+            def stub(
+                *,
+                ca_bundle: typing.Optional[builtins.str] = None,
+                service: typing.Optional[typing.Union[ServiceReferenceV1Beta1, typing.Dict[str, typing.Any]]] = None,
+                url: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument ca_bundle", value=ca_bundle, expected_type=type_hints["ca_bundle"])
             check_type(argname="argument service", value=service, expected_type=type_hints["service"])
             check_type(argname="argument url", value=url, expected_type=type_hints["url"])
@@ -59058,7 +64332,13 @@ class WebhookConversion:
         if isinstance(client_config, dict):
             client_config = WebhookClientConfig(**client_config)
         if __debug__:
-            type_hints = typing.get_type_hints(WebhookConversion.__init__)
+            def stub(
+                *,
+                conversion_review_versions: typing.Sequence[builtins.str],
+                client_config: typing.Optional[typing.Union[WebhookClientConfig, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument conversion_review_versions", value=conversion_review_versions, expected_type=type_hints["conversion_review_versions"])
             check_type(argname="argument client_config", value=client_config, expected_type=type_hints["client_config"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -59120,7 +64400,13 @@ class WebhookThrottleConfigV1Alpha1:
         :schema: io.k8s.api.auditregistration.v1alpha1.WebhookThrottleConfig
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(WebhookThrottleConfigV1Alpha1.__init__)
+            def stub(
+                *,
+                burst: typing.Optional[jsii.Number] = None,
+                qps: typing.Optional[jsii.Number] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument burst", value=burst, expected_type=type_hints["burst"])
             check_type(argname="argument qps", value=qps, expected_type=type_hints["qps"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -59183,7 +64469,13 @@ class WebhookV1Alpha1:
         if isinstance(throttle, dict):
             throttle = WebhookThrottleConfigV1Alpha1(**throttle)
         if __debug__:
-            type_hints = typing.get_type_hints(WebhookV1Alpha1.__init__)
+            def stub(
+                *,
+                client_config: typing.Union[WebhookClientConfigV1Alpha1, typing.Dict[str, typing.Any]],
+                throttle: typing.Optional[typing.Union[WebhookThrottleConfigV1Alpha1, typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument client_config", value=client_config, expected_type=type_hints["client_config"])
             check_type(argname="argument throttle", value=throttle, expected_type=type_hints["throttle"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -59245,7 +64537,13 @@ class WeightedPodAffinityTerm:
         if isinstance(pod_affinity_term, dict):
             pod_affinity_term = PodAffinityTerm(**pod_affinity_term)
         if __debug__:
-            type_hints = typing.get_type_hints(WeightedPodAffinityTerm.__init__)
+            def stub(
+                *,
+                pod_affinity_term: typing.Union[PodAffinityTerm, typing.Dict[str, typing.Any]],
+                weight: jsii.Number,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument pod_affinity_term", value=pod_affinity_term, expected_type=type_hints["pod_affinity_term"])
             check_type(argname="argument weight", value=weight, expected_type=type_hints["weight"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -59313,7 +64611,14 @@ class WindowsSecurityContextOptions:
         :schema: io.k8s.api.core.v1.WindowsSecurityContextOptions
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(WindowsSecurityContextOptions.__init__)
+            def stub(
+                *,
+                gmsa_credential_spec: typing.Optional[builtins.str] = None,
+                gmsa_credential_spec_name: typing.Optional[builtins.str] = None,
+                run_as_user_name: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument gmsa_credential_spec", value=gmsa_credential_spec, expected_type=type_hints["gmsa_credential_spec"])
             check_type(argname="argument gmsa_credential_spec_name", value=gmsa_credential_spec_name, expected_type=type_hints["gmsa_credential_spec_name"])
             check_type(argname="argument run_as_user_name", value=run_as_user_name, expected_type=type_hints["run_as_user_name"])

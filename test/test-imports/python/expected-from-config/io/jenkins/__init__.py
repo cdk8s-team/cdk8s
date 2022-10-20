@@ -38,7 +38,15 @@ class Jenkins(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="iojenkins.Jen
         :param spec: Spec defines the desired state of the Jenkins.
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(Jenkins.__init__)
+            def stub(
+                scope: constructs.Construct,
+                id: builtins.str,
+                *,
+                metadata: typing.Optional[typing.Union[cdk8s.ApiObjectMetadata, typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union["JenkinsSpec", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = JenkinsProps(metadata=metadata, spec=spec)
@@ -100,7 +108,13 @@ class JenkinsProps:
         if isinstance(spec, dict):
             spec = JenkinsSpec(**spec)
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsProps.__init__)
+            def stub(
+                *,
+                metadata: typing.Optional[typing.Union[cdk8s.ApiObjectMetadata, typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union["JenkinsSpec", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -209,7 +223,23 @@ class JenkinsSpec:
         if isinstance(slave_service, dict):
             slave_service = JenkinsSpecSlaveService(**slave_service)
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpec.__init__)
+            def stub(
+                *,
+                jenkins_api_settings: typing.Union["JenkinsSpecJenkinsApiSettings", typing.Dict[str, typing.Any]],
+                master: typing.Union["JenkinsSpecMaster", typing.Dict[str, typing.Any]],
+                backup: typing.Optional[typing.Union["JenkinsSpecBackup", typing.Dict[str, typing.Any]]] = None,
+                configuration_as_code: typing.Optional[typing.Union["JenkinsSpecConfigurationAsCode", typing.Dict[str, typing.Any]]] = None,
+                groovy_scripts: typing.Optional[typing.Union["JenkinsSpecGroovyScripts", typing.Dict[str, typing.Any]]] = None,
+                notifications: typing.Optional[typing.Sequence[typing.Union["JenkinsSpecNotifications", typing.Dict[str, typing.Any]]]] = None,
+                restore: typing.Optional[typing.Union["JenkinsSpecRestore", typing.Dict[str, typing.Any]]] = None,
+                roles: typing.Optional[typing.Sequence[typing.Union["JenkinsSpecRoles", typing.Dict[str, typing.Any]]]] = None,
+                seed_jobs: typing.Optional[typing.Sequence[typing.Union["JenkinsSpecSeedJobs", typing.Dict[str, typing.Any]]]] = None,
+                service: typing.Optional[typing.Union["JenkinsSpecService", typing.Dict[str, typing.Any]]] = None,
+                service_account: typing.Optional[typing.Union["JenkinsSpecServiceAccount", typing.Dict[str, typing.Any]]] = None,
+                slave_service: typing.Optional[typing.Union["JenkinsSpecSlaveService", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument jenkins_api_settings", value=jenkins_api_settings, expected_type=type_hints["jenkins_api_settings"])
             check_type(argname="argument master", value=master, expected_type=type_hints["master"])
             check_type(argname="argument backup", value=backup, expected_type=type_hints["backup"])
@@ -408,7 +438,15 @@ class JenkinsSpecBackup:
         if isinstance(action, dict):
             action = JenkinsSpecBackupAction(**action)
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecBackup.__init__)
+            def stub(
+                *,
+                action: typing.Union["JenkinsSpecBackupAction", typing.Dict[str, typing.Any]],
+                container_name: builtins.str,
+                interval: jsii.Number,
+                make_backup_before_pod_deletion: builtins.bool,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument action", value=action, expected_type=type_hints["action"])
             check_type(argname="argument container_name", value=container_name, expected_type=type_hints["container_name"])
             check_type(argname="argument interval", value=interval, expected_type=type_hints["interval"])
@@ -494,7 +532,12 @@ class JenkinsSpecBackupAction:
         if isinstance(exec, dict):
             exec = JenkinsSpecBackupActionExec(**exec)
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecBackupAction.__init__)
+            def stub(
+                *,
+                exec: typing.Optional[typing.Union["JenkinsSpecBackupActionExec", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument exec", value=exec, expected_type=type_hints["exec"])
         self._values: typing.Dict[str, typing.Any] = {}
         if exec is not None:
@@ -539,7 +582,12 @@ class JenkinsSpecBackupActionExec:
         :schema: JenkinsSpecBackupActionExec
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecBackupActionExec.__init__)
+            def stub(
+                *,
+                command: typing.Optional[typing.Sequence[builtins.str]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument command", value=command, expected_type=type_hints["command"])
         self._values: typing.Dict[str, typing.Any] = {}
         if command is not None:
@@ -590,7 +638,13 @@ class JenkinsSpecConfigurationAsCode:
         if isinstance(secret, dict):
             secret = JenkinsSpecConfigurationAsCodeSecret(**secret)
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecConfigurationAsCode.__init__)
+            def stub(
+                *,
+                configurations: typing.Sequence[typing.Union["JenkinsSpecConfigurationAsCodeConfigurations", typing.Dict[str, typing.Any]]],
+                secret: typing.Union["JenkinsSpecConfigurationAsCodeSecret", typing.Dict[str, typing.Any]],
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument configurations", value=configurations, expected_type=type_hints["configurations"])
             check_type(argname="argument secret", value=secret, expected_type=type_hints["secret"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -645,7 +699,9 @@ class JenkinsSpecConfigurationAsCodeConfigurations:
         :schema: JenkinsSpecConfigurationAsCodeConfigurations
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecConfigurationAsCodeConfigurations.__init__)
+            def stub(*, name: builtins.str) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
         self._values: typing.Dict[str, typing.Any] = {
             "name": name,
@@ -686,7 +742,9 @@ class JenkinsSpecConfigurationAsCodeSecret:
         :schema: JenkinsSpecConfigurationAsCodeSecret
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecConfigurationAsCodeSecret.__init__)
+            def stub(*, name: builtins.str) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
         self._values: typing.Dict[str, typing.Any] = {
             "name": name,
@@ -735,7 +793,13 @@ class JenkinsSpecGroovyScripts:
         if isinstance(secret, dict):
             secret = JenkinsSpecGroovyScriptsSecret(**secret)
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecGroovyScripts.__init__)
+            def stub(
+                *,
+                configurations: typing.Sequence[typing.Union["JenkinsSpecGroovyScriptsConfigurations", typing.Dict[str, typing.Any]]],
+                secret: typing.Union["JenkinsSpecGroovyScriptsSecret", typing.Dict[str, typing.Any]],
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument configurations", value=configurations, expected_type=type_hints["configurations"])
             check_type(argname="argument secret", value=secret, expected_type=type_hints["secret"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -788,7 +852,9 @@ class JenkinsSpecGroovyScriptsConfigurations:
         :schema: JenkinsSpecGroovyScriptsConfigurations
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecGroovyScriptsConfigurations.__init__)
+            def stub(*, name: builtins.str) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
         self._values: typing.Dict[str, typing.Any] = {
             "name": name,
@@ -829,7 +895,9 @@ class JenkinsSpecGroovyScriptsSecret:
         :schema: JenkinsSpecGroovyScriptsSecret
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecGroovyScriptsSecret.__init__)
+            def stub(*, name: builtins.str) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
         self._values: typing.Dict[str, typing.Any] = {
             "name": name,
@@ -870,7 +938,9 @@ class JenkinsSpecJenkinsApiSettings:
         :schema: JenkinsSpecJenkinsApiSettings
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecJenkinsApiSettings.__init__)
+            def stub(*, authorization_strategy: builtins.str) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument authorization_strategy", value=authorization_strategy, expected_type=type_hints["authorization_strategy"])
         self._values: typing.Dict[str, typing.Any] = {
             "authorization_strategy": authorization_strategy,
@@ -955,7 +1025,23 @@ class JenkinsSpecMaster:
         if isinstance(security_context, dict):
             security_context = JenkinsSpecMasterSecurityContext(**security_context)
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMaster.__init__)
+            def stub(
+                *,
+                disable_csrf_protection: builtins.bool,
+                annotations: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
+                base_plugins: typing.Optional[typing.Sequence[typing.Union["JenkinsSpecMasterBasePlugins", typing.Dict[str, typing.Any]]]] = None,
+                containers: typing.Optional[typing.Sequence[typing.Union["JenkinsSpecMasterContainers", typing.Dict[str, typing.Any]]]] = None,
+                image_pull_secrets: typing.Optional[typing.Sequence[typing.Union["JenkinsSpecMasterImagePullSecrets", typing.Dict[str, typing.Any]]]] = None,
+                labels: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
+                master_annotations: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
+                node_selector: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
+                plugins: typing.Optional[typing.Sequence[typing.Union["JenkinsSpecMasterPlugins", typing.Dict[str, typing.Any]]]] = None,
+                security_context: typing.Optional[typing.Union["JenkinsSpecMasterSecurityContext", typing.Dict[str, typing.Any]]] = None,
+                tolerations: typing.Optional[typing.Sequence[typing.Union["JenkinsSpecMasterTolerations", typing.Dict[str, typing.Any]]]] = None,
+                volumes: typing.Optional[typing.Sequence[typing.Union["JenkinsSpecMasterVolumes", typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument disable_csrf_protection", value=disable_csrf_protection, expected_type=type_hints["disable_csrf_protection"])
             check_type(argname="argument annotations", value=annotations, expected_type=type_hints["annotations"])
             check_type(argname="argument base_plugins", value=base_plugins, expected_type=type_hints["base_plugins"])
@@ -1164,7 +1250,9 @@ class JenkinsSpecMasterBasePlugins:
         :schema: JenkinsSpecMasterBasePlugins
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterBasePlugins.__init__)
+            def stub(*, name: builtins.str, version: builtins.str) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
             check_type(argname="argument version", value=version, expected_type=type_hints["version"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -1276,7 +1364,26 @@ class JenkinsSpecMasterContainers:
         if isinstance(security_context, dict):
             security_context = JenkinsSpecMasterContainersSecurityContext(**security_context)
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterContainers.__init__)
+            def stub(
+                *,
+                image: builtins.str,
+                image_pull_policy: builtins.str,
+                name: builtins.str,
+                resources: typing.Union["JenkinsSpecMasterContainersResources", typing.Dict[str, typing.Any]],
+                args: typing.Optional[typing.Sequence[builtins.str]] = None,
+                command: typing.Optional[typing.Sequence[builtins.str]] = None,
+                env: typing.Optional[typing.Sequence[typing.Union["JenkinsSpecMasterContainersEnv", typing.Dict[str, typing.Any]]]] = None,
+                env_from: typing.Optional[typing.Sequence[typing.Union["JenkinsSpecMasterContainersEnvFrom", typing.Dict[str, typing.Any]]]] = None,
+                lifecycle: typing.Optional[typing.Union["JenkinsSpecMasterContainersLifecycle", typing.Dict[str, typing.Any]]] = None,
+                liveness_probe: typing.Optional[typing.Union["JenkinsSpecMasterContainersLivenessProbe", typing.Dict[str, typing.Any]]] = None,
+                ports: typing.Optional[typing.Sequence[typing.Union["JenkinsSpecMasterContainersPorts", typing.Dict[str, typing.Any]]]] = None,
+                readiness_probe: typing.Optional[typing.Union["JenkinsSpecMasterContainersReadinessProbe", typing.Dict[str, typing.Any]]] = None,
+                security_context: typing.Optional[typing.Union["JenkinsSpecMasterContainersSecurityContext", typing.Dict[str, typing.Any]]] = None,
+                volume_mounts: typing.Optional[typing.Sequence[typing.Union["JenkinsSpecMasterContainersVolumeMounts", typing.Dict[str, typing.Any]]]] = None,
+                working_dir: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument image", value=image, expected_type=type_hints["image"])
             check_type(argname="argument image_pull_policy", value=image_pull_policy, expected_type=type_hints["image_pull_policy"])
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
@@ -1532,7 +1639,14 @@ class JenkinsSpecMasterContainersEnv:
         if isinstance(value_from, dict):
             value_from = JenkinsSpecMasterContainersEnvValueFrom(**value_from)
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterContainersEnv.__init__)
+            def stub(
+                *,
+                name: builtins.str,
+                value: typing.Optional[builtins.str] = None,
+                value_from: typing.Optional[typing.Union["JenkinsSpecMasterContainersEnvValueFrom", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
             check_type(argname="argument value", value=value, expected_type=type_hints["value"])
             check_type(argname="argument value_from", value=value_from, expected_type=type_hints["value_from"])
@@ -1622,7 +1736,14 @@ class JenkinsSpecMasterContainersEnvFrom:
         if isinstance(secret_ref, dict):
             secret_ref = JenkinsSpecMasterContainersEnvFromSecretRef(**secret_ref)
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterContainersEnvFrom.__init__)
+            def stub(
+                *,
+                config_map_ref: typing.Optional[typing.Union["JenkinsSpecMasterContainersEnvFromConfigMapRef", typing.Dict[str, typing.Any]]] = None,
+                prefix: typing.Optional[builtins.str] = None,
+                secret_ref: typing.Optional[typing.Union["JenkinsSpecMasterContainersEnvFromSecretRef", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument config_map_ref", value=config_map_ref, expected_type=type_hints["config_map_ref"])
             check_type(argname="argument prefix", value=prefix, expected_type=type_hints["prefix"])
             check_type(argname="argument secret_ref", value=secret_ref, expected_type=type_hints["secret_ref"])
@@ -1699,7 +1820,13 @@ class JenkinsSpecMasterContainersEnvFromConfigMapRef:
         :schema: JenkinsSpecMasterContainersEnvFromConfigMapRef
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterContainersEnvFromConfigMapRef.__init__)
+            def stub(
+                *,
+                name: typing.Optional[builtins.str] = None,
+                optional: typing.Optional[builtins.bool] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
             check_type(argname="argument optional", value=optional, expected_type=type_hints["optional"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -1760,7 +1887,13 @@ class JenkinsSpecMasterContainersEnvFromSecretRef:
         :schema: JenkinsSpecMasterContainersEnvFromSecretRef
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterContainersEnvFromSecretRef.__init__)
+            def stub(
+                *,
+                name: typing.Optional[builtins.str] = None,
+                optional: typing.Optional[builtins.bool] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
             check_type(argname="argument optional", value=optional, expected_type=type_hints["optional"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -1840,7 +1973,15 @@ class JenkinsSpecMasterContainersEnvValueFrom:
         if isinstance(secret_key_ref, dict):
             secret_key_ref = JenkinsSpecMasterContainersEnvValueFromSecretKeyRef(**secret_key_ref)
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterContainersEnvValueFrom.__init__)
+            def stub(
+                *,
+                config_map_key_ref: typing.Optional[typing.Union["JenkinsSpecMasterContainersEnvValueFromConfigMapKeyRef", typing.Dict[str, typing.Any]]] = None,
+                field_ref: typing.Optional[typing.Union["JenkinsSpecMasterContainersEnvValueFromFieldRef", typing.Dict[str, typing.Any]]] = None,
+                resource_field_ref: typing.Optional[typing.Union["JenkinsSpecMasterContainersEnvValueFromResourceFieldRef", typing.Dict[str, typing.Any]]] = None,
+                secret_key_ref: typing.Optional[typing.Union["JenkinsSpecMasterContainersEnvValueFromSecretKeyRef", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument config_map_key_ref", value=config_map_key_ref, expected_type=type_hints["config_map_key_ref"])
             check_type(argname="argument field_ref", value=field_ref, expected_type=type_hints["field_ref"])
             check_type(argname="argument resource_field_ref", value=resource_field_ref, expected_type=type_hints["resource_field_ref"])
@@ -1933,7 +2074,14 @@ class JenkinsSpecMasterContainersEnvValueFromConfigMapKeyRef:
         :schema: JenkinsSpecMasterContainersEnvValueFromConfigMapKeyRef
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterContainersEnvValueFromConfigMapKeyRef.__init__)
+            def stub(
+                *,
+                key: builtins.str,
+                name: typing.Optional[builtins.str] = None,
+                optional: typing.Optional[builtins.bool] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument key", value=key, expected_type=type_hints["key"])
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
             check_type(argname="argument optional", value=optional, expected_type=type_hints["optional"])
@@ -2007,7 +2155,13 @@ class JenkinsSpecMasterContainersEnvValueFromFieldRef:
         :schema: JenkinsSpecMasterContainersEnvValueFromFieldRef
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterContainersEnvValueFromFieldRef.__init__)
+            def stub(
+                *,
+                field_path: builtins.str,
+                api_version: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument field_path", value=field_path, expected_type=type_hints["field_path"])
             check_type(argname="argument api_version", value=api_version, expected_type=type_hints["api_version"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -2073,7 +2227,14 @@ class JenkinsSpecMasterContainersEnvValueFromResourceFieldRef:
         :schema: JenkinsSpecMasterContainersEnvValueFromResourceFieldRef
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterContainersEnvValueFromResourceFieldRef.__init__)
+            def stub(
+                *,
+                resource: builtins.str,
+                container_name: typing.Optional[builtins.str] = None,
+                divisor: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument resource", value=resource, expected_type=type_hints["resource"])
             check_type(argname="argument container_name", value=container_name, expected_type=type_hints["container_name"])
             check_type(argname="argument divisor", value=divisor, expected_type=type_hints["divisor"])
@@ -2147,7 +2308,14 @@ class JenkinsSpecMasterContainersEnvValueFromSecretKeyRef:
         :schema: JenkinsSpecMasterContainersEnvValueFromSecretKeyRef
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterContainersEnvValueFromSecretKeyRef.__init__)
+            def stub(
+                *,
+                key: builtins.str,
+                name: typing.Optional[builtins.str] = None,
+                optional: typing.Optional[builtins.bool] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument key", value=key, expected_type=type_hints["key"])
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
             check_type(argname="argument optional", value=optional, expected_type=type_hints["optional"])
@@ -2227,7 +2395,13 @@ class JenkinsSpecMasterContainersLifecycle:
         if isinstance(pre_stop, dict):
             pre_stop = JenkinsSpecMasterContainersLifecyclePreStop(**pre_stop)
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterContainersLifecycle.__init__)
+            def stub(
+                *,
+                post_start: typing.Optional[typing.Union["JenkinsSpecMasterContainersLifecyclePostStart", typing.Dict[str, typing.Any]]] = None,
+                pre_stop: typing.Optional[typing.Union["JenkinsSpecMasterContainersLifecyclePreStop", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument post_start", value=post_start, expected_type=type_hints["post_start"])
             check_type(argname="argument pre_stop", value=pre_stop, expected_type=type_hints["pre_stop"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -2304,7 +2478,14 @@ class JenkinsSpecMasterContainersLifecyclePostStart:
         if isinstance(tcp_socket, dict):
             tcp_socket = JenkinsSpecMasterContainersLifecyclePostStartTcpSocket(**tcp_socket)
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterContainersLifecyclePostStart.__init__)
+            def stub(
+                *,
+                exec: typing.Optional[typing.Union["JenkinsSpecMasterContainersLifecyclePostStartExec", typing.Dict[str, typing.Any]]] = None,
+                http_get: typing.Optional[typing.Union["JenkinsSpecMasterContainersLifecyclePostStartHttpGet", typing.Dict[str, typing.Any]]] = None,
+                tcp_socket: typing.Optional[typing.Union["JenkinsSpecMasterContainersLifecyclePostStartTcpSocket", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument exec", value=exec, expected_type=type_hints["exec"])
             check_type(argname="argument http_get", value=http_get, expected_type=type_hints["http_get"])
             check_type(argname="argument tcp_socket", value=tcp_socket, expected_type=type_hints["tcp_socket"])
@@ -2385,7 +2566,12 @@ class JenkinsSpecMasterContainersLifecyclePostStartExec:
         :schema: JenkinsSpecMasterContainersLifecyclePostStartExec
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterContainersLifecyclePostStartExec.__init__)
+            def stub(
+                *,
+                command: typing.Optional[typing.Sequence[builtins.str]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument command", value=command, expected_type=type_hints["command"])
         self._values: typing.Dict[str, typing.Any] = {}
         if command is not None:
@@ -2446,7 +2632,16 @@ class JenkinsSpecMasterContainersLifecyclePostStartHttpGet:
         :schema: JenkinsSpecMasterContainersLifecyclePostStartHttpGet
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterContainersLifecyclePostStartHttpGet.__init__)
+            def stub(
+                *,
+                port: "JenkinsSpecMasterContainersLifecyclePostStartHttpGetPort",
+                host: typing.Optional[builtins.str] = None,
+                http_headers: typing.Optional[typing.Sequence[typing.Union["JenkinsSpecMasterContainersLifecyclePostStartHttpGetHttpHeaders", typing.Dict[str, typing.Any]]]] = None,
+                path: typing.Optional[builtins.str] = None,
+                scheme: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument port", value=port, expected_type=type_hints["port"])
             check_type(argname="argument host", value=host, expected_type=type_hints["host"])
             check_type(argname="argument http_headers", value=http_headers, expected_type=type_hints["http_headers"])
@@ -2549,7 +2744,9 @@ class JenkinsSpecMasterContainersLifecyclePostStartHttpGetHttpHeaders:
         :schema: JenkinsSpecMasterContainersLifecyclePostStartHttpGetHttpHeaders
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterContainersLifecyclePostStartHttpGetHttpHeaders.__init__)
+            def stub(*, name: builtins.str, value: builtins.str) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
             check_type(argname="argument value", value=value, expected_type=type_hints["value"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -2610,7 +2807,9 @@ class JenkinsSpecMasterContainersLifecyclePostStartHttpGetPort(
         :param value: -
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterContainersLifecyclePostStartHttpGetPort.from_number)
+            def stub(value: jsii.Number) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument value", value=value, expected_type=type_hints["value"])
         return typing.cast("JenkinsSpecMasterContainersLifecyclePostStartHttpGetPort", jsii.sinvoke(cls, "fromNumber", [value]))
 
@@ -2624,7 +2823,9 @@ class JenkinsSpecMasterContainersLifecyclePostStartHttpGetPort(
         :param value: -
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterContainersLifecyclePostStartHttpGetPort.from_string)
+            def stub(value: builtins.str) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument value", value=value, expected_type=type_hints["value"])
         return typing.cast("JenkinsSpecMasterContainersLifecyclePostStartHttpGetPort", jsii.sinvoke(cls, "fromString", [value]))
 
@@ -2656,7 +2857,13 @@ class JenkinsSpecMasterContainersLifecyclePostStartTcpSocket:
         :schema: JenkinsSpecMasterContainersLifecyclePostStartTcpSocket
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterContainersLifecyclePostStartTcpSocket.__init__)
+            def stub(
+                *,
+                port: "JenkinsSpecMasterContainersLifecyclePostStartTcpSocketPort",
+                host: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument port", value=port, expected_type=type_hints["port"])
             check_type(argname="argument host", value=host, expected_type=type_hints["host"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -2719,7 +2926,9 @@ class JenkinsSpecMasterContainersLifecyclePostStartTcpSocketPort(
         :param value: -
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterContainersLifecyclePostStartTcpSocketPort.from_number)
+            def stub(value: jsii.Number) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument value", value=value, expected_type=type_hints["value"])
         return typing.cast("JenkinsSpecMasterContainersLifecyclePostStartTcpSocketPort", jsii.sinvoke(cls, "fromNumber", [value]))
 
@@ -2733,7 +2942,9 @@ class JenkinsSpecMasterContainersLifecyclePostStartTcpSocketPort(
         :param value: -
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterContainersLifecyclePostStartTcpSocketPort.from_string)
+            def stub(value: builtins.str) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument value", value=value, expected_type=type_hints["value"])
         return typing.cast("JenkinsSpecMasterContainersLifecyclePostStartTcpSocketPort", jsii.sinvoke(cls, "fromString", [value]))
 
@@ -2773,7 +2984,14 @@ class JenkinsSpecMasterContainersLifecyclePreStop:
         if isinstance(tcp_socket, dict):
             tcp_socket = JenkinsSpecMasterContainersLifecyclePreStopTcpSocket(**tcp_socket)
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterContainersLifecyclePreStop.__init__)
+            def stub(
+                *,
+                exec: typing.Optional[typing.Union["JenkinsSpecMasterContainersLifecyclePreStopExec", typing.Dict[str, typing.Any]]] = None,
+                http_get: typing.Optional[typing.Union["JenkinsSpecMasterContainersLifecyclePreStopHttpGet", typing.Dict[str, typing.Any]]] = None,
+                tcp_socket: typing.Optional[typing.Union["JenkinsSpecMasterContainersLifecyclePreStopTcpSocket", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument exec", value=exec, expected_type=type_hints["exec"])
             check_type(argname="argument http_get", value=http_get, expected_type=type_hints["http_get"])
             check_type(argname="argument tcp_socket", value=tcp_socket, expected_type=type_hints["tcp_socket"])
@@ -2854,7 +3072,12 @@ class JenkinsSpecMasterContainersLifecyclePreStopExec:
         :schema: JenkinsSpecMasterContainersLifecyclePreStopExec
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterContainersLifecyclePreStopExec.__init__)
+            def stub(
+                *,
+                command: typing.Optional[typing.Sequence[builtins.str]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument command", value=command, expected_type=type_hints["command"])
         self._values: typing.Dict[str, typing.Any] = {}
         if command is not None:
@@ -2915,7 +3138,16 @@ class JenkinsSpecMasterContainersLifecyclePreStopHttpGet:
         :schema: JenkinsSpecMasterContainersLifecyclePreStopHttpGet
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterContainersLifecyclePreStopHttpGet.__init__)
+            def stub(
+                *,
+                port: "JenkinsSpecMasterContainersLifecyclePreStopHttpGetPort",
+                host: typing.Optional[builtins.str] = None,
+                http_headers: typing.Optional[typing.Sequence[typing.Union["JenkinsSpecMasterContainersLifecyclePreStopHttpGetHttpHeaders", typing.Dict[str, typing.Any]]]] = None,
+                path: typing.Optional[builtins.str] = None,
+                scheme: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument port", value=port, expected_type=type_hints["port"])
             check_type(argname="argument host", value=host, expected_type=type_hints["host"])
             check_type(argname="argument http_headers", value=http_headers, expected_type=type_hints["http_headers"])
@@ -3018,7 +3250,9 @@ class JenkinsSpecMasterContainersLifecyclePreStopHttpGetHttpHeaders:
         :schema: JenkinsSpecMasterContainersLifecyclePreStopHttpGetHttpHeaders
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterContainersLifecyclePreStopHttpGetHttpHeaders.__init__)
+            def stub(*, name: builtins.str, value: builtins.str) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
             check_type(argname="argument value", value=value, expected_type=type_hints["value"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -3079,7 +3313,9 @@ class JenkinsSpecMasterContainersLifecyclePreStopHttpGetPort(
         :param value: -
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterContainersLifecyclePreStopHttpGetPort.from_number)
+            def stub(value: jsii.Number) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument value", value=value, expected_type=type_hints["value"])
         return typing.cast("JenkinsSpecMasterContainersLifecyclePreStopHttpGetPort", jsii.sinvoke(cls, "fromNumber", [value]))
 
@@ -3093,7 +3329,9 @@ class JenkinsSpecMasterContainersLifecyclePreStopHttpGetPort(
         :param value: -
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterContainersLifecyclePreStopHttpGetPort.from_string)
+            def stub(value: builtins.str) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument value", value=value, expected_type=type_hints["value"])
         return typing.cast("JenkinsSpecMasterContainersLifecyclePreStopHttpGetPort", jsii.sinvoke(cls, "fromString", [value]))
 
@@ -3125,7 +3363,13 @@ class JenkinsSpecMasterContainersLifecyclePreStopTcpSocket:
         :schema: JenkinsSpecMasterContainersLifecyclePreStopTcpSocket
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterContainersLifecyclePreStopTcpSocket.__init__)
+            def stub(
+                *,
+                port: "JenkinsSpecMasterContainersLifecyclePreStopTcpSocketPort",
+                host: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument port", value=port, expected_type=type_hints["port"])
             check_type(argname="argument host", value=host, expected_type=type_hints["host"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -3188,7 +3432,9 @@ class JenkinsSpecMasterContainersLifecyclePreStopTcpSocketPort(
         :param value: -
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterContainersLifecyclePreStopTcpSocketPort.from_number)
+            def stub(value: jsii.Number) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument value", value=value, expected_type=type_hints["value"])
         return typing.cast("JenkinsSpecMasterContainersLifecyclePreStopTcpSocketPort", jsii.sinvoke(cls, "fromNumber", [value]))
 
@@ -3202,7 +3448,9 @@ class JenkinsSpecMasterContainersLifecyclePreStopTcpSocketPort(
         :param value: -
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterContainersLifecyclePreStopTcpSocketPort.from_string)
+            def stub(value: builtins.str) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument value", value=value, expected_type=type_hints["value"])
         return typing.cast("JenkinsSpecMasterContainersLifecyclePreStopTcpSocketPort", jsii.sinvoke(cls, "fromString", [value]))
 
@@ -3261,7 +3509,19 @@ class JenkinsSpecMasterContainersLivenessProbe:
         if isinstance(tcp_socket, dict):
             tcp_socket = JenkinsSpecMasterContainersLivenessProbeTcpSocket(**tcp_socket)
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterContainersLivenessProbe.__init__)
+            def stub(
+                *,
+                exec: typing.Optional[typing.Union["JenkinsSpecMasterContainersLivenessProbeExec", typing.Dict[str, typing.Any]]] = None,
+                failure_threshold: typing.Optional[jsii.Number] = None,
+                http_get: typing.Optional[typing.Union["JenkinsSpecMasterContainersLivenessProbeHttpGet", typing.Dict[str, typing.Any]]] = None,
+                initial_delay_seconds: typing.Optional[jsii.Number] = None,
+                period_seconds: typing.Optional[jsii.Number] = None,
+                success_threshold: typing.Optional[jsii.Number] = None,
+                tcp_socket: typing.Optional[typing.Union["JenkinsSpecMasterContainersLivenessProbeTcpSocket", typing.Dict[str, typing.Any]]] = None,
+                timeout_seconds: typing.Optional[jsii.Number] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument exec", value=exec, expected_type=type_hints["exec"])
             check_type(argname="argument failure_threshold", value=failure_threshold, expected_type=type_hints["failure_threshold"])
             check_type(argname="argument http_get", value=http_get, expected_type=type_hints["http_get"])
@@ -3418,7 +3678,12 @@ class JenkinsSpecMasterContainersLivenessProbeExec:
         :schema: JenkinsSpecMasterContainersLivenessProbeExec
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterContainersLivenessProbeExec.__init__)
+            def stub(
+                *,
+                command: typing.Optional[typing.Sequence[builtins.str]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument command", value=command, expected_type=type_hints["command"])
         self._values: typing.Dict[str, typing.Any] = {}
         if command is not None:
@@ -3479,7 +3744,16 @@ class JenkinsSpecMasterContainersLivenessProbeHttpGet:
         :schema: JenkinsSpecMasterContainersLivenessProbeHttpGet
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterContainersLivenessProbeHttpGet.__init__)
+            def stub(
+                *,
+                port: "JenkinsSpecMasterContainersLivenessProbeHttpGetPort",
+                host: typing.Optional[builtins.str] = None,
+                http_headers: typing.Optional[typing.Sequence[typing.Union["JenkinsSpecMasterContainersLivenessProbeHttpGetHttpHeaders", typing.Dict[str, typing.Any]]]] = None,
+                path: typing.Optional[builtins.str] = None,
+                scheme: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument port", value=port, expected_type=type_hints["port"])
             check_type(argname="argument host", value=host, expected_type=type_hints["host"])
             check_type(argname="argument http_headers", value=http_headers, expected_type=type_hints["http_headers"])
@@ -3582,7 +3856,9 @@ class JenkinsSpecMasterContainersLivenessProbeHttpGetHttpHeaders:
         :schema: JenkinsSpecMasterContainersLivenessProbeHttpGetHttpHeaders
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterContainersLivenessProbeHttpGetHttpHeaders.__init__)
+            def stub(*, name: builtins.str, value: builtins.str) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
             check_type(argname="argument value", value=value, expected_type=type_hints["value"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -3643,7 +3919,9 @@ class JenkinsSpecMasterContainersLivenessProbeHttpGetPort(
         :param value: -
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterContainersLivenessProbeHttpGetPort.from_number)
+            def stub(value: jsii.Number) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument value", value=value, expected_type=type_hints["value"])
         return typing.cast("JenkinsSpecMasterContainersLivenessProbeHttpGetPort", jsii.sinvoke(cls, "fromNumber", [value]))
 
@@ -3657,7 +3935,9 @@ class JenkinsSpecMasterContainersLivenessProbeHttpGetPort(
         :param value: -
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterContainersLivenessProbeHttpGetPort.from_string)
+            def stub(value: builtins.str) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument value", value=value, expected_type=type_hints["value"])
         return typing.cast("JenkinsSpecMasterContainersLivenessProbeHttpGetPort", jsii.sinvoke(cls, "fromString", [value]))
 
@@ -3689,7 +3969,13 @@ class JenkinsSpecMasterContainersLivenessProbeTcpSocket:
         :schema: JenkinsSpecMasterContainersLivenessProbeTcpSocket
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterContainersLivenessProbeTcpSocket.__init__)
+            def stub(
+                *,
+                port: "JenkinsSpecMasterContainersLivenessProbeTcpSocketPort",
+                host: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument port", value=port, expected_type=type_hints["port"])
             check_type(argname="argument host", value=host, expected_type=type_hints["host"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -3752,7 +4038,9 @@ class JenkinsSpecMasterContainersLivenessProbeTcpSocketPort(
         :param value: -
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterContainersLivenessProbeTcpSocketPort.from_number)
+            def stub(value: jsii.Number) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument value", value=value, expected_type=type_hints["value"])
         return typing.cast("JenkinsSpecMasterContainersLivenessProbeTcpSocketPort", jsii.sinvoke(cls, "fromNumber", [value]))
 
@@ -3766,7 +4054,9 @@ class JenkinsSpecMasterContainersLivenessProbeTcpSocketPort(
         :param value: -
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterContainersLivenessProbeTcpSocketPort.from_string)
+            def stub(value: builtins.str) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument value", value=value, expected_type=type_hints["value"])
         return typing.cast("JenkinsSpecMasterContainersLivenessProbeTcpSocketPort", jsii.sinvoke(cls, "fromString", [value]))
 
@@ -3808,7 +4098,16 @@ class JenkinsSpecMasterContainersPorts:
         :schema: JenkinsSpecMasterContainersPorts
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterContainersPorts.__init__)
+            def stub(
+                *,
+                container_port: jsii.Number,
+                host_ip: typing.Optional[builtins.str] = None,
+                host_port: typing.Optional[jsii.Number] = None,
+                name: typing.Optional[builtins.str] = None,
+                protocol: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument container_port", value=container_port, expected_type=type_hints["container_port"])
             check_type(argname="argument host_ip", value=host_ip, expected_type=type_hints["host_ip"])
             check_type(argname="argument host_port", value=host_port, expected_type=type_hints["host_port"])
@@ -3943,7 +4242,19 @@ class JenkinsSpecMasterContainersReadinessProbe:
         if isinstance(tcp_socket, dict):
             tcp_socket = JenkinsSpecMasterContainersReadinessProbeTcpSocket(**tcp_socket)
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterContainersReadinessProbe.__init__)
+            def stub(
+                *,
+                exec: typing.Optional[typing.Union["JenkinsSpecMasterContainersReadinessProbeExec", typing.Dict[str, typing.Any]]] = None,
+                failure_threshold: typing.Optional[jsii.Number] = None,
+                http_get: typing.Optional[typing.Union["JenkinsSpecMasterContainersReadinessProbeHttpGet", typing.Dict[str, typing.Any]]] = None,
+                initial_delay_seconds: typing.Optional[jsii.Number] = None,
+                period_seconds: typing.Optional[jsii.Number] = None,
+                success_threshold: typing.Optional[jsii.Number] = None,
+                tcp_socket: typing.Optional[typing.Union["JenkinsSpecMasterContainersReadinessProbeTcpSocket", typing.Dict[str, typing.Any]]] = None,
+                timeout_seconds: typing.Optional[jsii.Number] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument exec", value=exec, expected_type=type_hints["exec"])
             check_type(argname="argument failure_threshold", value=failure_threshold, expected_type=type_hints["failure_threshold"])
             check_type(argname="argument http_get", value=http_get, expected_type=type_hints["http_get"])
@@ -4100,7 +4411,12 @@ class JenkinsSpecMasterContainersReadinessProbeExec:
         :schema: JenkinsSpecMasterContainersReadinessProbeExec
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterContainersReadinessProbeExec.__init__)
+            def stub(
+                *,
+                command: typing.Optional[typing.Sequence[builtins.str]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument command", value=command, expected_type=type_hints["command"])
         self._values: typing.Dict[str, typing.Any] = {}
         if command is not None:
@@ -4161,7 +4477,16 @@ class JenkinsSpecMasterContainersReadinessProbeHttpGet:
         :schema: JenkinsSpecMasterContainersReadinessProbeHttpGet
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterContainersReadinessProbeHttpGet.__init__)
+            def stub(
+                *,
+                port: "JenkinsSpecMasterContainersReadinessProbeHttpGetPort",
+                host: typing.Optional[builtins.str] = None,
+                http_headers: typing.Optional[typing.Sequence[typing.Union["JenkinsSpecMasterContainersReadinessProbeHttpGetHttpHeaders", typing.Dict[str, typing.Any]]]] = None,
+                path: typing.Optional[builtins.str] = None,
+                scheme: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument port", value=port, expected_type=type_hints["port"])
             check_type(argname="argument host", value=host, expected_type=type_hints["host"])
             check_type(argname="argument http_headers", value=http_headers, expected_type=type_hints["http_headers"])
@@ -4264,7 +4589,9 @@ class JenkinsSpecMasterContainersReadinessProbeHttpGetHttpHeaders:
         :schema: JenkinsSpecMasterContainersReadinessProbeHttpGetHttpHeaders
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterContainersReadinessProbeHttpGetHttpHeaders.__init__)
+            def stub(*, name: builtins.str, value: builtins.str) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
             check_type(argname="argument value", value=value, expected_type=type_hints["value"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -4325,7 +4652,9 @@ class JenkinsSpecMasterContainersReadinessProbeHttpGetPort(
         :param value: -
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterContainersReadinessProbeHttpGetPort.from_number)
+            def stub(value: jsii.Number) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument value", value=value, expected_type=type_hints["value"])
         return typing.cast("JenkinsSpecMasterContainersReadinessProbeHttpGetPort", jsii.sinvoke(cls, "fromNumber", [value]))
 
@@ -4339,7 +4668,9 @@ class JenkinsSpecMasterContainersReadinessProbeHttpGetPort(
         :param value: -
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterContainersReadinessProbeHttpGetPort.from_string)
+            def stub(value: builtins.str) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument value", value=value, expected_type=type_hints["value"])
         return typing.cast("JenkinsSpecMasterContainersReadinessProbeHttpGetPort", jsii.sinvoke(cls, "fromString", [value]))
 
@@ -4371,7 +4702,13 @@ class JenkinsSpecMasterContainersReadinessProbeTcpSocket:
         :schema: JenkinsSpecMasterContainersReadinessProbeTcpSocket
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterContainersReadinessProbeTcpSocket.__init__)
+            def stub(
+                *,
+                port: "JenkinsSpecMasterContainersReadinessProbeTcpSocketPort",
+                host: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument port", value=port, expected_type=type_hints["port"])
             check_type(argname="argument host", value=host, expected_type=type_hints["host"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -4434,7 +4771,9 @@ class JenkinsSpecMasterContainersReadinessProbeTcpSocketPort(
         :param value: -
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterContainersReadinessProbeTcpSocketPort.from_number)
+            def stub(value: jsii.Number) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument value", value=value, expected_type=type_hints["value"])
         return typing.cast("JenkinsSpecMasterContainersReadinessProbeTcpSocketPort", jsii.sinvoke(cls, "fromNumber", [value]))
 
@@ -4448,7 +4787,9 @@ class JenkinsSpecMasterContainersReadinessProbeTcpSocketPort(
         :param value: -
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterContainersReadinessProbeTcpSocketPort.from_string)
+            def stub(value: builtins.str) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument value", value=value, expected_type=type_hints["value"])
         return typing.cast("JenkinsSpecMasterContainersReadinessProbeTcpSocketPort", jsii.sinvoke(cls, "fromString", [value]))
 
@@ -4480,7 +4821,13 @@ class JenkinsSpecMasterContainersResources:
         :schema: JenkinsSpecMasterContainersResources
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterContainersResources.__init__)
+            def stub(
+                *,
+                limits: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
+                requests: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument limits", value=limits, expected_type=type_hints["limits"])
             check_type(argname="argument requests", value=requests, expected_type=type_hints["requests"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -4578,7 +4925,21 @@ class JenkinsSpecMasterContainersSecurityContext:
         if isinstance(windows_options, dict):
             windows_options = JenkinsSpecMasterContainersSecurityContextWindowsOptions(**windows_options)
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterContainersSecurityContext.__init__)
+            def stub(
+                *,
+                allow_privilege_escalation: typing.Optional[builtins.bool] = None,
+                capabilities: typing.Optional[typing.Union["JenkinsSpecMasterContainersSecurityContextCapabilities", typing.Dict[str, typing.Any]]] = None,
+                privileged: typing.Optional[builtins.bool] = None,
+                proc_mount: typing.Optional[builtins.str] = None,
+                read_only_root_filesystem: typing.Optional[builtins.bool] = None,
+                run_as_group: typing.Optional[jsii.Number] = None,
+                run_as_non_root: typing.Optional[builtins.bool] = None,
+                run_as_user: typing.Optional[jsii.Number] = None,
+                se_linux_options: typing.Optional[typing.Union["JenkinsSpecMasterContainersSecurityContextSeLinuxOptions", typing.Dict[str, typing.Any]]] = None,
+                windows_options: typing.Optional[typing.Union["JenkinsSpecMasterContainersSecurityContextWindowsOptions", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument allow_privilege_escalation", value=allow_privilege_escalation, expected_type=type_hints["allow_privilege_escalation"])
             check_type(argname="argument capabilities", value=capabilities, expected_type=type_hints["capabilities"])
             check_type(argname="argument privileged", value=privileged, expected_type=type_hints["privileged"])
@@ -4771,7 +5132,13 @@ class JenkinsSpecMasterContainersSecurityContextCapabilities:
         :schema: JenkinsSpecMasterContainersSecurityContextCapabilities
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterContainersSecurityContextCapabilities.__init__)
+            def stub(
+                *,
+                add: typing.Optional[typing.Sequence[builtins.str]] = None,
+                drop: typing.Optional[typing.Sequence[builtins.str]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument add", value=add, expected_type=type_hints["add"])
             check_type(argname="argument drop", value=drop, expected_type=type_hints["drop"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -4836,7 +5203,15 @@ class JenkinsSpecMasterContainersSecurityContextSeLinuxOptions:
         :schema: JenkinsSpecMasterContainersSecurityContextSeLinuxOptions
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterContainersSecurityContextSeLinuxOptions.__init__)
+            def stub(
+                *,
+                level: typing.Optional[builtins.str] = None,
+                role: typing.Optional[builtins.str] = None,
+                type: typing.Optional[builtins.str] = None,
+                user: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument level", value=level, expected_type=type_hints["level"])
             check_type(argname="argument role", value=role, expected_type=type_hints["role"])
             check_type(argname="argument type", value=type, expected_type=type_hints["type"])
@@ -4927,7 +5302,14 @@ class JenkinsSpecMasterContainersSecurityContextWindowsOptions:
         :schema: JenkinsSpecMasterContainersSecurityContextWindowsOptions
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterContainersSecurityContextWindowsOptions.__init__)
+            def stub(
+                *,
+                gmsa_credential_spec: typing.Optional[builtins.str] = None,
+                gmsa_credential_spec_name: typing.Optional[builtins.str] = None,
+                run_as_user_name: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument gmsa_credential_spec", value=gmsa_credential_spec, expected_type=type_hints["gmsa_credential_spec"])
             check_type(argname="argument gmsa_credential_spec_name", value=gmsa_credential_spec_name, expected_type=type_hints["gmsa_credential_spec_name"])
             check_type(argname="argument run_as_user_name", value=run_as_user_name, expected_type=type_hints["run_as_user_name"])
@@ -5019,7 +5401,17 @@ class JenkinsSpecMasterContainersVolumeMounts:
         :schema: JenkinsSpecMasterContainersVolumeMounts
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterContainersVolumeMounts.__init__)
+            def stub(
+                *,
+                mount_path: builtins.str,
+                name: builtins.str,
+                mount_propagation: typing.Optional[builtins.str] = None,
+                read_only: typing.Optional[builtins.bool] = None,
+                sub_path: typing.Optional[builtins.str] = None,
+                sub_path_expr: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument mount_path", value=mount_path, expected_type=type_hints["mount_path"])
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
             check_type(argname="argument mount_propagation", value=mount_propagation, expected_type=type_hints["mount_propagation"])
@@ -5137,7 +5529,9 @@ class JenkinsSpecMasterImagePullSecrets:
         :schema: JenkinsSpecMasterImagePullSecrets
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterImagePullSecrets.__init__)
+            def stub(*, name: typing.Optional[builtins.str] = None) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
         self._values: typing.Dict[str, typing.Any] = {}
         if name is not None:
@@ -5181,7 +5575,9 @@ class JenkinsSpecMasterPlugins:
         :schema: JenkinsSpecMasterPlugins
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterPlugins.__init__)
+            def stub(*, name: builtins.str, version: builtins.str) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
             check_type(argname="argument version", value=version, expected_type=type_hints["version"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -5270,7 +5666,19 @@ class JenkinsSpecMasterSecurityContext:
         if isinstance(windows_options, dict):
             windows_options = JenkinsSpecMasterSecurityContextWindowsOptions(**windows_options)
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterSecurityContext.__init__)
+            def stub(
+                *,
+                fs_group: typing.Optional[jsii.Number] = None,
+                run_as_group: typing.Optional[jsii.Number] = None,
+                run_as_non_root: typing.Optional[builtins.bool] = None,
+                run_as_user: typing.Optional[jsii.Number] = None,
+                se_linux_options: typing.Optional[typing.Union["JenkinsSpecMasterSecurityContextSeLinuxOptions", typing.Dict[str, typing.Any]]] = None,
+                supplemental_groups: typing.Optional[typing.Sequence[jsii.Number]] = None,
+                sysctls: typing.Optional[typing.Sequence[typing.Union["JenkinsSpecMasterSecurityContextSysctls", typing.Dict[str, typing.Any]]]] = None,
+                windows_options: typing.Optional[typing.Union["JenkinsSpecMasterSecurityContextWindowsOptions", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument fs_group", value=fs_group, expected_type=type_hints["fs_group"])
             check_type(argname="argument run_as_group", value=run_as_group, expected_type=type_hints["run_as_group"])
             check_type(argname="argument run_as_non_root", value=run_as_non_root, expected_type=type_hints["run_as_non_root"])
@@ -5434,7 +5842,15 @@ class JenkinsSpecMasterSecurityContextSeLinuxOptions:
         :schema: JenkinsSpecMasterSecurityContextSeLinuxOptions
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterSecurityContextSeLinuxOptions.__init__)
+            def stub(
+                *,
+                level: typing.Optional[builtins.str] = None,
+                role: typing.Optional[builtins.str] = None,
+                type: typing.Optional[builtins.str] = None,
+                user: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument level", value=level, expected_type=type_hints["level"])
             check_type(argname="argument role", value=role, expected_type=type_hints["role"])
             check_type(argname="argument type", value=type, expected_type=type_hints["type"])
@@ -5512,7 +5928,9 @@ class JenkinsSpecMasterSecurityContextSysctls:
         :schema: JenkinsSpecMasterSecurityContextSysctls
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterSecurityContextSysctls.__init__)
+            def stub(*, name: builtins.str, value: builtins.str) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
             check_type(argname="argument value", value=value, expected_type=type_hints["value"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -5580,7 +5998,14 @@ class JenkinsSpecMasterSecurityContextWindowsOptions:
         :schema: JenkinsSpecMasterSecurityContextWindowsOptions
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterSecurityContextWindowsOptions.__init__)
+            def stub(
+                *,
+                gmsa_credential_spec: typing.Optional[builtins.str] = None,
+                gmsa_credential_spec_name: typing.Optional[builtins.str] = None,
+                run_as_user_name: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument gmsa_credential_spec", value=gmsa_credential_spec, expected_type=type_hints["gmsa_credential_spec"])
             check_type(argname="argument gmsa_credential_spec_name", value=gmsa_credential_spec_name, expected_type=type_hints["gmsa_credential_spec_name"])
             check_type(argname="argument run_as_user_name", value=run_as_user_name, expected_type=type_hints["run_as_user_name"])
@@ -5669,7 +6094,16 @@ class JenkinsSpecMasterTolerations:
         :schema: JenkinsSpecMasterTolerations
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterTolerations.__init__)
+            def stub(
+                *,
+                effect: typing.Optional[builtins.str] = None,
+                key: typing.Optional[builtins.str] = None,
+                operator: typing.Optional[builtins.str] = None,
+                toleration_seconds: typing.Optional[jsii.Number] = None,
+                value: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument effect", value=effect, expected_type=type_hints["effect"])
             check_type(argname="argument key", value=key, expected_type=type_hints["key"])
             check_type(argname="argument operator", value=operator, expected_type=type_hints["operator"])
@@ -5916,7 +6350,40 @@ class JenkinsSpecMasterVolumes:
         if isinstance(vsphere_volume, dict):
             vsphere_volume = JenkinsSpecMasterVolumesVsphereVolume(**vsphere_volume)
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterVolumes.__init__)
+            def stub(
+                *,
+                name: builtins.str,
+                aws_elastic_block_store: typing.Optional[typing.Union["JenkinsSpecMasterVolumesAwsElasticBlockStore", typing.Dict[str, typing.Any]]] = None,
+                azure_disk: typing.Optional[typing.Union["JenkinsSpecMasterVolumesAzureDisk", typing.Dict[str, typing.Any]]] = None,
+                azure_file: typing.Optional[typing.Union["JenkinsSpecMasterVolumesAzureFile", typing.Dict[str, typing.Any]]] = None,
+                cephfs: typing.Optional[typing.Union["JenkinsSpecMasterVolumesCephfs", typing.Dict[str, typing.Any]]] = None,
+                cinder: typing.Optional[typing.Union["JenkinsSpecMasterVolumesCinder", typing.Dict[str, typing.Any]]] = None,
+                config_map: typing.Optional[typing.Union["JenkinsSpecMasterVolumesConfigMap", typing.Dict[str, typing.Any]]] = None,
+                csi: typing.Optional[typing.Union["JenkinsSpecMasterVolumesCsi", typing.Dict[str, typing.Any]]] = None,
+                downward_api: typing.Optional[typing.Union["JenkinsSpecMasterVolumesDownwardApi", typing.Dict[str, typing.Any]]] = None,
+                empty_dir: typing.Optional[typing.Union["JenkinsSpecMasterVolumesEmptyDir", typing.Dict[str, typing.Any]]] = None,
+                fc: typing.Optional[typing.Union["JenkinsSpecMasterVolumesFc", typing.Dict[str, typing.Any]]] = None,
+                flex_volume: typing.Optional[typing.Union["JenkinsSpecMasterVolumesFlexVolume", typing.Dict[str, typing.Any]]] = None,
+                flocker: typing.Optional[typing.Union["JenkinsSpecMasterVolumesFlocker", typing.Dict[str, typing.Any]]] = None,
+                gce_persistent_disk: typing.Optional[typing.Union["JenkinsSpecMasterVolumesGcePersistentDisk", typing.Dict[str, typing.Any]]] = None,
+                git_repo: typing.Optional[typing.Union["JenkinsSpecMasterVolumesGitRepo", typing.Dict[str, typing.Any]]] = None,
+                glusterfs: typing.Optional[typing.Union["JenkinsSpecMasterVolumesGlusterfs", typing.Dict[str, typing.Any]]] = None,
+                host_path: typing.Optional[typing.Union["JenkinsSpecMasterVolumesHostPath", typing.Dict[str, typing.Any]]] = None,
+                iscsi: typing.Optional[typing.Union["JenkinsSpecMasterVolumesIscsi", typing.Dict[str, typing.Any]]] = None,
+                nfs: typing.Optional[typing.Union["JenkinsSpecMasterVolumesNfs", typing.Dict[str, typing.Any]]] = None,
+                persistent_volume_claim: typing.Optional[typing.Union["JenkinsSpecMasterVolumesPersistentVolumeClaim", typing.Dict[str, typing.Any]]] = None,
+                photon_persistent_disk: typing.Optional[typing.Union["JenkinsSpecMasterVolumesPhotonPersistentDisk", typing.Dict[str, typing.Any]]] = None,
+                portworx_volume: typing.Optional[typing.Union["JenkinsSpecMasterVolumesPortworxVolume", typing.Dict[str, typing.Any]]] = None,
+                projected: typing.Optional[typing.Union["JenkinsSpecMasterVolumesProjected", typing.Dict[str, typing.Any]]] = None,
+                quobyte: typing.Optional[typing.Union["JenkinsSpecMasterVolumesQuobyte", typing.Dict[str, typing.Any]]] = None,
+                rbd: typing.Optional[typing.Union["JenkinsSpecMasterVolumesRbd", typing.Dict[str, typing.Any]]] = None,
+                scale_io: typing.Optional[typing.Union["JenkinsSpecMasterVolumesScaleIo", typing.Dict[str, typing.Any]]] = None,
+                secret: typing.Optional[typing.Union["JenkinsSpecMasterVolumesSecret", typing.Dict[str, typing.Any]]] = None,
+                storageos: typing.Optional[typing.Union["JenkinsSpecMasterVolumesStorageos", typing.Dict[str, typing.Any]]] = None,
+                vsphere_volume: typing.Optional[typing.Union["JenkinsSpecMasterVolumesVsphereVolume", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
             check_type(argname="argument aws_elastic_block_store", value=aws_elastic_block_store, expected_type=type_hints["aws_elastic_block_store"])
             check_type(argname="argument azure_disk", value=azure_disk, expected_type=type_hints["azure_disk"])
@@ -6349,7 +6816,15 @@ class JenkinsSpecMasterVolumesAwsElasticBlockStore:
         :schema: JenkinsSpecMasterVolumesAwsElasticBlockStore
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterVolumesAwsElasticBlockStore.__init__)
+            def stub(
+                *,
+                volume_id: builtins.str,
+                fs_type: typing.Optional[builtins.str] = None,
+                partition: typing.Optional[jsii.Number] = None,
+                read_only: typing.Optional[builtins.bool] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument volume_id", value=volume_id, expected_type=type_hints["volume_id"])
             check_type(argname="argument fs_type", value=fs_type, expected_type=type_hints["fs_type"])
             check_type(argname="argument partition", value=partition, expected_type=type_hints["partition"])
@@ -6456,7 +6931,17 @@ class JenkinsSpecMasterVolumesAzureDisk:
         :schema: JenkinsSpecMasterVolumesAzureDisk
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterVolumesAzureDisk.__init__)
+            def stub(
+                *,
+                disk_name: builtins.str,
+                disk_uri: builtins.str,
+                caching_mode: typing.Optional[builtins.str] = None,
+                fs_type: typing.Optional[builtins.str] = None,
+                kind: typing.Optional[builtins.str] = None,
+                read_only: typing.Optional[builtins.bool] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument disk_name", value=disk_name, expected_type=type_hints["disk_name"])
             check_type(argname="argument disk_uri", value=disk_uri, expected_type=type_hints["disk_uri"])
             check_type(argname="argument caching_mode", value=caching_mode, expected_type=type_hints["caching_mode"])
@@ -6578,7 +7063,14 @@ class JenkinsSpecMasterVolumesAzureFile:
         :schema: JenkinsSpecMasterVolumesAzureFile
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterVolumesAzureFile.__init__)
+            def stub(
+                *,
+                secret_name: builtins.str,
+                share_name: builtins.str,
+                read_only: typing.Optional[builtins.bool] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument secret_name", value=secret_name, expected_type=type_hints["secret_name"])
             check_type(argname="argument share_name", value=share_name, expected_type=type_hints["share_name"])
             check_type(argname="argument read_only", value=read_only, expected_type=type_hints["read_only"])
@@ -6671,7 +7163,17 @@ class JenkinsSpecMasterVolumesCephfs:
         if isinstance(secret_ref, dict):
             secret_ref = JenkinsSpecMasterVolumesCephfsSecretRef(**secret_ref)
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterVolumesCephfs.__init__)
+            def stub(
+                *,
+                monitors: typing.Sequence[builtins.str],
+                path: typing.Optional[builtins.str] = None,
+                read_only: typing.Optional[builtins.bool] = None,
+                secret_file: typing.Optional[builtins.str] = None,
+                secret_ref: typing.Optional[typing.Union["JenkinsSpecMasterVolumesCephfsSecretRef", typing.Dict[str, typing.Any]]] = None,
+                user: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument monitors", value=monitors, expected_type=type_hints["monitors"])
             check_type(argname="argument path", value=path, expected_type=type_hints["path"])
             check_type(argname="argument read_only", value=read_only, expected_type=type_hints["read_only"])
@@ -6781,7 +7283,9 @@ class JenkinsSpecMasterVolumesCephfsSecretRef:
         :schema: JenkinsSpecMasterVolumesCephfsSecretRef
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterVolumesCephfsSecretRef.__init__)
+            def stub(*, name: typing.Optional[builtins.str] = None) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
         self._values: typing.Dict[str, typing.Any] = {}
         if name is not None:
@@ -6843,7 +7347,15 @@ class JenkinsSpecMasterVolumesCinder:
         if isinstance(secret_ref, dict):
             secret_ref = JenkinsSpecMasterVolumesCinderSecretRef(**secret_ref)
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterVolumesCinder.__init__)
+            def stub(
+                *,
+                volume_id: builtins.str,
+                fs_type: typing.Optional[builtins.str] = None,
+                read_only: typing.Optional[builtins.bool] = None,
+                secret_ref: typing.Optional[typing.Union["JenkinsSpecMasterVolumesCinderSecretRef", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument volume_id", value=volume_id, expected_type=type_hints["volume_id"])
             check_type(argname="argument fs_type", value=fs_type, expected_type=type_hints["fs_type"])
             check_type(argname="argument read_only", value=read_only, expected_type=type_hints["read_only"])
@@ -6929,7 +7441,9 @@ class JenkinsSpecMasterVolumesCinderSecretRef:
         :schema: JenkinsSpecMasterVolumesCinderSecretRef
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterVolumesCinderSecretRef.__init__)
+            def stub(*, name: typing.Optional[builtins.str] = None) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
         self._values: typing.Dict[str, typing.Any] = {}
         if name is not None:
@@ -6987,7 +7501,15 @@ class JenkinsSpecMasterVolumesConfigMap:
         :schema: JenkinsSpecMasterVolumesConfigMap
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterVolumesConfigMap.__init__)
+            def stub(
+                *,
+                default_mode: typing.Optional[jsii.Number] = None,
+                items: typing.Optional[typing.Sequence[typing.Union["JenkinsSpecMasterVolumesConfigMapItems", typing.Dict[str, typing.Any]]]] = None,
+                name: typing.Optional[builtins.str] = None,
+                optional: typing.Optional[builtins.bool] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument default_mode", value=default_mode, expected_type=type_hints["default_mode"])
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
@@ -7082,7 +7604,14 @@ class JenkinsSpecMasterVolumesConfigMapItems:
         :schema: JenkinsSpecMasterVolumesConfigMapItems
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterVolumesConfigMapItems.__init__)
+            def stub(
+                *,
+                key: builtins.str,
+                path: builtins.str,
+                mode: typing.Optional[jsii.Number] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument key", value=key, expected_type=type_hints["key"])
             check_type(argname="argument path", value=path, expected_type=type_hints["path"])
             check_type(argname="argument mode", value=mode, expected_type=type_hints["mode"])
@@ -7172,7 +7701,16 @@ class JenkinsSpecMasterVolumesCsi:
         if isinstance(node_publish_secret_ref, dict):
             node_publish_secret_ref = JenkinsSpecMasterVolumesCsiNodePublishSecretRef(**node_publish_secret_ref)
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterVolumesCsi.__init__)
+            def stub(
+                *,
+                driver: builtins.str,
+                fs_type: typing.Optional[builtins.str] = None,
+                node_publish_secret_ref: typing.Optional[typing.Union["JenkinsSpecMasterVolumesCsiNodePublishSecretRef", typing.Dict[str, typing.Any]]] = None,
+                read_only: typing.Optional[builtins.bool] = None,
+                volume_attributes: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument driver", value=driver, expected_type=type_hints["driver"])
             check_type(argname="argument fs_type", value=fs_type, expected_type=type_hints["fs_type"])
             check_type(argname="argument node_publish_secret_ref", value=node_publish_secret_ref, expected_type=type_hints["node_publish_secret_ref"])
@@ -7280,7 +7818,9 @@ class JenkinsSpecMasterVolumesCsiNodePublishSecretRef:
         :schema: JenkinsSpecMasterVolumesCsiNodePublishSecretRef
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterVolumesCsiNodePublishSecretRef.__init__)
+            def stub(*, name: typing.Optional[builtins.str] = None) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
         self._values: typing.Dict[str, typing.Any] = {}
         if name is not None:
@@ -7329,7 +7869,13 @@ class JenkinsSpecMasterVolumesDownwardApi:
         :schema: JenkinsSpecMasterVolumesDownwardApi
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterVolumesDownwardApi.__init__)
+            def stub(
+                *,
+                default_mode: typing.Optional[jsii.Number] = None,
+                items: typing.Optional[typing.Sequence[typing.Union["JenkinsSpecMasterVolumesDownwardApiItems", typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument default_mode", value=default_mode, expected_type=type_hints["default_mode"])
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -7407,7 +7953,15 @@ class JenkinsSpecMasterVolumesDownwardApiItems:
         if isinstance(resource_field_ref, dict):
             resource_field_ref = JenkinsSpecMasterVolumesDownwardApiItemsResourceFieldRef(**resource_field_ref)
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterVolumesDownwardApiItems.__init__)
+            def stub(
+                *,
+                path: builtins.str,
+                field_ref: typing.Optional[typing.Union["JenkinsSpecMasterVolumesDownwardApiItemsFieldRef", typing.Dict[str, typing.Any]]] = None,
+                mode: typing.Optional[jsii.Number] = None,
+                resource_field_ref: typing.Optional[typing.Union["JenkinsSpecMasterVolumesDownwardApiItemsResourceFieldRef", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument path", value=path, expected_type=type_hints["path"])
             check_type(argname="argument field_ref", value=field_ref, expected_type=type_hints["field_ref"])
             check_type(argname="argument mode", value=mode, expected_type=type_hints["mode"])
@@ -7499,7 +8053,13 @@ class JenkinsSpecMasterVolumesDownwardApiItemsFieldRef:
         :schema: JenkinsSpecMasterVolumesDownwardApiItemsFieldRef
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterVolumesDownwardApiItemsFieldRef.__init__)
+            def stub(
+                *,
+                field_path: builtins.str,
+                api_version: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument field_path", value=field_path, expected_type=type_hints["field_path"])
             check_type(argname="argument api_version", value=api_version, expected_type=type_hints["api_version"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -7565,7 +8125,14 @@ class JenkinsSpecMasterVolumesDownwardApiItemsResourceFieldRef:
         :schema: JenkinsSpecMasterVolumesDownwardApiItemsResourceFieldRef
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterVolumesDownwardApiItemsResourceFieldRef.__init__)
+            def stub(
+                *,
+                resource: builtins.str,
+                container_name: typing.Optional[builtins.str] = None,
+                divisor: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument resource", value=resource, expected_type=type_hints["resource"])
             check_type(argname="argument container_name", value=container_name, expected_type=type_hints["container_name"])
             check_type(argname="argument divisor", value=divisor, expected_type=type_hints["divisor"])
@@ -7639,7 +8206,13 @@ class JenkinsSpecMasterVolumesEmptyDir:
         :schema: JenkinsSpecMasterVolumesEmptyDir
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterVolumesEmptyDir.__init__)
+            def stub(
+                *,
+                medium: typing.Optional[builtins.str] = None,
+                size_limit: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument medium", value=medium, expected_type=type_hints["medium"])
             check_type(argname="argument size_limit", value=size_limit, expected_type=type_hints["size_limit"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -7714,7 +8287,16 @@ class JenkinsSpecMasterVolumesFc:
         :schema: JenkinsSpecMasterVolumesFc
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterVolumesFc.__init__)
+            def stub(
+                *,
+                fs_type: typing.Optional[builtins.str] = None,
+                lun: typing.Optional[jsii.Number] = None,
+                read_only: typing.Optional[builtins.bool] = None,
+                target_ww_ns: typing.Optional[typing.Sequence[builtins.str]] = None,
+                wwids: typing.Optional[typing.Sequence[builtins.str]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument fs_type", value=fs_type, expected_type=type_hints["fs_type"])
             check_type(argname="argument lun", value=lun, expected_type=type_hints["lun"])
             check_type(argname="argument read_only", value=read_only, expected_type=type_hints["read_only"])
@@ -7829,7 +8411,16 @@ class JenkinsSpecMasterVolumesFlexVolume:
         if isinstance(secret_ref, dict):
             secret_ref = JenkinsSpecMasterVolumesFlexVolumeSecretRef(**secret_ref)
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterVolumesFlexVolume.__init__)
+            def stub(
+                *,
+                driver: builtins.str,
+                fs_type: typing.Optional[builtins.str] = None,
+                options: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
+                read_only: typing.Optional[builtins.bool] = None,
+                secret_ref: typing.Optional[typing.Union["JenkinsSpecMasterVolumesFlexVolumeSecretRef", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument driver", value=driver, expected_type=type_hints["driver"])
             check_type(argname="argument fs_type", value=fs_type, expected_type=type_hints["fs_type"])
             check_type(argname="argument options", value=options, expected_type=type_hints["options"])
@@ -7931,7 +8522,9 @@ class JenkinsSpecMasterVolumesFlexVolumeSecretRef:
         :schema: JenkinsSpecMasterVolumesFlexVolumeSecretRef
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterVolumesFlexVolumeSecretRef.__init__)
+            def stub(*, name: typing.Optional[builtins.str] = None) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
         self._values: typing.Dict[str, typing.Any] = {}
         if name is not None:
@@ -7982,7 +8575,13 @@ class JenkinsSpecMasterVolumesFlocker:
         :schema: JenkinsSpecMasterVolumesFlocker
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterVolumesFlocker.__init__)
+            def stub(
+                *,
+                dataset_name: typing.Optional[builtins.str] = None,
+                dataset_uuid: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument dataset_name", value=dataset_name, expected_type=type_hints["dataset_name"])
             check_type(argname="argument dataset_uuid", value=dataset_uuid, expected_type=type_hints["dataset_uuid"])
         self._values: typing.Dict[str, typing.Any] = {}
@@ -8054,7 +8653,15 @@ class JenkinsSpecMasterVolumesGcePersistentDisk:
         :schema: JenkinsSpecMasterVolumesGcePersistentDisk
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterVolumesGcePersistentDisk.__init__)
+            def stub(
+                *,
+                pd_name: builtins.str,
+                fs_type: typing.Optional[builtins.str] = None,
+                partition: typing.Optional[jsii.Number] = None,
+                read_only: typing.Optional[builtins.bool] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument pd_name", value=pd_name, expected_type=type_hints["pd_name"])
             check_type(argname="argument fs_type", value=fs_type, expected_type=type_hints["fs_type"])
             check_type(argname="argument partition", value=partition, expected_type=type_hints["partition"])
@@ -8156,7 +8763,14 @@ class JenkinsSpecMasterVolumesGitRepo:
         :schema: JenkinsSpecMasterVolumesGitRepo
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterVolumesGitRepo.__init__)
+            def stub(
+                *,
+                repository: builtins.str,
+                directory: typing.Optional[builtins.str] = None,
+                revision: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument repository", value=repository, expected_type=type_hints["repository"])
             check_type(argname="argument directory", value=directory, expected_type=type_hints["directory"])
             check_type(argname="argument revision", value=revision, expected_type=type_hints["revision"])
@@ -8234,7 +8848,14 @@ class JenkinsSpecMasterVolumesGlusterfs:
         :schema: JenkinsSpecMasterVolumesGlusterfs
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterVolumesGlusterfs.__init__)
+            def stub(
+                *,
+                endpoints: builtins.str,
+                path: builtins.str,
+                read_only: typing.Optional[builtins.bool] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument endpoints", value=endpoints, expected_type=type_hints["endpoints"])
             check_type(argname="argument path", value=path, expected_type=type_hints["path"])
             check_type(argname="argument read_only", value=read_only, expected_type=type_hints["read_only"])
@@ -8316,7 +8937,13 @@ class JenkinsSpecMasterVolumesHostPath:
         :schema: JenkinsSpecMasterVolumesHostPath
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterVolumesHostPath.__init__)
+            def stub(
+                *,
+                path: builtins.str,
+                type: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument path", value=path, expected_type=type_hints["path"])
             check_type(argname="argument type", value=type, expected_type=type_hints["type"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -8414,7 +9041,22 @@ class JenkinsSpecMasterVolumesIscsi:
         if isinstance(secret_ref, dict):
             secret_ref = JenkinsSpecMasterVolumesIscsiSecretRef(**secret_ref)
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterVolumesIscsi.__init__)
+            def stub(
+                *,
+                iqn: builtins.str,
+                lun: jsii.Number,
+                target_portal: builtins.str,
+                chap_auth_discovery: typing.Optional[builtins.bool] = None,
+                chap_auth_session: typing.Optional[builtins.bool] = None,
+                fs_type: typing.Optional[builtins.str] = None,
+                initiator_name: typing.Optional[builtins.str] = None,
+                iscsi_interface: typing.Optional[builtins.str] = None,
+                portals: typing.Optional[typing.Sequence[builtins.str]] = None,
+                read_only: typing.Optional[builtins.bool] = None,
+                secret_ref: typing.Optional[typing.Union["JenkinsSpecMasterVolumesIscsiSecretRef", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument iqn", value=iqn, expected_type=type_hints["iqn"])
             check_type(argname="argument lun", value=lun, expected_type=type_hints["lun"])
             check_type(argname="argument target_portal", value=target_portal, expected_type=type_hints["target_portal"])
@@ -8592,7 +9234,9 @@ class JenkinsSpecMasterVolumesIscsiSecretRef:
         :schema: JenkinsSpecMasterVolumesIscsiSecretRef
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterVolumesIscsiSecretRef.__init__)
+            def stub(*, name: typing.Optional[builtins.str] = None) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
         self._values: typing.Dict[str, typing.Any] = {}
         if name is not None:
@@ -8643,7 +9287,14 @@ class JenkinsSpecMasterVolumesNfs:
         :schema: JenkinsSpecMasterVolumesNfs
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterVolumesNfs.__init__)
+            def stub(
+                *,
+                path: builtins.str,
+                server: builtins.str,
+                read_only: typing.Optional[builtins.bool] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument path", value=path, expected_type=type_hints["path"])
             check_type(argname="argument server", value=server, expected_type=type_hints["server"])
             check_type(argname="argument read_only", value=read_only, expected_type=type_hints["read_only"])
@@ -8725,7 +9376,13 @@ class JenkinsSpecMasterVolumesPersistentVolumeClaim:
         :schema: JenkinsSpecMasterVolumesPersistentVolumeClaim
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterVolumesPersistentVolumeClaim.__init__)
+            def stub(
+                *,
+                claim_name: builtins.str,
+                read_only: typing.Optional[builtins.bool] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument claim_name", value=claim_name, expected_type=type_hints["claim_name"])
             check_type(argname="argument read_only", value=read_only, expected_type=type_hints["read_only"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -8789,7 +9446,13 @@ class JenkinsSpecMasterVolumesPhotonPersistentDisk:
         :schema: JenkinsSpecMasterVolumesPhotonPersistentDisk
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterVolumesPhotonPersistentDisk.__init__)
+            def stub(
+                *,
+                pd_id: builtins.str,
+                fs_type: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument pd_id", value=pd_id, expected_type=type_hints["pd_id"])
             check_type(argname="argument fs_type", value=fs_type, expected_type=type_hints["fs_type"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -8857,7 +9520,14 @@ class JenkinsSpecMasterVolumesPortworxVolume:
         :schema: JenkinsSpecMasterVolumesPortworxVolume
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterVolumesPortworxVolume.__init__)
+            def stub(
+                *,
+                volume_id: builtins.str,
+                fs_type: typing.Optional[builtins.str] = None,
+                read_only: typing.Optional[builtins.bool] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument volume_id", value=volume_id, expected_type=type_hints["volume_id"])
             check_type(argname="argument fs_type", value=fs_type, expected_type=type_hints["fs_type"])
             check_type(argname="argument read_only", value=read_only, expected_type=type_hints["read_only"])
@@ -8935,7 +9605,13 @@ class JenkinsSpecMasterVolumesProjected:
         :schema: JenkinsSpecMasterVolumesProjected
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterVolumesProjected.__init__)
+            def stub(
+                *,
+                sources: typing.Sequence[typing.Union["JenkinsSpecMasterVolumesProjectedSources", typing.Dict[str, typing.Any]]],
+                default_mode: typing.Optional[jsii.Number] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument sources", value=sources, expected_type=type_hints["sources"])
             check_type(argname="argument default_mode", value=default_mode, expected_type=type_hints["default_mode"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -9014,7 +9690,15 @@ class JenkinsSpecMasterVolumesProjectedSources:
         if isinstance(service_account_token, dict):
             service_account_token = JenkinsSpecMasterVolumesProjectedSourcesServiceAccountToken(**service_account_token)
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterVolumesProjectedSources.__init__)
+            def stub(
+                *,
+                config_map: typing.Optional[typing.Union["JenkinsSpecMasterVolumesProjectedSourcesConfigMap", typing.Dict[str, typing.Any]]] = None,
+                downward_api: typing.Optional[typing.Union["JenkinsSpecMasterVolumesProjectedSourcesDownwardApi", typing.Dict[str, typing.Any]]] = None,
+                secret: typing.Optional[typing.Union["JenkinsSpecMasterVolumesProjectedSourcesSecret", typing.Dict[str, typing.Any]]] = None,
+                service_account_token: typing.Optional[typing.Union["JenkinsSpecMasterVolumesProjectedSourcesServiceAccountToken", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument config_map", value=config_map, expected_type=type_hints["config_map"])
             check_type(argname="argument downward_api", value=downward_api, expected_type=type_hints["downward_api"])
             check_type(argname="argument secret", value=secret, expected_type=type_hints["secret"])
@@ -9107,7 +9791,14 @@ class JenkinsSpecMasterVolumesProjectedSourcesConfigMap:
         :schema: JenkinsSpecMasterVolumesProjectedSourcesConfigMap
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterVolumesProjectedSourcesConfigMap.__init__)
+            def stub(
+                *,
+                items: typing.Optional[typing.Sequence[typing.Union["JenkinsSpecMasterVolumesProjectedSourcesConfigMapItems", typing.Dict[str, typing.Any]]]] = None,
+                name: typing.Optional[builtins.str] = None,
+                optional: typing.Optional[builtins.bool] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
             check_type(argname="argument optional", value=optional, expected_type=type_hints["optional"])
@@ -9186,7 +9877,14 @@ class JenkinsSpecMasterVolumesProjectedSourcesConfigMapItems:
         :schema: JenkinsSpecMasterVolumesProjectedSourcesConfigMapItems
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterVolumesProjectedSourcesConfigMapItems.__init__)
+            def stub(
+                *,
+                key: builtins.str,
+                path: builtins.str,
+                mode: typing.Optional[jsii.Number] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument key", value=key, expected_type=type_hints["key"])
             check_type(argname="argument path", value=path, expected_type=type_hints["path"])
             check_type(argname="argument mode", value=mode, expected_type=type_hints["mode"])
@@ -9260,7 +9958,12 @@ class JenkinsSpecMasterVolumesProjectedSourcesDownwardApi:
         :schema: JenkinsSpecMasterVolumesProjectedSourcesDownwardApi
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterVolumesProjectedSourcesDownwardApi.__init__)
+            def stub(
+                *,
+                items: typing.Optional[typing.Sequence[typing.Union["JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems", typing.Dict[str, typing.Any]]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
         self._values: typing.Dict[str, typing.Any] = {}
         if items is not None:
@@ -9322,7 +10025,15 @@ class JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems:
         if isinstance(resource_field_ref, dict):
             resource_field_ref = JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef(**resource_field_ref)
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems.__init__)
+            def stub(
+                *,
+                path: builtins.str,
+                field_ref: typing.Optional[typing.Union["JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsFieldRef", typing.Dict[str, typing.Any]]] = None,
+                mode: typing.Optional[jsii.Number] = None,
+                resource_field_ref: typing.Optional[typing.Union["JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument path", value=path, expected_type=type_hints["path"])
             check_type(argname="argument field_ref", value=field_ref, expected_type=type_hints["field_ref"])
             check_type(argname="argument mode", value=mode, expected_type=type_hints["mode"])
@@ -9414,7 +10125,13 @@ class JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsFieldRef:
         :schema: JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsFieldRef
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsFieldRef.__init__)
+            def stub(
+                *,
+                field_path: builtins.str,
+                api_version: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument field_path", value=field_path, expected_type=type_hints["field_path"])
             check_type(argname="argument api_version", value=api_version, expected_type=type_hints["api_version"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -9480,7 +10197,14 @@ class JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef:
         :schema: JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef.__init__)
+            def stub(
+                *,
+                resource: builtins.str,
+                container_name: typing.Optional[builtins.str] = None,
+                divisor: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument resource", value=resource, expected_type=type_hints["resource"])
             check_type(argname="argument container_name", value=container_name, expected_type=type_hints["container_name"])
             check_type(argname="argument divisor", value=divisor, expected_type=type_hints["divisor"])
@@ -9554,7 +10278,14 @@ class JenkinsSpecMasterVolumesProjectedSourcesSecret:
         :schema: JenkinsSpecMasterVolumesProjectedSourcesSecret
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterVolumesProjectedSourcesSecret.__init__)
+            def stub(
+                *,
+                items: typing.Optional[typing.Sequence[typing.Union["JenkinsSpecMasterVolumesProjectedSourcesSecretItems", typing.Dict[str, typing.Any]]]] = None,
+                name: typing.Optional[builtins.str] = None,
+                optional: typing.Optional[builtins.bool] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
             check_type(argname="argument optional", value=optional, expected_type=type_hints["optional"])
@@ -9633,7 +10364,14 @@ class JenkinsSpecMasterVolumesProjectedSourcesSecretItems:
         :schema: JenkinsSpecMasterVolumesProjectedSourcesSecretItems
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterVolumesProjectedSourcesSecretItems.__init__)
+            def stub(
+                *,
+                key: builtins.str,
+                path: builtins.str,
+                mode: typing.Optional[jsii.Number] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument key", value=key, expected_type=type_hints["key"])
             check_type(argname="argument path", value=path, expected_type=type_hints["path"])
             check_type(argname="argument mode", value=mode, expected_type=type_hints["mode"])
@@ -9715,7 +10453,14 @@ class JenkinsSpecMasterVolumesProjectedSourcesServiceAccountToken:
         :schema: JenkinsSpecMasterVolumesProjectedSourcesServiceAccountToken
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterVolumesProjectedSourcesServiceAccountToken.__init__)
+            def stub(
+                *,
+                path: builtins.str,
+                audience: typing.Optional[builtins.str] = None,
+                expiration_seconds: typing.Optional[jsii.Number] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument path", value=path, expected_type=type_hints["path"])
             check_type(argname="argument audience", value=audience, expected_type=type_hints["audience"])
             check_type(argname="argument expiration_seconds", value=expiration_seconds, expected_type=type_hints["expiration_seconds"])
@@ -9808,7 +10553,17 @@ class JenkinsSpecMasterVolumesQuobyte:
         :schema: JenkinsSpecMasterVolumesQuobyte
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterVolumesQuobyte.__init__)
+            def stub(
+                *,
+                registry: builtins.str,
+                volume: builtins.str,
+                group: typing.Optional[builtins.str] = None,
+                read_only: typing.Optional[builtins.bool] = None,
+                tenant: typing.Optional[builtins.str] = None,
+                user: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument registry", value=registry, expected_type=type_hints["registry"])
             check_type(argname="argument volume", value=volume, expected_type=type_hints["volume"])
             check_type(argname="argument group", value=group, expected_type=type_hints["group"])
@@ -9949,7 +10704,19 @@ class JenkinsSpecMasterVolumesRbd:
         if isinstance(secret_ref, dict):
             secret_ref = JenkinsSpecMasterVolumesRbdSecretRef(**secret_ref)
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterVolumesRbd.__init__)
+            def stub(
+                *,
+                image: builtins.str,
+                monitors: typing.Sequence[builtins.str],
+                fs_type: typing.Optional[builtins.str] = None,
+                keyring: typing.Optional[builtins.str] = None,
+                pool: typing.Optional[builtins.str] = None,
+                read_only: typing.Optional[builtins.bool] = None,
+                secret_ref: typing.Optional[typing.Union["JenkinsSpecMasterVolumesRbdSecretRef", typing.Dict[str, typing.Any]]] = None,
+                user: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument image", value=image, expected_type=type_hints["image"])
             check_type(argname="argument monitors", value=monitors, expected_type=type_hints["monitors"])
             check_type(argname="argument fs_type", value=fs_type, expected_type=type_hints["fs_type"])
@@ -10105,7 +10872,9 @@ class JenkinsSpecMasterVolumesRbdSecretRef:
         :schema: JenkinsSpecMasterVolumesRbdSecretRef
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterVolumesRbdSecretRef.__init__)
+            def stub(*, name: typing.Optional[builtins.str] = None) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
         self._values: typing.Dict[str, typing.Any] = {}
         if name is not None:
@@ -10183,7 +10952,21 @@ class JenkinsSpecMasterVolumesScaleIo:
         if isinstance(secret_ref, dict):
             secret_ref = JenkinsSpecMasterVolumesScaleIoSecretRef(**secret_ref)
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterVolumesScaleIo.__init__)
+            def stub(
+                *,
+                gateway: builtins.str,
+                secret_ref: typing.Union["JenkinsSpecMasterVolumesScaleIoSecretRef", typing.Dict[str, typing.Any]],
+                system: builtins.str,
+                fs_type: typing.Optional[builtins.str] = None,
+                protection_domain: typing.Optional[builtins.str] = None,
+                read_only: typing.Optional[builtins.bool] = None,
+                ssl_enabled: typing.Optional[builtins.bool] = None,
+                storage_mode: typing.Optional[builtins.str] = None,
+                storage_pool: typing.Optional[builtins.str] = None,
+                volume_name: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument gateway", value=gateway, expected_type=type_hints["gateway"])
             check_type(argname="argument secret_ref", value=secret_ref, expected_type=type_hints["secret_ref"])
             check_type(argname="argument system", value=system, expected_type=type_hints["system"])
@@ -10349,7 +11132,9 @@ class JenkinsSpecMasterVolumesScaleIoSecretRef:
         :schema: JenkinsSpecMasterVolumesScaleIoSecretRef
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterVolumesScaleIoSecretRef.__init__)
+            def stub(*, name: typing.Optional[builtins.str] = None) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
         self._values: typing.Dict[str, typing.Any] = {}
         if name is not None:
@@ -10409,7 +11194,15 @@ class JenkinsSpecMasterVolumesSecret:
         :schema: JenkinsSpecMasterVolumesSecret
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterVolumesSecret.__init__)
+            def stub(
+                *,
+                default_mode: typing.Optional[jsii.Number] = None,
+                items: typing.Optional[typing.Sequence[typing.Union["JenkinsSpecMasterVolumesSecretItems", typing.Dict[str, typing.Any]]]] = None,
+                optional: typing.Optional[builtins.bool] = None,
+                secret_name: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument default_mode", value=default_mode, expected_type=type_hints["default_mode"])
             check_type(argname="argument items", value=items, expected_type=type_hints["items"])
             check_type(argname="argument optional", value=optional, expected_type=type_hints["optional"])
@@ -10504,7 +11297,14 @@ class JenkinsSpecMasterVolumesSecretItems:
         :schema: JenkinsSpecMasterVolumesSecretItems
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterVolumesSecretItems.__init__)
+            def stub(
+                *,
+                key: builtins.str,
+                path: builtins.str,
+                mode: typing.Optional[jsii.Number] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument key", value=key, expected_type=type_hints["key"])
             check_type(argname="argument path", value=path, expected_type=type_hints["path"])
             check_type(argname="argument mode", value=mode, expected_type=type_hints["mode"])
@@ -10594,7 +11394,16 @@ class JenkinsSpecMasterVolumesStorageos:
         if isinstance(secret_ref, dict):
             secret_ref = JenkinsSpecMasterVolumesStorageosSecretRef(**secret_ref)
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterVolumesStorageos.__init__)
+            def stub(
+                *,
+                fs_type: typing.Optional[builtins.str] = None,
+                read_only: typing.Optional[builtins.bool] = None,
+                secret_ref: typing.Optional[typing.Union["JenkinsSpecMasterVolumesStorageosSecretRef", typing.Dict[str, typing.Any]]] = None,
+                volume_name: typing.Optional[builtins.str] = None,
+                volume_namespace: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument fs_type", value=fs_type, expected_type=type_hints["fs_type"])
             check_type(argname="argument read_only", value=read_only, expected_type=type_hints["read_only"])
             check_type(argname="argument secret_ref", value=secret_ref, expected_type=type_hints["secret_ref"])
@@ -10699,7 +11508,9 @@ class JenkinsSpecMasterVolumesStorageosSecretRef:
         :schema: JenkinsSpecMasterVolumesStorageosSecretRef
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterVolumesStorageosSecretRef.__init__)
+            def stub(*, name: typing.Optional[builtins.str] = None) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
         self._values: typing.Dict[str, typing.Any] = {}
         if name is not None:
@@ -10757,7 +11568,15 @@ class JenkinsSpecMasterVolumesVsphereVolume:
         :schema: JenkinsSpecMasterVolumesVsphereVolume
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecMasterVolumesVsphereVolume.__init__)
+            def stub(
+                *,
+                volume_path: builtins.str,
+                fs_type: typing.Optional[builtins.str] = None,
+                storage_policy_id: typing.Optional[builtins.str] = None,
+                storage_policy_name: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument volume_path", value=volume_path, expected_type=type_hints["volume_path"])
             check_type(argname="argument fs_type", value=fs_type, expected_type=type_hints["fs_type"])
             check_type(argname="argument storage_policy_id", value=storage_policy_id, expected_type=type_hints["storage_policy_id"])
@@ -10869,7 +11688,18 @@ class JenkinsSpecNotifications:
         if isinstance(teams, dict):
             teams = JenkinsSpecNotificationsTeams(**teams)
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecNotifications.__init__)
+            def stub(
+                *,
+                level: builtins.str,
+                name: builtins.str,
+                verbose: builtins.bool,
+                mailgun: typing.Optional[typing.Union["JenkinsSpecNotificationsMailgun", typing.Dict[str, typing.Any]]] = None,
+                slack: typing.Optional[typing.Union["JenkinsSpecNotificationsSlack", typing.Dict[str, typing.Any]]] = None,
+                smtp: typing.Optional[typing.Union["JenkinsSpecNotificationsSmtp", typing.Dict[str, typing.Any]]] = None,
+                teams: typing.Optional[typing.Union["JenkinsSpecNotificationsTeams", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument level", value=level, expected_type=type_hints["level"])
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
             check_type(argname="argument verbose", value=verbose, expected_type=type_hints["verbose"])
@@ -10998,7 +11828,15 @@ class JenkinsSpecNotificationsMailgun:
         if isinstance(api_key_secret_key_selector, dict):
             api_key_secret_key_selector = JenkinsSpecNotificationsMailgunApiKeySecretKeySelector(**api_key_secret_key_selector)
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecNotificationsMailgun.__init__)
+            def stub(
+                *,
+                api_key_secret_key_selector: typing.Union["JenkinsSpecNotificationsMailgunApiKeySecretKeySelector", typing.Dict[str, typing.Any]],
+                domain: builtins.str,
+                from_: builtins.str,
+                recipient: builtins.str,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument api_key_secret_key_selector", value=api_key_secret_key_selector, expected_type=type_hints["api_key_secret_key_selector"])
             check_type(argname="argument domain", value=domain, expected_type=type_hints["domain"])
             check_type(argname="argument from_", value=from_, expected_type=type_hints["from_"])
@@ -11083,7 +11921,13 @@ class JenkinsSpecNotificationsMailgunApiKeySecretKeySelector:
         if isinstance(secret, dict):
             secret = JenkinsSpecNotificationsMailgunApiKeySecretKeySelectorSecret(**secret)
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecNotificationsMailgunApiKeySecretKeySelector.__init__)
+            def stub(
+                *,
+                key: builtins.str,
+                secret: typing.Union["JenkinsSpecNotificationsMailgunApiKeySecretKeySelectorSecret", typing.Dict[str, typing.Any]],
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument key", value=key, expected_type=type_hints["key"])
             check_type(argname="argument secret", value=secret, expected_type=type_hints["secret"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -11139,7 +11983,9 @@ class JenkinsSpecNotificationsMailgunApiKeySecretKeySelectorSecret:
         :schema: JenkinsSpecNotificationsMailgunApiKeySecretKeySelectorSecret
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecNotificationsMailgunApiKeySecretKeySelectorSecret.__init__)
+            def stub(*, name: typing.Optional[builtins.str] = None) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
         self._values: typing.Dict[str, typing.Any] = {}
         if name is not None:
@@ -11188,7 +12034,12 @@ class JenkinsSpecNotificationsSlack:
         if isinstance(web_hook_url_secret_key_selector, dict):
             web_hook_url_secret_key_selector = JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelector(**web_hook_url_secret_key_selector)
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecNotificationsSlack.__init__)
+            def stub(
+                *,
+                web_hook_url_secret_key_selector: typing.Union["JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelector", typing.Dict[str, typing.Any]],
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument web_hook_url_secret_key_selector", value=web_hook_url_secret_key_selector, expected_type=type_hints["web_hook_url_secret_key_selector"])
         self._values: typing.Dict[str, typing.Any] = {
             "web_hook_url_secret_key_selector": web_hook_url_secret_key_selector,
@@ -11240,7 +12091,13 @@ class JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelector:
         if isinstance(secret, dict):
             secret = JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelectorSecret(**secret)
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelector.__init__)
+            def stub(
+                *,
+                key: builtins.str,
+                secret: typing.Union["JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelectorSecret", typing.Dict[str, typing.Any]],
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument key", value=key, expected_type=type_hints["key"])
             check_type(argname="argument secret", value=secret, expected_type=type_hints["secret"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -11298,7 +12155,9 @@ class JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelectorSecret:
         :schema: JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelectorSecret
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelectorSecret.__init__)
+            def stub(*, name: typing.Optional[builtins.str] = None) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
         self._values: typing.Dict[str, typing.Any] = {}
         if name is not None:
@@ -11369,7 +12228,18 @@ class JenkinsSpecNotificationsSmtp:
         if isinstance(username_secret_key_selector, dict):
             username_secret_key_selector = JenkinsSpecNotificationsSmtpUsernameSecretKeySelector(**username_secret_key_selector)
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecNotificationsSmtp.__init__)
+            def stub(
+                *,
+                from_: builtins.str,
+                password_secret_key_selector: typing.Union["JenkinsSpecNotificationsSmtpPasswordSecretKeySelector", typing.Dict[str, typing.Any]],
+                port: jsii.Number,
+                server: builtins.str,
+                to: builtins.str,
+                username_secret_key_selector: typing.Union["JenkinsSpecNotificationsSmtpUsernameSecretKeySelector", typing.Dict[str, typing.Any]],
+                tls_insecure_skip_verify: typing.Optional[builtins.bool] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument from_", value=from_, expected_type=type_hints["from_"])
             check_type(argname="argument password_secret_key_selector", value=password_secret_key_selector, expected_type=type_hints["password_secret_key_selector"])
             check_type(argname="argument port", value=port, expected_type=type_hints["port"])
@@ -11490,7 +12360,13 @@ class JenkinsSpecNotificationsSmtpPasswordSecretKeySelector:
         if isinstance(secret, dict):
             secret = JenkinsSpecNotificationsSmtpPasswordSecretKeySelectorSecret(**secret)
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecNotificationsSmtpPasswordSecretKeySelector.__init__)
+            def stub(
+                *,
+                key: builtins.str,
+                secret: typing.Union["JenkinsSpecNotificationsSmtpPasswordSecretKeySelectorSecret", typing.Dict[str, typing.Any]],
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument key", value=key, expected_type=type_hints["key"])
             check_type(argname="argument secret", value=secret, expected_type=type_hints["secret"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -11546,7 +12422,9 @@ class JenkinsSpecNotificationsSmtpPasswordSecretKeySelectorSecret:
         :schema: JenkinsSpecNotificationsSmtpPasswordSecretKeySelectorSecret
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecNotificationsSmtpPasswordSecretKeySelectorSecret.__init__)
+            def stub(*, name: typing.Optional[builtins.str] = None) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
         self._values: typing.Dict[str, typing.Any] = {}
         if name is not None:
@@ -11597,7 +12475,13 @@ class JenkinsSpecNotificationsSmtpUsernameSecretKeySelector:
         if isinstance(secret, dict):
             secret = JenkinsSpecNotificationsSmtpUsernameSecretKeySelectorSecret(**secret)
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecNotificationsSmtpUsernameSecretKeySelector.__init__)
+            def stub(
+                *,
+                key: builtins.str,
+                secret: typing.Union["JenkinsSpecNotificationsSmtpUsernameSecretKeySelectorSecret", typing.Dict[str, typing.Any]],
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument key", value=key, expected_type=type_hints["key"])
             check_type(argname="argument secret", value=secret, expected_type=type_hints["secret"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -11653,7 +12537,9 @@ class JenkinsSpecNotificationsSmtpUsernameSecretKeySelectorSecret:
         :schema: JenkinsSpecNotificationsSmtpUsernameSecretKeySelectorSecret
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecNotificationsSmtpUsernameSecretKeySelectorSecret.__init__)
+            def stub(*, name: typing.Optional[builtins.str] = None) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
         self._values: typing.Dict[str, typing.Any] = {}
         if name is not None:
@@ -11702,7 +12588,12 @@ class JenkinsSpecNotificationsTeams:
         if isinstance(web_hook_url_secret_key_selector, dict):
             web_hook_url_secret_key_selector = JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelector(**web_hook_url_secret_key_selector)
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecNotificationsTeams.__init__)
+            def stub(
+                *,
+                web_hook_url_secret_key_selector: typing.Union["JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelector", typing.Dict[str, typing.Any]],
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument web_hook_url_secret_key_selector", value=web_hook_url_secret_key_selector, expected_type=type_hints["web_hook_url_secret_key_selector"])
         self._values: typing.Dict[str, typing.Any] = {
             "web_hook_url_secret_key_selector": web_hook_url_secret_key_selector,
@@ -11754,7 +12645,13 @@ class JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelector:
         if isinstance(secret, dict):
             secret = JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelectorSecret(**secret)
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelector.__init__)
+            def stub(
+                *,
+                key: builtins.str,
+                secret: typing.Union["JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelectorSecret", typing.Dict[str, typing.Any]],
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument key", value=key, expected_type=type_hints["key"])
             check_type(argname="argument secret", value=secret, expected_type=type_hints["secret"])
         self._values: typing.Dict[str, typing.Any] = {
@@ -11812,7 +12709,9 @@ class JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelectorSecret:
         :schema: JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelectorSecret
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelectorSecret.__init__)
+            def stub(*, name: typing.Optional[builtins.str] = None) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
         self._values: typing.Dict[str, typing.Any] = {}
         if name is not None:
@@ -11869,7 +12768,14 @@ class JenkinsSpecRestore:
         if isinstance(action, dict):
             action = JenkinsSpecRestoreAction(**action)
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecRestore.__init__)
+            def stub(
+                *,
+                action: typing.Union["JenkinsSpecRestoreAction", typing.Dict[str, typing.Any]],
+                container_name: builtins.str,
+                recovery_once: typing.Optional[jsii.Number] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument action", value=action, expected_type=type_hints["action"])
             check_type(argname="argument container_name", value=container_name, expected_type=type_hints["container_name"])
             check_type(argname="argument recovery_once", value=recovery_once, expected_type=type_hints["recovery_once"])
@@ -11941,7 +12847,12 @@ class JenkinsSpecRestoreAction:
         if isinstance(exec, dict):
             exec = JenkinsSpecRestoreActionExec(**exec)
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecRestoreAction.__init__)
+            def stub(
+                *,
+                exec: typing.Optional[typing.Union["JenkinsSpecRestoreActionExec", typing.Dict[str, typing.Any]]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument exec", value=exec, expected_type=type_hints["exec"])
         self._values: typing.Dict[str, typing.Any] = {}
         if exec is not None:
@@ -11986,7 +12897,12 @@ class JenkinsSpecRestoreActionExec:
         :schema: JenkinsSpecRestoreActionExec
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecRestoreActionExec.__init__)
+            def stub(
+                *,
+                command: typing.Optional[typing.Sequence[builtins.str]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument command", value=command, expected_type=type_hints["command"])
         self._values: typing.Dict[str, typing.Any] = {}
         if command is not None:
@@ -12037,7 +12953,14 @@ class JenkinsSpecRoles:
         :schema: JenkinsSpecRoles
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecRoles.__init__)
+            def stub(
+                *,
+                api_group: builtins.str,
+                kind: builtins.str,
+                name: builtins.str,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument api_group", value=api_group, expected_type=type_hints["api_group"])
             check_type(argname="argument kind", value=kind, expected_type=type_hints["kind"])
             check_type(argname="argument name", value=name, expected_type=type_hints["name"])
@@ -12151,7 +13074,26 @@ class JenkinsSpecSeedJobs:
         :schema: JenkinsSpecSeedJobs
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecSeedJobs.__init__)
+            def stub(
+                *,
+                additional_classpath: typing.Optional[builtins.str] = None,
+                bitbucket_push_trigger: typing.Optional[builtins.bool] = None,
+                build_periodically: typing.Optional[builtins.str] = None,
+                credential_id: typing.Optional[builtins.str] = None,
+                credential_type: typing.Optional[builtins.str] = None,
+                description: typing.Optional[builtins.str] = None,
+                fail_on_missing_plugin: typing.Optional[builtins.bool] = None,
+                github_push_trigger: typing.Optional[builtins.bool] = None,
+                id: typing.Optional[builtins.str] = None,
+                ignore_missing_files: typing.Optional[builtins.bool] = None,
+                poll_scm: typing.Optional[builtins.str] = None,
+                repository_branch: typing.Optional[builtins.str] = None,
+                repository_url: typing.Optional[builtins.str] = None,
+                targets: typing.Optional[builtins.str] = None,
+                unstable_on_deprecation: typing.Optional[builtins.bool] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument additional_classpath", value=additional_classpath, expected_type=type_hints["additional_classpath"])
             check_type(argname="argument bitbucket_push_trigger", value=bitbucket_push_trigger, expected_type=type_hints["bitbucket_push_trigger"])
             check_type(argname="argument build_periodically", value=build_periodically, expected_type=type_hints["build_periodically"])
@@ -12388,7 +13330,18 @@ class JenkinsSpecService:
         :schema: JenkinsSpecService
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecService.__init__)
+            def stub(
+                *,
+                annotations: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
+                labels: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
+                load_balancer_ip: typing.Optional[builtins.str] = None,
+                load_balancer_source_ranges: typing.Optional[typing.Sequence[builtins.str]] = None,
+                node_port: typing.Optional[jsii.Number] = None,
+                port: typing.Optional[jsii.Number] = None,
+                type: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument annotations", value=annotations, expected_type=type_hints["annotations"])
             check_type(argname="argument labels", value=labels, expected_type=type_hints["labels"])
             check_type(argname="argument load_balancer_ip", value=load_balancer_ip, expected_type=type_hints["load_balancer_ip"])
@@ -12525,7 +13478,12 @@ class JenkinsSpecServiceAccount:
         :schema: JenkinsSpecServiceAccount
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecServiceAccount.__init__)
+            def stub(
+                *,
+                annotations: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument annotations", value=annotations, expected_type=type_hints["annotations"])
         self._values: typing.Dict[str, typing.Any] = {}
         if annotations is not None:
@@ -12596,7 +13554,18 @@ class JenkinsSpecSlaveService:
         :schema: JenkinsSpecSlaveService
         '''
         if __debug__:
-            type_hints = typing.get_type_hints(JenkinsSpecSlaveService.__init__)
+            def stub(
+                *,
+                annotations: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
+                labels: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
+                load_balancer_ip: typing.Optional[builtins.str] = None,
+                load_balancer_source_ranges: typing.Optional[typing.Sequence[builtins.str]] = None,
+                node_port: typing.Optional[jsii.Number] = None,
+                port: typing.Optional[jsii.Number] = None,
+                type: typing.Optional[builtins.str] = None,
+            ) -> None:
+                ...
+            type_hints = typing.get_type_hints(stub)
             check_type(argname="argument annotations", value=annotations, expected_type=type_hints["annotations"])
             check_type(argname="argument labels", value=labels, expected_type=type_hints["labels"])
             check_type(argname="argument load_balancer_ip", value=load_balancer_ip, expected_type=type_hints["load_balancer_ip"])
