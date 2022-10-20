@@ -13,7 +13,7 @@
     
     
       
-        <title>PersistentVolumeClaim - cdk8s</title>
+        <title>HorizontalPodAutoscaler - cdk8s</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#persistentvolumeclaim" class="md-skip">
+        <a href="#horizontalpodautoscaler" class="md-skip">
           Skip to content
         </a>
       
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              PersistentVolumeClaim
+              HorizontalPodAutoscaler
             
           </span>
         </div>
@@ -461,12 +461,14 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" checked>
       
       
       
@@ -523,7 +525,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cdk8s-plus-23/config-map/" class="md-nav__link">
+      <a href="../config-map/" class="md-nav__link">
         ConfigMap
       </a>
     </li>
@@ -537,7 +539,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cdk8s-plus-23/container/" class="md-nav__link">
+      <a href="../container/" class="md-nav__link">
         Container
       </a>
     </li>
@@ -551,7 +553,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cdk8s-plus-23/cronjob/" class="md-nav__link">
+      <a href="../cronjob/" class="md-nav__link">
         CronJob
       </a>
     </li>
@@ -565,7 +567,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cdk8s-plus-23/deployment/" class="md-nav__link">
+      <a href="../deployment/" class="md-nav__link">
         Deployment
       </a>
     </li>
@@ -577,11 +579,128 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../cdk8s-plus-23/horizontal-pod-autoscaler/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          HorizontalPodAutoscaler
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         HorizontalPodAutoscaler
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#using-a-horizontalpodautoscaler" class="md-nav__link">
+    Using a HorizontalPodAutoscaler
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metrics" class="md-nav__link">
+    Metrics
+  </a>
+  
+    <nav class="md-nav" aria-label="Metrics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resource-metrics" class="md-nav__link">
+    Resource Metrics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pods-metrics" class="md-nav__link">
+    Pods Metrics
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#container-metrics" class="md-nav__link">
+    Container Metrics
+  </a>
+  
+    <nav class="md-nav" aria-label="Container Metrics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#object-metrics" class="md-nav__link">
+    Object Metrics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#external-metrics" class="md-nav__link">
+    External Metrics
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scaling-behavior" class="md-nav__link">
+    Scaling behavior
+  </a>
+  
+    <nav class="md-nav" aria-label="Scaling behavior">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scaleup-scaledown" class="md-nav__link">
+    scaleUp /scaleDown
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -593,7 +712,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cdk8s-plus-23/ingress/" class="md-nav__link">
+      <a href="../ingress/" class="md-nav__link">
         Ingress
       </a>
     </li>
@@ -607,7 +726,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cdk8s-plus-23/job/" class="md-nav__link">
+      <a href="../job/" class="md-nav__link">
         Job
       </a>
     </li>
@@ -621,7 +740,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cdk8s-plus-23/namespace/" class="md-nav__link">
+      <a href="../namespace/" class="md-nav__link">
         Namespace
       </a>
     </li>
@@ -635,7 +754,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cdk8s-plus-23/network-policy/" class="md-nav__link">
+      <a href="../network-policy/" class="md-nav__link">
         Network Policy
       </a>
     </li>
@@ -649,7 +768,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cdk8s-plus-23/pod/" class="md-nav__link">
+      <a href="../pod/" class="md-nav__link">
         Pod
       </a>
     </li>
@@ -663,7 +782,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cdk8s-plus-23/pv/" class="md-nav__link">
+      <a href="../pv/" class="md-nav__link">
         PersistentVolume
       </a>
     </li>
@@ -677,7 +796,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cdk8s-plus-23/pvc/" class="md-nav__link">
+      <a href="../pvc/" class="md-nav__link">
         PersistentVolumeClaim
       </a>
     </li>
@@ -691,7 +810,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cdk8s-plus-23/secret/" class="md-nav__link">
+      <a href="../secret/" class="md-nav__link">
         Secret
       </a>
     </li>
@@ -705,7 +824,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cdk8s-plus-23/service-account/" class="md-nav__link">
+      <a href="../service-account/" class="md-nav__link">
         ServiceAccount
       </a>
     </li>
@@ -719,7 +838,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cdk8s-plus-23/service/" class="md-nav__link">
+      <a href="../service/" class="md-nav__link">
         Service
       </a>
     </li>
@@ -733,7 +852,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cdk8s-plus-23/volume/" class="md-nav__link">
+      <a href="../volume/" class="md-nav__link">
         Volume
       </a>
     </li>
@@ -1043,14 +1162,12 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_4" type="checkbox" id="__nav_4_4" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_4" type="checkbox" id="__nav_4_4" >
       
       
       
@@ -1107,7 +1224,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../config-map/" class="md-nav__link">
+      <a href="../../cdk8s-plus-25/config-map/" class="md-nav__link">
         ConfigMap
       </a>
     </li>
@@ -1121,7 +1238,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../container/" class="md-nav__link">
+      <a href="../../cdk8s-plus-25/container/" class="md-nav__link">
         Container
       </a>
     </li>
@@ -1135,7 +1252,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cronjob/" class="md-nav__link">
+      <a href="../../cdk8s-plus-25/cronjob/" class="md-nav__link">
         CronJob
       </a>
     </li>
@@ -1149,7 +1266,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../deployment/" class="md-nav__link">
+      <a href="../../cdk8s-plus-25/deployment/" class="md-nav__link">
         Deployment
       </a>
     </li>
@@ -1163,7 +1280,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../horizontal-pod-autoscaler/" class="md-nav__link">
+      <a href="../../cdk8s-plus-25/horizontal-pod-autoscaler/" class="md-nav__link">
         HorizontalPodAutoscaler
       </a>
     </li>
@@ -1177,7 +1294,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ingress/" class="md-nav__link">
+      <a href="../../cdk8s-plus-25/ingress/" class="md-nav__link">
         Ingress
       </a>
     </li>
@@ -1191,7 +1308,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../job/" class="md-nav__link">
+      <a href="../../cdk8s-plus-25/job/" class="md-nav__link">
         Job
       </a>
     </li>
@@ -1205,7 +1322,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../namespace/" class="md-nav__link">
+      <a href="../../cdk8s-plus-25/namespace/" class="md-nav__link">
         Namespace
       </a>
     </li>
@@ -1219,7 +1336,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../network-policy/" class="md-nav__link">
+      <a href="../../cdk8s-plus-25/network-policy/" class="md-nav__link">
         Network Policy
       </a>
     </li>
@@ -1233,7 +1350,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pod/" class="md-nav__link">
+      <a href="../../cdk8s-plus-25/pod/" class="md-nav__link">
         Pod
       </a>
     </li>
@@ -1247,7 +1364,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pv/" class="md-nav__link">
+      <a href="../../cdk8s-plus-25/pv/" class="md-nav__link">
         PersistentVolume
       </a>
     </li>
@@ -1259,61 +1376,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          PersistentVolumeClaim
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../cdk8s-plus-25/pvc/" class="md-nav__link">
         PersistentVolumeClaim
       </a>
-      
-        
-
-  
-
-<nav class="md-nav md-nav--secondary" aria-label="On this page">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#storage-class" class="md-nav__link">
-    Storage Class
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#bind" class="md-nav__link">
-    Bind
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1325,7 +1392,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../secret/" class="md-nav__link">
+      <a href="../../cdk8s-plus-25/secret/" class="md-nav__link">
         Secret
       </a>
     </li>
@@ -1339,7 +1406,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../service-account/" class="md-nav__link">
+      <a href="../../cdk8s-plus-25/service-account/" class="md-nav__link">
         ServiceAccount
       </a>
     </li>
@@ -1353,7 +1420,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../service/" class="md-nav__link">
+      <a href="../../cdk8s-plus-25/service/" class="md-nav__link">
         Service
       </a>
     </li>
@@ -1367,7 +1434,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../volume/" class="md-nav__link">
+      <a href="../../cdk8s-plus-25/volume/" class="md-nav__link">
         Volume
       </a>
     </li>
@@ -2231,16 +2298,83 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#storage-class" class="md-nav__link">
-    Storage Class
+  <a href="#using-a-horizontalpodautoscaler" class="md-nav__link">
+    Using a HorizontalPodAutoscaler
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#bind" class="md-nav__link">
-    Bind
+  <a href="#metrics" class="md-nav__link">
+    Metrics
   </a>
+  
+    <nav class="md-nav" aria-label="Metrics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resource-metrics" class="md-nav__link">
+    Resource Metrics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pods-metrics" class="md-nav__link">
+    Pods Metrics
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#container-metrics" class="md-nav__link">
+    Container Metrics
+  </a>
+  
+    <nav class="md-nav" aria-label="Container Metrics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#object-metrics" class="md-nav__link">
+    Object Metrics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#external-metrics" class="md-nav__link">
+    External Metrics
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scaling-behavior" class="md-nav__link">
+    Scaling behavior
+  </a>
+  
+    <nav class="md-nav" aria-label="Scaling behavior">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scaleup-scaledown" class="md-nav__link">
+    scaleUp /scaleDown
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2258,74 +2392,216 @@
                 
                   
 
-  <a href="https://github.com/cdk8s-team/cdk8s/blob/master/docs/plus/cdk8s-plus-25/pvc.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/cdk8s-team/cdk8s/blob/master/docs/plus/cdk8s-plus-23/horizontal-pod-autoscaler.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="persistentvolumeclaim">PersistentVolumeClaim<a class="headerlink" href="#persistentvolumeclaim" title="Permanent link">&para;</a></h1>
-<p>A <code>PersistentVolumeClaim</code> (PVC) is a request for storage by a pod.</p>
+<h1 id="horizontalpodautoscaler">HorizontalPodAutoscaler<a class="headerlink" href="#horizontalpodautoscaler" title="Permanent link">&para;</a></h1>
+<p>HorizontalPodAutoscaler allows your services to scale up when demand is high and scale down when they are no longer needed.</p>
 <div class="admonition tip">
-<p><a href="../../../reference/cdk8s-plus-25/typescript/#persistent-volume-claim">API Reference</a></p>
+<p><a href="../reference/cdk8s-plus-23/typescript.md#horizontalpodautoscaler">API Reference</a></p>
 </div>
-<p>A <code>PersistentVolumeClaim</code> contains the requirements of the request, and the Kubernetes control plane is responsible providing a physical volume that satisfies the claim&rsquo;s requirements.</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-25&#39;</span><span class="p">;</span><span class="w"></span>
-<span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">cdk8s</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span><span class="w"></span>
+<h2 id="using-a-horizontalpodautoscaler">Using a HorizontalPodAutoscaler<a class="headerlink" href="#using-a-horizontalpodautoscaler" title="Permanent link">&para;</a></h2>
+<p>The example below creates a HorizontalPodAutoscaler that scales the number of replicas of a Deployment based on the average CPU utilization of the pods.</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">k</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-23&#39;</span><span class="p">;</span><span class="w"></span>
 
-<span class="kd">const</span><span class="w"> </span><span class="nx">pod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Pod</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Pod&#39;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">container</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">pod</span><span class="p">.</span><span class="nx">addContainer</span><span class="p">({</span><span class="w"> </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;node&#39;</span><span class="w"> </span><span class="p">});</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">k</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">chart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">k</span><span class="p">.</span><span class="nx">Chart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Chart&#39;</span><span class="p">);</span><span class="w"></span>
 
-<span class="c1">// create the storage request</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">claim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">PersistentVolumeClaim</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Claim&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nx">storage</span><span class="o">:</span><span class="w"> </span><span class="kt">cdk8s.Size.gibibytes</span><span class="p">(</span><span class="mf">50</span><span class="p">),</span><span class="w"></span>
+<span class="c1">// Lets create a deployment for our web server</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">bookstoreWebsite</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Deployment</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;BookstoreWebsite&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">containers</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;node&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">],</span><span class="w"></span>
 <span class="p">});</span><span class="w"></span>
 
-<span class="c1">// mount a volume based on the request to the container</span><span class="w"></span>
-<span class="c1">// this will also add the volume itself to the pod spec.</span><span class="w"></span>
-<span class="nx">container</span><span class="p">.</span><span class="nx">mount</span><span class="p">(</span><span class="s1">&#39;/data&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Volume</span><span class="p">.</span><span class="nx">fromPersistentVolumeClaim</span><span class="p">(</span><span class="nx">claim</span><span class="p">));</span><span class="w"></span>
+<span class="c1">// Now define a HorizontalPodAutoscaler</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">hpa</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">HorizontalPodAutoscaler</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;BookstoreWebsiteHpa&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="kt">bookstoreWebsite</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">maxReplicas</span><span class="o">:</span><span class="w"> </span><span class="kt">10</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">metrics</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">     </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Metric</span><span class="p">.</span><span class="nx">resourceCpu</span><span class="p">(</span><span class="nx">kplus</span><span class="p">.</span><span class="nx">MetricTarget</span><span class="p">.</span><span class="nx">averageUtilization</span><span class="p">(</span><span class="mf">70</span><span class="p">)),</span><span class="w"></span>
+<span class="w">  </span><span class="p">],</span><span class="w"></span>
+<span class="w"> </span><span class="p">});</span><span class="w"></span>
+<span class="c1">// This will scale our website deployment up when the average CPU utilization</span><span class="w"></span>
+<span class="c1">// is 70% or higher up to a maximum of 10 replicas.</span><span class="w"></span>
 </code></pre></div>
-<h2 id="storage-class">Storage Class<a class="headerlink" href="#storage-class" title="Permanent link">&para;</a></h2>
-<p>By default, the <code>storageClassName</code> property of a claim is not set.
-This means that the backing volume can be provided by one of two methods:</p>
-<ol>
-<li>Dynamically provision a volume with the default storage class.</li>
-<li>If a default storage class is not configured in the cluster, the backing
-volume must pre-exist and not be assigned to any storage class.</li>
-</ol>
+<p>Using the example above, if our web server passes 70% CPU utilization the autoscaler will try and figure out the number of replicas to scale.</p>
+<p>The autoscaler uses the following formula:</p>
 <blockquote>
-<p>See <a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes/#provisioning">Provisioning</a> for more details.</p>
+<p>desiredReplicas = ceil[currentReplicas * ( currentMetricValue / desiredMetricValue )]</p>
 </blockquote>
-<p>You can also provide an explicit storage class name,</p>
-<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">claim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">PersistentVolumeClaim</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Claim&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nx">storage</span><span class="o">:</span><span class="w"> </span><span class="kt">cdk8s.Size.gibibytes</span><span class="p">(</span><span class="mf">50</span><span class="p">),</span><span class="w"></span>
-<span class="w">  </span><span class="nx">storageClassName</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;large-ebs&#39;</span><span class="p">,</span><span class="w"></span>
-<span class="p">});</span><span class="w"></span>
-</code></pre></div>
-<p>In this case, Kubernetes control plane will either locate an existing volume with the <code>larg-ebs</code> storage class, or dynamically provision a new using the appropriate provisioner.</p>
-<p>You can also pass in a special <code>""</code> value, this means the volume must not be assigned to any storage class.
-Since all dynamically provisioend volumes belong to a storage class, setting this value effectively disables
-dynamic provisioning for this claim.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">claim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">PersistentVolumeClaim</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Claim&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nx">storage</span><span class="o">:</span><span class="w"> </span><span class="kt">cdk8s.Size.gibibytes</span><span class="p">(</span><span class="mf">50</span><span class="p">),</span><span class="w"></span>
-<span class="w">  </span><span class="c1">// disable dynamic provisioning</span><span class="w"></span>
-<span class="w">  </span><span class="nx">storageClassName</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="p">});</span><span class="w"></span>
-</code></pre></div>
-<h2 id="bind">Bind<a class="headerlink" href="#bind" title="Permanent link">&para;</a></h2>
-<p>Binding is a part of the reservation process, but it only creates a one directional link.
-You can use it to bind a PVC to an existing PV. Note however that if the PV is not bound to the PVC,
-there&rsquo;s no guarantee this claim will indeed be given to that specific volume.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">claim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">PersistentVolumeClaim</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Claim&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nx">storage</span><span class="o">:</span><span class="w"> </span><span class="kt">cdk8s.Size.gibibytes</span><span class="p">(</span><span class="mf">50</span><span class="p">),</span><span class="w"></span>
-<span class="p">});</span><span class="w"></span>
+<p>Based on this formula we can find out how many replicas will be scaled. For example if we have 1 replica and the CPU utilization is at 70%.</p>
+<blockquote>
+<p>desiredReplicas = ceil[1 * ( 70 / 70 )] = 1</p>
+</blockquote>
+<p>The autoscaler will try and add 1 replica, meaning we&rsquo;ll have 2 web servers running, the original and the new replica.</p>
+<p>If the CPU utilization is 140% the autoscaler will try and provision 2 replicas. Scaling us up to 3 web servers total.</p>
+<blockquote>
+<p>desiredReplicas = ceil[1 * ( 140 / 70 )] = 2</p>
+</blockquote>
+<p>This works the same way when scaling down.</p>
+<p>For example if our target CPU utilization is 70% and we have 3 replicas running and the CPU utilization is at 50%.</p>
+<blockquote>
+<p>desiredReplicas = ceil[3 * ( 50 / 70 )] = 2</p>
+</blockquote>
+<p>The autoscaler will try and remove 1 replica, meaning we&rsquo;ll have 2 web servers running, the original and the new replica.</p>
+<h2 id="metrics">Metrics<a class="headerlink" href="#metrics" title="Permanent link">&para;</a></h2>
+<p>The HorizontalPodAutoscaler supports the following metrics:</p>
+<h3 id="resource-metrics">Resource Metrics<a class="headerlink" href="#resource-metrics" title="Permanent link">&para;</a></h3>
+<p>Resource metrics are used to scale on a resource like CPU or memory.</p>
+<div class="admonition note">
+<p>Since the resource usages of all the containers are summed up the total pod utilization may not accurately represent the individual container resource usage. This could lead to situations where a single container might be running with high usage and the HPA will not scale out because the overall pod usage is still within acceptable limits.</p>
+</div>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-23&#39;</span><span class="p">;</span><span class="w"></span>
 
-<span class="kd">const</span><span class="w"> </span><span class="nx">vol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">PersistentVolume</span><span class="p">.</span><span class="nx">fromPersistentVolumeName</span><span class="p">(</span><span class="s1">&#39;vol&#39;</span><span class="p">);</span><span class="w"></span>
 
-<span class="c1">// will modify the claim resource to refer to the volume.</span><span class="w"></span>
-<span class="c1">// but no the other way around.</span><span class="w"></span>
-<span class="nx">claim</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">vol</span><span class="p">);</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">hpa</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">HorizontalPodAutoscaler</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;BookstoreWebsiteHpa&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="kt">bookstoreWebsite</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">maxReplicas</span><span class="o">:</span><span class="w"> </span><span class="kt">10</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">metrics</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">     </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Metric</span><span class="p">.</span><span class="nx">resourceCpu</span><span class="p">(</span><span class="nx">kplus</span><span class="p">.</span><span class="nx">MetricTarget</span><span class="p">.</span><span class="nx">averageUtilization</span><span class="p">(</span><span class="mf">70</span><span class="p">)),</span><span class="w"></span>
+<span class="w">  </span><span class="p">],</span><span class="w"></span>
+<span class="w"> </span><span class="p">});</span><span class="w"></span>
 </code></pre></div>
+<h3 id="pods-metrics">Pods Metrics<a class="headerlink" href="#pods-metrics" title="Permanent link">&para;</a></h3>
+<p>Pods metrics are used to scale on a metric describing each pod in the current scale target (for example, transactions-processed-per-second).</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-23&#39;</span><span class="p">;</span><span class="w"></span>
+
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">hpa</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">HorizontalPodAutoscaler</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;BookstoreWebsiteHpa&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="kt">bookstoreWebsite</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">maxReplicas</span><span class="o">:</span><span class="w"> </span><span class="kt">10</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">metrics</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">     </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Metric</span><span class="p">.</span><span class="nx">pods</span><span class="p">({</span><span class="w"></span>
+<span class="w">      </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;requests-per-second&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="kt">kplus.MetricTarget.averageUtilization</span><span class="p">(</span><span class="mf">50</span><span class="p">),</span><span class="w"></span>
+<span class="w">      </span><span class="nx">labelSelector</span><span class="o">:</span><span class="w"> </span><span class="kt">kplus.LabelSelector.of</span><span class="p">({</span><span class="w"> </span><span class="nx">labels</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">app</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;scraper&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}),</span><span class="w"></span>
+<span class="w">    </span><span class="p">}),</span><span class="w"></span>
+<span class="w">  </span><span class="p">],</span><span class="w"></span>
+<span class="w"> </span><span class="p">});</span><span class="w"></span>
+</code></pre></div>
+<h2 id="container-metrics">Container Metrics<a class="headerlink" href="#container-metrics" title="Permanent link">&para;</a></h2>
+<p>Container metrics are used to scale on one of the scaling target&rsquo;s container metrics.</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-23&#39;</span><span class="p">;</span><span class="w"></span>
+
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">hpa</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">HorizontalPodAutoscaler</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;BookstoreWebsiteHpa&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="kt">bookstoreWebsite</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">maxReplicas</span><span class="o">:</span><span class="w"> </span><span class="kt">10</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">metrics</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">     </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Metric</span><span class="p">.</span><span class="nx">containerMemory</span><span class="p">(</span><span class="nx">kplus</span><span class="p">.</span><span class="nx">MetricTarget</span><span class="p">.</span><span class="nx">value</span><span class="p">(</span><span class="mf">4096</span><span class="p">)),</span><span class="w"></span>
+<span class="w">  </span><span class="p">],</span><span class="w"></span>
+<span class="w"> </span><span class="p">});</span><span class="w"></span>
+</code></pre></div>
+<h3 id="object-metrics">Object Metrics<a class="headerlink" href="#object-metrics" title="Permanent link">&para;</a></h3>
+<p>Object metrics are used to scale on a metric describing a single kubernetes object (for example, requests-per-second on an Ingress object).</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-23&#39;</span><span class="p">;</span><span class="w"></span>
+
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">hpa</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">HorizontalPodAutoscaler</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;BookstoreWebsiteHpa&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="kt">bookstoreWebsite</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">maxReplicas</span><span class="o">:</span><span class="w"> </span><span class="kt">10</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">metrics</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">     </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Metric</span><span class="p">.</span><span class="nx">object</span><span class="p">({</span><span class="w"></span>
+<span class="w">        </span><span class="nx">object</span><span class="o">:</span><span class="w"> </span><span class="kt">ingress</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;requests-per-second&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="kt">kplus.MetricTarget.averageUtilization</span><span class="p">(</span><span class="mf">50</span><span class="p">),</span><span class="w"></span>
+<span class="w">      </span><span class="p">}),</span><span class="w"></span>
+<span class="w">  </span><span class="p">],</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+</code></pre></div>
+<h3 id="external-metrics">External Metrics<a class="headerlink" href="#external-metrics" title="Permanent link">&para;</a></h3>
+<p>External metrics are used to scale on a metric not associated with any Kubernetes object (for example, an SQS queue).</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-23&#39;</span><span class="p">;</span><span class="w"></span>
+
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">hpa</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">HorizontalPodAutoscaler</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;BookstoreWebsiteHpa&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="kt">bookstoreWebsite</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">maxReplicas</span><span class="o">:</span><span class="w"> </span><span class="kt">10</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">metrics</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">    </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Metric</span><span class="p">.</span><span class="nx">external</span><span class="p">({</span><span class="w"></span>
+<span class="w">      </span><span class="nx">labelSelector</span><span class="o">:</span><span class="w"> </span><span class="kt">kplus.LabelSelector.of</span><span class="p">({</span><span class="w"> </span><span class="nx">labels</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">app</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;scraper&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}),</span><span class="w"></span>
+<span class="w">      </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;sqs-queue&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="kt">kplus.MetricTarget.averageUtilization</span><span class="p">(</span><span class="mf">50</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="p">}),</span><span class="w"></span>
+<span class="w">  </span><span class="p">],</span><span class="w"></span>
+<span class="w"> </span><span class="p">});</span><span class="w"></span>
+</code></pre></div>
+<h2 id="scaling-behavior">Scaling behavior<a class="headerlink" href="#scaling-behavior" title="Permanent link">&para;</a></h2>
+<p>The HorizontalPodAutoscaler has a few options to control the scaling behavior.</p>
+<h3 id="scaleup-scaledown">scaleUp /scaleDown<a class="headerlink" href="#scaleup-scaledown" title="Permanent link">&para;</a></h3>
+<p>The <code>scaleUp</code> / <code>scaleDown</code> options controls how fast the HorizontalPodAutoscaler scales up and down. They share the same options but have slightly different defaults.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">hpa</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">HorizontalPodAutoscaler</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;BookstoreWebsiteHpa&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="kt">bookstoreWebsite</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">maxReplicas</span><span class="o">:</span><span class="w"> </span><span class="kt">10</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">scaleUp</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">stabilizationWindow</span><span class="o">:</span><span class="w"> </span><span class="kt">60</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">policies</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">      </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">PolicyType</span><span class="p">.</span><span class="nx">pods</span><span class="p">(</span><span class="mf">4</span><span class="p">),</span><span class="w"></span>
+<span class="w">      </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">PolicyType</span><span class="p">.</span><span class="nx">percent</span><span class="p">(</span><span class="mf">200</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="p">],</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="nx">scaleDown</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">stabilizationWindow</span><span class="o">:</span><span class="w"> </span><span class="kt">60</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">policies</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">      </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">PolicyType</span><span class="p">.</span><span class="nx">pods</span><span class="p">(</span><span class="mf">2</span><span class="p">),</span><span class="w"></span>
+<span class="w">      </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">PolicyType</span><span class="p">.</span><span class="nx">percent</span><span class="p">(</span><span class="mf">100</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="p">],</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w"> </span><span class="p">});</span><span class="w"></span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+<th><code>scaleUp</code> Default</th>
+<th><code>scaleDown</code> Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>stabilizationWindow</code></td>
+<td>Defines the window of past metrics that the autoscaler should consider when calculating wether or not autoscaling should occur.</td>
+<td>5 minutes</td>
+<td>0 (no stabilization is performed)</td>
+</tr>
+<tr>
+<td><code>strategy</code></td>
+<td>Determines if the the Autoscaler should scale as much or as little as possible.</td>
+<td><code>ScalingStrategy.MAX_CHANGE</code> Choose the scaling policy that will scale the most replicas.</td>
+<td><code>ScalingStrategy.MIN_CHANGE</code> Choose the scaling policy that will scale the least replicas.</td>
+</tr>
+<tr>
+<td><code>policies</code></td>
+<td>Defines how many replicas are scaled. Can be an absolute number or a percentage of the current replica count.</td>
+<td>* Increase no more than 4 pods per 60 seconds  * Double the number of pods per 60 seconds</td>
+<td>* Decrease to <code>minReplica</code> count (default 1)</td>
+</tr>
+</tbody>
+</table>
+<p>Check out the example below. We have a <code>scaleUp</code> policy that will scale up by 4 pods or double the current number of pods per 60 seconds. Because the <code>strategy</code> has been configured to <code>ScalingStrategy.MAX_CHANGE</code> the autoscaler will choose the policy that will make the most replicas.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">hpa</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">HorizontalPodAutoscaler</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;BookstoreWebsiteHpa&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="kt">bookstoreWebsite</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">maxReplicas</span><span class="o">:</span><span class="w"> </span><span class="kt">10</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">metrics</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">     </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Metric</span><span class="p">.</span><span class="nx">resourceCpu</span><span class="p">(</span><span class="nx">kplus</span><span class="p">.</span><span class="nx">MetricTarget</span><span class="p">.</span><span class="nx">averageUtilization</span><span class="p">(</span><span class="mf">70</span><span class="p">)),</span><span class="w"></span>
+<span class="w">  </span><span class="p">],</span><span class="w"></span>
+<span class="w">  </span><span class="nx">scaleUp</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">strategy</span><span class="o">:</span><span class="w"> </span><span class="kt">kplus.ScalingStrategy.MAX_CHANGE</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">stabilizationWindow</span><span class="o">:</span><span class="w"> </span><span class="kt">60</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">policies</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">      </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">PolicyType</span><span class="p">.</span><span class="nx">pods</span><span class="p">(</span><span class="mf">4</span><span class="p">),</span><span class="w"></span>
+<span class="w">      </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">PolicyType</span><span class="p">.</span><span class="nx">percent</span><span class="p">(</span><span class="mf">200</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="p">],</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w"> </span><span class="p">});</span><span class="w"></span>
+</code></pre></div>
+<p>This means that if we currently have 3 web server pods, and the CPU utilization is at 72% the autoscaler will try and add 6 pods every 60 seconds.</p>
+<p>This will result in a total of 9 web server pods. If after 60 seconds the CPU utilization is still at 72% the autoscaler will only be allowed to add one more replica because <code>maxReplicas</code> has been configured to 10.</p>
+<p>For more information on HorizontalPodAutoscaler check out the <a href="../reference/cdk8s-plus-23/typescript.md#horizontalpodautoscaler">API Reference</a>.</p>
 
 
 
@@ -2348,7 +2624,7 @@ there&rsquo;s no guarantee this claim will indeed be given to that specific volu
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../pv/" class="md-footer__link md-footer__link--prev" aria-label="Previous: PersistentVolume" rel="prev">
+        <a href="../deployment/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Deployment" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -2357,20 +2633,20 @@ there&rsquo;s no guarantee this claim will indeed be given to that specific volu
               <span class="md-footer__direction">
                 Previous
               </span>
-              PersistentVolume
+              Deployment
             </div>
           </div>
         </a>
       
       
         
-        <a href="../secret/" class="md-footer__link md-footer__link--next" aria-label="Next: Secret" rel="next">
+        <a href="../ingress/" class="md-footer__link md-footer__link--next" aria-label="Next: Ingress" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Secret
+              Ingress
             </div>
           </div>
           <div class="md-footer__button md-icon">

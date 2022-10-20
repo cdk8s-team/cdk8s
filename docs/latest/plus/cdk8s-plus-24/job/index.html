@@ -472,8 +472,6 @@
       
         
           
-            
-          
         
           
         
@@ -507,16 +505,10 @@
         
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../cdk8s-plus-23/">cdk8s-plus-23</a>
-          
-            <label for="__nav_4_2">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_4_2">
+          cdk8s-plus-23
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <nav class="md-nav" aria-label="cdk8s-plus-23" data-md-level="2">
         <label class="md-nav__title" for="__nav_4_2">
@@ -524,8 +516,6 @@
           cdk8s-plus-23
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
-          
-            
           
             
               
@@ -577,6 +567,20 @@
     <li class="md-nav__item">
       <a href="../../cdk8s-plus-23/deployment/" class="md-nav__link">
         Deployment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cdk8s-plus-23/horizontal-pod-autoscaler/" class="md-nav__link">
+        HorizontalPodAutoscaler
       </a>
     </li>
   
@@ -761,8 +765,6 @@
       
         
           
-            
-          
         
           
         
@@ -796,16 +798,10 @@
         
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../">cdk8s-plus-24</a>
-          
-            <label for="__nav_4_3">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_4_3">
+          cdk8s-plus-24
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <nav class="md-nav" aria-label="cdk8s-plus-24" data-md-level="2">
         <label class="md-nav__title" for="__nav_4_3">
@@ -813,8 +809,6 @@
           cdk8s-plus-24
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
-          
-            
           
             
               
@@ -866,6 +860,20 @@
     <li class="md-nav__item">
       <a href="../deployment/" class="md-nav__link">
         Deployment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../horizontal-pod-autoscaler/" class="md-nav__link">
+        HorizontalPodAutoscaler
       </a>
     </li>
   
@@ -1105,8 +1113,6 @@
       
         
           
-            
-          
         
           
         
@@ -1140,16 +1146,10 @@
         
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../cdk8s-plus-25/">cdk8s-plus-25</a>
-          
-            <label for="__nav_4_4">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_4_4">
+          cdk8s-plus-25
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <nav class="md-nav" aria-label="cdk8s-plus-25" data-md-level="2">
         <label class="md-nav__title" for="__nav_4_4">
@@ -1157,8 +1157,6 @@
           cdk8s-plus-25
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
-          
-            
           
             
               
@@ -1210,6 +1208,20 @@
     <li class="md-nav__item">
       <a href="../../cdk8s-plus-25/deployment/" class="md-nav__link">
         Deployment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cdk8s-plus-25/horizontal-pod-autoscaler/" class="md-nav__link">
+        HorizontalPodAutoscaler
       </a>
     </li>
   
@@ -2283,7 +2295,7 @@ additional properties.</p>
 <span class="kd">const</span><span class="w"> </span><span class="nx">chart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">k</span><span class="p">.</span><span class="nx">Chart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Chart&#39;</span><span class="p">);</span><span class="w"></span>
 
 <span class="c1">// let&#39;s define a job spec, and set a 1 second TTL.</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">load</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Job</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;LoadData&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">job</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Job</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;LoadData&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="nx">ttlAfterFinished</span><span class="o">:</span><span class="w"> </span><span class="kt">kplus.Duration.seconds</span><span class="p">(</span><span class="mf">1</span><span class="p">)</span><span class="w"></span>
 <span class="w"> </span><span class="p">});</span><span class="w"></span>
 
