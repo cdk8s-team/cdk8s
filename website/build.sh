@@ -7,7 +7,6 @@ get_version() {
 }
 
 export CDK8S_CORE_VERSION="$(get_version cdk8s)"
-export CDK8S_PLUS22_VERSION="$(get_version cdk8s-plus-22)"
 export CDK8S_PLUS23_VERSION="$(get_version cdk8s-plus-23)"
 export CDK8S_PLUS24_VERSION="$(get_version cdk8s-plus-24)"
 export CDK8S_PLUS25_VERSION="$(get_version cdk8s-plus-25)"

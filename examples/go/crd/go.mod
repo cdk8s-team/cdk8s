@@ -1,6 +1,6 @@
 module example.com/crd-go
 
-go 1.16
+go 1.18
 
 require (
 	github.com/aws/constructs-go/constructs/v10 v10.1.12
