@@ -46,7 +46,7 @@ Set up pre-requisites based on the language you wish to write your cdk8s code in
     - Your favorite editor/IDE
 
 === "Go"
-    - [Go >= 1.16](https://golang.org/dl/)
+    - [Go >= 1.18](https://golang.org/dl/)
     - Your favorite editor/IDE
 
 !!! info

@@ -1,4 +1,4 @@
-# cdk8s+
+# cdk8s+ v25
 
 **cdk8s+** is a library with high level abstractions for authoring Kubernetes
 applications.
@@ -15,42 +15,23 @@ Here is an example of how we would deploy a simple nginx container, once with th
 
 ![corevsplus](../assets/corevsplus.png)
 
-**cdk8s+** is vended as a separate library for each kubernetes spec version. The documentation presented here represents version [1.24.0](https://github.com/kubernetes/kubernetes/tree/v1.24.0/api/openapi-spec)
-and is vended as the `cdk8s-plus-24` library.
+### Spec compatibility
+
+**cdk8s+** is vended as a separate library for each kubernetes spec version. Follow the pane on the left to navigate to the appropriate version you need.
+Per kubernetes [compatibility guarantees](https://kubernetes.io/docs/concepts/overview/kubernetes-api/#api-groups-and-versioning), **stable** resources in a `cdk8s-plus-XX` library are compatible with
+any spec version higher or equal to `1.XX.0`. **Non-stable** resources are not guaranteed to be compatible, as they may be removed in future spec versions.
+
+!!! notice
+
+    cdk8s+ libraries are maintained only for the 3 latest Kubernetes releases. So, if the latest Kubernetes release is N, `cdk8s-plus-N`, `cdk8s-plus-(N-1)` and `cdk8s-plus-(N-2)` will be continously updated
+    and supported. However, `cdk8s-plus-(N-3)` and so on will no longer be actively maintained.
 
 ### Naming conventions
 
 - Stable resources are represented by a *construct* of the same *kind*. For example, the `io.k8s.api.core.v1.Pod` resource maps to the `Pod` *construct*.
 - Non stable resources are suffixed with their *api version*. For example, the `io.k8s.api.networking.v1beta1.Ingress` maps to the `IngressV1Beta1` *construct*.
 
-### Spec compatibility
-
-Per kubernetes [compatibility guarantees](https://kubernetes.io/docs/concepts/overview/kubernetes-api/#api-groups-and-versioning), **stable** resources in this library are compatible with
-any spec version higher or equal to `1.24.0`. **Non-stable** resources are not guaranteed to be compatible, as they may be removed in future spec versions.
-
-!!! warning
-
-    If you are deploying manifests produced by `cdk8s-plus-24` onto clusters of a lower version, you might encounter some unsupported spec properties or invalid manifests.
-
 ## FAQ
-
-### What's the difference between `cdk8s-plus-20`, `cdk8s-plus-21`, and `cdk8s-plus-22`?
-
-These are separately vended libraries that each target a different kubernetes
-version, marked by the `-XX` suffix. For example, `cdk8s-plus-22` targets
-kubernetes version `1.22.0`.
-
-We offer a dedicated package per Kubernetes version to allow users to match
-their manifests to the Kubernetes version they are operating. This way, users
-are only exposed to a set of capabilities offered by their specific cluster,
-preventing deployment errors caused by version mismatches.
-
-For example, imagine we had published a single library for all Kubernetes versions (call it `cdk8s-plus`).
-This library would have had support for the [`namespaceSelector`](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#namespace-selector) property when configuring pod affinity rules. This property was only added in Kubernetes 1.21.0.
-
-Now imagine you operate Kubernetes 1.20.0. In such a case, you would have access to the `namespaceSelector` property, even though
-it is unsupported, and will result in a deployment failure if you use it. With a dedicated package, this property would not be available
-for you to (mis)use.
 
 ### I operate Kubernetes version `1.XX` - which cdk8s+ library should I be using?
 
@@ -78,7 +59,7 @@ manifests.
 ## At a glance
 
 ```typescript
-import * as kplus from 'cdk8s-plus-24';
+import * as kplus from 'cdk8s-plus-25';
 import * as cdk8s from 'cdk8s';
 import * as path from 'path';
 
@@ -114,7 +95,7 @@ const container = deployment.addContainer({
 container.mount(appPath, appVolume);
 
 // finally, we expose the deployment as a load balancer service and make it run
-deployment.exposeViaService({ serviceType: kplus.ServiceType.LOAD_BALANCER })
+deployment.exposeViaService({ serviceType: kplus.ServiceType.LOAD_BALANCER });
 
 // we are done, synth
 app.synth();
@@ -196,10 +177,10 @@ app.synth();
 
 === "TypeScript"
 
-    `❯ npm install cdk8s-plus-24 cdk8s constructs`
+    `❯ npm install cdk8s-plus-25 cdk8s constructs`
 
     ```typescript
-    import * as kplus from 'cdk8s-plus-24';
+    import * as kplus from 'cdk8s-plus-25';
     import * as cdk8s from 'cdk8s';
 
     const app = new cdk8s.App();
@@ -217,10 +198,10 @@ app.synth();
 
 === "JavaScript"
 
-    `❯ npm install cdk8s-plus-24 cdk8s constructs`
+    `❯ npm install cdk8s-plus-25 cdk8s constructs`
 
     ```typescript
-    const kplus = require('cdk8s-plus-24');
+    const kplus = require('cdk8s-plus-25');
     const cdk8s = require('cdk8s');
 
     const app = new cdk8s.App();
@@ -238,7 +219,7 @@ app.synth();
 
 === "Python"
 
-    `❯ pip install --pre cdk8s-plus-24 cdk8s`
+    `❯ pip install --pre cdk8s-plus-25 cdk8s`
 
     ```python
     import cdk8s_plus_22 as kplus
@@ -261,20 +242,20 @@ app.synth();
     <dependency>
       <groupId>org.cdk8s</groupId>
       <artifactId>cdk8s</artifactId>
-      <version>1.0.0-beta.46</version>
+      <version>2.5.21</version>
     </dependency>
     <dependency>
       <groupId>org.cdk8s</groupId>
-      <artifactId>cdk8s-plus-24</artifactId>
-      <version>2.0.0-beta.3</version>
+      <artifactId>cdk8s-plus-25</artifactId>
+      <version>2.0.0-rc.12</version>
     </dependency>
     ```
 
     ```java
     import org.cdk8s.App;
     import org.cdk8s.Chart;
-    import org.cdk8s.plus22.Deployment;
-    import org.cdk8s.plus22.ContainerProps;
+    import org.cdk8s.plus25.Deployment;
+    import org.cdk8s.plus25.ContainerProps;
 
     App app = new App();
     Chart chart = new Chart(app, "Chart");
@@ -296,7 +277,7 @@ app.synth();
       "github.com/aws/constructs-go/constructs/v10"
       "github.com/aws/jsii-runtime-go"
       "github.com/cdk8s-team/cdk8s-core-go/cdk8s/v2"
-      "github.com/cdk8s-team/cdk8s-plus-go/cdk8splus24"
+      "github.com/cdk8s-team/cdk8s-plus-go/cdk8splus25"
     )
     ```
 
@@ -304,9 +285,9 @@ app.synth();
     app := cdk8s.NewApp(nil)
     chart := cdk8s.NewChart(app, jsii.String("ubuntu"), nil)
 
-    cdk8splus24.NewDeployment(chart, jsii.String("Deployment"), &cdk8splus24.DeploymentProps{
+    cdk8splus25.NewDeployment(chart, jsii.String("Deployment"), &cdk8splus25.DeploymentProps{
       Replicas: jsii.Number(3),
-      Containers: &[]*cdk8splus24.ContainerProps{{
+      Containers: &[]*cdk8splus25.ContainerProps{{
         Image: jsii.String("ubuntu"),
       }},
     })
@@ -327,7 +308,7 @@ which are available from within **cdk8s+**, so you don't need to install an addi
 or [import](https://cdk8s.io/docs/latest/cli/import/) any resources. For example:
 
 ```ts
-import * as kplus from 'cdk8s-plus-24';
+import * as kplus from 'cdk8s-plus-25';
 import * as cdk8s from 'cdk8s';
 
 const app = new cdk8s.App();
@@ -353,4 +334,4 @@ app.synth();
 
 ### Missing Property
 
-See https://cdk8s.io/docs/latest/basics/escape-hatches/#patching-api-objects-behind-higher-level-apis
+See [Patching API objects behind higher level APIs](https://cdk8s.io/docs/latest/basics/escape-hatches/#patching-api-objects-behind-higher-level-apis)

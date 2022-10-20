@@ -17,15 +17,15 @@
       "type": "build"
     },
     {
-      "name": "cdk8s-plus-22",
-      "type": "build"
-    },
-    {
       "name": "cdk8s-plus-23",
       "type": "build"
     },
     {
       "name": "cdk8s-plus-24",
+      "type": "build"
+    },
+    {
+      "name": "cdk8s-plus-25",
       "type": "build"
     },
     {
@@ -48,7 +48,7 @@
     },
     {
       "name": "npm-check-updates",
-      "version": "^15",
+      "version": "^16",
       "type": "build"
     },
     {

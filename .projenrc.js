@@ -18,7 +18,7 @@ const project = new javascript.NodeProject({
       name: 'Setup Go',
       uses: 'actions/setup-go@v2',
       with: {
-        'go-version': '1.16',
+        'go-version': '1.18',
       },
     },
   ],
@@ -27,9 +27,9 @@ const project = new javascript.NodeProject({
     '@types/node',
     'cdk8s',
     'cdk8s-cli',
-    'cdk8s-plus-22',
     'cdk8s-plus-23',
     'cdk8s-plus-24',
+    'cdk8s-plus-25',
     'constructs',
     'lerna@^4',
     'semver',
@@ -154,7 +154,8 @@ const packages = [
   'cdk8s',
   'cdk8s-plus-22',
   'cdk8s-plus-23',
-  'cdk8s-plus-24'
+  'cdk8s-plus-24',
+  'cdk8s-plus-25',
 ];
 for (const pkg of packages) {
   for (const language of ['java', 'typescript', 'python']) {
@@ -206,7 +207,7 @@ integWorkflow.addJob(integJob, {
       name: 'Set up Go',
       uses: 'actions/setup-go@v2',
       with: {
-        'go-version': '1.16',
+        'go-version': '1.18',
       },
     },
     {

@@ -4,3 +4,6 @@
 CHANGELOG.md
 CONTRIBUTING.md
 ROADMAP.md
+plus/*
+!plus/.pages
+!plus/index.md
