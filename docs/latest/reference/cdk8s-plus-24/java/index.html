@@ -501,6 +501,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_4_2">
@@ -689,6 +691,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../plus/cdk8s-plus-23/rbac/" class="md-nav__link">
+        Role Based Access Control
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../plus/cdk8s-plus-23/secret/" class="md-nav__link">
         Secret
       </a>
@@ -759,6 +775,8 @@
       
       
       
+        
+          
         
           
         
@@ -980,6 +998,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../plus/cdk8s-plus-24/rbac/" class="md-nav__link">
+        Role Based Access Control
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../plus/cdk8s-plus-24/secret/" class="md-nav__link">
         Secret
       </a>
@@ -1050,6 +1082,8 @@
       
       
       
+        
+          
         
           
         
@@ -1259,6 +1293,20 @@
     <li class="md-nav__item">
       <a href="../../../plus/cdk8s-plus-25/pvc/" class="md-nav__link">
         PersistentVolumeClaim
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../plus/cdk8s-plus-25/rbac/" class="md-nav__link">
+        Role Based Access Control
       </a>
     </li>
   
@@ -12304,7 +12352,7 @@ file mode, like fsGroup, and the result can be other mode bits set.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">PathMapping</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getItems</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus24.PathMapping">klzzwxh:11758</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus24.PathMapping">klzzwxh:11644</a>></li>
 <li><em>Default:</em> no mapping</li>
 </ul>
 <p>If unspecified, each key-value pair in the Data field of the referenced ConfigMap will be projected into the volume as a file whose name is the key and content is the value.</p>
@@ -12514,7 +12562,7 @@ with a duplicate key will take precedence.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">EnvValue</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getEnvVariables</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus24.EnvValue">klzzwxh:11712</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus24.EnvValue">klzzwxh:11598</a>></li>
 <li><em>Default:</em> No environment variables.</li>
 </ul>
 <p>Environment variables to set in the container.</p>
@@ -16627,7 +16675,7 @@ file mode, like fsGroup, and the result can be other mode bits set.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">PathMapping</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getItems</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus24.PathMapping">klzzwxh:10679</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus24.PathMapping">klzzwxh:10565</a>></li>
 <li><em>Default:</em> no mapping</li>
 </ul>
 <p>If unspecified, each key-value pair in the Data field of the referenced secret will be projected into the volume as a file whose name is the key and content is the value.</p>
@@ -18277,7 +18325,7 @@ with a duplicate key will take precedence.</p>
 <hr />
 <h5 id="envvariablesoptional_1"><code>envVariables</code><sup>Optional</sup> <a name="org.cdk8s.plus24.ContainerProps.parameter.envVariables"></a><a class="headerlink" href="#envvariablesoptional_1" title="Permanent link">&para;</a></h5>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus24.EnvValue">klzzwxh:10192</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus24.EnvValue">klzzwxh:10078</a>></li>
 <li><em>Default:</em> No environment variables.</li>
 </ul>
 <p>Environment variables to set in the container.</p>
@@ -18717,7 +18765,7 @@ somehow it manages to get access to host file system.</li>
 <hr />
 <h5 id="variablesrequired"><code>variables</code><sup>Required</sup> <a name="org.cdk8s.plus24.Env.parameter.variables"></a><a class="headerlink" href="#variablesrequired" title="Permanent link">&para;</a></h5>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus24.EnvValue">klzzwxh:10052</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus24.EnvValue">klzzwxh:9938</a>></li>
 </ul>
 <hr />
 <h4 id="methods_26">Methods <a name="Methods"></a><a class="headerlink" href="#methods_26" title="Permanent link">&para;</a></h4>
@@ -18783,7 +18831,7 @@ somehow it manages to get access to host file system.</li>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">EnvValue</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getVariables</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus24.EnvValue">klzzwxh:10029</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus24.EnvValue">klzzwxh:9915</a>></li>
 </ul>
 <p>The environment variables for this container.</p>
 <p>Returns a copy. To add environment variables use <code>container.env.addVariable()</code>.</p>
@@ -20284,14 +20332,6 @@ switch, but nodes in different zones should not.</p>
 </ul>
 <p>Represents a cluster-level role.</p>
 <h4 id="properties_46">Properties <a name="Properties"></a><a class="headerlink" href="#properties_46" title="Permanent link">&para;</a></h4>
-<h5 id="noderequired_3"><code>node</code><sup>Required</sup> <a name="org.cdk8s.plus24.IClusterRole.property.node"></a><a class="headerlink" href="#noderequired_3" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">Node</span><span class="w"> </span><span class="nf">getNode</span><span class="p">();</span><span class="w"></span>
-</code></pre></div>
-<ul>
-<li><em>Type:</em> <a href="#software.constructs.Node"><code>software.constructs.Node</code></a></li>
-</ul>
-<p>The tree node.</p>
-<hr />
 <h5 id="apigrouprequired_4"><code>apiGroup</code><sup>Required</sup> <a name="org.cdk8s.plus24.IClusterRole.property.apiGroup"></a><a class="headerlink" href="#apigrouprequired_4" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getApiGroup</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
@@ -20335,14 +20375,6 @@ switch, but nodes in different zones should not.</p>
 </ul>
 <p>Represents a config map.</p>
 <h4 id="properties_47">Properties <a name="Properties"></a><a class="headerlink" href="#properties_47" title="Permanent link">&para;</a></h4>
-<h5 id="noderequired_4"><code>node</code><sup>Required</sup> <a name="org.cdk8s.plus24.IConfigMap.property.node"></a><a class="headerlink" href="#noderequired_4" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">Node</span><span class="w"> </span><span class="nf">getNode</span><span class="p">();</span><span class="w"></span>
-</code></pre></div>
-<ul>
-<li><em>Type:</em> <a href="#software.constructs.Node"><code>software.constructs.Node</code></a></li>
-</ul>
-<p>The tree node.</p>
-<hr />
 <h5 id="apigrouprequired_5"><code>apiGroup</code><sup>Required</sup> <a name="org.cdk8s.plus24.IConfigMap.property.apiGroup"></a><a class="headerlink" href="#apigrouprequired_5" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getApiGroup</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
@@ -20389,15 +20421,6 @@ switch, but nodes in different zones should not.</p>
 <h5 id="tonamespaceselectorconfig_2"><code>toNamespaceSelectorConfig</code> <a name="org.cdk8s.plus24.INamespaceSelector.toNamespaceSelectorConfig"></a><a class="headerlink" href="#tonamespaceselectorconfig_2" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="nf">toNamespaceSelectorConfig</span><span class="p">()</span><span class="w"></span>
 </code></pre></div>
-<h4 id="properties_48">Properties <a name="Properties"></a><a class="headerlink" href="#properties_48" title="Permanent link">&para;</a></h4>
-<h5 id="noderequired_5"><code>node</code><sup>Required</sup> <a name="org.cdk8s.plus24.INamespaceSelector.property.node"></a><a class="headerlink" href="#noderequired_5" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">Node</span><span class="w"> </span><span class="nf">getNode</span><span class="p">();</span><span class="w"></span>
-</code></pre></div>
-<ul>
-<li><em>Type:</em> <a href="#software.constructs.Node"><code>software.constructs.Node</code></a></li>
-</ul>
-<p>The tree node.</p>
-<hr />
 <h3 id="inetworkpolicypeer">INetworkPolicyPeer <a name="org.cdk8s.plus24.INetworkPolicyPeer"></a><a class="headerlink" href="#inetworkpolicypeer" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
@@ -20415,15 +20438,6 @@ switch, but nodes in different zones should not.</p>
 <h5 id="topodselector_5"><code>toPodSelector</code> <a name="org.cdk8s.plus24.INetworkPolicyPeer.toPodSelector"></a><a class="headerlink" href="#topodselector_5" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="nf">toPodSelector</span><span class="p">()</span><span class="w"></span>
 </code></pre></div>
-<h4 id="properties_49">Properties <a name="Properties"></a><a class="headerlink" href="#properties_49" title="Permanent link">&para;</a></h4>
-<h5 id="noderequired_6"><code>node</code><sup>Required</sup> <a name="org.cdk8s.plus24.INetworkPolicyPeer.property.node"></a><a class="headerlink" href="#noderequired_6" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">Node</span><span class="w"> </span><span class="nf">getNode</span><span class="p">();</span><span class="w"></span>
-</code></pre></div>
-<ul>
-<li><em>Type:</em> <a href="#software.constructs.Node"><code>software.constructs.Node</code></a></li>
-</ul>
-<p>The tree node.</p>
-<hr />
 <h3 id="ipersistentvolume">IPersistentVolume <a name="org.cdk8s.plus24.IPersistentVolume"></a><a class="headerlink" href="#ipersistentvolume" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
@@ -20434,15 +20448,7 @@ switch, but nodes in different zones should not.</p>
 </li>
 </ul>
 <p>Contract of a <code>PersistentVolumeClaim</code>.</p>
-<h4 id="properties_50">Properties <a name="Properties"></a><a class="headerlink" href="#properties_50" title="Permanent link">&para;</a></h4>
-<h5 id="noderequired_7"><code>node</code><sup>Required</sup> <a name="org.cdk8s.plus24.IPersistentVolume.property.node"></a><a class="headerlink" href="#noderequired_7" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">Node</span><span class="w"> </span><span class="nf">getNode</span><span class="p">();</span><span class="w"></span>
-</code></pre></div>
-<ul>
-<li><em>Type:</em> <a href="#software.constructs.Node"><code>software.constructs.Node</code></a></li>
-</ul>
-<p>The tree node.</p>
-<hr />
+<h4 id="properties_48">Properties <a name="Properties"></a><a class="headerlink" href="#properties_48" title="Permanent link">&para;</a></h4>
 <h5 id="apigrouprequired_6"><code>apiGroup</code><sup>Required</sup> <a name="org.cdk8s.plus24.IPersistentVolume.property.apiGroup"></a><a class="headerlink" href="#apigrouprequired_6" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getApiGroup</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
@@ -20485,15 +20491,7 @@ switch, but nodes in different zones should not.</p>
 </li>
 </ul>
 <p>Contract of a <code>PersistentVolumeClaim</code>.</p>
-<h4 id="properties_51">Properties <a name="Properties"></a><a class="headerlink" href="#properties_51" title="Permanent link">&para;</a></h4>
-<h5 id="noderequired_8"><code>node</code><sup>Required</sup> <a name="org.cdk8s.plus24.IPersistentVolumeClaim.property.node"></a><a class="headerlink" href="#noderequired_8" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">Node</span><span class="w"> </span><span class="nf">getNode</span><span class="p">();</span><span class="w"></span>
-</code></pre></div>
-<ul>
-<li><em>Type:</em> <a href="#software.constructs.Node"><code>software.constructs.Node</code></a></li>
-</ul>
-<p>The tree node.</p>
-<hr />
+<h4 id="properties_49">Properties <a name="Properties"></a><a class="headerlink" href="#properties_49" title="Permanent link">&para;</a></h4>
 <h5 id="apigrouprequired_7"><code>apiGroup</code><sup>Required</sup> <a name="org.cdk8s.plus24.IPersistentVolumeClaim.property.apiGroup"></a><a class="headerlink" href="#apigrouprequired_7" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getApiGroup</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
@@ -20540,15 +20538,6 @@ switch, but nodes in different zones should not.</p>
 <h5 id="topodselectorconfig_2"><code>toPodSelectorConfig</code> <a name="org.cdk8s.plus24.IPodSelector.toPodSelectorConfig"></a><a class="headerlink" href="#topodselectorconfig_2" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="nf">toPodSelectorConfig</span><span class="p">()</span><span class="w"></span>
 </code></pre></div>
-<h4 id="properties_52">Properties <a name="Properties"></a><a class="headerlink" href="#properties_52" title="Permanent link">&para;</a></h4>
-<h5 id="noderequired_9"><code>node</code><sup>Required</sup> <a name="org.cdk8s.plus24.IPodSelector.property.node"></a><a class="headerlink" href="#noderequired_9" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">Node</span><span class="w"> </span><span class="nf">getNode</span><span class="p">();</span><span class="w"></span>
-</code></pre></div>
-<ul>
-<li><em>Type:</em> <a href="#software.constructs.Node"><code>software.constructs.Node</code></a></li>
-</ul>
-<p>The tree node.</p>
-<hr />
 <h3 id="iresource">IResource <a name="org.cdk8s.plus24.IResource"></a><a class="headerlink" href="#iresource" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
@@ -20559,15 +20548,7 @@ switch, but nodes in different zones should not.</p>
 </li>
 </ul>
 <p>Represents a resource.</p>
-<h4 id="properties_53">Properties <a name="Properties"></a><a class="headerlink" href="#properties_53" title="Permanent link">&para;</a></h4>
-<h5 id="noderequired_10"><code>node</code><sup>Required</sup> <a name="org.cdk8s.plus24.IResource.property.node"></a><a class="headerlink" href="#noderequired_10" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">Node</span><span class="w"> </span><span class="nf">getNode</span><span class="p">();</span><span class="w"></span>
-</code></pre></div>
-<ul>
-<li><em>Type:</em> <a href="#software.constructs.Node"><code>software.constructs.Node</code></a></li>
-</ul>
-<p>The tree node.</p>
-<hr />
+<h4 id="properties_50">Properties <a name="Properties"></a><a class="headerlink" href="#properties_50" title="Permanent link">&para;</a></h4>
 <h5 id="apigrouprequired_8"><code>apiGroup</code><sup>Required</sup> <a name="org.cdk8s.plus24.IResource.property.apiGroup"></a><a class="headerlink" href="#apigrouprequired_8" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getApiGroup</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
@@ -20610,15 +20591,7 @@ switch, but nodes in different zones should not.</p>
 </li>
 </ul>
 <p>A reference to any Role or ClusterRole.</p>
-<h4 id="properties_54">Properties <a name="Properties"></a><a class="headerlink" href="#properties_54" title="Permanent link">&para;</a></h4>
-<h5 id="noderequired_11"><code>node</code><sup>Required</sup> <a name="org.cdk8s.plus24.IRole.property.node"></a><a class="headerlink" href="#noderequired_11" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">Node</span><span class="w"> </span><span class="nf">getNode</span><span class="p">();</span><span class="w"></span>
-</code></pre></div>
-<ul>
-<li><em>Type:</em> <a href="#software.constructs.Node"><code>software.constructs.Node</code></a></li>
-</ul>
-<p>The tree node.</p>
-<hr />
+<h4 id="properties_51">Properties <a name="Properties"></a><a class="headerlink" href="#properties_51" title="Permanent link">&para;</a></h4>
 <h5 id="apigrouprequired_9"><code>apiGroup</code><sup>Required</sup> <a name="org.cdk8s.plus24.IRole.property.apiGroup"></a><a class="headerlink" href="#apigrouprequired_9" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getApiGroup</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
@@ -20663,7 +20636,7 @@ switch, but nodes in different zones should not.</p>
 <h5 id="toscalingtarget_2"><code>toScalingTarget</code> <a name="org.cdk8s.plus24.IScalable.toScalingTarget"></a><a class="headerlink" href="#toscalingtarget_2" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="nf">toScalingTarget</span><span class="p">()</span><span class="w"></span>
 </code></pre></div>
-<h4 id="properties_55">Properties <a name="Properties"></a><a class="headerlink" href="#properties_55" title="Permanent link">&para;</a></h4>
+<h4 id="properties_52">Properties <a name="Properties"></a><a class="headerlink" href="#properties_52" title="Permanent link">&para;</a></h4>
 <h5 id="hasautoscalerrequired_2"><code>hasAutoscaler</code><sup>Required</sup> <a name="org.cdk8s.plus24.IScalable.property.hasAutoscaler"></a><a class="headerlink" href="#hasautoscalerrequired_2" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span><span class="w"> </span><span class="nf">getHasAutoscaler</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
@@ -20681,15 +20654,7 @@ switch, but nodes in different zones should not.</p>
 <p><em>Implemented By:</em> <a href="#org.cdk8s.plus24.BasicAuthSecret"><code>org.cdk8s.plus24.BasicAuthSecret</code></a>, <a href="#org.cdk8s.plus24.DockerConfigSecret"><code>org.cdk8s.plus24.DockerConfigSecret</code></a>, <a href="#org.cdk8s.plus24.Secret"><code>org.cdk8s.plus24.Secret</code></a>, <a href="#org.cdk8s.plus24.ServiceAccountTokenSecret"><code>org.cdk8s.plus24.ServiceAccountTokenSecret</code></a>, <a href="#org.cdk8s.plus24.SshAuthSecret"><code>org.cdk8s.plus24.SshAuthSecret</code></a>, <a href="#org.cdk8s.plus24.TlsSecret"><code>org.cdk8s.plus24.TlsSecret</code></a>, <a href="#org.cdk8s.plus24.ISecret"><code>org.cdk8s.plus24.ISecret</code></a></p>
 </li>
 </ul>
-<h4 id="properties_56">Properties <a name="Properties"></a><a class="headerlink" href="#properties_56" title="Permanent link">&para;</a></h4>
-<h5 id="noderequired_12"><code>node</code><sup>Required</sup> <a name="org.cdk8s.plus24.ISecret.property.node"></a><a class="headerlink" href="#noderequired_12" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">Node</span><span class="w"> </span><span class="nf">getNode</span><span class="p">();</span><span class="w"></span>
-</code></pre></div>
-<ul>
-<li><em>Type:</em> <a href="#software.constructs.Node"><code>software.constructs.Node</code></a></li>
-</ul>
-<p>The tree node.</p>
-<hr />
+<h4 id="properties_53">Properties <a name="Properties"></a><a class="headerlink" href="#properties_53" title="Permanent link">&para;</a></h4>
 <h5 id="apigrouprequired_10"><code>apiGroup</code><sup>Required</sup> <a name="org.cdk8s.plus24.ISecret.property.apiGroup"></a><a class="headerlink" href="#apigrouprequired_10" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getApiGroup</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
@@ -20731,15 +20696,7 @@ switch, but nodes in different zones should not.</p>
 <p><em>Implemented By:</em> <a href="#org.cdk8s.plus24.ServiceAccount"><code>org.cdk8s.plus24.ServiceAccount</code></a>, <a href="#org.cdk8s.plus24.IServiceAccount"><code>org.cdk8s.plus24.IServiceAccount</code></a></p>
 </li>
 </ul>
-<h4 id="properties_57">Properties <a name="Properties"></a><a class="headerlink" href="#properties_57" title="Permanent link">&para;</a></h4>
-<h5 id="noderequired_13"><code>node</code><sup>Required</sup> <a name="org.cdk8s.plus24.IServiceAccount.property.node"></a><a class="headerlink" href="#noderequired_13" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">Node</span><span class="w"> </span><span class="nf">getNode</span><span class="p">();</span><span class="w"></span>
-</code></pre></div>
-<ul>
-<li><em>Type:</em> <a href="#software.constructs.Node"><code>software.constructs.Node</code></a></li>
-</ul>
-<p>The tree node.</p>
-<hr />
+<h4 id="properties_54">Properties <a name="Properties"></a><a class="headerlink" href="#properties_54" title="Permanent link">&para;</a></h4>
 <h5 id="apigrouprequired_11"><code>apiGroup</code><sup>Required</sup> <a name="org.cdk8s.plus24.IServiceAccount.property.apiGroup"></a><a class="headerlink" href="#apigrouprequired_11" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getApiGroup</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
@@ -20786,15 +20743,6 @@ switch, but nodes in different zones should not.</p>
 <h5 id="asvolume_2"><code>asVolume</code> <a name="org.cdk8s.plus24.IStorage.asVolume"></a><a class="headerlink" href="#asvolume_2" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="nf">asVolume</span><span class="p">()</span><span class="w"></span>
 </code></pre></div>
-<h4 id="properties_58">Properties <a name="Properties"></a><a class="headerlink" href="#properties_58" title="Permanent link">&para;</a></h4>
-<h5 id="noderequired_14"><code>node</code><sup>Required</sup> <a name="org.cdk8s.plus24.IStorage.property.node"></a><a class="headerlink" href="#noderequired_14" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">Node</span><span class="w"> </span><span class="nf">getNode</span><span class="p">();</span><span class="w"></span>
-</code></pre></div>
-<ul>
-<li><em>Type:</em> <a href="#software.constructs.Node"><code>software.constructs.Node</code></a></li>
-</ul>
-<p>The tree node.</p>
-<hr />
 <h3 id="isubject">ISubject <a name="org.cdk8s.plus24.ISubject"></a><a class="headerlink" href="#isubject" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
@@ -20809,15 +20757,6 @@ switch, but nodes in different zones should not.</p>
 <h5 id="tosubjectconfiguration_4"><code>toSubjectConfiguration</code> <a name="org.cdk8s.plus24.ISubject.toSubjectConfiguration"></a><a class="headerlink" href="#tosubjectconfiguration_4" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="nf">toSubjectConfiguration</span><span class="p">()</span><span class="w"></span>
 </code></pre></div>
-<h4 id="properties_59">Properties <a name="Properties"></a><a class="headerlink" href="#properties_59" title="Permanent link">&para;</a></h4>
-<h5 id="noderequired_15"><code>node</code><sup>Required</sup> <a name="org.cdk8s.plus24.ISubject.property.node"></a><a class="headerlink" href="#noderequired_15" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">Node</span><span class="w"> </span><span class="nf">getNode</span><span class="p">();</span><span class="w"></span>
-</code></pre></div>
-<ul>
-<li><em>Type:</em> <a href="#software.constructs.Node"><code>software.constructs.Node</code></a></li>
-</ul>
-<p>The tree node.</p>
-<hr />
 <h2 id="enums">Enums <a name="Enums"></a><a class="headerlink" href="#enums" title="Permanent link">&para;</a></h2>
 <h3 id="azurediskpersistentvolumecachingmode">AzureDiskPersistentVolumeCachingMode <a name="AzureDiskPersistentVolumeCachingMode"></a><a class="headerlink" href="#azurediskpersistentvolumecachingmode" title="Permanent link">&para;</a></h3>
 <p>Azure disk caching modes.</p>

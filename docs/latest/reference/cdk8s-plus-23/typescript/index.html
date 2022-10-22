@@ -501,6 +501,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_4_2">
@@ -689,6 +691,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../plus/cdk8s-plus-23/rbac/" class="md-nav__link">
+        Role Based Access Control
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../plus/cdk8s-plus-23/secret/" class="md-nav__link">
         Secret
       </a>
@@ -759,6 +775,8 @@
       
       
       
+        
+          
         
           
         
@@ -980,6 +998,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../plus/cdk8s-plus-24/rbac/" class="md-nav__link">
+        Role Based Access Control
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../plus/cdk8s-plus-24/secret/" class="md-nav__link">
         Secret
       </a>
@@ -1050,6 +1082,8 @@
       
       
       
+        
+          
         
           
         
@@ -1259,6 +1293,20 @@
     <li class="md-nav__item">
       <a href="../../../plus/cdk8s-plus-25/pvc/" class="md-nav__link">
         PersistentVolumeClaim
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../plus/cdk8s-plus-25/rbac/" class="md-nav__link">
+        Role Based Access Control
       </a>
     </li>
   
@@ -16832,14 +16880,6 @@ switch, but nodes in different zones should not.</p>
 </ul>
 <p>Represents a cluster-level role.</p>
 <h4 id="properties_46">Properties <a name="Properties"></a><a class="headerlink" href="#properties_46" title="Permanent link">&para;</a></h4>
-<h5 id="noderequired_3"><code>node</code><sup>Required</sup> <a name="cdk8s-plus-23.IClusterRole.property.node"></a><a class="headerlink" href="#noderequired_3" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">node</span><span class="o">:</span><span class="w"> </span><span class="kt">Node</span><span class="p">;</span><span class="w"></span>
-</code></pre></div>
-<ul>
-<li><em>Type:</em> <a href="#constructs.Node"><code>constructs.Node</code></a></li>
-</ul>
-<p>The tree node.</p>
-<hr />
 <h5 id="apigrouprequired_4"><code>apiGroup</code><sup>Required</sup> <a name="cdk8s-plus-23.IClusterRole.property.apiGroup"></a><a class="headerlink" href="#apigrouprequired_4" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">apiGroup</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
@@ -16883,14 +16923,6 @@ switch, but nodes in different zones should not.</p>
 </ul>
 <p>Represents a config map.</p>
 <h4 id="properties_47">Properties <a name="Properties"></a><a class="headerlink" href="#properties_47" title="Permanent link">&para;</a></h4>
-<h5 id="noderequired_4"><code>node</code><sup>Required</sup> <a name="cdk8s-plus-23.IConfigMap.property.node"></a><a class="headerlink" href="#noderequired_4" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">node</span><span class="o">:</span><span class="w"> </span><span class="kt">Node</span><span class="p">;</span><span class="w"></span>
-</code></pre></div>
-<ul>
-<li><em>Type:</em> <a href="#constructs.Node"><code>constructs.Node</code></a></li>
-</ul>
-<p>The tree node.</p>
-<hr />
 <h5 id="apigrouprequired_5"><code>apiGroup</code><sup>Required</sup> <a name="cdk8s-plus-23.IConfigMap.property.apiGroup"></a><a class="headerlink" href="#apigrouprequired_5" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">apiGroup</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
@@ -16937,15 +16969,6 @@ switch, but nodes in different zones should not.</p>
 <h5 id="tonamespaceselectorconfig_2"><code>toNamespaceSelectorConfig</code> <a name="cdk8s-plus-23.INamespaceSelector.toNamespaceSelectorConfig"></a><a class="headerlink" href="#tonamespaceselectorconfig_2" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="nx">toNamespaceSelectorConfig</span><span class="p">()</span><span class="w"></span>
 </code></pre></div>
-<h4 id="properties_48">Properties <a name="Properties"></a><a class="headerlink" href="#properties_48" title="Permanent link">&para;</a></h4>
-<h5 id="noderequired_5"><code>node</code><sup>Required</sup> <a name="cdk8s-plus-23.INamespaceSelector.property.node"></a><a class="headerlink" href="#noderequired_5" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">node</span><span class="o">:</span><span class="w"> </span><span class="kt">Node</span><span class="p">;</span><span class="w"></span>
-</code></pre></div>
-<ul>
-<li><em>Type:</em> <a href="#constructs.Node"><code>constructs.Node</code></a></li>
-</ul>
-<p>The tree node.</p>
-<hr />
 <h3 id="inetworkpolicypeer">INetworkPolicyPeer <a name="cdk8s-plus-23.INetworkPolicyPeer"></a><a class="headerlink" href="#inetworkpolicypeer" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
@@ -16963,15 +16986,6 @@ switch, but nodes in different zones should not.</p>
 <h5 id="topodselector_5"><code>toPodSelector</code> <a name="cdk8s-plus-23.INetworkPolicyPeer.toPodSelector"></a><a class="headerlink" href="#topodselector_5" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="nx">toPodSelector</span><span class="p">()</span><span class="w"></span>
 </code></pre></div>
-<h4 id="properties_49">Properties <a name="Properties"></a><a class="headerlink" href="#properties_49" title="Permanent link">&para;</a></h4>
-<h5 id="noderequired_6"><code>node</code><sup>Required</sup> <a name="cdk8s-plus-23.INetworkPolicyPeer.property.node"></a><a class="headerlink" href="#noderequired_6" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">node</span><span class="o">:</span><span class="w"> </span><span class="kt">Node</span><span class="p">;</span><span class="w"></span>
-</code></pre></div>
-<ul>
-<li><em>Type:</em> <a href="#constructs.Node"><code>constructs.Node</code></a></li>
-</ul>
-<p>The tree node.</p>
-<hr />
 <h3 id="ipersistentvolume">IPersistentVolume <a name="cdk8s-plus-23.IPersistentVolume"></a><a class="headerlink" href="#ipersistentvolume" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
@@ -16982,15 +16996,7 @@ switch, but nodes in different zones should not.</p>
 </li>
 </ul>
 <p>Contract of a <code>PersistentVolumeClaim</code>.</p>
-<h4 id="properties_50">Properties <a name="Properties"></a><a class="headerlink" href="#properties_50" title="Permanent link">&para;</a></h4>
-<h5 id="noderequired_7"><code>node</code><sup>Required</sup> <a name="cdk8s-plus-23.IPersistentVolume.property.node"></a><a class="headerlink" href="#noderequired_7" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">node</span><span class="o">:</span><span class="w"> </span><span class="kt">Node</span><span class="p">;</span><span class="w"></span>
-</code></pre></div>
-<ul>
-<li><em>Type:</em> <a href="#constructs.Node"><code>constructs.Node</code></a></li>
-</ul>
-<p>The tree node.</p>
-<hr />
+<h4 id="properties_48">Properties <a name="Properties"></a><a class="headerlink" href="#properties_48" title="Permanent link">&para;</a></h4>
 <h5 id="apigrouprequired_6"><code>apiGroup</code><sup>Required</sup> <a name="cdk8s-plus-23.IPersistentVolume.property.apiGroup"></a><a class="headerlink" href="#apigrouprequired_6" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">apiGroup</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
@@ -17033,15 +17039,7 @@ switch, but nodes in different zones should not.</p>
 </li>
 </ul>
 <p>Contract of a <code>PersistentVolumeClaim</code>.</p>
-<h4 id="properties_51">Properties <a name="Properties"></a><a class="headerlink" href="#properties_51" title="Permanent link">&para;</a></h4>
-<h5 id="noderequired_8"><code>node</code><sup>Required</sup> <a name="cdk8s-plus-23.IPersistentVolumeClaim.property.node"></a><a class="headerlink" href="#noderequired_8" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">node</span><span class="o">:</span><span class="w"> </span><span class="kt">Node</span><span class="p">;</span><span class="w"></span>
-</code></pre></div>
-<ul>
-<li><em>Type:</em> <a href="#constructs.Node"><code>constructs.Node</code></a></li>
-</ul>
-<p>The tree node.</p>
-<hr />
+<h4 id="properties_49">Properties <a name="Properties"></a><a class="headerlink" href="#properties_49" title="Permanent link">&para;</a></h4>
 <h5 id="apigrouprequired_7"><code>apiGroup</code><sup>Required</sup> <a name="cdk8s-plus-23.IPersistentVolumeClaim.property.apiGroup"></a><a class="headerlink" href="#apigrouprequired_7" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">apiGroup</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
@@ -17088,15 +17086,6 @@ switch, but nodes in different zones should not.</p>
 <h5 id="topodselectorconfig_2"><code>toPodSelectorConfig</code> <a name="cdk8s-plus-23.IPodSelector.toPodSelectorConfig"></a><a class="headerlink" href="#topodselectorconfig_2" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="nx">toPodSelectorConfig</span><span class="p">()</span><span class="w"></span>
 </code></pre></div>
-<h4 id="properties_52">Properties <a name="Properties"></a><a class="headerlink" href="#properties_52" title="Permanent link">&para;</a></h4>
-<h5 id="noderequired_9"><code>node</code><sup>Required</sup> <a name="cdk8s-plus-23.IPodSelector.property.node"></a><a class="headerlink" href="#noderequired_9" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">node</span><span class="o">:</span><span class="w"> </span><span class="kt">Node</span><span class="p">;</span><span class="w"></span>
-</code></pre></div>
-<ul>
-<li><em>Type:</em> <a href="#constructs.Node"><code>constructs.Node</code></a></li>
-</ul>
-<p>The tree node.</p>
-<hr />
 <h3 id="iresource">IResource <a name="cdk8s-plus-23.IResource"></a><a class="headerlink" href="#iresource" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
@@ -17107,15 +17096,7 @@ switch, but nodes in different zones should not.</p>
 </li>
 </ul>
 <p>Represents a resource.</p>
-<h4 id="properties_53">Properties <a name="Properties"></a><a class="headerlink" href="#properties_53" title="Permanent link">&para;</a></h4>
-<h5 id="noderequired_10"><code>node</code><sup>Required</sup> <a name="cdk8s-plus-23.IResource.property.node"></a><a class="headerlink" href="#noderequired_10" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">node</span><span class="o">:</span><span class="w"> </span><span class="kt">Node</span><span class="p">;</span><span class="w"></span>
-</code></pre></div>
-<ul>
-<li><em>Type:</em> <a href="#constructs.Node"><code>constructs.Node</code></a></li>
-</ul>
-<p>The tree node.</p>
-<hr />
+<h4 id="properties_50">Properties <a name="Properties"></a><a class="headerlink" href="#properties_50" title="Permanent link">&para;</a></h4>
 <h5 id="apigrouprequired_8"><code>apiGroup</code><sup>Required</sup> <a name="cdk8s-plus-23.IResource.property.apiGroup"></a><a class="headerlink" href="#apigrouprequired_8" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">apiGroup</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
@@ -17158,15 +17139,7 @@ switch, but nodes in different zones should not.</p>
 </li>
 </ul>
 <p>A reference to any Role or ClusterRole.</p>
-<h4 id="properties_54">Properties <a name="Properties"></a><a class="headerlink" href="#properties_54" title="Permanent link">&para;</a></h4>
-<h5 id="noderequired_11"><code>node</code><sup>Required</sup> <a name="cdk8s-plus-23.IRole.property.node"></a><a class="headerlink" href="#noderequired_11" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">node</span><span class="o">:</span><span class="w"> </span><span class="kt">Node</span><span class="p">;</span><span class="w"></span>
-</code></pre></div>
-<ul>
-<li><em>Type:</em> <a href="#constructs.Node"><code>constructs.Node</code></a></li>
-</ul>
-<p>The tree node.</p>
-<hr />
+<h4 id="properties_51">Properties <a name="Properties"></a><a class="headerlink" href="#properties_51" title="Permanent link">&para;</a></h4>
 <h5 id="apigrouprequired_9"><code>apiGroup</code><sup>Required</sup> <a name="cdk8s-plus-23.IRole.property.apiGroup"></a><a class="headerlink" href="#apigrouprequired_9" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">apiGroup</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
@@ -17211,7 +17184,7 @@ switch, but nodes in different zones should not.</p>
 <h5 id="toscalingtarget_2"><code>toScalingTarget</code> <a name="cdk8s-plus-23.IScalable.toScalingTarget"></a><a class="headerlink" href="#toscalingtarget_2" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="nx">toScalingTarget</span><span class="p">()</span><span class="w"></span>
 </code></pre></div>
-<h4 id="properties_55">Properties <a name="Properties"></a><a class="headerlink" href="#properties_55" title="Permanent link">&para;</a></h4>
+<h4 id="properties_52">Properties <a name="Properties"></a><a class="headerlink" href="#properties_52" title="Permanent link">&para;</a></h4>
 <h5 id="hasautoscalerrequired_2"><code>hasAutoscaler</code><sup>Required</sup> <a name="cdk8s-plus-23.IScalable.property.hasAutoscaler"></a><a class="headerlink" href="#hasautoscalerrequired_2" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">hasAutoscaler</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
@@ -17229,15 +17202,7 @@ switch, but nodes in different zones should not.</p>
 <p><em>Implemented By:</em> <a href="#cdk8s-plus-23.BasicAuthSecret"><code>cdk8s-plus-23.BasicAuthSecret</code></a>, <a href="#cdk8s-plus-23.DockerConfigSecret"><code>cdk8s-plus-23.DockerConfigSecret</code></a>, <a href="#cdk8s-plus-23.Secret"><code>cdk8s-plus-23.Secret</code></a>, <a href="#cdk8s-plus-23.ServiceAccountTokenSecret"><code>cdk8s-plus-23.ServiceAccountTokenSecret</code></a>, <a href="#cdk8s-plus-23.SshAuthSecret"><code>cdk8s-plus-23.SshAuthSecret</code></a>, <a href="#cdk8s-plus-23.TlsSecret"><code>cdk8s-plus-23.TlsSecret</code></a>, <a href="#cdk8s-plus-23.ISecret"><code>cdk8s-plus-23.ISecret</code></a></p>
 </li>
 </ul>
-<h4 id="properties_56">Properties <a name="Properties"></a><a class="headerlink" href="#properties_56" title="Permanent link">&para;</a></h4>
-<h5 id="noderequired_12"><code>node</code><sup>Required</sup> <a name="cdk8s-plus-23.ISecret.property.node"></a><a class="headerlink" href="#noderequired_12" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">node</span><span class="o">:</span><span class="w"> </span><span class="kt">Node</span><span class="p">;</span><span class="w"></span>
-</code></pre></div>
-<ul>
-<li><em>Type:</em> <a href="#constructs.Node"><code>constructs.Node</code></a></li>
-</ul>
-<p>The tree node.</p>
-<hr />
+<h4 id="properties_53">Properties <a name="Properties"></a><a class="headerlink" href="#properties_53" title="Permanent link">&para;</a></h4>
 <h5 id="apigrouprequired_10"><code>apiGroup</code><sup>Required</sup> <a name="cdk8s-plus-23.ISecret.property.apiGroup"></a><a class="headerlink" href="#apigrouprequired_10" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">apiGroup</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
@@ -17279,15 +17244,7 @@ switch, but nodes in different zones should not.</p>
 <p><em>Implemented By:</em> <a href="#cdk8s-plus-23.ServiceAccount"><code>cdk8s-plus-23.ServiceAccount</code></a>, <a href="#cdk8s-plus-23.IServiceAccount"><code>cdk8s-plus-23.IServiceAccount</code></a></p>
 </li>
 </ul>
-<h4 id="properties_57">Properties <a name="Properties"></a><a class="headerlink" href="#properties_57" title="Permanent link">&para;</a></h4>
-<h5 id="noderequired_13"><code>node</code><sup>Required</sup> <a name="cdk8s-plus-23.IServiceAccount.property.node"></a><a class="headerlink" href="#noderequired_13" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">node</span><span class="o">:</span><span class="w"> </span><span class="kt">Node</span><span class="p">;</span><span class="w"></span>
-</code></pre></div>
-<ul>
-<li><em>Type:</em> <a href="#constructs.Node"><code>constructs.Node</code></a></li>
-</ul>
-<p>The tree node.</p>
-<hr />
+<h4 id="properties_54">Properties <a name="Properties"></a><a class="headerlink" href="#properties_54" title="Permanent link">&para;</a></h4>
 <h5 id="apigrouprequired_11"><code>apiGroup</code><sup>Required</sup> <a name="cdk8s-plus-23.IServiceAccount.property.apiGroup"></a><a class="headerlink" href="#apigrouprequired_11" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">apiGroup</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
@@ -17334,15 +17291,6 @@ switch, but nodes in different zones should not.</p>
 <h5 id="asvolume_2"><code>asVolume</code> <a name="cdk8s-plus-23.IStorage.asVolume"></a><a class="headerlink" href="#asvolume_2" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="nx">asVolume</span><span class="p">()</span><span class="w"></span>
 </code></pre></div>
-<h4 id="properties_58">Properties <a name="Properties"></a><a class="headerlink" href="#properties_58" title="Permanent link">&para;</a></h4>
-<h5 id="noderequired_14"><code>node</code><sup>Required</sup> <a name="cdk8s-plus-23.IStorage.property.node"></a><a class="headerlink" href="#noderequired_14" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">node</span><span class="o">:</span><span class="w"> </span><span class="kt">Node</span><span class="p">;</span><span class="w"></span>
-</code></pre></div>
-<ul>
-<li><em>Type:</em> <a href="#constructs.Node"><code>constructs.Node</code></a></li>
-</ul>
-<p>The tree node.</p>
-<hr />
 <h3 id="isubject">ISubject <a name="cdk8s-plus-23.ISubject"></a><a class="headerlink" href="#isubject" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
@@ -17357,15 +17305,6 @@ switch, but nodes in different zones should not.</p>
 <h5 id="tosubjectconfiguration_4"><code>toSubjectConfiguration</code> <a name="cdk8s-plus-23.ISubject.toSubjectConfiguration"></a><a class="headerlink" href="#tosubjectconfiguration_4" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="nx">toSubjectConfiguration</span><span class="p">()</span><span class="w"></span>
 </code></pre></div>
-<h4 id="properties_59">Properties <a name="Properties"></a><a class="headerlink" href="#properties_59" title="Permanent link">&para;</a></h4>
-<h5 id="noderequired_15"><code>node</code><sup>Required</sup> <a name="cdk8s-plus-23.ISubject.property.node"></a><a class="headerlink" href="#noderequired_15" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">node</span><span class="o">:</span><span class="w"> </span><span class="kt">Node</span><span class="p">;</span><span class="w"></span>
-</code></pre></div>
-<ul>
-<li><em>Type:</em> <a href="#constructs.Node"><code>constructs.Node</code></a></li>
-</ul>
-<p>The tree node.</p>
-<hr />
 <h2 id="enums">Enums <a name="Enums"></a><a class="headerlink" href="#enums" title="Permanent link">&para;</a></h2>
 <h3 id="azurediskpersistentvolumecachingmode">AzureDiskPersistentVolumeCachingMode <a name="AzureDiskPersistentVolumeCachingMode"></a><a class="headerlink" href="#azurediskpersistentvolumecachingmode" title="Permanent link">&para;</a></h3>
 <p>Azure disk caching modes.</p>
