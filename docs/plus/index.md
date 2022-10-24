@@ -1,4 +1,4 @@
-# cdk8s+ v25
+# cdk8s+
 
 **cdk8s+** is a library with high level abstractions for authoring Kubernetes
 applications.
