@@ -247,7 +247,7 @@ app.synth();
     <dependency>
       <groupId>org.cdk8s</groupId>
       <artifactId>cdk8s-plus-25</artifactId>
-      <version>2.0.0-rc.12</version>
+      <version>2.0.0</version>
     </dependency>
     ```
 
