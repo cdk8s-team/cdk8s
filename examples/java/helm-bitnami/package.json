@@ -9,6 +9,6 @@
     "test": "echo 'no test for java yet.'"
   },
   "devDependencies": {
-    "cdk8s-cli": "2.0.0-rc.3"
+    "cdk8s-cli": "2.0.0"
   }
 }
