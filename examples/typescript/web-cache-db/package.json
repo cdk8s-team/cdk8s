@@ -1,0 +1,24 @@
+{
+  "name": "web-cache-db",
+  "version": "0.0.0",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "license": "Apache-2.0",
+  "private": true,
+  "jest": {
+    "moduleFileExtensions": [
+      "js"
+    ]
+  },
+  "scripts": {
+    "gen": "cdk8s import k8s --language typescript",
+    "build": "yarn gen && tsc",
+    "watch": "tsc -w",
+    "synth": "node ./index.js"
+  },
+  "dependencies": {
+    "cdk8s": "^2.5.26",
+    "cdk8s-plus-25": "^2.0.0-rc.22",
+    "constructs": "^10.1.138"
+  }
+}
