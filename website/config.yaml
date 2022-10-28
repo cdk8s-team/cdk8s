@@ -12,6 +12,13 @@ markup:
     renderer:
       unsafe: true # Allows you to write raw html in your md files
 
+enableRobotsTXT: true
+
+# sitemap:
+#   changefreq: monthly
+#   filename: sitemap.xml
+#   priority: 0.5
+
 params:
   summary: Define Kubernetes apps and components using familiar languages
   subtitle: Cloud Development Kit for Kubernetes
