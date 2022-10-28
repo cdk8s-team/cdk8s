@@ -1,3 +1,6 @@
+Sitemap: https://cdk8s.io/sitemap.xml
+Host: cdk8s.io
+
 User-agent: *
 
 Allow: /
