@@ -4,7 +4,7 @@ set -x
 
 scriptdir=$(cd $(dirname $0) && pwd)
 nodemodulesdir=${scriptdir}/../node_modules
-outdir=${1:-${scriptdir}/../website/public/docs}
+outdir=${1:-${scriptdir}/../website/static/docs}
 
 # resolve path
 mkdir -p "${outdir}"

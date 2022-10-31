@@ -1,3 +1,5 @@
 mkdocs
 mkdocs-awesome-pages-plugin
 mkdocs-material
+mkdocs-exclude
+mkdocs-redirects
