@@ -12,6 +12,8 @@ markup:
     renderer:
       unsafe: true # Allows you to write raw html in your md files
 
+enableRobotsTXT: true
+
 params:
   summary: Define Kubernetes apps and components using familiar languages
   subtitle: Cloud Development Kit for Kubernetes

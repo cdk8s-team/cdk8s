@@ -1,3 +1,4 @@
 public/
+static/docs
 resources/
 !*.js

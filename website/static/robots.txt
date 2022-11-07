@@ -1,0 +1,24 @@
+Sitemap: https://cdk8s.io/sitemap.xml
+Host: cdk8s.io
+
+User-agent: *
+
+Allow: /
+
+Disallow: /docs/latest/plus/config-map
+Disallow: /docs/latest/plus/container
+Disallow: /docs/latest/plus/cronjob
+Disallow: /docs/latest/plus/deployment
+Disallow: /docs/latest/plus/horizontal-pod-autoscaler
+Disallow: /docs/latest/plus/ingress
+Disallow: /docs/latest/plus/job
+Disallow: /docs/latest/plus/namespace
+Disallow: /docs/latest/plus/network-policy
+Disallow: /docs/latest/plus/pod
+Disallow: /docs/latest/plus/pv
+Disallow: /docs/latest/plus/pvc
+Disallow: /docs/latest/plus/rbac
+Disallow: /docs/latest/plus/secret
+Disallow: /docs/latest/plus/service
+Disallow: /docs/latest/plus/service-account
+Disallow: /docs/latest/plus/volume
