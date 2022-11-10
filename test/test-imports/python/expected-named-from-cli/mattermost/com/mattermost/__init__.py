@@ -46,7 +46,7 @@ class ClusterInstallation(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                spec: typing.Union["ClusterInstallationSpec", typing.Dict[str, typing.Any]],
+                spec: typing.Union[ClusterInstallationSpec, typing.Dict[str, typing.Any]],
                 metadata: typing.Optional[typing.Union[cdk8s.ApiObjectMetadata, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
@@ -114,7 +114,7 @@ class ClusterInstallationProps:
         if __debug__:
             def stub(
                 *,
-                spec: typing.Union["ClusterInstallationSpec", typing.Dict[str, typing.Any]],
+                spec: typing.Union[ClusterInstallationSpec, typing.Dict[str, typing.Any]],
                 metadata: typing.Optional[typing.Union[cdk8s.ApiObjectMetadata, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
@@ -259,21 +259,21 @@ class ClusterInstallationSpec:
             def stub(
                 *,
                 ingress_name: builtins.str,
-                affinity: typing.Optional[typing.Union["ClusterInstallationSpecAffinity", typing.Dict[str, typing.Any]]] = None,
-                blue_green: typing.Optional[typing.Union["ClusterInstallationSpecBlueGreen", typing.Dict[str, typing.Any]]] = None,
-                canary: typing.Optional[typing.Union["ClusterInstallationSpecCanary", typing.Dict[str, typing.Any]]] = None,
-                database: typing.Optional[typing.Union["ClusterInstallationSpecDatabase", typing.Dict[str, typing.Any]]] = None,
-                elastic_search: typing.Optional[typing.Union["ClusterInstallationSpecElasticSearch", typing.Dict[str, typing.Any]]] = None,
+                affinity: typing.Optional[typing.Union[ClusterInstallationSpecAffinity, typing.Dict[str, typing.Any]]] = None,
+                blue_green: typing.Optional[typing.Union[ClusterInstallationSpecBlueGreen, typing.Dict[str, typing.Any]]] = None,
+                canary: typing.Optional[typing.Union[ClusterInstallationSpecCanary, typing.Dict[str, typing.Any]]] = None,
+                database: typing.Optional[typing.Union[ClusterInstallationSpecDatabase, typing.Dict[str, typing.Any]]] = None,
+                elastic_search: typing.Optional[typing.Union[ClusterInstallationSpecElasticSearch, typing.Dict[str, typing.Any]]] = None,
                 image: typing.Optional[builtins.str] = None,
                 ingress_annotations: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
-                liveness_probe: typing.Optional[typing.Union["ClusterInstallationSpecLivenessProbe", typing.Dict[str, typing.Any]]] = None,
-                mattermost_env: typing.Optional[typing.Sequence[typing.Union["ClusterInstallationSpecMattermostEnv", typing.Dict[str, typing.Any]]]] = None,
+                liveness_probe: typing.Optional[typing.Union[ClusterInstallationSpecLivenessProbe, typing.Dict[str, typing.Any]]] = None,
+                mattermost_env: typing.Optional[typing.Sequence[typing.Union[ClusterInstallationSpecMattermostEnv, typing.Dict[str, typing.Any]]]] = None,
                 mattermost_license_secret: typing.Optional[builtins.str] = None,
-                minio: typing.Optional[typing.Union["ClusterInstallationSpecMinio", typing.Dict[str, typing.Any]]] = None,
+                minio: typing.Optional[typing.Union[ClusterInstallationSpecMinio, typing.Dict[str, typing.Any]]] = None,
                 node_selector: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
-                readiness_probe: typing.Optional[typing.Union["ClusterInstallationSpecReadinessProbe", typing.Dict[str, typing.Any]]] = None,
+                readiness_probe: typing.Optional[typing.Union[ClusterInstallationSpecReadinessProbe, typing.Dict[str, typing.Any]]] = None,
                 replicas: typing.Optional[jsii.Number] = None,
-                resources: typing.Optional[typing.Union["ClusterInstallationSpecResources", typing.Dict[str, typing.Any]]] = None,
+                resources: typing.Optional[typing.Union[ClusterInstallationSpecResources, typing.Dict[str, typing.Any]]] = None,
                 service_annotations: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
                 size: typing.Optional[builtins.str] = None,
                 use_service_load_balancer: typing.Optional[builtins.bool] = None,
@@ -585,9 +585,9 @@ class ClusterInstallationSpecAffinity:
         if __debug__:
             def stub(
                 *,
-                node_affinity: typing.Optional[typing.Union["ClusterInstallationSpecAffinityNodeAffinity", typing.Dict[str, typing.Any]]] = None,
-                pod_affinity: typing.Optional[typing.Union["ClusterInstallationSpecAffinityPodAffinity", typing.Dict[str, typing.Any]]] = None,
-                pod_anti_affinity: typing.Optional[typing.Union["ClusterInstallationSpecAffinityPodAntiAffinity", typing.Dict[str, typing.Any]]] = None,
+                node_affinity: typing.Optional[typing.Union[ClusterInstallationSpecAffinityNodeAffinity, typing.Dict[str, typing.Any]]] = None,
+                pod_affinity: typing.Optional[typing.Union[ClusterInstallationSpecAffinityPodAffinity, typing.Dict[str, typing.Any]]] = None,
+                pod_anti_affinity: typing.Optional[typing.Union[ClusterInstallationSpecAffinityPodAntiAffinity, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -674,8 +674,8 @@ class ClusterInstallationSpecAffinityNodeAffinity:
         if __debug__:
             def stub(
                 *,
-                preferred_during_scheduling_ignored_during_execution: typing.Optional[typing.Sequence[typing.Union["ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution", typing.Dict[str, typing.Any]]]] = None,
-                required_during_scheduling_ignored_during_execution: typing.Optional[typing.Union["ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution", typing.Dict[str, typing.Any]]] = None,
+                preferred_during_scheduling_ignored_during_execution: typing.Optional[typing.Sequence[typing.Union[ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecution, typing.Dict[str, typing.Any]]]] = None,
+                required_during_scheduling_ignored_during_execution: typing.Optional[typing.Union[ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -749,7 +749,7 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
         if __debug__:
             def stub(
                 *,
-                preference: typing.Union["ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference", typing.Dict[str, typing.Any]],
+                preference: typing.Union[ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreference, typing.Dict[str, typing.Any]],
                 weight: jsii.Number,
             ) -> None:
                 ...
@@ -820,8 +820,8 @@ class ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnore
         if __debug__:
             def stub(
                 *,
-                match_expressions: typing.Optional[typing.Sequence[typing.Union["ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions", typing.Dict[str, typing.Any]]]] = None,
-                match_fields: typing.Optional[typing.Sequence[typing.Union["ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchFields", typing.Dict[str, typing.Any]]]] = None,
+                match_expressions: typing.Optional[typing.Sequence[typing.Union[ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchExpressions, typing.Dict[str, typing.Any]]]] = None,
+                match_fields: typing.Optional[typing.Sequence[typing.Union[ClusterInstallationSpecAffinityNodeAffinityPreferredDuringSchedulingIgnoredDuringExecutionPreferenceMatchFields, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -1059,7 +1059,7 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
         if __debug__:
             def stub(
                 *,
-                node_selector_terms: typing.Sequence[typing.Union["ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerms", typing.Dict[str, typing.Any]]],
+                node_selector_terms: typing.Sequence[typing.Union[ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTerms, typing.Dict[str, typing.Any]]],
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -1121,8 +1121,8 @@ class ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnored
         if __debug__:
             def stub(
                 *,
-                match_expressions: typing.Optional[typing.Sequence[typing.Union["ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchExpressions", typing.Dict[str, typing.Any]]]] = None,
-                match_fields: typing.Optional[typing.Sequence[typing.Union["ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchFields", typing.Dict[str, typing.Any]]]] = None,
+                match_expressions: typing.Optional[typing.Sequence[typing.Union[ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchExpressions, typing.Dict[str, typing.Any]]]] = None,
+                match_fields: typing.Optional[typing.Sequence[typing.Union[ClusterInstallationSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecutionNodeSelectorTermsMatchFields, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -1363,8 +1363,8 @@ class ClusterInstallationSpecAffinityPodAffinity:
         if __debug__:
             def stub(
                 *,
-                preferred_during_scheduling_ignored_during_execution: typing.Optional[typing.Sequence[typing.Union["ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution", typing.Dict[str, typing.Any]]]] = None,
-                required_during_scheduling_ignored_during_execution: typing.Optional[typing.Sequence[typing.Union["ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution", typing.Dict[str, typing.Any]]]] = None,
+                preferred_during_scheduling_ignored_during_execution: typing.Optional[typing.Sequence[typing.Union[ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecution, typing.Dict[str, typing.Any]]]] = None,
+                required_during_scheduling_ignored_during_execution: typing.Optional[typing.Sequence[typing.Union[ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -1438,7 +1438,7 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
         if __debug__:
             def stub(
                 *,
-                pod_affinity_term: typing.Union["ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm", typing.Dict[str, typing.Any]],
+                pod_affinity_term: typing.Union[ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm, typing.Dict[str, typing.Any]],
                 weight: jsii.Number,
             ) -> None:
                 ...
@@ -1519,7 +1519,7 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
             def stub(
                 *,
                 topology_key: builtins.str,
-                label_selector: typing.Optional[typing.Union["ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector", typing.Dict[str, typing.Any]]] = None,
+                label_selector: typing.Optional[typing.Union[ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector, typing.Dict[str, typing.Any]]] = None,
                 namespaces: typing.Optional[typing.Sequence[builtins.str]] = None,
             ) -> None:
                 ...
@@ -1606,7 +1606,7 @@ class ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnored
         if __debug__:
             def stub(
                 *,
-                match_expressions: typing.Optional[typing.Sequence[typing.Union["ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions", typing.Dict[str, typing.Any]]]] = None,
+                match_expressions: typing.Optional[typing.Sequence[typing.Union[ClusterInstallationSpecAffinityPodAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions, typing.Dict[str, typing.Any]]]] = None,
                 match_labels: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
             ) -> None:
                 ...
@@ -1773,7 +1773,7 @@ class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredD
             def stub(
                 *,
                 topology_key: builtins.str,
-                label_selector: typing.Optional[typing.Union["ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector", typing.Dict[str, typing.Any]]] = None,
+                label_selector: typing.Optional[typing.Union[ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector, typing.Dict[str, typing.Any]]] = None,
                 namespaces: typing.Optional[typing.Sequence[builtins.str]] = None,
             ) -> None:
                 ...
@@ -1860,7 +1860,7 @@ class ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredD
         if __debug__:
             def stub(
                 *,
-                match_expressions: typing.Optional[typing.Sequence[typing.Union["ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions", typing.Dict[str, typing.Any]]]] = None,
+                match_expressions: typing.Optional[typing.Sequence[typing.Union[ClusterInstallationSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions, typing.Dict[str, typing.Any]]]] = None,
                 match_labels: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
             ) -> None:
                 ...
@@ -2021,8 +2021,8 @@ class ClusterInstallationSpecAffinityPodAntiAffinity:
         if __debug__:
             def stub(
                 *,
-                preferred_during_scheduling_ignored_during_execution: typing.Optional[typing.Sequence[typing.Union["ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution", typing.Dict[str, typing.Any]]]] = None,
-                required_during_scheduling_ignored_during_execution: typing.Optional[typing.Sequence[typing.Union["ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution", typing.Dict[str, typing.Any]]]] = None,
+                preferred_during_scheduling_ignored_during_execution: typing.Optional[typing.Sequence[typing.Union[ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecution, typing.Dict[str, typing.Any]]]] = None,
+                required_during_scheduling_ignored_during_execution: typing.Optional[typing.Sequence[typing.Union[ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecution, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -2096,7 +2096,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
         if __debug__:
             def stub(
                 *,
-                pod_affinity_term: typing.Union["ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm", typing.Dict[str, typing.Any]],
+                pod_affinity_term: typing.Union[ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTerm, typing.Dict[str, typing.Any]],
                 weight: jsii.Number,
             ) -> None:
                 ...
@@ -2177,7 +2177,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
             def stub(
                 *,
                 topology_key: builtins.str,
-                label_selector: typing.Optional[typing.Union["ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector", typing.Dict[str, typing.Any]]] = None,
+                label_selector: typing.Optional[typing.Union[ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelector, typing.Dict[str, typing.Any]]] = None,
                 namespaces: typing.Optional[typing.Sequence[builtins.str]] = None,
             ) -> None:
                 ...
@@ -2264,7 +2264,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgn
         if __debug__:
             def stub(
                 *,
-                match_expressions: typing.Optional[typing.Sequence[typing.Union["ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions", typing.Dict[str, typing.Any]]]] = None,
+                match_expressions: typing.Optional[typing.Sequence[typing.Union[ClusterInstallationSpecAffinityPodAntiAffinityPreferredDuringSchedulingIgnoredDuringExecutionPodAffinityTermLabelSelectorMatchExpressions, typing.Dict[str, typing.Any]]]] = None,
                 match_labels: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
             ) -> None:
                 ...
@@ -2431,7 +2431,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgno
             def stub(
                 *,
                 topology_key: builtins.str,
-                label_selector: typing.Optional[typing.Union["ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector", typing.Dict[str, typing.Any]]] = None,
+                label_selector: typing.Optional[typing.Union[ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelector, typing.Dict[str, typing.Any]]] = None,
                 namespaces: typing.Optional[typing.Sequence[builtins.str]] = None,
             ) -> None:
                 ...
@@ -2518,7 +2518,7 @@ class ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgno
         if __debug__:
             def stub(
                 *,
-                match_expressions: typing.Optional[typing.Sequence[typing.Union["ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions", typing.Dict[str, typing.Any]]]] = None,
+                match_expressions: typing.Optional[typing.Sequence[typing.Union[ClusterInstallationSpecAffinityPodAntiAffinityRequiredDuringSchedulingIgnoredDuringExecutionLabelSelectorMatchExpressions, typing.Dict[str, typing.Any]]]] = None,
                 match_labels: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
             ) -> None:
                 ...
@@ -2689,9 +2689,9 @@ class ClusterInstallationSpecBlueGreen:
         if __debug__:
             def stub(
                 *,
-                blue: typing.Optional[typing.Union["ClusterInstallationSpecBlueGreenBlue", typing.Dict[str, typing.Any]]] = None,
+                blue: typing.Optional[typing.Union[ClusterInstallationSpecBlueGreenBlue, typing.Dict[str, typing.Any]]] = None,
                 enable: typing.Optional[builtins.bool] = None,
-                green: typing.Optional[typing.Union["ClusterInstallationSpecBlueGreenGreen", typing.Dict[str, typing.Any]]] = None,
+                green: typing.Optional[typing.Union[ClusterInstallationSpecBlueGreenGreen, typing.Dict[str, typing.Any]]] = None,
                 production_deployment: typing.Optional[builtins.str] = None,
             ) -> None:
                 ...
@@ -2994,7 +2994,7 @@ class ClusterInstallationSpecCanary:
         if __debug__:
             def stub(
                 *,
-                deployment: typing.Optional[typing.Union["ClusterInstallationSpecCanaryDeployment", typing.Dict[str, typing.Any]]] = None,
+                deployment: typing.Optional[typing.Union[ClusterInstallationSpecCanaryDeployment, typing.Dict[str, typing.Any]]] = None,
                 enable: typing.Optional[builtins.bool] = None,
             ) -> None:
                 ...
@@ -3204,7 +3204,7 @@ class ClusterInstallationSpecDatabase:
                 backup_url: typing.Optional[builtins.str] = None,
                 init_bucket_url: typing.Optional[builtins.str] = None,
                 replicas: typing.Optional[jsii.Number] = None,
-                resources: typing.Optional[typing.Union["ClusterInstallationSpecDatabaseResources", typing.Dict[str, typing.Any]]] = None,
+                resources: typing.Optional[typing.Union[ClusterInstallationSpecDatabaseResources, typing.Dict[str, typing.Any]]] = None,
                 secret: typing.Optional[builtins.str] = None,
                 storage_size: typing.Optional[builtins.str] = None,
                 type: typing.Optional[builtins.str] = None,
@@ -3561,13 +3561,13 @@ class ClusterInstallationSpecLivenessProbe:
         if __debug__:
             def stub(
                 *,
-                exec: typing.Optional[typing.Union["ClusterInstallationSpecLivenessProbeExec", typing.Dict[str, typing.Any]]] = None,
+                exec: typing.Optional[typing.Union[ClusterInstallationSpecLivenessProbeExec, typing.Dict[str, typing.Any]]] = None,
                 failure_threshold: typing.Optional[jsii.Number] = None,
-                http_get: typing.Optional[typing.Union["ClusterInstallationSpecLivenessProbeHttpGet", typing.Dict[str, typing.Any]]] = None,
+                http_get: typing.Optional[typing.Union[ClusterInstallationSpecLivenessProbeHttpGet, typing.Dict[str, typing.Any]]] = None,
                 initial_delay_seconds: typing.Optional[jsii.Number] = None,
                 period_seconds: typing.Optional[jsii.Number] = None,
                 success_threshold: typing.Optional[jsii.Number] = None,
-                tcp_socket: typing.Optional[typing.Union["ClusterInstallationSpecLivenessProbeTcpSocket", typing.Dict[str, typing.Any]]] = None,
+                tcp_socket: typing.Optional[typing.Union[ClusterInstallationSpecLivenessProbeTcpSocket, typing.Dict[str, typing.Any]]] = None,
                 timeout_seconds: typing.Optional[jsii.Number] = None,
             ) -> None:
                 ...
@@ -3796,9 +3796,9 @@ class ClusterInstallationSpecLivenessProbeHttpGet:
         if __debug__:
             def stub(
                 *,
-                port: "ClusterInstallationSpecLivenessProbeHttpGetPort",
+                port: ClusterInstallationSpecLivenessProbeHttpGetPort,
                 host: typing.Optional[builtins.str] = None,
-                http_headers: typing.Optional[typing.Sequence[typing.Union["ClusterInstallationSpecLivenessProbeHttpGetHttpHeaders", typing.Dict[str, typing.Any]]]] = None,
+                http_headers: typing.Optional[typing.Sequence[typing.Union[ClusterInstallationSpecLivenessProbeHttpGetHttpHeaders, typing.Dict[str, typing.Any]]]] = None,
                 path: typing.Optional[builtins.str] = None,
                 scheme: typing.Optional[builtins.str] = None,
             ) -> None:
@@ -4021,7 +4021,7 @@ class ClusterInstallationSpecLivenessProbeTcpSocket:
         if __debug__:
             def stub(
                 *,
-                port: "ClusterInstallationSpecLivenessProbeTcpSocketPort",
+                port: ClusterInstallationSpecLivenessProbeTcpSocketPort,
                 host: typing.Optional[builtins.str] = None,
             ) -> None:
                 ...
@@ -4144,7 +4144,7 @@ class ClusterInstallationSpecMattermostEnv:
                 *,
                 name: builtins.str,
                 value: typing.Optional[builtins.str] = None,
-                value_from: typing.Optional[typing.Union["ClusterInstallationSpecMattermostEnvValueFrom", typing.Dict[str, typing.Any]]] = None,
+                value_from: typing.Optional[typing.Union[ClusterInstallationSpecMattermostEnvValueFrom, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -4250,10 +4250,10 @@ class ClusterInstallationSpecMattermostEnvValueFrom:
         if __debug__:
             def stub(
                 *,
-                config_map_key_ref: typing.Optional[typing.Union["ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef", typing.Dict[str, typing.Any]]] = None,
-                field_ref: typing.Optional[typing.Union["ClusterInstallationSpecMattermostEnvValueFromFieldRef", typing.Dict[str, typing.Any]]] = None,
-                resource_field_ref: typing.Optional[typing.Union["ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef", typing.Dict[str, typing.Any]]] = None,
-                secret_key_ref: typing.Optional[typing.Union["ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef", typing.Dict[str, typing.Any]]] = None,
+                config_map_key_ref: typing.Optional[typing.Union[ClusterInstallationSpecMattermostEnvValueFromConfigMapKeyRef, typing.Dict[str, typing.Any]]] = None,
+                field_ref: typing.Optional[typing.Union[ClusterInstallationSpecMattermostEnvValueFromFieldRef, typing.Dict[str, typing.Any]]] = None,
+                resource_field_ref: typing.Optional[typing.Union[ClusterInstallationSpecMattermostEnvValueFromResourceFieldRef, typing.Dict[str, typing.Any]]] = None,
+                secret_key_ref: typing.Optional[typing.Union[ClusterInstallationSpecMattermostEnvValueFromSecretKeyRef, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -4688,7 +4688,7 @@ class ClusterInstallationSpecMinio:
                 external_bucket: typing.Optional[builtins.str] = None,
                 external_url: typing.Optional[builtins.str] = None,
                 replicas: typing.Optional[jsii.Number] = None,
-                resources: typing.Optional[typing.Union["ClusterInstallationSpecMinioResources", typing.Dict[str, typing.Any]]] = None,
+                resources: typing.Optional[typing.Union[ClusterInstallationSpecMinioResources, typing.Dict[str, typing.Any]]] = None,
                 secret: typing.Optional[builtins.str] = None,
                 storage_size: typing.Optional[builtins.str] = None,
             ) -> None:
@@ -4906,13 +4906,13 @@ class ClusterInstallationSpecReadinessProbe:
         if __debug__:
             def stub(
                 *,
-                exec: typing.Optional[typing.Union["ClusterInstallationSpecReadinessProbeExec", typing.Dict[str, typing.Any]]] = None,
+                exec: typing.Optional[typing.Union[ClusterInstallationSpecReadinessProbeExec, typing.Dict[str, typing.Any]]] = None,
                 failure_threshold: typing.Optional[jsii.Number] = None,
-                http_get: typing.Optional[typing.Union["ClusterInstallationSpecReadinessProbeHttpGet", typing.Dict[str, typing.Any]]] = None,
+                http_get: typing.Optional[typing.Union[ClusterInstallationSpecReadinessProbeHttpGet, typing.Dict[str, typing.Any]]] = None,
                 initial_delay_seconds: typing.Optional[jsii.Number] = None,
                 period_seconds: typing.Optional[jsii.Number] = None,
                 success_threshold: typing.Optional[jsii.Number] = None,
-                tcp_socket: typing.Optional[typing.Union["ClusterInstallationSpecReadinessProbeTcpSocket", typing.Dict[str, typing.Any]]] = None,
+                tcp_socket: typing.Optional[typing.Union[ClusterInstallationSpecReadinessProbeTcpSocket, typing.Dict[str, typing.Any]]] = None,
                 timeout_seconds: typing.Optional[jsii.Number] = None,
             ) -> None:
                 ...
@@ -5141,9 +5141,9 @@ class ClusterInstallationSpecReadinessProbeHttpGet:
         if __debug__:
             def stub(
                 *,
-                port: "ClusterInstallationSpecReadinessProbeHttpGetPort",
+                port: ClusterInstallationSpecReadinessProbeHttpGetPort,
                 host: typing.Optional[builtins.str] = None,
-                http_headers: typing.Optional[typing.Sequence[typing.Union["ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders", typing.Dict[str, typing.Any]]]] = None,
+                http_headers: typing.Optional[typing.Sequence[typing.Union[ClusterInstallationSpecReadinessProbeHttpGetHttpHeaders, typing.Dict[str, typing.Any]]]] = None,
                 path: typing.Optional[builtins.str] = None,
                 scheme: typing.Optional[builtins.str] = None,
             ) -> None:
@@ -5366,7 +5366,7 @@ class ClusterInstallationSpecReadinessProbeTcpSocket:
         if __debug__:
             def stub(
                 *,
-                port: "ClusterInstallationSpecReadinessProbeTcpSocketPort",
+                port: ClusterInstallationSpecReadinessProbeTcpSocketPort,
                 host: typing.Optional[builtins.str] = None,
             ) -> None:
                 ...

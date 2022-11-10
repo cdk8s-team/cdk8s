@@ -43,7 +43,7 @@ class Jenkins(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="iojenkins.Jen
                 id: builtins.str,
                 *,
                 metadata: typing.Optional[typing.Union[cdk8s.ApiObjectMetadata, typing.Dict[str, typing.Any]]] = None,
-                spec: typing.Optional[typing.Union["JenkinsSpec", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[JenkinsSpec, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -111,7 +111,7 @@ class JenkinsProps:
             def stub(
                 *,
                 metadata: typing.Optional[typing.Union[cdk8s.ApiObjectMetadata, typing.Dict[str, typing.Any]]] = None,
-                spec: typing.Optional[typing.Union["JenkinsSpec", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[JenkinsSpec, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -225,18 +225,18 @@ class JenkinsSpec:
         if __debug__:
             def stub(
                 *,
-                jenkins_api_settings: typing.Union["JenkinsSpecJenkinsApiSettings", typing.Dict[str, typing.Any]],
-                master: typing.Union["JenkinsSpecMaster", typing.Dict[str, typing.Any]],
-                backup: typing.Optional[typing.Union["JenkinsSpecBackup", typing.Dict[str, typing.Any]]] = None,
-                configuration_as_code: typing.Optional[typing.Union["JenkinsSpecConfigurationAsCode", typing.Dict[str, typing.Any]]] = None,
-                groovy_scripts: typing.Optional[typing.Union["JenkinsSpecGroovyScripts", typing.Dict[str, typing.Any]]] = None,
-                notifications: typing.Optional[typing.Sequence[typing.Union["JenkinsSpecNotifications", typing.Dict[str, typing.Any]]]] = None,
-                restore: typing.Optional[typing.Union["JenkinsSpecRestore", typing.Dict[str, typing.Any]]] = None,
-                roles: typing.Optional[typing.Sequence[typing.Union["JenkinsSpecRoles", typing.Dict[str, typing.Any]]]] = None,
-                seed_jobs: typing.Optional[typing.Sequence[typing.Union["JenkinsSpecSeedJobs", typing.Dict[str, typing.Any]]]] = None,
-                service: typing.Optional[typing.Union["JenkinsSpecService", typing.Dict[str, typing.Any]]] = None,
-                service_account: typing.Optional[typing.Union["JenkinsSpecServiceAccount", typing.Dict[str, typing.Any]]] = None,
-                slave_service: typing.Optional[typing.Union["JenkinsSpecSlaveService", typing.Dict[str, typing.Any]]] = None,
+                jenkins_api_settings: typing.Union[JenkinsSpecJenkinsApiSettings, typing.Dict[str, typing.Any]],
+                master: typing.Union[JenkinsSpecMaster, typing.Dict[str, typing.Any]],
+                backup: typing.Optional[typing.Union[JenkinsSpecBackup, typing.Dict[str, typing.Any]]] = None,
+                configuration_as_code: typing.Optional[typing.Union[JenkinsSpecConfigurationAsCode, typing.Dict[str, typing.Any]]] = None,
+                groovy_scripts: typing.Optional[typing.Union[JenkinsSpecGroovyScripts, typing.Dict[str, typing.Any]]] = None,
+                notifications: typing.Optional[typing.Sequence[typing.Union[JenkinsSpecNotifications, typing.Dict[str, typing.Any]]]] = None,
+                restore: typing.Optional[typing.Union[JenkinsSpecRestore, typing.Dict[str, typing.Any]]] = None,
+                roles: typing.Optional[typing.Sequence[typing.Union[JenkinsSpecRoles, typing.Dict[str, typing.Any]]]] = None,
+                seed_jobs: typing.Optional[typing.Sequence[typing.Union[JenkinsSpecSeedJobs, typing.Dict[str, typing.Any]]]] = None,
+                service: typing.Optional[typing.Union[JenkinsSpecService, typing.Dict[str, typing.Any]]] = None,
+                service_account: typing.Optional[typing.Union[JenkinsSpecServiceAccount, typing.Dict[str, typing.Any]]] = None,
+                slave_service: typing.Optional[typing.Union[JenkinsSpecSlaveService, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -440,7 +440,7 @@ class JenkinsSpecBackup:
         if __debug__:
             def stub(
                 *,
-                action: typing.Union["JenkinsSpecBackupAction", typing.Dict[str, typing.Any]],
+                action: typing.Union[JenkinsSpecBackupAction, typing.Dict[str, typing.Any]],
                 container_name: builtins.str,
                 interval: jsii.Number,
                 make_backup_before_pod_deletion: builtins.bool,
@@ -534,7 +534,7 @@ class JenkinsSpecBackupAction:
         if __debug__:
             def stub(
                 *,
-                exec: typing.Optional[typing.Union["JenkinsSpecBackupActionExec", typing.Dict[str, typing.Any]]] = None,
+                exec: typing.Optional[typing.Union[JenkinsSpecBackupActionExec, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -640,8 +640,8 @@ class JenkinsSpecConfigurationAsCode:
         if __debug__:
             def stub(
                 *,
-                configurations: typing.Sequence[typing.Union["JenkinsSpecConfigurationAsCodeConfigurations", typing.Dict[str, typing.Any]]],
-                secret: typing.Union["JenkinsSpecConfigurationAsCodeSecret", typing.Dict[str, typing.Any]],
+                configurations: typing.Sequence[typing.Union[JenkinsSpecConfigurationAsCodeConfigurations, typing.Dict[str, typing.Any]]],
+                secret: typing.Union[JenkinsSpecConfigurationAsCodeSecret, typing.Dict[str, typing.Any]],
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -795,8 +795,8 @@ class JenkinsSpecGroovyScripts:
         if __debug__:
             def stub(
                 *,
-                configurations: typing.Sequence[typing.Union["JenkinsSpecGroovyScriptsConfigurations", typing.Dict[str, typing.Any]]],
-                secret: typing.Union["JenkinsSpecGroovyScriptsSecret", typing.Dict[str, typing.Any]],
+                configurations: typing.Sequence[typing.Union[JenkinsSpecGroovyScriptsConfigurations, typing.Dict[str, typing.Any]]],
+                secret: typing.Union[JenkinsSpecGroovyScriptsSecret, typing.Dict[str, typing.Any]],
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -1029,16 +1029,16 @@ class JenkinsSpecMaster:
                 *,
                 disable_csrf_protection: builtins.bool,
                 annotations: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
-                base_plugins: typing.Optional[typing.Sequence[typing.Union["JenkinsSpecMasterBasePlugins", typing.Dict[str, typing.Any]]]] = None,
-                containers: typing.Optional[typing.Sequence[typing.Union["JenkinsSpecMasterContainers", typing.Dict[str, typing.Any]]]] = None,
-                image_pull_secrets: typing.Optional[typing.Sequence[typing.Union["JenkinsSpecMasterImagePullSecrets", typing.Dict[str, typing.Any]]]] = None,
+                base_plugins: typing.Optional[typing.Sequence[typing.Union[JenkinsSpecMasterBasePlugins, typing.Dict[str, typing.Any]]]] = None,
+                containers: typing.Optional[typing.Sequence[typing.Union[JenkinsSpecMasterContainers, typing.Dict[str, typing.Any]]]] = None,
+                image_pull_secrets: typing.Optional[typing.Sequence[typing.Union[JenkinsSpecMasterImagePullSecrets, typing.Dict[str, typing.Any]]]] = None,
                 labels: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
                 master_annotations: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
                 node_selector: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
-                plugins: typing.Optional[typing.Sequence[typing.Union["JenkinsSpecMasterPlugins", typing.Dict[str, typing.Any]]]] = None,
-                security_context: typing.Optional[typing.Union["JenkinsSpecMasterSecurityContext", typing.Dict[str, typing.Any]]] = None,
-                tolerations: typing.Optional[typing.Sequence[typing.Union["JenkinsSpecMasterTolerations", typing.Dict[str, typing.Any]]]] = None,
-                volumes: typing.Optional[typing.Sequence[typing.Union["JenkinsSpecMasterVolumes", typing.Dict[str, typing.Any]]]] = None,
+                plugins: typing.Optional[typing.Sequence[typing.Union[JenkinsSpecMasterPlugins, typing.Dict[str, typing.Any]]]] = None,
+                security_context: typing.Optional[typing.Union[JenkinsSpecMasterSecurityContext, typing.Dict[str, typing.Any]]] = None,
+                tolerations: typing.Optional[typing.Sequence[typing.Union[JenkinsSpecMasterTolerations, typing.Dict[str, typing.Any]]]] = None,
+                volumes: typing.Optional[typing.Sequence[typing.Union[JenkinsSpecMasterVolumes, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -1369,17 +1369,17 @@ class JenkinsSpecMasterContainers:
                 image: builtins.str,
                 image_pull_policy: builtins.str,
                 name: builtins.str,
-                resources: typing.Union["JenkinsSpecMasterContainersResources", typing.Dict[str, typing.Any]],
+                resources: typing.Union[JenkinsSpecMasterContainersResources, typing.Dict[str, typing.Any]],
                 args: typing.Optional[typing.Sequence[builtins.str]] = None,
                 command: typing.Optional[typing.Sequence[builtins.str]] = None,
-                env: typing.Optional[typing.Sequence[typing.Union["JenkinsSpecMasterContainersEnv", typing.Dict[str, typing.Any]]]] = None,
-                env_from: typing.Optional[typing.Sequence[typing.Union["JenkinsSpecMasterContainersEnvFrom", typing.Dict[str, typing.Any]]]] = None,
-                lifecycle: typing.Optional[typing.Union["JenkinsSpecMasterContainersLifecycle", typing.Dict[str, typing.Any]]] = None,
-                liveness_probe: typing.Optional[typing.Union["JenkinsSpecMasterContainersLivenessProbe", typing.Dict[str, typing.Any]]] = None,
-                ports: typing.Optional[typing.Sequence[typing.Union["JenkinsSpecMasterContainersPorts", typing.Dict[str, typing.Any]]]] = None,
-                readiness_probe: typing.Optional[typing.Union["JenkinsSpecMasterContainersReadinessProbe", typing.Dict[str, typing.Any]]] = None,
-                security_context: typing.Optional[typing.Union["JenkinsSpecMasterContainersSecurityContext", typing.Dict[str, typing.Any]]] = None,
-                volume_mounts: typing.Optional[typing.Sequence[typing.Union["JenkinsSpecMasterContainersVolumeMounts", typing.Dict[str, typing.Any]]]] = None,
+                env: typing.Optional[typing.Sequence[typing.Union[JenkinsSpecMasterContainersEnv, typing.Dict[str, typing.Any]]]] = None,
+                env_from: typing.Optional[typing.Sequence[typing.Union[JenkinsSpecMasterContainersEnvFrom, typing.Dict[str, typing.Any]]]] = None,
+                lifecycle: typing.Optional[typing.Union[JenkinsSpecMasterContainersLifecycle, typing.Dict[str, typing.Any]]] = None,
+                liveness_probe: typing.Optional[typing.Union[JenkinsSpecMasterContainersLivenessProbe, typing.Dict[str, typing.Any]]] = None,
+                ports: typing.Optional[typing.Sequence[typing.Union[JenkinsSpecMasterContainersPorts, typing.Dict[str, typing.Any]]]] = None,
+                readiness_probe: typing.Optional[typing.Union[JenkinsSpecMasterContainersReadinessProbe, typing.Dict[str, typing.Any]]] = None,
+                security_context: typing.Optional[typing.Union[JenkinsSpecMasterContainersSecurityContext, typing.Dict[str, typing.Any]]] = None,
+                volume_mounts: typing.Optional[typing.Sequence[typing.Union[JenkinsSpecMasterContainersVolumeMounts, typing.Dict[str, typing.Any]]]] = None,
                 working_dir: typing.Optional[builtins.str] = None,
             ) -> None:
                 ...
@@ -1643,7 +1643,7 @@ class JenkinsSpecMasterContainersEnv:
                 *,
                 name: builtins.str,
                 value: typing.Optional[builtins.str] = None,
-                value_from: typing.Optional[typing.Union["JenkinsSpecMasterContainersEnvValueFrom", typing.Dict[str, typing.Any]]] = None,
+                value_from: typing.Optional[typing.Union[JenkinsSpecMasterContainersEnvValueFrom, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -1738,9 +1738,9 @@ class JenkinsSpecMasterContainersEnvFrom:
         if __debug__:
             def stub(
                 *,
-                config_map_ref: typing.Optional[typing.Union["JenkinsSpecMasterContainersEnvFromConfigMapRef", typing.Dict[str, typing.Any]]] = None,
+                config_map_ref: typing.Optional[typing.Union[JenkinsSpecMasterContainersEnvFromConfigMapRef, typing.Dict[str, typing.Any]]] = None,
                 prefix: typing.Optional[builtins.str] = None,
-                secret_ref: typing.Optional[typing.Union["JenkinsSpecMasterContainersEnvFromSecretRef", typing.Dict[str, typing.Any]]] = None,
+                secret_ref: typing.Optional[typing.Union[JenkinsSpecMasterContainersEnvFromSecretRef, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -1975,10 +1975,10 @@ class JenkinsSpecMasterContainersEnvValueFrom:
         if __debug__:
             def stub(
                 *,
-                config_map_key_ref: typing.Optional[typing.Union["JenkinsSpecMasterContainersEnvValueFromConfigMapKeyRef", typing.Dict[str, typing.Any]]] = None,
-                field_ref: typing.Optional[typing.Union["JenkinsSpecMasterContainersEnvValueFromFieldRef", typing.Dict[str, typing.Any]]] = None,
-                resource_field_ref: typing.Optional[typing.Union["JenkinsSpecMasterContainersEnvValueFromResourceFieldRef", typing.Dict[str, typing.Any]]] = None,
-                secret_key_ref: typing.Optional[typing.Union["JenkinsSpecMasterContainersEnvValueFromSecretKeyRef", typing.Dict[str, typing.Any]]] = None,
+                config_map_key_ref: typing.Optional[typing.Union[JenkinsSpecMasterContainersEnvValueFromConfigMapKeyRef, typing.Dict[str, typing.Any]]] = None,
+                field_ref: typing.Optional[typing.Union[JenkinsSpecMasterContainersEnvValueFromFieldRef, typing.Dict[str, typing.Any]]] = None,
+                resource_field_ref: typing.Optional[typing.Union[JenkinsSpecMasterContainersEnvValueFromResourceFieldRef, typing.Dict[str, typing.Any]]] = None,
+                secret_key_ref: typing.Optional[typing.Union[JenkinsSpecMasterContainersEnvValueFromSecretKeyRef, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -2397,8 +2397,8 @@ class JenkinsSpecMasterContainersLifecycle:
         if __debug__:
             def stub(
                 *,
-                post_start: typing.Optional[typing.Union["JenkinsSpecMasterContainersLifecyclePostStart", typing.Dict[str, typing.Any]]] = None,
-                pre_stop: typing.Optional[typing.Union["JenkinsSpecMasterContainersLifecyclePreStop", typing.Dict[str, typing.Any]]] = None,
+                post_start: typing.Optional[typing.Union[JenkinsSpecMasterContainersLifecyclePostStart, typing.Dict[str, typing.Any]]] = None,
+                pre_stop: typing.Optional[typing.Union[JenkinsSpecMasterContainersLifecyclePreStop, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -2480,9 +2480,9 @@ class JenkinsSpecMasterContainersLifecyclePostStart:
         if __debug__:
             def stub(
                 *,
-                exec: typing.Optional[typing.Union["JenkinsSpecMasterContainersLifecyclePostStartExec", typing.Dict[str, typing.Any]]] = None,
-                http_get: typing.Optional[typing.Union["JenkinsSpecMasterContainersLifecyclePostStartHttpGet", typing.Dict[str, typing.Any]]] = None,
-                tcp_socket: typing.Optional[typing.Union["JenkinsSpecMasterContainersLifecyclePostStartTcpSocket", typing.Dict[str, typing.Any]]] = None,
+                exec: typing.Optional[typing.Union[JenkinsSpecMasterContainersLifecyclePostStartExec, typing.Dict[str, typing.Any]]] = None,
+                http_get: typing.Optional[typing.Union[JenkinsSpecMasterContainersLifecyclePostStartHttpGet, typing.Dict[str, typing.Any]]] = None,
+                tcp_socket: typing.Optional[typing.Union[JenkinsSpecMasterContainersLifecyclePostStartTcpSocket, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -2634,9 +2634,9 @@ class JenkinsSpecMasterContainersLifecyclePostStartHttpGet:
         if __debug__:
             def stub(
                 *,
-                port: "JenkinsSpecMasterContainersLifecyclePostStartHttpGetPort",
+                port: JenkinsSpecMasterContainersLifecyclePostStartHttpGetPort,
                 host: typing.Optional[builtins.str] = None,
-                http_headers: typing.Optional[typing.Sequence[typing.Union["JenkinsSpecMasterContainersLifecyclePostStartHttpGetHttpHeaders", typing.Dict[str, typing.Any]]]] = None,
+                http_headers: typing.Optional[typing.Sequence[typing.Union[JenkinsSpecMasterContainersLifecyclePostStartHttpGetHttpHeaders, typing.Dict[str, typing.Any]]]] = None,
                 path: typing.Optional[builtins.str] = None,
                 scheme: typing.Optional[builtins.str] = None,
             ) -> None:
@@ -2859,7 +2859,7 @@ class JenkinsSpecMasterContainersLifecyclePostStartTcpSocket:
         if __debug__:
             def stub(
                 *,
-                port: "JenkinsSpecMasterContainersLifecyclePostStartTcpSocketPort",
+                port: JenkinsSpecMasterContainersLifecyclePostStartTcpSocketPort,
                 host: typing.Optional[builtins.str] = None,
             ) -> None:
                 ...
@@ -2986,9 +2986,9 @@ class JenkinsSpecMasterContainersLifecyclePreStop:
         if __debug__:
             def stub(
                 *,
-                exec: typing.Optional[typing.Union["JenkinsSpecMasterContainersLifecyclePreStopExec", typing.Dict[str, typing.Any]]] = None,
-                http_get: typing.Optional[typing.Union["JenkinsSpecMasterContainersLifecyclePreStopHttpGet", typing.Dict[str, typing.Any]]] = None,
-                tcp_socket: typing.Optional[typing.Union["JenkinsSpecMasterContainersLifecyclePreStopTcpSocket", typing.Dict[str, typing.Any]]] = None,
+                exec: typing.Optional[typing.Union[JenkinsSpecMasterContainersLifecyclePreStopExec, typing.Dict[str, typing.Any]]] = None,
+                http_get: typing.Optional[typing.Union[JenkinsSpecMasterContainersLifecyclePreStopHttpGet, typing.Dict[str, typing.Any]]] = None,
+                tcp_socket: typing.Optional[typing.Union[JenkinsSpecMasterContainersLifecyclePreStopTcpSocket, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -3140,9 +3140,9 @@ class JenkinsSpecMasterContainersLifecyclePreStopHttpGet:
         if __debug__:
             def stub(
                 *,
-                port: "JenkinsSpecMasterContainersLifecyclePreStopHttpGetPort",
+                port: JenkinsSpecMasterContainersLifecyclePreStopHttpGetPort,
                 host: typing.Optional[builtins.str] = None,
-                http_headers: typing.Optional[typing.Sequence[typing.Union["JenkinsSpecMasterContainersLifecyclePreStopHttpGetHttpHeaders", typing.Dict[str, typing.Any]]]] = None,
+                http_headers: typing.Optional[typing.Sequence[typing.Union[JenkinsSpecMasterContainersLifecyclePreStopHttpGetHttpHeaders, typing.Dict[str, typing.Any]]]] = None,
                 path: typing.Optional[builtins.str] = None,
                 scheme: typing.Optional[builtins.str] = None,
             ) -> None:
@@ -3365,7 +3365,7 @@ class JenkinsSpecMasterContainersLifecyclePreStopTcpSocket:
         if __debug__:
             def stub(
                 *,
-                port: "JenkinsSpecMasterContainersLifecyclePreStopTcpSocketPort",
+                port: JenkinsSpecMasterContainersLifecyclePreStopTcpSocketPort,
                 host: typing.Optional[builtins.str] = None,
             ) -> None:
                 ...
@@ -3511,13 +3511,13 @@ class JenkinsSpecMasterContainersLivenessProbe:
         if __debug__:
             def stub(
                 *,
-                exec: typing.Optional[typing.Union["JenkinsSpecMasterContainersLivenessProbeExec", typing.Dict[str, typing.Any]]] = None,
+                exec: typing.Optional[typing.Union[JenkinsSpecMasterContainersLivenessProbeExec, typing.Dict[str, typing.Any]]] = None,
                 failure_threshold: typing.Optional[jsii.Number] = None,
-                http_get: typing.Optional[typing.Union["JenkinsSpecMasterContainersLivenessProbeHttpGet", typing.Dict[str, typing.Any]]] = None,
+                http_get: typing.Optional[typing.Union[JenkinsSpecMasterContainersLivenessProbeHttpGet, typing.Dict[str, typing.Any]]] = None,
                 initial_delay_seconds: typing.Optional[jsii.Number] = None,
                 period_seconds: typing.Optional[jsii.Number] = None,
                 success_threshold: typing.Optional[jsii.Number] = None,
-                tcp_socket: typing.Optional[typing.Union["JenkinsSpecMasterContainersLivenessProbeTcpSocket", typing.Dict[str, typing.Any]]] = None,
+                tcp_socket: typing.Optional[typing.Union[JenkinsSpecMasterContainersLivenessProbeTcpSocket, typing.Dict[str, typing.Any]]] = None,
                 timeout_seconds: typing.Optional[jsii.Number] = None,
             ) -> None:
                 ...
@@ -3746,9 +3746,9 @@ class JenkinsSpecMasterContainersLivenessProbeHttpGet:
         if __debug__:
             def stub(
                 *,
-                port: "JenkinsSpecMasterContainersLivenessProbeHttpGetPort",
+                port: JenkinsSpecMasterContainersLivenessProbeHttpGetPort,
                 host: typing.Optional[builtins.str] = None,
-                http_headers: typing.Optional[typing.Sequence[typing.Union["JenkinsSpecMasterContainersLivenessProbeHttpGetHttpHeaders", typing.Dict[str, typing.Any]]]] = None,
+                http_headers: typing.Optional[typing.Sequence[typing.Union[JenkinsSpecMasterContainersLivenessProbeHttpGetHttpHeaders, typing.Dict[str, typing.Any]]]] = None,
                 path: typing.Optional[builtins.str] = None,
                 scheme: typing.Optional[builtins.str] = None,
             ) -> None:
@@ -3971,7 +3971,7 @@ class JenkinsSpecMasterContainersLivenessProbeTcpSocket:
         if __debug__:
             def stub(
                 *,
-                port: "JenkinsSpecMasterContainersLivenessProbeTcpSocketPort",
+                port: JenkinsSpecMasterContainersLivenessProbeTcpSocketPort,
                 host: typing.Optional[builtins.str] = None,
             ) -> None:
                 ...
@@ -4244,13 +4244,13 @@ class JenkinsSpecMasterContainersReadinessProbe:
         if __debug__:
             def stub(
                 *,
-                exec: typing.Optional[typing.Union["JenkinsSpecMasterContainersReadinessProbeExec", typing.Dict[str, typing.Any]]] = None,
+                exec: typing.Optional[typing.Union[JenkinsSpecMasterContainersReadinessProbeExec, typing.Dict[str, typing.Any]]] = None,
                 failure_threshold: typing.Optional[jsii.Number] = None,
-                http_get: typing.Optional[typing.Union["JenkinsSpecMasterContainersReadinessProbeHttpGet", typing.Dict[str, typing.Any]]] = None,
+                http_get: typing.Optional[typing.Union[JenkinsSpecMasterContainersReadinessProbeHttpGet, typing.Dict[str, typing.Any]]] = None,
                 initial_delay_seconds: typing.Optional[jsii.Number] = None,
                 period_seconds: typing.Optional[jsii.Number] = None,
                 success_threshold: typing.Optional[jsii.Number] = None,
-                tcp_socket: typing.Optional[typing.Union["JenkinsSpecMasterContainersReadinessProbeTcpSocket", typing.Dict[str, typing.Any]]] = None,
+                tcp_socket: typing.Optional[typing.Union[JenkinsSpecMasterContainersReadinessProbeTcpSocket, typing.Dict[str, typing.Any]]] = None,
                 timeout_seconds: typing.Optional[jsii.Number] = None,
             ) -> None:
                 ...
@@ -4479,9 +4479,9 @@ class JenkinsSpecMasterContainersReadinessProbeHttpGet:
         if __debug__:
             def stub(
                 *,
-                port: "JenkinsSpecMasterContainersReadinessProbeHttpGetPort",
+                port: JenkinsSpecMasterContainersReadinessProbeHttpGetPort,
                 host: typing.Optional[builtins.str] = None,
-                http_headers: typing.Optional[typing.Sequence[typing.Union["JenkinsSpecMasterContainersReadinessProbeHttpGetHttpHeaders", typing.Dict[str, typing.Any]]]] = None,
+                http_headers: typing.Optional[typing.Sequence[typing.Union[JenkinsSpecMasterContainersReadinessProbeHttpGetHttpHeaders, typing.Dict[str, typing.Any]]]] = None,
                 path: typing.Optional[builtins.str] = None,
                 scheme: typing.Optional[builtins.str] = None,
             ) -> None:
@@ -4704,7 +4704,7 @@ class JenkinsSpecMasterContainersReadinessProbeTcpSocket:
         if __debug__:
             def stub(
                 *,
-                port: "JenkinsSpecMasterContainersReadinessProbeTcpSocketPort",
+                port: JenkinsSpecMasterContainersReadinessProbeTcpSocketPort,
                 host: typing.Optional[builtins.str] = None,
             ) -> None:
                 ...
@@ -4928,15 +4928,15 @@ class JenkinsSpecMasterContainersSecurityContext:
             def stub(
                 *,
                 allow_privilege_escalation: typing.Optional[builtins.bool] = None,
-                capabilities: typing.Optional[typing.Union["JenkinsSpecMasterContainersSecurityContextCapabilities", typing.Dict[str, typing.Any]]] = None,
+                capabilities: typing.Optional[typing.Union[JenkinsSpecMasterContainersSecurityContextCapabilities, typing.Dict[str, typing.Any]]] = None,
                 privileged: typing.Optional[builtins.bool] = None,
                 proc_mount: typing.Optional[builtins.str] = None,
                 read_only_root_filesystem: typing.Optional[builtins.bool] = None,
                 run_as_group: typing.Optional[jsii.Number] = None,
                 run_as_non_root: typing.Optional[builtins.bool] = None,
                 run_as_user: typing.Optional[jsii.Number] = None,
-                se_linux_options: typing.Optional[typing.Union["JenkinsSpecMasterContainersSecurityContextSeLinuxOptions", typing.Dict[str, typing.Any]]] = None,
-                windows_options: typing.Optional[typing.Union["JenkinsSpecMasterContainersSecurityContextWindowsOptions", typing.Dict[str, typing.Any]]] = None,
+                se_linux_options: typing.Optional[typing.Union[JenkinsSpecMasterContainersSecurityContextSeLinuxOptions, typing.Dict[str, typing.Any]]] = None,
+                windows_options: typing.Optional[typing.Union[JenkinsSpecMasterContainersSecurityContextWindowsOptions, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -5672,10 +5672,10 @@ class JenkinsSpecMasterSecurityContext:
                 run_as_group: typing.Optional[jsii.Number] = None,
                 run_as_non_root: typing.Optional[builtins.bool] = None,
                 run_as_user: typing.Optional[jsii.Number] = None,
-                se_linux_options: typing.Optional[typing.Union["JenkinsSpecMasterSecurityContextSeLinuxOptions", typing.Dict[str, typing.Any]]] = None,
+                se_linux_options: typing.Optional[typing.Union[JenkinsSpecMasterSecurityContextSeLinuxOptions, typing.Dict[str, typing.Any]]] = None,
                 supplemental_groups: typing.Optional[typing.Sequence[jsii.Number]] = None,
-                sysctls: typing.Optional[typing.Sequence[typing.Union["JenkinsSpecMasterSecurityContextSysctls", typing.Dict[str, typing.Any]]]] = None,
-                windows_options: typing.Optional[typing.Union["JenkinsSpecMasterSecurityContextWindowsOptions", typing.Dict[str, typing.Any]]] = None,
+                sysctls: typing.Optional[typing.Sequence[typing.Union[JenkinsSpecMasterSecurityContextSysctls, typing.Dict[str, typing.Any]]]] = None,
+                windows_options: typing.Optional[typing.Union[JenkinsSpecMasterSecurityContextWindowsOptions, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -6353,34 +6353,34 @@ class JenkinsSpecMasterVolumes:
             def stub(
                 *,
                 name: builtins.str,
-                aws_elastic_block_store: typing.Optional[typing.Union["JenkinsSpecMasterVolumesAwsElasticBlockStore", typing.Dict[str, typing.Any]]] = None,
-                azure_disk: typing.Optional[typing.Union["JenkinsSpecMasterVolumesAzureDisk", typing.Dict[str, typing.Any]]] = None,
-                azure_file: typing.Optional[typing.Union["JenkinsSpecMasterVolumesAzureFile", typing.Dict[str, typing.Any]]] = None,
-                cephfs: typing.Optional[typing.Union["JenkinsSpecMasterVolumesCephfs", typing.Dict[str, typing.Any]]] = None,
-                cinder: typing.Optional[typing.Union["JenkinsSpecMasterVolumesCinder", typing.Dict[str, typing.Any]]] = None,
-                config_map: typing.Optional[typing.Union["JenkinsSpecMasterVolumesConfigMap", typing.Dict[str, typing.Any]]] = None,
-                csi: typing.Optional[typing.Union["JenkinsSpecMasterVolumesCsi", typing.Dict[str, typing.Any]]] = None,
-                downward_api: typing.Optional[typing.Union["JenkinsSpecMasterVolumesDownwardApi", typing.Dict[str, typing.Any]]] = None,
-                empty_dir: typing.Optional[typing.Union["JenkinsSpecMasterVolumesEmptyDir", typing.Dict[str, typing.Any]]] = None,
-                fc: typing.Optional[typing.Union["JenkinsSpecMasterVolumesFc", typing.Dict[str, typing.Any]]] = None,
-                flex_volume: typing.Optional[typing.Union["JenkinsSpecMasterVolumesFlexVolume", typing.Dict[str, typing.Any]]] = None,
-                flocker: typing.Optional[typing.Union["JenkinsSpecMasterVolumesFlocker", typing.Dict[str, typing.Any]]] = None,
-                gce_persistent_disk: typing.Optional[typing.Union["JenkinsSpecMasterVolumesGcePersistentDisk", typing.Dict[str, typing.Any]]] = None,
-                git_repo: typing.Optional[typing.Union["JenkinsSpecMasterVolumesGitRepo", typing.Dict[str, typing.Any]]] = None,
-                glusterfs: typing.Optional[typing.Union["JenkinsSpecMasterVolumesGlusterfs", typing.Dict[str, typing.Any]]] = None,
-                host_path: typing.Optional[typing.Union["JenkinsSpecMasterVolumesHostPath", typing.Dict[str, typing.Any]]] = None,
-                iscsi: typing.Optional[typing.Union["JenkinsSpecMasterVolumesIscsi", typing.Dict[str, typing.Any]]] = None,
-                nfs: typing.Optional[typing.Union["JenkinsSpecMasterVolumesNfs", typing.Dict[str, typing.Any]]] = None,
-                persistent_volume_claim: typing.Optional[typing.Union["JenkinsSpecMasterVolumesPersistentVolumeClaim", typing.Dict[str, typing.Any]]] = None,
-                photon_persistent_disk: typing.Optional[typing.Union["JenkinsSpecMasterVolumesPhotonPersistentDisk", typing.Dict[str, typing.Any]]] = None,
-                portworx_volume: typing.Optional[typing.Union["JenkinsSpecMasterVolumesPortworxVolume", typing.Dict[str, typing.Any]]] = None,
-                projected: typing.Optional[typing.Union["JenkinsSpecMasterVolumesProjected", typing.Dict[str, typing.Any]]] = None,
-                quobyte: typing.Optional[typing.Union["JenkinsSpecMasterVolumesQuobyte", typing.Dict[str, typing.Any]]] = None,
-                rbd: typing.Optional[typing.Union["JenkinsSpecMasterVolumesRbd", typing.Dict[str, typing.Any]]] = None,
-                scale_io: typing.Optional[typing.Union["JenkinsSpecMasterVolumesScaleIo", typing.Dict[str, typing.Any]]] = None,
-                secret: typing.Optional[typing.Union["JenkinsSpecMasterVolumesSecret", typing.Dict[str, typing.Any]]] = None,
-                storageos: typing.Optional[typing.Union["JenkinsSpecMasterVolumesStorageos", typing.Dict[str, typing.Any]]] = None,
-                vsphere_volume: typing.Optional[typing.Union["JenkinsSpecMasterVolumesVsphereVolume", typing.Dict[str, typing.Any]]] = None,
+                aws_elastic_block_store: typing.Optional[typing.Union[JenkinsSpecMasterVolumesAwsElasticBlockStore, typing.Dict[str, typing.Any]]] = None,
+                azure_disk: typing.Optional[typing.Union[JenkinsSpecMasterVolumesAzureDisk, typing.Dict[str, typing.Any]]] = None,
+                azure_file: typing.Optional[typing.Union[JenkinsSpecMasterVolumesAzureFile, typing.Dict[str, typing.Any]]] = None,
+                cephfs: typing.Optional[typing.Union[JenkinsSpecMasterVolumesCephfs, typing.Dict[str, typing.Any]]] = None,
+                cinder: typing.Optional[typing.Union[JenkinsSpecMasterVolumesCinder, typing.Dict[str, typing.Any]]] = None,
+                config_map: typing.Optional[typing.Union[JenkinsSpecMasterVolumesConfigMap, typing.Dict[str, typing.Any]]] = None,
+                csi: typing.Optional[typing.Union[JenkinsSpecMasterVolumesCsi, typing.Dict[str, typing.Any]]] = None,
+                downward_api: typing.Optional[typing.Union[JenkinsSpecMasterVolumesDownwardApi, typing.Dict[str, typing.Any]]] = None,
+                empty_dir: typing.Optional[typing.Union[JenkinsSpecMasterVolumesEmptyDir, typing.Dict[str, typing.Any]]] = None,
+                fc: typing.Optional[typing.Union[JenkinsSpecMasterVolumesFc, typing.Dict[str, typing.Any]]] = None,
+                flex_volume: typing.Optional[typing.Union[JenkinsSpecMasterVolumesFlexVolume, typing.Dict[str, typing.Any]]] = None,
+                flocker: typing.Optional[typing.Union[JenkinsSpecMasterVolumesFlocker, typing.Dict[str, typing.Any]]] = None,
+                gce_persistent_disk: typing.Optional[typing.Union[JenkinsSpecMasterVolumesGcePersistentDisk, typing.Dict[str, typing.Any]]] = None,
+                git_repo: typing.Optional[typing.Union[JenkinsSpecMasterVolumesGitRepo, typing.Dict[str, typing.Any]]] = None,
+                glusterfs: typing.Optional[typing.Union[JenkinsSpecMasterVolumesGlusterfs, typing.Dict[str, typing.Any]]] = None,
+                host_path: typing.Optional[typing.Union[JenkinsSpecMasterVolumesHostPath, typing.Dict[str, typing.Any]]] = None,
+                iscsi: typing.Optional[typing.Union[JenkinsSpecMasterVolumesIscsi, typing.Dict[str, typing.Any]]] = None,
+                nfs: typing.Optional[typing.Union[JenkinsSpecMasterVolumesNfs, typing.Dict[str, typing.Any]]] = None,
+                persistent_volume_claim: typing.Optional[typing.Union[JenkinsSpecMasterVolumesPersistentVolumeClaim, typing.Dict[str, typing.Any]]] = None,
+                photon_persistent_disk: typing.Optional[typing.Union[JenkinsSpecMasterVolumesPhotonPersistentDisk, typing.Dict[str, typing.Any]]] = None,
+                portworx_volume: typing.Optional[typing.Union[JenkinsSpecMasterVolumesPortworxVolume, typing.Dict[str, typing.Any]]] = None,
+                projected: typing.Optional[typing.Union[JenkinsSpecMasterVolumesProjected, typing.Dict[str, typing.Any]]] = None,
+                quobyte: typing.Optional[typing.Union[JenkinsSpecMasterVolumesQuobyte, typing.Dict[str, typing.Any]]] = None,
+                rbd: typing.Optional[typing.Union[JenkinsSpecMasterVolumesRbd, typing.Dict[str, typing.Any]]] = None,
+                scale_io: typing.Optional[typing.Union[JenkinsSpecMasterVolumesScaleIo, typing.Dict[str, typing.Any]]] = None,
+                secret: typing.Optional[typing.Union[JenkinsSpecMasterVolumesSecret, typing.Dict[str, typing.Any]]] = None,
+                storageos: typing.Optional[typing.Union[JenkinsSpecMasterVolumesStorageos, typing.Dict[str, typing.Any]]] = None,
+                vsphere_volume: typing.Optional[typing.Union[JenkinsSpecMasterVolumesVsphereVolume, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -7169,7 +7169,7 @@ class JenkinsSpecMasterVolumesCephfs:
                 path: typing.Optional[builtins.str] = None,
                 read_only: typing.Optional[builtins.bool] = None,
                 secret_file: typing.Optional[builtins.str] = None,
-                secret_ref: typing.Optional[typing.Union["JenkinsSpecMasterVolumesCephfsSecretRef", typing.Dict[str, typing.Any]]] = None,
+                secret_ref: typing.Optional[typing.Union[JenkinsSpecMasterVolumesCephfsSecretRef, typing.Dict[str, typing.Any]]] = None,
                 user: typing.Optional[builtins.str] = None,
             ) -> None:
                 ...
@@ -7352,7 +7352,7 @@ class JenkinsSpecMasterVolumesCinder:
                 volume_id: builtins.str,
                 fs_type: typing.Optional[builtins.str] = None,
                 read_only: typing.Optional[builtins.bool] = None,
-                secret_ref: typing.Optional[typing.Union["JenkinsSpecMasterVolumesCinderSecretRef", typing.Dict[str, typing.Any]]] = None,
+                secret_ref: typing.Optional[typing.Union[JenkinsSpecMasterVolumesCinderSecretRef, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -7504,7 +7504,7 @@ class JenkinsSpecMasterVolumesConfigMap:
             def stub(
                 *,
                 default_mode: typing.Optional[jsii.Number] = None,
-                items: typing.Optional[typing.Sequence[typing.Union["JenkinsSpecMasterVolumesConfigMapItems", typing.Dict[str, typing.Any]]]] = None,
+                items: typing.Optional[typing.Sequence[typing.Union[JenkinsSpecMasterVolumesConfigMapItems, typing.Dict[str, typing.Any]]]] = None,
                 name: typing.Optional[builtins.str] = None,
                 optional: typing.Optional[builtins.bool] = None,
             ) -> None:
@@ -7705,7 +7705,7 @@ class JenkinsSpecMasterVolumesCsi:
                 *,
                 driver: builtins.str,
                 fs_type: typing.Optional[builtins.str] = None,
-                node_publish_secret_ref: typing.Optional[typing.Union["JenkinsSpecMasterVolumesCsiNodePublishSecretRef", typing.Dict[str, typing.Any]]] = None,
+                node_publish_secret_ref: typing.Optional[typing.Union[JenkinsSpecMasterVolumesCsiNodePublishSecretRef, typing.Dict[str, typing.Any]]] = None,
                 read_only: typing.Optional[builtins.bool] = None,
                 volume_attributes: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
             ) -> None:
@@ -7872,7 +7872,7 @@ class JenkinsSpecMasterVolumesDownwardApi:
             def stub(
                 *,
                 default_mode: typing.Optional[jsii.Number] = None,
-                items: typing.Optional[typing.Sequence[typing.Union["JenkinsSpecMasterVolumesDownwardApiItems", typing.Dict[str, typing.Any]]]] = None,
+                items: typing.Optional[typing.Sequence[typing.Union[JenkinsSpecMasterVolumesDownwardApiItems, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -7956,9 +7956,9 @@ class JenkinsSpecMasterVolumesDownwardApiItems:
             def stub(
                 *,
                 path: builtins.str,
-                field_ref: typing.Optional[typing.Union["JenkinsSpecMasterVolumesDownwardApiItemsFieldRef", typing.Dict[str, typing.Any]]] = None,
+                field_ref: typing.Optional[typing.Union[JenkinsSpecMasterVolumesDownwardApiItemsFieldRef, typing.Dict[str, typing.Any]]] = None,
                 mode: typing.Optional[jsii.Number] = None,
-                resource_field_ref: typing.Optional[typing.Union["JenkinsSpecMasterVolumesDownwardApiItemsResourceFieldRef", typing.Dict[str, typing.Any]]] = None,
+                resource_field_ref: typing.Optional[typing.Union[JenkinsSpecMasterVolumesDownwardApiItemsResourceFieldRef, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -8417,7 +8417,7 @@ class JenkinsSpecMasterVolumesFlexVolume:
                 fs_type: typing.Optional[builtins.str] = None,
                 options: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
                 read_only: typing.Optional[builtins.bool] = None,
-                secret_ref: typing.Optional[typing.Union["JenkinsSpecMasterVolumesFlexVolumeSecretRef", typing.Dict[str, typing.Any]]] = None,
+                secret_ref: typing.Optional[typing.Union[JenkinsSpecMasterVolumesFlexVolumeSecretRef, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -9053,7 +9053,7 @@ class JenkinsSpecMasterVolumesIscsi:
                 iscsi_interface: typing.Optional[builtins.str] = None,
                 portals: typing.Optional[typing.Sequence[builtins.str]] = None,
                 read_only: typing.Optional[builtins.bool] = None,
-                secret_ref: typing.Optional[typing.Union["JenkinsSpecMasterVolumesIscsiSecretRef", typing.Dict[str, typing.Any]]] = None,
+                secret_ref: typing.Optional[typing.Union[JenkinsSpecMasterVolumesIscsiSecretRef, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -9607,7 +9607,7 @@ class JenkinsSpecMasterVolumesProjected:
         if __debug__:
             def stub(
                 *,
-                sources: typing.Sequence[typing.Union["JenkinsSpecMasterVolumesProjectedSources", typing.Dict[str, typing.Any]]],
+                sources: typing.Sequence[typing.Union[JenkinsSpecMasterVolumesProjectedSources, typing.Dict[str, typing.Any]]],
                 default_mode: typing.Optional[jsii.Number] = None,
             ) -> None:
                 ...
@@ -9692,10 +9692,10 @@ class JenkinsSpecMasterVolumesProjectedSources:
         if __debug__:
             def stub(
                 *,
-                config_map: typing.Optional[typing.Union["JenkinsSpecMasterVolumesProjectedSourcesConfigMap", typing.Dict[str, typing.Any]]] = None,
-                downward_api: typing.Optional[typing.Union["JenkinsSpecMasterVolumesProjectedSourcesDownwardApi", typing.Dict[str, typing.Any]]] = None,
-                secret: typing.Optional[typing.Union["JenkinsSpecMasterVolumesProjectedSourcesSecret", typing.Dict[str, typing.Any]]] = None,
-                service_account_token: typing.Optional[typing.Union["JenkinsSpecMasterVolumesProjectedSourcesServiceAccountToken", typing.Dict[str, typing.Any]]] = None,
+                config_map: typing.Optional[typing.Union[JenkinsSpecMasterVolumesProjectedSourcesConfigMap, typing.Dict[str, typing.Any]]] = None,
+                downward_api: typing.Optional[typing.Union[JenkinsSpecMasterVolumesProjectedSourcesDownwardApi, typing.Dict[str, typing.Any]]] = None,
+                secret: typing.Optional[typing.Union[JenkinsSpecMasterVolumesProjectedSourcesSecret, typing.Dict[str, typing.Any]]] = None,
+                service_account_token: typing.Optional[typing.Union[JenkinsSpecMasterVolumesProjectedSourcesServiceAccountToken, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -9793,7 +9793,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesConfigMap:
         if __debug__:
             def stub(
                 *,
-                items: typing.Optional[typing.Sequence[typing.Union["JenkinsSpecMasterVolumesProjectedSourcesConfigMapItems", typing.Dict[str, typing.Any]]]] = None,
+                items: typing.Optional[typing.Sequence[typing.Union[JenkinsSpecMasterVolumesProjectedSourcesConfigMapItems, typing.Dict[str, typing.Any]]]] = None,
                 name: typing.Optional[builtins.str] = None,
                 optional: typing.Optional[builtins.bool] = None,
             ) -> None:
@@ -9960,7 +9960,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesDownwardApi:
         if __debug__:
             def stub(
                 *,
-                items: typing.Optional[typing.Sequence[typing.Union["JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems", typing.Dict[str, typing.Any]]]] = None,
+                items: typing.Optional[typing.Sequence[typing.Union[JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -10028,9 +10028,9 @@ class JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItems:
             def stub(
                 *,
                 path: builtins.str,
-                field_ref: typing.Optional[typing.Union["JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsFieldRef", typing.Dict[str, typing.Any]]] = None,
+                field_ref: typing.Optional[typing.Union[JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsFieldRef, typing.Dict[str, typing.Any]]] = None,
                 mode: typing.Optional[jsii.Number] = None,
-                resource_field_ref: typing.Optional[typing.Union["JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef", typing.Dict[str, typing.Any]]] = None,
+                resource_field_ref: typing.Optional[typing.Union[JenkinsSpecMasterVolumesProjectedSourcesDownwardApiItemsResourceFieldRef, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -10280,7 +10280,7 @@ class JenkinsSpecMasterVolumesProjectedSourcesSecret:
         if __debug__:
             def stub(
                 *,
-                items: typing.Optional[typing.Sequence[typing.Union["JenkinsSpecMasterVolumesProjectedSourcesSecretItems", typing.Dict[str, typing.Any]]]] = None,
+                items: typing.Optional[typing.Sequence[typing.Union[JenkinsSpecMasterVolumesProjectedSourcesSecretItems, typing.Dict[str, typing.Any]]]] = None,
                 name: typing.Optional[builtins.str] = None,
                 optional: typing.Optional[builtins.bool] = None,
             ) -> None:
@@ -10712,7 +10712,7 @@ class JenkinsSpecMasterVolumesRbd:
                 keyring: typing.Optional[builtins.str] = None,
                 pool: typing.Optional[builtins.str] = None,
                 read_only: typing.Optional[builtins.bool] = None,
-                secret_ref: typing.Optional[typing.Union["JenkinsSpecMasterVolumesRbdSecretRef", typing.Dict[str, typing.Any]]] = None,
+                secret_ref: typing.Optional[typing.Union[JenkinsSpecMasterVolumesRbdSecretRef, typing.Dict[str, typing.Any]]] = None,
                 user: typing.Optional[builtins.str] = None,
             ) -> None:
                 ...
@@ -10955,7 +10955,7 @@ class JenkinsSpecMasterVolumesScaleIo:
             def stub(
                 *,
                 gateway: builtins.str,
-                secret_ref: typing.Union["JenkinsSpecMasterVolumesScaleIoSecretRef", typing.Dict[str, typing.Any]],
+                secret_ref: typing.Union[JenkinsSpecMasterVolumesScaleIoSecretRef, typing.Dict[str, typing.Any]],
                 system: builtins.str,
                 fs_type: typing.Optional[builtins.str] = None,
                 protection_domain: typing.Optional[builtins.str] = None,
@@ -11197,7 +11197,7 @@ class JenkinsSpecMasterVolumesSecret:
             def stub(
                 *,
                 default_mode: typing.Optional[jsii.Number] = None,
-                items: typing.Optional[typing.Sequence[typing.Union["JenkinsSpecMasterVolumesSecretItems", typing.Dict[str, typing.Any]]]] = None,
+                items: typing.Optional[typing.Sequence[typing.Union[JenkinsSpecMasterVolumesSecretItems, typing.Dict[str, typing.Any]]]] = None,
                 optional: typing.Optional[builtins.bool] = None,
                 secret_name: typing.Optional[builtins.str] = None,
             ) -> None:
@@ -11398,7 +11398,7 @@ class JenkinsSpecMasterVolumesStorageos:
                 *,
                 fs_type: typing.Optional[builtins.str] = None,
                 read_only: typing.Optional[builtins.bool] = None,
-                secret_ref: typing.Optional[typing.Union["JenkinsSpecMasterVolumesStorageosSecretRef", typing.Dict[str, typing.Any]]] = None,
+                secret_ref: typing.Optional[typing.Union[JenkinsSpecMasterVolumesStorageosSecretRef, typing.Dict[str, typing.Any]]] = None,
                 volume_name: typing.Optional[builtins.str] = None,
                 volume_namespace: typing.Optional[builtins.str] = None,
             ) -> None:
@@ -11693,10 +11693,10 @@ class JenkinsSpecNotifications:
                 level: builtins.str,
                 name: builtins.str,
                 verbose: builtins.bool,
-                mailgun: typing.Optional[typing.Union["JenkinsSpecNotificationsMailgun", typing.Dict[str, typing.Any]]] = None,
-                slack: typing.Optional[typing.Union["JenkinsSpecNotificationsSlack", typing.Dict[str, typing.Any]]] = None,
-                smtp: typing.Optional[typing.Union["JenkinsSpecNotificationsSmtp", typing.Dict[str, typing.Any]]] = None,
-                teams: typing.Optional[typing.Union["JenkinsSpecNotificationsTeams", typing.Dict[str, typing.Any]]] = None,
+                mailgun: typing.Optional[typing.Union[JenkinsSpecNotificationsMailgun, typing.Dict[str, typing.Any]]] = None,
+                slack: typing.Optional[typing.Union[JenkinsSpecNotificationsSlack, typing.Dict[str, typing.Any]]] = None,
+                smtp: typing.Optional[typing.Union[JenkinsSpecNotificationsSmtp, typing.Dict[str, typing.Any]]] = None,
+                teams: typing.Optional[typing.Union[JenkinsSpecNotificationsTeams, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -11830,7 +11830,7 @@ class JenkinsSpecNotificationsMailgun:
         if __debug__:
             def stub(
                 *,
-                api_key_secret_key_selector: typing.Union["JenkinsSpecNotificationsMailgunApiKeySecretKeySelector", typing.Dict[str, typing.Any]],
+                api_key_secret_key_selector: typing.Union[JenkinsSpecNotificationsMailgunApiKeySecretKeySelector, typing.Dict[str, typing.Any]],
                 domain: builtins.str,
                 from_: builtins.str,
                 recipient: builtins.str,
@@ -11924,7 +11924,7 @@ class JenkinsSpecNotificationsMailgunApiKeySecretKeySelector:
             def stub(
                 *,
                 key: builtins.str,
-                secret: typing.Union["JenkinsSpecNotificationsMailgunApiKeySecretKeySelectorSecret", typing.Dict[str, typing.Any]],
+                secret: typing.Union[JenkinsSpecNotificationsMailgunApiKeySecretKeySelectorSecret, typing.Dict[str, typing.Any]],
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -12036,7 +12036,7 @@ class JenkinsSpecNotificationsSlack:
         if __debug__:
             def stub(
                 *,
-                web_hook_url_secret_key_selector: typing.Union["JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelector", typing.Dict[str, typing.Any]],
+                web_hook_url_secret_key_selector: typing.Union[JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelector, typing.Dict[str, typing.Any]],
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -12094,7 +12094,7 @@ class JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelector:
             def stub(
                 *,
                 key: builtins.str,
-                secret: typing.Union["JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelectorSecret", typing.Dict[str, typing.Any]],
+                secret: typing.Union[JenkinsSpecNotificationsSlackWebHookUrlSecretKeySelectorSecret, typing.Dict[str, typing.Any]],
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -12231,11 +12231,11 @@ class JenkinsSpecNotificationsSmtp:
             def stub(
                 *,
                 from_: builtins.str,
-                password_secret_key_selector: typing.Union["JenkinsSpecNotificationsSmtpPasswordSecretKeySelector", typing.Dict[str, typing.Any]],
+                password_secret_key_selector: typing.Union[JenkinsSpecNotificationsSmtpPasswordSecretKeySelector, typing.Dict[str, typing.Any]],
                 port: jsii.Number,
                 server: builtins.str,
                 to: builtins.str,
-                username_secret_key_selector: typing.Union["JenkinsSpecNotificationsSmtpUsernameSecretKeySelector", typing.Dict[str, typing.Any]],
+                username_secret_key_selector: typing.Union[JenkinsSpecNotificationsSmtpUsernameSecretKeySelector, typing.Dict[str, typing.Any]],
                 tls_insecure_skip_verify: typing.Optional[builtins.bool] = None,
             ) -> None:
                 ...
@@ -12363,7 +12363,7 @@ class JenkinsSpecNotificationsSmtpPasswordSecretKeySelector:
             def stub(
                 *,
                 key: builtins.str,
-                secret: typing.Union["JenkinsSpecNotificationsSmtpPasswordSecretKeySelectorSecret", typing.Dict[str, typing.Any]],
+                secret: typing.Union[JenkinsSpecNotificationsSmtpPasswordSecretKeySelectorSecret, typing.Dict[str, typing.Any]],
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -12478,7 +12478,7 @@ class JenkinsSpecNotificationsSmtpUsernameSecretKeySelector:
             def stub(
                 *,
                 key: builtins.str,
-                secret: typing.Union["JenkinsSpecNotificationsSmtpUsernameSecretKeySelectorSecret", typing.Dict[str, typing.Any]],
+                secret: typing.Union[JenkinsSpecNotificationsSmtpUsernameSecretKeySelectorSecret, typing.Dict[str, typing.Any]],
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -12590,7 +12590,7 @@ class JenkinsSpecNotificationsTeams:
         if __debug__:
             def stub(
                 *,
-                web_hook_url_secret_key_selector: typing.Union["JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelector", typing.Dict[str, typing.Any]],
+                web_hook_url_secret_key_selector: typing.Union[JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelector, typing.Dict[str, typing.Any]],
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -12648,7 +12648,7 @@ class JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelector:
             def stub(
                 *,
                 key: builtins.str,
-                secret: typing.Union["JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelectorSecret", typing.Dict[str, typing.Any]],
+                secret: typing.Union[JenkinsSpecNotificationsTeamsWebHookUrlSecretKeySelectorSecret, typing.Dict[str, typing.Any]],
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -12770,7 +12770,7 @@ class JenkinsSpecRestore:
         if __debug__:
             def stub(
                 *,
-                action: typing.Union["JenkinsSpecRestoreAction", typing.Dict[str, typing.Any]],
+                action: typing.Union[JenkinsSpecRestoreAction, typing.Dict[str, typing.Any]],
                 container_name: builtins.str,
                 recovery_once: typing.Optional[jsii.Number] = None,
             ) -> None:
@@ -12849,7 +12849,7 @@ class JenkinsSpecRestoreAction:
         if __debug__:
             def stub(
                 *,
-                exec: typing.Optional[typing.Union["JenkinsSpecRestoreActionExec", typing.Dict[str, typing.Any]]] = None,
+                exec: typing.Optional[typing.Union[JenkinsSpecRestoreActionExec, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
