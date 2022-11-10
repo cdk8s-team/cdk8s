@@ -46,7 +46,7 @@ class CronTab(
                 id: builtins.str,
                 *,
                 metadata: typing.Optional[typing.Union[cdk8s.ApiObjectMetadata, typing.Dict[str, typing.Any]]] = None,
-                spec: typing.Optional[typing.Union["CronTabSpec", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[CronTabSpec, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -113,7 +113,7 @@ class CronTabProps:
             def stub(
                 *,
                 metadata: typing.Optional[typing.Union[cdk8s.ApiObjectMetadata, typing.Dict[str, typing.Any]]] = None,
-                spec: typing.Optional[typing.Union["CronTabSpec", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[CronTabSpec, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
