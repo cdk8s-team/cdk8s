@@ -50,9 +50,9 @@ class Affinity:
         if __debug__:
             def stub(
                 *,
-                node_affinity: typing.Optional[typing.Union["NodeAffinity", typing.Dict[str, typing.Any]]] = None,
-                pod_affinity: typing.Optional[typing.Union["PodAffinity", typing.Dict[str, typing.Any]]] = None,
-                pod_anti_affinity: typing.Optional[typing.Union["PodAntiAffinity", typing.Dict[str, typing.Any]]] = None,
+                node_affinity: typing.Optional[typing.Union[NodeAffinity, typing.Dict[str, typing.Any]]] = None,
+                pod_affinity: typing.Optional[typing.Union[PodAffinity, typing.Dict[str, typing.Any]]] = None,
+                pod_anti_affinity: typing.Optional[typing.Union[PodAntiAffinity, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -126,7 +126,7 @@ class AggregationRule:
         if __debug__:
             def stub(
                 *,
-                cluster_role_selectors: typing.Optional[typing.Sequence[typing.Union["LabelSelector", typing.Dict[str, typing.Any]]]] = None,
+                cluster_role_selectors: typing.Optional[typing.Sequence[typing.Union[LabelSelector, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -178,7 +178,7 @@ class AggregationRuleV1Alpha1:
         if __debug__:
             def stub(
                 *,
-                cluster_role_selectors: typing.Optional[typing.Sequence[typing.Union["LabelSelector", typing.Dict[str, typing.Any]]]] = None,
+                cluster_role_selectors: typing.Optional[typing.Sequence[typing.Union[LabelSelector, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -230,7 +230,7 @@ class AggregationRuleV1Beta1:
         if __debug__:
             def stub(
                 *,
-                cluster_role_selectors: typing.Optional[typing.Sequence[typing.Union["LabelSelector", typing.Dict[str, typing.Any]]]] = None,
+                cluster_role_selectors: typing.Optional[typing.Sequence[typing.Union[LabelSelector, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -466,7 +466,7 @@ class ApiServiceSpec:
             def stub(
                 *,
                 group_priority_minimum: jsii.Number,
-                service: typing.Union["ServiceReference", typing.Dict[str, typing.Any]],
+                service: typing.Union[ServiceReference, typing.Dict[str, typing.Any]],
                 version_priority: jsii.Number,
                 ca_bundle: typing.Optional[builtins.str] = None,
                 group: typing.Optional[builtins.str] = None,
@@ -631,7 +631,7 @@ class ApiServiceSpecV1Beta1:
             def stub(
                 *,
                 group_priority_minimum: jsii.Number,
-                service: typing.Union["ServiceReferenceV1Beta1", typing.Dict[str, typing.Any]],
+                service: typing.Union[ServiceReferenceV1Beta1, typing.Dict[str, typing.Any]],
                 version_priority: jsii.Number,
                 ca_bundle: typing.Optional[builtins.str] = None,
                 group: typing.Optional[builtins.str] = None,
@@ -777,8 +777,8 @@ class AuditSinkSpecV1Alpha1:
         if __debug__:
             def stub(
                 *,
-                policy: typing.Union["PolicyV1Alpha1", typing.Dict[str, typing.Any]],
-                webhook: typing.Union["WebhookV1Alpha1", typing.Dict[str, typing.Any]],
+                policy: typing.Union[PolicyV1Alpha1, typing.Dict[str, typing.Any]],
+                webhook: typing.Union[WebhookV1Alpha1, typing.Dict[str, typing.Any]],
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -1477,7 +1477,7 @@ class CephFsPersistentVolumeSource:
                 path: typing.Optional[builtins.str] = None,
                 read_only: typing.Optional[builtins.bool] = None,
                 secret_file: typing.Optional[builtins.str] = None,
-                secret_ref: typing.Optional[typing.Union["SecretReference", typing.Dict[str, typing.Any]]] = None,
+                secret_ref: typing.Optional[typing.Union[SecretReference, typing.Dict[str, typing.Any]]] = None,
                 user: typing.Optional[builtins.str] = None,
             ) -> None:
                 ...
@@ -1618,7 +1618,7 @@ class CephFsVolumeSource:
                 path: typing.Optional[builtins.str] = None,
                 read_only: typing.Optional[builtins.bool] = None,
                 secret_file: typing.Optional[builtins.str] = None,
-                secret_ref: typing.Optional[typing.Union["LocalObjectReference", typing.Dict[str, typing.Any]]] = None,
+                secret_ref: typing.Optional[typing.Union[LocalObjectReference, typing.Dict[str, typing.Any]]] = None,
                 user: typing.Optional[builtins.str] = None,
             ) -> None:
                 ...
@@ -1902,7 +1902,7 @@ class CinderPersistentVolumeSource:
                 volume_id: builtins.str,
                 fs_type: typing.Optional[builtins.str] = None,
                 read_only: typing.Optional[builtins.bool] = None,
-                secret_ref: typing.Optional[typing.Union["SecretReference", typing.Dict[str, typing.Any]]] = None,
+                secret_ref: typing.Optional[typing.Union[SecretReference, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -2015,7 +2015,7 @@ class CinderVolumeSource:
                 volume_id: builtins.str,
                 fs_type: typing.Optional[builtins.str] = None,
                 read_only: typing.Optional[builtins.bool] = None,
-                secret_ref: typing.Optional[typing.Union["LocalObjectReference", typing.Dict[str, typing.Any]]] = None,
+                secret_ref: typing.Optional[typing.Union[LocalObjectReference, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -2539,7 +2539,7 @@ class ConfigMapProjection:
         if __debug__:
             def stub(
                 *,
-                items: typing.Optional[typing.Sequence[typing.Union["KeyToPath", typing.Dict[str, typing.Any]]]] = None,
+                items: typing.Optional[typing.Sequence[typing.Union[KeyToPath, typing.Dict[str, typing.Any]]]] = None,
                 name: typing.Optional[builtins.str] = None,
                 optional: typing.Optional[builtins.bool] = None,
             ) -> None:
@@ -2633,7 +2633,7 @@ class ConfigMapVolumeSource:
             def stub(
                 *,
                 default_mode: typing.Optional[jsii.Number] = None,
-                items: typing.Optional[typing.Sequence[typing.Union["KeyToPath", typing.Dict[str, typing.Any]]]] = None,
+                items: typing.Optional[typing.Sequence[typing.Union[KeyToPath, typing.Dict[str, typing.Any]]]] = None,
                 name: typing.Optional[builtins.str] = None,
                 optional: typing.Optional[builtins.bool] = None,
             ) -> None:
@@ -2809,24 +2809,24 @@ class Container:
                 name: builtins.str,
                 args: typing.Optional[typing.Sequence[builtins.str]] = None,
                 command: typing.Optional[typing.Sequence[builtins.str]] = None,
-                env: typing.Optional[typing.Sequence[typing.Union["EnvVar", typing.Dict[str, typing.Any]]]] = None,
-                env_from: typing.Optional[typing.Sequence[typing.Union["EnvFromSource", typing.Dict[str, typing.Any]]]] = None,
+                env: typing.Optional[typing.Sequence[typing.Union[EnvVar, typing.Dict[str, typing.Any]]]] = None,
+                env_from: typing.Optional[typing.Sequence[typing.Union[EnvFromSource, typing.Dict[str, typing.Any]]]] = None,
                 image: typing.Optional[builtins.str] = None,
                 image_pull_policy: typing.Optional[builtins.str] = None,
-                lifecycle: typing.Optional[typing.Union["Lifecycle", typing.Dict[str, typing.Any]]] = None,
-                liveness_probe: typing.Optional[typing.Union["Probe", typing.Dict[str, typing.Any]]] = None,
-                ports: typing.Optional[typing.Sequence[typing.Union["ContainerPort", typing.Dict[str, typing.Any]]]] = None,
-                readiness_probe: typing.Optional[typing.Union["Probe", typing.Dict[str, typing.Any]]] = None,
-                resources: typing.Optional[typing.Union["ResourceRequirements", typing.Dict[str, typing.Any]]] = None,
-                security_context: typing.Optional[typing.Union["SecurityContext", typing.Dict[str, typing.Any]]] = None,
-                startup_probe: typing.Optional[typing.Union["Probe", typing.Dict[str, typing.Any]]] = None,
+                lifecycle: typing.Optional[typing.Union[Lifecycle, typing.Dict[str, typing.Any]]] = None,
+                liveness_probe: typing.Optional[typing.Union[Probe, typing.Dict[str, typing.Any]]] = None,
+                ports: typing.Optional[typing.Sequence[typing.Union[ContainerPort, typing.Dict[str, typing.Any]]]] = None,
+                readiness_probe: typing.Optional[typing.Union[Probe, typing.Dict[str, typing.Any]]] = None,
+                resources: typing.Optional[typing.Union[ResourceRequirements, typing.Dict[str, typing.Any]]] = None,
+                security_context: typing.Optional[typing.Union[SecurityContext, typing.Dict[str, typing.Any]]] = None,
+                startup_probe: typing.Optional[typing.Union[Probe, typing.Dict[str, typing.Any]]] = None,
                 stdin: typing.Optional[builtins.bool] = None,
                 stdin_once: typing.Optional[builtins.bool] = None,
                 termination_message_path: typing.Optional[builtins.str] = None,
                 termination_message_policy: typing.Optional[builtins.str] = None,
                 tty: typing.Optional[builtins.bool] = None,
-                volume_devices: typing.Optional[typing.Sequence[typing.Union["VolumeDevice", typing.Dict[str, typing.Any]]]] = None,
-                volume_mounts: typing.Optional[typing.Sequence[typing.Union["VolumeMount", typing.Dict[str, typing.Any]]]] = None,
+                volume_devices: typing.Optional[typing.Sequence[typing.Union[VolumeDevice, typing.Dict[str, typing.Any]]]] = None,
+                volume_mounts: typing.Optional[typing.Sequence[typing.Union[VolumeMount, typing.Dict[str, typing.Any]]]] = None,
                 working_dir: typing.Optional[builtins.str] = None,
             ) -> None:
                 ...
@@ -3335,7 +3335,7 @@ class CronJobSpecV1Beta1:
         if __debug__:
             def stub(
                 *,
-                job_template: typing.Union["JobTemplateSpecV1Beta1", typing.Dict[str, typing.Any]],
+                job_template: typing.Union[JobTemplateSpecV1Beta1, typing.Dict[str, typing.Any]],
                 schedule: builtins.str,
                 concurrency_policy: typing.Optional[builtins.str] = None,
                 failed_jobs_history_limit: typing.Optional[jsii.Number] = None,
@@ -3502,7 +3502,7 @@ class CronJobSpecV2Alpha1:
         if __debug__:
             def stub(
                 *,
-                job_template: typing.Union["JobTemplateSpecV2Alpha1", typing.Dict[str, typing.Any]],
+                job_template: typing.Union[JobTemplateSpecV2Alpha1, typing.Dict[str, typing.Any]],
                 schedule: builtins.str,
                 concurrency_policy: typing.Optional[builtins.str] = None,
                 failed_jobs_history_limit: typing.Optional[jsii.Number] = None,
@@ -4005,7 +4005,7 @@ class CsiNodeDriver:
                 *,
                 name: builtins.str,
                 node_id: builtins.str,
-                allocatable: typing.Optional[typing.Union["VolumeNodeResources", typing.Dict[str, typing.Any]]] = None,
+                allocatable: typing.Optional[typing.Union[VolumeNodeResources, typing.Dict[str, typing.Any]]] = None,
                 topology_keys: typing.Optional[typing.Sequence[builtins.str]] = None,
             ) -> None:
                 ...
@@ -4116,7 +4116,7 @@ class CsiNodeDriverV1Beta1:
                 *,
                 name: builtins.str,
                 node_id: builtins.str,
-                allocatable: typing.Optional[typing.Union["VolumeNodeResourcesV1Beta1", typing.Dict[str, typing.Any]]] = None,
+                allocatable: typing.Optional[typing.Union[VolumeNodeResourcesV1Beta1, typing.Dict[str, typing.Any]]] = None,
                 topology_keys: typing.Optional[typing.Sequence[builtins.str]] = None,
             ) -> None:
                 ...
@@ -4352,11 +4352,11 @@ class CsiPersistentVolumeSource:
                 *,
                 driver: builtins.str,
                 volume_handle: builtins.str,
-                controller_expand_secret_ref: typing.Optional[typing.Union["SecretReference", typing.Dict[str, typing.Any]]] = None,
-                controller_publish_secret_ref: typing.Optional[typing.Union["SecretReference", typing.Dict[str, typing.Any]]] = None,
+                controller_expand_secret_ref: typing.Optional[typing.Union[SecretReference, typing.Dict[str, typing.Any]]] = None,
+                controller_publish_secret_ref: typing.Optional[typing.Union[SecretReference, typing.Dict[str, typing.Any]]] = None,
                 fs_type: typing.Optional[builtins.str] = None,
-                node_publish_secret_ref: typing.Optional[typing.Union["SecretReference", typing.Dict[str, typing.Any]]] = None,
-                node_stage_secret_ref: typing.Optional[typing.Union["SecretReference", typing.Dict[str, typing.Any]]] = None,
+                node_publish_secret_ref: typing.Optional[typing.Union[SecretReference, typing.Dict[str, typing.Any]]] = None,
+                node_stage_secret_ref: typing.Optional[typing.Union[SecretReference, typing.Dict[str, typing.Any]]] = None,
                 read_only: typing.Optional[builtins.bool] = None,
                 volume_attributes: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
             ) -> None:
@@ -4543,7 +4543,7 @@ class CsiVolumeSource:
                 *,
                 driver: builtins.str,
                 fs_type: typing.Optional[builtins.str] = None,
-                node_publish_secret_ref: typing.Optional[typing.Union["LocalObjectReference", typing.Dict[str, typing.Any]]] = None,
+                node_publish_secret_ref: typing.Optional[typing.Union[LocalObjectReference, typing.Dict[str, typing.Any]]] = None,
                 read_only: typing.Optional[builtins.bool] = None,
                 volume_attributes: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
             ) -> None:
@@ -4941,7 +4941,7 @@ class CustomResourceConversion:
             def stub(
                 *,
                 strategy: builtins.str,
-                webhook: typing.Optional[typing.Union["WebhookConversion", typing.Dict[str, typing.Any]]] = None,
+                webhook: typing.Optional[typing.Union[WebhookConversion, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -5021,7 +5021,7 @@ class CustomResourceConversionV1Beta1:
                 *,
                 strategy: builtins.str,
                 conversion_review_versions: typing.Optional[typing.Sequence[builtins.str]] = None,
-                webhook_client_config: typing.Optional[typing.Union["WebhookClientConfigV1Beta1", typing.Dict[str, typing.Any]]] = None,
+                webhook_client_config: typing.Optional[typing.Union[WebhookClientConfigV1Beta1, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -5423,7 +5423,7 @@ class CustomResourceDefinitionSpec:
                 group: builtins.str,
                 names: typing.Union[CustomResourceDefinitionNames, typing.Dict[str, typing.Any]],
                 scope: builtins.str,
-                versions: typing.Sequence[typing.Union["CustomResourceDefinitionVersion", typing.Dict[str, typing.Any]]],
+                versions: typing.Sequence[typing.Union[CustomResourceDefinitionVersion, typing.Dict[str, typing.Any]]],
                 conversion: typing.Optional[typing.Union[CustomResourceConversion, typing.Dict[str, typing.Any]]] = None,
                 preserve_unknown_fields: typing.Optional[builtins.bool] = None,
             ) -> None:
@@ -5587,10 +5587,10 @@ class CustomResourceDefinitionSpecV1Beta1:
                 additional_printer_columns: typing.Optional[typing.Sequence[typing.Union[CustomResourceColumnDefinitionV1Beta1, typing.Dict[str, typing.Any]]]] = None,
                 conversion: typing.Optional[typing.Union[CustomResourceConversionV1Beta1, typing.Dict[str, typing.Any]]] = None,
                 preserve_unknown_fields: typing.Optional[builtins.bool] = None,
-                subresources: typing.Optional[typing.Union["CustomResourceSubresourcesV1Beta1", typing.Dict[str, typing.Any]]] = None,
-                validation: typing.Optional[typing.Union["CustomResourceValidationV1Beta1", typing.Dict[str, typing.Any]]] = None,
+                subresources: typing.Optional[typing.Union[CustomResourceSubresourcesV1Beta1, typing.Dict[str, typing.Any]]] = None,
+                validation: typing.Optional[typing.Union[CustomResourceValidationV1Beta1, typing.Dict[str, typing.Any]]] = None,
                 version: typing.Optional[builtins.str] = None,
-                versions: typing.Optional[typing.Sequence[typing.Union["CustomResourceDefinitionVersionV1Beta1", typing.Dict[str, typing.Any]]]] = None,
+                versions: typing.Optional[typing.Sequence[typing.Union[CustomResourceDefinitionVersionV1Beta1, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -5798,8 +5798,8 @@ class CustomResourceDefinitionVersion:
                 served: builtins.bool,
                 storage: builtins.bool,
                 additional_printer_columns: typing.Optional[typing.Sequence[typing.Union[CustomResourceColumnDefinition, typing.Dict[str, typing.Any]]]] = None,
-                schema: typing.Optional[typing.Union["CustomResourceValidation", typing.Dict[str, typing.Any]]] = None,
-                subresources: typing.Optional[typing.Union["CustomResourceSubresources", typing.Dict[str, typing.Any]]] = None,
+                schema: typing.Optional[typing.Union[CustomResourceValidation, typing.Dict[str, typing.Any]]] = None,
+                subresources: typing.Optional[typing.Union[CustomResourceSubresources, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -5941,8 +5941,8 @@ class CustomResourceDefinitionVersionV1Beta1:
                 served: builtins.bool,
                 storage: builtins.bool,
                 additional_printer_columns: typing.Optional[typing.Sequence[typing.Union[CustomResourceColumnDefinitionV1Beta1, typing.Dict[str, typing.Any]]]] = None,
-                schema: typing.Optional[typing.Union["CustomResourceValidationV1Beta1", typing.Dict[str, typing.Any]]] = None,
-                subresources: typing.Optional[typing.Union["CustomResourceSubresourcesV1Beta1", typing.Dict[str, typing.Any]]] = None,
+                schema: typing.Optional[typing.Union[CustomResourceValidationV1Beta1, typing.Dict[str, typing.Any]]] = None,
+                subresources: typing.Optional[typing.Union[CustomResourceSubresourcesV1Beta1, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -6373,7 +6373,7 @@ class CustomResourceValidation:
         if __debug__:
             def stub(
                 *,
-                open_apiv3_schema: typing.Optional[typing.Union["JsonSchemaProps", typing.Dict[str, typing.Any]]] = None,
+                open_apiv3_schema: typing.Optional[typing.Union[JsonSchemaProps, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -6425,7 +6425,7 @@ class CustomResourceValidationV1Beta1:
         if __debug__:
             def stub(
                 *,
-                open_apiv3_schema: typing.Optional[typing.Union["JsonSchemaPropsV1Beta1", typing.Dict[str, typing.Any]]] = None,
+                open_apiv3_schema: typing.Optional[typing.Union[JsonSchemaPropsV1Beta1, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -6495,11 +6495,11 @@ class DaemonSetSpec:
         if __debug__:
             def stub(
                 *,
-                selector: typing.Union["LabelSelector", typing.Dict[str, typing.Any]],
-                template: typing.Union["PodTemplateSpec", typing.Dict[str, typing.Any]],
+                selector: typing.Union[LabelSelector, typing.Dict[str, typing.Any]],
+                template: typing.Union[PodTemplateSpec, typing.Dict[str, typing.Any]],
                 min_ready_seconds: typing.Optional[jsii.Number] = None,
                 revision_history_limit: typing.Optional[jsii.Number] = None,
-                update_strategy: typing.Optional[typing.Union["DaemonSetUpdateStrategy", typing.Dict[str, typing.Any]]] = None,
+                update_strategy: typing.Optional[typing.Union[DaemonSetUpdateStrategy, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -6633,12 +6633,12 @@ class DaemonSetSpecV1Beta1:
         if __debug__:
             def stub(
                 *,
-                template: typing.Union["PodTemplateSpec", typing.Dict[str, typing.Any]],
+                template: typing.Union[PodTemplateSpec, typing.Dict[str, typing.Any]],
                 min_ready_seconds: typing.Optional[jsii.Number] = None,
                 revision_history_limit: typing.Optional[jsii.Number] = None,
-                selector: typing.Optional[typing.Union["LabelSelector", typing.Dict[str, typing.Any]]] = None,
+                selector: typing.Optional[typing.Union[LabelSelector, typing.Dict[str, typing.Any]]] = None,
                 template_generation: typing.Optional[jsii.Number] = None,
-                update_strategy: typing.Optional[typing.Union["DaemonSetUpdateStrategyV1Beta1", typing.Dict[str, typing.Any]]] = None,
+                update_strategy: typing.Optional[typing.Union[DaemonSetUpdateStrategyV1Beta1, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -6783,11 +6783,11 @@ class DaemonSetSpecV1Beta2:
         if __debug__:
             def stub(
                 *,
-                selector: typing.Union["LabelSelector", typing.Dict[str, typing.Any]],
-                template: typing.Union["PodTemplateSpec", typing.Dict[str, typing.Any]],
+                selector: typing.Union[LabelSelector, typing.Dict[str, typing.Any]],
+                template: typing.Union[PodTemplateSpec, typing.Dict[str, typing.Any]],
                 min_ready_seconds: typing.Optional[jsii.Number] = None,
                 revision_history_limit: typing.Optional[jsii.Number] = None,
-                update_strategy: typing.Optional[typing.Union["DaemonSetUpdateStrategyV1Beta2", typing.Dict[str, typing.Any]]] = None,
+                update_strategy: typing.Optional[typing.Union[DaemonSetUpdateStrategyV1Beta2, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -6902,7 +6902,7 @@ class DaemonSetUpdateStrategy:
         if __debug__:
             def stub(
                 *,
-                rolling_update: typing.Optional[typing.Union["RollingUpdateDaemonSet", typing.Dict[str, typing.Any]]] = None,
+                rolling_update: typing.Optional[typing.Union[RollingUpdateDaemonSet, typing.Dict[str, typing.Any]]] = None,
                 type: typing.Optional[builtins.str] = None,
             ) -> None:
                 ...
@@ -6974,7 +6974,7 @@ class DaemonSetUpdateStrategyV1Beta1:
         if __debug__:
             def stub(
                 *,
-                rolling_update: typing.Optional[typing.Union["RollingUpdateDaemonSetV1Beta1", typing.Dict[str, typing.Any]]] = None,
+                rolling_update: typing.Optional[typing.Union[RollingUpdateDaemonSetV1Beta1, typing.Dict[str, typing.Any]]] = None,
                 type: typing.Optional[builtins.str] = None,
             ) -> None:
                 ...
@@ -7047,7 +7047,7 @@ class DaemonSetUpdateStrategyV1Beta2:
         if __debug__:
             def stub(
                 *,
-                rolling_update: typing.Optional[typing.Union["RollingUpdateDaemonSetV1Beta2", typing.Dict[str, typing.Any]]] = None,
+                rolling_update: typing.Optional[typing.Union[RollingUpdateDaemonSetV1Beta2, typing.Dict[str, typing.Any]]] = None,
                 type: typing.Optional[builtins.str] = None,
             ) -> None:
                 ...
@@ -7141,9 +7141,9 @@ class DeleteOptions:
                 api_version: typing.Optional[builtins.str] = None,
                 dry_run: typing.Optional[typing.Sequence[builtins.str]] = None,
                 grace_period_seconds: typing.Optional[jsii.Number] = None,
-                kind: typing.Optional["IoK8SApimachineryPkgApisMetaV1DeleteOptionsKind"] = None,
+                kind: typing.Optional[IoK8SApimachineryPkgApisMetaV1DeleteOptionsKind] = None,
                 orphan_dependents: typing.Optional[builtins.bool] = None,
-                preconditions: typing.Optional[typing.Union["Preconditions", typing.Dict[str, typing.Any]]] = None,
+                preconditions: typing.Optional[typing.Union[Preconditions, typing.Dict[str, typing.Any]]] = None,
                 propagation_policy: typing.Optional[builtins.str] = None,
             ) -> None:
                 ...
@@ -7311,14 +7311,14 @@ class DeploymentSpec:
         if __debug__:
             def stub(
                 *,
-                selector: typing.Union["LabelSelector", typing.Dict[str, typing.Any]],
-                template: typing.Union["PodTemplateSpec", typing.Dict[str, typing.Any]],
+                selector: typing.Union[LabelSelector, typing.Dict[str, typing.Any]],
+                template: typing.Union[PodTemplateSpec, typing.Dict[str, typing.Any]],
                 min_ready_seconds: typing.Optional[jsii.Number] = None,
                 paused: typing.Optional[builtins.bool] = None,
                 progress_deadline_seconds: typing.Optional[jsii.Number] = None,
                 replicas: typing.Optional[jsii.Number] = None,
                 revision_history_limit: typing.Optional[jsii.Number] = None,
-                strategy: typing.Optional[typing.Union["DeploymentStrategy", typing.Dict[str, typing.Any]]] = None,
+                strategy: typing.Optional[typing.Union[DeploymentStrategy, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -7505,15 +7505,15 @@ class DeploymentSpecV1Beta1:
         if __debug__:
             def stub(
                 *,
-                template: typing.Union["PodTemplateSpec", typing.Dict[str, typing.Any]],
+                template: typing.Union[PodTemplateSpec, typing.Dict[str, typing.Any]],
                 min_ready_seconds: typing.Optional[jsii.Number] = None,
                 paused: typing.Optional[builtins.bool] = None,
                 progress_deadline_seconds: typing.Optional[jsii.Number] = None,
                 replicas: typing.Optional[jsii.Number] = None,
                 revision_history_limit: typing.Optional[jsii.Number] = None,
-                rollback_to: typing.Optional[typing.Union["RollbackConfigV1Beta1", typing.Dict[str, typing.Any]]] = None,
-                selector: typing.Optional[typing.Union["LabelSelector", typing.Dict[str, typing.Any]]] = None,
-                strategy: typing.Optional[typing.Union["DeploymentStrategyV1Beta1", typing.Dict[str, typing.Any]]] = None,
+                rollback_to: typing.Optional[typing.Union[RollbackConfigV1Beta1, typing.Dict[str, typing.Any]]] = None,
+                selector: typing.Optional[typing.Union[LabelSelector, typing.Dict[str, typing.Any]]] = None,
+                strategy: typing.Optional[typing.Union[DeploymentStrategyV1Beta1, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -7705,14 +7705,14 @@ class DeploymentSpecV1Beta2:
         if __debug__:
             def stub(
                 *,
-                selector: typing.Union["LabelSelector", typing.Dict[str, typing.Any]],
-                template: typing.Union["PodTemplateSpec", typing.Dict[str, typing.Any]],
+                selector: typing.Union[LabelSelector, typing.Dict[str, typing.Any]],
+                template: typing.Union[PodTemplateSpec, typing.Dict[str, typing.Any]],
                 min_ready_seconds: typing.Optional[jsii.Number] = None,
                 paused: typing.Optional[builtins.bool] = None,
                 progress_deadline_seconds: typing.Optional[jsii.Number] = None,
                 replicas: typing.Optional[jsii.Number] = None,
                 revision_history_limit: typing.Optional[jsii.Number] = None,
-                strategy: typing.Optional[typing.Union["DeploymentStrategyV1Beta2", typing.Dict[str, typing.Any]]] = None,
+                strategy: typing.Optional[typing.Union[DeploymentStrategyV1Beta2, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -7869,7 +7869,7 @@ class DeploymentStrategy:
         if __debug__:
             def stub(
                 *,
-                rolling_update: typing.Optional[typing.Union["RollingUpdateDeployment", typing.Dict[str, typing.Any]]] = None,
+                rolling_update: typing.Optional[typing.Union[RollingUpdateDeployment, typing.Dict[str, typing.Any]]] = None,
                 type: typing.Optional[builtins.str] = None,
             ) -> None:
                 ...
@@ -7942,7 +7942,7 @@ class DeploymentStrategyV1Beta1:
         if __debug__:
             def stub(
                 *,
-                rolling_update: typing.Optional[typing.Union["RollingUpdateDeploymentV1Beta1", typing.Dict[str, typing.Any]]] = None,
+                rolling_update: typing.Optional[typing.Union[RollingUpdateDeploymentV1Beta1, typing.Dict[str, typing.Any]]] = None,
                 type: typing.Optional[builtins.str] = None,
             ) -> None:
                 ...
@@ -8015,7 +8015,7 @@ class DeploymentStrategyV1Beta2:
         if __debug__:
             def stub(
                 *,
-                rolling_update: typing.Optional[typing.Union["RollingUpdateDeploymentV1Beta2", typing.Dict[str, typing.Any]]] = None,
+                rolling_update: typing.Optional[typing.Union[RollingUpdateDeploymentV1Beta2, typing.Dict[str, typing.Any]]] = None,
                 type: typing.Optional[builtins.str] = None,
             ) -> None:
                 ...
@@ -8086,7 +8086,7 @@ class DownwardApiProjection:
         if __debug__:
             def stub(
                 *,
-                items: typing.Optional[typing.Sequence[typing.Union["DownwardApiVolumeFile", typing.Dict[str, typing.Any]]]] = None,
+                items: typing.Optional[typing.Sequence[typing.Union[DownwardApiVolumeFile, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -8152,9 +8152,9 @@ class DownwardApiVolumeFile:
             def stub(
                 *,
                 path: builtins.str,
-                field_ref: typing.Optional[typing.Union["ObjectFieldSelector", typing.Dict[str, typing.Any]]] = None,
+                field_ref: typing.Optional[typing.Union[ObjectFieldSelector, typing.Dict[str, typing.Any]]] = None,
                 mode: typing.Optional[jsii.Number] = None,
-                resource_field_ref: typing.Optional[typing.Union["ResourceFieldSelector", typing.Dict[str, typing.Any]]] = None,
+                resource_field_ref: typing.Optional[typing.Union[ResourceFieldSelector, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -8321,7 +8321,7 @@ class EmptyDirVolumeSource:
             def stub(
                 *,
                 medium: typing.Optional[builtins.str] = None,
-                size_limit: typing.Optional["Quantity"] = None,
+                size_limit: typing.Optional[Quantity] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -8403,7 +8403,7 @@ class EndpointAddress:
                 ip: builtins.str,
                 hostname: typing.Optional[builtins.str] = None,
                 node_name: typing.Optional[builtins.str] = None,
-                target_ref: typing.Optional[typing.Union["ObjectReference", typing.Dict[str, typing.Any]]] = None,
+                target_ref: typing.Optional[typing.Union[ObjectReference, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -8856,7 +8856,7 @@ class EndpointV1Beta1:
                 addresses: typing.Sequence[builtins.str],
                 conditions: typing.Optional[typing.Union[EndpointConditionsV1Beta1, typing.Dict[str, typing.Any]]] = None,
                 hostname: typing.Optional[builtins.str] = None,
-                target_ref: typing.Optional[typing.Union["ObjectReference", typing.Dict[str, typing.Any]]] = None,
+                target_ref: typing.Optional[typing.Union[ObjectReference, typing.Dict[str, typing.Any]]] = None,
                 topology: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
             ) -> None:
                 ...
@@ -8983,7 +8983,7 @@ class EnvFromSource:
                 *,
                 config_map_ref: typing.Optional[typing.Union[ConfigMapEnvSource, typing.Dict[str, typing.Any]]] = None,
                 prefix: typing.Optional[builtins.str] = None,
-                secret_ref: typing.Optional[typing.Union["SecretEnvSource", typing.Dict[str, typing.Any]]] = None,
+                secret_ref: typing.Optional[typing.Union[SecretEnvSource, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -9067,7 +9067,7 @@ class EnvVar:
                 *,
                 name: builtins.str,
                 value: typing.Optional[builtins.str] = None,
-                value_from: typing.Optional[typing.Union["EnvVarSource", typing.Dict[str, typing.Any]]] = None,
+                value_from: typing.Optional[typing.Union[EnvVarSource, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -9170,9 +9170,9 @@ class EnvVarSource:
             def stub(
                 *,
                 config_map_key_ref: typing.Optional[typing.Union[ConfigMapKeySelector, typing.Dict[str, typing.Any]]] = None,
-                field_ref: typing.Optional[typing.Union["ObjectFieldSelector", typing.Dict[str, typing.Any]]] = None,
-                resource_field_ref: typing.Optional[typing.Union["ResourceFieldSelector", typing.Dict[str, typing.Any]]] = None,
-                secret_key_ref: typing.Optional[typing.Union["SecretKeySelector", typing.Dict[str, typing.Any]]] = None,
+                field_ref: typing.Optional[typing.Union[ObjectFieldSelector, typing.Dict[str, typing.Any]]] = None,
+                resource_field_ref: typing.Optional[typing.Union[ResourceFieldSelector, typing.Dict[str, typing.Any]]] = None,
+                secret_key_ref: typing.Optional[typing.Union[SecretKeySelector, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -9347,21 +9347,21 @@ class EphemeralContainer:
                 env_from: typing.Optional[typing.Sequence[typing.Union[EnvFromSource, typing.Dict[str, typing.Any]]]] = None,
                 image: typing.Optional[builtins.str] = None,
                 image_pull_policy: typing.Optional[builtins.str] = None,
-                lifecycle: typing.Optional[typing.Union["Lifecycle", typing.Dict[str, typing.Any]]] = None,
-                liveness_probe: typing.Optional[typing.Union["Probe", typing.Dict[str, typing.Any]]] = None,
+                lifecycle: typing.Optional[typing.Union[Lifecycle, typing.Dict[str, typing.Any]]] = None,
+                liveness_probe: typing.Optional[typing.Union[Probe, typing.Dict[str, typing.Any]]] = None,
                 ports: typing.Optional[typing.Sequence[typing.Union[ContainerPort, typing.Dict[str, typing.Any]]]] = None,
-                readiness_probe: typing.Optional[typing.Union["Probe", typing.Dict[str, typing.Any]]] = None,
-                resources: typing.Optional[typing.Union["ResourceRequirements", typing.Dict[str, typing.Any]]] = None,
-                security_context: typing.Optional[typing.Union["SecurityContext", typing.Dict[str, typing.Any]]] = None,
-                startup_probe: typing.Optional[typing.Union["Probe", typing.Dict[str, typing.Any]]] = None,
+                readiness_probe: typing.Optional[typing.Union[Probe, typing.Dict[str, typing.Any]]] = None,
+                resources: typing.Optional[typing.Union[ResourceRequirements, typing.Dict[str, typing.Any]]] = None,
+                security_context: typing.Optional[typing.Union[SecurityContext, typing.Dict[str, typing.Any]]] = None,
+                startup_probe: typing.Optional[typing.Union[Probe, typing.Dict[str, typing.Any]]] = None,
                 stdin: typing.Optional[builtins.bool] = None,
                 stdin_once: typing.Optional[builtins.bool] = None,
                 target_container_name: typing.Optional[builtins.str] = None,
                 termination_message_path: typing.Optional[builtins.str] = None,
                 termination_message_policy: typing.Optional[builtins.str] = None,
                 tty: typing.Optional[builtins.bool] = None,
-                volume_devices: typing.Optional[typing.Sequence[typing.Union["VolumeDevice", typing.Dict[str, typing.Any]]]] = None,
-                volume_mounts: typing.Optional[typing.Sequence[typing.Union["VolumeMount", typing.Dict[str, typing.Any]]]] = None,
+                volume_devices: typing.Optional[typing.Sequence[typing.Union[VolumeDevice, typing.Dict[str, typing.Any]]]] = None,
+                volume_mounts: typing.Optional[typing.Sequence[typing.Union[VolumeMount, typing.Dict[str, typing.Any]]]] = None,
                 working_dir: typing.Optional[builtins.str] = None,
             ) -> None:
                 ...
@@ -10155,9 +10155,9 @@ class ExternalMetricSourceV2Beta1:
             def stub(
                 *,
                 metric_name: builtins.str,
-                metric_selector: typing.Optional[typing.Union["LabelSelector", typing.Dict[str, typing.Any]]] = None,
-                target_average_value: typing.Optional["Quantity"] = None,
-                target_value: typing.Optional["Quantity"] = None,
+                metric_selector: typing.Optional[typing.Union[LabelSelector, typing.Dict[str, typing.Any]]] = None,
+                target_average_value: typing.Optional[Quantity] = None,
+                target_value: typing.Optional[Quantity] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -10254,8 +10254,8 @@ class ExternalMetricSourceV2Beta2:
         if __debug__:
             def stub(
                 *,
-                metric: typing.Union["MetricIdentifierV2Beta2", typing.Dict[str, typing.Any]],
-                target: typing.Union["MetricTargetV2Beta2", typing.Dict[str, typing.Any]],
+                metric: typing.Union[MetricIdentifierV2Beta2, typing.Dict[str, typing.Any]],
+                target: typing.Union[MetricTargetV2Beta2, typing.Dict[str, typing.Any]],
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -10462,7 +10462,7 @@ class FlexPersistentVolumeSource:
                 fs_type: typing.Optional[builtins.str] = None,
                 options: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
                 read_only: typing.Optional[builtins.bool] = None,
-                secret_ref: typing.Optional[typing.Union["SecretReference", typing.Dict[str, typing.Any]]] = None,
+                secret_ref: typing.Optional[typing.Union[SecretReference, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -10589,7 +10589,7 @@ class FlexVolumeSource:
                 fs_type: typing.Optional[builtins.str] = None,
                 options: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
                 read_only: typing.Optional[builtins.bool] = None,
-                secret_ref: typing.Optional[typing.Union["LocalObjectReference", typing.Dict[str, typing.Any]]] = None,
+                secret_ref: typing.Optional[typing.Union[LocalObjectReference, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -10826,10 +10826,10 @@ class FlowSchemaSpecV1Alpha1:
         if __debug__:
             def stub(
                 *,
-                priority_level_configuration: typing.Union["PriorityLevelConfigurationReferenceV1Alpha1", typing.Dict[str, typing.Any]],
+                priority_level_configuration: typing.Union[PriorityLevelConfigurationReferenceV1Alpha1, typing.Dict[str, typing.Any]],
                 distinguisher_method: typing.Optional[typing.Union[FlowDistinguisherMethodV1Alpha1, typing.Dict[str, typing.Any]]] = None,
                 matching_precedence: typing.Optional[jsii.Number] = None,
-                rules: typing.Optional[typing.Sequence[typing.Union["PolicyRulesWithSubjectsV1Alpha1", typing.Dict[str, typing.Any]]]] = None,
+                rules: typing.Optional[typing.Sequence[typing.Union[PolicyRulesWithSubjectsV1Alpha1, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -10928,7 +10928,7 @@ class FsGroupStrategyOptionsV1Beta1:
         if __debug__:
             def stub(
                 *,
-                ranges: typing.Optional[typing.Sequence[typing.Union["IdRangeV1Beta1", typing.Dict[str, typing.Any]]]] = None,
+                ranges: typing.Optional[typing.Sequence[typing.Union[IdRangeV1Beta1, typing.Dict[str, typing.Any]]]] = None,
                 rule: typing.Optional[builtins.str] = None,
             ) -> None:
                 ...
@@ -11412,8 +11412,8 @@ class Handler:
             def stub(
                 *,
                 exec: typing.Optional[typing.Union[ExecAction, typing.Dict[str, typing.Any]]] = None,
-                http_get: typing.Optional[typing.Union["HttpGetAction", typing.Dict[str, typing.Any]]] = None,
-                tcp_socket: typing.Optional[typing.Union["TcpSocketAction", typing.Dict[str, typing.Any]]] = None,
+                http_get: typing.Optional[typing.Union[HttpGetAction, typing.Dict[str, typing.Any]]] = None,
+                tcp_socket: typing.Optional[typing.Union[TcpSocketAction, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -11617,7 +11617,7 @@ class HorizontalPodAutoscalerSpecV2Beta1:
                 *,
                 max_replicas: jsii.Number,
                 scale_target_ref: typing.Union[CrossVersionObjectReferenceV2Beta1, typing.Dict[str, typing.Any]],
-                metrics: typing.Optional[typing.Sequence[typing.Union["MetricSpecV2Beta1", typing.Dict[str, typing.Any]]]] = None,
+                metrics: typing.Optional[typing.Sequence[typing.Union[MetricSpecV2Beta1, typing.Dict[str, typing.Any]]]] = None,
                 min_replicas: typing.Optional[jsii.Number] = None,
             ) -> None:
                 ...
@@ -11726,7 +11726,7 @@ class HorizontalPodAutoscalerSpecV2Beta2:
                 *,
                 max_replicas: jsii.Number,
                 scale_target_ref: typing.Union[CrossVersionObjectReferenceV2Beta2, typing.Dict[str, typing.Any]],
-                metrics: typing.Optional[typing.Sequence[typing.Union["MetricSpecV2Beta2", typing.Dict[str, typing.Any]]]] = None,
+                metrics: typing.Optional[typing.Sequence[typing.Union[MetricSpecV2Beta2, typing.Dict[str, typing.Any]]]] = None,
                 min_replicas: typing.Optional[jsii.Number] = None,
             ) -> None:
                 ...
@@ -12030,9 +12030,9 @@ class HttpGetAction:
         if __debug__:
             def stub(
                 *,
-                port: "IntOrString",
+                port: IntOrString,
                 host: typing.Optional[builtins.str] = None,
-                http_headers: typing.Optional[typing.Sequence[typing.Union["HttpHeader", typing.Dict[str, typing.Any]]]] = None,
+                http_headers: typing.Optional[typing.Sequence[typing.Union[HttpHeader, typing.Dict[str, typing.Any]]]] = None,
                 path: typing.Optional[builtins.str] = None,
                 scheme: typing.Optional[builtins.str] = None,
             ) -> None:
@@ -12206,7 +12206,7 @@ class HttpIngressPathV1Beta1:
         if __debug__:
             def stub(
                 *,
-                backend: typing.Union["IngressBackendV1Beta1", typing.Dict[str, typing.Any]],
+                backend: typing.Union[IngressBackendV1Beta1, typing.Dict[str, typing.Any]],
                 path: typing.Optional[builtins.str] = None,
             ) -> None:
                 ...
@@ -12380,11 +12380,7 @@ class IngressBackendV1Beta1:
         :schema: io.k8s.api.networking.v1beta1.IngressBackend
         '''
         if __debug__:
-            def stub(
-                *,
-                service_name: builtins.str,
-                service_port: "IntOrString",
-            ) -> None:
+            def stub(*, service_name: builtins.str, service_port: IntOrString) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
             check_type(argname="argument service_name", value=service_name, expected_type=type_hints["service_name"])
@@ -12529,7 +12525,7 @@ class IngressSpecV1Beta1:
                 *,
                 backend: typing.Optional[typing.Union[IngressBackendV1Beta1, typing.Dict[str, typing.Any]]] = None,
                 rules: typing.Optional[typing.Sequence[typing.Union[IngressRuleV1Beta1, typing.Dict[str, typing.Any]]]] = None,
-                tls: typing.Optional[typing.Sequence[typing.Union["IngressTlsv1Beta1", typing.Dict[str, typing.Any]]]] = None,
+                tls: typing.Optional[typing.Sequence[typing.Union[IngressTlsv1Beta1, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -12910,7 +12906,7 @@ class IscsiPersistentVolumeSource:
                 iscsi_interface: typing.Optional[builtins.str] = None,
                 portals: typing.Optional[typing.Sequence[builtins.str]] = None,
                 read_only: typing.Optional[builtins.bool] = None,
-                secret_ref: typing.Optional[typing.Union["SecretReference", typing.Dict[str, typing.Any]]] = None,
+                secret_ref: typing.Optional[typing.Union[SecretReference, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -13143,7 +13139,7 @@ class IscsiVolumeSource:
                 iscsi_interface: typing.Optional[builtins.str] = None,
                 portals: typing.Optional[typing.Sequence[builtins.str]] = None,
                 read_only: typing.Optional[builtins.bool] = None,
-                secret_ref: typing.Optional[typing.Union["LocalObjectReference", typing.Dict[str, typing.Any]]] = None,
+                secret_ref: typing.Optional[typing.Union[LocalObjectReference, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -13357,13 +13353,13 @@ class JobSpec:
         if __debug__:
             def stub(
                 *,
-                template: typing.Union["PodTemplateSpec", typing.Dict[str, typing.Any]],
+                template: typing.Union[PodTemplateSpec, typing.Dict[str, typing.Any]],
                 active_deadline_seconds: typing.Optional[jsii.Number] = None,
                 backoff_limit: typing.Optional[jsii.Number] = None,
                 completions: typing.Optional[jsii.Number] = None,
                 manual_selector: typing.Optional[builtins.bool] = None,
                 parallelism: typing.Optional[jsii.Number] = None,
-                selector: typing.Optional[typing.Union["LabelSelector", typing.Dict[str, typing.Any]]] = None,
+                selector: typing.Optional[typing.Union[LabelSelector, typing.Dict[str, typing.Any]]] = None,
                 ttl_seconds_after_finished: typing.Optional[jsii.Number] = None,
             ) -> None:
                 ...
@@ -13523,7 +13519,7 @@ class JobTemplateSpecV1Beta1:
         if __debug__:
             def stub(
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
                 spec: typing.Optional[typing.Union[JobSpec, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
@@ -13596,7 +13592,7 @@ class JobTemplateSpecV2Alpha1:
         if __debug__:
             def stub(
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
                 spec: typing.Optional[typing.Union[JobSpec, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
@@ -13797,10 +13793,10 @@ class JsonSchemaProps:
                 *,
                 additional_items: typing.Any = None,
                 additional_properties: typing.Any = None,
-                all_of: typing.Optional[typing.Sequence[typing.Union["JsonSchemaProps", typing.Dict[str, typing.Any]]]] = None,
-                any_of: typing.Optional[typing.Sequence[typing.Union["JsonSchemaProps", typing.Dict[str, typing.Any]]]] = None,
+                all_of: typing.Optional[typing.Sequence[typing.Union[JsonSchemaProps, typing.Dict[str, typing.Any]]]] = None,
+                any_of: typing.Optional[typing.Sequence[typing.Union[JsonSchemaProps, typing.Dict[str, typing.Any]]]] = None,
                 default: typing.Any = None,
-                definitions: typing.Optional[typing.Mapping[builtins.str, typing.Union["JsonSchemaProps", typing.Dict[str, typing.Any]]]] = None,
+                definitions: typing.Optional[typing.Mapping[builtins.str, typing.Union[JsonSchemaProps, typing.Dict[str, typing.Any]]]] = None,
                 dependencies: typing.Optional[typing.Mapping[builtins.str, typing.Any]] = None,
                 description: typing.Optional[builtins.str] = None,
                 enum: typing.Optional[typing.Sequence[typing.Any]] = None,
@@ -13820,12 +13816,12 @@ class JsonSchemaProps:
                 min_length: typing.Optional[jsii.Number] = None,
                 min_properties: typing.Optional[jsii.Number] = None,
                 multiple_of: typing.Optional[jsii.Number] = None,
-                not_: typing.Optional[typing.Union["JsonSchemaProps", typing.Dict[str, typing.Any]]] = None,
+                not_: typing.Optional[typing.Union[JsonSchemaProps, typing.Dict[str, typing.Any]]] = None,
                 nullable: typing.Optional[builtins.bool] = None,
-                one_of: typing.Optional[typing.Sequence[typing.Union["JsonSchemaProps", typing.Dict[str, typing.Any]]]] = None,
+                one_of: typing.Optional[typing.Sequence[typing.Union[JsonSchemaProps, typing.Dict[str, typing.Any]]]] = None,
                 pattern: typing.Optional[builtins.str] = None,
-                pattern_properties: typing.Optional[typing.Mapping[builtins.str, typing.Union["JsonSchemaProps", typing.Dict[str, typing.Any]]]] = None,
-                properties: typing.Optional[typing.Mapping[builtins.str, typing.Union["JsonSchemaProps", typing.Dict[str, typing.Any]]]] = None,
+                pattern_properties: typing.Optional[typing.Mapping[builtins.str, typing.Union[JsonSchemaProps, typing.Dict[str, typing.Any]]]] = None,
+                properties: typing.Optional[typing.Mapping[builtins.str, typing.Union[JsonSchemaProps, typing.Dict[str, typing.Any]]]] = None,
                 ref: typing.Optional[builtins.str] = None,
                 required: typing.Optional[typing.Sequence[builtins.str]] = None,
                 schema: typing.Optional[builtins.str] = None,
@@ -14544,10 +14540,10 @@ class JsonSchemaPropsV1Beta1:
                 *,
                 additional_items: typing.Any = None,
                 additional_properties: typing.Any = None,
-                all_of: typing.Optional[typing.Sequence[typing.Union["JsonSchemaPropsV1Beta1", typing.Dict[str, typing.Any]]]] = None,
-                any_of: typing.Optional[typing.Sequence[typing.Union["JsonSchemaPropsV1Beta1", typing.Dict[str, typing.Any]]]] = None,
+                all_of: typing.Optional[typing.Sequence[typing.Union[JsonSchemaPropsV1Beta1, typing.Dict[str, typing.Any]]]] = None,
+                any_of: typing.Optional[typing.Sequence[typing.Union[JsonSchemaPropsV1Beta1, typing.Dict[str, typing.Any]]]] = None,
                 default: typing.Any = None,
-                definitions: typing.Optional[typing.Mapping[builtins.str, typing.Union["JsonSchemaPropsV1Beta1", typing.Dict[str, typing.Any]]]] = None,
+                definitions: typing.Optional[typing.Mapping[builtins.str, typing.Union[JsonSchemaPropsV1Beta1, typing.Dict[str, typing.Any]]]] = None,
                 dependencies: typing.Optional[typing.Mapping[builtins.str, typing.Any]] = None,
                 description: typing.Optional[builtins.str] = None,
                 enum: typing.Optional[typing.Sequence[typing.Any]] = None,
@@ -14567,12 +14563,12 @@ class JsonSchemaPropsV1Beta1:
                 min_length: typing.Optional[jsii.Number] = None,
                 min_properties: typing.Optional[jsii.Number] = None,
                 multiple_of: typing.Optional[jsii.Number] = None,
-                not_: typing.Optional[typing.Union["JsonSchemaPropsV1Beta1", typing.Dict[str, typing.Any]]] = None,
+                not_: typing.Optional[typing.Union[JsonSchemaPropsV1Beta1, typing.Dict[str, typing.Any]]] = None,
                 nullable: typing.Optional[builtins.bool] = None,
-                one_of: typing.Optional[typing.Sequence[typing.Union["JsonSchemaPropsV1Beta1", typing.Dict[str, typing.Any]]]] = None,
+                one_of: typing.Optional[typing.Sequence[typing.Union[JsonSchemaPropsV1Beta1, typing.Dict[str, typing.Any]]]] = None,
                 pattern: typing.Optional[builtins.str] = None,
-                pattern_properties: typing.Optional[typing.Mapping[builtins.str, typing.Union["JsonSchemaPropsV1Beta1", typing.Dict[str, typing.Any]]]] = None,
-                properties: typing.Optional[typing.Mapping[builtins.str, typing.Union["JsonSchemaPropsV1Beta1", typing.Dict[str, typing.Any]]]] = None,
+                pattern_properties: typing.Optional[typing.Mapping[builtins.str, typing.Union[JsonSchemaPropsV1Beta1, typing.Dict[str, typing.Any]]]] = None,
+                properties: typing.Optional[typing.Mapping[builtins.str, typing.Union[JsonSchemaPropsV1Beta1, typing.Dict[str, typing.Any]]]] = None,
                 ref: typing.Optional[builtins.str] = None,
                 required: typing.Optional[typing.Sequence[builtins.str]] = None,
                 schema: typing.Optional[builtins.str] = None,
@@ -15254,7 +15250,7 @@ class KubeApiService(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
                 spec: typing.Optional[typing.Union[ApiServiceSpec, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
@@ -15326,8 +15322,8 @@ class KubeApiServiceList(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeApiServiceProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeApiServiceProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -15392,8 +15388,8 @@ class KubeApiServiceListProps:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeApiServiceProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeApiServiceProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -15464,8 +15460,8 @@ class KubeApiServiceListV1Beta1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeApiServiceV1Beta1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeApiServiceV1Beta1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -15530,8 +15526,8 @@ class KubeApiServiceListV1Beta1Props:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeApiServiceV1Beta1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeApiServiceV1Beta1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -15600,7 +15596,7 @@ class KubeApiServiceProps:
         if __debug__:
             def stub(
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
                 spec: typing.Optional[typing.Union[ApiServiceSpec, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
@@ -15674,7 +15670,7 @@ class KubeApiServiceV1Beta1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
                 spec: typing.Optional[typing.Union[ApiServiceSpecV1Beta1, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
@@ -15744,7 +15740,7 @@ class KubeApiServiceV1Beta1Props:
         if __debug__:
             def stub(
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
                 spec: typing.Optional[typing.Union[ApiServiceSpecV1Beta1, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
@@ -15816,8 +15812,8 @@ class KubeAuditSinkListV1Alpha1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeAuditSinkV1Alpha1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeAuditSinkV1Alpha1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -15882,8 +15878,8 @@ class KubeAuditSinkListV1Alpha1Props:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeAuditSinkV1Alpha1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeAuditSinkV1Alpha1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -15955,7 +15951,7 @@ class KubeAuditSinkV1Alpha1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
                 spec: typing.Optional[typing.Union[AuditSinkSpecV1Alpha1, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
@@ -16023,7 +16019,7 @@ class KubeAuditSinkV1Alpha1Props:
         if __debug__:
             def stub(
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
                 spec: typing.Optional[typing.Union[AuditSinkSpecV1Alpha1, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
@@ -16097,8 +16093,8 @@ class KubeBinding(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                target: typing.Union["ObjectReference", typing.Dict[str, typing.Any]],
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                target: typing.Union[ObjectReference, typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -16167,8 +16163,8 @@ class KubeBindingProps:
         if __debug__:
             def stub(
                 *,
-                target: typing.Union["ObjectReference", typing.Dict[str, typing.Any]],
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                target: typing.Union[ObjectReference, typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -16242,8 +16238,8 @@ class KubeCertificateSigningRequestListV1Beta1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeCertificateSigningRequestV1Beta1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeCertificateSigningRequestV1Beta1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -16311,8 +16307,8 @@ class KubeCertificateSigningRequestListV1Beta1Props:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeCertificateSigningRequestV1Beta1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeCertificateSigningRequestV1Beta1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -16383,7 +16379,7 @@ class KubeCertificateSigningRequestV1Beta1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
                 spec: typing.Optional[typing.Union[CertificateSigningRequestSpecV1Beta1, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
@@ -16451,7 +16447,7 @@ class KubeCertificateSigningRequestV1Beta1Props:
         if __debug__:
             def stub(
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
                 spec: typing.Optional[typing.Union[CertificateSigningRequestSpecV1Beta1, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
@@ -16526,8 +16522,8 @@ class KubeClusterRole(
                 id: builtins.str,
                 *,
                 aggregation_rule: typing.Optional[typing.Union[AggregationRule, typing.Dict[str, typing.Any]]] = None,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                rules: typing.Optional[typing.Sequence[typing.Union["PolicyRule", typing.Dict[str, typing.Any]]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                rules: typing.Optional[typing.Sequence[typing.Union[PolicyRule, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -16608,9 +16604,9 @@ class KubeClusterRoleBinding(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                role_ref: typing.Union["RoleRef", typing.Dict[str, typing.Any]],
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                subjects: typing.Optional[typing.Sequence[typing.Union["Subject", typing.Dict[str, typing.Any]]]] = None,
+                role_ref: typing.Union[RoleRef, typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                subjects: typing.Optional[typing.Sequence[typing.Union[Subject, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -16687,8 +16683,8 @@ class KubeClusterRoleBindingList(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeClusterRoleBindingProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeClusterRoleBindingProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -16753,8 +16749,8 @@ class KubeClusterRoleBindingListProps:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeClusterRoleBindingProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeClusterRoleBindingProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -16829,8 +16825,8 @@ class KubeClusterRoleBindingListV1Alpha1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeClusterRoleBindingV1Alpha1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeClusterRoleBindingV1Alpha1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -16897,8 +16893,8 @@ class KubeClusterRoleBindingListV1Alpha1Props:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeClusterRoleBindingV1Alpha1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeClusterRoleBindingV1Alpha1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -16973,8 +16969,8 @@ class KubeClusterRoleBindingListV1Beta1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeClusterRoleBindingV1Beta1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeClusterRoleBindingV1Beta1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -17041,8 +17037,8 @@ class KubeClusterRoleBindingListV1Beta1Props:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeClusterRoleBindingV1Beta1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeClusterRoleBindingV1Beta1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -17119,9 +17115,9 @@ class KubeClusterRoleBindingProps:
         if __debug__:
             def stub(
                 *,
-                role_ref: typing.Union["RoleRef", typing.Dict[str, typing.Any]],
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                subjects: typing.Optional[typing.Sequence[typing.Union["Subject", typing.Dict[str, typing.Any]]]] = None,
+                role_ref: typing.Union[RoleRef, typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                subjects: typing.Optional[typing.Sequence[typing.Union[Subject, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -17212,9 +17208,9 @@ class KubeClusterRoleBindingV1Alpha1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                role_ref: typing.Union["RoleRefV1Alpha1", typing.Dict[str, typing.Any]],
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                subjects: typing.Optional[typing.Sequence[typing.Union["SubjectV1Alpha1", typing.Dict[str, typing.Any]]]] = None,
+                role_ref: typing.Union[RoleRefV1Alpha1, typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                subjects: typing.Optional[typing.Sequence[typing.Union[SubjectV1Alpha1, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -17295,9 +17291,9 @@ class KubeClusterRoleBindingV1Alpha1Props:
         if __debug__:
             def stub(
                 *,
-                role_ref: typing.Union["RoleRefV1Alpha1", typing.Dict[str, typing.Any]],
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                subjects: typing.Optional[typing.Sequence[typing.Union["SubjectV1Alpha1", typing.Dict[str, typing.Any]]]] = None,
+                role_ref: typing.Union[RoleRefV1Alpha1, typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                subjects: typing.Optional[typing.Sequence[typing.Union[SubjectV1Alpha1, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -17388,9 +17384,9 @@ class KubeClusterRoleBindingV1Beta1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                role_ref: typing.Union["RoleRefV1Beta1", typing.Dict[str, typing.Any]],
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                subjects: typing.Optional[typing.Sequence[typing.Union["SubjectV1Beta1", typing.Dict[str, typing.Any]]]] = None,
+                role_ref: typing.Union[RoleRefV1Beta1, typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                subjects: typing.Optional[typing.Sequence[typing.Union[SubjectV1Beta1, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -17471,9 +17467,9 @@ class KubeClusterRoleBindingV1Beta1Props:
         if __debug__:
             def stub(
                 *,
-                role_ref: typing.Union["RoleRefV1Beta1", typing.Dict[str, typing.Any]],
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                subjects: typing.Optional[typing.Sequence[typing.Union["SubjectV1Beta1", typing.Dict[str, typing.Any]]]] = None,
+                role_ref: typing.Union[RoleRefV1Beta1, typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                subjects: typing.Optional[typing.Sequence[typing.Union[SubjectV1Beta1, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -17560,8 +17556,8 @@ class KubeClusterRoleList(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeClusterRoleProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeClusterRoleProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -17626,8 +17622,8 @@ class KubeClusterRoleListProps:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeClusterRoleProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeClusterRoleProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -17702,8 +17698,8 @@ class KubeClusterRoleListV1Alpha1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeClusterRoleV1Alpha1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeClusterRoleV1Alpha1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -17770,8 +17766,8 @@ class KubeClusterRoleListV1Alpha1Props:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeClusterRoleV1Alpha1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeClusterRoleV1Alpha1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -17846,8 +17842,8 @@ class KubeClusterRoleListV1Beta1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeClusterRoleV1Beta1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeClusterRoleV1Beta1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -17914,8 +17910,8 @@ class KubeClusterRoleListV1Beta1Props:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeClusterRoleV1Beta1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeClusterRoleV1Beta1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -17991,8 +17987,8 @@ class KubeClusterRoleProps:
             def stub(
                 *,
                 aggregation_rule: typing.Optional[typing.Union[AggregationRule, typing.Dict[str, typing.Any]]] = None,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                rules: typing.Optional[typing.Sequence[typing.Union["PolicyRule", typing.Dict[str, typing.Any]]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                rules: typing.Optional[typing.Sequence[typing.Union[PolicyRule, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -18083,8 +18079,8 @@ class KubeClusterRoleV1Alpha1(
                 id: builtins.str,
                 *,
                 aggregation_rule: typing.Optional[typing.Union[AggregationRuleV1Alpha1, typing.Dict[str, typing.Any]]] = None,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                rules: typing.Optional[typing.Sequence[typing.Union["PolicyRuleV1Alpha1", typing.Dict[str, typing.Any]]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                rules: typing.Optional[typing.Sequence[typing.Union[PolicyRuleV1Alpha1, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -18166,8 +18162,8 @@ class KubeClusterRoleV1Alpha1Props:
             def stub(
                 *,
                 aggregation_rule: typing.Optional[typing.Union[AggregationRuleV1Alpha1, typing.Dict[str, typing.Any]]] = None,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                rules: typing.Optional[typing.Sequence[typing.Union["PolicyRuleV1Alpha1", typing.Dict[str, typing.Any]]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                rules: typing.Optional[typing.Sequence[typing.Union[PolicyRuleV1Alpha1, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -18258,8 +18254,8 @@ class KubeClusterRoleV1Beta1(
                 id: builtins.str,
                 *,
                 aggregation_rule: typing.Optional[typing.Union[AggregationRuleV1Beta1, typing.Dict[str, typing.Any]]] = None,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                rules: typing.Optional[typing.Sequence[typing.Union["PolicyRuleV1Beta1", typing.Dict[str, typing.Any]]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                rules: typing.Optional[typing.Sequence[typing.Union[PolicyRuleV1Beta1, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -18341,8 +18337,8 @@ class KubeClusterRoleV1Beta1Props:
             def stub(
                 *,
                 aggregation_rule: typing.Optional[typing.Union[AggregationRuleV1Beta1, typing.Dict[str, typing.Any]]] = None,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                rules: typing.Optional[typing.Sequence[typing.Union["PolicyRuleV1Beta1", typing.Dict[str, typing.Any]]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                rules: typing.Optional[typing.Sequence[typing.Union[PolicyRuleV1Beta1, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -18429,7 +18425,7 @@ class KubeComponentStatus(
                 id: builtins.str,
                 *,
                 conditions: typing.Optional[typing.Sequence[typing.Union[ComponentCondition, typing.Dict[str, typing.Any]]]] = None,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -18500,8 +18496,8 @@ class KubeComponentStatusList(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeComponentStatusProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeComponentStatusProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -18566,8 +18562,8 @@ class KubeComponentStatusListProps:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeComponentStatusProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeComponentStatusProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -18637,7 +18633,7 @@ class KubeComponentStatusProps:
             def stub(
                 *,
                 conditions: typing.Optional[typing.Sequence[typing.Union[ComponentCondition, typing.Dict[str, typing.Any]]]] = None,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -18715,7 +18711,7 @@ class KubeConfigMap(
                 *,
                 binary_data: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
                 data: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -18792,8 +18788,8 @@ class KubeConfigMapList(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeConfigMapProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeConfigMapProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -18858,8 +18854,8 @@ class KubeConfigMapListProps:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeConfigMapProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeConfigMapProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -18930,7 +18926,7 @@ class KubeConfigMapProps:
                 *,
                 binary_data: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
                 data: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -19028,7 +19024,7 @@ class KubeControllerRevision(
                 *,
                 revision: jsii.Number,
                 data: typing.Any = None,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -19105,8 +19101,8 @@ class KubeControllerRevisionList(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeControllerRevisionProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeControllerRevisionProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -19171,8 +19167,8 @@ class KubeControllerRevisionListProps:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeControllerRevisionProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeControllerRevisionProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -19245,8 +19241,8 @@ class KubeControllerRevisionListV1Beta1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeControllerRevisionV1Beta1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeControllerRevisionV1Beta1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -19311,8 +19307,8 @@ class KubeControllerRevisionListV1Beta1Props:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeControllerRevisionV1Beta1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeControllerRevisionV1Beta1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -19385,8 +19381,8 @@ class KubeControllerRevisionListV1Beta2(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeControllerRevisionV1Beta2Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeControllerRevisionV1Beta2Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -19451,8 +19447,8 @@ class KubeControllerRevisionListV1Beta2Props:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeControllerRevisionV1Beta2Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeControllerRevisionV1Beta2Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -19525,7 +19521,7 @@ class KubeControllerRevisionProps:
                 *,
                 revision: jsii.Number,
                 data: typing.Any = None,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -19618,7 +19614,7 @@ class KubeControllerRevisionV1Beta1(
                 *,
                 revision: jsii.Number,
                 data: typing.Any = None,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -19695,7 +19691,7 @@ class KubeControllerRevisionV1Beta1Props:
                 *,
                 revision: jsii.Number,
                 data: typing.Any = None,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -19788,7 +19784,7 @@ class KubeControllerRevisionV1Beta2(
                 *,
                 revision: jsii.Number,
                 data: typing.Any = None,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -19865,7 +19861,7 @@ class KubeControllerRevisionV1Beta2Props:
                 *,
                 revision: jsii.Number,
                 data: typing.Any = None,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -19952,8 +19948,8 @@ class KubeCronJobListV1Beta1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeCronJobV1Beta1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeCronJobV1Beta1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -20018,8 +20014,8 @@ class KubeCronJobListV1Beta1Props:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeCronJobV1Beta1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeCronJobV1Beta1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -20094,8 +20090,8 @@ class KubeCronJobListV2Alpha1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeCronJobV2Alpha1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeCronJobV2Alpha1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -20160,8 +20156,8 @@ class KubeCronJobListV2Alpha1Props:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeCronJobV2Alpha1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeCronJobV2Alpha1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -20236,7 +20232,7 @@ class KubeCronJobV1Beta1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
                 spec: typing.Optional[typing.Union[CronJobSpecV1Beta1, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
@@ -20304,7 +20300,7 @@ class KubeCronJobV1Beta1Props:
         if __debug__:
             def stub(
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
                 spec: typing.Optional[typing.Union[CronJobSpecV1Beta1, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
@@ -20381,7 +20377,7 @@ class KubeCronJobV2Alpha1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
                 spec: typing.Optional[typing.Union[CronJobSpecV2Alpha1, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
@@ -20449,7 +20445,7 @@ class KubeCronJobV2Alpha1Props:
         if __debug__:
             def stub(
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
                 spec: typing.Optional[typing.Union[CronJobSpecV2Alpha1, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
@@ -20526,8 +20522,8 @@ class KubeCsiDriverListV1Beta1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeCsiDriverV1Beta1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeCsiDriverV1Beta1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -20592,8 +20588,8 @@ class KubeCsiDriverListV1Beta1Props:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeCsiDriverV1Beta1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeCsiDriverV1Beta1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -20669,7 +20665,7 @@ class KubeCsiDriverV1Beta1(
                 id: builtins.str,
                 *,
                 spec: typing.Union[CsiDriverSpecV1Beta1, typing.Dict[str, typing.Any]],
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -20739,7 +20735,7 @@ class KubeCsiDriverV1Beta1Props:
             def stub(
                 *,
                 spec: typing.Union[CsiDriverSpecV1Beta1, typing.Dict[str, typing.Any]],
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -20817,7 +20813,7 @@ class KubeCsiNode(
                 id: builtins.str,
                 *,
                 spec: typing.Union[CsiNodeSpec, typing.Dict[str, typing.Any]],
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -20888,8 +20884,8 @@ class KubeCsiNodeList(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeCsiNodeProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeCsiNodeProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -20954,8 +20950,8 @@ class KubeCsiNodeListProps:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeCsiNodeProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeCsiNodeProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -21028,8 +21024,8 @@ class KubeCsiNodeListV1Beta1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeCsiNodeV1Beta1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeCsiNodeV1Beta1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -21094,8 +21090,8 @@ class KubeCsiNodeListV1Beta1Props:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeCsiNodeV1Beta1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeCsiNodeV1Beta1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -21167,7 +21163,7 @@ class KubeCsiNodeProps:
             def stub(
                 *,
                 spec: typing.Union[CsiNodeSpec, typing.Dict[str, typing.Any]],
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -21243,7 +21239,7 @@ class KubeCsiNodeV1Beta1(
                 id: builtins.str,
                 *,
                 spec: typing.Union[CsiNodeSpecV1Beta1, typing.Dict[str, typing.Any]],
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -21313,7 +21309,7 @@ class KubeCsiNodeV1Beta1Props:
             def stub(
                 *,
                 spec: typing.Union[CsiNodeSpecV1Beta1, typing.Dict[str, typing.Any]],
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -21389,7 +21385,7 @@ class KubeCustomResourceDefinition(
                 id: builtins.str,
                 *,
                 spec: typing.Union[CustomResourceDefinitionSpec, typing.Dict[str, typing.Any]],
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -21460,8 +21456,8 @@ class KubeCustomResourceDefinitionList(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeCustomResourceDefinitionProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeCustomResourceDefinitionProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -21526,8 +21522,8 @@ class KubeCustomResourceDefinitionListProps:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeCustomResourceDefinitionProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeCustomResourceDefinitionProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -21599,8 +21595,8 @@ class KubeCustomResourceDefinitionListV1Beta1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeCustomResourceDefinitionV1Beta1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeCustomResourceDefinitionV1Beta1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -21669,8 +21665,8 @@ class KubeCustomResourceDefinitionListV1Beta1Props:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeCustomResourceDefinitionV1Beta1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeCustomResourceDefinitionV1Beta1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -21741,7 +21737,7 @@ class KubeCustomResourceDefinitionProps:
             def stub(
                 *,
                 spec: typing.Union[CustomResourceDefinitionSpec, typing.Dict[str, typing.Any]],
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -21816,7 +21812,7 @@ class KubeCustomResourceDefinitionV1Beta1(
                 id: builtins.str,
                 *,
                 spec: typing.Union[CustomResourceDefinitionSpecV1Beta1, typing.Dict[str, typing.Any]],
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -21886,7 +21882,7 @@ class KubeCustomResourceDefinitionV1Beta1Props:
             def stub(
                 *,
                 spec: typing.Union[CustomResourceDefinitionSpecV1Beta1, typing.Dict[str, typing.Any]],
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -21958,7 +21954,7 @@ class KubeDaemonSet(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
                 spec: typing.Optional[typing.Union[DaemonSetSpec, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
@@ -22030,8 +22026,8 @@ class KubeDaemonSetList(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeDaemonSetProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeDaemonSetProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -22096,8 +22092,8 @@ class KubeDaemonSetListProps:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeDaemonSetProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeDaemonSetProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -22172,8 +22168,8 @@ class KubeDaemonSetListV1Beta1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeDaemonSetV1Beta1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeDaemonSetV1Beta1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -22238,8 +22234,8 @@ class KubeDaemonSetListV1Beta1Props:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeDaemonSetV1Beta1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeDaemonSetV1Beta1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -22314,8 +22310,8 @@ class KubeDaemonSetListV1Beta2(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeDaemonSetV1Beta2Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeDaemonSetV1Beta2Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -22380,8 +22376,8 @@ class KubeDaemonSetListV1Beta2Props:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeDaemonSetV1Beta2Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeDaemonSetV1Beta2Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -22452,7 +22448,7 @@ class KubeDaemonSetProps:
         if __debug__:
             def stub(
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
                 spec: typing.Optional[typing.Union[DaemonSetSpec, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
@@ -22531,7 +22527,7 @@ class KubeDaemonSetV1Beta1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
                 spec: typing.Optional[typing.Union[DaemonSetSpecV1Beta1, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
@@ -22601,7 +22597,7 @@ class KubeDaemonSetV1Beta1Props:
         if __debug__:
             def stub(
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
                 spec: typing.Optional[typing.Union[DaemonSetSpecV1Beta1, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
@@ -22680,7 +22676,7 @@ class KubeDaemonSetV1Beta2(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
                 spec: typing.Optional[typing.Union[DaemonSetSpecV1Beta2, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
@@ -22750,7 +22746,7 @@ class KubeDaemonSetV1Beta2Props:
         if __debug__:
             def stub(
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
                 spec: typing.Optional[typing.Union[DaemonSetSpecV1Beta2, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
@@ -22827,7 +22823,7 @@ class KubeDeployment(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
                 spec: typing.Optional[typing.Union[DeploymentSpec, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
@@ -22899,8 +22895,8 @@ class KubeDeploymentList(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeDeploymentProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeDeploymentProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -22965,8 +22961,8 @@ class KubeDeploymentListProps:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeDeploymentProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeDeploymentProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -23039,8 +23035,8 @@ class KubeDeploymentListV1Beta1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeDeploymentV1Beta1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeDeploymentV1Beta1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -23105,8 +23101,8 @@ class KubeDeploymentListV1Beta1Props:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeDeploymentV1Beta1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeDeploymentV1Beta1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -23179,8 +23175,8 @@ class KubeDeploymentListV1Beta2(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeDeploymentV1Beta2Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeDeploymentV1Beta2Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -23245,8 +23241,8 @@ class KubeDeploymentListV1Beta2Props:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeDeploymentV1Beta2Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeDeploymentV1Beta2Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -23315,7 +23311,7 @@ class KubeDeploymentProps:
         if __debug__:
             def stub(
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
                 spec: typing.Optional[typing.Union[DeploymentSpec, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
@@ -23390,7 +23386,7 @@ class KubeDeploymentV1Beta1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
                 spec: typing.Optional[typing.Union[DeploymentSpecV1Beta1, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
@@ -23460,7 +23456,7 @@ class KubeDeploymentV1Beta1Props:
         if __debug__:
             def stub(
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
                 spec: typing.Optional[typing.Union[DeploymentSpecV1Beta1, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
@@ -23535,7 +23531,7 @@ class KubeDeploymentV1Beta2(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
                 spec: typing.Optional[typing.Union[DeploymentSpecV1Beta2, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
@@ -23605,7 +23601,7 @@ class KubeDeploymentV1Beta2Props:
         if __debug__:
             def stub(
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
                 spec: typing.Optional[typing.Union[DeploymentSpecV1Beta2, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
@@ -23678,8 +23674,8 @@ class KubeEndpointSliceListV1Beta1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeEndpointSliceV1Beta1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeEndpointSliceV1Beta1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -23744,8 +23740,8 @@ class KubeEndpointSliceListV1Beta1Props:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeEndpointSliceV1Beta1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeEndpointSliceV1Beta1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -23826,7 +23822,7 @@ class KubeEndpointSliceV1Beta1(
                 *,
                 address_type: builtins.str,
                 endpoints: typing.Sequence[typing.Union[EndpointV1Beta1, typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
                 ports: typing.Optional[typing.Sequence[typing.Union[EndpointPortV1Beta1, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
@@ -23919,7 +23915,7 @@ class KubeEndpointSliceV1Beta1Props:
                 *,
                 address_type: builtins.str,
                 endpoints: typing.Sequence[typing.Union[EndpointV1Beta1, typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
                 ports: typing.Optional[typing.Sequence[typing.Union[EndpointPortV1Beta1, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
@@ -24036,7 +24032,7 @@ class KubeEndpoints(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
                 subsets: typing.Optional[typing.Sequence[typing.Union[EndpointSubset, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
@@ -24108,8 +24104,8 @@ class KubeEndpointsList(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeEndpointsProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeEndpointsProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -24174,8 +24170,8 @@ class KubeEndpointsListProps:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeEndpointsProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeEndpointsProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -24257,7 +24253,7 @@ class KubeEndpointsProps:
         if __debug__:
             def stub(
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
                 subsets: typing.Optional[typing.Sequence[typing.Union[EndpointSubset, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
@@ -24356,8 +24352,8 @@ class KubeEvent(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeEve
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                involved_object: typing.Union["ObjectReference", typing.Dict[str, typing.Any]],
-                metadata: typing.Union["ObjectMeta", typing.Dict[str, typing.Any]],
+                involved_object: typing.Union[ObjectReference, typing.Dict[str, typing.Any]],
+                metadata: typing.Union[ObjectMeta, typing.Dict[str, typing.Any]],
                 action: typing.Optional[builtins.str] = None,
                 count: typing.Optional[jsii.Number] = None,
                 event_time: typing.Optional[datetime.datetime] = None,
@@ -24365,7 +24361,7 @@ class KubeEvent(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeEve
                 last_timestamp: typing.Optional[datetime.datetime] = None,
                 message: typing.Optional[builtins.str] = None,
                 reason: typing.Optional[builtins.str] = None,
-                related: typing.Optional[typing.Union["ObjectReference", typing.Dict[str, typing.Any]]] = None,
+                related: typing.Optional[typing.Union[ObjectReference, typing.Dict[str, typing.Any]]] = None,
                 reporting_component: typing.Optional[builtins.str] = None,
                 reporting_instance: typing.Optional[builtins.str] = None,
                 series: typing.Optional[typing.Union[EventSeries, typing.Dict[str, typing.Any]]] = None,
@@ -24499,8 +24495,8 @@ class KubeEventList(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeEventProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeEventProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -24565,8 +24561,8 @@ class KubeEventListProps:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeEventProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeEventProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -24641,8 +24637,8 @@ class KubeEventListV1Beta1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeEventV1Beta1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeEventV1Beta1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -24707,8 +24703,8 @@ class KubeEventListV1Beta1Props:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeEventV1Beta1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeEventV1Beta1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -24827,8 +24823,8 @@ class KubeEventProps:
         if __debug__:
             def stub(
                 *,
-                involved_object: typing.Union["ObjectReference", typing.Dict[str, typing.Any]],
-                metadata: typing.Union["ObjectMeta", typing.Dict[str, typing.Any]],
+                involved_object: typing.Union[ObjectReference, typing.Dict[str, typing.Any]],
+                metadata: typing.Union[ObjectMeta, typing.Dict[str, typing.Any]],
                 action: typing.Optional[builtins.str] = None,
                 count: typing.Optional[jsii.Number] = None,
                 event_time: typing.Optional[datetime.datetime] = None,
@@ -24836,7 +24832,7 @@ class KubeEventProps:
                 last_timestamp: typing.Optional[datetime.datetime] = None,
                 message: typing.Optional[builtins.str] = None,
                 reason: typing.Optional[builtins.str] = None,
-                related: typing.Optional[typing.Union["ObjectReference", typing.Dict[str, typing.Any]]] = None,
+                related: typing.Optional[typing.Union[ObjectReference, typing.Dict[str, typing.Any]]] = None,
                 reporting_component: typing.Optional[builtins.str] = None,
                 reporting_instance: typing.Optional[builtins.str] = None,
                 series: typing.Optional[typing.Union[EventSeries, typing.Dict[str, typing.Any]]] = None,
@@ -25110,11 +25106,11 @@ class KubeEventV1Beta1(
                 deprecated_first_timestamp: typing.Optional[datetime.datetime] = None,
                 deprecated_last_timestamp: typing.Optional[datetime.datetime] = None,
                 deprecated_source: typing.Optional[typing.Union[EventSource, typing.Dict[str, typing.Any]]] = None,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
                 note: typing.Optional[builtins.str] = None,
                 reason: typing.Optional[builtins.str] = None,
-                regarding: typing.Optional[typing.Union["ObjectReference", typing.Dict[str, typing.Any]]] = None,
-                related: typing.Optional[typing.Union["ObjectReference", typing.Dict[str, typing.Any]]] = None,
+                regarding: typing.Optional[typing.Union[ObjectReference, typing.Dict[str, typing.Any]]] = None,
+                related: typing.Optional[typing.Union[ObjectReference, typing.Dict[str, typing.Any]]] = None,
                 reporting_controller: typing.Optional[builtins.str] = None,
                 reporting_instance: typing.Optional[builtins.str] = None,
                 series: typing.Optional[typing.Union[EventSeriesV1Beta1, typing.Dict[str, typing.Any]]] = None,
@@ -25299,11 +25295,11 @@ class KubeEventV1Beta1Props:
                 deprecated_first_timestamp: typing.Optional[datetime.datetime] = None,
                 deprecated_last_timestamp: typing.Optional[datetime.datetime] = None,
                 deprecated_source: typing.Optional[typing.Union[EventSource, typing.Dict[str, typing.Any]]] = None,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
                 note: typing.Optional[builtins.str] = None,
                 reason: typing.Optional[builtins.str] = None,
-                regarding: typing.Optional[typing.Union["ObjectReference", typing.Dict[str, typing.Any]]] = None,
-                related: typing.Optional[typing.Union["ObjectReference", typing.Dict[str, typing.Any]]] = None,
+                regarding: typing.Optional[typing.Union[ObjectReference, typing.Dict[str, typing.Any]]] = None,
+                related: typing.Optional[typing.Union[ObjectReference, typing.Dict[str, typing.Any]]] = None,
                 reporting_controller: typing.Optional[builtins.str] = None,
                 reporting_instance: typing.Optional[builtins.str] = None,
                 series: typing.Optional[typing.Union[EventSeriesV1Beta1, typing.Dict[str, typing.Any]]] = None,
@@ -25546,7 +25542,7 @@ class KubeEvictionV1Beta1(
                 id: builtins.str,
                 *,
                 delete_options: typing.Optional[typing.Union[DeleteOptions, typing.Dict[str, typing.Any]]] = None,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -25620,7 +25616,7 @@ class KubeEvictionV1Beta1Props:
             def stub(
                 *,
                 delete_options: typing.Optional[typing.Union[DeleteOptions, typing.Dict[str, typing.Any]]] = None,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -25692,8 +25688,8 @@ class KubeFlowSchemaListV1Alpha1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeFlowSchemaV1Alpha1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeFlowSchemaV1Alpha1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -25758,8 +25754,8 @@ class KubeFlowSchemaListV1Alpha1Props:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeFlowSchemaV1Alpha1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeFlowSchemaV1Alpha1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -25836,7 +25832,7 @@ class KubeFlowSchemaV1Alpha1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
                 spec: typing.Optional[typing.Union[FlowSchemaSpecV1Alpha1, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
@@ -25906,7 +25902,7 @@ class KubeFlowSchemaV1Alpha1Props:
         if __debug__:
             def stub(
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
                 spec: typing.Optional[typing.Union[FlowSchemaSpecV1Alpha1, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
@@ -25983,7 +25979,7 @@ class KubeHorizontalPodAutoscaler(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
                 spec: typing.Optional[typing.Union[HorizontalPodAutoscalerSpec, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
@@ -26055,8 +26051,8 @@ class KubeHorizontalPodAutoscalerList(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeHorizontalPodAutoscalerProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeHorizontalPodAutoscalerProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -26121,8 +26117,8 @@ class KubeHorizontalPodAutoscalerListProps:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeHorizontalPodAutoscalerProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeHorizontalPodAutoscalerProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -26195,8 +26191,8 @@ class KubeHorizontalPodAutoscalerListV2Beta1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeHorizontalPodAutoscalerV2Beta1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeHorizontalPodAutoscalerV2Beta1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -26265,8 +26261,8 @@ class KubeHorizontalPodAutoscalerListV2Beta1Props:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeHorizontalPodAutoscalerV2Beta1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeHorizontalPodAutoscalerV2Beta1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -26339,8 +26335,8 @@ class KubeHorizontalPodAutoscalerListV2Beta2(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeHorizontalPodAutoscalerV2Beta2Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeHorizontalPodAutoscalerV2Beta2Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -26409,8 +26405,8 @@ class KubeHorizontalPodAutoscalerListV2Beta2Props:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeHorizontalPodAutoscalerV2Beta2Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeHorizontalPodAutoscalerV2Beta2Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -26479,7 +26475,7 @@ class KubeHorizontalPodAutoscalerProps:
         if __debug__:
             def stub(
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
                 spec: typing.Optional[typing.Union[HorizontalPodAutoscalerSpec, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
@@ -26556,7 +26552,7 @@ class KubeHorizontalPodAutoscalerV2Beta1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
                 spec: typing.Optional[typing.Union[HorizontalPodAutoscalerSpecV2Beta1, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
@@ -26624,7 +26620,7 @@ class KubeHorizontalPodAutoscalerV2Beta1Props:
         if __debug__:
             def stub(
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
                 spec: typing.Optional[typing.Union[HorizontalPodAutoscalerSpecV2Beta1, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
@@ -26701,7 +26697,7 @@ class KubeHorizontalPodAutoscalerV2Beta2(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
                 spec: typing.Optional[typing.Union[HorizontalPodAutoscalerSpecV2Beta2, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
@@ -26769,7 +26765,7 @@ class KubeHorizontalPodAutoscalerV2Beta2Props:
         if __debug__:
             def stub(
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
                 spec: typing.Optional[typing.Union[HorizontalPodAutoscalerSpecV2Beta2, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
@@ -26846,8 +26842,8 @@ class KubeIngressListV1Beta1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeIngressV1Beta1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeIngressV1Beta1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -26912,8 +26908,8 @@ class KubeIngressListV1Beta1Props:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeIngressV1Beta1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeIngressV1Beta1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -26990,7 +26986,7 @@ class KubeIngressV1Beta1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
                 spec: typing.Optional[typing.Union[IngressSpecV1Beta1, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
@@ -27060,7 +27056,7 @@ class KubeIngressV1Beta1Props:
         if __debug__:
             def stub(
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
                 spec: typing.Optional[typing.Union[IngressSpecV1Beta1, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
@@ -27133,7 +27129,7 @@ class KubeJob(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeJob")
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
                 spec: typing.Optional[typing.Union[JobSpec, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
@@ -27205,8 +27201,8 @@ class KubeJobList(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeJobProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeJobProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -27271,8 +27267,8 @@ class KubeJobListProps:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeJobProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeJobProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -27343,7 +27339,7 @@ class KubeJobProps:
         if __debug__:
             def stub(
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
                 spec: typing.Optional[typing.Union[JobSpec, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
@@ -27416,8 +27412,8 @@ class KubeLease(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeLea
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                spec: typing.Optional[typing.Union["LeaseSpec", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[LeaseSpec, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -27488,8 +27484,8 @@ class KubeLeaseList(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeLeaseProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeLeaseProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -27554,8 +27550,8 @@ class KubeLeaseListProps:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeLeaseProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeLeaseProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -27630,8 +27626,8 @@ class KubeLeaseListV1Beta1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeLeaseV1Beta1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeLeaseV1Beta1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -27696,8 +27692,8 @@ class KubeLeaseListV1Beta1Props:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeLeaseV1Beta1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeLeaseV1Beta1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -27768,8 +27764,8 @@ class KubeLeaseProps:
         if __debug__:
             def stub(
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                spec: typing.Optional[typing.Union["LeaseSpec", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[LeaseSpec, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -27843,8 +27839,8 @@ class KubeLeaseV1Beta1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                spec: typing.Optional[typing.Union["LeaseSpecV1Beta1", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[LeaseSpecV1Beta1, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -27911,8 +27907,8 @@ class KubeLeaseV1Beta1Props:
         if __debug__:
             def stub(
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                spec: typing.Optional[typing.Union["LeaseSpecV1Beta1", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[LeaseSpecV1Beta1, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -27986,8 +27982,8 @@ class KubeLimitRange(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                spec: typing.Optional[typing.Union["LimitRangeSpec", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[LimitRangeSpec, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -28058,8 +28054,8 @@ class KubeLimitRangeList(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeLimitRangeProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeLimitRangeProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -28124,8 +28120,8 @@ class KubeLimitRangeListProps:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeLimitRangeProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeLimitRangeProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -28198,8 +28194,8 @@ class KubeLimitRangeProps:
         if __debug__:
             def stub(
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                spec: typing.Optional[typing.Union["LimitRangeSpec", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[LimitRangeSpec, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -28277,8 +28273,8 @@ class KubeLocalSubjectAccessReview(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                spec: typing.Union["SubjectAccessReviewSpec", typing.Dict[str, typing.Any]],
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Union[SubjectAccessReviewSpec, typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -28347,8 +28343,8 @@ class KubeLocalSubjectAccessReviewProps:
         if __debug__:
             def stub(
                 *,
-                spec: typing.Union["SubjectAccessReviewSpec", typing.Dict[str, typing.Any]],
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Union[SubjectAccessReviewSpec, typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -28424,8 +28420,8 @@ class KubeLocalSubjectAccessReviewV1Beta1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                spec: typing.Union["SubjectAccessReviewSpecV1Beta1", typing.Dict[str, typing.Any]],
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Union[SubjectAccessReviewSpecV1Beta1, typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -28494,8 +28490,8 @@ class KubeLocalSubjectAccessReviewV1Beta1Props:
         if __debug__:
             def stub(
                 *,
-                spec: typing.Union["SubjectAccessReviewSpecV1Beta1", typing.Dict[str, typing.Any]],
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Union[SubjectAccessReviewSpecV1Beta1, typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -28569,8 +28565,8 @@ class KubeMutatingWebhookConfiguration(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                webhooks: typing.Optional[typing.Sequence[typing.Union["MutatingWebhook", typing.Dict[str, typing.Any]]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                webhooks: typing.Optional[typing.Sequence[typing.Union[MutatingWebhook, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -28645,8 +28641,8 @@ class KubeMutatingWebhookConfigurationList(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeMutatingWebhookConfigurationProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeMutatingWebhookConfigurationProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -28715,8 +28711,8 @@ class KubeMutatingWebhookConfigurationListProps:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeMutatingWebhookConfigurationProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeMutatingWebhookConfigurationProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -28791,8 +28787,8 @@ class KubeMutatingWebhookConfigurationListV1Beta1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeMutatingWebhookConfigurationV1Beta1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeMutatingWebhookConfigurationV1Beta1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -28861,8 +28857,8 @@ class KubeMutatingWebhookConfigurationListV1Beta1Props:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeMutatingWebhookConfigurationV1Beta1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeMutatingWebhookConfigurationV1Beta1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -28931,8 +28927,8 @@ class KubeMutatingWebhookConfigurationProps:
         if __debug__:
             def stub(
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                webhooks: typing.Optional[typing.Sequence[typing.Union["MutatingWebhook", typing.Dict[str, typing.Any]]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                webhooks: typing.Optional[typing.Sequence[typing.Union[MutatingWebhook, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -29008,8 +29004,8 @@ class KubeMutatingWebhookConfigurationV1Beta1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                webhooks: typing.Optional[typing.Sequence[typing.Union["MutatingWebhookV1Beta1", typing.Dict[str, typing.Any]]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                webhooks: typing.Optional[typing.Sequence[typing.Union[MutatingWebhookV1Beta1, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -29080,8 +29076,8 @@ class KubeMutatingWebhookConfigurationV1Beta1Props:
         if __debug__:
             def stub(
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                webhooks: typing.Optional[typing.Sequence[typing.Union["MutatingWebhookV1Beta1", typing.Dict[str, typing.Any]]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                webhooks: typing.Optional[typing.Sequence[typing.Union[MutatingWebhookV1Beta1, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -29157,8 +29153,8 @@ class KubeNamespace(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                spec: typing.Optional[typing.Union["NamespaceSpec", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[NamespaceSpec, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -29229,8 +29225,8 @@ class KubeNamespaceList(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeNamespaceProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeNamespaceProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -29295,8 +29291,8 @@ class KubeNamespaceListProps:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeNamespaceProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeNamespaceProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -29371,8 +29367,8 @@ class KubeNamespaceProps:
         if __debug__:
             def stub(
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                spec: typing.Optional[typing.Union["NamespaceSpec", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[NamespaceSpec, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -29448,8 +29444,8 @@ class KubeNetworkPolicy(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                spec: typing.Optional[typing.Union["NetworkPolicySpec", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[NetworkPolicySpec, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -29520,8 +29516,8 @@ class KubeNetworkPolicyList(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeNetworkPolicyProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeNetworkPolicyProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -29586,8 +29582,8 @@ class KubeNetworkPolicyListProps:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeNetworkPolicyProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeNetworkPolicyProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -29662,8 +29658,8 @@ class KubeNetworkPolicyListV1Beta1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeNetworkPolicyV1Beta1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeNetworkPolicyV1Beta1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -29728,8 +29724,8 @@ class KubeNetworkPolicyListV1Beta1Props:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeNetworkPolicyV1Beta1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeNetworkPolicyV1Beta1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -29800,8 +29796,8 @@ class KubeNetworkPolicyProps:
         if __debug__:
             def stub(
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                spec: typing.Optional[typing.Union["NetworkPolicySpec", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[NetworkPolicySpec, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -29875,8 +29871,8 @@ class KubeNetworkPolicyV1Beta1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                spec: typing.Optional[typing.Union["NetworkPolicySpecV1Beta1", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[NetworkPolicySpecV1Beta1, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -29943,8 +29939,8 @@ class KubeNetworkPolicyV1Beta1Props:
         if __debug__:
             def stub(
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                spec: typing.Optional[typing.Union["NetworkPolicySpecV1Beta1", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[NetworkPolicySpecV1Beta1, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -30016,8 +30012,8 @@ class KubeNode(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeNode
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                spec: typing.Optional[typing.Union["NodeSpec", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[NodeSpec, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -30088,8 +30084,8 @@ class KubeNodeList(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeNodeProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeNodeProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -30154,8 +30150,8 @@ class KubeNodeListProps:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeNodeProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeNodeProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -30228,8 +30224,8 @@ class KubeNodeProps:
         if __debug__:
             def stub(
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                spec: typing.Optional[typing.Union["NodeSpec", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[NodeSpec, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -30307,8 +30303,8 @@ class KubePersistentVolume(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                spec: typing.Optional[typing.Union["PersistentVolumeSpec", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[PersistentVolumeSpec, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -30379,8 +30375,8 @@ class KubePersistentVolumeClaim(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                spec: typing.Optional[typing.Union["PersistentVolumeClaimSpec", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[PersistentVolumeClaimSpec, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -30451,8 +30447,8 @@ class KubePersistentVolumeClaimList(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubePersistentVolumeClaimProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubePersistentVolumeClaimProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -30517,8 +30513,8 @@ class KubePersistentVolumeClaimListProps:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubePersistentVolumeClaimProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubePersistentVolumeClaimProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -30591,8 +30587,8 @@ class KubePersistentVolumeClaimProps:
         if __debug__:
             def stub(
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                spec: typing.Optional[typing.Union["PersistentVolumeClaimSpec", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[PersistentVolumeClaimSpec, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -30668,8 +30664,8 @@ class KubePersistentVolumeList(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubePersistentVolumeProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubePersistentVolumeProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -30734,8 +30730,8 @@ class KubePersistentVolumeListProps:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubePersistentVolumeProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubePersistentVolumeProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -30810,8 +30806,8 @@ class KubePersistentVolumeProps:
         if __debug__:
             def stub(
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                spec: typing.Optional[typing.Union["PersistentVolumeSpec", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[PersistentVolumeSpec, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -30885,8 +30881,8 @@ class KubePod(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubePod")
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                spec: typing.Optional[typing.Union["PodSpec", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[PodSpec, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -30957,8 +30953,8 @@ class KubePodDisruptionBudgetListV1Beta1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubePodDisruptionBudgetV1Beta1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubePodDisruptionBudgetV1Beta1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -31023,8 +31019,8 @@ class KubePodDisruptionBudgetListV1Beta1Props:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubePodDisruptionBudgetV1Beta1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubePodDisruptionBudgetV1Beta1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -31095,8 +31091,8 @@ class KubePodDisruptionBudgetV1Beta1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                spec: typing.Optional[typing.Union["PodDisruptionBudgetSpecV1Beta1", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[PodDisruptionBudgetSpecV1Beta1, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -31163,8 +31159,8 @@ class KubePodDisruptionBudgetV1Beta1Props:
         if __debug__:
             def stub(
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                spec: typing.Optional[typing.Union["PodDisruptionBudgetSpecV1Beta1", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[PodDisruptionBudgetSpecV1Beta1, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -31235,8 +31231,8 @@ class KubePodList(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubePodProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubePodProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -31301,8 +31297,8 @@ class KubePodListProps:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubePodProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubePodProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -31379,8 +31375,8 @@ class KubePodPresetListV1Alpha1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubePodPresetV1Alpha1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubePodPresetV1Alpha1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -31445,8 +31441,8 @@ class KubePodPresetListV1Alpha1Props:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubePodPresetV1Alpha1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubePodPresetV1Alpha1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -31521,8 +31517,8 @@ class KubePodPresetV1Alpha1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                spec: typing.Optional[typing.Union["PodPresetSpecV1Alpha1", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[PodPresetSpecV1Alpha1, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -31589,8 +31585,8 @@ class KubePodPresetV1Alpha1Props:
         if __debug__:
             def stub(
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                spec: typing.Optional[typing.Union["PodPresetSpecV1Alpha1", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[PodPresetSpecV1Alpha1, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -31658,8 +31654,8 @@ class KubePodProps:
         if __debug__:
             def stub(
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                spec: typing.Optional[typing.Union["PodSpec", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[PodSpec, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -31735,8 +31731,8 @@ class KubePodSecurityPolicyListV1Beta1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubePodSecurityPolicyV1Beta1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubePodSecurityPolicyV1Beta1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -31801,8 +31797,8 @@ class KubePodSecurityPolicyListV1Beta1Props:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubePodSecurityPolicyV1Beta1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubePodSecurityPolicyV1Beta1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -31877,8 +31873,8 @@ class KubePodSecurityPolicyV1Beta1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                spec: typing.Optional[typing.Union["PodSecurityPolicySpecV1Beta1", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[PodSecurityPolicySpecV1Beta1, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -31945,8 +31941,8 @@ class KubePodSecurityPolicyV1Beta1Props:
         if __debug__:
             def stub(
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                spec: typing.Optional[typing.Union["PodSecurityPolicySpecV1Beta1", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[PodSecurityPolicySpecV1Beta1, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -32020,8 +32016,8 @@ class KubePodTemplate(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                template: typing.Optional[typing.Union["PodTemplateSpec", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                template: typing.Optional[typing.Union[PodTemplateSpec, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -32092,8 +32088,8 @@ class KubePodTemplateList(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubePodTemplateProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubePodTemplateProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -32158,8 +32154,8 @@ class KubePodTemplateListProps:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubePodTemplateProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubePodTemplateProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -32230,8 +32226,8 @@ class KubePodTemplateProps:
         if __debug__:
             def stub(
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                template: typing.Optional[typing.Union["PodTemplateSpec", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                template: typing.Optional[typing.Union[PodTemplateSpec, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -32318,7 +32314,7 @@ class KubePriorityClass(
                 value: jsii.Number,
                 description: typing.Optional[builtins.str] = None,
                 global_default: typing.Optional[builtins.bool] = None,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
                 preemption_policy: typing.Optional[builtins.str] = None,
             ) -> None:
                 ...
@@ -32408,8 +32404,8 @@ class KubePriorityClassList(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubePriorityClassProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubePriorityClassProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -32474,8 +32470,8 @@ class KubePriorityClassListProps:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubePriorityClassProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubePriorityClassProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -32548,8 +32544,8 @@ class KubePriorityClassListV1Alpha1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubePriorityClassV1Alpha1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubePriorityClassV1Alpha1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -32614,8 +32610,8 @@ class KubePriorityClassListV1Alpha1Props:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubePriorityClassV1Alpha1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubePriorityClassV1Alpha1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -32688,8 +32684,8 @@ class KubePriorityClassListV1Beta1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubePriorityClassV1Beta1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubePriorityClassV1Beta1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -32754,8 +32750,8 @@ class KubePriorityClassListV1Beta1Props:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubePriorityClassV1Beta1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubePriorityClassV1Beta1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -32839,7 +32835,7 @@ class KubePriorityClassProps:
                 value: jsii.Number,
                 description: typing.Optional[builtins.str] = None,
                 global_default: typing.Optional[builtins.bool] = None,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
                 preemption_policy: typing.Optional[builtins.str] = None,
             ) -> None:
                 ...
@@ -32968,7 +32964,7 @@ class KubePriorityClassV1Alpha1(
                 value: jsii.Number,
                 description: typing.Optional[builtins.str] = None,
                 global_default: typing.Optional[builtins.bool] = None,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
                 preemption_policy: typing.Optional[builtins.str] = None,
             ) -> None:
                 ...
@@ -33067,7 +33063,7 @@ class KubePriorityClassV1Alpha1Props:
                 value: jsii.Number,
                 description: typing.Optional[builtins.str] = None,
                 global_default: typing.Optional[builtins.bool] = None,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
                 preemption_policy: typing.Optional[builtins.str] = None,
             ) -> None:
                 ...
@@ -33196,7 +33192,7 @@ class KubePriorityClassV1Beta1(
                 value: jsii.Number,
                 description: typing.Optional[builtins.str] = None,
                 global_default: typing.Optional[builtins.bool] = None,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
                 preemption_policy: typing.Optional[builtins.str] = None,
             ) -> None:
                 ...
@@ -33295,7 +33291,7 @@ class KubePriorityClassV1Beta1Props:
                 value: jsii.Number,
                 description: typing.Optional[builtins.str] = None,
                 global_default: typing.Optional[builtins.bool] = None,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
                 preemption_policy: typing.Optional[builtins.str] = None,
             ) -> None:
                 ...
@@ -33415,8 +33411,8 @@ class KubePriorityLevelConfigurationListV1Alpha1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubePriorityLevelConfigurationV1Alpha1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubePriorityLevelConfigurationV1Alpha1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -33485,8 +33481,8 @@ class KubePriorityLevelConfigurationListV1Alpha1Props:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubePriorityLevelConfigurationV1Alpha1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubePriorityLevelConfigurationV1Alpha1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -33561,8 +33557,8 @@ class KubePriorityLevelConfigurationV1Alpha1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                spec: typing.Optional[typing.Union["PriorityLevelConfigurationSpecV1Alpha1", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[PriorityLevelConfigurationSpecV1Alpha1, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -33633,8 +33629,8 @@ class KubePriorityLevelConfigurationV1Alpha1Props:
         if __debug__:
             def stub(
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                spec: typing.Optional[typing.Union["PriorityLevelConfigurationSpecV1Alpha1", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[PriorityLevelConfigurationSpecV1Alpha1, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -33710,8 +33706,8 @@ class KubeReplicaSet(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                spec: typing.Optional[typing.Union["ReplicaSetSpec", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[ReplicaSetSpec, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -33782,8 +33778,8 @@ class KubeReplicaSetList(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeReplicaSetProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeReplicaSetProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -33848,8 +33844,8 @@ class KubeReplicaSetListProps:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeReplicaSetProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeReplicaSetProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -33926,8 +33922,8 @@ class KubeReplicaSetListV1Beta1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeReplicaSetV1Beta1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeReplicaSetV1Beta1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -33992,8 +33988,8 @@ class KubeReplicaSetListV1Beta1Props:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeReplicaSetV1Beta1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeReplicaSetV1Beta1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -34070,8 +34066,8 @@ class KubeReplicaSetListV1Beta2(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeReplicaSetV1Beta2Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeReplicaSetV1Beta2Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -34136,8 +34132,8 @@ class KubeReplicaSetListV1Beta2Props:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeReplicaSetV1Beta2Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeReplicaSetV1Beta2Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -34210,8 +34206,8 @@ class KubeReplicaSetProps:
         if __debug__:
             def stub(
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                spec: typing.Optional[typing.Union["ReplicaSetSpec", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[ReplicaSetSpec, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -34289,8 +34285,8 @@ class KubeReplicaSetV1Beta1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                spec: typing.Optional[typing.Union["ReplicaSetSpecV1Beta1", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[ReplicaSetSpecV1Beta1, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -34359,8 +34355,8 @@ class KubeReplicaSetV1Beta1Props:
         if __debug__:
             def stub(
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                spec: typing.Optional[typing.Union["ReplicaSetSpecV1Beta1", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[ReplicaSetSpecV1Beta1, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -34438,8 +34434,8 @@ class KubeReplicaSetV1Beta2(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                spec: typing.Optional[typing.Union["ReplicaSetSpecV1Beta2", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[ReplicaSetSpecV1Beta2, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -34508,8 +34504,8 @@ class KubeReplicaSetV1Beta2Props:
         if __debug__:
             def stub(
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                spec: typing.Optional[typing.Union["ReplicaSetSpecV1Beta2", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[ReplicaSetSpecV1Beta2, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -34585,8 +34581,8 @@ class KubeReplicationController(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                spec: typing.Optional[typing.Union["ReplicationControllerSpec", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[ReplicationControllerSpec, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -34657,8 +34653,8 @@ class KubeReplicationControllerList(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeReplicationControllerProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeReplicationControllerProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -34723,8 +34719,8 @@ class KubeReplicationControllerListProps:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeReplicationControllerProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeReplicationControllerProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -34797,8 +34793,8 @@ class KubeReplicationControllerProps:
         if __debug__:
             def stub(
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                spec: typing.Optional[typing.Union["ReplicationControllerSpec", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[ReplicationControllerSpec, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -34874,8 +34870,8 @@ class KubeResourceQuota(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                spec: typing.Optional[typing.Union["ResourceQuotaSpec", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[ResourceQuotaSpec, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -34946,8 +34942,8 @@ class KubeResourceQuotaList(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeResourceQuotaProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeResourceQuotaProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -35012,8 +35008,8 @@ class KubeResourceQuotaListProps:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeResourceQuotaProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeResourceQuotaProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -35086,8 +35082,8 @@ class KubeResourceQuotaProps:
         if __debug__:
             def stub(
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                spec: typing.Optional[typing.Union["ResourceQuotaSpec", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[ResourceQuotaSpec, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -35159,8 +35155,8 @@ class KubeRole(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeRole
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                rules: typing.Optional[typing.Sequence[typing.Union["PolicyRule", typing.Dict[str, typing.Any]]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                rules: typing.Optional[typing.Sequence[typing.Union[PolicyRule, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -35235,9 +35231,9 @@ class KubeRoleBinding(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                role_ref: typing.Union["RoleRef", typing.Dict[str, typing.Any]],
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                subjects: typing.Optional[typing.Sequence[typing.Union["Subject", typing.Dict[str, typing.Any]]]] = None,
+                role_ref: typing.Union[RoleRef, typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                subjects: typing.Optional[typing.Sequence[typing.Union[Subject, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -35314,8 +35310,8 @@ class KubeRoleBindingList(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeRoleBindingProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeRoleBindingProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -35380,8 +35376,8 @@ class KubeRoleBindingListProps:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeRoleBindingProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeRoleBindingProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -35454,8 +35450,8 @@ class KubeRoleBindingListV1Alpha1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeRoleBindingV1Alpha1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeRoleBindingV1Alpha1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -35520,8 +35516,8 @@ class KubeRoleBindingListV1Alpha1Props:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeRoleBindingV1Alpha1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeRoleBindingV1Alpha1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -35594,8 +35590,8 @@ class KubeRoleBindingListV1Beta1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeRoleBindingV1Beta1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeRoleBindingV1Beta1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -35660,8 +35656,8 @@ class KubeRoleBindingListV1Beta1Props:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeRoleBindingV1Beta1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeRoleBindingV1Beta1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -35738,9 +35734,9 @@ class KubeRoleBindingProps:
         if __debug__:
             def stub(
                 *,
-                role_ref: typing.Union["RoleRef", typing.Dict[str, typing.Any]],
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                subjects: typing.Optional[typing.Sequence[typing.Union["Subject", typing.Dict[str, typing.Any]]]] = None,
+                role_ref: typing.Union[RoleRef, typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                subjects: typing.Optional[typing.Sequence[typing.Union[Subject, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -35831,9 +35827,9 @@ class KubeRoleBindingV1Alpha1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                role_ref: typing.Union["RoleRefV1Alpha1", typing.Dict[str, typing.Any]],
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                subjects: typing.Optional[typing.Sequence[typing.Union["SubjectV1Alpha1", typing.Dict[str, typing.Any]]]] = None,
+                role_ref: typing.Union[RoleRefV1Alpha1, typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                subjects: typing.Optional[typing.Sequence[typing.Union[SubjectV1Alpha1, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -35914,9 +35910,9 @@ class KubeRoleBindingV1Alpha1Props:
         if __debug__:
             def stub(
                 *,
-                role_ref: typing.Union["RoleRefV1Alpha1", typing.Dict[str, typing.Any]],
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                subjects: typing.Optional[typing.Sequence[typing.Union["SubjectV1Alpha1", typing.Dict[str, typing.Any]]]] = None,
+                role_ref: typing.Union[RoleRefV1Alpha1, typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                subjects: typing.Optional[typing.Sequence[typing.Union[SubjectV1Alpha1, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -36007,9 +36003,9 @@ class KubeRoleBindingV1Beta1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                role_ref: typing.Union["RoleRefV1Beta1", typing.Dict[str, typing.Any]],
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                subjects: typing.Optional[typing.Sequence[typing.Union["SubjectV1Beta1", typing.Dict[str, typing.Any]]]] = None,
+                role_ref: typing.Union[RoleRefV1Beta1, typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                subjects: typing.Optional[typing.Sequence[typing.Union[SubjectV1Beta1, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -36090,9 +36086,9 @@ class KubeRoleBindingV1Beta1Props:
         if __debug__:
             def stub(
                 *,
-                role_ref: typing.Union["RoleRefV1Beta1", typing.Dict[str, typing.Any]],
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                subjects: typing.Optional[typing.Sequence[typing.Union["SubjectV1Beta1", typing.Dict[str, typing.Any]]]] = None,
+                role_ref: typing.Union[RoleRefV1Beta1, typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                subjects: typing.Optional[typing.Sequence[typing.Union[SubjectV1Beta1, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -36179,8 +36175,8 @@ class KubeRoleList(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeRoleProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeRoleProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -36245,8 +36241,8 @@ class KubeRoleListProps:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeRoleProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeRoleProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -36321,8 +36317,8 @@ class KubeRoleListV1Alpha1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeRoleV1Alpha1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeRoleV1Alpha1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -36389,8 +36385,8 @@ class KubeRoleListV1Alpha1Props:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeRoleV1Alpha1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeRoleV1Alpha1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -36463,8 +36459,8 @@ class KubeRoleListV1Beta1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeRoleV1Beta1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeRoleV1Beta1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -36529,8 +36525,8 @@ class KubeRoleListV1Beta1Props:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeRoleV1Beta1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeRoleV1Beta1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -36597,8 +36593,8 @@ class KubeRoleProps:
         if __debug__:
             def stub(
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                rules: typing.Optional[typing.Sequence[typing.Union["PolicyRule", typing.Dict[str, typing.Any]]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                rules: typing.Optional[typing.Sequence[typing.Union[PolicyRule, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -36672,8 +36668,8 @@ class KubeRoleV1Alpha1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                rules: typing.Optional[typing.Sequence[typing.Union["PolicyRuleV1Alpha1", typing.Dict[str, typing.Any]]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                rules: typing.Optional[typing.Sequence[typing.Union[PolicyRuleV1Alpha1, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -36740,8 +36736,8 @@ class KubeRoleV1Alpha1Props:
         if __debug__:
             def stub(
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                rules: typing.Optional[typing.Sequence[typing.Union["PolicyRuleV1Alpha1", typing.Dict[str, typing.Any]]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                rules: typing.Optional[typing.Sequence[typing.Union[PolicyRuleV1Alpha1, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -36815,8 +36811,8 @@ class KubeRoleV1Beta1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                rules: typing.Optional[typing.Sequence[typing.Union["PolicyRuleV1Beta1", typing.Dict[str, typing.Any]]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                rules: typing.Optional[typing.Sequence[typing.Union[PolicyRuleV1Beta1, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -36883,8 +36879,8 @@ class KubeRoleV1Beta1Props:
         if __debug__:
             def stub(
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                rules: typing.Optional[typing.Sequence[typing.Union["PolicyRuleV1Beta1", typing.Dict[str, typing.Any]]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                rules: typing.Optional[typing.Sequence[typing.Union[PolicyRuleV1Beta1, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -36956,8 +36952,8 @@ class KubeRuntimeClassListV1Alpha1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeRuntimeClassV1Alpha1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeRuntimeClassV1Alpha1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -37022,8 +37018,8 @@ class KubeRuntimeClassListV1Alpha1Props:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeRuntimeClassV1Alpha1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeRuntimeClassV1Alpha1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -37098,8 +37094,8 @@ class KubeRuntimeClassListV1Beta1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeRuntimeClassV1Beta1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeRuntimeClassV1Beta1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -37164,8 +37160,8 @@ class KubeRuntimeClassListV1Beta1Props:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeRuntimeClassV1Beta1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeRuntimeClassV1Beta1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -37242,8 +37238,8 @@ class KubeRuntimeClassV1Alpha1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                spec: typing.Union["RuntimeClassSpecV1Alpha1", typing.Dict[str, typing.Any]],
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Union[RuntimeClassSpecV1Alpha1, typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -37312,8 +37308,8 @@ class KubeRuntimeClassV1Alpha1Props:
         if __debug__:
             def stub(
                 *,
-                spec: typing.Union["RuntimeClassSpecV1Alpha1", typing.Dict[str, typing.Any]],
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Union[RuntimeClassSpecV1Alpha1, typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -37393,9 +37389,9 @@ class KubeRuntimeClassV1Beta1(
                 id: builtins.str,
                 *,
                 handler: builtins.str,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                overhead: typing.Optional[typing.Union["OverheadV1Beta1", typing.Dict[str, typing.Any]]] = None,
-                scheduling: typing.Optional[typing.Union["SchedulingV1Beta1", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                overhead: typing.Optional[typing.Union[OverheadV1Beta1, typing.Dict[str, typing.Any]]] = None,
+                scheduling: typing.Optional[typing.Union[SchedulingV1Beta1, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -37490,9 +37486,9 @@ class KubeRuntimeClassV1Beta1Props:
             def stub(
                 *,
                 handler: builtins.str,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                overhead: typing.Optional[typing.Union["OverheadV1Beta1", typing.Dict[str, typing.Any]]] = None,
-                scheduling: typing.Optional[typing.Union["SchedulingV1Beta1", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                overhead: typing.Optional[typing.Union[OverheadV1Beta1, typing.Dict[str, typing.Any]]] = None,
+                scheduling: typing.Optional[typing.Union[SchedulingV1Beta1, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -37591,8 +37587,8 @@ class KubeScale(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeSca
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                spec: typing.Optional[typing.Union["ScaleSpec", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[ScaleSpec, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -37659,8 +37655,8 @@ class KubeScaleProps:
         if __debug__:
             def stub(
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                spec: typing.Optional[typing.Union["ScaleSpec", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[ScaleSpec, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -37736,8 +37732,8 @@ class KubeScaleV1Beta1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                spec: typing.Optional[typing.Union["ScaleSpecV1Beta1", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[ScaleSpecV1Beta1, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -37804,8 +37800,8 @@ class KubeScaleV1Beta1Props:
         if __debug__:
             def stub(
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                spec: typing.Optional[typing.Union["ScaleSpecV1Beta1", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[ScaleSpecV1Beta1, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -37881,8 +37877,8 @@ class KubeScaleV1Beta2(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                spec: typing.Optional[typing.Union["ScaleSpecV1Beta2", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[ScaleSpecV1Beta2, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -37949,8 +37945,8 @@ class KubeScaleV1Beta2Props:
         if __debug__:
             def stub(
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                spec: typing.Optional[typing.Union["ScaleSpecV1Beta2", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[ScaleSpecV1Beta2, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -38029,7 +38025,7 @@ class KubeSecret(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeSe
                 id: builtins.str,
                 *,
                 data: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
                 string_data: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
                 type: typing.Optional[builtins.str] = None,
             ) -> None:
@@ -38110,8 +38106,8 @@ class KubeSecretList(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeSecretProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeSecretProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -38176,8 +38172,8 @@ class KubeSecretListProps:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeSecretProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeSecretProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -38260,7 +38256,7 @@ class KubeSecretProps:
             def stub(
                 *,
                 data: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
                 string_data: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
                 type: typing.Optional[builtins.str] = None,
             ) -> None:
@@ -38368,8 +38364,8 @@ class KubeSelfSubjectAccessReview(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                spec: typing.Union["SelfSubjectAccessReviewSpec", typing.Dict[str, typing.Any]],
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Union[SelfSubjectAccessReviewSpec, typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -38438,8 +38434,8 @@ class KubeSelfSubjectAccessReviewProps:
         if __debug__:
             def stub(
                 *,
-                spec: typing.Union["SelfSubjectAccessReviewSpec", typing.Dict[str, typing.Any]],
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Union[SelfSubjectAccessReviewSpec, typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -38515,8 +38511,8 @@ class KubeSelfSubjectAccessReviewV1Beta1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                spec: typing.Union["SelfSubjectAccessReviewSpecV1Beta1", typing.Dict[str, typing.Any]],
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Union[SelfSubjectAccessReviewSpecV1Beta1, typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -38585,8 +38581,8 @@ class KubeSelfSubjectAccessReviewV1Beta1Props:
         if __debug__:
             def stub(
                 *,
-                spec: typing.Union["SelfSubjectAccessReviewSpecV1Beta1", typing.Dict[str, typing.Any]],
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Union[SelfSubjectAccessReviewSpecV1Beta1, typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -38662,8 +38658,8 @@ class KubeSelfSubjectRulesReview(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                spec: typing.Union["SelfSubjectRulesReviewSpec", typing.Dict[str, typing.Any]],
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Union[SelfSubjectRulesReviewSpec, typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -38732,8 +38728,8 @@ class KubeSelfSubjectRulesReviewProps:
         if __debug__:
             def stub(
                 *,
-                spec: typing.Union["SelfSubjectRulesReviewSpec", typing.Dict[str, typing.Any]],
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Union[SelfSubjectRulesReviewSpec, typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -38807,8 +38803,8 @@ class KubeSelfSubjectRulesReviewV1Beta1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                spec: typing.Union["SelfSubjectRulesReviewSpecV1Beta1", typing.Dict[str, typing.Any]],
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Union[SelfSubjectRulesReviewSpecV1Beta1, typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -38877,8 +38873,8 @@ class KubeSelfSubjectRulesReviewV1Beta1Props:
         if __debug__:
             def stub(
                 *,
-                spec: typing.Union["SelfSubjectRulesReviewSpecV1Beta1", typing.Dict[str, typing.Any]],
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Union[SelfSubjectRulesReviewSpecV1Beta1, typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -38950,8 +38946,8 @@ class KubeService(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                spec: typing.Optional[typing.Union["ServiceSpec", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[ServiceSpec, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -39027,9 +39023,9 @@ class KubeServiceAccount(
                 id: builtins.str,
                 *,
                 automount_service_account_token: typing.Optional[builtins.bool] = None,
-                image_pull_secrets: typing.Optional[typing.Sequence[typing.Union["LocalObjectReference", typing.Dict[str, typing.Any]]]] = None,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                secrets: typing.Optional[typing.Sequence[typing.Union["ObjectReference", typing.Dict[str, typing.Any]]]] = None,
+                image_pull_secrets: typing.Optional[typing.Sequence[typing.Union[LocalObjectReference, typing.Dict[str, typing.Any]]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                secrets: typing.Optional[typing.Sequence[typing.Union[ObjectReference, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -39114,8 +39110,8 @@ class KubeServiceAccountList(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeServiceAccountProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeServiceAccountProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -39180,8 +39176,8 @@ class KubeServiceAccountListProps:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeServiceAccountProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeServiceAccountProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -39262,9 +39258,9 @@ class KubeServiceAccountProps:
             def stub(
                 *,
                 automount_service_account_token: typing.Optional[builtins.bool] = None,
-                image_pull_secrets: typing.Optional[typing.Sequence[typing.Union["LocalObjectReference", typing.Dict[str, typing.Any]]]] = None,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                secrets: typing.Optional[typing.Sequence[typing.Union["ObjectReference", typing.Dict[str, typing.Any]]]] = None,
+                image_pull_secrets: typing.Optional[typing.Sequence[typing.Union[LocalObjectReference, typing.Dict[str, typing.Any]]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                secrets: typing.Optional[typing.Sequence[typing.Union[ObjectReference, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -39370,8 +39366,8 @@ class KubeServiceList(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeServiceProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeServiceProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -39436,8 +39432,8 @@ class KubeServiceListProps:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeServiceProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeServiceProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -39508,8 +39504,8 @@ class KubeServiceProps:
         if __debug__:
             def stub(
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                spec: typing.Optional[typing.Union["ServiceSpec", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[ServiceSpec, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -39591,8 +39587,8 @@ class KubeStatefulSet(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                spec: typing.Optional[typing.Union["StatefulSetSpec", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[StatefulSetSpec, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -39663,8 +39659,8 @@ class KubeStatefulSetList(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeStatefulSetProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeStatefulSetProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -39729,8 +39725,8 @@ class KubeStatefulSetListProps:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeStatefulSetProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeStatefulSetProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -39801,8 +39797,8 @@ class KubeStatefulSetListV1Beta1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeStatefulSetV1Beta1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeStatefulSetV1Beta1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -39867,8 +39863,8 @@ class KubeStatefulSetListV1Beta1Props:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeStatefulSetV1Beta1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeStatefulSetV1Beta1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -39939,8 +39935,8 @@ class KubeStatefulSetListV1Beta2(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeStatefulSetV1Beta2Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeStatefulSetV1Beta2Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -40005,8 +40001,8 @@ class KubeStatefulSetListV1Beta2Props:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeStatefulSetV1Beta2Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeStatefulSetV1Beta2Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -40079,8 +40075,8 @@ class KubeStatefulSetProps:
         if __debug__:
             def stub(
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                spec: typing.Optional[typing.Union["StatefulSetSpec", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[StatefulSetSpec, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -40157,8 +40153,8 @@ class KubeStatefulSetV1Beta1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                spec: typing.Optional[typing.Union["StatefulSetSpecV1Beta1", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[StatefulSetSpecV1Beta1, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -40231,8 +40227,8 @@ class KubeStatefulSetV1Beta1Props:
         if __debug__:
             def stub(
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                spec: typing.Optional[typing.Union["StatefulSetSpecV1Beta1", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[StatefulSetSpecV1Beta1, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -40309,8 +40305,8 @@ class KubeStatefulSetV1Beta2(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                spec: typing.Optional[typing.Union["StatefulSetSpecV1Beta2", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[StatefulSetSpecV1Beta2, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -40383,8 +40379,8 @@ class KubeStatefulSetV1Beta2Props:
         if __debug__:
             def stub(
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                spec: typing.Optional[typing.Union["StatefulSetSpecV1Beta2", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Optional[typing.Union[StatefulSetSpecV1Beta2, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -40458,9 +40454,9 @@ class KubeStatus(cdk8s.ApiObject, metaclass=jsii.JSIIMeta, jsii_type="k8s.KubeSt
                 id: builtins.str,
                 *,
                 code: typing.Optional[jsii.Number] = None,
-                details: typing.Optional[typing.Union["StatusDetails", typing.Dict[str, typing.Any]]] = None,
+                details: typing.Optional[typing.Union[StatusDetails, typing.Dict[str, typing.Any]]] = None,
                 message: typing.Optional[builtins.str] = None,
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
                 reason: typing.Optional[builtins.str] = None,
             ) -> None:
                 ...
@@ -40559,9 +40555,9 @@ class KubeStatusProps:
             def stub(
                 *,
                 code: typing.Optional[jsii.Number] = None,
-                details: typing.Optional[typing.Union["StatusDetails", typing.Dict[str, typing.Any]]] = None,
+                details: typing.Optional[typing.Union[StatusDetails, typing.Dict[str, typing.Any]]] = None,
                 message: typing.Optional[builtins.str] = None,
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
                 reason: typing.Optional[builtins.str] = None,
             ) -> None:
                 ...
@@ -40691,9 +40687,9 @@ class KubeStorageClass(
                 id: builtins.str,
                 *,
                 provisioner: builtins.str,
-                allowed_topologies: typing.Optional[typing.Sequence[typing.Union["TopologySelectorTerm", typing.Dict[str, typing.Any]]]] = None,
+                allowed_topologies: typing.Optional[typing.Sequence[typing.Union[TopologySelectorTerm, typing.Dict[str, typing.Any]]]] = None,
                 allow_volume_expansion: typing.Optional[builtins.bool] = None,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
                 mount_options: typing.Optional[typing.Sequence[builtins.str]] = None,
                 parameters: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
                 reclaim_policy: typing.Optional[builtins.str] = None,
@@ -40798,8 +40794,8 @@ class KubeStorageClassList(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeStorageClassProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeStorageClassProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -40864,8 +40860,8 @@ class KubeStorageClassListProps:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeStorageClassProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeStorageClassProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -40938,8 +40934,8 @@ class KubeStorageClassListV1Beta1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeStorageClassV1Beta1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeStorageClassV1Beta1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -41004,8 +41000,8 @@ class KubeStorageClassListV1Beta1Props:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeStorageClassV1Beta1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeStorageClassV1Beta1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -41096,9 +41092,9 @@ class KubeStorageClassProps:
             def stub(
                 *,
                 provisioner: builtins.str,
-                allowed_topologies: typing.Optional[typing.Sequence[typing.Union["TopologySelectorTerm", typing.Dict[str, typing.Any]]]] = None,
+                allowed_topologies: typing.Optional[typing.Sequence[typing.Union[TopologySelectorTerm, typing.Dict[str, typing.Any]]]] = None,
                 allow_volume_expansion: typing.Optional[builtins.bool] = None,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
                 mount_options: typing.Optional[typing.Sequence[builtins.str]] = None,
                 parameters: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
                 reclaim_policy: typing.Optional[builtins.str] = None,
@@ -41274,9 +41270,9 @@ class KubeStorageClassV1Beta1(
                 id: builtins.str,
                 *,
                 provisioner: builtins.str,
-                allowed_topologies: typing.Optional[typing.Sequence[typing.Union["TopologySelectorTerm", typing.Dict[str, typing.Any]]]] = None,
+                allowed_topologies: typing.Optional[typing.Sequence[typing.Union[TopologySelectorTerm, typing.Dict[str, typing.Any]]]] = None,
                 allow_volume_expansion: typing.Optional[builtins.bool] = None,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
                 mount_options: typing.Optional[typing.Sequence[builtins.str]] = None,
                 parameters: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
                 reclaim_policy: typing.Optional[builtins.str] = None,
@@ -41399,9 +41395,9 @@ class KubeStorageClassV1Beta1Props:
             def stub(
                 *,
                 provisioner: builtins.str,
-                allowed_topologies: typing.Optional[typing.Sequence[typing.Union["TopologySelectorTerm", typing.Dict[str, typing.Any]]]] = None,
+                allowed_topologies: typing.Optional[typing.Sequence[typing.Union[TopologySelectorTerm, typing.Dict[str, typing.Any]]]] = None,
                 allow_volume_expansion: typing.Optional[builtins.bool] = None,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
                 mount_options: typing.Optional[typing.Sequence[builtins.str]] = None,
                 parameters: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
                 reclaim_policy: typing.Optional[builtins.str] = None,
@@ -41562,8 +41558,8 @@ class KubeSubjectAccessReview(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                spec: typing.Union["SubjectAccessReviewSpec", typing.Dict[str, typing.Any]],
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Union[SubjectAccessReviewSpec, typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -41630,8 +41626,8 @@ class KubeSubjectAccessReviewProps:
         if __debug__:
             def stub(
                 *,
-                spec: typing.Union["SubjectAccessReviewSpec", typing.Dict[str, typing.Any]],
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Union[SubjectAccessReviewSpec, typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -41703,8 +41699,8 @@ class KubeSubjectAccessReviewV1Beta1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                spec: typing.Union["SubjectAccessReviewSpecV1Beta1", typing.Dict[str, typing.Any]],
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Union[SubjectAccessReviewSpecV1Beta1, typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -41771,8 +41767,8 @@ class KubeSubjectAccessReviewV1Beta1Props:
         if __debug__:
             def stub(
                 *,
-                spec: typing.Union["SubjectAccessReviewSpecV1Beta1", typing.Dict[str, typing.Any]],
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Union[SubjectAccessReviewSpecV1Beta1, typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -41844,8 +41840,8 @@ class KubeTokenRequest(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                spec: typing.Union["TokenRequestSpec", typing.Dict[str, typing.Any]],
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Union[TokenRequestSpec, typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -41912,8 +41908,8 @@ class KubeTokenRequestProps:
         if __debug__:
             def stub(
                 *,
-                spec: typing.Union["TokenRequestSpec", typing.Dict[str, typing.Any]],
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Union[TokenRequestSpec, typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -41986,8 +41982,8 @@ class KubeTokenReview(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                spec: typing.Union["TokenReviewSpec", typing.Dict[str, typing.Any]],
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Union[TokenReviewSpec, typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -42056,8 +42052,8 @@ class KubeTokenReviewProps:
         if __debug__:
             def stub(
                 *,
-                spec: typing.Union["TokenReviewSpec", typing.Dict[str, typing.Any]],
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Union[TokenReviewSpec, typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -42131,8 +42127,8 @@ class KubeTokenReviewV1Beta1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                spec: typing.Union["TokenReviewSpecV1Beta1", typing.Dict[str, typing.Any]],
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Union[TokenReviewSpecV1Beta1, typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -42201,8 +42197,8 @@ class KubeTokenReviewV1Beta1Props:
         if __debug__:
             def stub(
                 *,
-                spec: typing.Union["TokenReviewSpecV1Beta1", typing.Dict[str, typing.Any]],
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Union[TokenReviewSpecV1Beta1, typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -42274,8 +42270,8 @@ class KubeValidatingWebhookConfiguration(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                webhooks: typing.Optional[typing.Sequence[typing.Union["ValidatingWebhook", typing.Dict[str, typing.Any]]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                webhooks: typing.Optional[typing.Sequence[typing.Union[ValidatingWebhook, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -42350,8 +42346,8 @@ class KubeValidatingWebhookConfigurationList(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeValidatingWebhookConfigurationProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeValidatingWebhookConfigurationProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -42420,8 +42416,8 @@ class KubeValidatingWebhookConfigurationListProps:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeValidatingWebhookConfigurationProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeValidatingWebhookConfigurationProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -42496,8 +42492,8 @@ class KubeValidatingWebhookConfigurationListV1Beta1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeValidatingWebhookConfigurationV1Beta1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeValidatingWebhookConfigurationV1Beta1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -42566,8 +42562,8 @@ class KubeValidatingWebhookConfigurationListV1Beta1Props:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeValidatingWebhookConfigurationV1Beta1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeValidatingWebhookConfigurationV1Beta1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -42636,8 +42632,8 @@ class KubeValidatingWebhookConfigurationProps:
         if __debug__:
             def stub(
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                webhooks: typing.Optional[typing.Sequence[typing.Union["ValidatingWebhook", typing.Dict[str, typing.Any]]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                webhooks: typing.Optional[typing.Sequence[typing.Union[ValidatingWebhook, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -42713,8 +42709,8 @@ class KubeValidatingWebhookConfigurationV1Beta1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                webhooks: typing.Optional[typing.Sequence[typing.Union["ValidatingWebhookV1Beta1", typing.Dict[str, typing.Any]]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                webhooks: typing.Optional[typing.Sequence[typing.Union[ValidatingWebhookV1Beta1, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -42785,8 +42781,8 @@ class KubeValidatingWebhookConfigurationV1Beta1Props:
         if __debug__:
             def stub(
                 *,
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
-                webhooks: typing.Optional[typing.Sequence[typing.Union["ValidatingWebhookV1Beta1", typing.Dict[str, typing.Any]]]] = None,
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
+                webhooks: typing.Optional[typing.Sequence[typing.Union[ValidatingWebhookV1Beta1, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -42862,8 +42858,8 @@ class KubeVolumeAttachment(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                spec: typing.Union["VolumeAttachmentSpec", typing.Dict[str, typing.Any]],
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Union[VolumeAttachmentSpec, typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -42934,8 +42930,8 @@ class KubeVolumeAttachmentList(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeVolumeAttachmentProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeVolumeAttachmentProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -43000,8 +42996,8 @@ class KubeVolumeAttachmentListProps:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeVolumeAttachmentProps", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeVolumeAttachmentProps, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -43074,8 +43070,8 @@ class KubeVolumeAttachmentListV1Alpha1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeVolumeAttachmentV1Alpha1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeVolumeAttachmentV1Alpha1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -43140,8 +43136,8 @@ class KubeVolumeAttachmentListV1Alpha1Props:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeVolumeAttachmentV1Alpha1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeVolumeAttachmentV1Alpha1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -43214,8 +43210,8 @@ class KubeVolumeAttachmentListV1Beta1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                items: typing.Sequence[typing.Union["KubeVolumeAttachmentV1Beta1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeVolumeAttachmentV1Beta1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -43280,8 +43276,8 @@ class KubeVolumeAttachmentListV1Beta1Props:
         if __debug__:
             def stub(
                 *,
-                items: typing.Sequence[typing.Union["KubeVolumeAttachmentV1Beta1Props", typing.Dict[str, typing.Any]]],
-                metadata: typing.Optional[typing.Union["ListMeta", typing.Dict[str, typing.Any]]] = None,
+                items: typing.Sequence[typing.Union[KubeVolumeAttachmentV1Beta1Props, typing.Dict[str, typing.Any]]],
+                metadata: typing.Optional[typing.Union[ListMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -43352,8 +43348,8 @@ class KubeVolumeAttachmentProps:
         if __debug__:
             def stub(
                 *,
-                spec: typing.Union["VolumeAttachmentSpec", typing.Dict[str, typing.Any]],
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Union[VolumeAttachmentSpec, typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -43432,8 +43428,8 @@ class KubeVolumeAttachmentV1Alpha1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                spec: typing.Union["VolumeAttachmentSpecV1Alpha1", typing.Dict[str, typing.Any]],
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Union[VolumeAttachmentSpecV1Alpha1, typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -43502,8 +43498,8 @@ class KubeVolumeAttachmentV1Alpha1Props:
         if __debug__:
             def stub(
                 *,
-                spec: typing.Union["VolumeAttachmentSpecV1Alpha1", typing.Dict[str, typing.Any]],
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Union[VolumeAttachmentSpecV1Alpha1, typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -43582,8 +43578,8 @@ class KubeVolumeAttachmentV1Beta1(
                 scope: constructs.Construct,
                 id: builtins.str,
                 *,
-                spec: typing.Union["VolumeAttachmentSpecV1Beta1", typing.Dict[str, typing.Any]],
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Union[VolumeAttachmentSpecV1Beta1, typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -43652,8 +43648,8 @@ class KubeVolumeAttachmentV1Beta1Props:
         if __debug__:
             def stub(
                 *,
-                spec: typing.Union["VolumeAttachmentSpecV1Beta1", typing.Dict[str, typing.Any]],
-                metadata: typing.Optional[typing.Union["ObjectMeta", typing.Dict[str, typing.Any]]] = None,
+                spec: typing.Union[VolumeAttachmentSpecV1Beta1, typing.Dict[str, typing.Any]],
+                metadata: typing.Optional[typing.Union[ObjectMeta, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -43727,7 +43723,7 @@ class LabelSelector:
         if __debug__:
             def stub(
                 *,
-                match_expressions: typing.Optional[typing.Sequence[typing.Union["LabelSelectorRequirement", typing.Dict[str, typing.Any]]]] = None,
+                match_expressions: typing.Optional[typing.Sequence[typing.Union[LabelSelectorRequirement, typing.Dict[str, typing.Any]]]] = None,
                 match_labels: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
             ) -> None:
                 ...
@@ -44211,11 +44207,11 @@ class LimitRangeItem:
         if __debug__:
             def stub(
                 *,
-                default: typing.Optional[typing.Mapping[builtins.str, "Quantity"]] = None,
-                default_request: typing.Optional[typing.Mapping[builtins.str, "Quantity"]] = None,
-                max: typing.Optional[typing.Mapping[builtins.str, "Quantity"]] = None,
-                max_limit_request_ratio: typing.Optional[typing.Mapping[builtins.str, "Quantity"]] = None,
-                min: typing.Optional[typing.Mapping[builtins.str, "Quantity"]] = None,
+                default: typing.Optional[typing.Mapping[builtins.str, Quantity]] = None,
+                default_request: typing.Optional[typing.Mapping[builtins.str, Quantity]] = None,
+                max: typing.Optional[typing.Mapping[builtins.str, Quantity]] = None,
+                max_limit_request_ratio: typing.Optional[typing.Mapping[builtins.str, Quantity]] = None,
+                min: typing.Optional[typing.Mapping[builtins.str, Quantity]] = None,
                 type: typing.Optional[builtins.str] = None,
             ) -> None:
                 ...
@@ -44388,7 +44384,7 @@ class LimitResponseV1Alpha1:
             def stub(
                 *,
                 type: builtins.str,
-                queuing: typing.Optional[typing.Union["QueuingConfigurationV1Alpha1", typing.Dict[str, typing.Any]]] = None,
+                queuing: typing.Optional[typing.Union[QueuingConfigurationV1Alpha1, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -44995,9 +44991,9 @@ class MetricSpecV2Beta1:
                 *,
                 type: builtins.str,
                 external: typing.Optional[typing.Union[ExternalMetricSourceV2Beta1, typing.Dict[str, typing.Any]]] = None,
-                object: typing.Optional[typing.Union["ObjectMetricSourceV2Beta1", typing.Dict[str, typing.Any]]] = None,
-                pods: typing.Optional[typing.Union["PodsMetricSourceV2Beta1", typing.Dict[str, typing.Any]]] = None,
-                resource: typing.Optional[typing.Union["ResourceMetricSourceV2Beta1", typing.Dict[str, typing.Any]]] = None,
+                object: typing.Optional[typing.Union[ObjectMetricSourceV2Beta1, typing.Dict[str, typing.Any]]] = None,
+                pods: typing.Optional[typing.Union[PodsMetricSourceV2Beta1, typing.Dict[str, typing.Any]]] = None,
+                resource: typing.Optional[typing.Union[ResourceMetricSourceV2Beta1, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -45126,9 +45122,9 @@ class MetricSpecV2Beta2:
                 *,
                 type: builtins.str,
                 external: typing.Optional[typing.Union[ExternalMetricSourceV2Beta2, typing.Dict[str, typing.Any]]] = None,
-                object: typing.Optional[typing.Union["ObjectMetricSourceV2Beta2", typing.Dict[str, typing.Any]]] = None,
-                pods: typing.Optional[typing.Union["PodsMetricSourceV2Beta2", typing.Dict[str, typing.Any]]] = None,
-                resource: typing.Optional[typing.Union["ResourceMetricSourceV2Beta2", typing.Dict[str, typing.Any]]] = None,
+                object: typing.Optional[typing.Union[ObjectMetricSourceV2Beta2, typing.Dict[str, typing.Any]]] = None,
+                pods: typing.Optional[typing.Union[PodsMetricSourceV2Beta2, typing.Dict[str, typing.Any]]] = None,
+                resource: typing.Optional[typing.Union[ResourceMetricSourceV2Beta2, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -45246,8 +45242,8 @@ class MetricTargetV2Beta2:
                 *,
                 type: builtins.str,
                 average_utilization: typing.Optional[jsii.Number] = None,
-                average_value: typing.Optional["Quantity"] = None,
-                value: typing.Optional["Quantity"] = None,
+                average_value: typing.Optional[Quantity] = None,
+                value: typing.Optional[Quantity] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -45375,7 +45371,7 @@ class MutatingWebhook:
             def stub(
                 *,
                 admission_review_versions: typing.Sequence[builtins.str],
-                client_config: typing.Union["WebhookClientConfig", typing.Dict[str, typing.Any]],
+                client_config: typing.Union[WebhookClientConfig, typing.Dict[str, typing.Any]],
                 name: builtins.str,
                 side_effects: builtins.str,
                 failure_policy: typing.Optional[builtins.str] = None,
@@ -45383,7 +45379,7 @@ class MutatingWebhook:
                 namespace_selector: typing.Optional[typing.Union[LabelSelector, typing.Dict[str, typing.Any]]] = None,
                 object_selector: typing.Optional[typing.Union[LabelSelector, typing.Dict[str, typing.Any]]] = None,
                 reinvocation_policy: typing.Optional[builtins.str] = None,
-                rules: typing.Optional[typing.Sequence[typing.Union["RuleWithOperations", typing.Dict[str, typing.Any]]]] = None,
+                rules: typing.Optional[typing.Sequence[typing.Union[RuleWithOperations, typing.Dict[str, typing.Any]]]] = None,
                 timeout_seconds: typing.Optional[jsii.Number] = None,
             ) -> None:
                 ...
@@ -45666,7 +45662,7 @@ class MutatingWebhookV1Beta1:
         if __debug__:
             def stub(
                 *,
-                client_config: typing.Union["WebhookClientConfigV1Beta1", typing.Dict[str, typing.Any]],
+                client_config: typing.Union[WebhookClientConfigV1Beta1, typing.Dict[str, typing.Any]],
                 name: builtins.str,
                 admission_review_versions: typing.Optional[typing.Sequence[builtins.str]] = None,
                 failure_policy: typing.Optional[builtins.str] = None,
@@ -45674,7 +45670,7 @@ class MutatingWebhookV1Beta1:
                 namespace_selector: typing.Optional[typing.Union[LabelSelector, typing.Dict[str, typing.Any]]] = None,
                 object_selector: typing.Optional[typing.Union[LabelSelector, typing.Dict[str, typing.Any]]] = None,
                 reinvocation_policy: typing.Optional[builtins.str] = None,
-                rules: typing.Optional[typing.Sequence[typing.Union["RuleWithOperationsV1Beta1", typing.Dict[str, typing.Any]]]] = None,
+                rules: typing.Optional[typing.Sequence[typing.Union[RuleWithOperationsV1Beta1, typing.Dict[str, typing.Any]]]] = None,
                 side_effects: typing.Optional[builtins.str] = None,
                 timeout_seconds: typing.Optional[jsii.Number] = None,
             ) -> None:
@@ -45980,8 +45976,8 @@ class NetworkPolicyEgressRule:
         if __debug__:
             def stub(
                 *,
-                ports: typing.Optional[typing.Sequence[typing.Union["NetworkPolicyPort", typing.Dict[str, typing.Any]]]] = None,
-                to: typing.Optional[typing.Sequence[typing.Union["NetworkPolicyPeer", typing.Dict[str, typing.Any]]]] = None,
+                ports: typing.Optional[typing.Sequence[typing.Union[NetworkPolicyPort, typing.Dict[str, typing.Any]]]] = None,
+                to: typing.Optional[typing.Sequence[typing.Union[NetworkPolicyPeer, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -46049,8 +46045,8 @@ class NetworkPolicyEgressRuleV1Beta1:
         if __debug__:
             def stub(
                 *,
-                ports: typing.Optional[typing.Sequence[typing.Union["NetworkPolicyPortV1Beta1", typing.Dict[str, typing.Any]]]] = None,
-                to: typing.Optional[typing.Sequence[typing.Union["NetworkPolicyPeerV1Beta1", typing.Dict[str, typing.Any]]]] = None,
+                ports: typing.Optional[typing.Sequence[typing.Union[NetworkPolicyPortV1Beta1, typing.Dict[str, typing.Any]]]] = None,
+                to: typing.Optional[typing.Sequence[typing.Union[NetworkPolicyPeerV1Beta1, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -46120,8 +46116,8 @@ class NetworkPolicyIngressRule:
         if __debug__:
             def stub(
                 *,
-                from_: typing.Optional[typing.Sequence[typing.Union["NetworkPolicyPeer", typing.Dict[str, typing.Any]]]] = None,
-                ports: typing.Optional[typing.Sequence[typing.Union["NetworkPolicyPort", typing.Dict[str, typing.Any]]]] = None,
+                from_: typing.Optional[typing.Sequence[typing.Union[NetworkPolicyPeer, typing.Dict[str, typing.Any]]]] = None,
+                ports: typing.Optional[typing.Sequence[typing.Union[NetworkPolicyPort, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -46189,8 +46185,8 @@ class NetworkPolicyIngressRuleV1Beta1:
         if __debug__:
             def stub(
                 *,
-                from_: typing.Optional[typing.Sequence[typing.Union["NetworkPolicyPeerV1Beta1", typing.Dict[str, typing.Any]]]] = None,
-                ports: typing.Optional[typing.Sequence[typing.Union["NetworkPolicyPortV1Beta1", typing.Dict[str, typing.Any]]]] = None,
+                from_: typing.Optional[typing.Sequence[typing.Union[NetworkPolicyPeerV1Beta1, typing.Dict[str, typing.Any]]]] = None,
+                ports: typing.Optional[typing.Sequence[typing.Union[NetworkPolicyPortV1Beta1, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -46916,8 +46912,8 @@ class NodeAffinity:
         if __debug__:
             def stub(
                 *,
-                preferred_during_scheduling_ignored_during_execution: typing.Optional[typing.Sequence[typing.Union["PreferredSchedulingTerm", typing.Dict[str, typing.Any]]]] = None,
-                required_during_scheduling_ignored_during_execution: typing.Optional[typing.Union["NodeSelector", typing.Dict[str, typing.Any]]] = None,
+                preferred_during_scheduling_ignored_during_execution: typing.Optional[typing.Sequence[typing.Union[PreferredSchedulingTerm, typing.Dict[str, typing.Any]]]] = None,
+                required_during_scheduling_ignored_during_execution: typing.Optional[typing.Union[NodeSelector, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -47043,7 +47039,7 @@ class NodeSelector:
         if __debug__:
             def stub(
                 *,
-                node_selector_terms: typing.Sequence[typing.Union["NodeSelectorTerm", typing.Dict[str, typing.Any]]],
+                node_selector_terms: typing.Sequence[typing.Union[NodeSelectorTerm, typing.Dict[str, typing.Any]]],
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -47280,7 +47276,7 @@ class NodeSpec:
                 pod_cidr: typing.Optional[builtins.str] = None,
                 pod_cid_rs: typing.Optional[typing.Sequence[builtins.str]] = None,
                 provider_id: typing.Optional[builtins.str] = None,
-                taints: typing.Optional[typing.Sequence[typing.Union["Taint", typing.Dict[str, typing.Any]]]] = None,
+                taints: typing.Optional[typing.Sequence[typing.Union[Taint, typing.Dict[str, typing.Any]]]] = None,
                 unschedulable: typing.Optional[builtins.bool] = None,
             ) -> None:
                 ...
@@ -47743,7 +47739,7 @@ class ObjectMeta:
                 managed_fields: typing.Optional[typing.Sequence[typing.Union[ManagedFieldsEntry, typing.Dict[str, typing.Any]]]] = None,
                 name: typing.Optional[builtins.str] = None,
                 namespace: typing.Optional[builtins.str] = None,
-                owner_references: typing.Optional[typing.Sequence[typing.Union["OwnerReference", typing.Dict[str, typing.Any]]]] = None,
+                owner_references: typing.Optional[typing.Sequence[typing.Union[OwnerReference, typing.Dict[str, typing.Any]]]] = None,
                 resource_version: typing.Optional[builtins.str] = None,
                 self_link: typing.Optional[builtins.str] = None,
                 uid: typing.Optional[builtins.str] = None,
@@ -48044,8 +48040,8 @@ class ObjectMetricSourceV2Beta1:
                 *,
                 metric_name: builtins.str,
                 target: typing.Union[CrossVersionObjectReferenceV2Beta1, typing.Dict[str, typing.Any]],
-                target_value: "Quantity",
-                average_value: typing.Optional["Quantity"] = None,
+                target_value: Quantity,
+                average_value: typing.Optional[Quantity] = None,
                 selector: typing.Optional[typing.Union[LabelSelector, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
@@ -48393,7 +48389,7 @@ class OverheadV1Alpha1:
         if __debug__:
             def stub(
                 *,
-                pod_fixed: typing.Optional[typing.Mapping[builtins.str, "Quantity"]] = None,
+                pod_fixed: typing.Optional[typing.Mapping[builtins.str, Quantity]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -48443,7 +48439,7 @@ class OverheadV1Beta1:
         if __debug__:
             def stub(
                 *,
-                pod_fixed: typing.Optional[typing.Mapping[builtins.str, "Quantity"]] = None,
+                pod_fixed: typing.Optional[typing.Mapping[builtins.str, Quantity]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -48665,8 +48661,8 @@ class PersistentVolumeClaimSpec:
             def stub(
                 *,
                 access_modes: typing.Optional[typing.Sequence[builtins.str]] = None,
-                data_source: typing.Optional[typing.Union["TypedLocalObjectReference", typing.Dict[str, typing.Any]]] = None,
-                resources: typing.Optional[typing.Union["ResourceRequirements", typing.Dict[str, typing.Any]]] = None,
+                data_source: typing.Optional[typing.Union[TypedLocalObjectReference, typing.Dict[str, typing.Any]]] = None,
+                resources: typing.Optional[typing.Union[ResourceRequirements, typing.Dict[str, typing.Any]]] = None,
                 selector: typing.Optional[typing.Union[LabelSelector, typing.Dict[str, typing.Any]]] = None,
                 storage_class_name: typing.Optional[builtins.str] = None,
                 volume_mode: typing.Optional[builtins.str] = None,
@@ -49015,7 +49011,7 @@ class PersistentVolumeSpec:
                 aws_elastic_block_store: typing.Optional[typing.Union[AwsElasticBlockStoreVolumeSource, typing.Dict[str, typing.Any]]] = None,
                 azure_disk: typing.Optional[typing.Union[AzureDiskVolumeSource, typing.Dict[str, typing.Any]]] = None,
                 azure_file: typing.Optional[typing.Union[AzureFilePersistentVolumeSource, typing.Dict[str, typing.Any]]] = None,
-                capacity: typing.Optional[typing.Mapping[builtins.str, "Quantity"]] = None,
+                capacity: typing.Optional[typing.Mapping[builtins.str, Quantity]] = None,
                 cephfs: typing.Optional[typing.Union[CephFsPersistentVolumeSource, typing.Dict[str, typing.Any]]] = None,
                 cinder: typing.Optional[typing.Union[CinderPersistentVolumeSource, typing.Dict[str, typing.Any]]] = None,
                 claim_ref: typing.Optional[typing.Union[ObjectReference, typing.Dict[str, typing.Any]]] = None,
@@ -49030,17 +49026,17 @@ class PersistentVolumeSpec:
                 local: typing.Optional[typing.Union[LocalVolumeSource, typing.Dict[str, typing.Any]]] = None,
                 mount_options: typing.Optional[typing.Sequence[builtins.str]] = None,
                 nfs: typing.Optional[typing.Union[NfsVolumeSource, typing.Dict[str, typing.Any]]] = None,
-                node_affinity: typing.Optional[typing.Union["VolumeNodeAffinity", typing.Dict[str, typing.Any]]] = None,
+                node_affinity: typing.Optional[typing.Union[VolumeNodeAffinity, typing.Dict[str, typing.Any]]] = None,
                 persistent_volume_reclaim_policy: typing.Optional[builtins.str] = None,
-                photon_persistent_disk: typing.Optional[typing.Union["PhotonPersistentDiskVolumeSource", typing.Dict[str, typing.Any]]] = None,
-                portworx_volume: typing.Optional[typing.Union["PortworxVolumeSource", typing.Dict[str, typing.Any]]] = None,
-                quobyte: typing.Optional[typing.Union["QuobyteVolumeSource", typing.Dict[str, typing.Any]]] = None,
-                rbd: typing.Optional[typing.Union["RbdPersistentVolumeSource", typing.Dict[str, typing.Any]]] = None,
-                scale_io: typing.Optional[typing.Union["ScaleIoPersistentVolumeSource", typing.Dict[str, typing.Any]]] = None,
+                photon_persistent_disk: typing.Optional[typing.Union[PhotonPersistentDiskVolumeSource, typing.Dict[str, typing.Any]]] = None,
+                portworx_volume: typing.Optional[typing.Union[PortworxVolumeSource, typing.Dict[str, typing.Any]]] = None,
+                quobyte: typing.Optional[typing.Union[QuobyteVolumeSource, typing.Dict[str, typing.Any]]] = None,
+                rbd: typing.Optional[typing.Union[RbdPersistentVolumeSource, typing.Dict[str, typing.Any]]] = None,
+                scale_io: typing.Optional[typing.Union[ScaleIoPersistentVolumeSource, typing.Dict[str, typing.Any]]] = None,
                 storage_class_name: typing.Optional[builtins.str] = None,
-                storageos: typing.Optional[typing.Union["StorageOsPersistentVolumeSource", typing.Dict[str, typing.Any]]] = None,
+                storageos: typing.Optional[typing.Union[StorageOsPersistentVolumeSource, typing.Dict[str, typing.Any]]] = None,
                 volume_mode: typing.Optional[builtins.str] = None,
-                vsphere_volume: typing.Optional[typing.Union["VsphereVirtualDiskVolumeSource", typing.Dict[str, typing.Any]]] = None,
+                vsphere_volume: typing.Optional[typing.Union[VsphereVirtualDiskVolumeSource, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -49547,8 +49543,8 @@ class PodAffinity:
         if __debug__:
             def stub(
                 *,
-                preferred_during_scheduling_ignored_during_execution: typing.Optional[typing.Sequence[typing.Union["WeightedPodAffinityTerm", typing.Dict[str, typing.Any]]]] = None,
-                required_during_scheduling_ignored_during_execution: typing.Optional[typing.Sequence[typing.Union["PodAffinityTerm", typing.Dict[str, typing.Any]]]] = None,
+                preferred_during_scheduling_ignored_during_execution: typing.Optional[typing.Sequence[typing.Union[WeightedPodAffinityTerm, typing.Dict[str, typing.Any]]]] = None,
+                required_during_scheduling_ignored_during_execution: typing.Optional[typing.Sequence[typing.Union[PodAffinityTerm, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -49714,7 +49710,7 @@ class PodAntiAffinity:
         if __debug__:
             def stub(
                 *,
-                preferred_during_scheduling_ignored_during_execution: typing.Optional[typing.Sequence[typing.Union["WeightedPodAffinityTerm", typing.Dict[str, typing.Any]]]] = None,
+                preferred_during_scheduling_ignored_during_execution: typing.Optional[typing.Sequence[typing.Union[WeightedPodAffinityTerm, typing.Dict[str, typing.Any]]]] = None,
                 required_during_scheduling_ignored_during_execution: typing.Optional[typing.Sequence[typing.Union[PodAffinityTerm, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
@@ -49880,7 +49876,7 @@ class PodDnsConfig:
             def stub(
                 *,
                 nameservers: typing.Optional[typing.Sequence[builtins.str]] = None,
-                options: typing.Optional[typing.Sequence[typing.Union["PodDnsConfigOption", typing.Dict[str, typing.Any]]]] = None,
+                options: typing.Optional[typing.Sequence[typing.Union[PodDnsConfigOption, typing.Dict[str, typing.Any]]]] = None,
                 searches: typing.Optional[typing.Sequence[builtins.str]] = None,
             ) -> None:
                 ...
@@ -50044,8 +50040,8 @@ class PodPresetSpecV1Alpha1:
                 env: typing.Optional[typing.Sequence[typing.Union[EnvVar, typing.Dict[str, typing.Any]]]] = None,
                 env_from: typing.Optional[typing.Sequence[typing.Union[EnvFromSource, typing.Dict[str, typing.Any]]]] = None,
                 selector: typing.Optional[typing.Union[LabelSelector, typing.Dict[str, typing.Any]]] = None,
-                volume_mounts: typing.Optional[typing.Sequence[typing.Union["VolumeMount", typing.Dict[str, typing.Any]]]] = None,
-                volumes: typing.Optional[typing.Sequence[typing.Union["Volume", typing.Dict[str, typing.Any]]]] = None,
+                volume_mounts: typing.Optional[typing.Sequence[typing.Union[VolumeMount, typing.Dict[str, typing.Any]]]] = None,
+                volumes: typing.Optional[typing.Sequence[typing.Union[Volume, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -50222,10 +50218,10 @@ class PodSecurityContext:
                 run_as_group: typing.Optional[jsii.Number] = None,
                 run_as_non_root: typing.Optional[builtins.bool] = None,
                 run_as_user: typing.Optional[jsii.Number] = None,
-                se_linux_options: typing.Optional[typing.Union["SeLinuxOptions", typing.Dict[str, typing.Any]]] = None,
+                se_linux_options: typing.Optional[typing.Union[SeLinuxOptions, typing.Dict[str, typing.Any]]] = None,
                 supplemental_groups: typing.Optional[typing.Sequence[jsii.Number]] = None,
-                sysctls: typing.Optional[typing.Sequence[typing.Union["Sysctl", typing.Dict[str, typing.Any]]]] = None,
-                windows_options: typing.Optional[typing.Union["WindowsSecurityContextOptions", typing.Dict[str, typing.Any]]] = None,
+                sysctls: typing.Optional[typing.Sequence[typing.Union[Sysctl, typing.Dict[str, typing.Any]]]] = None,
+                windows_options: typing.Optional[typing.Union[WindowsSecurityContextOptions, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -50465,9 +50461,9 @@ class PodSecurityPolicySpecV1Beta1:
             def stub(
                 *,
                 fs_group: typing.Union[FsGroupStrategyOptionsV1Beta1, typing.Dict[str, typing.Any]],
-                run_as_user: typing.Union["RunAsUserStrategyOptionsV1Beta1", typing.Dict[str, typing.Any]],
-                se_linux: typing.Union["SeLinuxStrategyOptionsV1Beta1", typing.Dict[str, typing.Any]],
-                supplemental_groups: typing.Union["SupplementalGroupsStrategyOptionsV1Beta1", typing.Dict[str, typing.Any]],
+                run_as_user: typing.Union[RunAsUserStrategyOptionsV1Beta1, typing.Dict[str, typing.Any]],
+                se_linux: typing.Union[SeLinuxStrategyOptionsV1Beta1, typing.Dict[str, typing.Any]],
+                supplemental_groups: typing.Union[SupplementalGroupsStrategyOptionsV1Beta1, typing.Dict[str, typing.Any]],
                 allowed_capabilities: typing.Optional[typing.Sequence[builtins.str]] = None,
                 allowed_csi_drivers: typing.Optional[typing.Sequence[typing.Union[AllowedCsiDriverV1Beta1, typing.Dict[str, typing.Any]]]] = None,
                 allowed_flex_volumes: typing.Optional[typing.Sequence[typing.Union[AllowedFlexVolumeV1Beta1, typing.Dict[str, typing.Any]]]] = None,
@@ -50485,8 +50481,8 @@ class PodSecurityPolicySpecV1Beta1:
                 privileged: typing.Optional[builtins.bool] = None,
                 read_only_root_filesystem: typing.Optional[builtins.bool] = None,
                 required_drop_capabilities: typing.Optional[typing.Sequence[builtins.str]] = None,
-                run_as_group: typing.Optional[typing.Union["RunAsGroupStrategyOptionsV1Beta1", typing.Dict[str, typing.Any]]] = None,
-                runtime_class: typing.Optional[typing.Union["RuntimeClassStrategyOptionsV1Beta1", typing.Dict[str, typing.Any]]] = None,
+                run_as_group: typing.Optional[typing.Union[RunAsGroupStrategyOptionsV1Beta1, typing.Dict[str, typing.Any]]] = None,
+                runtime_class: typing.Optional[typing.Union[RuntimeClassStrategyOptionsV1Beta1, typing.Dict[str, typing.Any]]] = None,
                 volumes: typing.Optional[typing.Sequence[builtins.str]] = None,
             ) -> None:
                 ...
@@ -50976,7 +50972,7 @@ class PodSpec:
                 init_containers: typing.Optional[typing.Sequence[typing.Union[Container, typing.Dict[str, typing.Any]]]] = None,
                 node_name: typing.Optional[builtins.str] = None,
                 node_selector: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
-                overhead: typing.Optional[typing.Mapping[builtins.str, "Quantity"]] = None,
+                overhead: typing.Optional[typing.Mapping[builtins.str, Quantity]] = None,
                 preemption_policy: typing.Optional[builtins.str] = None,
                 priority: typing.Optional[jsii.Number] = None,
                 priority_class_name: typing.Optional[builtins.str] = None,
@@ -50990,9 +50986,9 @@ class PodSpec:
                 share_process_namespace: typing.Optional[builtins.bool] = None,
                 subdomain: typing.Optional[builtins.str] = None,
                 termination_grace_period_seconds: typing.Optional[jsii.Number] = None,
-                tolerations: typing.Optional[typing.Sequence[typing.Union["Toleration", typing.Dict[str, typing.Any]]]] = None,
-                topology_spread_constraints: typing.Optional[typing.Sequence[typing.Union["TopologySpreadConstraint", typing.Dict[str, typing.Any]]]] = None,
-                volumes: typing.Optional[typing.Sequence[typing.Union["Volume", typing.Dict[str, typing.Any]]]] = None,
+                tolerations: typing.Optional[typing.Sequence[typing.Union[Toleration, typing.Dict[str, typing.Any]]]] = None,
+                topology_spread_constraints: typing.Optional[typing.Sequence[typing.Union[TopologySpreadConstraint, typing.Dict[str, typing.Any]]]] = None,
+                volumes: typing.Optional[typing.Sequence[typing.Union[Volume, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -51605,7 +51601,7 @@ class PodsMetricSourceV2Beta1:
             def stub(
                 *,
                 metric_name: builtins.str,
-                target_average_value: "Quantity",
+                target_average_value: Quantity,
                 selector: typing.Optional[typing.Union[LabelSelector, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
@@ -52144,9 +52140,9 @@ class PolicyRulesWithSubjectsV1Alpha1:
         if __debug__:
             def stub(
                 *,
-                subjects: typing.Sequence[typing.Union["SubjectV1Alpha1", typing.Dict[str, typing.Any]]],
+                subjects: typing.Sequence[typing.Union[SubjectV1Alpha1, typing.Dict[str, typing.Any]]],
                 non_resource_rules: typing.Optional[typing.Sequence[typing.Union[NonResourcePolicyRuleV1Alpha1, typing.Dict[str, typing.Any]]]] = None,
-                resource_rules: typing.Optional[typing.Sequence[typing.Union["ResourcePolicyRuleV1Alpha1", typing.Dict[str, typing.Any]]]] = None,
+                resource_rules: typing.Optional[typing.Sequence[typing.Union[ResourcePolicyRuleV1Alpha1, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -52672,7 +52668,7 @@ class Probe:
                 initial_delay_seconds: typing.Optional[jsii.Number] = None,
                 period_seconds: typing.Optional[jsii.Number] = None,
                 success_threshold: typing.Optional[jsii.Number] = None,
-                tcp_socket: typing.Optional[typing.Union["TcpSocketAction", typing.Dict[str, typing.Any]]] = None,
+                tcp_socket: typing.Optional[typing.Union[TcpSocketAction, typing.Dict[str, typing.Any]]] = None,
                 timeout_seconds: typing.Optional[jsii.Number] = None,
             ) -> None:
                 ...
@@ -52831,7 +52827,7 @@ class ProjectedVolumeSource:
         if __debug__:
             def stub(
                 *,
-                sources: typing.Sequence[typing.Union["VolumeProjection", typing.Dict[str, typing.Any]]],
+                sources: typing.Sequence[typing.Union[VolumeProjection, typing.Dict[str, typing.Any]]],
                 default_mode: typing.Optional[jsii.Number] = None,
             ) -> None:
                 ...
@@ -53200,7 +53196,7 @@ class RbdPersistentVolumeSource:
                 keyring: typing.Optional[builtins.str] = None,
                 pool: typing.Optional[builtins.str] = None,
                 read_only: typing.Optional[builtins.bool] = None,
-                secret_ref: typing.Optional[typing.Union["SecretReference", typing.Dict[str, typing.Any]]] = None,
+                secret_ref: typing.Optional[typing.Union[SecretReference, typing.Dict[str, typing.Any]]] = None,
                 user: typing.Optional[builtins.str] = None,
             ) -> None:
                 ...
@@ -54722,7 +54718,7 @@ class ResourceQuotaSpec:
                 *,
                 hard: typing.Optional[typing.Mapping[builtins.str, Quantity]] = None,
                 scopes: typing.Optional[typing.Sequence[builtins.str]] = None,
-                scope_selector: typing.Optional[typing.Union["ScopeSelector", typing.Dict[str, typing.Any]]] = None,
+                scope_selector: typing.Optional[typing.Union[ScopeSelector, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -56062,7 +56058,7 @@ class RuntimeClassSpecV1Alpha1:
                 *,
                 runtime_handler: builtins.str,
                 overhead: typing.Optional[typing.Union[OverheadV1Alpha1, typing.Dict[str, typing.Any]]] = None,
-                scheduling: typing.Optional[typing.Union["SchedulingV1Alpha1", typing.Dict[str, typing.Any]]] = None,
+                scheduling: typing.Optional[typing.Union[SchedulingV1Alpha1, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -56248,7 +56244,7 @@ class ScaleIoPersistentVolumeSource:
             def stub(
                 *,
                 gateway: builtins.str,
-                secret_ref: typing.Union["SecretReference", typing.Dict[str, typing.Any]],
+                secret_ref: typing.Union[SecretReference, typing.Dict[str, typing.Any]],
                 system: builtins.str,
                 fs_type: typing.Optional[builtins.str] = None,
                 protection_domain: typing.Optional[builtins.str] = None,
@@ -56774,7 +56770,7 @@ class SchedulingV1Alpha1:
             def stub(
                 *,
                 node_selector: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
-                tolerations: typing.Optional[typing.Sequence[typing.Union["Toleration", typing.Dict[str, typing.Any]]]] = None,
+                tolerations: typing.Optional[typing.Sequence[typing.Union[Toleration, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -56843,7 +56839,7 @@ class SchedulingV1Beta1:
             def stub(
                 *,
                 node_selector: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
-                tolerations: typing.Optional[typing.Sequence[typing.Union["Toleration", typing.Dict[str, typing.Any]]]] = None,
+                tolerations: typing.Optional[typing.Sequence[typing.Union[Toleration, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -56909,7 +56905,7 @@ class ScopeSelector:
         if __debug__:
             def stub(
                 *,
-                match_expressions: typing.Optional[typing.Sequence[typing.Union["ScopedResourceSelectorRequirement", typing.Dict[str, typing.Any]]]] = None,
+                match_expressions: typing.Optional[typing.Sequence[typing.Union[ScopedResourceSelectorRequirement, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -57678,7 +57674,7 @@ class SecurityContext:
                 run_as_non_root: typing.Optional[builtins.bool] = None,
                 run_as_user: typing.Optional[jsii.Number] = None,
                 se_linux_options: typing.Optional[typing.Union[SeLinuxOptions, typing.Dict[str, typing.Any]]] = None,
-                windows_options: typing.Optional[typing.Union["WindowsSecurityContextOptions", typing.Dict[str, typing.Any]]] = None,
+                windows_options: typing.Optional[typing.Union[WindowsSecurityContextOptions, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
@@ -58707,7 +58703,7 @@ class ServiceSpec:
                 publish_not_ready_addresses: typing.Optional[builtins.bool] = None,
                 selector: typing.Optional[typing.Mapping[builtins.str, builtins.str]] = None,
                 session_affinity: typing.Optional[builtins.str] = None,
-                session_affinity_config: typing.Optional[typing.Union["SessionAffinityConfig", typing.Dict[str, typing.Any]]] = None,
+                session_affinity_config: typing.Optional[typing.Union[SessionAffinityConfig, typing.Dict[str, typing.Any]]] = None,
                 topology_keys: typing.Optional[typing.Sequence[builtins.str]] = None,
                 type: typing.Optional[builtins.str] = None,
             ) -> None:
@@ -59044,7 +59040,7 @@ class StatefulSetSpec:
                 pod_management_policy: typing.Optional[builtins.str] = None,
                 replicas: typing.Optional[jsii.Number] = None,
                 revision_history_limit: typing.Optional[jsii.Number] = None,
-                update_strategy: typing.Optional[typing.Union["StatefulSetUpdateStrategy", typing.Dict[str, typing.Any]]] = None,
+                update_strategy: typing.Optional[typing.Union[StatefulSetUpdateStrategy, typing.Dict[str, typing.Any]]] = None,
                 volume_claim_templates: typing.Optional[typing.Sequence[typing.Union[KubePersistentVolumeClaimProps, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
@@ -59231,7 +59227,7 @@ class StatefulSetSpecV1Beta1:
                 replicas: typing.Optional[jsii.Number] = None,
                 revision_history_limit: typing.Optional[jsii.Number] = None,
                 selector: typing.Optional[typing.Union[LabelSelector, typing.Dict[str, typing.Any]]] = None,
-                update_strategy: typing.Optional[typing.Union["StatefulSetUpdateStrategyV1Beta1", typing.Dict[str, typing.Any]]] = None,
+                update_strategy: typing.Optional[typing.Union[StatefulSetUpdateStrategyV1Beta1, typing.Dict[str, typing.Any]]] = None,
                 volume_claim_templates: typing.Optional[typing.Sequence[typing.Union[KubePersistentVolumeClaimProps, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
@@ -59418,7 +59414,7 @@ class StatefulSetSpecV1Beta2:
                 pod_management_policy: typing.Optional[builtins.str] = None,
                 replicas: typing.Optional[jsii.Number] = None,
                 revision_history_limit: typing.Optional[jsii.Number] = None,
-                update_strategy: typing.Optional[typing.Union["StatefulSetUpdateStrategyV1Beta2", typing.Dict[str, typing.Any]]] = None,
+                update_strategy: typing.Optional[typing.Union[StatefulSetUpdateStrategyV1Beta2, typing.Dict[str, typing.Any]]] = None,
                 volume_claim_templates: typing.Optional[typing.Sequence[typing.Union[KubePersistentVolumeClaimProps, typing.Dict[str, typing.Any]]]] = None,
             ) -> None:
                 ...
@@ -61908,7 +61904,7 @@ class ValidatingWebhook:
             def stub(
                 *,
                 admission_review_versions: typing.Sequence[builtins.str],
-                client_config: typing.Union["WebhookClientConfig", typing.Dict[str, typing.Any]],
+                client_config: typing.Union[WebhookClientConfig, typing.Dict[str, typing.Any]],
                 name: builtins.str,
                 side_effects: builtins.str,
                 failure_policy: typing.Optional[builtins.str] = None,
@@ -62173,7 +62169,7 @@ class ValidatingWebhookV1Beta1:
         if __debug__:
             def stub(
                 *,
-                client_config: typing.Union["WebhookClientConfigV1Beta1", typing.Dict[str, typing.Any]],
+                client_config: typing.Union[WebhookClientConfigV1Beta1, typing.Dict[str, typing.Any]],
                 name: builtins.str,
                 admission_review_versions: typing.Optional[typing.Sequence[builtins.str]] = None,
                 failure_policy: typing.Optional[builtins.str] = None,
@@ -62578,7 +62574,7 @@ class Volume:
                 scale_io: typing.Optional[typing.Union[ScaleIoVolumeSource, typing.Dict[str, typing.Any]]] = None,
                 secret: typing.Optional[typing.Union[SecretVolumeSource, typing.Dict[str, typing.Any]]] = None,
                 storageos: typing.Optional[typing.Union[StorageOsVolumeSource, typing.Dict[str, typing.Any]]] = None,
-                vsphere_volume: typing.Optional[typing.Union["VsphereVirtualDiskVolumeSource", typing.Dict[str, typing.Any]]] = None,
+                vsphere_volume: typing.Optional[typing.Union[VsphereVirtualDiskVolumeSource, typing.Dict[str, typing.Any]]] = None,
             ) -> None:
                 ...
             type_hints = typing.get_type_hints(stub)
