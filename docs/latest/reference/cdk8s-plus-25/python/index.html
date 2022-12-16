@@ -2498,6 +2498,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#fromserviceaccountnameoptions" class="md-nav__link">
+    FromServiceAccountNameOptions 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#gcepersistentdiskpersistentvolumeprops" class="md-nav__link">
     GCEPersistentDiskPersistentVolumeProps 
   </a>
@@ -4439,6 +4446,13 @@
           <li class="md-nav__item">
   <a href="#exposeserviceviaingressoptions" class="md-nav__link">
     ExposeServiceViaIngressOptions 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fromserviceaccountnameoptions" class="md-nav__link">
+    FromServiceAccountNameOptions 
   </a>
   
 </li>
@@ -11069,7 +11083,8 @@ example, default).</p>
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">ServiceAccount</span><span class="o">.</span><span class="n">from_service_account_name</span><span class="p">(</span>
   <span class="n">scope</span><span class="p">:</span> <span class="n">Construct</span><span class="p">,</span>
   <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-  <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+  <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+  <span class="n">namespace_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="p">)</span>
 </code></pre></div>
 <h6 id="scoperequired_43"><code>scope</code><sup>Required</sup> <a name="cdk8s_plus_25.ServiceAccount.parameter.scope"></a><a class="headerlink" href="#scoperequired_43" title="Permanent link">&para;</a></h6>
@@ -11087,6 +11102,13 @@ example, default).</p>
 <li><em>Type:</em> <code>str</code></li>
 </ul>
 <p>The name of the service account resource.</p>
+<hr />
+<h6 id="namespace_nameoptional"><code>namespace_name</code><sup>Optional</sup> <a name="cdk8s_plus_25.FromServiceAccountNameOptions.parameter.namespace_name"></a><a class="headerlink" href="#namespace_nameoptional" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <code>str</code></li>
+<li><em>Default:</em> &ldquo;default&rdquo;</li>
+</ul>
+<p>The name of the namespace the service account belongs to.</p>
 <hr />
 <h4 id="properties_25">Properties <a name="Properties"></a><a class="headerlink" href="#properties_25" title="Permanent link">&para;</a></h4>
 <h5 id="automount_tokenrequired"><code>automount_token</code><sup>Required</sup> <a name="cdk8s_plus_25.ServiceAccount.property.automount_token"></a><a class="headerlink" href="#automount_tokenrequired" title="Permanent link">&para;</a></h5>
@@ -15108,9 +15130,26 @@ you must explicitly set a name starting from the second expose call.</p>
 </ul>
 <p>The type of the path.</p>
 <hr />
+<h3 id="fromserviceaccountnameoptions">FromServiceAccountNameOptions <a name="cdk8s_plus_25.FromServiceAccountNameOptions"></a><a class="headerlink" href="#fromserviceaccountnameoptions" title="Permanent link">&para;</a></h3>
+<h4 id="initializer_38">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_38" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
+
+<span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">FromServiceAccountNameOptions</span><span class="p">(</span>
+  <span class="n">namespace_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="p">)</span>
+</code></pre></div>
+<h5 id="namespace_nameoptional_1"><code>namespace_name</code><sup>Optional</sup> <a name="cdk8s_plus_25.FromServiceAccountNameOptions.property.namespace_name"></a><a class="headerlink" href="#namespace_nameoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">namespace_name</span><span class="p">:</span> <span class="nb">str</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>str</code></li>
+<li><em>Default:</em> &ldquo;default&rdquo;</li>
+</ul>
+<p>The name of the namespace the service account belongs to.</p>
+<hr />
 <h3 id="gcepersistentdiskpersistentvolumeprops">GCEPersistentDiskPersistentVolumeProps <a name="cdk8s_plus_25.GCEPersistentDiskPersistentVolumeProps"></a><a class="headerlink" href="#gcepersistentdiskpersistentvolumeprops" title="Permanent link">&para;</a></h3>
 <p>Properties for <code>GCEPersistentDiskPersistentVolume</code>.</p>
-<h4 id="initializer_38">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_38" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_39">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_39" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">GCEPersistentDiskPersistentVolumeProps</span><span class="p">(</span>
@@ -15268,7 +15307,7 @@ Similarly, the volume partition for /dev/sda is &ldquo;0&rdquo; (or you can leav
 <hr />
 <h3 id="gcepersistentdiskvolumeoptions">GCEPersistentDiskVolumeOptions <a name="cdk8s_plus_25.GCEPersistentDiskVolumeOptions"></a><a class="headerlink" href="#gcepersistentdiskvolumeoptions" title="Permanent link">&para;</a></h3>
 <p>Options of <code>Volume.fromGcePersistentDisk</code>.</p>
-<h4 id="initializer_39">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_39" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_40">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_40" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">GCEPersistentDiskVolumeOptions</span><span class="p">(</span>
@@ -15326,7 +15365,7 @@ Similarly, the volume partition for /dev/sda is &ldquo;0&rdquo; (or you can leav
 <hr />
 <h3 id="handlerfromhttpgetoptions">HandlerFromHttpGetOptions <a name="cdk8s_plus_25.HandlerFromHttpGetOptions"></a><a class="headerlink" href="#handlerfromhttpgetoptions" title="Permanent link">&para;</a></h3>
 <p>Options for <code>Handler.fromHttpGet</code>.</p>
-<h4 id="initializer_40">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_40" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_41">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_41" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">HandlerFromHttpGetOptions</span><span class="p">(</span>
@@ -15344,7 +15383,7 @@ Similarly, the volume partition for /dev/sda is &ldquo;0&rdquo; (or you can leav
 <hr />
 <h3 id="handlerfromtcpsocketoptions">HandlerFromTcpSocketOptions <a name="cdk8s_plus_25.HandlerFromTcpSocketOptions"></a><a class="headerlink" href="#handlerfromtcpsocketoptions" title="Permanent link">&para;</a></h3>
 <p>Options for <code>Handler.fromTcpSocket</code>.</p>
-<h4 id="initializer_41">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_41" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_42">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_42" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">HandlerFromTcpSocketOptions</span><span class="p">(</span>
@@ -15372,7 +15411,7 @@ Similarly, the volume partition for /dev/sda is &ldquo;0&rdquo; (or you can leav
 <hr />
 <h3 id="horizontalpodautoscalerprops">HorizontalPodAutoscalerProps <a name="cdk8s_plus_25.HorizontalPodAutoscalerProps"></a><a class="headerlink" href="#horizontalpodautoscalerprops" title="Permanent link">&para;</a></h3>
 <p>Properties for HorizontalPodAutoscaler.</p>
-<h4 id="initializer_42">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_42" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_43">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_43" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">HorizontalPodAutoscalerProps</span><span class="p">(</span>
@@ -15457,7 +15496,7 @@ at least one Object or External metric is configured.</p>
 <hr />
 <h3 id="hostalias">HostAlias <a name="cdk8s_plus_25.HostAlias"></a><a class="headerlink" href="#hostalias" title="Permanent link">&para;</a></h3>
 <p>HostAlias holds the mapping between IP and hostnames that will be injected as an entry in the pod&rsquo;s /etc/hosts file.</p>
-<h4 id="initializer_43">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_43" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_44">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_44" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">HostAlias</span><span class="p">(</span>
@@ -15483,7 +15522,7 @@ at least one Object or External metric is configured.</p>
 <hr />
 <h3 id="hostpathvolumeoptions">HostPathVolumeOptions <a name="cdk8s_plus_25.HostPathVolumeOptions"></a><a class="headerlink" href="#hostpathvolumeoptions" title="Permanent link">&para;</a></h3>
 <p>Options for a HostPathVolume-based volume.</p>
-<h4 id="initializer_44">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_44" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_45">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_45" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">HostPathVolumeOptions</span><span class="p">(</span>
@@ -15510,7 +15549,7 @@ at least one Object or External metric is configured.</p>
 <hr />
 <h3 id="httpgetprobeoptions">HttpGetProbeOptions <a name="cdk8s_plus_25.HttpGetProbeOptions"></a><a class="headerlink" href="#httpgetprobeoptions" title="Permanent link">&para;</a></h3>
 <p>Options for <code>Probe.fromHttpGet()</code>.</p>
-<h4 id="initializer_45">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_45" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_46">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_46" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">HttpGetProbeOptions</span><span class="p">(</span>
@@ -15598,7 +15637,7 @@ at least one Object or External metric is configured.</p>
 <hr />
 <h3 id="ingressprops">IngressProps <a name="cdk8s_plus_25.IngressProps"></a><a class="headerlink" href="#ingressprops" title="Permanent link">&para;</a></h3>
 <p>Properties for <code>Ingress</code>.</p>
-<h4 id="initializer_46">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_46" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_47">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_47" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">IngressProps</span><span class="p">(</span>
@@ -15656,7 +15695,7 @@ extension, if the ingress controller fulfilling the ingress supports SNI.</p>
 <p>Represents the rules mapping the paths under a specified host to the related backend services.</p>
 <p>Incoming requests are first evaluated for a host match,
 then routed to the backend associated with the matching path.</p>
-<h4 id="initializer_47">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_47" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_48">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_48" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">IngressRule</span><span class="p">(</span>
@@ -15716,7 +15755,7 @@ types will be matched by prefix.</p>
 <hr />
 <h3 id="ingresstls">IngressTls <a name="cdk8s_plus_25.IngressTls"></a><a class="headerlink" href="#ingresstls" title="Permanent link">&para;</a></h3>
 <p>Represents the TLS configuration mapping that is passed to the ingress controller for SSL termination.</p>
-<h4 id="initializer_48">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_48" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_49">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_49" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">IngressTls</span><span class="p">(</span>
@@ -15750,7 +15789,7 @@ termination and value of the Host header is used for routing.</p>
 <hr />
 <h3 id="jobprops">JobProps <a name="cdk8s_plus_25.JobProps"></a><a class="headerlink" href="#jobprops" title="Permanent link">&para;</a></h3>
 <p>Properties for <code>Job</code>.</p>
-<h4 id="initializer_49">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_49" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_50">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_50" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">JobProps</span><span class="p">(</span>
@@ -15986,7 +16025,7 @@ field is alpha-level and is only honored by servers that enable the
 <hr />
 <h3 id="labelselectoroptions">LabelSelectorOptions <a name="cdk8s_plus_25.LabelSelectorOptions"></a><a class="headerlink" href="#labelselectoroptions" title="Permanent link">&para;</a></h3>
 <p>Options for <code>LabelSelector.of</code>.</p>
-<h4 id="initializer_50">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_50" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_51">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_51" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">LabelSelectorOptions</span><span class="p">(</span>
@@ -16012,7 +16051,7 @@ field is alpha-level and is only honored by servers that enable the
 <hr />
 <h3 id="labelselectorrequirement">LabelSelectorRequirement <a name="cdk8s_plus_25.LabelSelectorRequirement"></a><a class="headerlink" href="#labelselectorrequirement" title="Permanent link">&para;</a></h3>
 <p>A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.</p>
-<h4 id="initializer_51">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_51" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_52">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_52" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">LabelSelectorRequirement</span><span class="p">(</span>
@@ -16050,7 +16089,7 @@ the values array must be empty. This array is replaced during a strategic merge 
 <hr />
 <h3 id="memoryresources">MemoryResources <a name="cdk8s_plus_25.MemoryResources"></a><a class="headerlink" href="#memoryresources" title="Permanent link">&para;</a></h3>
 <p>Memory request and limit.</p>
-<h4 id="initializer_52">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_52" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_53">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_53" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">MemoryResources</span><span class="p">(</span>
@@ -16074,7 +16113,7 @@ the values array must be empty. This array is replaced during a strategic merge 
 <hr />
 <h3 id="metriccontainerresourceoptions">MetricContainerResourceOptions <a name="cdk8s_plus_25.MetricContainerResourceOptions"></a><a class="headerlink" href="#metriccontainerresourceoptions" title="Permanent link">&para;</a></h3>
 <p>Options for <code>Metric.containerResource()</code>.</p>
-<h4 id="initializer_53">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_53" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_54">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_54" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">MetricContainerResourceOptions</span><span class="p">(</span>
@@ -16100,7 +16139,7 @@ the values array must be empty. This array is replaced during a strategic merge 
 <hr />
 <h3 id="metricobjectoptions">MetricObjectOptions <a name="cdk8s_plus_25.MetricObjectOptions"></a><a class="headerlink" href="#metricobjectoptions" title="Permanent link">&para;</a></h3>
 <p>Options for <code>Metric.object()</code>.</p>
-<h4 id="initializer_54">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_54" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_55">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_55" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">MetricObjectOptions</span><span class="p">(</span>
@@ -16147,7 +16186,7 @@ for more specific metrics scoping.</p>
 <hr />
 <h3 id="metricoptions">MetricOptions <a name="cdk8s_plus_25.MetricOptions"></a><a class="headerlink" href="#metricoptions" title="Permanent link">&para;</a></h3>
 <p>Base options for a Metric.</p>
-<h4 id="initializer_55">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_55" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_56">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_56" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">MetricOptions</span><span class="p">(</span>
@@ -16185,7 +16224,7 @@ for more specific metrics scoping.</p>
 <hr />
 <h3 id="mountoptions">MountOptions <a name="cdk8s_plus_25.MountOptions"></a><a class="headerlink" href="#mountoptions" title="Permanent link">&para;</a></h3>
 <p>Options for mounts.</p>
-<h4 id="initializer_56">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_56" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_57">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_57" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">MountOptions</span><span class="p">(</span>
@@ -16241,7 +16280,7 @@ $(VAR_NAME) are expanded using the container&rsquo;s environment. Defaults to &l
 <hr />
 <h3 id="namespaceprops">NamespaceProps <a name="cdk8s_plus_25.NamespaceProps"></a><a class="headerlink" href="#namespaceprops" title="Permanent link">&para;</a></h3>
 <p>Properties for <code>Namespace</code>.</p>
-<h4 id="initializer_57">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_57" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_58">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_58" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">NamespaceProps</span><span class="p">(</span>
@@ -16258,7 +16297,7 @@ $(VAR_NAME) are expanded using the container&rsquo;s environment. Defaults to &l
 <hr />
 <h3 id="namespaceselectorconfig">NamespaceSelectorConfig <a name="cdk8s_plus_25.NamespaceSelectorConfig"></a><a class="headerlink" href="#namespaceselectorconfig" title="Permanent link">&para;</a></h3>
 <p>Configuration for selecting namespaces.</p>
-<h4 id="initializer_58">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_58" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_59">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_59" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">NamespaceSelectorConfig</span><span class="p">(</span>
@@ -16284,7 +16323,7 @@ $(VAR_NAME) are expanded using the container&rsquo;s environment. Defaults to &l
 <hr />
 <h3 id="namespacesselectoptions">NamespacesSelectOptions <a name="cdk8s_plus_25.NamespacesSelectOptions"></a><a class="headerlink" href="#namespacesselectoptions" title="Permanent link">&para;</a></h3>
 <p>Options for <code>Namespaces.select</code>.</p>
-<h4 id="initializer_59">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_59" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_60">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_60" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">NamespacesSelectOptions</span><span class="p">(</span>
@@ -16325,7 +16364,7 @@ provide a more advanced matching mechanism.</p>
 <hr />
 <h3 id="networkpolicyaddegressruleoptions">NetworkPolicyAddEgressRuleOptions <a name="cdk8s_plus_25.NetworkPolicyAddEgressRuleOptions"></a><a class="headerlink" href="#networkpolicyaddegressruleoptions" title="Permanent link">&para;</a></h3>
 <p>Options for <code>NetworkPolicy.addEgressRule</code>.</p>
-<h4 id="initializer_60">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_60" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_61">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_61" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">NetworkPolicyAddEgressRuleOptions</span><span class="p">(</span>
@@ -16344,7 +16383,7 @@ provide a more advanced matching mechanism.</p>
 <h3 id="networkpolicypeerconfig">NetworkPolicyPeerConfig <a name="cdk8s_plus_25.NetworkPolicyPeerConfig"></a><a class="headerlink" href="#networkpolicypeerconfig" title="Permanent link">&para;</a></h3>
 <p>Configuration for network peers.</p>
 <p>A peer can either by an ip block, or a selection of pods, not both.</p>
-<h4 id="initializer_61">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_61" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_62">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_62" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">NetworkPolicyPeerConfig</span><span class="p">(</span>
@@ -16370,7 +16409,7 @@ provide a more advanced matching mechanism.</p>
 <hr />
 <h3 id="networkpolicyportprops">NetworkPolicyPortProps <a name="cdk8s_plus_25.NetworkPolicyPortProps"></a><a class="headerlink" href="#networkpolicyportprops" title="Permanent link">&para;</a></h3>
 <p>Properties for <code>NetworkPolicyPort</code>.</p>
-<h4 id="initializer_62">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_62" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_63">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_63" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">NetworkPolicyPortProps</span><span class="p">(</span>
@@ -16410,7 +16449,7 @@ Use this to specify a port range, rather that a specific one.</p>
 <hr />
 <h3 id="networkpolicyprops">NetworkPolicyProps <a name="cdk8s_plus_25.NetworkPolicyProps"></a><a class="headerlink" href="#networkpolicyprops" title="Permanent link">&para;</a></h3>
 <p>Properties for <code>NetworkPolicy</code>.</p>
-<h4 id="initializer_63">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_63" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_64">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_64" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">NetworkPolicyProps</span><span class="p">(</span>
@@ -16462,7 +16501,7 @@ In this case, the rules for each are combined additively.</p>
 <hr />
 <h3 id="networkpolicyrule">NetworkPolicyRule <a name="cdk8s_plus_25.NetworkPolicyRule"></a><a class="headerlink" href="#networkpolicyrule" title="Permanent link">&para;</a></h3>
 <p>Describes a rule allowing traffic from / to pods matched by a network policy selector.</p>
-<h4 id="initializer_64">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_64" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_65">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_65" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">NetworkPolicyRule</span><span class="p">(</span>
@@ -16489,7 +16528,7 @@ In this case, the rules for each are combined additively.</p>
 <hr />
 <h3 id="networkpolicytraffic">NetworkPolicyTraffic <a name="cdk8s_plus_25.NetworkPolicyTraffic"></a><a class="headerlink" href="#networkpolicytraffic" title="Permanent link">&para;</a></h3>
 <p>Describes how the network policy should configure egress / ingress traffic.</p>
-<h4 id="initializer_65">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_65" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_66">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_66" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">NetworkPolicyTraffic</span><span class="p">(</span>
@@ -16518,7 +16557,7 @@ In this case, the rules for each are combined additively.</p>
 <hr />
 <h3 id="nodetaintqueryoptions">NodeTaintQueryOptions <a name="cdk8s_plus_25.NodeTaintQueryOptions"></a><a class="headerlink" href="#nodetaintqueryoptions" title="Permanent link">&para;</a></h3>
 <p>Options for <code>NodeTaintQuery</code>.</p>
-<h4 id="initializer_66">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_66" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_67">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_67" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">NodeTaintQueryOptions</span><span class="p">(</span>
@@ -16547,7 +16586,7 @@ In this case, the rules for each are combined additively.</p>
 <hr />
 <h3 id="pathmapping">PathMapping <a name="cdk8s_plus_25.PathMapping"></a><a class="headerlink" href="#pathmapping" title="Permanent link">&para;</a></h3>
 <p>Maps a string key to a path within a volume.</p>
-<h4 id="initializer_67">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_67" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_68">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_68" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">PathMapping</span><span class="p">(</span>
@@ -16579,7 +16618,7 @@ the result can be other mode bits set.</p>
 <hr />
 <h3 id="persistentvolumeclaimprops">PersistentVolumeClaimProps <a name="cdk8s_plus_25.PersistentVolumeClaimProps"></a><a class="headerlink" href="#persistentvolumeclaimprops" title="Permanent link">&para;</a></h3>
 <p>Properties for <code>PersistentVolumeClaim</code>.</p>
-<h4 id="initializer_68">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_68" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_69">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_69" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">PersistentVolumeClaimProps</span><span class="p">(</span>
@@ -16669,7 +16708,7 @@ create a bi-directional bounded claim.</p>
 <hr />
 <h3 id="persistentvolumeclaimvolumeoptions">PersistentVolumeClaimVolumeOptions <a name="cdk8s_plus_25.PersistentVolumeClaimVolumeOptions"></a><a class="headerlink" href="#persistentvolumeclaimvolumeoptions" title="Permanent link">&para;</a></h3>
 <p>Options for a PersistentVolumeClaim-based volume.</p>
-<h4 id="initializer_69">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_69" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_70">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_70" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">PersistentVolumeClaimVolumeOptions</span><span class="p">(</span>
@@ -16697,7 +16736,7 @@ create a bi-directional bounded claim.</p>
 <hr />
 <h3 id="persistentvolumeprops">PersistentVolumeProps <a name="cdk8s_plus_25.PersistentVolumeProps"></a><a class="headerlink" href="#persistentvolumeprops" title="Permanent link">&para;</a></h3>
 <p>Properties for <code>PersistentVolume</code>.</p>
-<h4 id="initializer_70">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_70" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_71">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_71" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">PersistentVolumeProps</span><span class="p">(</span>
@@ -16802,7 +16841,7 @@ the volume after it has been released of its claim.</p>
 <hr />
 <h3 id="podconnectionsallowfromoptions">PodConnectionsAllowFromOptions <a name="cdk8s_plus_25.PodConnectionsAllowFromOptions"></a><a class="headerlink" href="#podconnectionsallowfromoptions" title="Permanent link">&para;</a></h3>
 <p>Options for <code>PodConnections.allowFrom</code>.</p>
-<h4 id="initializer_71">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_71" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_72">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_72" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">PodConnectionsAllowFromOptions</span><span class="p">(</span>
@@ -16830,7 +16869,7 @@ the volume after it has been released of its claim.</p>
 <hr />
 <h3 id="podconnectionsallowtooptions">PodConnectionsAllowToOptions <a name="cdk8s_plus_25.PodConnectionsAllowToOptions"></a><a class="headerlink" href="#podconnectionsallowtooptions" title="Permanent link">&para;</a></h3>
 <p>Options for <code>PodConnections.allowTo</code>.</p>
-<h4 id="initializer_72">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_72" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_73">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_73" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">PodConnectionsAllowToOptions</span><span class="p">(</span>
@@ -16858,7 +16897,7 @@ the volume after it has been released of its claim.</p>
 <hr />
 <h3 id="poddnsprops">PodDnsProps <a name="cdk8s_plus_25.PodDnsProps"></a><a class="headerlink" href="#poddnsprops" title="Permanent link">&para;</a></h3>
 <p>Properties for <code>PodDns</code>.</p>
-<h4 id="initializer_73">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_73" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_74">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_74" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">PodDnsProps</span><span class="p">(</span>
@@ -16950,7 +16989,7 @@ Duplicate domain names are removed.</p>
 <hr />
 <h3 id="podprops">PodProps <a name="cdk8s_plus_25.PodProps"></a><a class="headerlink" href="#podprops" title="Permanent link">&para;</a></h3>
 <p>Properties for <code>Pod</code>.</p>
-<h4 id="initializer_74">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_74" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_75">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_75" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">PodProps</span><span class="p">(</span>
@@ -17116,7 +17155,7 @@ Account (for example, default).</p>
 <hr />
 <h3 id="podsalloptions">PodsAllOptions <a name="cdk8s_plus_25.PodsAllOptions"></a><a class="headerlink" href="#podsalloptions" title="Permanent link">&para;</a></h3>
 <p>Options for <code>Pods.all</code>.</p>
-<h4 id="initializer_75">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_75" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_76">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_76" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">PodsAllOptions</span><span class="p">(</span>
@@ -17135,7 +17174,7 @@ Account (for example, default).</p>
 <hr />
 <h3 id="podschedulingattractoptions">PodSchedulingAttractOptions <a name="cdk8s_plus_25.PodSchedulingAttractOptions"></a><a class="headerlink" href="#podschedulingattractoptions" title="Permanent link">&para;</a></h3>
 <p>Options for <code>PodScheduling.attract</code>.</p>
-<h4 id="initializer_76">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_76" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_77">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_77" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">PodSchedulingAttractOptions</span><span class="p">(</span>
@@ -17153,7 +17192,7 @@ Account (for example, default).</p>
 <hr />
 <h3 id="podschedulingcolocateoptions">PodSchedulingColocateOptions <a name="cdk8s_plus_25.PodSchedulingColocateOptions"></a><a class="headerlink" href="#podschedulingcolocateoptions" title="Permanent link">&para;</a></h3>
 <p>Options for <code>PodScheduling.colocate</code>.</p>
-<h4 id="initializer_77">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_77" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_78">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_78" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">PodSchedulingColocateOptions</span><span class="p">(</span>
@@ -17181,7 +17220,7 @@ Account (for example, default).</p>
 <hr />
 <h3 id="podschedulingseparateoptions">PodSchedulingSeparateOptions <a name="cdk8s_plus_25.PodSchedulingSeparateOptions"></a><a class="headerlink" href="#podschedulingseparateoptions" title="Permanent link">&para;</a></h3>
 <p>Options for <code>PodScheduling.separate</code>.</p>
-<h4 id="initializer_78">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_78" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_79">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_79" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">PodSchedulingSeparateOptions</span><span class="p">(</span>
@@ -17209,7 +17248,7 @@ Account (for example, default).</p>
 <hr />
 <h3 id="podsecuritycontextprops">PodSecurityContextProps <a name="cdk8s_plus_25.PodSecurityContextProps"></a><a class="headerlink" href="#podsecuritycontextprops" title="Permanent link">&para;</a></h3>
 <p>Properties for <code>PodSecurityContext</code>.</p>
-<h4 id="initializer_79">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_79" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_80">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_80" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">PodSecurityContextProps</span><span class="p">(</span>
@@ -17282,7 +17321,7 @@ It will have no effect on ephemeral volume types such as: secret, configmaps and
 <hr />
 <h3 id="podselectorconfig">PodSelectorConfig <a name="cdk8s_plus_25.PodSelectorConfig"></a><a class="headerlink" href="#podselectorconfig" title="Permanent link">&para;</a></h3>
 <p>Configuration for selecting pods, optionally in particular namespaces.</p>
-<h4 id="initializer_80">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_80" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_81">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_81" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">PodSelectorConfig</span><span class="p">(</span>
@@ -17308,7 +17347,7 @@ It will have no effect on ephemeral volume types such as: secret, configmaps and
 <hr />
 <h3 id="podsselectoptions">PodsSelectOptions <a name="cdk8s_plus_25.PodsSelectOptions"></a><a class="headerlink" href="#podsselectoptions" title="Permanent link">&para;</a></h3>
 <p>Options for <code>Pods.select</code>.</p>
-<h4 id="initializer_81">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_81" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_82">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_82" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">PodsSelectOptions</span><span class="p">(</span>
@@ -17347,7 +17386,7 @@ It will have no effect on ephemeral volume types such as: secret, configmaps and
 <hr />
 <h3 id="probeoptions">ProbeOptions <a name="cdk8s_plus_25.ProbeOptions"></a><a class="headerlink" href="#probeoptions" title="Permanent link">&para;</a></h3>
 <p>Probe options.</p>
-<h4 id="initializer_82">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_82" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_83">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_83" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">ProbeOptions</span><span class="p">(</span>
@@ -17415,7 +17454,7 @@ It will have no effect on ephemeral volume types such as: secret, configmaps and
 <hr />
 <h3 id="resourceprops">ResourceProps <a name="cdk8s_plus_25.ResourceProps"></a><a class="headerlink" href="#resourceprops" title="Permanent link">&para;</a></h3>
 <p>Initialization properties for resources.</p>
-<h4 id="initializer_83">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_83" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_84">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_84" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">ResourceProps</span><span class="p">(</span>
@@ -17432,7 +17471,7 @@ It will have no effect on ephemeral volume types such as: secret, configmaps and
 <hr />
 <h3 id="rolebindingprops">RoleBindingProps <a name="cdk8s_plus_25.RoleBindingProps"></a><a class="headerlink" href="#rolebindingprops" title="Permanent link">&para;</a></h3>
 <p>Properties for <code>RoleBinding</code>.</p>
-<h4 id="initializer_84">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_84" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_85">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_85" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">RoleBindingProps</span><span class="p">(</span>
@@ -17459,7 +17498,7 @@ It will have no effect on ephemeral volume types such as: secret, configmaps and
 <hr />
 <h3 id="rolepolicyrule">RolePolicyRule <a name="cdk8s_plus_25.RolePolicyRule"></a><a class="headerlink" href="#rolepolicyrule" title="Permanent link">&para;</a></h3>
 <p>Policy rule of a `Role.</p>
-<h4 id="initializer_85">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_85" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_86">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_86" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">RolePolicyRule</span><span class="p">(</span>
@@ -17486,7 +17525,7 @@ It will have no effect on ephemeral volume types such as: secret, configmaps and
 <hr />
 <h3 id="roleprops">RoleProps <a name="cdk8s_plus_25.RoleProps"></a><a class="headerlink" href="#roleprops" title="Permanent link">&para;</a></h3>
 <p>Properties for <code>Role</code>.</p>
-<h4 id="initializer_86">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_86" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_87">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_87" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">RoleProps</span><span class="p">(</span>
@@ -17512,7 +17551,7 @@ It will have no effect on ephemeral volume types such as: secret, configmaps and
 <p>A list of rules the role should allow.</p>
 <hr />
 <h3 id="scalingpolicy">ScalingPolicy <a name="cdk8s_plus_25.ScalingPolicy"></a><a class="headerlink" href="#scalingpolicy" title="Permanent link">&para;</a></h3>
-<h4 id="initializer_87">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_87" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_88">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_88" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">ScalingPolicy</span><span class="p">(</span>
@@ -17540,7 +17579,7 @@ It will have no effect on ephemeral volume types such as: secret, configmaps and
 <hr />
 <h3 id="scalingrules">ScalingRules <a name="cdk8s_plus_25.ScalingRules"></a><a class="headerlink" href="#scalingrules" title="Permanent link">&para;</a></h3>
 <p>Defines the scaling behavior for one direction.</p>
-<h4 id="initializer_88">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_88" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_89">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_89" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">ScalingRules</span><span class="p">(</span>
@@ -17584,7 +17623,7 @@ It will have no effect on ephemeral volume types such as: secret, configmaps and
 <hr />
 <h3 id="scalingtarget">ScalingTarget <a name="cdk8s_plus_25.ScalingTarget"></a><a class="headerlink" href="#scalingtarget" title="Permanent link">&para;</a></h3>
 <p>Properties used to configure the target of an Autoscaler.</p>
-<h4 id="initializer_89">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_89" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_90">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_90" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">ScalingTarget</span><span class="p">(</span>
@@ -17640,7 +17679,7 @@ fixed number of replicas.</p>
 <hr />
 <h3 id="secretprops">SecretProps <a name="cdk8s_plus_25.SecretProps"></a><a class="headerlink" href="#secretprops" title="Permanent link">&para;</a></h3>
 <p>Options for <code>Secret</code>.</p>
-<h4 id="initializer_90">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_90" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_91">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_91" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">SecretProps</span><span class="p">(</span>
@@ -17693,7 +17732,7 @@ handling of secret data by various controllers.</p>
 <hr />
 <h3 id="secretvalue">SecretValue <a name="cdk8s_plus_25.SecretValue"></a><a class="headerlink" href="#secretvalue" title="Permanent link">&para;</a></h3>
 <p>Represents a specific value in JSON secret.</p>
-<h4 id="initializer_91">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_91" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_92">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_92" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">SecretValue</span><span class="p">(</span>
@@ -17719,7 +17758,7 @@ handling of secret data by various controllers.</p>
 <hr />
 <h3 id="secretvolumeoptions">SecretVolumeOptions <a name="cdk8s_plus_25.SecretVolumeOptions"></a><a class="headerlink" href="#secretvolumeoptions" title="Permanent link">&para;</a></h3>
 <p>Options for the Secret-based volume.</p>
-<h4 id="initializer_92">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_92" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_93">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_93" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">SecretVolumeOptions</span><span class="p">(</span>
@@ -17778,7 +17817,7 @@ contain the &lsquo;..&rsquo; path or start with &lsquo;..&rsquo;.</p>
 <hr />
 <h3 id="serviceaccountprops">ServiceAccountProps <a name="cdk8s_plus_25.ServiceAccountProps"></a><a class="headerlink" href="#serviceaccountprops" title="Permanent link">&para;</a></h3>
 <p>Properties for initialization of <code>ServiceAccount</code>.</p>
-<h4 id="initializer_93">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_93" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_94">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_94" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">ServiceAccountProps</span><span class="p">(</span>
@@ -17821,7 +17860,7 @@ contain the &lsquo;..&rsquo; path or start with &lsquo;..&rsquo;.</p>
 <hr />
 <h3 id="serviceaccounttokensecretprops">ServiceAccountTokenSecretProps <a name="cdk8s_plus_25.ServiceAccountTokenSecretProps"></a><a class="headerlink" href="#serviceaccounttokensecretprops" title="Permanent link">&para;</a></h3>
 <p>Options for <code>ServiceAccountTokenSecret</code>.</p>
-<h4 id="initializer_94">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_94" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_95">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_95" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">ServiceAccountTokenSecretProps</span><span class="p">(</span>
@@ -17858,7 +17897,7 @@ contain the &lsquo;..&rsquo; path or start with &lsquo;..&rsquo;.</p>
 <hr />
 <h3 id="servicebindoptions">ServiceBindOptions <a name="cdk8s_plus_25.ServiceBindOptions"></a><a class="headerlink" href="#servicebindoptions" title="Permanent link">&para;</a></h3>
 <p>Options for <code>Service.bind</code>.</p>
-<h4 id="initializer_95">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_95" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_96">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_96" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">ServiceBindOptions</span><span class="p">(</span>
@@ -17917,7 +17956,7 @@ requires one.</p>
 <hr />
 <h3 id="serviceingressbackendoptions">ServiceIngressBackendOptions <a name="cdk8s_plus_25.ServiceIngressBackendOptions"></a><a class="headerlink" href="#serviceingressbackendoptions" title="Permanent link">&para;</a></h3>
 <p>Options for setting up backends for ingress rules.</p>
-<h4 id="initializer_96">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_96" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_97">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_97" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">ServiceIngressBackendOptions</span><span class="p">(</span>
@@ -17941,7 +17980,7 @@ requires one.</p>
 <hr />
 <h3 id="serviceport">ServicePort <a name="cdk8s_plus_25.ServicePort"></a><a class="headerlink" href="#serviceport" title="Permanent link">&para;</a></h3>
 <p>Definition of a service port.</p>
-<h4 id="initializer_97">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_97" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_98">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_98" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">ServicePort</span><span class="p">(</span>
@@ -18009,7 +18048,7 @@ requires one.</p>
 <hr />
 <h3 id="serviceprops">ServiceProps <a name="cdk8s_plus_25.ServiceProps"></a><a class="headerlink" href="#serviceprops" title="Permanent link">&para;</a></h3>
 <p>Properties for <code>Service</code>.</p>
-<h4 id="initializer_98">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_98" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_99">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_99" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">ServiceProps</span><span class="p">(</span>
@@ -18119,7 +18158,7 @@ its endpoints, which Kubernetes will not modify.</li>
 <hr />
 <h3 id="sshauthsecretprops">SshAuthSecretProps <a name="cdk8s_plus_25.SshAuthSecretProps"></a><a class="headerlink" href="#sshauthsecretprops" title="Permanent link">&para;</a></h3>
 <p>Options for <code>SshAuthSecret</code>.</p>
-<h4 id="initializer_99">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_99" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_100">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_100" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">SshAuthSecretProps</span><span class="p">(</span>
@@ -18156,7 +18195,7 @@ its endpoints, which Kubernetes will not modify.</li>
 <hr />
 <h3 id="statefulsetprops">StatefulSetProps <a name="cdk8s_plus_25.StatefulSetProps"></a><a class="headerlink" href="#statefulsetprops" title="Permanent link">&para;</a></h3>
 <p>Properties for initialization of <code>StatefulSet</code>.</p>
-<h4 id="initializer_100">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_100" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_101">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_101" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">StatefulSetProps</span><span class="p">(</span>
@@ -18411,7 +18450,7 @@ its pod template.</p>
 <hr />
 <h3 id="statefulsetupdatestrategyrollingupdateoptions">StatefulSetUpdateStrategyRollingUpdateOptions <a name="cdk8s_plus_25.StatefulSetUpdateStrategyRollingUpdateOptions"></a><a class="headerlink" href="#statefulsetupdatestrategyrollingupdateoptions" title="Permanent link">&para;</a></h3>
 <p>Options for <code>StatefulSetUpdateStrategy.rollingUpdate</code>.</p>
-<h4 id="initializer_101">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_101" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_102">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_102" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">StatefulSetUpdateStrategyRollingUpdateOptions</span><span class="p">(</span>
@@ -18437,7 +18476,7 @@ update, roll out a canary, or perform a phased roll out.</p>
 <p>Subject contains a reference to the object or user identities a role binding applies to.</p>
 <p>This can either hold a direct API object reference, or a value
 for non-objects such as user and group names.</p>
-<h4 id="initializer_102">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_102" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_103">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_103" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">SubjectConfiguration</span><span class="p">(</span>
@@ -18490,7 +18529,7 @@ should report an error.</p>
 <hr />
 <h3 id="sysctl">Sysctl <a name="cdk8s_plus_25.Sysctl"></a><a class="headerlink" href="#sysctl" title="Permanent link">&para;</a></h3>
 <p>Sysctl defines a kernel parameter to be set.</p>
-<h4 id="initializer_103">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_103" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_104">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_104" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">Sysctl</span><span class="p">(</span>
@@ -18516,7 +18555,7 @@ should report an error.</p>
 <hr />
 <h3 id="tcpsocketprobeoptions">TcpSocketProbeOptions <a name="cdk8s_plus_25.TcpSocketProbeOptions"></a><a class="headerlink" href="#tcpsocketprobeoptions" title="Permanent link">&para;</a></h3>
 <p>Options for <code>Probe.fromTcpSocket()</code>.</p>
-<h4 id="initializer_104">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_104" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_105">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_105" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">TcpSocketProbeOptions</span><span class="p">(</span>
@@ -18604,7 +18643,7 @@ should report an error.</p>
 <hr />
 <h3 id="tlssecretprops">TlsSecretProps <a name="cdk8s_plus_25.TlsSecretProps"></a><a class="headerlink" href="#tlssecretprops" title="Permanent link">&para;</a></h3>
 <p>Options for <code>TlsSecret</code>.</p>
-<h4 id="initializer_105">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_105" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_106">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_106" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">TlsSecretProps</span><span class="p">(</span>
@@ -18650,7 +18689,7 @@ should report an error.</p>
 <hr />
 <h3 id="volumemount">VolumeMount <a name="cdk8s_plus_25.VolumeMount"></a><a class="headerlink" href="#volumemount" title="Permanent link">&para;</a></h3>
 <p>Mount a volume from the pod to the container.</p>
-<h4 id="initializer_106">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_106" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_107">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_107" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">VolumeMount</span><span class="p">(</span>
@@ -18726,7 +18765,7 @@ contain &lsquo;:&rsquo;.</p>
 <hr />
 <h3 id="workloadprops">WorkloadProps <a name="cdk8s_plus_25.WorkloadProps"></a><a class="headerlink" href="#workloadprops" title="Permanent link">&para;</a></h3>
 <p>Properties for <code>Workload</code>.</p>
-<h4 id="initializer_107">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_107" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_108">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_108" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">WorkloadProps</span><span class="p">(</span>
@@ -18926,7 +18965,7 @@ its pod template.</p>
 <hr />
 <h3 id="workloadschedulingspreadoptions">WorkloadSchedulingSpreadOptions <a name="cdk8s_plus_25.WorkloadSchedulingSpreadOptions"></a><a class="headerlink" href="#workloadschedulingspreadoptions" title="Permanent link">&para;</a></h3>
 <p>Options for <code>WorkloadScheduling.spread</code>.</p>
-<h4 id="initializer_108">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_108" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_109">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_109" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cdk8s_plus_25</span>
 
 <span class="n">cdk8s_plus_25</span><span class="o">.</span><span class="n">WorkloadSchedulingSpreadOptions</span><span class="p">(</span>
@@ -22065,7 +22104,7 @@ switch, but nodes in different zones should not.</p>
 </code></pre></div>
 <h3 id="iapiresource">IApiResource <a name="cdk8s_plus_25.IApiResource"></a><a class="headerlink" href="#iapiresource" title="Permanent link">&para;</a></h3>
 <ul>
-<li><em>Implemented By:</em> <a href="#cdk8s_plus_25.AbstractPod"><code>cdk8s_plus_25.AbstractPod</code></a>, <a href="#cdk8s_plus_25.ApiResource"><code>cdk8s_plus_25.ApiResource</code></a>, <a href="#cdk8s_plus_25.AwsElasticBlockStorePersistentVolume"><code>cdk8s_plus_25.AwsElasticBlockStorePersistentVolume</code></a>, <a href="#cdk8s_plus_25.AzureDiskPersistentVolume"><code>cdk8s_plus_25.AzureDiskPersistentVolume</code></a>, <a href="#cdk8s_plus_25.BasicAuthSecret"><code>cdk8s_plus_25.BasicAuthSecret</code></a>, <a href="#cdk8s_plus_25.ClusterRole"><code>cdk8s_plus_25.ClusterRole</code></a>, <a href="#cdk8s_plus_25.ClusterRoleBinding"><code>cdk8s_plus_25.ClusterRoleBinding</code></a>, <a href="#cdk8s_plus_25.ConfigMap"><code>cdk8s_plus_25.ConfigMap</code></a>, <a href="#cdk8s_plus_25.CronJob"><code>cdk8s_plus_25.CronJob</code></a>, <a href="#cdk8s_plus_25.DaemonSet"><code>cdk8s_plus_25.DaemonSet</code></a>, <a href="#cdk8s_plus_25.Deployment"><code>cdk8s_plus_25.Deployment</code></a>, <a href="#cdk8s_plus_25.DockerConfigSecret"><code>cdk8s_plus_25.DockerConfigSecret</code></a>, <a href="#cdk8s_plus_25.GCEPersistentDiskPersistentVolume"><code>cdk8s_plus_25.GCEPersistentDiskPersistentVolume</code></a>, <a href="#cdk8s_plus_25.HorizontalPodAutoscaler"><code>cdk8s_plus_25.HorizontalPodAutoscaler</code></a>, <a href="#cdk8s_plus_25.Ingress"><code>cdk8s_plus_25.Ingress</code></a>, <a href="#cdk8s_plus_25.Job"><code>cdk8s_plus_25.Job</code></a>, <a href="#cdk8s_plus_25.Namespace"><code>cdk8s_plus_25.Namespace</code></a>, <a href="#cdk8s_plus_25.NetworkPolicy"><code>cdk8s_plus_25.NetworkPolicy</code></a>, <a href="#cdk8s_plus_25.PersistentVolume"><code>cdk8s_plus_25.PersistentVolume</code></a>, <a href="#cdk8s_plus_25.PersistentVolumeClaim"><code>cdk8s_plus_25.PersistentVolumeClaim</code></a>, <a href="#cdk8s_plus_25.Pod"><code>cdk8s_plus_25.Pod</code></a>, <a href="#cdk8s_plus_25.Resource"><code>cdk8s_plus_25.Resource</code></a>, <a href="#cdk8s_plus_25.Role"><code>cdk8s_plus_25.Role</code></a>, <a href="#cdk8s_plus_25.RoleBinding"><code>cdk8s_plus_25.RoleBinding</code></a>, <a href="#cdk8s_plus_25.Secret"><code>cdk8s_plus_25.Secret</code></a>, <a href="#cdk8s_plus_25.Service"><code>cdk8s_plus_25.Service</code></a>, <a href="#cdk8s_plus_25.ServiceAccount"><code>cdk8s_plus_25.ServiceAccount</code></a>, <a href="#cdk8s_plus_25.ServiceAccountTokenSecret"><code>cdk8s_plus_25.ServiceAccountTokenSecret</code></a>, <a href="#cdk8s_plus_25.SshAuthSecret"><code>cdk8s_plus_25.SshAuthSecret</code></a>, <a href="#cdk8s_plus_25.StatefulSet"><code>cdk8s_plus_25.StatefulSet</code></a>, <a href="#cdk8s_plus_25.TlsSecret"><code>cdk8s_plus_25.TlsSecret</code></a>, <a href="#cdk8s_plus_25.Workload"><code>cdk8s_plus_25.Workload</code></a>, <a href="#cdk8s_plus_25.IApiResource"><code>cdk8s_plus_25.IApiResource</code></a></li>
+<li><em>Implemented By:</em> <a href="#cdk8s_plus_25.AbstractPod"><code>cdk8s_plus_25.AbstractPod</code></a>, <a href="#cdk8s_plus_25.ApiResource"><code>cdk8s_plus_25.ApiResource</code></a>, <a href="#cdk8s_plus_25.AwsElasticBlockStorePersistentVolume"><code>cdk8s_plus_25.AwsElasticBlockStorePersistentVolume</code></a>, <a href="#cdk8s_plus_25.AzureDiskPersistentVolume"><code>cdk8s_plus_25.AzureDiskPersistentVolume</code></a>, <a href="#cdk8s_plus_25.BasicAuthSecret"><code>cdk8s_plus_25.BasicAuthSecret</code></a>, <a href="#cdk8s_plus_25.ClusterRole"><code>cdk8s_plus_25.ClusterRole</code></a>, <a href="#cdk8s_plus_25.ClusterRoleBinding"><code>cdk8s_plus_25.ClusterRoleBinding</code></a>, <a href="#cdk8s_plus_25.ConfigMap"><code>cdk8s_plus_25.ConfigMap</code></a>, <a href="#cdk8s_plus_25.CronJob"><code>cdk8s_plus_25.CronJob</code></a>, <a href="#cdk8s_plus_25.DaemonSet"><code>cdk8s_plus_25.DaemonSet</code></a>, <a href="#cdk8s_plus_25.Deployment"><code>cdk8s_plus_25.Deployment</code></a>, <a href="#cdk8s_plus_25.DockerConfigSecret"><code>cdk8s_plus_25.DockerConfigSecret</code></a>, <a href="#cdk8s_plus_25.GCEPersistentDiskPersistentVolume"><code>cdk8s_plus_25.GCEPersistentDiskPersistentVolume</code></a>, <a href="#cdk8s_plus_25.HorizontalPodAutoscaler"><code>cdk8s_plus_25.HorizontalPodAutoscaler</code></a>, <a href="#cdk8s_plus_25.Ingress"><code>cdk8s_plus_25.Ingress</code></a>, <a href="#cdk8s_plus_25.Job"><code>cdk8s_plus_25.Job</code></a>, <a href="#cdk8s_plus_25.Namespace"><code>cdk8s_plus_25.Namespace</code></a>, <a href="#cdk8s_plus_25.NetworkPolicy"><code>cdk8s_plus_25.NetworkPolicy</code></a>, <a href="#cdk8s_plus_25.PersistentVolume"><code>cdk8s_plus_25.PersistentVolume</code></a>, <a href="#cdk8s_plus_25.PersistentVolumeClaim"><code>cdk8s_plus_25.PersistentVolumeClaim</code></a>, <a href="#cdk8s_plus_25.Pod"><code>cdk8s_plus_25.Pod</code></a>, <a href="#cdk8s_plus_25.Resource"><code>cdk8s_plus_25.Resource</code></a>, <a href="#cdk8s_plus_25.Role"><code>cdk8s_plus_25.Role</code></a>, <a href="#cdk8s_plus_25.RoleBinding"><code>cdk8s_plus_25.RoleBinding</code></a>, <a href="#cdk8s_plus_25.Secret"><code>cdk8s_plus_25.Secret</code></a>, <a href="#cdk8s_plus_25.Service"><code>cdk8s_plus_25.Service</code></a>, <a href="#cdk8s_plus_25.ServiceAccount"><code>cdk8s_plus_25.ServiceAccount</code></a>, <a href="#cdk8s_plus_25.ServiceAccountTokenSecret"><code>cdk8s_plus_25.ServiceAccountTokenSecret</code></a>, <a href="#cdk8s_plus_25.SshAuthSecret"><code>cdk8s_plus_25.SshAuthSecret</code></a>, <a href="#cdk8s_plus_25.StatefulSet"><code>cdk8s_plus_25.StatefulSet</code></a>, <a href="#cdk8s_plus_25.TlsSecret"><code>cdk8s_plus_25.TlsSecret</code></a>, <a href="#cdk8s_plus_25.Workload"><code>cdk8s_plus_25.Workload</code></a>, <a href="#cdk8s_plus_25.IApiResource"><code>cdk8s_plus_25.IApiResource</code></a>, <a href="#cdk8s_plus_25.IClusterRole"><code>cdk8s_plus_25.IClusterRole</code></a>, <a href="#cdk8s_plus_25.IConfigMap"><code>cdk8s_plus_25.IConfigMap</code></a>, <a href="#cdk8s_plus_25.IPersistentVolume"><code>cdk8s_plus_25.IPersistentVolume</code></a>, <a href="#cdk8s_plus_25.IPersistentVolumeClaim"><code>cdk8s_plus_25.IPersistentVolumeClaim</code></a>, <a href="#cdk8s_plus_25.IResource"><code>cdk8s_plus_25.IResource</code></a>, <a href="#cdk8s_plus_25.IRole"><code>cdk8s_plus_25.IRole</code></a>, <a href="#cdk8s_plus_25.ISecret"><code>cdk8s_plus_25.ISecret</code></a>, <a href="#cdk8s_plus_25.IServiceAccount"><code>cdk8s_plus_25.IServiceAccount</code></a></li>
 </ul>
 <p>Represents a resource or collection of resources.</p>
 <h4 id="properties_45">Properties <a name="Properties"></a><a class="headerlink" href="#properties_45" title="Permanent link">&para;</a></h4>
@@ -22114,7 +22153,27 @@ switch, but nodes in different zones should not.</p>
 <ul>
 <li><em>Type:</em> <code>str</code></li>
 </ul>
-<p>The group portion of the API version (e.g. &ldquo;authorization.k8s.io&rdquo;).</p>
+<p>The group portion of the API version (e.g. <code>authorization.k8s.io</code>).</p>
+<hr />
+<h5 id="resource_typerequired_25"><code>resource_type</code><sup>Required</sup> <a name="cdk8s_plus_25.IClusterRole.property.resource_type"></a><a class="headerlink" href="#resource_typerequired_25" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">resource_type</span><span class="p">:</span> <span class="nb">str</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>str</code></li>
+</ul>
+<p>The name of a resource type as it appears in the relevant API endpoint.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/reference/access-authn-authz/rbac/#referring-to-resources</p>
+</blockquote>
+<hr />
+<h5 id="resource_nameoptional_2"><code>resource_name</code><sup>Optional</sup> <a name="cdk8s_plus_25.IClusterRole.property.resource_name"></a><a class="headerlink" href="#resource_nameoptional_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">resource_name</span><span class="p">:</span> <span class="nb">str</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>str</code></li>
+</ul>
+<p>The unique, namespace-global, name of an object inside the Kubernetes cluster.</p>
+<p>If this is omitted, the ApiResource should represent all objects of the given type.</p>
 <hr />
 <h5 id="api_versionrequired_2"><code>api_version</code><sup>Required</sup> <a name="cdk8s_plus_25.IClusterRole.property.api_version"></a><a class="headerlink" href="#api_versionrequired_2" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="n">api_version</span><span class="p">:</span> <span class="nb">str</span>
@@ -22157,7 +22216,27 @@ switch, but nodes in different zones should not.</p>
 <ul>
 <li><em>Type:</em> <code>str</code></li>
 </ul>
-<p>The group portion of the API version (e.g. &ldquo;authorization.k8s.io&rdquo;).</p>
+<p>The group portion of the API version (e.g. <code>authorization.k8s.io</code>).</p>
+<hr />
+<h5 id="resource_typerequired_26"><code>resource_type</code><sup>Required</sup> <a name="cdk8s_plus_25.IConfigMap.property.resource_type"></a><a class="headerlink" href="#resource_typerequired_26" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">resource_type</span><span class="p">:</span> <span class="nb">str</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>str</code></li>
+</ul>
+<p>The name of a resource type as it appears in the relevant API endpoint.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/reference/access-authn-authz/rbac/#referring-to-resources</p>
+</blockquote>
+<hr />
+<h5 id="resource_nameoptional_3"><code>resource_name</code><sup>Optional</sup> <a name="cdk8s_plus_25.IConfigMap.property.resource_name"></a><a class="headerlink" href="#resource_nameoptional_3" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">resource_name</span><span class="p">:</span> <span class="nb">str</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>str</code></li>
+</ul>
+<p>The unique, namespace-global, name of an object inside the Kubernetes cluster.</p>
+<p>If this is omitted, the ApiResource should represent all objects of the given type.</p>
 <hr />
 <h5 id="api_versionrequired_3"><code>api_version</code><sup>Required</sup> <a name="cdk8s_plus_25.IConfigMap.property.api_version"></a><a class="headerlink" href="#api_versionrequired_3" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="n">api_version</span><span class="p">:</span> <span class="nb">str</span>
@@ -22231,7 +22310,27 @@ switch, but nodes in different zones should not.</p>
 <ul>
 <li><em>Type:</em> <code>str</code></li>
 </ul>
-<p>The group portion of the API version (e.g. &ldquo;authorization.k8s.io&rdquo;).</p>
+<p>The group portion of the API version (e.g. <code>authorization.k8s.io</code>).</p>
+<hr />
+<h5 id="resource_typerequired_27"><code>resource_type</code><sup>Required</sup> <a name="cdk8s_plus_25.IPersistentVolume.property.resource_type"></a><a class="headerlink" href="#resource_typerequired_27" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">resource_type</span><span class="p">:</span> <span class="nb">str</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>str</code></li>
+</ul>
+<p>The name of a resource type as it appears in the relevant API endpoint.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/reference/access-authn-authz/rbac/#referring-to-resources</p>
+</blockquote>
+<hr />
+<h5 id="resource_nameoptional_4"><code>resource_name</code><sup>Optional</sup> <a name="cdk8s_plus_25.IPersistentVolume.property.resource_name"></a><a class="headerlink" href="#resource_nameoptional_4" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">resource_name</span><span class="p">:</span> <span class="nb">str</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>str</code></li>
+</ul>
+<p>The unique, namespace-global, name of an object inside the Kubernetes cluster.</p>
+<p>If this is omitted, the ApiResource should represent all objects of the given type.</p>
 <hr />
 <h5 id="api_versionrequired_4"><code>api_version</code><sup>Required</sup> <a name="cdk8s_plus_25.IPersistentVolume.property.api_version"></a><a class="headerlink" href="#api_versionrequired_4" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="n">api_version</span><span class="p">:</span> <span class="nb">str</span>
@@ -22274,7 +22373,27 @@ switch, but nodes in different zones should not.</p>
 <ul>
 <li><em>Type:</em> <code>str</code></li>
 </ul>
-<p>The group portion of the API version (e.g. &ldquo;authorization.k8s.io&rdquo;).</p>
+<p>The group portion of the API version (e.g. <code>authorization.k8s.io</code>).</p>
+<hr />
+<h5 id="resource_typerequired_28"><code>resource_type</code><sup>Required</sup> <a name="cdk8s_plus_25.IPersistentVolumeClaim.property.resource_type"></a><a class="headerlink" href="#resource_typerequired_28" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">resource_type</span><span class="p">:</span> <span class="nb">str</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>str</code></li>
+</ul>
+<p>The name of a resource type as it appears in the relevant API endpoint.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/reference/access-authn-authz/rbac/#referring-to-resources</p>
+</blockquote>
+<hr />
+<h5 id="resource_nameoptional_5"><code>resource_name</code><sup>Optional</sup> <a name="cdk8s_plus_25.IPersistentVolumeClaim.property.resource_name"></a><a class="headerlink" href="#resource_nameoptional_5" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">resource_name</span><span class="p">:</span> <span class="nb">str</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>str</code></li>
+</ul>
+<p>The unique, namespace-global, name of an object inside the Kubernetes cluster.</p>
+<p>If this is omitted, the ApiResource should represent all objects of the given type.</p>
 <hr />
 <h5 id="api_versionrequired_5"><code>api_version</code><sup>Required</sup> <a name="cdk8s_plus_25.IPersistentVolumeClaim.property.api_version"></a><a class="headerlink" href="#api_versionrequired_5" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="n">api_version</span><span class="p">:</span> <span class="nb">str</span>
@@ -22317,7 +22436,7 @@ switch, but nodes in different zones should not.</p>
 <h3 id="iresource">IResource <a name="cdk8s_plus_25.IResource"></a><a class="headerlink" href="#iresource" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
-<p><em>Extends:</em> <a href="#constructs.IConstruct"><code>constructs.IConstruct</code></a></p>
+<p><em>Extends:</em> <a href="#constructs.IConstruct"><code>constructs.IConstruct</code></a>, <a href="#cdk8s_plus_25.IApiResource"><code>cdk8s_plus_25.IApiResource</code></a></p>
 </li>
 <li>
 <p><em>Implemented By:</em> <a href="#cdk8s_plus_25.AbstractPod"><code>cdk8s_plus_25.AbstractPod</code></a>, <a href="#cdk8s_plus_25.AwsElasticBlockStorePersistentVolume"><code>cdk8s_plus_25.AwsElasticBlockStorePersistentVolume</code></a>, <a href="#cdk8s_plus_25.AzureDiskPersistentVolume"><code>cdk8s_plus_25.AzureDiskPersistentVolume</code></a>, <a href="#cdk8s_plus_25.BasicAuthSecret"><code>cdk8s_plus_25.BasicAuthSecret</code></a>, <a href="#cdk8s_plus_25.ClusterRole"><code>cdk8s_plus_25.ClusterRole</code></a>, <a href="#cdk8s_plus_25.ClusterRoleBinding"><code>cdk8s_plus_25.ClusterRoleBinding</code></a>, <a href="#cdk8s_plus_25.ConfigMap"><code>cdk8s_plus_25.ConfigMap</code></a>, <a href="#cdk8s_plus_25.CronJob"><code>cdk8s_plus_25.CronJob</code></a>, <a href="#cdk8s_plus_25.DaemonSet"><code>cdk8s_plus_25.DaemonSet</code></a>, <a href="#cdk8s_plus_25.Deployment"><code>cdk8s_plus_25.Deployment</code></a>, <a href="#cdk8s_plus_25.DockerConfigSecret"><code>cdk8s_plus_25.DockerConfigSecret</code></a>, <a href="#cdk8s_plus_25.GCEPersistentDiskPersistentVolume"><code>cdk8s_plus_25.GCEPersistentDiskPersistentVolume</code></a>, <a href="#cdk8s_plus_25.HorizontalPodAutoscaler"><code>cdk8s_plus_25.HorizontalPodAutoscaler</code></a>, <a href="#cdk8s_plus_25.Ingress"><code>cdk8s_plus_25.Ingress</code></a>, <a href="#cdk8s_plus_25.Job"><code>cdk8s_plus_25.Job</code></a>, <a href="#cdk8s_plus_25.Namespace"><code>cdk8s_plus_25.Namespace</code></a>, <a href="#cdk8s_plus_25.NetworkPolicy"><code>cdk8s_plus_25.NetworkPolicy</code></a>, <a href="#cdk8s_plus_25.PersistentVolume"><code>cdk8s_plus_25.PersistentVolume</code></a>, <a href="#cdk8s_plus_25.PersistentVolumeClaim"><code>cdk8s_plus_25.PersistentVolumeClaim</code></a>, <a href="#cdk8s_plus_25.Pod"><code>cdk8s_plus_25.Pod</code></a>, <a href="#cdk8s_plus_25.Resource"><code>cdk8s_plus_25.Resource</code></a>, <a href="#cdk8s_plus_25.Role"><code>cdk8s_plus_25.Role</code></a>, <a href="#cdk8s_plus_25.RoleBinding"><code>cdk8s_plus_25.RoleBinding</code></a>, <a href="#cdk8s_plus_25.Secret"><code>cdk8s_plus_25.Secret</code></a>, <a href="#cdk8s_plus_25.Service"><code>cdk8s_plus_25.Service</code></a>, <a href="#cdk8s_plus_25.ServiceAccount"><code>cdk8s_plus_25.ServiceAccount</code></a>, <a href="#cdk8s_plus_25.ServiceAccountTokenSecret"><code>cdk8s_plus_25.ServiceAccountTokenSecret</code></a>, <a href="#cdk8s_plus_25.SshAuthSecret"><code>cdk8s_plus_25.SshAuthSecret</code></a>, <a href="#cdk8s_plus_25.StatefulSet"><code>cdk8s_plus_25.StatefulSet</code></a>, <a href="#cdk8s_plus_25.TlsSecret"><code>cdk8s_plus_25.TlsSecret</code></a>, <a href="#cdk8s_plus_25.Workload"><code>cdk8s_plus_25.Workload</code></a>, <a href="#cdk8s_plus_25.IClusterRole"><code>cdk8s_plus_25.IClusterRole</code></a>, <a href="#cdk8s_plus_25.IConfigMap"><code>cdk8s_plus_25.IConfigMap</code></a>, <a href="#cdk8s_plus_25.IPersistentVolume"><code>cdk8s_plus_25.IPersistentVolume</code></a>, <a href="#cdk8s_plus_25.IPersistentVolumeClaim"><code>cdk8s_plus_25.IPersistentVolumeClaim</code></a>, <a href="#cdk8s_plus_25.IResource"><code>cdk8s_plus_25.IResource</code></a>, <a href="#cdk8s_plus_25.IRole"><code>cdk8s_plus_25.IRole</code></a>, <a href="#cdk8s_plus_25.ISecret"><code>cdk8s_plus_25.ISecret</code></a>, <a href="#cdk8s_plus_25.IServiceAccount"><code>cdk8s_plus_25.IServiceAccount</code></a></p>
@@ -22331,7 +22450,27 @@ switch, but nodes in different zones should not.</p>
 <ul>
 <li><em>Type:</em> <code>str</code></li>
 </ul>
-<p>The group portion of the API version (e.g. &ldquo;authorization.k8s.io&rdquo;).</p>
+<p>The group portion of the API version (e.g. <code>authorization.k8s.io</code>).</p>
+<hr />
+<h5 id="resource_typerequired_29"><code>resource_type</code><sup>Required</sup> <a name="cdk8s_plus_25.IResource.property.resource_type"></a><a class="headerlink" href="#resource_typerequired_29" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">resource_type</span><span class="p">:</span> <span class="nb">str</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>str</code></li>
+</ul>
+<p>The name of a resource type as it appears in the relevant API endpoint.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/reference/access-authn-authz/rbac/#referring-to-resources</p>
+</blockquote>
+<hr />
+<h5 id="resource_nameoptional_6"><code>resource_name</code><sup>Optional</sup> <a name="cdk8s_plus_25.IResource.property.resource_name"></a><a class="headerlink" href="#resource_nameoptional_6" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">resource_name</span><span class="p">:</span> <span class="nb">str</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>str</code></li>
+</ul>
+<p>The unique, namespace-global, name of an object inside the Kubernetes cluster.</p>
+<p>If this is omitted, the ApiResource should represent all objects of the given type.</p>
 <hr />
 <h5 id="api_versionrequired_6"><code>api_version</code><sup>Required</sup> <a name="cdk8s_plus_25.IResource.property.api_version"></a><a class="headerlink" href="#api_versionrequired_6" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="n">api_version</span><span class="p">:</span> <span class="nb">str</span>
@@ -22374,7 +22513,27 @@ switch, but nodes in different zones should not.</p>
 <ul>
 <li><em>Type:</em> <code>str</code></li>
 </ul>
-<p>The group portion of the API version (e.g. &ldquo;authorization.k8s.io&rdquo;).</p>
+<p>The group portion of the API version (e.g. <code>authorization.k8s.io</code>).</p>
+<hr />
+<h5 id="resource_typerequired_30"><code>resource_type</code><sup>Required</sup> <a name="cdk8s_plus_25.IRole.property.resource_type"></a><a class="headerlink" href="#resource_typerequired_30" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">resource_type</span><span class="p">:</span> <span class="nb">str</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>str</code></li>
+</ul>
+<p>The name of a resource type as it appears in the relevant API endpoint.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/reference/access-authn-authz/rbac/#referring-to-resources</p>
+</blockquote>
+<hr />
+<h5 id="resource_nameoptional_7"><code>resource_name</code><sup>Optional</sup> <a name="cdk8s_plus_25.IRole.property.resource_name"></a><a class="headerlink" href="#resource_nameoptional_7" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">resource_name</span><span class="p">:</span> <span class="nb">str</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>str</code></li>
+</ul>
+<p>The unique, namespace-global, name of an object inside the Kubernetes cluster.</p>
+<p>If this is omitted, the ApiResource should represent all objects of the given type.</p>
 <hr />
 <h5 id="api_versionrequired_7"><code>api_version</code><sup>Required</sup> <a name="cdk8s_plus_25.IRole.property.api_version"></a><a class="headerlink" href="#api_versionrequired_7" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="n">api_version</span><span class="p">:</span> <span class="nb">str</span>
@@ -22437,7 +22596,27 @@ switch, but nodes in different zones should not.</p>
 <ul>
 <li><em>Type:</em> <code>str</code></li>
 </ul>
-<p>The group portion of the API version (e.g. &ldquo;authorization.k8s.io&rdquo;).</p>
+<p>The group portion of the API version (e.g. <code>authorization.k8s.io</code>).</p>
+<hr />
+<h5 id="resource_typerequired_31"><code>resource_type</code><sup>Required</sup> <a name="cdk8s_plus_25.ISecret.property.resource_type"></a><a class="headerlink" href="#resource_typerequired_31" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">resource_type</span><span class="p">:</span> <span class="nb">str</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>str</code></li>
+</ul>
+<p>The name of a resource type as it appears in the relevant API endpoint.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/reference/access-authn-authz/rbac/#referring-to-resources</p>
+</blockquote>
+<hr />
+<h5 id="resource_nameoptional_8"><code>resource_name</code><sup>Optional</sup> <a name="cdk8s_plus_25.ISecret.property.resource_name"></a><a class="headerlink" href="#resource_nameoptional_8" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">resource_name</span><span class="p">:</span> <span class="nb">str</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>str</code></li>
+</ul>
+<p>The unique, namespace-global, name of an object inside the Kubernetes cluster.</p>
+<p>If this is omitted, the ApiResource should represent all objects of the given type.</p>
 <hr />
 <h5 id="api_versionrequired_8"><code>api_version</code><sup>Required</sup> <a name="cdk8s_plus_25.ISecret.property.api_version"></a><a class="headerlink" href="#api_versionrequired_8" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="n">api_version</span><span class="p">:</span> <span class="nb">str</span>
@@ -22466,7 +22645,7 @@ switch, but nodes in different zones should not.</p>
 <h3 id="iserviceaccount">IServiceAccount <a name="cdk8s_plus_25.IServiceAccount"></a><a class="headerlink" href="#iserviceaccount" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
-<p><em>Extends:</em> <a href="#cdk8s_plus_25.IResource"><code>cdk8s_plus_25.IResource</code></a></p>
+<p><em>Extends:</em> <a href="#cdk8s_plus_25.IResource"><code>cdk8s_plus_25.IResource</code></a>, <a href="#cdk8s_plus_25.ISubject"><code>cdk8s_plus_25.ISubject</code></a></p>
 </li>
 <li>
 <p><em>Implemented By:</em> <a href="#cdk8s_plus_25.ServiceAccount"><code>cdk8s_plus_25.ServiceAccount</code></a>, <a href="#cdk8s_plus_25.IServiceAccount"><code>cdk8s_plus_25.IServiceAccount</code></a></p>
@@ -22479,7 +22658,27 @@ switch, but nodes in different zones should not.</p>
 <ul>
 <li><em>Type:</em> <code>str</code></li>
 </ul>
-<p>The group portion of the API version (e.g. &ldquo;authorization.k8s.io&rdquo;).</p>
+<p>The group portion of the API version (e.g. <code>authorization.k8s.io</code>).</p>
+<hr />
+<h5 id="resource_typerequired_32"><code>resource_type</code><sup>Required</sup> <a name="cdk8s_plus_25.IServiceAccount.property.resource_type"></a><a class="headerlink" href="#resource_typerequired_32" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">resource_type</span><span class="p">:</span> <span class="nb">str</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>str</code></li>
+</ul>
+<p>The name of a resource type as it appears in the relevant API endpoint.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/reference/access-authn-authz/rbac/#referring-to-resources</p>
+</blockquote>
+<hr />
+<h5 id="resource_nameoptional_9"><code>resource_name</code><sup>Optional</sup> <a name="cdk8s_plus_25.IServiceAccount.property.resource_name"></a><a class="headerlink" href="#resource_nameoptional_9" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">resource_name</span><span class="p">:</span> <span class="nb">str</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>str</code></li>
+</ul>
+<p>The unique, namespace-global, name of an object inside the Kubernetes cluster.</p>
+<p>If this is omitted, the ApiResource should represent all objects of the given type.</p>
 <hr />
 <h5 id="api_versionrequired_9"><code>api_version</code><sup>Required</sup> <a name="cdk8s_plus_25.IServiceAccount.property.api_version"></a><a class="headerlink" href="#api_versionrequired_9" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="n">api_version</span><span class="p">:</span> <span class="nb">str</span>
@@ -22525,7 +22724,7 @@ switch, but nodes in different zones should not.</p>
 <p><em>Extends:</em> <a href="#constructs.IConstruct"><code>constructs.IConstruct</code></a></p>
 </li>
 <li>
-<p><em>Implemented By:</em> <a href="#cdk8s_plus_25.AbstractPod"><code>cdk8s_plus_25.AbstractPod</code></a>, <a href="#cdk8s_plus_25.CronJob"><code>cdk8s_plus_25.CronJob</code></a>, <a href="#cdk8s_plus_25.DaemonSet"><code>cdk8s_plus_25.DaemonSet</code></a>, <a href="#cdk8s_plus_25.Deployment"><code>cdk8s_plus_25.Deployment</code></a>, <a href="#cdk8s_plus_25.Group"><code>cdk8s_plus_25.Group</code></a>, <a href="#cdk8s_plus_25.Job"><code>cdk8s_plus_25.Job</code></a>, <a href="#cdk8s_plus_25.Pod"><code>cdk8s_plus_25.Pod</code></a>, <a href="#cdk8s_plus_25.ServiceAccount"><code>cdk8s_plus_25.ServiceAccount</code></a>, <a href="#cdk8s_plus_25.StatefulSet"><code>cdk8s_plus_25.StatefulSet</code></a>, <a href="#cdk8s_plus_25.User"><code>cdk8s_plus_25.User</code></a>, <a href="#cdk8s_plus_25.Workload"><code>cdk8s_plus_25.Workload</code></a>, <a href="#cdk8s_plus_25.ISubject"><code>cdk8s_plus_25.ISubject</code></a></p>
+<p><em>Implemented By:</em> <a href="#cdk8s_plus_25.AbstractPod"><code>cdk8s_plus_25.AbstractPod</code></a>, <a href="#cdk8s_plus_25.CronJob"><code>cdk8s_plus_25.CronJob</code></a>, <a href="#cdk8s_plus_25.DaemonSet"><code>cdk8s_plus_25.DaemonSet</code></a>, <a href="#cdk8s_plus_25.Deployment"><code>cdk8s_plus_25.Deployment</code></a>, <a href="#cdk8s_plus_25.Group"><code>cdk8s_plus_25.Group</code></a>, <a href="#cdk8s_plus_25.Job"><code>cdk8s_plus_25.Job</code></a>, <a href="#cdk8s_plus_25.Pod"><code>cdk8s_plus_25.Pod</code></a>, <a href="#cdk8s_plus_25.ServiceAccount"><code>cdk8s_plus_25.ServiceAccount</code></a>, <a href="#cdk8s_plus_25.StatefulSet"><code>cdk8s_plus_25.StatefulSet</code></a>, <a href="#cdk8s_plus_25.User"><code>cdk8s_plus_25.User</code></a>, <a href="#cdk8s_plus_25.Workload"><code>cdk8s_plus_25.Workload</code></a>, <a href="#cdk8s_plus_25.IServiceAccount"><code>cdk8s_plus_25.IServiceAccount</code></a>, <a href="#cdk8s_plus_25.ISubject"><code>cdk8s_plus_25.ISubject</code></a></p>
 </li>
 </ul>
 <p>Represents an object that can be used as a role binding subject.</p>
