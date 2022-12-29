@@ -3196,8 +3196,11 @@ and synthesis will fail.</p>
   <span class="n">chart</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
   <span class="n">helm_executable</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">helm_flags</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">namespace</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">release_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-  <span class="n">values</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Mapping</span><span class="p">[</span><span class="n">typing</span><span class="o">.</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+  <span class="n">repo</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">values</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Mapping</span><span class="p">[</span><span class="n">typing</span><span class="o">.</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">version</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="p">)</span>
 </code></pre></div>
 <h5 id="scoperequired_2"><code>scope</code><sup>Required</sup> <a name="cdk8s.Helm.parameter.scope"></a><a class="headerlink" href="#scoperequired_2" title="Permanent link">&para;</a></h5>
@@ -3231,6 +3234,12 @@ and synthesis will fail.</p>
 </ul>
 <p>Additional flags to add to the <code>helm</code> execution.</p>
 <hr />
+<h5 id="namespaceoptional_2"><code>namespace</code><sup>Optional</sup> <a name="cdk8s.HelmProps.parameter.namespace"></a><a class="headerlink" href="#namespaceoptional_2" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>str</code></li>
+</ul>
+<p>Scope all resources in to a given namespace.</p>
+<hr />
 <h5 id="release_nameoptional"><code>release_name</code><sup>Optional</sup> <a name="cdk8s.HelmProps.parameter.release_name"></a><a class="headerlink" href="#release_nameoptional" title="Permanent link">&para;</a></h5>
 <ul>
 <li><em>Type:</em> <code>str</code></li>
@@ -3241,12 +3250,28 @@ and synthesis will fail.</p>
 <p>https://helm.sh/docs/intro/using_helm/#three-big-concepts</p>
 </blockquote>
 <hr />
+<h5 id="repooptional"><code>repo</code><sup>Optional</sup> <a name="cdk8s.HelmProps.parameter.repo"></a><a class="headerlink" href="#repooptional" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>str</code></li>
+</ul>
+<p>Chart repository url where to locate the requested chart.</p>
+<hr />
 <h5 id="valuesoptional"><code>values</code><sup>Optional</sup> <a name="cdk8s.HelmProps.parameter.values"></a><a class="headerlink" href="#valuesoptional" title="Permanent link">&para;</a></h5>
 <ul>
 <li><em>Type:</em> typing.Mapping[<code>typing.Any</code>]</li>
 <li><em>Default:</em> If no values are specified, chart will use the defaults.</li>
 </ul>
 <p>Values to pass to the chart.</p>
+<hr />
+<h5 id="versionoptional"><code>version</code><sup>Optional</sup> <a name="cdk8s.HelmProps.parameter.version"></a><a class="headerlink" href="#versionoptional" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>str</code></li>
+</ul>
+<p>Version constraint for the chart version to use.</p>
+<p>This constraint can be a specific tag (e.g. 1.1.1)
+or it may reference a valid range (e.g. ^2.0.0).
+If this is not specified, the latest version is used</p>
+<p>This name is passed to <code>helm template --version</code> and has all the relevant semantics.</p>
 <hr />
 <h4 id="properties_3">Properties <a name="Properties"></a><a class="headerlink" href="#properties_3" title="Permanent link">&para;</a></h4>
 <h5 id="release_namerequired"><code>release_name</code><sup>Required</sup> <a name="cdk8s.Helm.property.release_name"></a><a class="headerlink" href="#release_namerequired" title="Permanent link">&para;</a></h5>
@@ -3381,7 +3406,7 @@ composability of your construct because it won&rsquo;t be possible to include
 more than one instance in any app. Therefore it is highly recommended to
 leave this unspecified.</p>
 <hr />
-<h5 id="namespaceoptional_2"><code>namespace</code><sup>Optional</sup> <a name="cdk8s.ApiObjectMetadata.property.namespace"></a><a class="headerlink" href="#namespaceoptional_2" title="Permanent link">&para;</a></h5>
+<h5 id="namespaceoptional_3"><code>namespace</code><sup>Optional</sup> <a name="cdk8s.ApiObjectMetadata.property.namespace"></a><a class="headerlink" href="#namespaceoptional_3" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="n">namespace</span><span class="p">:</span> <span class="nb">str</span>
 </code></pre></div>
 <ul>
@@ -3523,7 +3548,7 @@ and synthesis will fail.</p>
 </ul>
 <p>Labels to apply to all resources in this chart.</p>
 <hr />
-<h5 id="namespaceoptional_3"><code>namespace</code><sup>Optional</sup> <a name="cdk8s.ChartProps.property.namespace"></a><a class="headerlink" href="#namespaceoptional_3" title="Permanent link">&para;</a></h5>
+<h5 id="namespaceoptional_4"><code>namespace</code><sup>Optional</sup> <a name="cdk8s.ChartProps.property.namespace"></a><a class="headerlink" href="#namespaceoptional_4" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="n">namespace</span><span class="p">:</span> <span class="nb">str</span>
 </code></pre></div>
 <ul>
@@ -3628,8 +3653,11 @@ a field implies &lsquo;*&rsquo;</p>
   <span class="n">chart</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
   <span class="n">helm_executable</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">helm_flags</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">namespace</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">release_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-  <span class="n">values</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Mapping</span><span class="p">[</span><span class="n">typing</span><span class="o">.</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+  <span class="n">repo</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">values</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Mapping</span><span class="p">[</span><span class="n">typing</span><span class="o">.</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">version</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="p">)</span>
 </code></pre></div>
 <h5 id="chartrequired_2"><code>chart</code><sup>Required</sup> <a name="cdk8s.HelmProps.property.chart"></a><a class="headerlink" href="#chartrequired_2" title="Permanent link">&para;</a></h5>
@@ -3659,6 +3687,14 @@ a field implies &lsquo;*&rsquo;</p>
 </ul>
 <p>Additional flags to add to the <code>helm</code> execution.</p>
 <hr />
+<h5 id="namespaceoptional_5"><code>namespace</code><sup>Optional</sup> <a name="cdk8s.HelmProps.property.namespace"></a><a class="headerlink" href="#namespaceoptional_5" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">namespace</span><span class="p">:</span> <span class="nb">str</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>str</code></li>
+</ul>
+<p>Scope all resources in to a given namespace.</p>
+<hr />
 <h5 id="release_nameoptional_1"><code>release_name</code><sup>Optional</sup> <a name="cdk8s.HelmProps.property.release_name"></a><a class="headerlink" href="#release_nameoptional_1" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="n">release_name</span><span class="p">:</span> <span class="nb">str</span>
 </code></pre></div>
@@ -3671,6 +3707,14 @@ a field implies &lsquo;*&rsquo;</p>
 <p>https://helm.sh/docs/intro/using_helm/#three-big-concepts</p>
 </blockquote>
 <hr />
+<h5 id="repooptional_1"><code>repo</code><sup>Optional</sup> <a name="cdk8s.HelmProps.property.repo"></a><a class="headerlink" href="#repooptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">repo</span><span class="p">:</span> <span class="nb">str</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>str</code></li>
+</ul>
+<p>Chart repository url where to locate the requested chart.</p>
+<hr />
 <h5 id="valuesoptional_1"><code>values</code><sup>Optional</sup> <a name="cdk8s.HelmProps.property.values"></a><a class="headerlink" href="#valuesoptional_1" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="n">values</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Mapping</span><span class="p">[</span><span class="n">typing</span><span class="o">.</span><span class="n">Any</span><span class="p">]</span>
 </code></pre></div>
@@ -3679,6 +3723,18 @@ a field implies &lsquo;*&rsquo;</p>
 <li><em>Default:</em> If no values are specified, chart will use the defaults.</li>
 </ul>
 <p>Values to pass to the chart.</p>
+<hr />
+<h5 id="versionoptional_1"><code>version</code><sup>Optional</sup> <a name="cdk8s.HelmProps.property.version"></a><a class="headerlink" href="#versionoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">version</span><span class="p">:</span> <span class="nb">str</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>str</code></li>
+</ul>
+<p>Version constraint for the chart version to use.</p>
+<p>This constraint can be a specific tag (e.g. 1.1.1)
+or it may reference a valid range (e.g. ^2.0.0).
+If this is not specified, the latest version is used</p>
+<p>This name is passed to <code>helm template --version</code> and has all the relevant semantics.</p>
 <hr />
 <h3 id="includeprops">IncludeProps <a name="cdk8s.IncludeProps"></a><a class="headerlink" href="#includeprops" title="Permanent link">&para;</a></h3>
 <h4 id="initializer_7">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_7" title="Permanent link">&para;</a></h4>
@@ -3936,7 +3992,7 @@ composability of your construct because it won&rsquo;t be possible to include
 more than one instance in any app. Therefore it is highly recommended to
 leave this unspecified.</p>
 <hr />
-<h5 id="namespaceoptional_4"><code>namespace</code><sup>Optional</sup> <a name="cdk8s.ApiObjectMetadata.parameter.namespace"></a><a class="headerlink" href="#namespaceoptional_4" title="Permanent link">&para;</a></h5>
+<h5 id="namespaceoptional_6"><code>namespace</code><sup>Optional</sup> <a name="cdk8s.ApiObjectMetadata.parameter.namespace"></a><a class="headerlink" href="#namespaceoptional_6" title="Permanent link">&para;</a></h5>
 <ul>
 <li><em>Type:</em> <code>str</code></li>
 <li><em>Default:</em> undefined (will be assigned to the &lsquo;default&rsquo; namespace)</li>
@@ -4119,7 +4175,7 @@ Otherwise, a name will be generated by calling
 <code>Chart.of(this).generatedObjectName(this)</code>, which by default uses the
 construct path to generate a DNS-compatible name for the resource.</p>
 <hr />
-<h5 id="namespaceoptional_5"><code>namespace</code><sup>Optional</sup> <a name="cdk8s.ApiObjectMetadataDefinition.property.namespace"></a><a class="headerlink" href="#namespaceoptional_5" title="Permanent link">&para;</a></h5>
+<h5 id="namespaceoptional_7"><code>namespace</code><sup>Optional</sup> <a name="cdk8s.ApiObjectMetadataDefinition.property.namespace"></a><a class="headerlink" href="#namespaceoptional_7" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="n">namespace</span><span class="p">:</span> <span class="nb">str</span>
 </code></pre></div>
 <ul>

@@ -3176,8 +3176,11 @@ and synthesis will fail.</p>
 <span class="w">    </span><span class="p">.</span><span class="na">chart</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">)</span><span class="w"></span>
 <span class="c1">//  .helmExecutable(java.lang.String)</span><span class="w"></span>
 <span class="c1">//  .helmFlags(java.util.List&lt;java.lang.String&gt;)</span><span class="w"></span>
+<span class="c1">//  .namespace(java.lang.String)</span><span class="w"></span>
 <span class="c1">//  .releaseName(java.lang.String)</span><span class="w"></span>
+<span class="c1">//  .repo(java.lang.String)</span><span class="w"></span>
 <span class="c1">//  .values(java.util.Map&lt;java.lang.String, java.lang.Object&gt;)</span><span class="w"></span>
+<span class="c1">//  .version(java.lang.String)</span><span class="w"></span>
 <span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <h5 id="scoperequired_2"><code>scope</code><sup>Required</sup> <a name="org.cdk8s.Helm.parameter.scope"></a><a class="headerlink" href="#scoperequired_2" title="Permanent link">&para;</a></h5>
@@ -3211,6 +3214,12 @@ and synthesis will fail.</p>
 </ul>
 <p>Additional flags to add to the <code>helm</code> execution.</p>
 <hr />
+<h5 id="namespaceoptional_2"><code>namespace</code><sup>Optional</sup> <a name="org.cdk8s.HelmProps.parameter.namespace"></a><a class="headerlink" href="#namespaceoptional_2" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+</ul>
+<p>Scope all resources in to a given namespace.</p>
+<hr />
 <h5 id="releasenameoptional"><code>releaseName</code><sup>Optional</sup> <a name="org.cdk8s.HelmProps.parameter.releaseName"></a><a class="headerlink" href="#releasenameoptional" title="Permanent link">&para;</a></h5>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
@@ -3221,12 +3230,28 @@ and synthesis will fail.</p>
 <p>https://helm.sh/docs/intro/using_helm/#three-big-concepts</p>
 </blockquote>
 <hr />
+<h5 id="repooptional"><code>repo</code><sup>Optional</sup> <a name="org.cdk8s.HelmProps.parameter.repo"></a><a class="headerlink" href="#repooptional" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+</ul>
+<p>Chart repository url where to locate the requested chart.</p>
+<hr />
 <h5 id="valuesoptional"><code>values</code><sup>Optional</sup> <a name="org.cdk8s.HelmProps.parameter.values"></a><a class="headerlink" href="#valuesoptional" title="Permanent link">&para;</a></h5>
 <ul>
 <li><em>Type:</em> java.util.Map<java.lang.String, <code>java.lang.Object</code>></li>
 <li><em>Default:</em> If no values are specified, chart will use the defaults.</li>
 </ul>
 <p>Values to pass to the chart.</p>
+<hr />
+<h5 id="versionoptional"><code>version</code><sup>Optional</sup> <a name="org.cdk8s.HelmProps.parameter.version"></a><a class="headerlink" href="#versionoptional" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+</ul>
+<p>Version constraint for the chart version to use.</p>
+<p>This constraint can be a specific tag (e.g. 1.1.1)
+or it may reference a valid range (e.g. ^2.0.0).
+If this is not specified, the latest version is used</p>
+<p>This name is passed to <code>helm template --version</code> and has all the relevant semantics.</p>
 <hr />
 <h4 id="properties_3">Properties <a name="Properties"></a><a class="headerlink" href="#properties_3" title="Permanent link">&para;</a></h4>
 <h5 id="releasenamerequired"><code>releaseName</code><sup>Required</sup> <a name="org.cdk8s.Helm.property.releaseName"></a><a class="headerlink" href="#releasenamerequired" title="Permanent link">&para;</a></h5>
@@ -3359,7 +3384,7 @@ composability of your construct because it won&rsquo;t be possible to include
 more than one instance in any app. Therefore it is highly recommended to
 leave this unspecified.</p>
 <hr />
-<h5 id="namespaceoptional_2"><code>namespace</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectMetadata.property.namespace"></a><a class="headerlink" href="#namespaceoptional_2" title="Permanent link">&para;</a></h5>
+<h5 id="namespaceoptional_3"><code>namespace</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectMetadata.property.namespace"></a><a class="headerlink" href="#namespaceoptional_3" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getNamespace</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
@@ -3501,7 +3526,7 @@ and synthesis will fail.</p>
 </ul>
 <p>Labels to apply to all resources in this chart.</p>
 <hr />
-<h5 id="namespaceoptional_3"><code>namespace</code><sup>Optional</sup> <a name="org.cdk8s.ChartProps.property.namespace"></a><a class="headerlink" href="#namespaceoptional_3" title="Permanent link">&para;</a></h5>
+<h5 id="namespaceoptional_4"><code>namespace</code><sup>Optional</sup> <a name="org.cdk8s.ChartProps.property.namespace"></a><a class="headerlink" href="#namespaceoptional_4" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getNamespace</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
@@ -3606,8 +3631,11 @@ a field implies &lsquo;*&rsquo;</p>
 <span class="w">    </span><span class="p">.</span><span class="na">chart</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">)</span><span class="w"></span>
 <span class="c1">//  .helmExecutable(java.lang.String)</span><span class="w"></span>
 <span class="c1">//  .helmFlags(java.util.List&lt;java.lang.String&gt;)</span><span class="w"></span>
+<span class="c1">//  .namespace(java.lang.String)</span><span class="w"></span>
 <span class="c1">//  .releaseName(java.lang.String)</span><span class="w"></span>
+<span class="c1">//  .repo(java.lang.String)</span><span class="w"></span>
 <span class="c1">//  .values(java.util.Map&lt;java.lang.String, java.lang.Object&gt;)</span><span class="w"></span>
+<span class="c1">//  .version(java.lang.String)</span><span class="w"></span>
 <span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <h5 id="chartrequired_2"><code>chart</code><sup>Required</sup> <a name="org.cdk8s.HelmProps.property.chart"></a><a class="headerlink" href="#chartrequired_2" title="Permanent link">&para;</a></h5>
@@ -3637,6 +3665,14 @@ a field implies &lsquo;*&rsquo;</p>
 </ul>
 <p>Additional flags to add to the <code>helm</code> execution.</p>
 <hr />
+<h5 id="namespaceoptional_5"><code>namespace</code><sup>Optional</sup> <a name="org.cdk8s.HelmProps.property.namespace"></a><a class="headerlink" href="#namespaceoptional_5" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getNamespace</span><span class="p">();</span><span class="w"></span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+</ul>
+<p>Scope all resources in to a given namespace.</p>
+<hr />
 <h5 id="releasenameoptional_1"><code>releaseName</code><sup>Optional</sup> <a name="org.cdk8s.HelmProps.property.releaseName"></a><a class="headerlink" href="#releasenameoptional_1" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getReleaseName</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
@@ -3649,6 +3685,14 @@ a field implies &lsquo;*&rsquo;</p>
 <p>https://helm.sh/docs/intro/using_helm/#three-big-concepts</p>
 </blockquote>
 <hr />
+<h5 id="repooptional_1"><code>repo</code><sup>Optional</sup> <a name="org.cdk8s.HelmProps.property.repo"></a><a class="headerlink" href="#repooptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getRepo</span><span class="p">();</span><span class="w"></span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+</ul>
+<p>Chart repository url where to locate the requested chart.</p>
+<hr />
 <h5 id="valuesoptional_1"><code>values</code><sup>Optional</sup> <a name="org.cdk8s.HelmProps.property.values"></a><a class="headerlink" href="#valuesoptional_1" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getValues</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
@@ -3657,6 +3701,18 @@ a field implies &lsquo;*&rsquo;</p>
 <li><em>Default:</em> If no values are specified, chart will use the defaults.</li>
 </ul>
 <p>Values to pass to the chart.</p>
+<hr />
+<h5 id="versionoptional_1"><code>version</code><sup>Optional</sup> <a name="org.cdk8s.HelmProps.property.version"></a><a class="headerlink" href="#versionoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getVersion</span><span class="p">();</span><span class="w"></span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+</ul>
+<p>Version constraint for the chart version to use.</p>
+<p>This constraint can be a specific tag (e.g. 1.1.1)
+or it may reference a valid range (e.g. ^2.0.0).
+If this is not specified, the latest version is used</p>
+<p>This name is passed to <code>helm template --version</code> and has all the relevant semantics.</p>
 <hr />
 <h3 id="includeprops">IncludeProps <a name="org.cdk8s.IncludeProps"></a><a class="headerlink" href="#includeprops" title="Permanent link">&para;</a></h3>
 <h4 id="initializer_7">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_7" title="Permanent link">&para;</a></h4>
@@ -3914,7 +3970,7 @@ composability of your construct because it won&rsquo;t be possible to include
 more than one instance in any app. Therefore it is highly recommended to
 leave this unspecified.</p>
 <hr />
-<h5 id="namespaceoptional_4"><code>namespace</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectMetadata.parameter.namespace"></a><a class="headerlink" href="#namespaceoptional_4" title="Permanent link">&para;</a></h5>
+<h5 id="namespaceoptional_6"><code>namespace</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectMetadata.parameter.namespace"></a><a class="headerlink" href="#namespaceoptional_6" title="Permanent link">&para;</a></h5>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 <li><em>Default:</em> undefined (will be assigned to the &lsquo;default&rsquo; namespace)</li>
@@ -4033,7 +4089,7 @@ Otherwise, a name will be generated by calling
 <code>Chart.of(this).generatedObjectName(this)</code>, which by default uses the
 construct path to generate a DNS-compatible name for the resource.</p>
 <hr />
-<h5 id="namespaceoptional_5"><code>namespace</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectMetadataDefinition.property.namespace"></a><a class="headerlink" href="#namespaceoptional_5" title="Permanent link">&para;</a></h5>
+<h5 id="namespaceoptional_7"><code>namespace</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectMetadataDefinition.property.namespace"></a><a class="headerlink" href="#namespaceoptional_7" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getNamespace</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <ul>
