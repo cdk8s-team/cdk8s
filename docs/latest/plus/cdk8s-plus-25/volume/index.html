@@ -2322,26 +2322,26 @@
 <h2 id="create-from-a-configmap">Create from a ConfigMap<a class="headerlink" href="#create-from-a-configmap" title="Permanent link">&para;</a></h2>
 <p>A very useful operation is to create a volume from a <code>ConfigMap</code>. Kubernetes will translate every key in the config map to a file,
 who&rsquo;s content is the value of the key.</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-25&#39;</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-25&#39;</span><span class="p">;</span>
 
-<span class="kd">const</span><span class="w"> </span><span class="nx">configMap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">ConfigMap</span><span class="p">.</span><span class="nx">fromConfigMapName</span><span class="p">(</span><span class="s1">&#39;redis-config&#39;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">configVolume</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Volume</span><span class="p">.</span><span class="nx">fromConfigMap</span><span class="p">(</span><span class="nx">configMap</span><span class="p">);</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">configMap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">ConfigMap</span><span class="p">.</span><span class="nx">fromConfigMapName</span><span class="p">(</span><span class="s1">&#39;redis-config&#39;</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">configVolume</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Volume</span><span class="p">.</span><span class="nx">fromConfigMap</span><span class="p">(</span><span class="nx">configMap</span><span class="p">);</span>
 </code></pre></div>
 <h2 id="create-from-an-emptydir">Create from an EmptyDir<a class="headerlink" href="#create-from-an-emptydir" title="Permanent link">&para;</a></h2>
 <p>The easiest way to allocate some persistent storage to your container is to create a volume from an empty directory.
 This volume, as the name suggests, is initially empty, and can be written to by containers who mount it.
 The data in the volume is preserved throughout the lifecycle of the pod, but is deleted forever as soon as the pod itself is removed.</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-25&#39;</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-25&#39;</span><span class="p">;</span>
 
-<span class="kd">const</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Volume</span><span class="p">.</span><span class="nx">fromEmptyDir</span><span class="p">(</span><span class="nx">configMap</span><span class="p">);</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Volume</span><span class="p">.</span><span class="nx">fromEmptyDir</span><span class="p">(</span><span class="nx">configMap</span><span class="p">);</span>
 
-<span class="kd">const</span><span class="w"> </span><span class="nx">pod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Pod</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Pod&#39;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">redis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">pod</span><span class="p">.</span><span class="nx">addContainer</span><span class="p">({</span><span class="w"></span>
-<span class="w">  </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;redis&#39;</span><span class="w"></span>
-<span class="p">})</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">pod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Pod</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Pod&#39;</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">redis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">pod</span><span class="p">.</span><span class="nx">addContainer</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;redis&#39;</span>
+<span class="p">})</span>
 
-<span class="c1">// mount to the redis container.</span><span class="w"></span>
-<span class="nx">redis</span><span class="p">.</span><span class="nx">mount</span><span class="p">(</span><span class="s1">&#39;/var/lib/redis&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">);</span><span class="w"></span>
+<span class="c1">// mount to the redis container.</span>
+<span class="nx">redis</span><span class="p">.</span><span class="nx">mount</span><span class="p">(</span><span class="s1">&#39;/var/lib/redis&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">);</span>
 </code></pre></div>
 
 

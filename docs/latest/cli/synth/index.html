@@ -2384,7 +2384,7 @@
 <p>The <code>cdk8s synth</code> command is a convenience command which will simply execute
 the application defined in <code>cdk8s.yaml</code> under <code>app</code>.</p>
 <p>For example, if your <code>cdk8s.yaml</code> file looks like this:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node app.js</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node app.js</span>
 </code></pre></div>
 <p>Then, <code>cdk8s synth</code> will execute <code>node app.js</code>.</p>
 <h2 id="configuring-synth-output">Configuring synth output<a class="headerlink" href="#configuring-synth-output" title="Permanent link">&para;</a></h2>
@@ -2392,24 +2392,24 @@ the application defined in <code>cdk8s.yaml</code> under <code>app</code>.</p>
 Things like file extensions, how API objects are distributed between files, and the output directory can all
 be configured in your <a href="https://github.com/cdk8s-team/cdk8s-core/blob/2.x/docs/typescript.md#appprops-"><code>AppProps</code></a></p>
 <p>For example:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">App</span><span class="p">({</span><span class="w"></span>
-<span class="w">  </span><span class="c1">// Instead of the default &quot;dist&quot;</span><span class="w"></span>
-<span class="w">  </span><span class="nx">outdir</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;output&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="c1">// Instead of &quot;.k8s.yaml&quot;</span><span class="w"></span>
-<span class="w">  </span><span class="nx">outputFileExtension</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;.generated.yaml&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="c1">// Divide every resource into its own file, instead of grouping by Chart</span><span class="w"></span>
-<span class="w">  </span><span class="nx">yamlOutputType</span><span class="o">:</span><span class="w"> </span><span class="kt">YamlOutputType.FILE_PER_RESOURCE</span><span class="p">,</span><span class="w"></span>
-<span class="p">});</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">App</span><span class="p">({</span>
+<span class="w">  </span><span class="c1">// Instead of the default &quot;dist&quot;</span>
+<span class="w">  </span><span class="nx">outdir</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;output&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="c1">// Instead of &quot;.k8s.yaml&quot;</span>
+<span class="w">  </span><span class="nx">outputFileExtension</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;.generated.yaml&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="c1">// Divide every resource into its own file, instead of grouping by Chart</span>
+<span class="w">  </span><span class="nx">yamlOutputType</span><span class="o">:</span><span class="w"> </span><span class="kt">YamlOutputType.FILE_PER_RESOURCE</span><span class="p">,</span>
+<span class="p">});</span>
 </code></pre></div>
 <h2 id="validating-manifests">Validating Manifests<a class="headerlink" href="#validating-manifests" title="Permanent link">&para;</a></h2>
 <p>You can perform validation on the manifests produced by cdk8s by configuring third-party validation
 plugins. To do so, use the <code>validations</code> property in the <code>cdk8s.yaml</code> configuration file:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">typescript</span><span class="w"></span>
-<span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ts-node main.ts</span><span class="w"></span>
-<span class="nt">validations</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">package</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;@datreeio/datree-cdk8s&#39;</span><span class="w"></span>
-<span class="w">    </span><span class="nt">class</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DatreeValidation</span><span class="w"></span>
-<span class="w">    </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.3.4</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">typescript</span>
+<span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ts-node main.ts</span>
+<span class="nt">validations</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">package</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;@datreeio/datree-cdk8s&#39;</span>
+<span class="w">    </span><span class="nt">class</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DatreeValidation</span>
+<span class="w">    </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.3.4</span>
 </code></pre></div>
 <p>With this configuration, <code>cdk8s</code> will dynamically install the <code>@datreeio/datree-cdk8s</code> package from NPM during
 synthesis, and produce a violation report. For example:</p>
@@ -2456,21 +2456,21 @@ synthesis, and produce a violation report. For example:</p>
 <p>If the report resulted in a failure, the <code>cdk8s synth</code> command will fail.
 You can also put the contents of the <code>validation</code> property into a separate file (either remote or local),
 and refer to it:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">typescript</span><span class="w"></span>
-<span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ts-node main.ts</span><span class="w"></span>
-<span class="nt">validations</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://path/to/validations.yaml</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">typescript</span>
+<span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ts-node main.ts</span>
+<span class="nt">validations</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://path/to/validations.yaml</span>
 </code></pre></div>
 <h3 id="private-validation-plugins">Private Validation Plugins<a class="headerlink" href="#private-validation-plugins" title="Permanent link">&para;</a></h3>
 <p>To use a validation plugin that is hosted in a private NPM registry, use the <code>installEnv</code>
 property to specify a custom registry:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">typescript</span><span class="w"></span>
-<span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ts-node main.ts</span><span class="w"></span>
-<span class="nt">validations</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">package</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-private-plugin</span><span class="w"></span>
-<span class="w">    </span><span class="nt">class</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MyValidation</span><span class="w"></span>
-<span class="w">    </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0.1</span><span class="w"></span>
-<span class="w">    </span><span class="nt">installEnv</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="nt">npm_config_registry</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://my/custom/registry</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">typescript</span>
+<span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ts-node main.ts</span>
+<span class="nt">validations</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">package</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-private-plugin</span>
+<span class="w">    </span><span class="nt">class</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MyValidation</span>
+<span class="w">    </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0.1</span>
+<span class="w">    </span><span class="nt">installEnv</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">npm_config_registry</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://my/custom/registry</span>
 </code></pre></div>
 <blockquote>
 <p>All key value pairs in the <code>installEnv</code> property will be passed as is to the <code>npm</code> command that <code>cdk8s</code>

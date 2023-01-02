@@ -2611,10 +2611,10 @@ feedback from the community and maintainers.</p>
 <p>Integration tests are executed <em>against the latest published modules</em>.
 This means that in order to execute integration tests against a development version, you&rsquo;lol need to <code>yarn link</code>
 your local version to this repository (all deps are at the root):</p>
-<div class="highlight"><pre><span></span><code>$ <span class="nb">cd</span> cdk8s-core
-$ yarn link
-$ <span class="nb">cd</span> ../cdk8s
-$ yarn link cdk8s
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>cdk8s-core
+$<span class="w"> </span>yarn<span class="w"> </span>link
+$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>../cdk8s
+$<span class="w"> </span>yarn<span class="w"> </span>link<span class="w"> </span>cdk8s
 </code></pre></div>
 <p>Now, you can run integration tests via:</p>
 <div class="highlight"><pre><span></span><code>yarn integ
@@ -2662,10 +2662,10 @@ following command.</p>
 <div class="highlight"><pre><span></span><code><span class="go">docker run --rm --net=host -it -v $PWD:$PWD -w $PWD jsii/superchain</span>
 </code></pre></div>
 <p>Then once in the docker shell, you can package and execute the tests as normal.</p>
-<div class="highlight"><pre><span></span><code>$ pip install pipenv  <span class="c1"># Currently not included in jsii docker image</span>
-$ yarn build
-$ yarn run package
-$ yarn integ:update
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>pipenv<span class="w">  </span><span class="c1"># Currently not included in jsii docker image</span>
+$<span class="w"> </span>yarn<span class="w"> </span>build
+$<span class="w"> </span>yarn<span class="w"> </span>run<span class="w"> </span>package
+$<span class="w"> </span>yarn<span class="w"> </span>integ:update
 </code></pre></div>
 <blockquote>
 <p>Note: this may leave some files owned as the docker root user id.  These will need to
@@ -2703,10 +2703,10 @@ the <a href="https://github.com/cdk8s-team/cdk8s/tree/master/docs"><code>docs</c
 <p>API documentation for <code>cdk8s</code> and all <code>cdk8s-plus-*</code> packages is auto-generated from inline
 docstrings during build.</p>
 <p>To test locally, install python3 deps:</p>
-<div class="highlight"><pre><span></span><code>pip3 install -r docs/requirements.txt
+<div class="highlight"><pre><span></span><code>pip3<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>docs/requirements.txt
 </code></pre></div>
 <p>And then:</p>
-<div class="highlight"><pre><span></span><code>mkdocs serve
+<div class="highlight"><pre><span></span><code>mkdocs<span class="w"> </span>serve
 </code></pre></div>
 <p>This will serve a local web server with the website.</p>
 <blockquote>

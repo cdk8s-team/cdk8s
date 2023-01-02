@@ -2455,27 +2455,27 @@
 </div>
 <h2 id="using-a-horizontalpodautoscaler">Using a HorizontalPodAutoscaler<a class="headerlink" href="#using-a-horizontalpodautoscaler" title="Permanent link">&para;</a></h2>
 <p>The example below creates a HorizontalPodAutoscaler that scales the number of replicas of a Deployment based on the average CPU utilization of the pods.</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">k</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span><span class="w"></span>
-<span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-23&#39;</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">k</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-23&#39;</span><span class="p">;</span>
 
-<span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">k</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">chart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">k</span><span class="p">.</span><span class="nx">Chart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Chart&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">k</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">chart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">k</span><span class="p">.</span><span class="nx">Chart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Chart&#39;</span><span class="p">);</span>
 
-<span class="c1">// Lets create a deployment for our web server</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">bookstoreWebsite</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Deployment</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;BookstoreWebsite&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nx">containers</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;node&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">],</span><span class="w"></span>
-<span class="p">});</span><span class="w"></span>
+<span class="c1">// Lets create a deployment for our web server</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">bookstoreWebsite</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Deployment</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;BookstoreWebsite&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">containers</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;node&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">],</span>
+<span class="p">});</span>
 
-<span class="c1">// Now define a HorizontalPodAutoscaler</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">hpa</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">HorizontalPodAutoscaler</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;BookstoreWebsiteHpa&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="kt">bookstoreWebsite</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nx">maxReplicas</span><span class="o">:</span><span class="w"> </span><span class="kt">10</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nx">metrics</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">     </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Metric</span><span class="p">.</span><span class="nx">resourceCpu</span><span class="p">(</span><span class="nx">kplus</span><span class="p">.</span><span class="nx">MetricTarget</span><span class="p">.</span><span class="nx">averageUtilization</span><span class="p">(</span><span class="mf">70</span><span class="p">)),</span><span class="w"></span>
-<span class="w">  </span><span class="p">],</span><span class="w"></span>
-<span class="w"> </span><span class="p">});</span><span class="w"></span>
-<span class="c1">// This will scale our website deployment up when the average CPU utilization</span><span class="w"></span>
-<span class="c1">// is 70% or higher up to a maximum of 10 replicas.</span><span class="w"></span>
+<span class="c1">// Now define a HorizontalPodAutoscaler</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">hpa</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">HorizontalPodAutoscaler</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;BookstoreWebsiteHpa&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="kt">bookstoreWebsite</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">maxReplicas</span><span class="o">:</span><span class="w"> </span><span class="kt">10</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">metrics</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">     </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Metric</span><span class="p">.</span><span class="nx">resourceCpu</span><span class="p">(</span><span class="nx">kplus</span><span class="p">.</span><span class="nx">MetricTarget</span><span class="p">.</span><span class="nx">averageUtilization</span><span class="p">(</span><span class="mf">70</span><span class="p">)),</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w"> </span><span class="p">});</span>
+<span class="c1">// This will scale our website deployment up when the average CPU utilization</span>
+<span class="c1">// is 70% or higher up to a maximum of 10 replicas.</span>
 </code></pre></div>
 <p>Using the example above, if our web server passes 70% CPU utilization the autoscaler will try and figure out the number of replicas to scale.</p>
 <p>The autoscaler uses the following formula:</p>
@@ -2504,103 +2504,103 @@
 <div class="admonition note">
 <p>Since the resource usages of all the containers are summed up the total pod utilization may not accurately represent the individual container resource usage. This could lead to situations where a single container might be running with high usage and the HPA will not scale out because the overall pod usage is still within acceptable limits.</p>
 </div>
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-23&#39;</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-23&#39;</span><span class="p">;</span>
 
 
-<span class="kd">const</span><span class="w"> </span><span class="nx">hpa</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">HorizontalPodAutoscaler</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;BookstoreWebsiteHpa&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="kt">bookstoreWebsite</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nx">maxReplicas</span><span class="o">:</span><span class="w"> </span><span class="kt">10</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nx">metrics</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">     </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Metric</span><span class="p">.</span><span class="nx">resourceCpu</span><span class="p">(</span><span class="nx">kplus</span><span class="p">.</span><span class="nx">MetricTarget</span><span class="p">.</span><span class="nx">averageUtilization</span><span class="p">(</span><span class="mf">70</span><span class="p">)),</span><span class="w"></span>
-<span class="w">  </span><span class="p">],</span><span class="w"></span>
-<span class="w"> </span><span class="p">});</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">hpa</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">HorizontalPodAutoscaler</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;BookstoreWebsiteHpa&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="kt">bookstoreWebsite</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">maxReplicas</span><span class="o">:</span><span class="w"> </span><span class="kt">10</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">metrics</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">     </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Metric</span><span class="p">.</span><span class="nx">resourceCpu</span><span class="p">(</span><span class="nx">kplus</span><span class="p">.</span><span class="nx">MetricTarget</span><span class="p">.</span><span class="nx">averageUtilization</span><span class="p">(</span><span class="mf">70</span><span class="p">)),</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w"> </span><span class="p">});</span>
 </code></pre></div>
 <h3 id="pods-metrics">Pods Metrics<a class="headerlink" href="#pods-metrics" title="Permanent link">&para;</a></h3>
 <p>Pods metrics are used to scale on a metric describing each pod in the current scale target (for example, transactions-processed-per-second).</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-23&#39;</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-23&#39;</span><span class="p">;</span>
 
 
-<span class="kd">const</span><span class="w"> </span><span class="nx">hpa</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">HorizontalPodAutoscaler</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;BookstoreWebsiteHpa&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="kt">bookstoreWebsite</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nx">maxReplicas</span><span class="o">:</span><span class="w"> </span><span class="kt">10</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nx">metrics</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">     </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Metric</span><span class="p">.</span><span class="nx">pods</span><span class="p">({</span><span class="w"></span>
-<span class="w">      </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;requests-per-second&#39;</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="kt">kplus.MetricTarget.averageUtilization</span><span class="p">(</span><span class="mf">50</span><span class="p">),</span><span class="w"></span>
-<span class="w">      </span><span class="nx">labelSelector</span><span class="o">:</span><span class="w"> </span><span class="kt">kplus.LabelSelector.of</span><span class="p">({</span><span class="w"> </span><span class="nx">labels</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">app</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;scraper&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}),</span><span class="w"></span>
-<span class="w">    </span><span class="p">}),</span><span class="w"></span>
-<span class="w">  </span><span class="p">],</span><span class="w"></span>
-<span class="w"> </span><span class="p">});</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">hpa</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">HorizontalPodAutoscaler</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;BookstoreWebsiteHpa&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="kt">bookstoreWebsite</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">maxReplicas</span><span class="o">:</span><span class="w"> </span><span class="kt">10</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">metrics</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">     </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Metric</span><span class="p">.</span><span class="nx">pods</span><span class="p">({</span>
+<span class="w">      </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;requests-per-second&#39;</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="kt">kplus.MetricTarget.averageUtilization</span><span class="p">(</span><span class="mf">50</span><span class="p">),</span>
+<span class="w">      </span><span class="nx">labelSelector</span><span class="o">:</span><span class="w"> </span><span class="kt">kplus.LabelSelector.of</span><span class="p">({</span><span class="w"> </span><span class="nx">labels</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">app</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;scraper&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}),</span>
+<span class="w">    </span><span class="p">}),</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w"> </span><span class="p">});</span>
 </code></pre></div>
 <h2 id="container-metrics">Container Metrics<a class="headerlink" href="#container-metrics" title="Permanent link">&para;</a></h2>
 <p>Container metrics are used to scale on one of the scaling target&rsquo;s container metrics.</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-23&#39;</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-23&#39;</span><span class="p">;</span>
 
 
-<span class="kd">const</span><span class="w"> </span><span class="nx">hpa</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">HorizontalPodAutoscaler</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;BookstoreWebsiteHpa&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="kt">bookstoreWebsite</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nx">maxReplicas</span><span class="o">:</span><span class="w"> </span><span class="kt">10</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nx">metrics</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">     </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Metric</span><span class="p">.</span><span class="nx">containerMemory</span><span class="p">(</span><span class="nx">kplus</span><span class="p">.</span><span class="nx">MetricTarget</span><span class="p">.</span><span class="nx">value</span><span class="p">(</span><span class="mf">4096</span><span class="p">)),</span><span class="w"></span>
-<span class="w">  </span><span class="p">],</span><span class="w"></span>
-<span class="w"> </span><span class="p">});</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">hpa</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">HorizontalPodAutoscaler</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;BookstoreWebsiteHpa&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="kt">bookstoreWebsite</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">maxReplicas</span><span class="o">:</span><span class="w"> </span><span class="kt">10</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">metrics</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">     </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Metric</span><span class="p">.</span><span class="nx">containerMemory</span><span class="p">(</span><span class="nx">kplus</span><span class="p">.</span><span class="nx">MetricTarget</span><span class="p">.</span><span class="nx">value</span><span class="p">(</span><span class="mf">4096</span><span class="p">)),</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w"> </span><span class="p">});</span>
 </code></pre></div>
 <h3 id="object-metrics">Object Metrics<a class="headerlink" href="#object-metrics" title="Permanent link">&para;</a></h3>
 <p>Object metrics are used to scale on a metric describing a single kubernetes object (for example, requests-per-second on an Ingress object).</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-23&#39;</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-23&#39;</span><span class="p">;</span>
 
 
-<span class="kd">const</span><span class="w"> </span><span class="nx">hpa</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">HorizontalPodAutoscaler</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;BookstoreWebsiteHpa&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="kt">bookstoreWebsite</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nx">maxReplicas</span><span class="o">:</span><span class="w"> </span><span class="kt">10</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nx">metrics</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">     </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Metric</span><span class="p">.</span><span class="nx">object</span><span class="p">({</span><span class="w"></span>
-<span class="w">        </span><span class="nx">object</span><span class="o">:</span><span class="w"> </span><span class="kt">ingress</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;requests-per-second&#39;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="kt">kplus.MetricTarget.averageUtilization</span><span class="p">(</span><span class="mf">50</span><span class="p">),</span><span class="w"></span>
-<span class="w">      </span><span class="p">}),</span><span class="w"></span>
-<span class="w">  </span><span class="p">],</span><span class="w"></span>
-<span class="p">});</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">hpa</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">HorizontalPodAutoscaler</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;BookstoreWebsiteHpa&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="kt">bookstoreWebsite</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">maxReplicas</span><span class="o">:</span><span class="w"> </span><span class="kt">10</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">metrics</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">     </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Metric</span><span class="p">.</span><span class="nx">object</span><span class="p">({</span>
+<span class="w">        </span><span class="nx">object</span><span class="o">:</span><span class="w"> </span><span class="kt">ingress</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;requests-per-second&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="kt">kplus.MetricTarget.averageUtilization</span><span class="p">(</span><span class="mf">50</span><span class="p">),</span>
+<span class="w">      </span><span class="p">}),</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="p">});</span>
 </code></pre></div>
 <h3 id="external-metrics">External Metrics<a class="headerlink" href="#external-metrics" title="Permanent link">&para;</a></h3>
 <p>External metrics are used to scale on a metric not associated with any Kubernetes object (for example, an SQS queue).</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-23&#39;</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-23&#39;</span><span class="p">;</span>
 
 
-<span class="kd">const</span><span class="w"> </span><span class="nx">hpa</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">HorizontalPodAutoscaler</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;BookstoreWebsiteHpa&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="kt">bookstoreWebsite</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nx">maxReplicas</span><span class="o">:</span><span class="w"> </span><span class="kt">10</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nx">metrics</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">    </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Metric</span><span class="p">.</span><span class="nx">external</span><span class="p">({</span><span class="w"></span>
-<span class="w">      </span><span class="nx">labelSelector</span><span class="o">:</span><span class="w"> </span><span class="kt">kplus.LabelSelector.of</span><span class="p">({</span><span class="w"> </span><span class="nx">labels</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">app</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;scraper&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}),</span><span class="w"></span>
-<span class="w">      </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;sqs-queue&#39;</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="kt">kplus.MetricTarget.averageUtilization</span><span class="p">(</span><span class="mf">50</span><span class="p">),</span><span class="w"></span>
-<span class="w">    </span><span class="p">}),</span><span class="w"></span>
-<span class="w">  </span><span class="p">],</span><span class="w"></span>
-<span class="w"> </span><span class="p">});</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">hpa</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">HorizontalPodAutoscaler</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;BookstoreWebsiteHpa&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="kt">bookstoreWebsite</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">maxReplicas</span><span class="o">:</span><span class="w"> </span><span class="kt">10</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">metrics</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Metric</span><span class="p">.</span><span class="nx">external</span><span class="p">({</span>
+<span class="w">      </span><span class="nx">labelSelector</span><span class="o">:</span><span class="w"> </span><span class="kt">kplus.LabelSelector.of</span><span class="p">({</span><span class="w"> </span><span class="nx">labels</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">app</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;scraper&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}),</span>
+<span class="w">      </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;sqs-queue&#39;</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="kt">kplus.MetricTarget.averageUtilization</span><span class="p">(</span><span class="mf">50</span><span class="p">),</span>
+<span class="w">    </span><span class="p">}),</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w"> </span><span class="p">});</span>
 </code></pre></div>
 <h2 id="scaling-behavior">Scaling behavior<a class="headerlink" href="#scaling-behavior" title="Permanent link">&para;</a></h2>
 <p>The HorizontalPodAutoscaler has a few options to control the scaling behavior.</p>
 <h3 id="scaleup-scaledown">scaleUp /scaleDown<a class="headerlink" href="#scaleup-scaledown" title="Permanent link">&para;</a></h3>
 <p>The <code>scaleUp</code> / <code>scaleDown</code> options controls how fast the HorizontalPodAutoscaler scales up and down. They share the same options but have slightly different defaults.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">hpa</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">HorizontalPodAutoscaler</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;BookstoreWebsiteHpa&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="kt">bookstoreWebsite</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nx">maxReplicas</span><span class="o">:</span><span class="w"> </span><span class="kt">10</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nx">scaleUp</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nx">stabilizationWindow</span><span class="o">:</span><span class="w"> </span><span class="kt">60</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nx">policies</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">      </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">PolicyType</span><span class="p">.</span><span class="nx">pods</span><span class="p">(</span><span class="mf">4</span><span class="p">),</span><span class="w"></span>
-<span class="w">      </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">PolicyType</span><span class="p">.</span><span class="nx">percent</span><span class="p">(</span><span class="mf">200</span><span class="p">),</span><span class="w"></span>
-<span class="w">    </span><span class="p">],</span><span class="w"></span>
-<span class="w">  </span><span class="p">},</span><span class="w"></span>
-<span class="w">  </span><span class="nx">scaleDown</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nx">stabilizationWindow</span><span class="o">:</span><span class="w"> </span><span class="kt">60</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nx">policies</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">      </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">PolicyType</span><span class="p">.</span><span class="nx">pods</span><span class="p">(</span><span class="mf">2</span><span class="p">),</span><span class="w"></span>
-<span class="w">      </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">PolicyType</span><span class="p">.</span><span class="nx">percent</span><span class="p">(</span><span class="mf">100</span><span class="p">),</span><span class="w"></span>
-<span class="w">    </span><span class="p">],</span><span class="w"></span>
-<span class="w">  </span><span class="p">},</span><span class="w"></span>
-<span class="w"> </span><span class="p">});</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">hpa</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">HorizontalPodAutoscaler</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;BookstoreWebsiteHpa&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="kt">bookstoreWebsite</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">maxReplicas</span><span class="o">:</span><span class="w"> </span><span class="kt">10</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">scaleUp</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">stabilizationWindow</span><span class="o">:</span><span class="w"> </span><span class="kt">60</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">policies</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">PolicyType</span><span class="p">.</span><span class="nx">pods</span><span class="p">(</span><span class="mf">4</span><span class="p">),</span>
+<span class="w">      </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">PolicyType</span><span class="p">.</span><span class="nx">percent</span><span class="p">(</span><span class="mf">200</span><span class="p">),</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nx">scaleDown</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">stabilizationWindow</span><span class="o">:</span><span class="w"> </span><span class="kt">60</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">policies</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">PolicyType</span><span class="p">.</span><span class="nx">pods</span><span class="p">(</span><span class="mf">2</span><span class="p">),</span>
+<span class="w">      </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">PolicyType</span><span class="p">.</span><span class="nx">percent</span><span class="p">(</span><span class="mf">100</span><span class="p">),</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w"> </span><span class="p">});</span>
 </code></pre></div>
 <table>
 <thead>
@@ -2633,21 +2633,21 @@
 </tbody>
 </table>
 <p>Check out the example below. We have a <code>scaleUp</code> policy that will scale up by 4 pods or double the current number of pods per 60 seconds. Because the <code>strategy</code> has been configured to <code>ScalingStrategy.MAX_CHANGE</code> the autoscaler will choose the policy that will make the most replicas.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">hpa</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">HorizontalPodAutoscaler</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;BookstoreWebsiteHpa&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="kt">bookstoreWebsite</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nx">maxReplicas</span><span class="o">:</span><span class="w"> </span><span class="kt">10</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nx">metrics</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">     </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Metric</span><span class="p">.</span><span class="nx">resourceCpu</span><span class="p">(</span><span class="nx">kplus</span><span class="p">.</span><span class="nx">MetricTarget</span><span class="p">.</span><span class="nx">averageUtilization</span><span class="p">(</span><span class="mf">70</span><span class="p">)),</span><span class="w"></span>
-<span class="w">  </span><span class="p">],</span><span class="w"></span>
-<span class="w">  </span><span class="nx">scaleUp</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nx">strategy</span><span class="o">:</span><span class="w"> </span><span class="kt">kplus.ScalingStrategy.MAX_CHANGE</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nx">stabilizationWindow</span><span class="o">:</span><span class="w"> </span><span class="kt">60</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nx">policies</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">      </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">PolicyType</span><span class="p">.</span><span class="nx">pods</span><span class="p">(</span><span class="mf">4</span><span class="p">),</span><span class="w"></span>
-<span class="w">      </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">PolicyType</span><span class="p">.</span><span class="nx">percent</span><span class="p">(</span><span class="mf">200</span><span class="p">),</span><span class="w"></span>
-<span class="w">    </span><span class="p">],</span><span class="w"></span>
-<span class="w">  </span><span class="p">},</span><span class="w"></span>
-<span class="w"> </span><span class="p">});</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">hpa</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">HorizontalPodAutoscaler</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;BookstoreWebsiteHpa&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="kt">bookstoreWebsite</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">maxReplicas</span><span class="o">:</span><span class="w"> </span><span class="kt">10</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">metrics</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">     </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Metric</span><span class="p">.</span><span class="nx">resourceCpu</span><span class="p">(</span><span class="nx">kplus</span><span class="p">.</span><span class="nx">MetricTarget</span><span class="p">.</span><span class="nx">averageUtilization</span><span class="p">(</span><span class="mf">70</span><span class="p">)),</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nx">scaleUp</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">strategy</span><span class="o">:</span><span class="w"> </span><span class="kt">kplus.ScalingStrategy.MAX_CHANGE</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">stabilizationWindow</span><span class="o">:</span><span class="w"> </span><span class="kt">60</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">policies</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">PolicyType</span><span class="p">.</span><span class="nx">pods</span><span class="p">(</span><span class="mf">4</span><span class="p">),</span>
+<span class="w">      </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">PolicyType</span><span class="p">.</span><span class="nx">percent</span><span class="p">(</span><span class="mf">200</span><span class="p">),</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w"> </span><span class="p">});</span>
 </code></pre></div>
 <p>This means that if we currently have 3 web server pods, and the CPU utilization is at 72% the autoscaler will try and add 6 pods every 60 seconds.</p>
 <p>This will result in a total of 9 web server pods. If after 60 seconds the CPU utilization is still at 72% the autoscaler will only be allowed to add one more replica because <code>maxReplicas</code> has been configured to 10.</p>

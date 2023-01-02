@@ -2340,25 +2340,25 @@
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>In <code>package.json</code>, define:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&quot;dependencies&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;cdk8s&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^2.2.87&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;constructs&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^10.1.12&quot;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nt">&quot;dependencies&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;cdk8s&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^2.2.87&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;constructs&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^10.1.12&quot;</span>
+<span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <p>In <code>pom.xml</code>, define:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;dependencies&gt;</span>
-  <span class="nt">&lt;dependency&gt;</span>
-    <span class="nt">&lt;groupId&gt;</span>org.cdk8s<span class="nt">&lt;/groupId&gt;</span>
-    <span class="nt">&lt;artifactId&gt;</span>cdk8s<span class="nt">&lt;/artifactId&gt;</span>
-    <span class="nt">&lt;version&gt;</span>[2.2.86,3.0]<span class="nt">&lt;/version&gt;</span>
-  <span class="nt">&lt;/dependency&gt;</span>
-  <span class="nt">&lt;dependency&gt;</span>
-    <span class="nt">&lt;groupId&gt;</span>software.constructs<span class="nt">&lt;/groupId&gt;</span>
-    <span class="nt">&lt;artifactId&gt;</span>constructs<span class="nt">&lt;/artifactId&gt;</span>
-    <span class="nt">&lt;version&gt;</span>[10.1.12,11.0.0]<span class="nt">&lt;/version&gt;</span>
-  <span class="nt">&lt;/dependency&gt;</span>
+<span class="w">  </span><span class="nt">&lt;dependency&gt;</span>
+<span class="w">    </span><span class="nt">&lt;groupId&gt;</span>org.cdk8s<span class="nt">&lt;/groupId&gt;</span>
+<span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>cdk8s<span class="nt">&lt;/artifactId&gt;</span>
+<span class="w">    </span><span class="nt">&lt;version&gt;</span>[2.2.86,3.0]<span class="nt">&lt;/version&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/dependency&gt;</span>
+<span class="w">  </span><span class="nt">&lt;dependency&gt;</span>
+<span class="w">    </span><span class="nt">&lt;groupId&gt;</span>software.constructs<span class="nt">&lt;/groupId&gt;</span>
+<span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>constructs<span class="nt">&lt;/artifactId&gt;</span>
+<span class="w">    </span><span class="nt">&lt;version&gt;</span>[10.1.12,11.0.0]<span class="nt">&lt;/version&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/dependency&gt;</span>
 <span class="nt">&lt;/dependencies&gt;</span>
 </code></pre></div>
 </div>
@@ -2371,16 +2371,16 @@
 </div>
 <div class="tabbed-block">
 <p>In <code>go.mod</code>, define:</p>
-<div class="highlight"><pre><span></span><code><span class="nx">require</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
-<span class="w">  </span><span class="nx">github</span><span class="p">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">aws</span><span class="o">/</span><span class="nx">constructs</span><span class="o">-</span><span class="k">go</span><span class="o">/</span><span class="nx">constructs</span><span class="o">/</span><span class="nx">v10</span><span class="w"> </span><span class="nx">v10</span><span class="mf">.1.12</span><span class="w"></span>
-<span class="w">  </span><span class="nx">github</span><span class="p">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">cdk8s</span><span class="o">-</span><span class="nx">team</span><span class="o">/</span><span class="nx">cdk8s</span><span class="o">-</span><span class="nx">core</span><span class="o">-</span><span class="k">go</span><span class="o">/</span><span class="nx">cdk8s</span><span class="o">/</span><span class="nx">v2</span><span class="w"> </span><span class="nx">v2</span><span class="mf">.2.87</span><span class="w"></span>
-<span class="p">)</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nx">require</span><span class="w"> </span><span class="p">(</span>
+<span class="w">  </span><span class="nx">github</span><span class="p">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">aws</span><span class="o">/</span><span class="nx">constructs</span><span class="o">-</span><span class="k">go</span><span class="o">/</span><span class="nx">constructs</span><span class="o">/</span><span class="nx">v10</span><span class="w"> </span><span class="nx">v10</span><span class="mf">.1.12</span>
+<span class="w">  </span><span class="nx">github</span><span class="p">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">cdk8s</span><span class="o">-</span><span class="nx">team</span><span class="o">/</span><span class="nx">cdk8s</span><span class="o">-</span><span class="nx">core</span><span class="o">-</span><span class="k">go</span><span class="o">/</span><span class="nx">cdk8s</span><span class="o">/</span><span class="nx">v2</span><span class="w"> </span><span class="nx">v2</span><span class="mf">.2.87</span>
+<span class="p">)</span>
 </code></pre></div>
 <p>Since major versions are encoded in go import statements, in your source code, change to:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
-<span class="w">  </span><span class="s">&quot;github.com/aws/constructs-go/constructs/v10&quot;</span><span class="w"></span>
-<span class="w">  </span><span class="s">&quot;github.com/cdk8s-team/cdk8s-core-go/cdk8s/v2&quot;</span><span class="w"></span>
-<span class="p">)</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+<span class="w">  </span><span class="s">&quot;github.com/aws/constructs-go/constructs/v10&quot;</span>
+<span class="w">  </span><span class="s">&quot;github.com/cdk8s-team/cdk8s-core-go/cdk8s/v2&quot;</span>
+<span class="p">)</span>
 </code></pre></div>
 </div>
 </div>

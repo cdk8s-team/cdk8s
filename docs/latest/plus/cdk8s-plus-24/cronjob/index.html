@@ -2361,45 +2361,45 @@
 <p><a href="../../../reference/cdk8s-plus-24/typescript/#cronjob">API Reference</a></p>
 </div>
 <h2 id="creating-a-cronjob">Creating a <code>CronJob</code><a class="headerlink" href="#creating-a-cronjob" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-24&#39;</span><span class="p">;</span><span class="w"></span>
-<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Construct</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;constructs&#39;</span><span class="p">;</span><span class="w"></span>
-<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">App</span><span class="p">,</span><span class="w"> </span><span class="nx">Chart</span><span class="p">,</span><span class="w"> </span><span class="nx">ChartProps</span><span class="p">,</span><span class="w"> </span><span class="nx">Cron</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-24&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Construct</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;constructs&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">App</span><span class="p">,</span><span class="w"> </span><span class="nx">Chart</span><span class="p">,</span><span class="w"> </span><span class="nx">ChartProps</span><span class="p">,</span><span class="w"> </span><span class="nx">Cron</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span>
 
-<span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">MyChart</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Chart</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">scope</span><span class="o">:</span><span class="w"> </span><span class="kt">Construct</span><span class="p">,</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">props</span><span class="o">:</span><span class="w"> </span><span class="kt">ChartProps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">super</span><span class="p">(</span><span class="nx">scope</span><span class="p">,</span><span class="w"> </span><span class="nx">id</span><span class="p">,</span><span class="w"> </span><span class="nx">props</span><span class="p">);</span><span class="w"></span>
+<span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">MyChart</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Chart</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">scope</span><span class="o">:</span><span class="w"> </span><span class="kt">Construct</span><span class="p">,</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">props</span><span class="o">:</span><span class="w"> </span><span class="kt">ChartProps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">super</span><span class="p">(</span><span class="nx">scope</span><span class="p">,</span><span class="w"> </span><span class="nx">id</span><span class="p">,</span><span class="w"> </span><span class="nx">props</span><span class="p">);</span>
 
-<span class="w">    </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">CronJob</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;CronJob&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="nx">containers</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span><span class="w"></span>
-<span class="w">        </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;databack/mysql-backup&#39;</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="p">}],</span><span class="w"></span>
-<span class="w">      </span><span class="c1">// You can pass a custom cron schedule using our Cron class</span><span class="w"></span>
-<span class="w">      </span><span class="nx">schedule</span><span class="o">:</span><span class="w"> </span><span class="kt">Cron.schedule</span><span class="p">({</span><span class="w"></span>
-<span class="w">        </span><span class="nx">minute</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;*&#39;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nx">hour</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;*&#39;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nx">day</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;*&#39;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nx">month</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;*&#39;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nx">weekDay</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;*&#39;</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="p">}),</span><span class="w"></span>
-<span class="w">    </span><span class="p">});</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">CronJob</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;CronJob&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">containers</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span>
+<span class="w">        </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;databack/mysql-backup&#39;</span><span class="p">,</span>
+<span class="w">      </span><span class="p">}],</span>
+<span class="w">      </span><span class="c1">// You can pass a custom cron schedule using our Cron class</span>
+<span class="w">      </span><span class="nx">schedule</span><span class="o">:</span><span class="w"> </span><span class="kt">Cron.schedule</span><span class="p">({</span>
+<span class="w">        </span><span class="nx">minute</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;*&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">hour</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;*&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">day</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;*&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">month</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;*&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">weekDay</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;*&#39;</span><span class="p">,</span>
+<span class="w">      </span><span class="p">}),</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
 
-<span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">App</span><span class="p">();</span><span class="w"></span>
-<span class="ow">new</span><span class="w"> </span><span class="nx">MyChart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;cronjob-readme&#39;</span><span class="p">);</span><span class="w"></span>
-<span class="nx">app</span><span class="p">.</span><span class="nx">synth</span><span class="p">();</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">App</span><span class="p">();</span>
+<span class="ow">new</span><span class="w"> </span><span class="nx">MyChart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;cronjob-readme&#39;</span><span class="p">);</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">synth</span><span class="p">();</span>
 </code></pre></div>
 <h3 id="defaults">Defaults<a class="headerlink" href="#defaults" title="Permanent link">&para;</a></h3>
 <p>The above would create a cronjob resource which would schedule <code>databack/mysql-backup</code> to run every minute. With this resource, we also set some meaningful defaults. For instance, this cronjob would not run jobs concurrently by default. It will also retain 3 instance of successful job runs and 1 instance of a failed run for debugging later if needed. To customize the properties, see <a href="../../../reference/cdk8s-plus-24/typescript/#cronjob">API Reference</a>.</p>
 <h3 id="helper-functions">Helper Functions<a class="headerlink" href="#helper-functions" title="Permanent link">&para;</a></h3>
 <p>As we see in the previous example, we can pass custom cron expression for scheduling our jobs. But, we have also have added helper functions that would make it easy to mention some of the commonly used schedules. These include scheduling jobs to run every minute, hour, day, week, month or year. For instance, the same example mentioned before could be written as,</p>
-<div class="highlight"><pre><span></span><code><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">CronJob</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;CronJob&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nx">containers</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span><span class="w"></span>
-<span class="w">    </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;databack/mysql-backup&#39;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="p">}],</span><span class="w"></span>
-<span class="w">  </span><span class="c1">// This would schedule jobs to be scheduled to run every minute</span><span class="w"></span>
-<span class="w">  </span><span class="nx">schedule</span><span class="o">:</span><span class="w"> </span><span class="kt">Cron.everyMinute</span><span class="p">(),</span><span class="w"></span>
-<span class="p">});</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">CronJob</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;CronJob&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">containers</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span>
+<span class="w">    </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;databack/mysql-backup&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="p">}],</span>
+<span class="w">  </span><span class="c1">// This would schedule jobs to be scheduled to run every minute</span>
+<span class="w">  </span><span class="nx">schedule</span><span class="o">:</span><span class="w"> </span><span class="kt">Cron.everyMinute</span><span class="p">(),</span>
+<span class="p">});</span>
 </code></pre></div>
 <h3 id="validations">Validations<a class="headerlink" href="#validations" title="Permanent link">&para;</a></h3>
 <p>The cronjob construct also validates some of the properties so that the manifest created works as expected.</p>

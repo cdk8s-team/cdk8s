@@ -2346,19 +2346,19 @@ specific ones. Currently the supported types are:</p>
 <li><code>GCEPersistentDiskPersistentVolume</code></li>
 </ul>
 <p>For example, to create a PV from an existing AWS EBS volume:</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-24&#39;</span><span class="p">;</span><span class="w"></span>
-<span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">cdk8s</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-24&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">cdk8s</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span>
 
-<span class="kd">const</span><span class="w"> </span><span class="nx">vol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">AwsElasticBlockStorePersistentVolume</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Volume&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="c1">// must exist in aws</span><span class="w"></span>
-<span class="w">  </span><span class="nx">volumeId</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;vol1234&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">vol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">AwsElasticBlockStorePersistentVolume</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Volume&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// must exist in aws</span>
+<span class="w">  </span><span class="nx">volumeId</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;vol1234&#39;</span><span class="p">,</span>
 
-<span class="w">  </span><span class="c1">// assign the volume to small-ebs storage class</span><span class="w"></span>
-<span class="w">  </span><span class="nx">storageClassName</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;small-ebs&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// assign the volume to small-ebs storage class</span>
+<span class="w">  </span><span class="nx">storageClassName</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;small-ebs&#39;</span><span class="p">,</span>
 
-<span class="w">  </span><span class="c1">// what is the volume storage</span><span class="w"></span>
-<span class="w">  </span><span class="nx">storage</span><span class="o">:</span><span class="w"> </span><span class="kt">cdk8s.Size.gibibytes</span><span class="p">(</span><span class="mf">50</span><span class="p">),</span><span class="w"></span>
-<span class="p">});</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// what is the volume storage</span>
+<span class="w">  </span><span class="nx">storage</span><span class="o">:</span><span class="w"> </span><span class="kt">cdk8s.Size.gibibytes</span><span class="p">(</span><span class="mf">50</span><span class="p">),</span>
+<span class="p">});</span>
 </code></pre></div>
 <p>Note that this <strong>does not</strong> actually create a new volume, it merely manifests an existing
 volume in AWS as a Kubernetes resource.</p>
@@ -2367,27 +2367,27 @@ volume in AWS as a Kubernetes resource.</p>
 <p>See https://kubernetes.io/docs/concepts/storage/persistent-volumes/#reserving-a-persistentvolume</p>
 </blockquote>
 <p>Once the PV is defined, you can reserve it:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">claim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">vol</span><span class="p">.</span><span class="nx">reserve</span><span class="p">();</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">claim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">vol</span><span class="p">.</span><span class="nx">reserve</span><span class="p">();</span>
 </code></pre></div>
 <p>This method creates a new <code>PersistentVolumeClaim</code> and performs a
 bi-directional binding that reserves the volume for usage.
 You can use the claim to mount a volume onto a container like usual:</p>
-<div class="highlight"><pre><span></span><code><span class="nx">container</span><span class="p">.</span><span class="nx">mount</span><span class="p">(</span><span class="s1">&#39;/data&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Volume</span><span class="p">.</span><span class="nx">fromPersistentVolumeClaim</span><span class="p">(</span><span class="nx">claim</span><span class="p">));</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nx">container</span><span class="p">.</span><span class="nx">mount</span><span class="p">(</span><span class="s1">&#39;/data&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Volume</span><span class="p">.</span><span class="nx">fromPersistentVolumeClaim</span><span class="p">(</span><span class="nx">claim</span><span class="p">));</span>
 </code></pre></div>
 <p>You can also directly mount a persistent volume, which will implicitly reserve it
 and create a volume from the created claim:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">vol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">AwsElasticBlockStorePersistentVolume</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Volume&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">volumeId</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;vol1234&#39;</span><span class="w"> </span><span class="p">});</span><span class="w"></span>
-<span class="nx">container</span><span class="p">.</span><span class="nx">mount</span><span class="p">(</span><span class="s1">&#39;/data&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">vol</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">vol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">AwsElasticBlockStorePersistentVolume</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Volume&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">volumeId</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;vol1234&#39;</span><span class="w"> </span><span class="p">});</span>
+<span class="nx">container</span><span class="p">.</span><span class="nx">mount</span><span class="p">(</span><span class="s1">&#39;/data&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">vol</span><span class="p">);</span>
 </code></pre></div>
 <h2 id="bind">Bind<a class="headerlink" href="#bind" title="Permanent link">&para;</a></h2>
 <p>Binding is a part of the reservation process, but it only creates a one directional link.
 You can use it to bind a PV to an existing PVC. Note however that if the PVC is not bound to the PV,
 there&rsquo;s no guarantee this volume will indeed be given that specific claim.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">claim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">PersistentVolumeClaim</span><span class="p">.</span><span class="nx">fromClaimName</span><span class="p">(</span><span class="s1">&#39;claim&#39;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">claim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">PersistentVolumeClaim</span><span class="p">.</span><span class="nx">fromClaimName</span><span class="p">(</span><span class="s1">&#39;claim&#39;</span><span class="p">);</span>
 
-<span class="c1">// will modify the vol resource to refer to the claim.</span><span class="w"></span>
-<span class="c1">// but no the other way around.</span><span class="w"></span>
-<span class="nx">vol</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">claim</span><span class="p">);</span><span class="w"></span>
+<span class="c1">// will modify the vol resource to refer to the claim.</span>
+<span class="c1">// but no the other way around.</span>
+<span class="nx">vol</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">claim</span><span class="p">);</span>
 </code></pre></div>
 
 

@@ -2427,10 +2427,10 @@ objects and Custom Resources (CRDs).</p>
 <h3 id="target-programming-language-language">Target programming language (<code>--language</code>)<a class="headerlink" href="#target-programming-language-language" title="Permanent link">&para;</a></h3>
 <p>You can specify your desired language with the <code>--language</code> flag. For example:</p>
 <p>CLI:</p>
-<div class="highlight"><pre><span></span><code>cdk8s import --language typescript
+<div class="highlight"><pre><span></span><code>cdk8s<span class="w"> </span>import<span class="w"> </span>--language<span class="w"> </span>typescript
 </code></pre></div>
 <p><code>cdk8s.yaml</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">typescript</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">typescript</span>
 </code></pre></div>
 <h3 id="output-directory-output">Output directory (<code>--output</code>)<a class="headerlink" href="#output-directory-output" title="Permanent link">&para;</a></h3>
 <p>The <code>--output</code> (or <code>-o</code>) option can be used to specify the output directory for
@@ -2446,19 +2446,19 @@ resource kind.</p>
 helpful to you if you would like to name your CRD imports differently from their
 kind. Here is how you do it:</p>
 <p>CLI:</p>
-<div class="highlight"><pre><span></span><code>cdk8s import example:<span class="o">=</span>my_crd.yaml
+<div class="highlight"><pre><span></span><code>cdk8s<span class="w"> </span>import<span class="w"> </span>example:<span class="o">=</span>my_crd.yaml
 </code></pre></div>
 <p><code>cdk8s.yaml</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">imports</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">example:=my_crd.yaml</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nt">imports</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">example:=my_crd.yaml</span>
 </code></pre></div>
 <p>If your CRD contained two kinds, <code>Cluster</code> and <code>Autoscaler</code>, you would have two
 imports. You could use them in this fashion:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Typescript</label><label for="__tabbed_1_2">Python</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Cluster</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./imports/example-cluster&#39;</span><span class="p">;</span><span class="w"></span>
-<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Autoscaler</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./imports/example-autoscaler&#39;</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Cluster</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./imports/example-cluster&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Autoscaler</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./imports/example-autoscaler&#39;</span><span class="p">;</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -2476,7 +2476,7 @@ imports. You could use them in this fashion:</p>
 <p>This section describes specific behavior related to each type of import.</p>
 <h3 id="kubernetes-apis">Kubernetes APIs<a class="headerlink" href="#kubernetes-apis" title="Permanent link">&para;</a></h3>
 <p>To generate constructs for all Kubernetes API objects of a certain version, use:</p>
-<div class="highlight"><pre><span></span><code>cdk8s import k8s
+<div class="highlight"><pre><span></span><code>cdk8s<span class="w"> </span>import<span class="w"> </span>k8s
 </code></pre></div>
 <p>The <code>import</code> command will generate files under an &ldquo;imports&rdquo; directory inside
 your project with constructs for each API object in the Kubernetes spec.</p>
@@ -2489,11 +2489,11 @@ control.</p>
 object kind (e.g. <code>KubeDeployment</code>).</p>
 <h4 id="kubernetes-versions">Kubernetes Versions<a class="headerlink" href="#kubernetes-versions" title="Permanent link">&para;</a></h4>
 <p>Use the <code>@version</code> notation to import a specific Kubernetes version:</p>
-<div class="highlight"><pre><span></span><code>cdk8s import k8s@1.16.0
+<div class="highlight"><pre><span></span><code>cdk8s<span class="w"> </span>import<span class="w"> </span>k8s@1.16.0
 </code></pre></div>
 <p>Alternatively, you can specify your <code>k8s</code> import in the <code>cdk8s.yaml</code> config file:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">imports</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">k8s@1.17.0</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nt">imports</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">k8s@1.17.0</span>
 </code></pre></div>
 <h4 id="api-object-versions">API Object Versions<a class="headerlink" href="#api-object-versions" title="Permanent link">&para;</a></h4>
 <p>When importing the core Kubernetes API objects, <code>cdk8s import</code> will generate constructs
@@ -2505,11 +2505,11 @@ resource. This is because <code>Ingress</code> has not been stabilized yet. The 
 will also include an <code>Ingress</code> construct which represents the <code>v1</code> resource.</p>
 <h3 id="crds">CRDs<a class="headerlink" href="#crds" title="Permanent link">&para;</a></h3>
 <p>You can import CRDs from local files or URLs:</p>
-<div class="highlight"><pre><span></span><code>cdk8s import my_crd.yaml
+<div class="highlight"><pre><span></span><code>cdk8s<span class="w"> </span>import<span class="w"> </span>my_crd.yaml
 </code></pre></div>
 <p>Or from <code>cdk8s.yaml</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">imports</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my_crd.yaml</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nt">imports</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my_crd.yaml</span>
 </code></pre></div>
 <p>A CRD with group <code>mygroup.io</code> and kind <code>Foo</code> will be imported to the following
 locations:</p>
@@ -2520,7 +2520,7 @@ locations:</p>
 <h4 id="importing-crds-from-a-cluster">Importing CRDs from a cluster<a class="headerlink" href="#importing-crds-from-a-cluster" title="Permanent link">&para;</a></h4>
 <p>If the imported YAML is a <code>List</code> of CRDs, all these CRDs will be imported. This
 is useful, for example, to import all the CRDs from a running cluster:</p>
-<div class="highlight"><pre><span></span><code>kubectl get crds -o json <span class="p">|</span> cdk8s import /dev/stdin
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>get<span class="w"> </span>crds<span class="w"> </span>-o<span class="w"> </span>json<span class="w"> </span><span class="p">|</span><span class="w"> </span>cdk8s<span class="w"> </span>import<span class="w"> </span>/dev/stdin
 </code></pre></div>
 <blockquote>
 <p>Yes, this works!</p>
