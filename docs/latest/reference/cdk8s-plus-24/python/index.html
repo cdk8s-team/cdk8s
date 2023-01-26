@@ -10697,12 +10697,30 @@ handling of secret data by various controllers.</p>
 </ul>
 <p>Value.</p>
 <hr />
+<h5 id="env_value"><code>env_value</code> <a name="cdk8s_plus_24.Secret.env_value"></a><a class="headerlink" href="#env_value" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">env_value</span><span class="p">(</span>
+  <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+  <span class="n">optional</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="p">)</span>
+</code></pre></div>
+<h6 id="keyrequired_4"><code>key</code><sup>Required</sup> <a name="cdk8s_plus_24.Secret.parameter.key"></a><a class="headerlink" href="#keyrequired_4" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <code>str</code></li>
+</ul>
+<hr />
+<h6 id="optionaloptional"><code>optional</code><sup>Optional</sup> <a name="cdk8s_plus_24.EnvValueFromSecretOptions.parameter.optional"></a><a class="headerlink" href="#optionaloptional" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <code>bool</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Specify whether the Secret or its key must be defined.</p>
+<hr />
 <h5 id="get_string_data"><code>get_string_data</code> <a name="cdk8s_plus_24.Secret.get_string_data"></a><a class="headerlink" href="#get_string_data" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_string_data</span><span class="p">(</span>
   <span class="n">key</span><span class="p">:</span> <span class="nb">str</span>
 <span class="p">)</span>
 </code></pre></div>
-<h6 id="keyrequired_4"><code>key</code><sup>Required</sup> <a name="cdk8s_plus_24.Secret.parameter.key"></a><a class="headerlink" href="#keyrequired_4" title="Permanent link">&para;</a></h6>
+<h6 id="keyrequired_5"><code>key</code><sup>Required</sup> <a name="cdk8s_plus_24.Secret.parameter.key"></a><a class="headerlink" href="#keyrequired_5" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <code>str</code></li>
 </ul>
@@ -10963,7 +10981,7 @@ requires one.</p>
   <span class="n">value</span><span class="p">:</span> <span class="nb">str</span>
 <span class="p">)</span>
 </code></pre></div>
-<h6 id="keyrequired_5"><code>key</code><sup>Required</sup> <a name="cdk8s_plus_24.Service.parameter.key"></a><a class="headerlink" href="#keyrequired_5" title="Permanent link">&para;</a></h6>
+<h6 id="keyrequired_6"><code>key</code><sup>Required</sup> <a name="cdk8s_plus_24.Service.parameter.key"></a><a class="headerlink" href="#keyrequired_6" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <code>str</code></li>
 </ul>
@@ -11904,7 +11922,7 @@ contain the &lsquo;..&rsquo; path or start with &lsquo;..&rsquo;.</p>
 </ul>
 <p>The volume name.</p>
 <hr />
-<h6 id="optionaloptional"><code>optional</code><sup>Optional</sup> <a name="cdk8s_plus_24.ConfigMapVolumeOptions.parameter.optional"></a><a class="headerlink" href="#optionaloptional" title="Permanent link">&para;</a></h6>
+<h6 id="optionaloptional_1"><code>optional</code><sup>Optional</sup> <a name="cdk8s_plus_24.ConfigMapVolumeOptions.parameter.optional"></a><a class="headerlink" href="#optionaloptional_1" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <code>bool</code></li>
 <li><em>Default:</em> undocumented</li>
@@ -12166,7 +12184,7 @@ contain the &lsquo;..&rsquo; path or start with &lsquo;..&rsquo;.</p>
 </ul>
 <p>The volume name.</p>
 <hr />
-<h6 id="optionaloptional_1"><code>optional</code><sup>Optional</sup> <a name="cdk8s_plus_24.SecretVolumeOptions.parameter.optional"></a><a class="headerlink" href="#optionaloptional_1" title="Permanent link">&para;</a></h6>
+<h6 id="optionaloptional_2"><code>optional</code><sup>Optional</sup> <a name="cdk8s_plus_24.SecretVolumeOptions.parameter.optional"></a><a class="headerlink" href="#optionaloptional_2" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <code>bool</code></li>
 <li><em>Default:</em> undocumented</li>
@@ -13489,7 +13507,7 @@ contain the &lsquo;..&rsquo; path or start with &lsquo;..&rsquo;.</p>
 </ul>
 <p>The volume name.</p>
 <hr />
-<h5 id="optionaloptional_2"><code>optional</code><sup>Optional</sup> <a name="cdk8s_plus_24.ConfigMapVolumeOptions.property.optional"></a><a class="headerlink" href="#optionaloptional_2" title="Permanent link">&para;</a></h5>
+<h5 id="optionaloptional_3"><code>optional</code><sup>Optional</sup> <a name="cdk8s_plus_24.ConfigMapVolumeOptions.property.optional"></a><a class="headerlink" href="#optionaloptional_3" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="n">optional</span><span class="p">:</span> <span class="nb">bool</span>
 </code></pre></div>
 <ul>
@@ -14943,7 +14961,7 @@ here and the sum of memory limits of all containers in a pod.</p>
   <span class="n">optional</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="p">)</span>
 </code></pre></div>
-<h5 id="optionaloptional_3"><code>optional</code><sup>Optional</sup> <a name="cdk8s_plus_24.EnvValueFromConfigMapOptions.property.optional"></a><a class="headerlink" href="#optionaloptional_3" title="Permanent link">&para;</a></h5>
+<h5 id="optionaloptional_4"><code>optional</code><sup>Optional</sup> <a name="cdk8s_plus_24.EnvValueFromConfigMapOptions.property.optional"></a><a class="headerlink" href="#optionaloptional_4" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="n">optional</span><span class="p">:</span> <span class="nb">bool</span>
 </code></pre></div>
 <ul>
@@ -15032,7 +15050,7 @@ here and the sum of memory limits of all containers in a pod.</p>
   <span class="n">optional</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="p">)</span>
 </code></pre></div>
-<h5 id="optionaloptional_4"><code>optional</code><sup>Optional</sup> <a name="cdk8s_plus_24.EnvValueFromSecretOptions.property.optional"></a><a class="headerlink" href="#optionaloptional_4" title="Permanent link">&para;</a></h5>
+<h5 id="optionaloptional_5"><code>optional</code><sup>Optional</sup> <a name="cdk8s_plus_24.EnvValueFromSecretOptions.property.optional"></a><a class="headerlink" href="#optionaloptional_5" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="n">optional</span><span class="p">:</span> <span class="nb">bool</span>
 </code></pre></div>
 <ul>
@@ -16083,7 +16101,7 @@ field is alpha-level and is only honored by servers that enable the
   <span class="n">values</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="p">)</span>
 </code></pre></div>
-<h5 id="keyrequired_6"><code>key</code><sup>Required</sup> <a name="cdk8s_plus_24.LabelSelectorRequirement.property.key"></a><a class="headerlink" href="#keyrequired_6" title="Permanent link">&para;</a></h5>
+<h5 id="keyrequired_7"><code>key</code><sup>Required</sup> <a name="cdk8s_plus_24.LabelSelectorRequirement.property.key"></a><a class="headerlink" href="#keyrequired_7" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="n">key</span><span class="p">:</span> <span class="nb">str</span>
 </code></pre></div>
 <ul>
@@ -17763,7 +17781,7 @@ handling of secret data by various controllers.</p>
   <span class="n">secret</span><span class="p">:</span> <span class="n">ISecret</span>
 <span class="p">)</span>
 </code></pre></div>
-<h5 id="keyrequired_7"><code>key</code><sup>Required</sup> <a name="cdk8s_plus_24.SecretValue.property.key"></a><a class="headerlink" href="#keyrequired_7" title="Permanent link">&para;</a></h5>
+<h5 id="keyrequired_8"><code>key</code><sup>Required</sup> <a name="cdk8s_plus_24.SecretValue.property.key"></a><a class="headerlink" href="#keyrequired_8" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="n">key</span><span class="p">:</span> <span class="nb">str</span>
 </code></pre></div>
 <ul>
@@ -17829,7 +17847,7 @@ contain the &lsquo;..&rsquo; path or start with &lsquo;..&rsquo;.</p>
 </ul>
 <p>The volume name.</p>
 <hr />
-<h5 id="optionaloptional_5"><code>optional</code><sup>Optional</sup> <a name="cdk8s_plus_24.SecretVolumeOptions.property.optional"></a><a class="headerlink" href="#optionaloptional_5" title="Permanent link">&para;</a></h5>
+<h5 id="optionaloptional_6"><code>optional</code><sup>Optional</sup> <a name="cdk8s_plus_24.SecretVolumeOptions.property.optional"></a><a class="headerlink" href="#optionaloptional_6" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="n">optional</span><span class="p">:</span> <span class="nb">bool</span>
 </code></pre></div>
 <ul>
@@ -20147,13 +20165,13 @@ number of pods available at all times during the update is at least 70% of desir
 </ul>
 <p>The config map.</p>
 <hr />
-<h6 id="keyrequired_8"><code>key</code><sup>Required</sup> <a name="cdk8s_plus_24.EnvValue.parameter.key"></a><a class="headerlink" href="#keyrequired_8" title="Permanent link">&para;</a></h6>
+<h6 id="keyrequired_9"><code>key</code><sup>Required</sup> <a name="cdk8s_plus_24.EnvValue.parameter.key"></a><a class="headerlink" href="#keyrequired_9" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <code>str</code></li>
 </ul>
 <p>The key to extract the value from.</p>
 <hr />
-<h6 id="optionaloptional_6"><code>optional</code><sup>Optional</sup> <a name="cdk8s_plus_24.EnvValueFromConfigMapOptions.parameter.optional"></a><a class="headerlink" href="#optionaloptional_6" title="Permanent link">&para;</a></h6>
+<h6 id="optionaloptional_7"><code>optional</code><sup>Optional</sup> <a name="cdk8s_plus_24.EnvValueFromConfigMapOptions.parameter.optional"></a><a class="headerlink" href="#optionaloptional_7" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <code>bool</code></li>
 <li><em>Default:</em> false</li>
@@ -20195,7 +20213,7 @@ number of pods available at all times during the update is at least 70% of desir
   <span class="n">required</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="p">)</span>
 </code></pre></div>
-<h6 id="keyrequired_9"><code>key</code><sup>Required</sup> <a name="cdk8s_plus_24.EnvValue.parameter.key"></a><a class="headerlink" href="#keyrequired_9" title="Permanent link">&para;</a></h6>
+<h6 id="keyrequired_10"><code>key</code><sup>Required</sup> <a name="cdk8s_plus_24.EnvValue.parameter.key"></a><a class="headerlink" href="#keyrequired_10" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <code>str</code></li>
 </ul>
@@ -20245,7 +20263,7 @@ number of pods available at all times during the update is at least 70% of desir
   <span class="n">optional</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="p">)</span>
 </code></pre></div>
-<h6 id="keyrequired_10"><code>key</code><sup>Required</sup> <a name="cdk8s_plus_24.SecretValue.parameter.key"></a><a class="headerlink" href="#keyrequired_10" title="Permanent link">&para;</a></h6>
+<h6 id="keyrequired_11"><code>key</code><sup>Required</sup> <a name="cdk8s_plus_24.SecretValue.parameter.key"></a><a class="headerlink" href="#keyrequired_11" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <code>str</code></li>
 </ul>
@@ -20257,7 +20275,7 @@ number of pods available at all times during the update is at least 70% of desir
 </ul>
 <p>The secret.</p>
 <hr />
-<h6 id="optionaloptional_7"><code>optional</code><sup>Optional</sup> <a name="cdk8s_plus_24.EnvValueFromSecretOptions.parameter.optional"></a><a class="headerlink" href="#optionaloptional_7" title="Permanent link">&para;</a></h6>
+<h6 id="optionaloptional_8"><code>optional</code><sup>Optional</sup> <a name="cdk8s_plus_24.EnvValueFromSecretOptions.parameter.optional"></a><a class="headerlink" href="#optionaloptional_8" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <code>bool</code></li>
 <li><em>Default:</em> false</li>
@@ -20425,7 +20443,7 @@ number of pods available at all times during the update is at least 70% of desir
   <span class="n">key</span><span class="p">:</span> <span class="nb">str</span>
 <span class="p">)</span>
 </code></pre></div>
-<h6 id="keyrequired_11"><code>key</code><sup>Required</sup> <a name="cdk8s_plus_24.LabelExpression.parameter.key"></a><a class="headerlink" href="#keyrequired_11" title="Permanent link">&para;</a></h6>
+<h6 id="keyrequired_12"><code>key</code><sup>Required</sup> <a name="cdk8s_plus_24.LabelExpression.parameter.key"></a><a class="headerlink" href="#keyrequired_12" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <code>str</code></li>
 </ul>
@@ -20437,7 +20455,7 @@ number of pods available at all times during the update is at least 70% of desir
   <span class="n">key</span><span class="p">:</span> <span class="nb">str</span>
 <span class="p">)</span>
 </code></pre></div>
-<h6 id="keyrequired_12"><code>key</code><sup>Required</sup> <a name="cdk8s_plus_24.LabelExpression.parameter.key"></a><a class="headerlink" href="#keyrequired_12" title="Permanent link">&para;</a></h6>
+<h6 id="keyrequired_13"><code>key</code><sup>Required</sup> <a name="cdk8s_plus_24.LabelExpression.parameter.key"></a><a class="headerlink" href="#keyrequired_13" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <code>str</code></li>
 </ul>
@@ -20450,7 +20468,7 @@ number of pods available at all times during the update is at least 70% of desir
   <span class="n">values</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
 <span class="p">)</span>
 </code></pre></div>
-<h6 id="keyrequired_13"><code>key</code><sup>Required</sup> <a name="cdk8s_plus_24.LabelExpression.parameter.key"></a><a class="headerlink" href="#keyrequired_13" title="Permanent link">&para;</a></h6>
+<h6 id="keyrequired_14"><code>key</code><sup>Required</sup> <a name="cdk8s_plus_24.LabelExpression.parameter.key"></a><a class="headerlink" href="#keyrequired_14" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <code>str</code></li>
 </ul>
@@ -20468,7 +20486,7 @@ number of pods available at all times during the update is at least 70% of desir
   <span class="n">values</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
 <span class="p">)</span>
 </code></pre></div>
-<h6 id="keyrequired_14"><code>key</code><sup>Required</sup> <a name="cdk8s_plus_24.LabelExpression.parameter.key"></a><a class="headerlink" href="#keyrequired_14" title="Permanent link">&para;</a></h6>
+<h6 id="keyrequired_15"><code>key</code><sup>Required</sup> <a name="cdk8s_plus_24.LabelExpression.parameter.key"></a><a class="headerlink" href="#keyrequired_15" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <code>str</code></li>
 </ul>
@@ -20479,7 +20497,7 @@ number of pods available at all times during the update is at least 70% of desir
 </ul>
 <hr />
 <h4 id="properties_37">Properties <a name="Properties"></a><a class="headerlink" href="#properties_37" title="Permanent link">&para;</a></h4>
-<h5 id="keyrequired_15"><code>key</code><sup>Required</sup> <a name="cdk8s_plus_24.LabelExpression.property.key"></a><a class="headerlink" href="#keyrequired_15" title="Permanent link">&para;</a></h5>
+<h5 id="keyrequired_16"><code>key</code><sup>Required</sup> <a name="cdk8s_plus_24.LabelExpression.property.key"></a><a class="headerlink" href="#keyrequired_16" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="n">key</span><span class="p">:</span> <span class="nb">str</span>
 </code></pre></div>
 <ul>
@@ -20987,7 +21005,7 @@ Use this to specify a port range, rather that a specific one.</p>
   <span class="n">key</span><span class="p">:</span> <span class="nb">str</span>
 <span class="p">)</span>
 </code></pre></div>
-<h6 id="keyrequired_16"><code>key</code><sup>Required</sup> <a name="cdk8s_plus_24.NodeLabelQuery.parameter.key"></a><a class="headerlink" href="#keyrequired_16" title="Permanent link">&para;</a></h6>
+<h6 id="keyrequired_17"><code>key</code><sup>Required</sup> <a name="cdk8s_plus_24.NodeLabelQuery.parameter.key"></a><a class="headerlink" href="#keyrequired_17" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <code>str</code></li>
 </ul>
@@ -20999,7 +21017,7 @@ Use this to specify a port range, rather that a specific one.</p>
   <span class="n">key</span><span class="p">:</span> <span class="nb">str</span>
 <span class="p">)</span>
 </code></pre></div>
-<h6 id="keyrequired_17"><code>key</code><sup>Required</sup> <a name="cdk8s_plus_24.NodeLabelQuery.parameter.key"></a><a class="headerlink" href="#keyrequired_17" title="Permanent link">&para;</a></h6>
+<h6 id="keyrequired_18"><code>key</code><sup>Required</sup> <a name="cdk8s_plus_24.NodeLabelQuery.parameter.key"></a><a class="headerlink" href="#keyrequired_18" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <code>str</code></li>
 </ul>
@@ -21012,7 +21030,7 @@ Use this to specify a port range, rather that a specific one.</p>
   <span class="n">values</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
 <span class="p">)</span>
 </code></pre></div>
-<h6 id="keyrequired_18"><code>key</code><sup>Required</sup> <a name="cdk8s_plus_24.NodeLabelQuery.parameter.key"></a><a class="headerlink" href="#keyrequired_18" title="Permanent link">&para;</a></h6>
+<h6 id="keyrequired_19"><code>key</code><sup>Required</sup> <a name="cdk8s_plus_24.NodeLabelQuery.parameter.key"></a><a class="headerlink" href="#keyrequired_19" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <code>str</code></li>
 </ul>
@@ -21030,7 +21048,7 @@ Use this to specify a port range, rather that a specific one.</p>
   <span class="n">values</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
 <span class="p">)</span>
 </code></pre></div>
-<h6 id="keyrequired_19"><code>key</code><sup>Required</sup> <a name="cdk8s_plus_24.NodeLabelQuery.parameter.key"></a><a class="headerlink" href="#keyrequired_19" title="Permanent link">&para;</a></h6>
+<h6 id="keyrequired_20"><code>key</code><sup>Required</sup> <a name="cdk8s_plus_24.NodeLabelQuery.parameter.key"></a><a class="headerlink" href="#keyrequired_20" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <code>str</code></li>
 </ul>
@@ -21048,7 +21066,7 @@ Use this to specify a port range, rather that a specific one.</p>
   <span class="n">value</span><span class="p">:</span> <span class="nb">str</span>
 <span class="p">)</span>
 </code></pre></div>
-<h6 id="keyrequired_20"><code>key</code><sup>Required</sup> <a name="cdk8s_plus_24.NodeLabelQuery.parameter.key"></a><a class="headerlink" href="#keyrequired_20" title="Permanent link">&para;</a></h6>
+<h6 id="keyrequired_21"><code>key</code><sup>Required</sup> <a name="cdk8s_plus_24.NodeLabelQuery.parameter.key"></a><a class="headerlink" href="#keyrequired_21" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <code>str</code></li>
 </ul>
@@ -21066,7 +21084,7 @@ Use this to specify a port range, rather that a specific one.</p>
   <span class="n">values</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
 <span class="p">)</span>
 </code></pre></div>
-<h6 id="keyrequired_21"><code>key</code><sup>Required</sup> <a name="cdk8s_plus_24.NodeLabelQuery.parameter.key"></a><a class="headerlink" href="#keyrequired_21" title="Permanent link">&para;</a></h6>
+<h6 id="keyrequired_22"><code>key</code><sup>Required</sup> <a name="cdk8s_plus_24.NodeLabelQuery.parameter.key"></a><a class="headerlink" href="#keyrequired_22" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <code>str</code></li>
 </ul>
@@ -21084,7 +21102,7 @@ Use this to specify a port range, rather that a specific one.</p>
   <span class="n">values</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
 <span class="p">)</span>
 </code></pre></div>
-<h6 id="keyrequired_22"><code>key</code><sup>Required</sup> <a name="cdk8s_plus_24.NodeLabelQuery.parameter.key"></a><a class="headerlink" href="#keyrequired_22" title="Permanent link">&para;</a></h6>
+<h6 id="keyrequired_23"><code>key</code><sup>Required</sup> <a name="cdk8s_plus_24.NodeLabelQuery.parameter.key"></a><a class="headerlink" href="#keyrequired_23" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <code>str</code></li>
 </ul>
@@ -21111,7 +21129,7 @@ Use this to specify a port range, rather that a specific one.</p>
   <span class="n">evict_after</span><span class="p">:</span> <span class="n">Duration</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="p">)</span>
 </code></pre></div>
-<h6 id="keyrequired_23"><code>key</code><sup>Required</sup> <a name="cdk8s_plus_24.NodeTaintQuery.parameter.key"></a><a class="headerlink" href="#keyrequired_23" title="Permanent link">&para;</a></h6>
+<h6 id="keyrequired_24"><code>key</code><sup>Required</sup> <a name="cdk8s_plus_24.NodeTaintQuery.parameter.key"></a><a class="headerlink" href="#keyrequired_24" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <code>str</code></li>
 </ul>
@@ -21141,7 +21159,7 @@ Use this to specify a port range, rather that a specific one.</p>
   <span class="n">evict_after</span><span class="p">:</span> <span class="n">Duration</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="p">)</span>
 </code></pre></div>
-<h6 id="keyrequired_24"><code>key</code><sup>Required</sup> <a name="cdk8s_plus_24.NodeTaintQuery.parameter.key"></a><a class="headerlink" href="#keyrequired_24" title="Permanent link">&para;</a></h6>
+<h6 id="keyrequired_25"><code>key</code><sup>Required</sup> <a name="cdk8s_plus_24.NodeTaintQuery.parameter.key"></a><a class="headerlink" href="#keyrequired_25" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <code>str</code></li>
 </ul>
@@ -22028,13 +22046,13 @@ update, roll out a canary, or perform a phased roll out.</p>
   <span class="n">key</span><span class="p">:</span> <span class="nb">str</span>
 <span class="p">)</span>
 </code></pre></div>
-<h6 id="keyrequired_25"><code>key</code><sup>Required</sup> <a name="cdk8s_plus_24.Topology.parameter.key"></a><a class="headerlink" href="#keyrequired_25" title="Permanent link">&para;</a></h6>
+<h6 id="keyrequired_26"><code>key</code><sup>Required</sup> <a name="cdk8s_plus_24.Topology.parameter.key"></a><a class="headerlink" href="#keyrequired_26" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <code>str</code></li>
 </ul>
 <hr />
 <h4 id="properties_44">Properties <a name="Properties"></a><a class="headerlink" href="#properties_44" title="Permanent link">&para;</a></h4>
-<h5 id="keyrequired_26"><code>key</code><sup>Required</sup> <a name="cdk8s_plus_24.Topology.property.key"></a><a class="headerlink" href="#keyrequired_26" title="Permanent link">&para;</a></h5>
+<h5 id="keyrequired_27"><code>key</code><sup>Required</sup> <a name="cdk8s_plus_24.Topology.property.key"></a><a class="headerlink" href="#keyrequired_27" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="n">key</span><span class="p">:</span> <span class="nb">str</span>
 </code></pre></div>
 <ul>
@@ -22618,6 +22636,26 @@ switch, but nodes in different zones should not.</p>
 <p><em>Implemented By:</em> <a href="#cdk8s_plus_24.BasicAuthSecret"><code>cdk8s_plus_24.BasicAuthSecret</code></a>, <a href="#cdk8s_plus_24.DockerConfigSecret"><code>cdk8s_plus_24.DockerConfigSecret</code></a>, <a href="#cdk8s_plus_24.Secret"><code>cdk8s_plus_24.Secret</code></a>, <a href="#cdk8s_plus_24.ServiceAccountTokenSecret"><code>cdk8s_plus_24.ServiceAccountTokenSecret</code></a>, <a href="#cdk8s_plus_24.SshAuthSecret"><code>cdk8s_plus_24.SshAuthSecret</code></a>, <a href="#cdk8s_plus_24.TlsSecret"><code>cdk8s_plus_24.TlsSecret</code></a>, <a href="#cdk8s_plus_24.ISecret"><code>cdk8s_plus_24.ISecret</code></a></p>
 </li>
 </ul>
+<h4 id="methods_40">Methods <a name="Methods"></a><a class="headerlink" href="#methods_40" title="Permanent link">&para;</a></h4>
+<h5 id="env_value_1"><code>env_value</code> <a name="cdk8s_plus_24.ISecret.env_value"></a><a class="headerlink" href="#env_value_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">env_value</span><span class="p">(</span>
+  <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+  <span class="n">optional</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="p">)</span>
+</code></pre></div>
+<h6 id="keyrequired_28"><code>key</code><sup>Required</sup> <a name="cdk8s_plus_24.ISecret.parameter.key"></a><a class="headerlink" href="#keyrequired_28" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <code>str</code></li>
+</ul>
+<p>Secret&rsquo;s key.</p>
+<hr />
+<h6 id="optionaloptional_9"><code>optional</code><sup>Optional</sup> <a name="cdk8s_plus_24.EnvValueFromSecretOptions.parameter.optional"></a><a class="headerlink" href="#optionaloptional_9" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <code>bool</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Specify whether the Secret or its key must be defined.</p>
+<hr />
 <h4 id="properties_53">Properties <a name="Properties"></a><a class="headerlink" href="#properties_53" title="Permanent link">&para;</a></h4>
 <h5 id="api_grouprequired_11"><code>api_group</code><sup>Required</sup> <a name="cdk8s_plus_24.ISecret.property.api_group"></a><a class="headerlink" href="#api_grouprequired_11" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="n">api_group</span><span class="p">:</span> <span class="nb">str</span>
@@ -22743,7 +22781,7 @@ switch, but nodes in different zones should not.</p>
 </li>
 </ul>
 <p>Represents a piece of storage in the cluster.</p>
-<h4 id="methods_40">Methods <a name="Methods"></a><a class="headerlink" href="#methods_40" title="Permanent link">&para;</a></h4>
+<h4 id="methods_41">Methods <a name="Methods"></a><a class="headerlink" href="#methods_41" title="Permanent link">&para;</a></h4>
 <h5 id="as_volume_2"><code>as_volume</code> <a name="cdk8s_plus_24.IStorage.as_volume"></a><a class="headerlink" href="#as_volume_2" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">as_volume</span><span class="p">()</span>
 </code></pre></div>
@@ -22757,7 +22795,7 @@ switch, but nodes in different zones should not.</p>
 </li>
 </ul>
 <p>Represents an object that can be used as a role binding subject.</p>
-<h4 id="methods_41">Methods <a name="Methods"></a><a class="headerlink" href="#methods_41" title="Permanent link">&para;</a></h4>
+<h4 id="methods_42">Methods <a name="Methods"></a><a class="headerlink" href="#methods_42" title="Permanent link">&para;</a></h4>
 <h5 id="to_subject_configuration_4"><code>to_subject_configuration</code> <a name="cdk8s_plus_24.ISubject.to_subject_configuration"></a><a class="headerlink" href="#to_subject_configuration_4" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">to_subject_configuration</span><span class="p">()</span>
 </code></pre></div>
