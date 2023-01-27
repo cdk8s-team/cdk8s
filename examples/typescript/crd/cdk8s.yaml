@@ -2,7 +2,7 @@ app: node index.js
 language: typescript
 imports:
   - k8s@1.17.0
-  - https://raw.githubusercontent.com/jenkinsci/kubernetes-operator/master/deploy/crds/jenkins.io_jenkins_crd.yaml
+  - io_jenkins_crd:=https://raw.githubusercontent.com/jenkinsci/kubernetes-operator/master/deploy/crds/jenkins.io_jenkins_crd.yaml
   - mattermost:=mattermost_crd.yaml
   - version.yaml
-  - https://github.com/knative/serving/releases/download/v0.14.0/serving-crds.yaml
+  - serving_crds:=https://github.com/knative/serving/releases/download/v0.14.0/serving-crds.yaml
