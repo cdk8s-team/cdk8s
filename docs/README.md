@@ -126,7 +126,7 @@ If you'd like to modify the content of any cdk8s-plus-* docs, you'll need to do 
 > 1. Commit changes to the [cdk8s-plus/k8s-24/main](https://github.com/cdk8s-team/cdk8s-plus/tree/k8s-24/main/docs/plus) branch.
 > 2. Wait for the [release-k8s.24](https://github.com/cdk8s-team/cdk8s-plus/actions/workflows/release-k8s.24.yml) GitHub workflow to auto publish a new NPM package.
 > 3. Bump this project's dependencies by running the [cdk8s upgrade](https://github.com/cdk8s-team/cdk8s/actions/workflows/upgrade.yml) GitHub workflow.
-> 4. Re-run the yarn install and docs build script (see [:rocket: Quick start](#:rocket:-quick-start) section).
+> 4. Re-run the yarn install and docs build script (see [:rocket: Quick start](./README.md#🚀-quick-start) section).
 
 ## 📄 Adding, removing, reordering or renaming pages
 
