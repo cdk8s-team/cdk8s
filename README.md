@@ -26,12 +26,13 @@ Contents:
 - [Repositories](#repositories)
 - [Overview](#overview)
 - [Getting Started](#getting-started)
-- [Help & Feedback](#help--feedback)
+- [Help \& Feedback](#help--feedback)
 - [Documentation](#documentation)
 - [Examples](#examples)
 - [Roadmap](#roadmap)
 - [Community](#community)
 - [Contributing](#contributing)
+- [CDK8s.io website](#cdk8sio-website)
 - [License](#license)
 
 ## Repositories
@@ -117,7 +118,10 @@ Join us for the cdk8s community meeting which takes place the [2nd Tuesday of th
 * Meeting link: [https://chime.aws/7929414778](https://chime.aws/7929414778)
 * [Agenda](https://docs.google.com/document/d/1QmZS2_cphxbs2VPfDCkrUVcoDwiawryh704hEfAyrBk/edit?usp=sharing)
 
+## CDK8s.io website
+
+See [Docs Directory](./docs/README.md).
+
 ## License
 
 This project is distributed under the [Apache License, Version 2.0](./LICENSE).
-
