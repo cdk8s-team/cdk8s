@@ -19,7 +19,7 @@
 
 ## :building_construction: Architecture
 
-[CDK8s.io](https://cdk8s.io) a [static site](https://gohugo.io/about/benefits/) split into two parts:
+[CDK8s.io](https://cdk8s.io) is a [static site](https://gohugo.io/about/benefits/) split into two parts:
 
 - The landing page for [CDK8s.io](https://cdk8s.io) is built using [Hugo](https://gohugo.io/) from the [`cdk8s/website`](../website/) directory.
 - The documentation pages that are served under [cdk8s.io/docs/*](https://cdk8s.io/docs) are built using [MkDocs](https://www.mkdocs.org/) in the [`cdk8s/docs/`](.) directory (same location as the README.md file that you're currently reading).
