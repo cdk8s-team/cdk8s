@@ -95,7 +95,7 @@ cd website && ./build.sh && cd -
 
 **2. Build the MkDocs pages and copy them to Hugo's public directory.**
 
-From the root of this repo run the [build docs script](./docs/build.sh):
+Run the [build docs script](./docs/build.sh):
 
 ```bash
 # Root of repo
