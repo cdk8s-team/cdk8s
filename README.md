@@ -103,6 +103,8 @@ See our [roadmap](https://github.com/cdk8s-team/cdk8s/projects/1) for details ab
 
 See [Awesome cdk8s](https://github.com/dungahk/awesome-cdk8s).
 
+If you're a cdk8s user please consider adding your name to the [ADOPTERS](./ADOPTERS.md) file.
+
 ## Contributing
 
 The cdk8s project adheres to the [CNCF Code of
