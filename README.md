@@ -23,18 +23,17 @@ cdk8s is a [Cloud Native Computing Foundation](https://www.cncf.io) Sandbox Proj
 
 Contents:
 
-- [Cloud Development Kit for Kubernetes](#cloud-development-kit-for-kubernetes)
-  - [Repositories](#repositories)
-  - [Overview](#overview)
-  - [Getting Started](#getting-started)
-  - [Help \& Feedback](#help--feedback)
-  - [Documentation](#documentation)
-  - [Examples](#examples)
-  - [Roadmap](#roadmap)
-  - [Community](#community)
-  - [Contributing](#contributing)
-  - [CDK8s.io website](#cdk8sio-website)
-  - [License](#license)
+- [Repositories](#repositories)
+- [Overview](#overview)
+- [Getting Started](#getting-started)
+- [Help \& Feedback](#help--feedback)
+- [Documentation](#documentation)
+- [Examples](#examples)
+- [Roadmap](#roadmap)
+- [Community](#community)
+- [Contributing](#contributing)
+- [CDK8s.io website](#cdk8sio-website)
+- [License](#license)
 
 ## Repositories
 
