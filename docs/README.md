@@ -5,9 +5,24 @@ The CDK8s & CDK8s+ website is a [static site](https://gohugo.io/about/benefits/)
 - The landing page for [cdk8s.io](https://cdk8s.io) is built using [Hugo](https://gohugo.io/) from the [`cdk8s/website`](../website/) directory.
 - The documentation pages that are served under [cdk8s.io/docs/*](https://cdk8s.io/docs) are built using [MkDocs](https://www.mkdocs.org/) in the [`cdk8s/docs/`](.) directory (same location as the README.md file that you're currently reading).
 
-<kbd>
-  <img src="./landing-page-1900x1200.png" >
+<kbd align="center">
+  <img src="./landing-page-1900x1200.png" width="800px" alt="landing page">
 </kbd>
+
+
+
+- [CDK8s.io](#cdk8sio)
+  - [⚠️ Prerequisites](#️-prerequisites)
+  - [:rocket: Quick start](#rocket-quick-start)
+  - [📦 Building the production site](#-building-the-production-site)
+  - [:house: cdk8s.io landing page](#house-cdk8sio-landing-page)
+  - [📖 cdk8s.io/docs/\* pages](#-cdk8siodocs-pages)
+  - [:heavy\_plus\_sign: Where do the cdk8s-plus-\* docs come from?](#heavy_plus_sign-where-do-the-cdk8s-plus--docs-come-from)
+    - [📄 Adding, removing, reordering or renaming pages](#-adding-removing-reordering-or-renaming-pages)
+    - [🖼️ Assets and custom CSS](#️-assets-and-custom-css)
+    - [🔌 Plugins, features, and global configuration](#-plugins-features-and-global-configuration)
+    - [👨‍💻 Development resources](#-development-resources)
+
 
 ## ⚠️ Prerequisites
 
