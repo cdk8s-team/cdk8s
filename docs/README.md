@@ -1,9 +1,8 @@
-<div align="center">
-  <h1>CDK8s.io</h1>
-  <kbd>
-    <img src="./landing-page-1900x1200.png" width="800px" alt="landing page">
-  </kbd>
-</div>
+<h1>CDK8s.io</h1>
+<kbd>
+  <img src="./landing-page-1900x1200.png" width="800px" alt="landing page">
+</kbd>
+<br />
 <br />
 
 - [:building\_construction: Architecture](#building_construction-architecture)
@@ -13,10 +12,10 @@
 - [:house: cdk8s.io landing page](#house-cdk8sio-landing-page)
 - [📖 cdk8s.io/docs/\* pages](#-cdk8siodocs-pages)
 - [:heavy\_plus\_sign: Where do the cdk8s-plus-\* docs come from?](#heavy_plus_sign-where-do-the-cdk8s-plus--docs-come-from)
-  - [📄 Adding, removing, reordering or renaming pages](#-adding-removing-reordering-or-renaming-pages)
-  - [🖼️ Assets and custom CSS](#️-assets-and-custom-css)
-  - [🔌 Plugins, features, and global configuration](#-plugins-features-and-global-configuration)
-  - [👨‍💻 Development resources](#-development-resources)
+- [📄 Adding, removing, reordering or renaming pages](#-adding-removing-reordering-or-renaming-pages)
+- [🖼️ Assets and custom CSS](#️-assets-and-custom-css)
+- [🔌 Plugins, features, and global configuration](#-plugins-features-and-global-configuration)
+- [👨‍💻 Development resources](#-development-resources)
 
 ## :building_construction: Architecture
 
@@ -129,7 +128,7 @@ If you'd like to modify the content of any cdk8s-plus-* docs, you'll need to do 
 > 3. Bump this project's dependencies by running the [cdk8s upgrade](https://github.com/cdk8s-team/cdk8s/actions/workflows/upgrade.yml) GitHub workflow.
 > 4. Re-run the yarn install and docs build script (see [:rocket: Quick start](#:rocket:-quick-start) section).
 
-### 📄 Adding, removing, reordering or renaming pages
+## 📄 Adding, removing, reordering or renaming pages
 
 A `.pages` file can be used in each directory to describe the page structure of the site. This is a feature provided by the [Awesome pages plugin](https://henrywhitaker3.github.io/mkdocs-material-dark-theme/plugins/awesome-pages/). Check out their docs for more info.
 
@@ -137,11 +136,11 @@ To hide a file, omit the file from the parent directory's `.pages` file.
 
 > Notice how the README.md file that you're reading is located in the [`cdk8s/docs/`](.) directory but it will not be included in the site unless we add it to the [`cdk8s/docs/.pages`](./.pages) file.
 
-### 🖼️ Assets and custom CSS
+## 🖼️ Assets and custom CSS
 
 The [`cdk8s/docs/assets/`](./assets/) directory is to store assets that are used in the documentation (e.g. images). The [`cdk8s/docs/assets/extra.css`](./assets/extra.css) is a file we've defined to apply custom CSS should you need it.
 
-### 🔌 Plugins, features, and global configuration
+## 🔌 Plugins, features, and global configuration
 
 The [`cdk8s/mkdocs.yaml`](../mkdocs.yml) file is used to define MkDocs configuration.
 
@@ -156,7 +155,7 @@ This is where you can define:
 
 Check out the [MkDocs config documentation](https://www.mkdocs.org/user-guide/configuration/) for more info.
 
-### 👨‍💻 Development resources
+## 👨‍💻 Development resources
 
 - [MkDocs material theme setup](https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/) - This is the MkDocs theme that we use. This is also where you'll find APIs that enable you to customize the color theme, fonts, logo, and site search.
 - [MkDocs material theme API](https://squidfunk.github.io/mkdocs-material/reference/) - Create Admonitions, Annotations, Buttons, Code blocks, Content tabs, Icons, Images, and more.
