@@ -1,3 +1,3 @@
-# cdk8s.io website
+# CDK8s.io
 
-For up to date documentation on how to run, develop, and build the website see [cdk8s/docs/README.md](../docs/README.md).
+See [cdk8s/docs/README.md](../docs/README.md)
