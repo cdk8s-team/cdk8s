@@ -28938,7 +28938,7 @@ export function toJson_SchedulingV1Alpha1(obj: SchedulingV1Alpha1 | undefined): 
  */
 export enum IoK8SApimachineryPkgApisMetaV1DeleteOptionsKind {
   /** DeleteOptions */
-  DELETE_OPTIONS = 'DeleteOptions',
+  DELETE_OPTIONS = "DeleteOptions",
 }
 
 /**
