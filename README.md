@@ -26,12 +26,13 @@ Contents:
 - [Repositories](#repositories)
 - [Overview](#overview)
 - [Getting Started](#getting-started)
-- [Help & Feedback](#help--feedback)
+- [Help \& Feedback](#help--feedback)
 - [Documentation](#documentation)
 - [Examples](#examples)
 - [Roadmap](#roadmap)
 - [Community](#community)
 - [Contributing](#contributing)
+- [CDK8s.io website](#cdk8sio-website)
 - [License](#license)
 
 ## Repositories
@@ -101,6 +102,8 @@ See our [roadmap](https://github.com/cdk8s-team/cdk8s/projects/1) for details ab
 
 See [Awesome cdk8s](https://github.com/dungahk/awesome-cdk8s).
 
+If you're a cdk8s user please consider adding your name to the [ADOPTERS](./ADOPTERS.md) file.
+
 ## Contributing
 
 The cdk8s project adheres to the [CNCF Code of
@@ -115,7 +118,10 @@ Join us for the cdk8s community meeting which takes place the [2nd Tuesday of th
 * Meeting link: [https://chime.aws/7929414778](https://chime.aws/7929414778)
 * [Agenda](https://docs.google.com/document/d/1QmZS2_cphxbs2VPfDCkrUVcoDwiawryh704hEfAyrBk/edit?usp=sharing)
 
+## CDK8s.io website
+
+See [Docs Directory](./docs/README.md).
+
 ## License
 
 This project is distributed under the [Apache License, Version 2.0](./LICENSE).
-
