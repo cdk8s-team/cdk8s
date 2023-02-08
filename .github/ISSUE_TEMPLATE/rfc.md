@@ -1,31 +1,43 @@
 ---
 name: RFC
-about: Proposes and details a change or addition to cdk8s
-title: "[RFC] describe your RFC"
-labels: enhancement
+about: Propose a significant change to the cdk8s toolchain
+title: RFC | describe your RFC
+labels: rfc/proposed
 assignees: ''
 
 ---
 
-### Instructions:
-Full info on the RFC process can be found in the [contribution guide](https://github.com/awslabs/cdk8s/blob/master/CONTRIBUTING.md).
+## Description
 
-1. This is the tracking issue for your RFC.
-   - Title should represent the title of the RFC.
-   - Description should provide the motivation for the RFC.
-2. Create a markdown file based off of
-   [rfc/0000-template.md](rfc/0000-template.md) under the
-   `rfc/<nnnn>-<title-of-rfc>` where `<nnnn>` is the tracking issue number and
-   `<title-of-rfc>` is a symbolic name for the title. For example:
-   `rfc/0030-construct-operators.md`.
-3. File a pull request with this markdown file. The title of the PR should
-   indicate `rfc: <nnnn> <same as issue title>`.
-4. The RFC will be reviewed as a pull request and once merged it means it is
-   ready for implementation.
+Short description of the proposed feature.
 
-### Description
-_RFC description here_
+## Roles
 
-### Links
-* link one
-* link two
+| Role                | User
+|---------------------|------------------------------
+| Proposed by         | @alias
+| Author(s)           | @alias, @alias, @alias
+| API Bar Raiser      | @alias
+| Stakeholders        | @alias, @alias, @alias
+
+> See [RFC Process](https://github.com/cdk8s-team/cdk8s#rfc-process) for details
+
+## Workflow
+
+- [x] Tracking issue created (label: `rfc/proposed`)
+- [ ] API bar raiser assigned (ping us at [#cdk8s](https://cdk-dev.slack.com/archives/C0184GCBY4X) if needed)
+- [ ] Kick off meeting
+- [ ] RFC pull request submitted (label: `rfc/review`)
+- [ ] Community reach out (via Slack and/or Twitter)
+- [ ] API signed-off (label `rfc/api-approved` applied to pull request)
+- [ ] Final comments period (label: `rfc/final-comments-period`)
+- [ ] Approved and merged (label: `rfc/approved`)
+- [ ] Execution plan submitted (label: `rfc/planning`)
+- [ ] Plan approved and merged (label: `status/implementing`)
+- [ ] Implementation complete (label: `status/done`)
+
+---
+
+> Author is responsible to progress the RFC according to this checklist, and
+apply the relevant labels to this issue so that the RFC table in README gets
+updated.
