@@ -34,7 +34,7 @@ Short description of the proposed feature.
 - [ ] Approved and merged (label: `rfc/approved`)
 - [ ] Execution plan submitted (label: `rfc/planning`)
 - [ ] Plan approved and merged (label: `rfc/implementing`)
-- [ ] Implementation complete (label: `status/done`)
+- [ ] Implementation complete (label: `rfc/done`)
 
 ---
 
