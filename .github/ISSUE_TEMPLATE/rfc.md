@@ -33,7 +33,7 @@ Short description of the proposed feature.
 - [ ] Final comments period (label: `rfc/final-comments-period`)
 - [ ] Approved and merged (label: `rfc/approved`)
 - [ ] Execution plan submitted (label: `rfc/planning`)
-- [ ] Plan approved and merged (label: `status/implementing`)
+- [ ] Plan approved and merged (label: `rfc/implementing`)
 - [ ] Implementation complete (label: `status/done`)
 
 ---
