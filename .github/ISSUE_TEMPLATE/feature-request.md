@@ -1,7 +1,10 @@
 ---
 name: "\U0001F680 Feature Request"
 about: Request a new feature
+title: ''
 labels: feature-request, needs-triage
+assignees: ''
+
 ---
 
 <!--Please make sure to read the "Reporting Issues" section of the contribution guide before submitting an issue
@@ -45,4 +48,3 @@ links for us to have context, eg. associated pull-request, stackoverflow, gitter
 ---
 
 This is a :rocket: Feature Request
-

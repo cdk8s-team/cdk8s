@@ -1,7 +1,10 @@
 ---
 name: "\U0001F41B Bug Report"
 about: Report a bug
+title: ''
 labels: bug, needs-triage
+assignees: ''
+
 ---
 
 <!--Please make sure to read the "Reporting Issues" section of the contribution guide before submitting an issue
