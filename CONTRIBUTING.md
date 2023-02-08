@@ -364,8 +364,8 @@ and update the checklist to indicate that the kick-off meeting has happened.
 
 The next step is to write the first revision of the RFC document itself.
 
-Create a file under `text/NNNN-name.md` based off of the template under
-[`0000-template.md`](./0000-template.md) (where `NNNN` is your tracking issue
+Create a file under `rfc/NNNN-name.md` based off of the template under
+[`0000-template.md`](./rfc/0000-template.md) (where `NNNN` is your tracking issue
 number). Follow the template. It includes useful guidance and tips on how to
 write a good RFC.
 
