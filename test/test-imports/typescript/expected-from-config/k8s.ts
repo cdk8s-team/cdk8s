@@ -10066,18 +10066,18 @@ export function toJson_KubeMutatingWebhookConfigurationProps(obj: KubeMutatingWe
  */
 export interface KubeMutatingWebhookConfigurationListProps {
   /**
-   * List of MutatingWebhookConfiguration.
-   *
-   * @schema io.k8s.api.admissionregistration.v1.MutatingWebhookConfigurationList#items
-   */
-  readonly items: KubeMutatingWebhookConfigurationProps[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    *
    * @schema io.k8s.api.admissionregistration.v1.MutatingWebhookConfigurationList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * List of MutatingWebhookConfiguration.
+   *
+   * @schema io.k8s.api.admissionregistration.v1.MutatingWebhookConfigurationList#items
+   */
+  readonly items: KubeMutatingWebhookConfigurationProps[];
 
 }
 
@@ -10088,8 +10088,8 @@ export interface KubeMutatingWebhookConfigurationListProps {
 export function toJson_KubeMutatingWebhookConfigurationListProps(obj: KubeMutatingWebhookConfigurationListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeMutatingWebhookConfigurationProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeMutatingWebhookConfigurationProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -10140,18 +10140,18 @@ export function toJson_KubeValidatingWebhookConfigurationProps(obj: KubeValidati
  */
 export interface KubeValidatingWebhookConfigurationListProps {
   /**
-   * List of ValidatingWebhookConfiguration.
-   *
-   * @schema io.k8s.api.admissionregistration.v1.ValidatingWebhookConfigurationList#items
-   */
-  readonly items: KubeValidatingWebhookConfigurationProps[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    *
    * @schema io.k8s.api.admissionregistration.v1.ValidatingWebhookConfigurationList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * List of ValidatingWebhookConfiguration.
+   *
+   * @schema io.k8s.api.admissionregistration.v1.ValidatingWebhookConfigurationList#items
+   */
+  readonly items: KubeValidatingWebhookConfigurationProps[];
 
 }
 
@@ -10162,8 +10162,8 @@ export interface KubeValidatingWebhookConfigurationListProps {
 export function toJson_KubeValidatingWebhookConfigurationListProps(obj: KubeValidatingWebhookConfigurationListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeValidatingWebhookConfigurationProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeValidatingWebhookConfigurationProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -10214,18 +10214,18 @@ export function toJson_KubeMutatingWebhookConfigurationV1Beta1Props(obj: KubeMut
  */
 export interface KubeMutatingWebhookConfigurationListV1Beta1Props {
   /**
-   * List of MutatingWebhookConfiguration.
-   *
-   * @schema io.k8s.api.admissionregistration.v1beta1.MutatingWebhookConfigurationList#items
-   */
-  readonly items: KubeMutatingWebhookConfigurationV1Beta1Props[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    *
    * @schema io.k8s.api.admissionregistration.v1beta1.MutatingWebhookConfigurationList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * List of MutatingWebhookConfiguration.
+   *
+   * @schema io.k8s.api.admissionregistration.v1beta1.MutatingWebhookConfigurationList#items
+   */
+  readonly items: KubeMutatingWebhookConfigurationV1Beta1Props[];
 
 }
 
@@ -10236,8 +10236,8 @@ export interface KubeMutatingWebhookConfigurationListV1Beta1Props {
 export function toJson_KubeMutatingWebhookConfigurationListV1Beta1Props(obj: KubeMutatingWebhookConfigurationListV1Beta1Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeMutatingWebhookConfigurationV1Beta1Props(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeMutatingWebhookConfigurationV1Beta1Props(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -10288,18 +10288,18 @@ export function toJson_KubeValidatingWebhookConfigurationV1Beta1Props(obj: KubeV
  */
 export interface KubeValidatingWebhookConfigurationListV1Beta1Props {
   /**
-   * List of ValidatingWebhookConfiguration.
-   *
-   * @schema io.k8s.api.admissionregistration.v1beta1.ValidatingWebhookConfigurationList#items
-   */
-  readonly items: KubeValidatingWebhookConfigurationV1Beta1Props[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    *
    * @schema io.k8s.api.admissionregistration.v1beta1.ValidatingWebhookConfigurationList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * List of ValidatingWebhookConfiguration.
+   *
+   * @schema io.k8s.api.admissionregistration.v1beta1.ValidatingWebhookConfigurationList#items
+   */
+  readonly items: KubeValidatingWebhookConfigurationV1Beta1Props[];
 
 }
 
@@ -10310,8 +10310,8 @@ export interface KubeValidatingWebhookConfigurationListV1Beta1Props {
 export function toJson_KubeValidatingWebhookConfigurationListV1Beta1Props(obj: KubeValidatingWebhookConfigurationListV1Beta1Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeValidatingWebhookConfigurationV1Beta1Props(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeValidatingWebhookConfigurationV1Beta1Props(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -10325,18 +10325,18 @@ export function toJson_KubeValidatingWebhookConfigurationListV1Beta1Props(obj: K
  */
 export interface KubeControllerRevisionProps {
   /**
-   * Data is the serialized representation of the state.
-   *
-   * @schema io.k8s.api.apps.v1.ControllerRevision#data
-   */
-  readonly data?: any;
-
-  /**
    * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.api.apps.v1.ControllerRevision#metadata
    */
   readonly metadata?: ObjectMeta;
+
+  /**
+   * Data is the serialized representation of the state.
+   *
+   * @schema io.k8s.api.apps.v1.ControllerRevision#data
+   */
+  readonly data?: any;
 
   /**
    * Revision indicates the revision of the state represented by Data.
@@ -10354,8 +10354,8 @@ export interface KubeControllerRevisionProps {
 export function toJson_KubeControllerRevisionProps(obj: KubeControllerRevisionProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'data': obj.data,
     'metadata': toJson_ObjectMeta(obj.metadata),
+    'data': obj.data,
     'revision': obj.revision,
   };
   // filter undefined values
@@ -10370,18 +10370,18 @@ export function toJson_KubeControllerRevisionProps(obj: KubeControllerRevisionPr
  */
 export interface KubeControllerRevisionListProps {
   /**
-   * Items is the list of ControllerRevisions
-   *
-   * @schema io.k8s.api.apps.v1.ControllerRevisionList#items
-   */
-  readonly items: KubeControllerRevisionProps[];
-
-  /**
    * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.api.apps.v1.ControllerRevisionList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * Items is the list of ControllerRevisions
+   *
+   * @schema io.k8s.api.apps.v1.ControllerRevisionList#items
+   */
+  readonly items: KubeControllerRevisionProps[];
 
 }
 
@@ -10392,8 +10392,8 @@ export interface KubeControllerRevisionListProps {
 export function toJson_KubeControllerRevisionListProps(obj: KubeControllerRevisionListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeControllerRevisionProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeControllerRevisionProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -10444,18 +10444,18 @@ export function toJson_KubeDaemonSetProps(obj: KubeDaemonSetProps | undefined): 
  */
 export interface KubeDaemonSetListProps {
   /**
-   * A list of daemon sets.
-   *
-   * @schema io.k8s.api.apps.v1.DaemonSetList#items
-   */
-  readonly items: KubeDaemonSetProps[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.api.apps.v1.DaemonSetList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * A list of daemon sets.
+   *
+   * @schema io.k8s.api.apps.v1.DaemonSetList#items
+   */
+  readonly items: KubeDaemonSetProps[];
 
 }
 
@@ -10466,8 +10466,8 @@ export interface KubeDaemonSetListProps {
 export function toJson_KubeDaemonSetListProps(obj: KubeDaemonSetListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeDaemonSetProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeDaemonSetProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -10518,18 +10518,18 @@ export function toJson_KubeDeploymentProps(obj: KubeDeploymentProps | undefined)
  */
 export interface KubeDeploymentListProps {
   /**
-   * Items is the list of Deployments.
-   *
-   * @schema io.k8s.api.apps.v1.DeploymentList#items
-   */
-  readonly items: KubeDeploymentProps[];
-
-  /**
    * Standard list metadata.
    *
    * @schema io.k8s.api.apps.v1.DeploymentList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * Items is the list of Deployments.
+   *
+   * @schema io.k8s.api.apps.v1.DeploymentList#items
+   */
+  readonly items: KubeDeploymentProps[];
 
 }
 
@@ -10540,8 +10540,8 @@ export interface KubeDeploymentListProps {
 export function toJson_KubeDeploymentListProps(obj: KubeDeploymentListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeDeploymentProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeDeploymentProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -10592,18 +10592,18 @@ export function toJson_KubeReplicaSetProps(obj: KubeReplicaSetProps | undefined)
  */
 export interface KubeReplicaSetListProps {
   /**
-   * List of ReplicaSets. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller
-   *
-   * @schema io.k8s.api.apps.v1.ReplicaSetList#items
-   */
-  readonly items: KubeReplicaSetProps[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    *
    * @schema io.k8s.api.apps.v1.ReplicaSetList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * List of ReplicaSets. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller
+   *
+   * @schema io.k8s.api.apps.v1.ReplicaSetList#items
+   */
+  readonly items: KubeReplicaSetProps[];
 
 }
 
@@ -10614,8 +10614,8 @@ export interface KubeReplicaSetListProps {
 export function toJson_KubeReplicaSetListProps(obj: KubeReplicaSetListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeReplicaSetProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeReplicaSetProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -10667,14 +10667,14 @@ export function toJson_KubeStatefulSetProps(obj: KubeStatefulSetProps | undefine
  */
 export interface KubeStatefulSetListProps {
   /**
-   * @schema io.k8s.api.apps.v1.StatefulSetList#items
-   */
-  readonly items: KubeStatefulSetProps[];
-
-  /**
    * @schema io.k8s.api.apps.v1.StatefulSetList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * @schema io.k8s.api.apps.v1.StatefulSetList#items
+   */
+  readonly items: KubeStatefulSetProps[];
 
 }
 
@@ -10685,8 +10685,8 @@ export interface KubeStatefulSetListProps {
 export function toJson_KubeStatefulSetListProps(obj: KubeStatefulSetListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeStatefulSetProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeStatefulSetProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -10700,18 +10700,18 @@ export function toJson_KubeStatefulSetListProps(obj: KubeStatefulSetListProps | 
  */
 export interface KubeControllerRevisionV1Beta1Props {
   /**
-   * Data is the serialized representation of the state.
-   *
-   * @schema io.k8s.api.apps.v1beta1.ControllerRevision#data
-   */
-  readonly data?: any;
-
-  /**
    * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.api.apps.v1beta1.ControllerRevision#metadata
    */
   readonly metadata?: ObjectMeta;
+
+  /**
+   * Data is the serialized representation of the state.
+   *
+   * @schema io.k8s.api.apps.v1beta1.ControllerRevision#data
+   */
+  readonly data?: any;
 
   /**
    * Revision indicates the revision of the state represented by Data.
@@ -10729,8 +10729,8 @@ export interface KubeControllerRevisionV1Beta1Props {
 export function toJson_KubeControllerRevisionV1Beta1Props(obj: KubeControllerRevisionV1Beta1Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'data': obj.data,
     'metadata': toJson_ObjectMeta(obj.metadata),
+    'data': obj.data,
     'revision': obj.revision,
   };
   // filter undefined values
@@ -10745,18 +10745,18 @@ export function toJson_KubeControllerRevisionV1Beta1Props(obj: KubeControllerRev
  */
 export interface KubeControllerRevisionListV1Beta1Props {
   /**
-   * Items is the list of ControllerRevisions
-   *
-   * @schema io.k8s.api.apps.v1beta1.ControllerRevisionList#items
-   */
-  readonly items: KubeControllerRevisionV1Beta1Props[];
-
-  /**
    * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.api.apps.v1beta1.ControllerRevisionList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * Items is the list of ControllerRevisions
+   *
+   * @schema io.k8s.api.apps.v1beta1.ControllerRevisionList#items
+   */
+  readonly items: KubeControllerRevisionV1Beta1Props[];
 
 }
 
@@ -10767,8 +10767,8 @@ export interface KubeControllerRevisionListV1Beta1Props {
 export function toJson_KubeControllerRevisionListV1Beta1Props(obj: KubeControllerRevisionListV1Beta1Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeControllerRevisionV1Beta1Props(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeControllerRevisionV1Beta1Props(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -10819,18 +10819,18 @@ export function toJson_KubeDeploymentV1Beta1Props(obj: KubeDeploymentV1Beta1Prop
  */
 export interface KubeDeploymentListV1Beta1Props {
   /**
-   * Items is the list of Deployments.
-   *
-   * @schema io.k8s.api.extensions.v1beta1.DeploymentList#items
-   */
-  readonly items: KubeDeploymentV1Beta1Props[];
-
-  /**
    * Standard list metadata.
    *
    * @schema io.k8s.api.extensions.v1beta1.DeploymentList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * Items is the list of Deployments.
+   *
+   * @schema io.k8s.api.extensions.v1beta1.DeploymentList#items
+   */
+  readonly items: KubeDeploymentV1Beta1Props[];
 
 }
 
@@ -10841,8 +10841,8 @@ export interface KubeDeploymentListV1Beta1Props {
 export function toJson_KubeDeploymentListV1Beta1Props(obj: KubeDeploymentListV1Beta1Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeDeploymentV1Beta1Props(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeDeploymentV1Beta1Props(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -10931,14 +10931,14 @@ export function toJson_KubeStatefulSetV1Beta1Props(obj: KubeStatefulSetV1Beta1Pr
  */
 export interface KubeStatefulSetListV1Beta1Props {
   /**
-   * @schema io.k8s.api.apps.v1beta1.StatefulSetList#items
-   */
-  readonly items: KubeStatefulSetV1Beta1Props[];
-
-  /**
    * @schema io.k8s.api.apps.v1beta1.StatefulSetList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * @schema io.k8s.api.apps.v1beta1.StatefulSetList#items
+   */
+  readonly items: KubeStatefulSetV1Beta1Props[];
 
 }
 
@@ -10949,8 +10949,8 @@ export interface KubeStatefulSetListV1Beta1Props {
 export function toJson_KubeStatefulSetListV1Beta1Props(obj: KubeStatefulSetListV1Beta1Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeStatefulSetV1Beta1Props(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeStatefulSetV1Beta1Props(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -10964,18 +10964,18 @@ export function toJson_KubeStatefulSetListV1Beta1Props(obj: KubeStatefulSetListV
  */
 export interface KubeControllerRevisionV1Beta2Props {
   /**
-   * Data is the serialized representation of the state.
-   *
-   * @schema io.k8s.api.apps.v1beta2.ControllerRevision#data
-   */
-  readonly data?: any;
-
-  /**
    * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.api.apps.v1beta2.ControllerRevision#metadata
    */
   readonly metadata?: ObjectMeta;
+
+  /**
+   * Data is the serialized representation of the state.
+   *
+   * @schema io.k8s.api.apps.v1beta2.ControllerRevision#data
+   */
+  readonly data?: any;
 
   /**
    * Revision indicates the revision of the state represented by Data.
@@ -10993,8 +10993,8 @@ export interface KubeControllerRevisionV1Beta2Props {
 export function toJson_KubeControllerRevisionV1Beta2Props(obj: KubeControllerRevisionV1Beta2Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'data': obj.data,
     'metadata': toJson_ObjectMeta(obj.metadata),
+    'data': obj.data,
     'revision': obj.revision,
   };
   // filter undefined values
@@ -11009,18 +11009,18 @@ export function toJson_KubeControllerRevisionV1Beta2Props(obj: KubeControllerRev
  */
 export interface KubeControllerRevisionListV1Beta2Props {
   /**
-   * Items is the list of ControllerRevisions
-   *
-   * @schema io.k8s.api.apps.v1beta2.ControllerRevisionList#items
-   */
-  readonly items: KubeControllerRevisionV1Beta2Props[];
-
-  /**
    * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.api.apps.v1beta2.ControllerRevisionList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * Items is the list of ControllerRevisions
+   *
+   * @schema io.k8s.api.apps.v1beta2.ControllerRevisionList#items
+   */
+  readonly items: KubeControllerRevisionV1Beta2Props[];
 
 }
 
@@ -11031,8 +11031,8 @@ export interface KubeControllerRevisionListV1Beta2Props {
 export function toJson_KubeControllerRevisionListV1Beta2Props(obj: KubeControllerRevisionListV1Beta2Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeControllerRevisionV1Beta2Props(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeControllerRevisionV1Beta2Props(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -11083,18 +11083,18 @@ export function toJson_KubeDaemonSetV1Beta2Props(obj: KubeDaemonSetV1Beta2Props 
  */
 export interface KubeDaemonSetListV1Beta2Props {
   /**
-   * A list of daemon sets.
-   *
-   * @schema io.k8s.api.apps.v1beta2.DaemonSetList#items
-   */
-  readonly items: KubeDaemonSetV1Beta2Props[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.api.apps.v1beta2.DaemonSetList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * A list of daemon sets.
+   *
+   * @schema io.k8s.api.apps.v1beta2.DaemonSetList#items
+   */
+  readonly items: KubeDaemonSetV1Beta2Props[];
 
 }
 
@@ -11105,8 +11105,8 @@ export interface KubeDaemonSetListV1Beta2Props {
 export function toJson_KubeDaemonSetListV1Beta2Props(obj: KubeDaemonSetListV1Beta2Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeDaemonSetV1Beta2Props(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeDaemonSetV1Beta2Props(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -11157,18 +11157,18 @@ export function toJson_KubeDeploymentV1Beta2Props(obj: KubeDeploymentV1Beta2Prop
  */
 export interface KubeDeploymentListV1Beta2Props {
   /**
-   * Items is the list of Deployments.
-   *
-   * @schema io.k8s.api.apps.v1beta2.DeploymentList#items
-   */
-  readonly items: KubeDeploymentV1Beta2Props[];
-
-  /**
    * Standard list metadata.
    *
    * @schema io.k8s.api.apps.v1beta2.DeploymentList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * Items is the list of Deployments.
+   *
+   * @schema io.k8s.api.apps.v1beta2.DeploymentList#items
+   */
+  readonly items: KubeDeploymentV1Beta2Props[];
 
 }
 
@@ -11179,8 +11179,8 @@ export interface KubeDeploymentListV1Beta2Props {
 export function toJson_KubeDeploymentListV1Beta2Props(obj: KubeDeploymentListV1Beta2Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeDeploymentV1Beta2Props(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeDeploymentV1Beta2Props(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -11231,18 +11231,18 @@ export function toJson_KubeReplicaSetV1Beta2Props(obj: KubeReplicaSetV1Beta2Prop
  */
 export interface KubeReplicaSetListV1Beta2Props {
   /**
-   * List of ReplicaSets. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller
-   *
-   * @schema io.k8s.api.apps.v1beta2.ReplicaSetList#items
-   */
-  readonly items: KubeReplicaSetV1Beta2Props[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    *
    * @schema io.k8s.api.apps.v1beta2.ReplicaSetList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * List of ReplicaSets. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller
+   *
+   * @schema io.k8s.api.apps.v1beta2.ReplicaSetList#items
+   */
+  readonly items: KubeReplicaSetV1Beta2Props[];
 
 }
 
@@ -11253,8 +11253,8 @@ export interface KubeReplicaSetListV1Beta2Props {
 export function toJson_KubeReplicaSetListV1Beta2Props(obj: KubeReplicaSetListV1Beta2Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeReplicaSetV1Beta2Props(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeReplicaSetV1Beta2Props(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -11343,14 +11343,14 @@ export function toJson_KubeStatefulSetV1Beta2Props(obj: KubeStatefulSetV1Beta2Pr
  */
 export interface KubeStatefulSetListV1Beta2Props {
   /**
-   * @schema io.k8s.api.apps.v1beta2.StatefulSetList#items
-   */
-  readonly items: KubeStatefulSetV1Beta2Props[];
-
-  /**
    * @schema io.k8s.api.apps.v1beta2.StatefulSetList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * @schema io.k8s.api.apps.v1beta2.StatefulSetList#items
+   */
+  readonly items: KubeStatefulSetV1Beta2Props[];
 
 }
 
@@ -11361,8 +11361,8 @@ export interface KubeStatefulSetListV1Beta2Props {
 export function toJson_KubeStatefulSetListV1Beta2Props(obj: KubeStatefulSetListV1Beta2Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeStatefulSetV1Beta2Props(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeStatefulSetV1Beta2Props(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -11411,16 +11411,16 @@ export function toJson_KubeAuditSinkV1Alpha1Props(obj: KubeAuditSinkV1Alpha1Prop
  */
 export interface KubeAuditSinkListV1Alpha1Props {
   /**
+   * @schema io.k8s.api.auditregistration.v1alpha1.AuditSinkList#metadata
+   */
+  readonly metadata?: ListMeta;
+
+  /**
    * List of audit configurations.
    *
    * @schema io.k8s.api.auditregistration.v1alpha1.AuditSinkList#items
    */
   readonly items: KubeAuditSinkV1Alpha1Props[];
-
-  /**
-   * @schema io.k8s.api.auditregistration.v1alpha1.AuditSinkList#metadata
-   */
-  readonly metadata?: ListMeta;
 
 }
 
@@ -11431,8 +11431,8 @@ export interface KubeAuditSinkListV1Alpha1Props {
 export function toJson_KubeAuditSinkListV1Alpha1Props(obj: KubeAuditSinkListV1Alpha1Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeAuditSinkV1Alpha1Props(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeAuditSinkV1Alpha1Props(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -11866,18 +11866,18 @@ export function toJson_KubeHorizontalPodAutoscalerProps(obj: KubeHorizontalPodAu
  */
 export interface KubeHorizontalPodAutoscalerListProps {
   /**
-   * list of horizontal pod autoscaler objects.
-   *
-   * @schema io.k8s.api.autoscaling.v1.HorizontalPodAutoscalerList#items
-   */
-  readonly items: KubeHorizontalPodAutoscalerProps[];
-
-  /**
    * Standard list metadata.
    *
    * @schema io.k8s.api.autoscaling.v1.HorizontalPodAutoscalerList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * list of horizontal pod autoscaler objects.
+   *
+   * @schema io.k8s.api.autoscaling.v1.HorizontalPodAutoscalerList#items
+   */
+  readonly items: KubeHorizontalPodAutoscalerProps[];
 
 }
 
@@ -11888,8 +11888,8 @@ export interface KubeHorizontalPodAutoscalerListProps {
 export function toJson_KubeHorizontalPodAutoscalerListProps(obj: KubeHorizontalPodAutoscalerListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeHorizontalPodAutoscalerProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeHorizontalPodAutoscalerProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -11977,18 +11977,18 @@ export function toJson_KubeHorizontalPodAutoscalerV2Beta1Props(obj: KubeHorizont
  */
 export interface KubeHorizontalPodAutoscalerListV2Beta1Props {
   /**
-   * items is the list of horizontal pod autoscaler objects.
-   *
-   * @schema io.k8s.api.autoscaling.v2beta1.HorizontalPodAutoscalerList#items
-   */
-  readonly items: KubeHorizontalPodAutoscalerV2Beta1Props[];
-
-  /**
    * metadata is the standard list metadata.
    *
    * @schema io.k8s.api.autoscaling.v2beta1.HorizontalPodAutoscalerList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * items is the list of horizontal pod autoscaler objects.
+   *
+   * @schema io.k8s.api.autoscaling.v2beta1.HorizontalPodAutoscalerList#items
+   */
+  readonly items: KubeHorizontalPodAutoscalerV2Beta1Props[];
 
 }
 
@@ -11999,8 +11999,8 @@ export interface KubeHorizontalPodAutoscalerListV2Beta1Props {
 export function toJson_KubeHorizontalPodAutoscalerListV2Beta1Props(obj: KubeHorizontalPodAutoscalerListV2Beta1Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeHorizontalPodAutoscalerV2Beta1Props(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeHorizontalPodAutoscalerV2Beta1Props(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -12051,18 +12051,18 @@ export function toJson_KubeHorizontalPodAutoscalerV2Beta2Props(obj: KubeHorizont
  */
 export interface KubeHorizontalPodAutoscalerListV2Beta2Props {
   /**
-   * items is the list of horizontal pod autoscaler objects.
-   *
-   * @schema io.k8s.api.autoscaling.v2beta2.HorizontalPodAutoscalerList#items
-   */
-  readonly items: KubeHorizontalPodAutoscalerV2Beta2Props[];
-
-  /**
    * metadata is the standard list metadata.
    *
    * @schema io.k8s.api.autoscaling.v2beta2.HorizontalPodAutoscalerList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * items is the list of horizontal pod autoscaler objects.
+   *
+   * @schema io.k8s.api.autoscaling.v2beta2.HorizontalPodAutoscalerList#items
+   */
+  readonly items: KubeHorizontalPodAutoscalerV2Beta2Props[];
 
 }
 
@@ -12073,8 +12073,8 @@ export interface KubeHorizontalPodAutoscalerListV2Beta2Props {
 export function toJson_KubeHorizontalPodAutoscalerListV2Beta2Props(obj: KubeHorizontalPodAutoscalerListV2Beta2Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeHorizontalPodAutoscalerV2Beta2Props(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeHorizontalPodAutoscalerV2Beta2Props(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -12125,18 +12125,18 @@ export function toJson_KubeJobProps(obj: KubeJobProps | undefined): Record<strin
  */
 export interface KubeJobListProps {
   /**
-   * items is the list of Jobs.
-   *
-   * @schema io.k8s.api.batch.v1.JobList#items
-   */
-  readonly items: KubeJobProps[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.api.batch.v1.JobList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * items is the list of Jobs.
+   *
+   * @schema io.k8s.api.batch.v1.JobList#items
+   */
+  readonly items: KubeJobProps[];
 
 }
 
@@ -12147,8 +12147,8 @@ export interface KubeJobListProps {
 export function toJson_KubeJobListProps(obj: KubeJobListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeJobProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeJobProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -12199,18 +12199,18 @@ export function toJson_KubeCronJobV1Beta1Props(obj: KubeCronJobV1Beta1Props | un
  */
 export interface KubeCronJobListV1Beta1Props {
   /**
-   * items is the list of CronJobs.
-   *
-   * @schema io.k8s.api.batch.v1beta1.CronJobList#items
-   */
-  readonly items: KubeCronJobV1Beta1Props[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.api.batch.v1beta1.CronJobList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * items is the list of CronJobs.
+   *
+   * @schema io.k8s.api.batch.v1beta1.CronJobList#items
+   */
+  readonly items: KubeCronJobV1Beta1Props[];
 
 }
 
@@ -12221,8 +12221,8 @@ export interface KubeCronJobListV1Beta1Props {
 export function toJson_KubeCronJobListV1Beta1Props(obj: KubeCronJobListV1Beta1Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeCronJobV1Beta1Props(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeCronJobV1Beta1Props(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -12273,18 +12273,18 @@ export function toJson_KubeCronJobV2Alpha1Props(obj: KubeCronJobV2Alpha1Props | 
  */
 export interface KubeCronJobListV2Alpha1Props {
   /**
-   * items is the list of CronJobs.
-   *
-   * @schema io.k8s.api.batch.v2alpha1.CronJobList#items
-   */
-  readonly items: KubeCronJobV2Alpha1Props[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.api.batch.v2alpha1.CronJobList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * items is the list of CronJobs.
+   *
+   * @schema io.k8s.api.batch.v2alpha1.CronJobList#items
+   */
+  readonly items: KubeCronJobV2Alpha1Props[];
 
 }
 
@@ -12295,8 +12295,8 @@ export interface KubeCronJobListV2Alpha1Props {
 export function toJson_KubeCronJobListV2Alpha1Props(obj: KubeCronJobListV2Alpha1Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeCronJobV2Alpha1Props(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeCronJobV2Alpha1Props(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -12343,14 +12343,14 @@ export function toJson_KubeCertificateSigningRequestV1Beta1Props(obj: KubeCertif
  */
 export interface KubeCertificateSigningRequestListV1Beta1Props {
   /**
-   * @schema io.k8s.api.certificates.v1beta1.CertificateSigningRequestList#items
-   */
-  readonly items: KubeCertificateSigningRequestV1Beta1Props[];
-
-  /**
    * @schema io.k8s.api.certificates.v1beta1.CertificateSigningRequestList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * @schema io.k8s.api.certificates.v1beta1.CertificateSigningRequestList#items
+   */
+  readonly items: KubeCertificateSigningRequestV1Beta1Props[];
 
 }
 
@@ -12361,8 +12361,8 @@ export interface KubeCertificateSigningRequestListV1Beta1Props {
 export function toJson_KubeCertificateSigningRequestListV1Beta1Props(obj: KubeCertificateSigningRequestListV1Beta1Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeCertificateSigningRequestV1Beta1Props(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeCertificateSigningRequestV1Beta1Props(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -12413,18 +12413,18 @@ export function toJson_KubeLeaseProps(obj: KubeLeaseProps | undefined): Record<s
  */
 export interface KubeLeaseListProps {
   /**
-   * Items is a list of schema objects.
-   *
-   * @schema io.k8s.api.coordination.v1.LeaseList#items
-   */
-  readonly items: KubeLeaseProps[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.api.coordination.v1.LeaseList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * Items is a list of schema objects.
+   *
+   * @schema io.k8s.api.coordination.v1.LeaseList#items
+   */
+  readonly items: KubeLeaseProps[];
 
 }
 
@@ -12435,8 +12435,8 @@ export interface KubeLeaseListProps {
 export function toJson_KubeLeaseListProps(obj: KubeLeaseListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeLeaseProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeLeaseProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -12487,18 +12487,18 @@ export function toJson_KubeLeaseV1Beta1Props(obj: KubeLeaseV1Beta1Props | undefi
  */
 export interface KubeLeaseListV1Beta1Props {
   /**
-   * Items is a list of schema objects.
-   *
-   * @schema io.k8s.api.coordination.v1beta1.LeaseList#items
-   */
-  readonly items: KubeLeaseV1Beta1Props[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.api.coordination.v1beta1.LeaseList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * Items is a list of schema objects.
+   *
+   * @schema io.k8s.api.coordination.v1beta1.LeaseList#items
+   */
+  readonly items: KubeLeaseV1Beta1Props[];
 
 }
 
@@ -12509,8 +12509,8 @@ export interface KubeLeaseListV1Beta1Props {
 export function toJson_KubeLeaseListV1Beta1Props(obj: KubeLeaseListV1Beta1Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeLeaseV1Beta1Props(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeLeaseV1Beta1Props(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -12561,18 +12561,18 @@ export function toJson_KubeBindingProps(obj: KubeBindingProps | undefined): Reco
  */
 export interface KubeComponentStatusProps {
   /**
-   * List of component conditions observed
-   *
-   * @schema io.k8s.api.core.v1.ComponentStatus#conditions
-   */
-  readonly conditions?: ComponentCondition[];
-
-  /**
    * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.api.core.v1.ComponentStatus#metadata
    */
   readonly metadata?: ObjectMeta;
+
+  /**
+   * List of component conditions observed
+   *
+   * @schema io.k8s.api.core.v1.ComponentStatus#conditions
+   */
+  readonly conditions?: ComponentCondition[];
 
 }
 
@@ -12583,8 +12583,8 @@ export interface KubeComponentStatusProps {
 export function toJson_KubeComponentStatusProps(obj: KubeComponentStatusProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'conditions': obj.conditions?.map(y => toJson_ComponentCondition(y)),
     'metadata': toJson_ObjectMeta(obj.metadata),
+    'conditions': obj.conditions?.map(y => toJson_ComponentCondition(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -12598,18 +12598,18 @@ export function toJson_KubeComponentStatusProps(obj: KubeComponentStatusProps | 
  */
 export interface KubeComponentStatusListProps {
   /**
-   * List of ComponentStatus objects.
-   *
-   * @schema io.k8s.api.core.v1.ComponentStatusList#items
-   */
-  readonly items: KubeComponentStatusProps[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    *
    * @schema io.k8s.api.core.v1.ComponentStatusList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * List of ComponentStatus objects.
+   *
+   * @schema io.k8s.api.core.v1.ComponentStatusList#items
+   */
+  readonly items: KubeComponentStatusProps[];
 
 }
 
@@ -12620,8 +12620,8 @@ export interface KubeComponentStatusListProps {
 export function toJson_KubeComponentStatusListProps(obj: KubeComponentStatusListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeComponentStatusProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeComponentStatusProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -12634,6 +12634,13 @@ export function toJson_KubeComponentStatusListProps(obj: KubeComponentStatusList
  * @schema io.k8s.api.core.v1.ConfigMap
  */
 export interface KubeConfigMapProps {
+  /**
+   * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+   *
+   * @schema io.k8s.api.core.v1.ConfigMap#metadata
+   */
+  readonly metadata?: ObjectMeta;
+
   /**
    * BinaryData contains the binary data. Each key must consist of alphanumeric characters, '-', '_' or '.'. BinaryData can contain byte sequences that are not in the UTF-8 range. The keys stored in BinaryData must not overlap with the ones in the Data field, this is enforced during validation process. Using this field will require 1.10+ apiserver and kubelet.
    *
@@ -12648,13 +12655,6 @@ export interface KubeConfigMapProps {
    */
   readonly data?: { [key: string]: string };
 
-  /**
-   * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-   *
-   * @schema io.k8s.api.core.v1.ConfigMap#metadata
-   */
-  readonly metadata?: ObjectMeta;
-
 }
 
 /**
@@ -12664,9 +12664,9 @@ export interface KubeConfigMapProps {
 export function toJson_KubeConfigMapProps(obj: KubeConfigMapProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
+    'metadata': toJson_ObjectMeta(obj.metadata),
     'binaryData': ((obj.binaryData) === undefined) ? undefined : (Object.entries(obj.binaryData).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
     'data': ((obj.data) === undefined) ? undefined : (Object.entries(obj.data).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
-    'metadata': toJson_ObjectMeta(obj.metadata),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -12680,18 +12680,18 @@ export function toJson_KubeConfigMapProps(obj: KubeConfigMapProps | undefined): 
  */
 export interface KubeConfigMapListProps {
   /**
-   * Items is the list of ConfigMaps.
-   *
-   * @schema io.k8s.api.core.v1.ConfigMapList#items
-   */
-  readonly items: KubeConfigMapProps[];
-
-  /**
    * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.api.core.v1.ConfigMapList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * Items is the list of ConfigMaps.
+   *
+   * @schema io.k8s.api.core.v1.ConfigMapList#items
+   */
+  readonly items: KubeConfigMapProps[];
 
 }
 
@@ -12702,8 +12702,8 @@ export interface KubeConfigMapListProps {
 export function toJson_KubeConfigMapListProps(obj: KubeConfigMapListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeConfigMapProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeConfigMapProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -12765,18 +12765,18 @@ export function toJson_KubeEndpointsProps(obj: KubeEndpointsProps | undefined): 
  */
 export interface KubeEndpointsListProps {
   /**
-   * List of endpoints.
-   *
-   * @schema io.k8s.api.core.v1.EndpointsList#items
-   */
-  readonly items: KubeEndpointsProps[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    *
    * @schema io.k8s.api.core.v1.EndpointsList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * List of endpoints.
+   *
+   * @schema io.k8s.api.core.v1.EndpointsList#items
+   */
+  readonly items: KubeEndpointsProps[];
 
 }
 
@@ -12787,8 +12787,8 @@ export interface KubeEndpointsListProps {
 export function toJson_KubeEndpointsListProps(obj: KubeEndpointsListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeEndpointsProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeEndpointsProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -12801,6 +12801,13 @@ export function toJson_KubeEndpointsListProps(obj: KubeEndpointsListProps | unde
  * @schema io.k8s.api.core.v1.Event
  */
 export interface KubeEventProps {
+  /**
+   * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+   *
+   * @schema io.k8s.api.core.v1.Event#metadata
+   */
+  readonly metadata: ObjectMeta;
+
   /**
    * What action was taken/failed regarding to the Regarding object.
    *
@@ -12849,13 +12856,6 @@ export interface KubeEventProps {
    * @schema io.k8s.api.core.v1.Event#message
    */
   readonly message?: string;
-
-  /**
-   * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-   *
-   * @schema io.k8s.api.core.v1.Event#metadata
-   */
-  readonly metadata: ObjectMeta;
 
   /**
    * This should be a short, machine understandable string that gives the reason for the transition into the object's current status.
@@ -12915,6 +12915,7 @@ export interface KubeEventProps {
 export function toJson_KubeEventProps(obj: KubeEventProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
+    'metadata': toJson_ObjectMeta(obj.metadata),
     'action': obj.action,
     'count': obj.count,
     'eventTime': obj.eventTime?.toISOString(),
@@ -12922,7 +12923,6 @@ export function toJson_KubeEventProps(obj: KubeEventProps | undefined): Record<s
     'involvedObject': toJson_ObjectReference(obj.involvedObject),
     'lastTimestamp': obj.lastTimestamp?.toISOString(),
     'message': obj.message,
-    'metadata': toJson_ObjectMeta(obj.metadata),
     'reason': obj.reason,
     'related': toJson_ObjectReference(obj.related),
     'reportingComponent': obj.reportingComponent,
@@ -12943,18 +12943,18 @@ export function toJson_KubeEventProps(obj: KubeEventProps | undefined): Record<s
  */
 export interface KubeEventListProps {
   /**
-   * List of events
-   *
-   * @schema io.k8s.api.core.v1.EventList#items
-   */
-  readonly items: KubeEventProps[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    *
    * @schema io.k8s.api.core.v1.EventList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * List of events
+   *
+   * @schema io.k8s.api.core.v1.EventList#items
+   */
+  readonly items: KubeEventProps[];
 
 }
 
@@ -12965,8 +12965,8 @@ export interface KubeEventListProps {
 export function toJson_KubeEventListProps(obj: KubeEventListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeEventProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeEventProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -13017,18 +13017,18 @@ export function toJson_KubeLimitRangeProps(obj: KubeLimitRangeProps | undefined)
  */
 export interface KubeLimitRangeListProps {
   /**
-   * Items is a list of LimitRange objects. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
-   *
-   * @schema io.k8s.api.core.v1.LimitRangeList#items
-   */
-  readonly items: KubeLimitRangeProps[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    *
    * @schema io.k8s.api.core.v1.LimitRangeList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * Items is a list of LimitRange objects. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
+   *
+   * @schema io.k8s.api.core.v1.LimitRangeList#items
+   */
+  readonly items: KubeLimitRangeProps[];
 
 }
 
@@ -13039,8 +13039,8 @@ export interface KubeLimitRangeListProps {
 export function toJson_KubeLimitRangeListProps(obj: KubeLimitRangeListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeLimitRangeProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeLimitRangeProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -13091,18 +13091,18 @@ export function toJson_KubeNamespaceProps(obj: KubeNamespaceProps | undefined): 
  */
 export interface KubeNamespaceListProps {
   /**
-   * Items is the list of Namespace objects in the list. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/
-   *
-   * @schema io.k8s.api.core.v1.NamespaceList#items
-   */
-  readonly items: KubeNamespaceProps[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    *
    * @schema io.k8s.api.core.v1.NamespaceList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * Items is the list of Namespace objects in the list. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/
+   *
+   * @schema io.k8s.api.core.v1.NamespaceList#items
+   */
+  readonly items: KubeNamespaceProps[];
 
 }
 
@@ -13113,8 +13113,8 @@ export interface KubeNamespaceListProps {
 export function toJson_KubeNamespaceListProps(obj: KubeNamespaceListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeNamespaceProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeNamespaceProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -13165,18 +13165,18 @@ export function toJson_KubeNodeProps(obj: KubeNodeProps | undefined): Record<str
  */
 export interface KubeNodeListProps {
   /**
-   * List of nodes
-   *
-   * @schema io.k8s.api.core.v1.NodeList#items
-   */
-  readonly items: KubeNodeProps[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    *
    * @schema io.k8s.api.core.v1.NodeList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * List of nodes
+   *
+   * @schema io.k8s.api.core.v1.NodeList#items
+   */
+  readonly items: KubeNodeProps[];
 
 }
 
@@ -13187,8 +13187,8 @@ export interface KubeNodeListProps {
 export function toJson_KubeNodeListProps(obj: KubeNodeListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeNodeProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeNodeProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -13276,18 +13276,18 @@ export function toJson_KubePersistentVolumeClaimProps(obj: KubePersistentVolumeC
  */
 export interface KubePersistentVolumeClaimListProps {
   /**
-   * A list of persistent volume claims. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims
-   *
-   * @schema io.k8s.api.core.v1.PersistentVolumeClaimList#items
-   */
-  readonly items: KubePersistentVolumeClaimProps[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    *
    * @schema io.k8s.api.core.v1.PersistentVolumeClaimList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * A list of persistent volume claims. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims
+   *
+   * @schema io.k8s.api.core.v1.PersistentVolumeClaimList#items
+   */
+  readonly items: KubePersistentVolumeClaimProps[];
 
 }
 
@@ -13298,8 +13298,8 @@ export interface KubePersistentVolumeClaimListProps {
 export function toJson_KubePersistentVolumeClaimListProps(obj: KubePersistentVolumeClaimListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubePersistentVolumeClaimProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubePersistentVolumeClaimProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -13313,18 +13313,18 @@ export function toJson_KubePersistentVolumeClaimListProps(obj: KubePersistentVol
  */
 export interface KubePersistentVolumeListProps {
   /**
-   * List of persistent volumes. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes
-   *
-   * @schema io.k8s.api.core.v1.PersistentVolumeList#items
-   */
-  readonly items: KubePersistentVolumeProps[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    *
    * @schema io.k8s.api.core.v1.PersistentVolumeList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * List of persistent volumes. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes
+   *
+   * @schema io.k8s.api.core.v1.PersistentVolumeList#items
+   */
+  readonly items: KubePersistentVolumeProps[];
 
 }
 
@@ -13335,8 +13335,8 @@ export interface KubePersistentVolumeListProps {
 export function toJson_KubePersistentVolumeListProps(obj: KubePersistentVolumeListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubePersistentVolumeProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubePersistentVolumeProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -13387,18 +13387,18 @@ export function toJson_KubePodProps(obj: KubePodProps | undefined): Record<strin
  */
 export interface KubePodListProps {
   /**
-   * List of pods. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md
-   *
-   * @schema io.k8s.api.core.v1.PodList#items
-   */
-  readonly items: KubePodProps[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    *
    * @schema io.k8s.api.core.v1.PodList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * List of pods. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md
+   *
+   * @schema io.k8s.api.core.v1.PodList#items
+   */
+  readonly items: KubePodProps[];
 
 }
 
@@ -13409,8 +13409,8 @@ export interface KubePodListProps {
 export function toJson_KubePodListProps(obj: KubePodListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubePodProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubePodProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -13461,18 +13461,18 @@ export function toJson_KubePodTemplateProps(obj: KubePodTemplateProps | undefine
  */
 export interface KubePodTemplateListProps {
   /**
-   * List of pod templates
-   *
-   * @schema io.k8s.api.core.v1.PodTemplateList#items
-   */
-  readonly items: KubePodTemplateProps[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    *
    * @schema io.k8s.api.core.v1.PodTemplateList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * List of pod templates
+   *
+   * @schema io.k8s.api.core.v1.PodTemplateList#items
+   */
+  readonly items: KubePodTemplateProps[];
 
 }
 
@@ -13483,8 +13483,8 @@ export interface KubePodTemplateListProps {
 export function toJson_KubePodTemplateListProps(obj: KubePodTemplateListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubePodTemplateProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubePodTemplateProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -13535,18 +13535,18 @@ export function toJson_KubeReplicationControllerProps(obj: KubeReplicationContro
  */
 export interface KubeReplicationControllerListProps {
   /**
-   * List of replication controllers. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller
-   *
-   * @schema io.k8s.api.core.v1.ReplicationControllerList#items
-   */
-  readonly items: KubeReplicationControllerProps[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    *
    * @schema io.k8s.api.core.v1.ReplicationControllerList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * List of replication controllers. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller
+   *
+   * @schema io.k8s.api.core.v1.ReplicationControllerList#items
+   */
+  readonly items: KubeReplicationControllerProps[];
 
 }
 
@@ -13557,8 +13557,8 @@ export interface KubeReplicationControllerListProps {
 export function toJson_KubeReplicationControllerListProps(obj: KubeReplicationControllerListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeReplicationControllerProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeReplicationControllerProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -13609,18 +13609,18 @@ export function toJson_KubeResourceQuotaProps(obj: KubeResourceQuotaProps | unde
  */
 export interface KubeResourceQuotaListProps {
   /**
-   * Items is a list of ResourceQuota objects. More info: https://kubernetes.io/docs/concepts/policy/resource-quotas/
-   *
-   * @schema io.k8s.api.core.v1.ResourceQuotaList#items
-   */
-  readonly items: KubeResourceQuotaProps[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    *
    * @schema io.k8s.api.core.v1.ResourceQuotaList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * Items is a list of ResourceQuota objects. More info: https://kubernetes.io/docs/concepts/policy/resource-quotas/
+   *
+   * @schema io.k8s.api.core.v1.ResourceQuotaList#items
+   */
+  readonly items: KubeResourceQuotaProps[];
 
 }
 
@@ -13631,8 +13631,8 @@ export interface KubeResourceQuotaListProps {
 export function toJson_KubeResourceQuotaListProps(obj: KubeResourceQuotaListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeResourceQuotaProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeResourceQuotaProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -13646,18 +13646,18 @@ export function toJson_KubeResourceQuotaListProps(obj: KubeResourceQuotaListProp
  */
 export interface KubeSecretProps {
   /**
-   * Data contains the secret data. Each key must consist of alphanumeric characters, '-', '_' or '.'. The serialized form of the secret data is a base64 encoded string, representing the arbitrary (possibly non-string) data value here. Described in https://tools.ietf.org/html/rfc4648#section-4
-   *
-   * @schema io.k8s.api.core.v1.Secret#data
-   */
-  readonly data?: { [key: string]: string };
-
-  /**
    * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.api.core.v1.Secret#metadata
    */
   readonly metadata?: ObjectMeta;
+
+  /**
+   * Data contains the secret data. Each key must consist of alphanumeric characters, '-', '_' or '.'. The serialized form of the secret data is a base64 encoded string, representing the arbitrary (possibly non-string) data value here. Described in https://tools.ietf.org/html/rfc4648#section-4
+   *
+   * @schema io.k8s.api.core.v1.Secret#data
+   */
+  readonly data?: { [key: string]: string };
 
   /**
    * stringData allows specifying non-binary secret data in string form. It is provided as a write-only convenience method. All keys and values are merged into the data field on write, overwriting any existing values. It is never output when reading from the API.
@@ -13682,8 +13682,8 @@ export interface KubeSecretProps {
 export function toJson_KubeSecretProps(obj: KubeSecretProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'data': ((obj.data) === undefined) ? undefined : (Object.entries(obj.data).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
     'metadata': toJson_ObjectMeta(obj.metadata),
+    'data': ((obj.data) === undefined) ? undefined : (Object.entries(obj.data).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
     'stringData': ((obj.stringData) === undefined) ? undefined : (Object.entries(obj.stringData).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
     'type': obj.type,
   };
@@ -13699,18 +13699,18 @@ export function toJson_KubeSecretProps(obj: KubeSecretProps | undefined): Record
  */
 export interface KubeSecretListProps {
   /**
-   * Items is a list of secret objects. More info: https://kubernetes.io/docs/concepts/configuration/secret
-   *
-   * @schema io.k8s.api.core.v1.SecretList#items
-   */
-  readonly items: KubeSecretProps[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    *
    * @schema io.k8s.api.core.v1.SecretList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * Items is a list of secret objects. More info: https://kubernetes.io/docs/concepts/configuration/secret
+   *
+   * @schema io.k8s.api.core.v1.SecretList#items
+   */
+  readonly items: KubeSecretProps[];
 
 }
 
@@ -13721,8 +13721,8 @@ export interface KubeSecretListProps {
 export function toJson_KubeSecretListProps(obj: KubeSecretListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeSecretProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeSecretProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -13773,6 +13773,13 @@ export function toJson_KubeServiceProps(obj: KubeServiceProps | undefined): Reco
  */
 export interface KubeServiceAccountProps {
   /**
+   * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+   *
+   * @schema io.k8s.api.core.v1.ServiceAccount#metadata
+   */
+  readonly metadata?: ObjectMeta;
+
+  /**
    * AutomountServiceAccountToken indicates whether pods running as this service account should have an API token automatically mounted. Can be overridden at the pod level.
    *
    * @schema io.k8s.api.core.v1.ServiceAccount#automountServiceAccountToken
@@ -13785,13 +13792,6 @@ export interface KubeServiceAccountProps {
    * @schema io.k8s.api.core.v1.ServiceAccount#imagePullSecrets
    */
   readonly imagePullSecrets?: LocalObjectReference[];
-
-  /**
-   * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-   *
-   * @schema io.k8s.api.core.v1.ServiceAccount#metadata
-   */
-  readonly metadata?: ObjectMeta;
 
   /**
    * Secrets is the list of secrets allowed to be used by pods running using this ServiceAccount. More info: https://kubernetes.io/docs/concepts/configuration/secret
@@ -13809,9 +13809,9 @@ export interface KubeServiceAccountProps {
 export function toJson_KubeServiceAccountProps(obj: KubeServiceAccountProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
+    'metadata': toJson_ObjectMeta(obj.metadata),
     'automountServiceAccountToken': obj.automountServiceAccountToken,
     'imagePullSecrets': obj.imagePullSecrets?.map(y => toJson_LocalObjectReference(y)),
-    'metadata': toJson_ObjectMeta(obj.metadata),
     'secrets': obj.secrets?.map(y => toJson_ObjectReference(y)),
   };
   // filter undefined values
@@ -13826,18 +13826,18 @@ export function toJson_KubeServiceAccountProps(obj: KubeServiceAccountProps | un
  */
 export interface KubeServiceAccountListProps {
   /**
-   * List of ServiceAccounts. More info: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/
-   *
-   * @schema io.k8s.api.core.v1.ServiceAccountList#items
-   */
-  readonly items: KubeServiceAccountProps[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    *
    * @schema io.k8s.api.core.v1.ServiceAccountList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * List of ServiceAccounts. More info: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/
+   *
+   * @schema io.k8s.api.core.v1.ServiceAccountList#items
+   */
+  readonly items: KubeServiceAccountProps[];
 
 }
 
@@ -13848,8 +13848,8 @@ export interface KubeServiceAccountListProps {
 export function toJson_KubeServiceAccountListProps(obj: KubeServiceAccountListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeServiceAccountProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeServiceAccountProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -13863,18 +13863,18 @@ export function toJson_KubeServiceAccountListProps(obj: KubeServiceAccountListPr
  */
 export interface KubeServiceListProps {
   /**
-   * List of services
-   *
-   * @schema io.k8s.api.core.v1.ServiceList#items
-   */
-  readonly items: KubeServiceProps[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    *
    * @schema io.k8s.api.core.v1.ServiceList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * List of services
+   *
+   * @schema io.k8s.api.core.v1.ServiceList#items
+   */
+  readonly items: KubeServiceProps[];
 
 }
 
@@ -13885,8 +13885,8 @@ export interface KubeServiceListProps {
 export function toJson_KubeServiceListProps(obj: KubeServiceListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeServiceProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeServiceProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -13900,6 +13900,13 @@ export function toJson_KubeServiceListProps(obj: KubeServiceListProps | undefine
  */
 export interface KubeEndpointSliceV1Beta1Props {
   /**
+   * Standard object's metadata.
+   *
+   * @schema io.k8s.api.discovery.v1beta1.EndpointSlice#metadata
+   */
+  readonly metadata?: ObjectMeta;
+
+  /**
    * addressType specifies the type of address carried by this EndpointSlice. All addresses in this slice must be the same type. This field is immutable after creation. The following address types are currently supported: * IPv4: Represents an IPv4 Address. * IPv6: Represents an IPv6 Address. * FQDN: Represents a Fully Qualified Domain Name.
    *
    * @schema io.k8s.api.discovery.v1beta1.EndpointSlice#addressType
@@ -13912,13 +13919,6 @@ export interface KubeEndpointSliceV1Beta1Props {
    * @schema io.k8s.api.discovery.v1beta1.EndpointSlice#endpoints
    */
   readonly endpoints: EndpointV1Beta1[];
-
-  /**
-   * Standard object's metadata.
-   *
-   * @schema io.k8s.api.discovery.v1beta1.EndpointSlice#metadata
-   */
-  readonly metadata?: ObjectMeta;
 
   /**
    * ports specifies the list of network ports exposed by each endpoint in this slice. Each port must have a unique name. When ports is empty, it indicates that there are no defined ports. When a port is defined with a nil port value, it indicates "all ports". Each slice may include a maximum of 100 ports.
@@ -13936,9 +13936,9 @@ export interface KubeEndpointSliceV1Beta1Props {
 export function toJson_KubeEndpointSliceV1Beta1Props(obj: KubeEndpointSliceV1Beta1Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
+    'metadata': toJson_ObjectMeta(obj.metadata),
     'addressType': obj.addressType,
     'endpoints': obj.endpoints?.map(y => toJson_EndpointV1Beta1(y)),
-    'metadata': toJson_ObjectMeta(obj.metadata),
     'ports': obj.ports?.map(y => toJson_EndpointPortV1Beta1(y)),
   };
   // filter undefined values
@@ -13953,18 +13953,18 @@ export function toJson_KubeEndpointSliceV1Beta1Props(obj: KubeEndpointSliceV1Bet
  */
 export interface KubeEndpointSliceListV1Beta1Props {
   /**
-   * List of endpoint slices
-   *
-   * @schema io.k8s.api.discovery.v1beta1.EndpointSliceList#items
-   */
-  readonly items: KubeEndpointSliceV1Beta1Props[];
-
-  /**
    * Standard list metadata.
    *
    * @schema io.k8s.api.discovery.v1beta1.EndpointSliceList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * List of endpoint slices
+   *
+   * @schema io.k8s.api.discovery.v1beta1.EndpointSliceList#items
+   */
+  readonly items: KubeEndpointSliceV1Beta1Props[];
 
 }
 
@@ -13975,8 +13975,8 @@ export interface KubeEndpointSliceListV1Beta1Props {
 export function toJson_KubeEndpointSliceListV1Beta1Props(obj: KubeEndpointSliceListV1Beta1Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeEndpointSliceV1Beta1Props(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeEndpointSliceV1Beta1Props(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -13989,6 +13989,11 @@ export function toJson_KubeEndpointSliceListV1Beta1Props(obj: KubeEndpointSliceL
  * @schema io.k8s.api.events.v1beta1.Event
  */
 export interface KubeEventV1Beta1Props {
+  /**
+   * @schema io.k8s.api.events.v1beta1.Event#metadata
+   */
+  readonly metadata?: ObjectMeta;
+
   /**
    * What action was taken/failed regarding to the regarding object.
    *
@@ -14030,11 +14035,6 @@ export interface KubeEventV1Beta1Props {
    * @schema io.k8s.api.events.v1beta1.Event#eventTime
    */
   readonly eventTime: Date;
-
-  /**
-   * @schema io.k8s.api.events.v1beta1.Event#metadata
-   */
-  readonly metadata?: ObjectMeta;
 
   /**
    * Optional. A human-readable description of the status of this operation. Maximal length of the note is 1kB, but libraries should be prepared to handle values up to 64kB.
@@ -14101,13 +14101,13 @@ export interface KubeEventV1Beta1Props {
 export function toJson_KubeEventV1Beta1Props(obj: KubeEventV1Beta1Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
+    'metadata': toJson_ObjectMeta(obj.metadata),
     'action': obj.action,
     'deprecatedCount': obj.deprecatedCount,
     'deprecatedFirstTimestamp': obj.deprecatedFirstTimestamp?.toISOString(),
     'deprecatedLastTimestamp': obj.deprecatedLastTimestamp?.toISOString(),
     'deprecatedSource': toJson_EventSource(obj.deprecatedSource),
     'eventTime': obj.eventTime?.toISOString(),
-    'metadata': toJson_ObjectMeta(obj.metadata),
     'note': obj.note,
     'reason': obj.reason,
     'regarding': toJson_ObjectReference(obj.regarding),
@@ -14129,18 +14129,18 @@ export function toJson_KubeEventV1Beta1Props(obj: KubeEventV1Beta1Props | undefi
  */
 export interface KubeEventListV1Beta1Props {
   /**
-   * Items is a list of schema objects.
-   *
-   * @schema io.k8s.api.events.v1beta1.EventList#items
-   */
-  readonly items: KubeEventV1Beta1Props[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.api.events.v1beta1.EventList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * Items is a list of schema objects.
+   *
+   * @schema io.k8s.api.events.v1beta1.EventList#items
+   */
+  readonly items: KubeEventV1Beta1Props[];
 
 }
 
@@ -14151,8 +14151,8 @@ export interface KubeEventListV1Beta1Props {
 export function toJson_KubeEventListV1Beta1Props(obj: KubeEventListV1Beta1Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeEventV1Beta1Props(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeEventV1Beta1Props(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -14203,18 +14203,18 @@ export function toJson_KubeDaemonSetV1Beta1Props(obj: KubeDaemonSetV1Beta1Props 
  */
 export interface KubeDaemonSetListV1Beta1Props {
   /**
-   * A list of daemon sets.
-   *
-   * @schema io.k8s.api.extensions.v1beta1.DaemonSetList#items
-   */
-  readonly items: KubeDaemonSetV1Beta1Props[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.api.extensions.v1beta1.DaemonSetList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * A list of daemon sets.
+   *
+   * @schema io.k8s.api.extensions.v1beta1.DaemonSetList#items
+   */
+  readonly items: KubeDaemonSetV1Beta1Props[];
 
 }
 
@@ -14225,8 +14225,8 @@ export interface KubeDaemonSetListV1Beta1Props {
 export function toJson_KubeDaemonSetListV1Beta1Props(obj: KubeDaemonSetListV1Beta1Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeDaemonSetV1Beta1Props(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeDaemonSetV1Beta1Props(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -14277,18 +14277,18 @@ export function toJson_KubeIngressV1Beta1Props(obj: KubeIngressV1Beta1Props | un
  */
 export interface KubeIngressListV1Beta1Props {
   /**
-   * Items is the list of Ingress.
-   *
-   * @schema io.k8s.api.networking.v1beta1.IngressList#items
-   */
-  readonly items: KubeIngressV1Beta1Props[];
-
-  /**
    * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.api.networking.v1beta1.IngressList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * Items is the list of Ingress.
+   *
+   * @schema io.k8s.api.networking.v1beta1.IngressList#items
+   */
+  readonly items: KubeIngressV1Beta1Props[];
 
 }
 
@@ -14299,8 +14299,8 @@ export interface KubeIngressListV1Beta1Props {
 export function toJson_KubeIngressListV1Beta1Props(obj: KubeIngressListV1Beta1Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeIngressV1Beta1Props(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeIngressV1Beta1Props(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -14351,18 +14351,18 @@ export function toJson_KubeNetworkPolicyV1Beta1Props(obj: KubeNetworkPolicyV1Bet
  */
 export interface KubeNetworkPolicyListV1Beta1Props {
   /**
-   * Items is a list of schema objects.
-   *
-   * @schema io.k8s.api.extensions.v1beta1.NetworkPolicyList#items
-   */
-  readonly items: KubeNetworkPolicyV1Beta1Props[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.api.extensions.v1beta1.NetworkPolicyList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * Items is a list of schema objects.
+   *
+   * @schema io.k8s.api.extensions.v1beta1.NetworkPolicyList#items
+   */
+  readonly items: KubeNetworkPolicyV1Beta1Props[];
 
 }
 
@@ -14373,8 +14373,8 @@ export interface KubeNetworkPolicyListV1Beta1Props {
 export function toJson_KubeNetworkPolicyListV1Beta1Props(obj: KubeNetworkPolicyListV1Beta1Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeNetworkPolicyV1Beta1Props(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeNetworkPolicyV1Beta1Props(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -14425,18 +14425,18 @@ export function toJson_KubePodSecurityPolicyV1Beta1Props(obj: KubePodSecurityPol
  */
 export interface KubePodSecurityPolicyListV1Beta1Props {
   /**
-   * items is a list of schema objects.
-   *
-   * @schema io.k8s.api.policy.v1beta1.PodSecurityPolicyList#items
-   */
-  readonly items: KubePodSecurityPolicyV1Beta1Props[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.api.policy.v1beta1.PodSecurityPolicyList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * items is a list of schema objects.
+   *
+   * @schema io.k8s.api.policy.v1beta1.PodSecurityPolicyList#items
+   */
+  readonly items: KubePodSecurityPolicyV1Beta1Props[];
 
 }
 
@@ -14447,8 +14447,8 @@ export interface KubePodSecurityPolicyListV1Beta1Props {
 export function toJson_KubePodSecurityPolicyListV1Beta1Props(obj: KubePodSecurityPolicyListV1Beta1Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubePodSecurityPolicyV1Beta1Props(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubePodSecurityPolicyV1Beta1Props(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -14499,18 +14499,18 @@ export function toJson_KubeReplicaSetV1Beta1Props(obj: KubeReplicaSetV1Beta1Prop
  */
 export interface KubeReplicaSetListV1Beta1Props {
   /**
-   * List of ReplicaSets. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller
-   *
-   * @schema io.k8s.api.extensions.v1beta1.ReplicaSetList#items
-   */
-  readonly items: KubeReplicaSetV1Beta1Props[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    *
    * @schema io.k8s.api.extensions.v1beta1.ReplicaSetList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * List of ReplicaSets. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller
+   *
+   * @schema io.k8s.api.extensions.v1beta1.ReplicaSetList#items
+   */
+  readonly items: KubeReplicaSetV1Beta1Props[];
 
 }
 
@@ -14521,8 +14521,8 @@ export interface KubeReplicaSetListV1Beta1Props {
 export function toJson_KubeReplicaSetListV1Beta1Props(obj: KubeReplicaSetListV1Beta1Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeReplicaSetV1Beta1Props(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeReplicaSetV1Beta1Props(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -14573,18 +14573,18 @@ export function toJson_KubeFlowSchemaV1Alpha1Props(obj: KubeFlowSchemaV1Alpha1Pr
  */
 export interface KubeFlowSchemaListV1Alpha1Props {
   /**
-   * `items` is a list of FlowSchemas.
-   *
-   * @schema io.k8s.api.flowcontrol.v1alpha1.FlowSchemaList#items
-   */
-  readonly items: KubeFlowSchemaV1Alpha1Props[];
-
-  /**
    * `metadata` is the standard list metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
    *
    * @schema io.k8s.api.flowcontrol.v1alpha1.FlowSchemaList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * `items` is a list of FlowSchemas.
+   *
+   * @schema io.k8s.api.flowcontrol.v1alpha1.FlowSchemaList#items
+   */
+  readonly items: KubeFlowSchemaV1Alpha1Props[];
 
 }
 
@@ -14595,8 +14595,8 @@ export interface KubeFlowSchemaListV1Alpha1Props {
 export function toJson_KubeFlowSchemaListV1Alpha1Props(obj: KubeFlowSchemaListV1Alpha1Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeFlowSchemaV1Alpha1Props(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeFlowSchemaV1Alpha1Props(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -14647,18 +14647,18 @@ export function toJson_KubePriorityLevelConfigurationV1Alpha1Props(obj: KubePrio
  */
 export interface KubePriorityLevelConfigurationListV1Alpha1Props {
   /**
-   * `items` is a list of request-priorities.
-   *
-   * @schema io.k8s.api.flowcontrol.v1alpha1.PriorityLevelConfigurationList#items
-   */
-  readonly items: KubePriorityLevelConfigurationV1Alpha1Props[];
-
-  /**
    * `metadata` is the standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
    *
    * @schema io.k8s.api.flowcontrol.v1alpha1.PriorityLevelConfigurationList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * `items` is a list of request-priorities.
+   *
+   * @schema io.k8s.api.flowcontrol.v1alpha1.PriorityLevelConfigurationList#items
+   */
+  readonly items: KubePriorityLevelConfigurationV1Alpha1Props[];
 
 }
 
@@ -14669,8 +14669,8 @@ export interface KubePriorityLevelConfigurationListV1Alpha1Props {
 export function toJson_KubePriorityLevelConfigurationListV1Alpha1Props(obj: KubePriorityLevelConfigurationListV1Alpha1Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubePriorityLevelConfigurationV1Alpha1Props(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubePriorityLevelConfigurationV1Alpha1Props(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -14721,18 +14721,18 @@ export function toJson_KubeNetworkPolicyProps(obj: KubeNetworkPolicyProps | unde
  */
 export interface KubeNetworkPolicyListProps {
   /**
-   * Items is a list of schema objects.
-   *
-   * @schema io.k8s.api.networking.v1.NetworkPolicyList#items
-   */
-  readonly items: KubeNetworkPolicyProps[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.api.networking.v1.NetworkPolicyList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * Items is a list of schema objects.
+   *
+   * @schema io.k8s.api.networking.v1.NetworkPolicyList#items
+   */
+  readonly items: KubeNetworkPolicyProps[];
 
 }
 
@@ -14743,8 +14743,8 @@ export interface KubeNetworkPolicyListProps {
 export function toJson_KubeNetworkPolicyListProps(obj: KubeNetworkPolicyListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeNetworkPolicyProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeNetworkPolicyProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -14795,18 +14795,18 @@ export function toJson_KubeRuntimeClassV1Alpha1Props(obj: KubeRuntimeClassV1Alph
  */
 export interface KubeRuntimeClassListV1Alpha1Props {
   /**
-   * Items is a list of schema objects.
-   *
-   * @schema io.k8s.api.node.v1alpha1.RuntimeClassList#items
-   */
-  readonly items: KubeRuntimeClassV1Alpha1Props[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.api.node.v1alpha1.RuntimeClassList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * Items is a list of schema objects.
+   *
+   * @schema io.k8s.api.node.v1alpha1.RuntimeClassList#items
+   */
+  readonly items: KubeRuntimeClassV1Alpha1Props[];
 
 }
 
@@ -14817,8 +14817,8 @@ export interface KubeRuntimeClassListV1Alpha1Props {
 export function toJson_KubeRuntimeClassListV1Alpha1Props(obj: KubeRuntimeClassListV1Alpha1Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeRuntimeClassV1Alpha1Props(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeRuntimeClassV1Alpha1Props(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -14832,18 +14832,18 @@ export function toJson_KubeRuntimeClassListV1Alpha1Props(obj: KubeRuntimeClassLi
  */
 export interface KubeRuntimeClassV1Beta1Props {
   /**
-   * Handler specifies the underlying runtime and configuration that the CRI implementation will use to handle pods of this class. The possible values are specific to the node & CRI configuration.  It is assumed that all handlers are available on every node, and handlers of the same name are equivalent on every node. For example, a handler called "runc" might specify that the runc OCI runtime (using native Linux containers) will be used to run the containers in a pod. The Handler must conform to the DNS Label (RFC 1123) requirements, and is immutable.
-   *
-   * @schema io.k8s.api.node.v1beta1.RuntimeClass#handler
-   */
-  readonly handler: string;
-
-  /**
    * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.api.node.v1beta1.RuntimeClass#metadata
    */
   readonly metadata?: ObjectMeta;
+
+  /**
+   * Handler specifies the underlying runtime and configuration that the CRI implementation will use to handle pods of this class. The possible values are specific to the node & CRI configuration.  It is assumed that all handlers are available on every node, and handlers of the same name are equivalent on every node. For example, a handler called "runc" might specify that the runc OCI runtime (using native Linux containers) will be used to run the containers in a pod. The Handler must conform to the DNS Label (RFC 1123) requirements, and is immutable.
+   *
+   * @schema io.k8s.api.node.v1beta1.RuntimeClass#handler
+   */
+  readonly handler: string;
 
   /**
    * Overhead represents the resource overhead associated with running a pod for a given RuntimeClass. For more details, see https://git.k8s.io/enhancements/keps/sig-node/20190226-pod-overhead.md This field is alpha-level as of Kubernetes v1.15, and is only honored by servers that enable the PodOverhead feature.
@@ -14868,8 +14868,8 @@ export interface KubeRuntimeClassV1Beta1Props {
 export function toJson_KubeRuntimeClassV1Beta1Props(obj: KubeRuntimeClassV1Beta1Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'handler': obj.handler,
     'metadata': toJson_ObjectMeta(obj.metadata),
+    'handler': obj.handler,
     'overhead': toJson_OverheadV1Beta1(obj.overhead),
     'scheduling': toJson_SchedulingV1Beta1(obj.scheduling),
   };
@@ -14885,18 +14885,18 @@ export function toJson_KubeRuntimeClassV1Beta1Props(obj: KubeRuntimeClassV1Beta1
  */
 export interface KubeRuntimeClassListV1Beta1Props {
   /**
-   * Items is a list of schema objects.
-   *
-   * @schema io.k8s.api.node.v1beta1.RuntimeClassList#items
-   */
-  readonly items: KubeRuntimeClassV1Beta1Props[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.api.node.v1beta1.RuntimeClassList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * Items is a list of schema objects.
+   *
+   * @schema io.k8s.api.node.v1beta1.RuntimeClassList#items
+   */
+  readonly items: KubeRuntimeClassV1Beta1Props[];
 
 }
 
@@ -14907,8 +14907,8 @@ export interface KubeRuntimeClassListV1Beta1Props {
 export function toJson_KubeRuntimeClassListV1Beta1Props(obj: KubeRuntimeClassListV1Beta1Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeRuntimeClassV1Beta1Props(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeRuntimeClassV1Beta1Props(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -14922,18 +14922,18 @@ export function toJson_KubeRuntimeClassListV1Beta1Props(obj: KubeRuntimeClassLis
  */
 export interface KubeEvictionV1Beta1Props {
   /**
-   * DeleteOptions may be provided
-   *
-   * @schema io.k8s.api.policy.v1beta1.Eviction#deleteOptions
-   */
-  readonly deleteOptions?: DeleteOptions;
-
-  /**
    * ObjectMeta describes the pod that is being evicted.
    *
    * @schema io.k8s.api.policy.v1beta1.Eviction#metadata
    */
   readonly metadata?: ObjectMeta;
+
+  /**
+   * DeleteOptions may be provided
+   *
+   * @schema io.k8s.api.policy.v1beta1.Eviction#deleteOptions
+   */
+  readonly deleteOptions?: DeleteOptions;
 
 }
 
@@ -14944,8 +14944,8 @@ export interface KubeEvictionV1Beta1Props {
 export function toJson_KubeEvictionV1Beta1Props(obj: KubeEvictionV1Beta1Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'deleteOptions': toJson_DeleteOptions(obj.deleteOptions),
     'metadata': toJson_ObjectMeta(obj.metadata),
+    'deleteOptions': toJson_DeleteOptions(obj.deleteOptions),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -14994,14 +14994,14 @@ export function toJson_KubePodDisruptionBudgetV1Beta1Props(obj: KubePodDisruptio
  */
 export interface KubePodDisruptionBudgetListV1Beta1Props {
   /**
-   * @schema io.k8s.api.policy.v1beta1.PodDisruptionBudgetList#items
-   */
-  readonly items: KubePodDisruptionBudgetV1Beta1Props[];
-
-  /**
    * @schema io.k8s.api.policy.v1beta1.PodDisruptionBudgetList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * @schema io.k8s.api.policy.v1beta1.PodDisruptionBudgetList#items
+   */
+  readonly items: KubePodDisruptionBudgetV1Beta1Props[];
 
 }
 
@@ -15012,8 +15012,8 @@ export interface KubePodDisruptionBudgetListV1Beta1Props {
 export function toJson_KubePodDisruptionBudgetListV1Beta1Props(obj: KubePodDisruptionBudgetListV1Beta1Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubePodDisruptionBudgetV1Beta1Props(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubePodDisruptionBudgetV1Beta1Props(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -15027,18 +15027,18 @@ export function toJson_KubePodDisruptionBudgetListV1Beta1Props(obj: KubePodDisru
  */
 export interface KubeClusterRoleProps {
   /**
-   * AggregationRule is an optional field that describes how to build the Rules for this ClusterRole. If AggregationRule is set, then the Rules are controller managed and direct changes to Rules will be stomped by the controller.
-   *
-   * @schema io.k8s.api.rbac.v1.ClusterRole#aggregationRule
-   */
-  readonly aggregationRule?: AggregationRule;
-
-  /**
    * Standard object's metadata.
    *
    * @schema io.k8s.api.rbac.v1.ClusterRole#metadata
    */
   readonly metadata?: ObjectMeta;
+
+  /**
+   * AggregationRule is an optional field that describes how to build the Rules for this ClusterRole. If AggregationRule is set, then the Rules are controller managed and direct changes to Rules will be stomped by the controller.
+   *
+   * @schema io.k8s.api.rbac.v1.ClusterRole#aggregationRule
+   */
+  readonly aggregationRule?: AggregationRule;
 
   /**
    * Rules holds all the PolicyRules for this ClusterRole
@@ -15056,8 +15056,8 @@ export interface KubeClusterRoleProps {
 export function toJson_KubeClusterRoleProps(obj: KubeClusterRoleProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'aggregationRule': toJson_AggregationRule(obj.aggregationRule),
     'metadata': toJson_ObjectMeta(obj.metadata),
+    'aggregationRule': toJson_AggregationRule(obj.aggregationRule),
     'rules': obj.rules?.map(y => toJson_PolicyRule(y)),
   };
   // filter undefined values
@@ -15117,18 +15117,18 @@ export function toJson_KubeClusterRoleBindingProps(obj: KubeClusterRoleBindingPr
  */
 export interface KubeClusterRoleBindingListProps {
   /**
-   * Items is a list of ClusterRoleBindings
-   *
-   * @schema io.k8s.api.rbac.v1.ClusterRoleBindingList#items
-   */
-  readonly items: KubeClusterRoleBindingProps[];
-
-  /**
    * Standard object's metadata.
    *
    * @schema io.k8s.api.rbac.v1.ClusterRoleBindingList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * Items is a list of ClusterRoleBindings
+   *
+   * @schema io.k8s.api.rbac.v1.ClusterRoleBindingList#items
+   */
+  readonly items: KubeClusterRoleBindingProps[];
 
 }
 
@@ -15139,8 +15139,8 @@ export interface KubeClusterRoleBindingListProps {
 export function toJson_KubeClusterRoleBindingListProps(obj: KubeClusterRoleBindingListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeClusterRoleBindingProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeClusterRoleBindingProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -15154,18 +15154,18 @@ export function toJson_KubeClusterRoleBindingListProps(obj: KubeClusterRoleBindi
  */
 export interface KubeClusterRoleListProps {
   /**
-   * Items is a list of ClusterRoles
-   *
-   * @schema io.k8s.api.rbac.v1.ClusterRoleList#items
-   */
-  readonly items: KubeClusterRoleProps[];
-
-  /**
    * Standard object's metadata.
    *
    * @schema io.k8s.api.rbac.v1.ClusterRoleList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * Items is a list of ClusterRoles
+   *
+   * @schema io.k8s.api.rbac.v1.ClusterRoleList#items
+   */
+  readonly items: KubeClusterRoleProps[];
 
 }
 
@@ -15176,8 +15176,8 @@ export interface KubeClusterRoleListProps {
 export function toJson_KubeClusterRoleListProps(obj: KubeClusterRoleListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeClusterRoleProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeClusterRoleProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -15273,18 +15273,18 @@ export function toJson_KubeRoleBindingProps(obj: KubeRoleBindingProps | undefine
  */
 export interface KubeRoleBindingListProps {
   /**
-   * Items is a list of RoleBindings
-   *
-   * @schema io.k8s.api.rbac.v1.RoleBindingList#items
-   */
-  readonly items: KubeRoleBindingProps[];
-
-  /**
    * Standard object's metadata.
    *
    * @schema io.k8s.api.rbac.v1.RoleBindingList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * Items is a list of RoleBindings
+   *
+   * @schema io.k8s.api.rbac.v1.RoleBindingList#items
+   */
+  readonly items: KubeRoleBindingProps[];
 
 }
 
@@ -15295,8 +15295,8 @@ export interface KubeRoleBindingListProps {
 export function toJson_KubeRoleBindingListProps(obj: KubeRoleBindingListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeRoleBindingProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeRoleBindingProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -15310,18 +15310,18 @@ export function toJson_KubeRoleBindingListProps(obj: KubeRoleBindingListProps | 
  */
 export interface KubeRoleListProps {
   /**
-   * Items is a list of Roles
-   *
-   * @schema io.k8s.api.rbac.v1.RoleList#items
-   */
-  readonly items: KubeRoleProps[];
-
-  /**
    * Standard object's metadata.
    *
    * @schema io.k8s.api.rbac.v1.RoleList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * Items is a list of Roles
+   *
+   * @schema io.k8s.api.rbac.v1.RoleList#items
+   */
+  readonly items: KubeRoleProps[];
 
 }
 
@@ -15332,8 +15332,8 @@ export interface KubeRoleListProps {
 export function toJson_KubeRoleListProps(obj: KubeRoleListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeRoleProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeRoleProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -15347,18 +15347,18 @@ export function toJson_KubeRoleListProps(obj: KubeRoleListProps | undefined): Re
  */
 export interface KubeClusterRoleV1Alpha1Props {
   /**
-   * AggregationRule is an optional field that describes how to build the Rules for this ClusterRole. If AggregationRule is set, then the Rules are controller managed and direct changes to Rules will be stomped by the controller.
-   *
-   * @schema io.k8s.api.rbac.v1alpha1.ClusterRole#aggregationRule
-   */
-  readonly aggregationRule?: AggregationRuleV1Alpha1;
-
-  /**
    * Standard object's metadata.
    *
    * @schema io.k8s.api.rbac.v1alpha1.ClusterRole#metadata
    */
   readonly metadata?: ObjectMeta;
+
+  /**
+   * AggregationRule is an optional field that describes how to build the Rules for this ClusterRole. If AggregationRule is set, then the Rules are controller managed and direct changes to Rules will be stomped by the controller.
+   *
+   * @schema io.k8s.api.rbac.v1alpha1.ClusterRole#aggregationRule
+   */
+  readonly aggregationRule?: AggregationRuleV1Alpha1;
 
   /**
    * Rules holds all the PolicyRules for this ClusterRole
@@ -15376,8 +15376,8 @@ export interface KubeClusterRoleV1Alpha1Props {
 export function toJson_KubeClusterRoleV1Alpha1Props(obj: KubeClusterRoleV1Alpha1Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'aggregationRule': toJson_AggregationRuleV1Alpha1(obj.aggregationRule),
     'metadata': toJson_ObjectMeta(obj.metadata),
+    'aggregationRule': toJson_AggregationRuleV1Alpha1(obj.aggregationRule),
     'rules': obj.rules?.map(y => toJson_PolicyRuleV1Alpha1(y)),
   };
   // filter undefined values
@@ -15437,18 +15437,18 @@ export function toJson_KubeClusterRoleBindingV1Alpha1Props(obj: KubeClusterRoleB
  */
 export interface KubeClusterRoleBindingListV1Alpha1Props {
   /**
-   * Items is a list of ClusterRoleBindings
-   *
-   * @schema io.k8s.api.rbac.v1alpha1.ClusterRoleBindingList#items
-   */
-  readonly items: KubeClusterRoleBindingV1Alpha1Props[];
-
-  /**
    * Standard object's metadata.
    *
    * @schema io.k8s.api.rbac.v1alpha1.ClusterRoleBindingList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * Items is a list of ClusterRoleBindings
+   *
+   * @schema io.k8s.api.rbac.v1alpha1.ClusterRoleBindingList#items
+   */
+  readonly items: KubeClusterRoleBindingV1Alpha1Props[];
 
 }
 
@@ -15459,8 +15459,8 @@ export interface KubeClusterRoleBindingListV1Alpha1Props {
 export function toJson_KubeClusterRoleBindingListV1Alpha1Props(obj: KubeClusterRoleBindingListV1Alpha1Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeClusterRoleBindingV1Alpha1Props(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeClusterRoleBindingV1Alpha1Props(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -15474,18 +15474,18 @@ export function toJson_KubeClusterRoleBindingListV1Alpha1Props(obj: KubeClusterR
  */
 export interface KubeClusterRoleListV1Alpha1Props {
   /**
-   * Items is a list of ClusterRoles
-   *
-   * @schema io.k8s.api.rbac.v1alpha1.ClusterRoleList#items
-   */
-  readonly items: KubeClusterRoleV1Alpha1Props[];
-
-  /**
    * Standard object's metadata.
    *
    * @schema io.k8s.api.rbac.v1alpha1.ClusterRoleList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * Items is a list of ClusterRoles
+   *
+   * @schema io.k8s.api.rbac.v1alpha1.ClusterRoleList#items
+   */
+  readonly items: KubeClusterRoleV1Alpha1Props[];
 
 }
 
@@ -15496,8 +15496,8 @@ export interface KubeClusterRoleListV1Alpha1Props {
 export function toJson_KubeClusterRoleListV1Alpha1Props(obj: KubeClusterRoleListV1Alpha1Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeClusterRoleV1Alpha1Props(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeClusterRoleV1Alpha1Props(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -15593,18 +15593,18 @@ export function toJson_KubeRoleBindingV1Alpha1Props(obj: KubeRoleBindingV1Alpha1
  */
 export interface KubeRoleBindingListV1Alpha1Props {
   /**
-   * Items is a list of RoleBindings
-   *
-   * @schema io.k8s.api.rbac.v1alpha1.RoleBindingList#items
-   */
-  readonly items: KubeRoleBindingV1Alpha1Props[];
-
-  /**
    * Standard object's metadata.
    *
    * @schema io.k8s.api.rbac.v1alpha1.RoleBindingList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * Items is a list of RoleBindings
+   *
+   * @schema io.k8s.api.rbac.v1alpha1.RoleBindingList#items
+   */
+  readonly items: KubeRoleBindingV1Alpha1Props[];
 
 }
 
@@ -15615,8 +15615,8 @@ export interface KubeRoleBindingListV1Alpha1Props {
 export function toJson_KubeRoleBindingListV1Alpha1Props(obj: KubeRoleBindingListV1Alpha1Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeRoleBindingV1Alpha1Props(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeRoleBindingV1Alpha1Props(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -15630,18 +15630,18 @@ export function toJson_KubeRoleBindingListV1Alpha1Props(obj: KubeRoleBindingList
  */
 export interface KubeRoleListV1Alpha1Props {
   /**
-   * Items is a list of Roles
-   *
-   * @schema io.k8s.api.rbac.v1alpha1.RoleList#items
-   */
-  readonly items: KubeRoleV1Alpha1Props[];
-
-  /**
    * Standard object's metadata.
    *
    * @schema io.k8s.api.rbac.v1alpha1.RoleList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * Items is a list of Roles
+   *
+   * @schema io.k8s.api.rbac.v1alpha1.RoleList#items
+   */
+  readonly items: KubeRoleV1Alpha1Props[];
 
 }
 
@@ -15652,8 +15652,8 @@ export interface KubeRoleListV1Alpha1Props {
 export function toJson_KubeRoleListV1Alpha1Props(obj: KubeRoleListV1Alpha1Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeRoleV1Alpha1Props(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeRoleV1Alpha1Props(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -15667,18 +15667,18 @@ export function toJson_KubeRoleListV1Alpha1Props(obj: KubeRoleListV1Alpha1Props 
  */
 export interface KubeClusterRoleV1Beta1Props {
   /**
-   * AggregationRule is an optional field that describes how to build the Rules for this ClusterRole. If AggregationRule is set, then the Rules are controller managed and direct changes to Rules will be stomped by the controller.
-   *
-   * @schema io.k8s.api.rbac.v1beta1.ClusterRole#aggregationRule
-   */
-  readonly aggregationRule?: AggregationRuleV1Beta1;
-
-  /**
    * Standard object's metadata.
    *
    * @schema io.k8s.api.rbac.v1beta1.ClusterRole#metadata
    */
   readonly metadata?: ObjectMeta;
+
+  /**
+   * AggregationRule is an optional field that describes how to build the Rules for this ClusterRole. If AggregationRule is set, then the Rules are controller managed and direct changes to Rules will be stomped by the controller.
+   *
+   * @schema io.k8s.api.rbac.v1beta1.ClusterRole#aggregationRule
+   */
+  readonly aggregationRule?: AggregationRuleV1Beta1;
 
   /**
    * Rules holds all the PolicyRules for this ClusterRole
@@ -15696,8 +15696,8 @@ export interface KubeClusterRoleV1Beta1Props {
 export function toJson_KubeClusterRoleV1Beta1Props(obj: KubeClusterRoleV1Beta1Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'aggregationRule': toJson_AggregationRuleV1Beta1(obj.aggregationRule),
     'metadata': toJson_ObjectMeta(obj.metadata),
+    'aggregationRule': toJson_AggregationRuleV1Beta1(obj.aggregationRule),
     'rules': obj.rules?.map(y => toJson_PolicyRuleV1Beta1(y)),
   };
   // filter undefined values
@@ -15757,18 +15757,18 @@ export function toJson_KubeClusterRoleBindingV1Beta1Props(obj: KubeClusterRoleBi
  */
 export interface KubeClusterRoleBindingListV1Beta1Props {
   /**
-   * Items is a list of ClusterRoleBindings
-   *
-   * @schema io.k8s.api.rbac.v1beta1.ClusterRoleBindingList#items
-   */
-  readonly items: KubeClusterRoleBindingV1Beta1Props[];
-
-  /**
    * Standard object's metadata.
    *
    * @schema io.k8s.api.rbac.v1beta1.ClusterRoleBindingList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * Items is a list of ClusterRoleBindings
+   *
+   * @schema io.k8s.api.rbac.v1beta1.ClusterRoleBindingList#items
+   */
+  readonly items: KubeClusterRoleBindingV1Beta1Props[];
 
 }
 
@@ -15779,8 +15779,8 @@ export interface KubeClusterRoleBindingListV1Beta1Props {
 export function toJson_KubeClusterRoleBindingListV1Beta1Props(obj: KubeClusterRoleBindingListV1Beta1Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeClusterRoleBindingV1Beta1Props(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeClusterRoleBindingV1Beta1Props(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -15794,18 +15794,18 @@ export function toJson_KubeClusterRoleBindingListV1Beta1Props(obj: KubeClusterRo
  */
 export interface KubeClusterRoleListV1Beta1Props {
   /**
-   * Items is a list of ClusterRoles
-   *
-   * @schema io.k8s.api.rbac.v1beta1.ClusterRoleList#items
-   */
-  readonly items: KubeClusterRoleV1Beta1Props[];
-
-  /**
    * Standard object's metadata.
    *
    * @schema io.k8s.api.rbac.v1beta1.ClusterRoleList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * Items is a list of ClusterRoles
+   *
+   * @schema io.k8s.api.rbac.v1beta1.ClusterRoleList#items
+   */
+  readonly items: KubeClusterRoleV1Beta1Props[];
 
 }
 
@@ -15816,8 +15816,8 @@ export interface KubeClusterRoleListV1Beta1Props {
 export function toJson_KubeClusterRoleListV1Beta1Props(obj: KubeClusterRoleListV1Beta1Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeClusterRoleV1Beta1Props(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeClusterRoleV1Beta1Props(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -15913,18 +15913,18 @@ export function toJson_KubeRoleBindingV1Beta1Props(obj: KubeRoleBindingV1Beta1Pr
  */
 export interface KubeRoleBindingListV1Beta1Props {
   /**
-   * Items is a list of RoleBindings
-   *
-   * @schema io.k8s.api.rbac.v1beta1.RoleBindingList#items
-   */
-  readonly items: KubeRoleBindingV1Beta1Props[];
-
-  /**
    * Standard object's metadata.
    *
    * @schema io.k8s.api.rbac.v1beta1.RoleBindingList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * Items is a list of RoleBindings
+   *
+   * @schema io.k8s.api.rbac.v1beta1.RoleBindingList#items
+   */
+  readonly items: KubeRoleBindingV1Beta1Props[];
 
 }
 
@@ -15935,8 +15935,8 @@ export interface KubeRoleBindingListV1Beta1Props {
 export function toJson_KubeRoleBindingListV1Beta1Props(obj: KubeRoleBindingListV1Beta1Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeRoleBindingV1Beta1Props(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeRoleBindingV1Beta1Props(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -15950,18 +15950,18 @@ export function toJson_KubeRoleBindingListV1Beta1Props(obj: KubeRoleBindingListV
  */
 export interface KubeRoleListV1Beta1Props {
   /**
-   * Items is a list of Roles
-   *
-   * @schema io.k8s.api.rbac.v1beta1.RoleList#items
-   */
-  readonly items: KubeRoleV1Beta1Props[];
-
-  /**
    * Standard object's metadata.
    *
    * @schema io.k8s.api.rbac.v1beta1.RoleList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * Items is a list of Roles
+   *
+   * @schema io.k8s.api.rbac.v1beta1.RoleList#items
+   */
+  readonly items: KubeRoleV1Beta1Props[];
 
 }
 
@@ -15972,8 +15972,8 @@ export interface KubeRoleListV1Beta1Props {
 export function toJson_KubeRoleListV1Beta1Props(obj: KubeRoleListV1Beta1Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeRoleV1Beta1Props(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeRoleV1Beta1Props(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -15987,6 +15987,13 @@ export function toJson_KubeRoleListV1Beta1Props(obj: KubeRoleListV1Beta1Props | 
  */
 export interface KubePriorityClassProps {
   /**
+   * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+   *
+   * @schema io.k8s.api.scheduling.v1.PriorityClass#metadata
+   */
+  readonly metadata?: ObjectMeta;
+
+  /**
    * description is an arbitrary string that usually provides guidelines on when this priority class should be used.
    *
    * @schema io.k8s.api.scheduling.v1.PriorityClass#description
@@ -15999,13 +16006,6 @@ export interface KubePriorityClassProps {
    * @schema io.k8s.api.scheduling.v1.PriorityClass#globalDefault
    */
   readonly globalDefault?: boolean;
-
-  /**
-   * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-   *
-   * @schema io.k8s.api.scheduling.v1.PriorityClass#metadata
-   */
-  readonly metadata?: ObjectMeta;
 
   /**
    * PreemptionPolicy is the Policy for preempting pods with lower priority. One of Never, PreemptLowerPriority. Defaults to PreemptLowerPriority if unset. This field is alpha-level and is only honored by servers that enable the NonPreemptingPriority feature.
@@ -16031,9 +16031,9 @@ export interface KubePriorityClassProps {
 export function toJson_KubePriorityClassProps(obj: KubePriorityClassProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
+    'metadata': toJson_ObjectMeta(obj.metadata),
     'description': obj.description,
     'globalDefault': obj.globalDefault,
-    'metadata': toJson_ObjectMeta(obj.metadata),
     'preemptionPolicy': obj.preemptionPolicy,
     'value': obj.value,
   };
@@ -16049,18 +16049,18 @@ export function toJson_KubePriorityClassProps(obj: KubePriorityClassProps | unde
  */
 export interface KubePriorityClassListProps {
   /**
-   * items is the list of PriorityClasses
-   *
-   * @schema io.k8s.api.scheduling.v1.PriorityClassList#items
-   */
-  readonly items: KubePriorityClassProps[];
-
-  /**
    * Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.api.scheduling.v1.PriorityClassList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * items is the list of PriorityClasses
+   *
+   * @schema io.k8s.api.scheduling.v1.PriorityClassList#items
+   */
+  readonly items: KubePriorityClassProps[];
 
 }
 
@@ -16071,8 +16071,8 @@ export interface KubePriorityClassListProps {
 export function toJson_KubePriorityClassListProps(obj: KubePriorityClassListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubePriorityClassProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubePriorityClassProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -16086,6 +16086,13 @@ export function toJson_KubePriorityClassListProps(obj: KubePriorityClassListProp
  */
 export interface KubePriorityClassV1Alpha1Props {
   /**
+   * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+   *
+   * @schema io.k8s.api.scheduling.v1alpha1.PriorityClass#metadata
+   */
+  readonly metadata?: ObjectMeta;
+
+  /**
    * description is an arbitrary string that usually provides guidelines on when this priority class should be used.
    *
    * @schema io.k8s.api.scheduling.v1alpha1.PriorityClass#description
@@ -16098,13 +16105,6 @@ export interface KubePriorityClassV1Alpha1Props {
    * @schema io.k8s.api.scheduling.v1alpha1.PriorityClass#globalDefault
    */
   readonly globalDefault?: boolean;
-
-  /**
-   * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-   *
-   * @schema io.k8s.api.scheduling.v1alpha1.PriorityClass#metadata
-   */
-  readonly metadata?: ObjectMeta;
 
   /**
    * PreemptionPolicy is the Policy for preempting pods with lower priority. One of Never, PreemptLowerPriority. Defaults to PreemptLowerPriority if unset. This field is alpha-level and is only honored by servers that enable the NonPreemptingPriority feature.
@@ -16130,9 +16130,9 @@ export interface KubePriorityClassV1Alpha1Props {
 export function toJson_KubePriorityClassV1Alpha1Props(obj: KubePriorityClassV1Alpha1Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
+    'metadata': toJson_ObjectMeta(obj.metadata),
     'description': obj.description,
     'globalDefault': obj.globalDefault,
-    'metadata': toJson_ObjectMeta(obj.metadata),
     'preemptionPolicy': obj.preemptionPolicy,
     'value': obj.value,
   };
@@ -16148,18 +16148,18 @@ export function toJson_KubePriorityClassV1Alpha1Props(obj: KubePriorityClassV1Al
  */
 export interface KubePriorityClassListV1Alpha1Props {
   /**
-   * items is the list of PriorityClasses
-   *
-   * @schema io.k8s.api.scheduling.v1alpha1.PriorityClassList#items
-   */
-  readonly items: KubePriorityClassV1Alpha1Props[];
-
-  /**
    * Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.api.scheduling.v1alpha1.PriorityClassList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * items is the list of PriorityClasses
+   *
+   * @schema io.k8s.api.scheduling.v1alpha1.PriorityClassList#items
+   */
+  readonly items: KubePriorityClassV1Alpha1Props[];
 
 }
 
@@ -16170,8 +16170,8 @@ export interface KubePriorityClassListV1Alpha1Props {
 export function toJson_KubePriorityClassListV1Alpha1Props(obj: KubePriorityClassListV1Alpha1Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubePriorityClassV1Alpha1Props(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubePriorityClassV1Alpha1Props(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -16185,6 +16185,13 @@ export function toJson_KubePriorityClassListV1Alpha1Props(obj: KubePriorityClass
  */
 export interface KubePriorityClassV1Beta1Props {
   /**
+   * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+   *
+   * @schema io.k8s.api.scheduling.v1beta1.PriorityClass#metadata
+   */
+  readonly metadata?: ObjectMeta;
+
+  /**
    * description is an arbitrary string that usually provides guidelines on when this priority class should be used.
    *
    * @schema io.k8s.api.scheduling.v1beta1.PriorityClass#description
@@ -16197,13 +16204,6 @@ export interface KubePriorityClassV1Beta1Props {
    * @schema io.k8s.api.scheduling.v1beta1.PriorityClass#globalDefault
    */
   readonly globalDefault?: boolean;
-
-  /**
-   * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-   *
-   * @schema io.k8s.api.scheduling.v1beta1.PriorityClass#metadata
-   */
-  readonly metadata?: ObjectMeta;
 
   /**
    * PreemptionPolicy is the Policy for preempting pods with lower priority. One of Never, PreemptLowerPriority. Defaults to PreemptLowerPriority if unset. This field is alpha-level and is only honored by servers that enable the NonPreemptingPriority feature.
@@ -16229,9 +16229,9 @@ export interface KubePriorityClassV1Beta1Props {
 export function toJson_KubePriorityClassV1Beta1Props(obj: KubePriorityClassV1Beta1Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
+    'metadata': toJson_ObjectMeta(obj.metadata),
     'description': obj.description,
     'globalDefault': obj.globalDefault,
-    'metadata': toJson_ObjectMeta(obj.metadata),
     'preemptionPolicy': obj.preemptionPolicy,
     'value': obj.value,
   };
@@ -16247,18 +16247,18 @@ export function toJson_KubePriorityClassV1Beta1Props(obj: KubePriorityClassV1Bet
  */
 export interface KubePriorityClassListV1Beta1Props {
   /**
-   * items is the list of PriorityClasses
-   *
-   * @schema io.k8s.api.scheduling.v1beta1.PriorityClassList#items
-   */
-  readonly items: KubePriorityClassV1Beta1Props[];
-
-  /**
    * Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.api.scheduling.v1beta1.PriorityClassList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * items is the list of PriorityClasses
+   *
+   * @schema io.k8s.api.scheduling.v1beta1.PriorityClassList#items
+   */
+  readonly items: KubePriorityClassV1Beta1Props[];
 
 }
 
@@ -16269,8 +16269,8 @@ export interface KubePriorityClassListV1Beta1Props {
 export function toJson_KubePriorityClassListV1Beta1Props(obj: KubePriorityClassListV1Beta1Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubePriorityClassV1Beta1Props(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubePriorityClassV1Beta1Props(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -16317,18 +16317,18 @@ export function toJson_KubePodPresetV1Alpha1Props(obj: KubePodPresetV1Alpha1Prop
  */
 export interface KubePodPresetListV1Alpha1Props {
   /**
-   * Items is a list of schema objects.
-   *
-   * @schema io.k8s.api.settings.v1alpha1.PodPresetList#items
-   */
-  readonly items: KubePodPresetV1Alpha1Props[];
-
-  /**
    * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.api.settings.v1alpha1.PodPresetList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * Items is a list of schema objects.
+   *
+   * @schema io.k8s.api.settings.v1alpha1.PodPresetList#items
+   */
+  readonly items: KubePodPresetV1Alpha1Props[];
 
 }
 
@@ -16339,8 +16339,8 @@ export interface KubePodPresetListV1Alpha1Props {
 export function toJson_KubePodPresetListV1Alpha1Props(obj: KubePodPresetListV1Alpha1Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubePodPresetV1Alpha1Props(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubePodPresetV1Alpha1Props(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -16391,18 +16391,18 @@ export function toJson_KubeCsiNodeProps(obj: KubeCsiNodeProps | undefined): Reco
  */
 export interface KubeCsiNodeListProps {
   /**
-   * items is the list of CSINode
-   *
-   * @schema io.k8s.api.storage.v1.CSINodeList#items
-   */
-  readonly items: KubeCsiNodeProps[];
-
-  /**
    * Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.api.storage.v1.CSINodeList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * items is the list of CSINode
+   *
+   * @schema io.k8s.api.storage.v1.CSINodeList#items
+   */
+  readonly items: KubeCsiNodeProps[];
 
 }
 
@@ -16413,8 +16413,8 @@ export interface KubeCsiNodeListProps {
 export function toJson_KubeCsiNodeListProps(obj: KubeCsiNodeListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeCsiNodeProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeCsiNodeProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -16430,6 +16430,13 @@ export function toJson_KubeCsiNodeListProps(obj: KubeCsiNodeListProps | undefine
  */
 export interface KubeStorageClassProps {
   /**
+   * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+   *
+   * @schema io.k8s.api.storage.v1.StorageClass#metadata
+   */
+  readonly metadata?: ObjectMeta;
+
+  /**
    * AllowVolumeExpansion shows whether the storage class allow volume expand
    *
    * @schema io.k8s.api.storage.v1.StorageClass#allowVolumeExpansion
@@ -16442,13 +16449,6 @@ export interface KubeStorageClassProps {
    * @schema io.k8s.api.storage.v1.StorageClass#allowedTopologies
    */
   readonly allowedTopologies?: TopologySelectorTerm[];
-
-  /**
-   * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-   *
-   * @schema io.k8s.api.storage.v1.StorageClass#metadata
-   */
-  readonly metadata?: ObjectMeta;
 
   /**
    * Dynamically provisioned PersistentVolumes of this storage class are created with these mountOptions, e.g. ["ro", "soft"]. Not validated - mount of the PVs will simply fail if one is invalid.
@@ -16495,9 +16495,9 @@ export interface KubeStorageClassProps {
 export function toJson_KubeStorageClassProps(obj: KubeStorageClassProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
+    'metadata': toJson_ObjectMeta(obj.metadata),
     'allowVolumeExpansion': obj.allowVolumeExpansion,
     'allowedTopologies': obj.allowedTopologies?.map(y => toJson_TopologySelectorTerm(y)),
-    'metadata': toJson_ObjectMeta(obj.metadata),
     'mountOptions': obj.mountOptions?.map(y => y),
     'parameters': ((obj.parameters) === undefined) ? undefined : (Object.entries(obj.parameters).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
     'provisioner': obj.provisioner,
@@ -16516,18 +16516,18 @@ export function toJson_KubeStorageClassProps(obj: KubeStorageClassProps | undefi
  */
 export interface KubeStorageClassListProps {
   /**
-   * Items is the list of StorageClasses
-   *
-   * @schema io.k8s.api.storage.v1.StorageClassList#items
-   */
-  readonly items: KubeStorageClassProps[];
-
-  /**
    * Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.api.storage.v1.StorageClassList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * Items is the list of StorageClasses
+   *
+   * @schema io.k8s.api.storage.v1.StorageClassList#items
+   */
+  readonly items: KubeStorageClassProps[];
 
 }
 
@@ -16538,8 +16538,8 @@ export interface KubeStorageClassListProps {
 export function toJson_KubeStorageClassListProps(obj: KubeStorageClassListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeStorageClassProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeStorageClassProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -16592,18 +16592,18 @@ export function toJson_KubeVolumeAttachmentProps(obj: KubeVolumeAttachmentProps 
  */
 export interface KubeVolumeAttachmentListProps {
   /**
-   * Items is the list of VolumeAttachments
-   *
-   * @schema io.k8s.api.storage.v1.VolumeAttachmentList#items
-   */
-  readonly items: KubeVolumeAttachmentProps[];
-
-  /**
    * Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.api.storage.v1.VolumeAttachmentList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * Items is the list of VolumeAttachments
+   *
+   * @schema io.k8s.api.storage.v1.VolumeAttachmentList#items
+   */
+  readonly items: KubeVolumeAttachmentProps[];
 
 }
 
@@ -16614,8 +16614,8 @@ export interface KubeVolumeAttachmentListProps {
 export function toJson_KubeVolumeAttachmentListProps(obj: KubeVolumeAttachmentListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeVolumeAttachmentProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeVolumeAttachmentProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -16668,18 +16668,18 @@ export function toJson_KubeVolumeAttachmentV1Alpha1Props(obj: KubeVolumeAttachme
  */
 export interface KubeVolumeAttachmentListV1Alpha1Props {
   /**
-   * Items is the list of VolumeAttachments
-   *
-   * @schema io.k8s.api.storage.v1alpha1.VolumeAttachmentList#items
-   */
-  readonly items: KubeVolumeAttachmentV1Alpha1Props[];
-
-  /**
    * Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.api.storage.v1alpha1.VolumeAttachmentList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * Items is the list of VolumeAttachments
+   *
+   * @schema io.k8s.api.storage.v1alpha1.VolumeAttachmentList#items
+   */
+  readonly items: KubeVolumeAttachmentV1Alpha1Props[];
 
 }
 
@@ -16690,8 +16690,8 @@ export interface KubeVolumeAttachmentListV1Alpha1Props {
 export function toJson_KubeVolumeAttachmentListV1Alpha1Props(obj: KubeVolumeAttachmentListV1Alpha1Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeVolumeAttachmentV1Alpha1Props(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeVolumeAttachmentV1Alpha1Props(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -16742,18 +16742,18 @@ export function toJson_KubeCsiDriverV1Beta1Props(obj: KubeCsiDriverV1Beta1Props 
  */
 export interface KubeCsiDriverListV1Beta1Props {
   /**
-   * items is the list of CSIDriver
-   *
-   * @schema io.k8s.api.storage.v1beta1.CSIDriverList#items
-   */
-  readonly items: KubeCsiDriverV1Beta1Props[];
-
-  /**
    * Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.api.storage.v1beta1.CSIDriverList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * items is the list of CSIDriver
+   *
+   * @schema io.k8s.api.storage.v1beta1.CSIDriverList#items
+   */
+  readonly items: KubeCsiDriverV1Beta1Props[];
 
 }
 
@@ -16764,8 +16764,8 @@ export interface KubeCsiDriverListV1Beta1Props {
 export function toJson_KubeCsiDriverListV1Beta1Props(obj: KubeCsiDriverListV1Beta1Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeCsiDriverV1Beta1Props(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeCsiDriverV1Beta1Props(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -16816,18 +16816,18 @@ export function toJson_KubeCsiNodeV1Beta1Props(obj: KubeCsiNodeV1Beta1Props | un
  */
 export interface KubeCsiNodeListV1Beta1Props {
   /**
-   * items is the list of CSINode
-   *
-   * @schema io.k8s.api.storage.v1beta1.CSINodeList#items
-   */
-  readonly items: KubeCsiNodeV1Beta1Props[];
-
-  /**
    * Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.api.storage.v1beta1.CSINodeList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * items is the list of CSINode
+   *
+   * @schema io.k8s.api.storage.v1beta1.CSINodeList#items
+   */
+  readonly items: KubeCsiNodeV1Beta1Props[];
 
 }
 
@@ -16838,8 +16838,8 @@ export interface KubeCsiNodeListV1Beta1Props {
 export function toJson_KubeCsiNodeListV1Beta1Props(obj: KubeCsiNodeListV1Beta1Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeCsiNodeV1Beta1Props(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeCsiNodeV1Beta1Props(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -16855,6 +16855,13 @@ export function toJson_KubeCsiNodeListV1Beta1Props(obj: KubeCsiNodeListV1Beta1Pr
  */
 export interface KubeStorageClassV1Beta1Props {
   /**
+   * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+   *
+   * @schema io.k8s.api.storage.v1beta1.StorageClass#metadata
+   */
+  readonly metadata?: ObjectMeta;
+
+  /**
    * AllowVolumeExpansion shows whether the storage class allow volume expand
    *
    * @schema io.k8s.api.storage.v1beta1.StorageClass#allowVolumeExpansion
@@ -16867,13 +16874,6 @@ export interface KubeStorageClassV1Beta1Props {
    * @schema io.k8s.api.storage.v1beta1.StorageClass#allowedTopologies
    */
   readonly allowedTopologies?: TopologySelectorTerm[];
-
-  /**
-   * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
-   *
-   * @schema io.k8s.api.storage.v1beta1.StorageClass#metadata
-   */
-  readonly metadata?: ObjectMeta;
 
   /**
    * Dynamically provisioned PersistentVolumes of this storage class are created with these mountOptions, e.g. ["ro", "soft"]. Not validated - mount of the PVs will simply fail if one is invalid.
@@ -16920,9 +16920,9 @@ export interface KubeStorageClassV1Beta1Props {
 export function toJson_KubeStorageClassV1Beta1Props(obj: KubeStorageClassV1Beta1Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
+    'metadata': toJson_ObjectMeta(obj.metadata),
     'allowVolumeExpansion': obj.allowVolumeExpansion,
     'allowedTopologies': obj.allowedTopologies?.map(y => toJson_TopologySelectorTerm(y)),
-    'metadata': toJson_ObjectMeta(obj.metadata),
     'mountOptions': obj.mountOptions?.map(y => y),
     'parameters': ((obj.parameters) === undefined) ? undefined : (Object.entries(obj.parameters).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
     'provisioner': obj.provisioner,
@@ -16941,18 +16941,18 @@ export function toJson_KubeStorageClassV1Beta1Props(obj: KubeStorageClassV1Beta1
  */
 export interface KubeStorageClassListV1Beta1Props {
   /**
-   * Items is the list of StorageClasses
-   *
-   * @schema io.k8s.api.storage.v1beta1.StorageClassList#items
-   */
-  readonly items: KubeStorageClassV1Beta1Props[];
-
-  /**
    * Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.api.storage.v1beta1.StorageClassList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * Items is the list of StorageClasses
+   *
+   * @schema io.k8s.api.storage.v1beta1.StorageClassList#items
+   */
+  readonly items: KubeStorageClassV1Beta1Props[];
 
 }
 
@@ -16963,8 +16963,8 @@ export interface KubeStorageClassListV1Beta1Props {
 export function toJson_KubeStorageClassListV1Beta1Props(obj: KubeStorageClassListV1Beta1Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeStorageClassV1Beta1Props(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeStorageClassV1Beta1Props(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -17017,18 +17017,18 @@ export function toJson_KubeVolumeAttachmentV1Beta1Props(obj: KubeVolumeAttachmen
  */
 export interface KubeVolumeAttachmentListV1Beta1Props {
   /**
-   * Items is the list of VolumeAttachments
-   *
-   * @schema io.k8s.api.storage.v1beta1.VolumeAttachmentList#items
-   */
-  readonly items: KubeVolumeAttachmentV1Beta1Props[];
-
-  /**
    * Standard list metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
    *
    * @schema io.k8s.api.storage.v1beta1.VolumeAttachmentList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * Items is the list of VolumeAttachments
+   *
+   * @schema io.k8s.api.storage.v1beta1.VolumeAttachmentList#items
+   */
+  readonly items: KubeVolumeAttachmentV1Beta1Props[];
 
 }
 
@@ -17039,8 +17039,8 @@ export interface KubeVolumeAttachmentListV1Beta1Props {
 export function toJson_KubeVolumeAttachmentListV1Beta1Props(obj: KubeVolumeAttachmentListV1Beta1Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeVolumeAttachmentV1Beta1Props(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeVolumeAttachmentV1Beta1Props(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -17089,16 +17089,16 @@ export function toJson_KubeCustomResourceDefinitionProps(obj: KubeCustomResource
  */
 export interface KubeCustomResourceDefinitionListProps {
   /**
+   * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinitionList#metadata
+   */
+  readonly metadata?: ListMeta;
+
+  /**
    * items list individual CustomResourceDefinition objects
    *
    * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinitionList#items
    */
   readonly items: KubeCustomResourceDefinitionProps[];
-
-  /**
-   * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceDefinitionList#metadata
-   */
-  readonly metadata?: ListMeta;
 
 }
 
@@ -17109,8 +17109,8 @@ export interface KubeCustomResourceDefinitionListProps {
 export function toJson_KubeCustomResourceDefinitionListProps(obj: KubeCustomResourceDefinitionListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeCustomResourceDefinitionProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeCustomResourceDefinitionProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -17159,16 +17159,16 @@ export function toJson_KubeCustomResourceDefinitionV1Beta1Props(obj: KubeCustomR
  */
 export interface KubeCustomResourceDefinitionListV1Beta1Props {
   /**
+   * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionList#metadata
+   */
+  readonly metadata?: ListMeta;
+
+  /**
    * items list individual CustomResourceDefinition objects
    *
    * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionList#items
    */
   readonly items: KubeCustomResourceDefinitionV1Beta1Props[];
-
-  /**
-   * @schema io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionList#metadata
-   */
-  readonly metadata?: ListMeta;
 
 }
 
@@ -17179,8 +17179,8 @@ export interface KubeCustomResourceDefinitionListV1Beta1Props {
 export function toJson_KubeCustomResourceDefinitionListV1Beta1Props(obj: KubeCustomResourceDefinitionListV1Beta1Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeCustomResourceDefinitionV1Beta1Props(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeCustomResourceDefinitionV1Beta1Props(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -17193,6 +17193,13 @@ export function toJson_KubeCustomResourceDefinitionListV1Beta1Props(obj: KubeCus
  * @schema io.k8s.apimachinery.pkg.apis.meta.v1.Status
  */
 export interface KubeStatusProps {
+  /**
+   * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+   *
+   * @schema io.k8s.apimachinery.pkg.apis.meta.v1.Status#metadata
+   */
+  readonly metadata?: ListMeta;
+
   /**
    * Suggested HTTP return code for this status, 0 if not set.
    *
@@ -17215,13 +17222,6 @@ export interface KubeStatusProps {
   readonly message?: string;
 
   /**
-   * Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
-   *
-   * @schema io.k8s.apimachinery.pkg.apis.meta.v1.Status#metadata
-   */
-  readonly metadata?: ListMeta;
-
-  /**
    * A machine-readable description of why this operation is in the "Failure" status. If this value is empty there is no information available. A Reason clarifies an HTTP status code but does not override it.
    *
    * @schema io.k8s.apimachinery.pkg.apis.meta.v1.Status#reason
@@ -17237,10 +17237,10 @@ export interface KubeStatusProps {
 export function toJson_KubeStatusProps(obj: KubeStatusProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
+    'metadata': toJson_ListMeta(obj.metadata),
     'code': obj.code,
     'details': toJson_StatusDetails(obj.details),
     'message': obj.message,
-    'metadata': toJson_ListMeta(obj.metadata),
     'reason': obj.reason,
   };
   // filter undefined values
@@ -17290,14 +17290,14 @@ export function toJson_KubeApiServiceProps(obj: KubeApiServiceProps | undefined)
  */
 export interface KubeApiServiceListProps {
   /**
-   * @schema io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIServiceList#items
-   */
-  readonly items: KubeApiServiceProps[];
-
-  /**
    * @schema io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIServiceList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * @schema io.k8s.kube-aggregator.pkg.apis.apiregistration.v1.APIServiceList#items
+   */
+  readonly items: KubeApiServiceProps[];
 
 }
 
@@ -17308,8 +17308,8 @@ export interface KubeApiServiceListProps {
 export function toJson_KubeApiServiceListProps(obj: KubeApiServiceListProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeApiServiceProps(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeApiServiceProps(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -17358,14 +17358,14 @@ export function toJson_KubeApiServiceV1Beta1Props(obj: KubeApiServiceV1Beta1Prop
  */
 export interface KubeApiServiceListV1Beta1Props {
   /**
-   * @schema io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIServiceList#items
-   */
-  readonly items: KubeApiServiceV1Beta1Props[];
-
-  /**
    * @schema io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIServiceList#metadata
    */
   readonly metadata?: ListMeta;
+
+  /**
+   * @schema io.k8s.kube-aggregator.pkg.apis.apiregistration.v1beta1.APIServiceList#items
+   */
+  readonly items: KubeApiServiceV1Beta1Props[];
 
 }
 
@@ -17376,8 +17376,8 @@ export interface KubeApiServiceListV1Beta1Props {
 export function toJson_KubeApiServiceListV1Beta1Props(obj: KubeApiServiceListV1Beta1Props | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'items': obj.items?.map(y => toJson_KubeApiServiceV1Beta1Props(y)),
     'metadata': toJson_ListMeta(obj.metadata),
+    'items': obj.items?.map(y => toJson_KubeApiServiceV1Beta1Props(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
