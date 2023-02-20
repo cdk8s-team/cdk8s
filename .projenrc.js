@@ -1,14 +1,16 @@
 const { javascript } = require('projen');
+const { Cdk8sTeamNodeProject } = require('@cdk8s/projen-common');
 const { JobPermission } = require('projen/lib/github/workflows-model');
 
 const mainBranch = 'master';
 
-const project = new javascript.NodeProject({
+const project = new Cdk8sTeamNodeProject({
   name: 'root',
+  repoName: 'cdk8s',
   defaultReleaseBranch: mainBranch,
   pullRequestTemplate: false,
   projenUpgradeSecret: 'PROJEN_GITHUB_TOKEN',
-  releaseWorkflow: false,
+  release: false,
   workflowBootstrapSteps: [
     {
       name: 'installing dependencies',
@@ -23,6 +25,7 @@ const project = new javascript.NodeProject({
     },
   ],
   devDeps: [
+    '@cdk8s/projen-common',
     '@types/jest',
     '@types/node',
     'cdk8s',
@@ -37,11 +40,6 @@ const project = new javascript.NodeProject({
     'typescript',
     'projen',
   ],
-  autoApproveOptions: {
-    allowedUsernames: ['cdk8s-automation'],
-    secret: 'GITHUB_TOKEN'
-  },
-  autoApproveUpgrades: true,
 });
 
 project.gitignore.exclude('.vscode/');
