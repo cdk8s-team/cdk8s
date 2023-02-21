@@ -14,7 +14,7 @@ This section includes API reference for the various components of cdk8s.
     * [**cdk8s**](/cdk8s/python.md)
     * [**cdk8s-plus-24**](./cdk8s-plus-24/python.md) · Kubernetes v1.24.0
     * [**cdk8s-plus-25**](./cdk8s-plus-25/python.md) · Kubernetes v1.25.0
-    * [**cdk8s-plus-26**](./cdk8s-plus-25/python.md) · Kubernetes v1.26.0
+    * [**cdk8s-plus-26**](./cdk8s-plus-26/python.md) · Kubernetes v1.26.0
 
 === "Java"
 
