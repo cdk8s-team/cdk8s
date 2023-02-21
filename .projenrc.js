@@ -91,7 +91,7 @@ workflow.addJobs({
     permissions: {
       contents: JobPermission.WRITE,
     },
-    runsOn: 'ubuntu-18.04',
+    runsOn: 'ubuntu-latest',
     steps: [
       {
         name: 'Checkout sources',
