@@ -1,6 +1,10 @@
 {
   "dependencies": [
     {
+      "name": "@cdk8s/projen-common",
+      "type": "build"
+    },
+    {
       "name": "@types/jest",
       "type": "build"
     },

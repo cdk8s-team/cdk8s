@@ -1,5 +1,9 @@
 {
   "name": "root",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cdk8s-team/cdk8s.git"
+  },
   "scripts": {
     "build": "npx projen build",
     "clobber": "npx projen clobber",
@@ -16,7 +20,12 @@
     "upgrade": "npx projen upgrade",
     "projen": "npx projen"
   },
+  "author": {
+    "name": "Amazon Web Services",
+    "organization": false
+  },
   "devDependencies": {
+    "@cdk8s/projen-common": "^0.0.251",
     "@types/jest": "^26.0.24",
     "@types/node": "^14.18.36",
     "cdk8s": "^2.7.5",
@@ -33,6 +42,9 @@
     "semver": "^7.3.8",
     "ts-jest": "^27.1.5",
     "typescript": "^4.9.5"
+  },
+  "engines": {
+    "node": ">= 14.17.0"
   },
   "main": "lib/index.js",
   "license": "Apache-2.0",
