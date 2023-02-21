@@ -1,6 +1,6 @@
 import { Construct } from 'constructs';
 import { App, Chart, ChartProps } from 'cdk8s';
-import * as kplus from 'cdk8s-plus-25';
+import * as kplus from 'cdk8s-plus-26';
 
 export class MyChart extends Chart {
   constructor(scope: Construct, id: string, props: ChartProps = { }) {
