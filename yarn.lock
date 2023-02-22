@@ -2405,10 +2405,10 @@ cdk8s@2.2.87:
     follow-redirects "^1.14.9"
     yaml "2.0.0-7"
 
-cdk8s@^2.3.4, cdk8s@^2.5.26, cdk8s@^2.7.5, cdk8s@^2.7.7:
-  version "2.7.7"
-  resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-2.7.7.tgz#1d8e7dfea8ba83701b797f7f94b971a16e87f4b9"
-  integrity sha512-CRfB0yxK4H5nVH9ejWcmBgbcnvLAaazZ+fBBaVowPxqo6iXPCKvTO1zyWOi1uXZfN7GXZ5VbE1/OOceI/wi4YQ==
+cdk8s@^2.3.4, cdk8s@^2.5.26, cdk8s@^2.7.5, cdk8s@^2.7.8:
+  version "2.7.8"
+  resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-2.7.8.tgz#1626590f38e4d3be0377db4d750187f596270537"
+  integrity sha512-bbp7+25xlRcsjSh08pPFd/p5/pM+ydVv6EsUUDDPUnET+H29G+JfCFSjp81pHxizf7ZFOiyQAIqDTx7eZHL55A==
   dependencies:
     fast-json-patch "^3.1.1"
     follow-redirects "^1.15.2"
@@ -5326,9 +5326,9 @@ lru-cache@^6.0.0:
     yallist "^4.0.0"
 
 lru-cache@^7.4.4, lru-cache@^7.5.1, lru-cache@^7.7.1:
-  version "7.16.1"
-  resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-7.16.1.tgz#7acea16fecd9ed11430e78443c2bb81a06d3dea9"
-  integrity sha512-9kkuMZHnLH/8qXARvYSjNvq8S1GYFFzynQTAfKeaJ0sIrR3PUPuu37Z+EiIANiZBvpfTf2B5y8ecDLSMWlLv+w==
+  version "7.16.2"
+  resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-7.16.2.tgz#df096ce4374d0cf9d34f29a35832c80534af54b6"
+  integrity sha512-t6D6OM05Y3f+61zNnXh/+0D69kAgJKVEWLuWL1r38CIHRPTWpNjwpR7S+nmiQlG5GmUB1BDiiMjU1Ihs4YBLlg==
 
 make-dir@^2.1.0:
   version "2.1.0"

@@ -28,7 +28,7 @@
     "@cdk8s/projen-common": "^0.0.256",
     "@types/jest": "^26.0.24",
     "@types/node": "^14.18.36",
-    "cdk8s": "^2.7.7",
+    "cdk8s": "^2.7.8",
     "cdk8s-cli": "^2.1.138",
     "cdk8s-plus-24": "^2.4.32",
     "cdk8s-plus-25": "^2.4.31",
