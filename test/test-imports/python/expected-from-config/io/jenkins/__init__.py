@@ -2634,8 +2634,8 @@ class JenkinsSpecMasterContainersLifecyclePostStartHttpGetPort(
 
     @builtins.property
     @jsii.member(jsii_name="value")
-    def value(self) -> typing.Any:
-        return typing.cast(typing.Any, jsii.get(self, "value"))
+    def value(self) -> typing.Union[builtins.str, jsii.Number]:
+        return typing.cast(typing.Union[builtins.str, jsii.Number], jsii.get(self, "value"))
 
 
 @jsii.data_type(
@@ -2743,8 +2743,8 @@ class JenkinsSpecMasterContainersLifecyclePostStartTcpSocketPort(
 
     @builtins.property
     @jsii.member(jsii_name="value")
-    def value(self) -> typing.Any:
-        return typing.cast(typing.Any, jsii.get(self, "value"))
+    def value(self) -> typing.Union[builtins.str, jsii.Number]:
+        return typing.cast(typing.Union[builtins.str, jsii.Number], jsii.get(self, "value"))
 
 
 @jsii.data_type(
@@ -3103,8 +3103,8 @@ class JenkinsSpecMasterContainersLifecyclePreStopHttpGetPort(
 
     @builtins.property
     @jsii.member(jsii_name="value")
-    def value(self) -> typing.Any:
-        return typing.cast(typing.Any, jsii.get(self, "value"))
+    def value(self) -> typing.Union[builtins.str, jsii.Number]:
+        return typing.cast(typing.Union[builtins.str, jsii.Number], jsii.get(self, "value"))
 
 
 @jsii.data_type(
@@ -3212,8 +3212,8 @@ class JenkinsSpecMasterContainersLifecyclePreStopTcpSocketPort(
 
     @builtins.property
     @jsii.member(jsii_name="value")
-    def value(self) -> typing.Any:
-        return typing.cast(typing.Any, jsii.get(self, "value"))
+    def value(self) -> typing.Union[builtins.str, jsii.Number]:
+        return typing.cast(typing.Union[builtins.str, jsii.Number], jsii.get(self, "value"))
 
 
 @jsii.data_type(
@@ -3667,8 +3667,8 @@ class JenkinsSpecMasterContainersLivenessProbeHttpGetPort(
 
     @builtins.property
     @jsii.member(jsii_name="value")
-    def value(self) -> typing.Any:
-        return typing.cast(typing.Any, jsii.get(self, "value"))
+    def value(self) -> typing.Union[builtins.str, jsii.Number]:
+        return typing.cast(typing.Union[builtins.str, jsii.Number], jsii.get(self, "value"))
 
 
 @jsii.data_type(
@@ -3776,8 +3776,8 @@ class JenkinsSpecMasterContainersLivenessProbeTcpSocketPort(
 
     @builtins.property
     @jsii.member(jsii_name="value")
-    def value(self) -> typing.Any:
-        return typing.cast(typing.Any, jsii.get(self, "value"))
+    def value(self) -> typing.Union[builtins.str, jsii.Number]:
+        return typing.cast(typing.Union[builtins.str, jsii.Number], jsii.get(self, "value"))
 
 
 @jsii.data_type(
@@ -4349,8 +4349,8 @@ class JenkinsSpecMasterContainersReadinessProbeHttpGetPort(
 
     @builtins.property
     @jsii.member(jsii_name="value")
-    def value(self) -> typing.Any:
-        return typing.cast(typing.Any, jsii.get(self, "value"))
+    def value(self) -> typing.Union[builtins.str, jsii.Number]:
+        return typing.cast(typing.Union[builtins.str, jsii.Number], jsii.get(self, "value"))
 
 
 @jsii.data_type(
@@ -4458,8 +4458,8 @@ class JenkinsSpecMasterContainersReadinessProbeTcpSocketPort(
 
     @builtins.property
     @jsii.member(jsii_name="value")
-    def value(self) -> typing.Any:
-        return typing.cast(typing.Any, jsii.get(self, "value"))
+    def value(self) -> typing.Union[builtins.str, jsii.Number]:
+        return typing.cast(typing.Union[builtins.str, jsii.Number], jsii.get(self, "value"))
 
 
 @jsii.data_type(
