@@ -11772,8 +11772,8 @@ class IntOrString(metaclass=jsii.JSIIMeta, jsii_type="k8s.IntOrString"):
 
     @builtins.property
     @jsii.member(jsii_name="value")
-    def value(self) -> typing.Any:
-        return typing.cast(typing.Any, jsii.get(self, "value"))
+    def value(self) -> typing.Union[builtins.str, jsii.Number]:
+        return typing.cast(typing.Union[builtins.str, jsii.Number], jsii.get(self, "value"))
 
 
 @jsii.enum(jsii_type="k8s.IoK8SApimachineryPkgApisMetaV1DeleteOptionsKind")
@@ -48472,8 +48472,8 @@ class Quantity(metaclass=jsii.JSIIMeta, jsii_type="k8s.Quantity"):
 
     @builtins.property
     @jsii.member(jsii_name="value")
-    def value(self) -> typing.Any:
-        return typing.cast(typing.Any, jsii.get(self, "value"))
+    def value(self) -> typing.Union[builtins.str, jsii.Number]:
+        return typing.cast(typing.Union[builtins.str, jsii.Number], jsii.get(self, "value"))
 
 
 @jsii.data_type(

@@ -1813,7 +1813,7 @@ export class ClusterInstallationSpecLivenessProbeHttpGetPort {
   public static fromString(value: string): ClusterInstallationSpecLivenessProbeHttpGetPort {
     return new ClusterInstallationSpecLivenessProbeHttpGetPort(value);
   }
-  private constructor(public readonly value: any) {
+  private constructor(public readonly value: number | string) {
   }
 }
 
@@ -1829,7 +1829,7 @@ export class ClusterInstallationSpecLivenessProbeTcpSocketPort {
   public static fromString(value: string): ClusterInstallationSpecLivenessProbeTcpSocketPort {
     return new ClusterInstallationSpecLivenessProbeTcpSocketPort(value);
   }
-  private constructor(public readonly value: any) {
+  private constructor(public readonly value: number | string) {
   }
 }
 
@@ -2054,7 +2054,7 @@ export class ClusterInstallationSpecReadinessProbeHttpGetPort {
   public static fromString(value: string): ClusterInstallationSpecReadinessProbeHttpGetPort {
     return new ClusterInstallationSpecReadinessProbeHttpGetPort(value);
   }
-  private constructor(public readonly value: any) {
+  private constructor(public readonly value: number | string) {
   }
 }
 
@@ -2070,7 +2070,7 @@ export class ClusterInstallationSpecReadinessProbeTcpSocketPort {
   public static fromString(value: string): ClusterInstallationSpecReadinessProbeTcpSocketPort {
     return new ClusterInstallationSpecReadinessProbeTcpSocketPort(value);
   }
-  private constructor(public readonly value: any) {
+  private constructor(public readonly value: number | string) {
   }
 }
 

@@ -25586,7 +25586,7 @@ export class Quantity {
   public static fromNumber(value: number): Quantity {
     return new Quantity(value);
   }
-  private constructor(public readonly value: any) {
+  private constructor(public readonly value: string | number) {
   }
 }
 
@@ -28988,7 +28988,7 @@ export class IntOrString {
   public static fromNumber(value: number): IntOrString {
     return new IntOrString(value);
   }
-  private constructor(public readonly value: any) {
+  private constructor(public readonly value: string | number) {
   }
 }
 
