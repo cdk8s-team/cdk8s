@@ -18,6 +18,6 @@
     "upgrade:next": "npm i cdk8s@next cdk8s-cli@next"
   },
   "dependencies": {
-    "cdk8s": "2.2.87"
+    "cdk8s": "^2.2.87"
   }
 }

@@ -34,7 +34,7 @@ const project = new Cdk8sTeamNodeProject({
     'cdk8s-plus-25',
     'cdk8s-plus-26',
     'constructs',
-    'lerna@^4',
+    'lerna',
     'semver',
     'ts-jest',
     'typescript',
