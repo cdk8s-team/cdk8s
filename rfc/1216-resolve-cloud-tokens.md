@@ -1,7 +1,7 @@
 # Resolve Cloud Tokens
 
 * **Original Author(s):** @iliapolo
-* **Tracking Issue**: #1216
+* **Tracking Issue**: https://github.com/cdk8s-team/cdk8s/issues/1216
 * **API Bar Raiser**: @rix0rrr
 
 Users can now author cdk8s applications that rely on cloud
@@ -16,9 +16,9 @@ resources defined with the AWS CDK or the CDK For Terraform.
 ### README
 
 It is common for Kubernetes applications to leverage cloud resources for their operation.
-For example, a Kubernetes `CronJob` may need an S3 bucket to store computation results,
+For example, a Kubernetes `CronJob` may need an S3 `Bucket` to store computation results,
 or a Kubernetes `Deployment` might need a managed database like `DynamoDB` to
-store application data. In those cases, information such as the bucket
+store application data. To achieve this, information such as the bucket
 or table name needs to be passed into the Kubernetes resource definitions.
 
 If you use the [AWS CDK](https://aws.amazon.com/cdk/) or
@@ -42,12 +42,13 @@ const manifest = new k8s.Chart(k8sApp, 'Manifest');
 
 const bucket = new aws.aws_s3.Bucket(stack, 'Bucket');
 new kplus.CronJob(manifest, 'CronJob', {
- containers: [{
-   image: 'job',
-   envVariables: {
-     // passing the bucket name via an env variable
-     BUCKET_NAME: kplus.EnvValue.fromValue(bucket.bucketName),
-   }
+  schedule: k8s.Cron.daily(),
+  containers: [{
+    image: 'job',
+    envVariables: {
+      // passing the bucket name via an env variable
+      BUCKET_NAME: kplus.EnvValue.fromValue(bucket.bucket),
+    }
  }]
 });
 
@@ -55,16 +56,50 @@ k8sApp.synth();
 awsApp.synth();
 ```
 
-> Note that for brevity both the AWS CDK application, and the cdk8s application
+> Note that for brevity, both the AWS CDK application and the cdk8s application
 > are defined in the same file, but this doesn't have to be the case.
 
 The deployment workflow for such an application would be:
 
 1. `cdk deploy`: Provision the S3 Bucket.
 2. `cdk8s synth`: During synthesis, cdk8s will lookup the
-name of the provisioned bucket to produce the manifest.
+name of the provisioned bucket to produce the manifest. (this is why this step must<sup>*</sup> happen after step 1)
 3. `kubectl apply`: Apply the manifest to the cluster. Note that `kubectl`
 is only shown as an example here, any Kubernetes deployment mechanism can be used.
+
+> <sup>*</sup> In cases when information about cloud resources is known before
+> provisioning (for example when explicitly specifying a `bucketName`), `cdk8s synth`
+> can be executed at any time.
+
+The same thing can also be achieved with the CDK For Terraform:
+
+```ts
+import * as cdktf from "cdktf";
+import * as aws from "@cdktf/provider-aws";
+import * as k8s from 'cdk8s';
+import * as kplus from 'cdk8s-plus-26';
+
+const k8sApp = new k8s.App();
+const awsApp = new cdktf.App();
+
+const stack = new cdktf.TerraformStack(awsApp, 'Stack');
+const manifest = new k8s.Chart(k8sApp, 'Manifest');
+
+const bucket = new aws.s3Bucket.S3Bucket(stack, 'Bucket');
+new kplus.CronJob(manifest, 'CronJob', {
+  schedule: k8s.Cron.daily(),
+  containers: [{
+    image: 'job',
+    envVariables: {
+      // passing the bucket name via an env variable
+      BUCKET_NAME: kplus.EnvValue.fromValue(bucket.bucket),
+    }
+ }]
+});
+
+k8sApp.synth();
+awsApp.synth();
+```
 
 ---
 
