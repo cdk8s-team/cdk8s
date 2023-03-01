@@ -196,3 +196,7 @@ Feel free to add any number of appendices as you see fit. Appendices are
 expected to allow readers to dive deeper to certain sections if they like. For
 example, you can include an appendix which describes the detailed design of an
 algorithm and reference it from the FAQ.
+
+### Community
+
+This RFC originated as a community discussion: https://github.com/cdk8s-team/cdk8s/discussions/1198.
