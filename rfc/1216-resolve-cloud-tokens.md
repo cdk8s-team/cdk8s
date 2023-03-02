@@ -94,7 +94,7 @@ k8sApp.synth({ resolveAwsCDKTokens: true });
 ...
 ```
 
-Enabling this property will cause cdk8s to perform an AWS lookup when it
+Enabling this property will cause cdk8s to perform a lookup when it
 encounters an AWS CDK token, resolving it to its concrete value, and
 producing a valid manifest.
 
@@ -129,10 +129,10 @@ k8sApp.synth({ resolveCDKTFTokens: true });
 awsApp.synth();
 ```
 
-Note that enabling this functionality introduces 2 limitation:
+Note that enabling this functionality means that:
 
-- `cdk8s synth` must be executed after the cloud resources have been provisioned.
-- `cdk8s synth` must be executed in an environment that has connectivity
+1. `cdk8s synth` must be executed after the cloud resources have been provisioned.
+2. `cdk8s synth` must be executed in an environment that has connectivity
 and permissions to query cloud resources.
 
 ---
