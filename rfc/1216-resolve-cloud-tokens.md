@@ -86,11 +86,11 @@ spec:
 Notice the value of the `BUCKET_NAME` env variable is `${Token[TOKEN.603]}`,
 which is the string representation of an AWS CDK token, but has no
 meaning in the context of Kubernetes. To address this, you can set the `resolveAwsCDKTokens`
-property to `true` when constructing the cdk8s application:
+property to `true` when synthesizing the cdk8s application:
 
 ```ts
 ...
-const k8sApp = new k8s.App({ resolveAwsCDKTokens: true });
+k8sApp.synth({ resolveAwsCDKTokens: true });
 ...
 ```
 
@@ -107,7 +107,7 @@ import * as aws from "@cdktf/provider-aws";
 import * as k8s from 'cdk8s';
 import * as kplus from 'cdk8s-plus-26';
 
-const k8sApp = new k8s.App({ resolveCDKTFTokens: true });
+const k8sApp = new k8s.App();
 const awsApp = new tf.App();
 
 const stack = new tf.TerraformStack(awsApp, 'Stack');
@@ -125,7 +125,7 @@ new kplus.CronJob(manifest, 'CronJob', {
  }]
 });
 
-k8sApp.synth();
+k8sApp.synth({ resolveCDKTFTokens: true });
 awsApp.synth();
 ```
 
