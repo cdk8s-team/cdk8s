@@ -179,7 +179,7 @@ don't currently leverage the CDK ecosystem to define and deploy their workloads.
 
 ### Why should we _not_ do this?
 
-The main reason why not to do this is because there are several ways to
+The main reason not to do this is because there are several ways to
 address the use-case without this feature. A few approaches are possible:
 
 #### Pre Synth Query
