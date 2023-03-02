@@ -147,40 +147,85 @@ RFC pull request):
 
 ## Public FAQ
 
-> This section should include answers to questions readers will likely ask about
-> this release. Similar to the "working backwards", this section should be
-> written in a language as if the feature is now released.
->
-> The template includes a some common questions, feel free to add any questions
-> that might be relevant to this feature or omit questions that you feel are not
-> applicable.
-
 ### What are we launching today?
 
-> What exactly are we launching? Is this a new feature in an existing module? A
-> new module? A whole framework? A change in the CLI?
+A new feature in the `cdk8s` core library that allows synthesizing cdk8s
+applications that reference tokens from the AWS CDK or CDKTF frameworks.
 
 ### Why should I use this feature?
 
-> Describe use cases that are addressed by this feature.
+If your Kubernetes workloads rely on resources offered by a cloud provider,
+you can use this new feature to define cloud infrastructure and Kubernetes
+resources in the same application. You can leverage either the AWS CDK or
+the CDK For Terraform for your cloud infrastructure, and seamlessly reference
+it in your cdk8s application.
 
 ## Internal FAQ
 
-> The goal of this section is to help decide if this RFC should be implemented.
-> It should include answers to questions that the team is likely ask. Contrary
-> to the rest of the RFC, answers should be written "from the present" and
-> likely discuss design approach, implementation plans, alternative considered
-> and other considerations that will help decide if this RFC should be
-> implemented.
-
 ### Why are we doing this?
 
-> What is the motivation for this change?
+To alleviate customer pain in defining Kubernetes applications that leverage
+cloud infrastructure. Currently, synthesizing a cdk8s application that references
+cloud resources will result in an invalid and un-deployable Kubernetes manifest.
+Customers are therefore forced to eject from the cdk8s framework in order to implement
+such applications. Some customers we've spoken to have expressed concerns with
+with such an approach, and would love to see built-in support for this in cdk8s.
+
+So, even though this feature doesn't necessarily unlock the use-case, it provides a
+much better experience that can delight our customers.
+
+In addition, adding this capability into the framework may attract Kubernetes users who
+don't currently leverage the CDK ecosystem to define and deploy their workloads.
 
 ### Why should we _not_ do this?
 
-> Is there a way to address this use case with the current product? What are the
-> downsides of implementing this feature?
+The main reason why not to do this is because there are several ways to
+address the use-case without this feature. A few approaches are possible:
+
+#### Pre Synth Query
+
+In this approach, customers decouple the definition of cloud infrastructure from the
+definition of Kubernetes resources. That is, instead of referencing `bucket.bucketName`
+in the Kubernetes spec, they might extract it from an env variable via `process.env.BUCKET_NAME`.
+
+The responsibility of populating the `BUCKET_NAME` env variable falls to an
+external script that must be executed before calling `cdk8s synth`. The script will
+use service API's to query for the required information.
+
+Maintaining such a script can be complex because it requires constant coordination between two
+decoupled parts of the application. Every time a new cloud resource is utilized, it needs to
+be added in two places. This makes it clear that such decoupling is not natural, and is only caused
+by technical limitations.
+
+#### Pre Synth Provisioning
+
+In this approach, the cloud infrastructure is split into two:
+
+- One part contains independent<sup>*</sup> resources and is defined within
+the IaC application (AWS CDK or CDKTF).
+- The second part contains the resources being used by Kubernetes resources,
+and are provisioned imperatively before synthesis, either as part of the
+cdk8s application, or externally.
+
+> <sup>*</sup> Independent with respect to usage in Kubernetes resource definitions.
+
+This separation into imperative provisioning essentially re-introduces all
+the complexity that IaC aims to solve.
+
+#### Post Synth Query
+
+In this approach, cloud infrastructure and Kubernetes resources are defined in the same
+application using the standard IaC tooling. The Kubernetes resources are tightly coupled
+with their required cloud resources. To overcome the problem of the un-deployable manifest,
+Customers have to post-process the result of `cdk8s synth` to produce the final deployable
+manifest. This post synthesis step inspects the manifest for references to
+cloud resources, interprets them, and performs the necessary lookups.
+
+From an application maintenance perspective, this approach is actually pretty robust.
+The problem is that implementing and maintaining such a post synthesis step is not at all
+trivial. This RFC essentially proposes baking this step into the cdk8s framework, so that
+customers don't have to deal with the complexities it poses, outlined further down in
+this RFC.
 
 ### What is the technical solution (design) of this feature?
 
@@ -193,12 +238,7 @@ RFC pull request):
 
 ### Is this a breaking change?
 
-> If the answer is no. Otherwise:
->
-> Describe what ways did you consider to deliver this without breaking users?
->
-> Make sure to include a `BREAKING CHANGE` clause under the CHANGELOG section with a description of the breaking
-> changes and the migration path.
+No
 
 ### What alternative solutions did you consider?
 
@@ -230,7 +270,3 @@ Feel free to add any number of appendices as you see fit. Appendices are
 expected to allow readers to dive deeper to certain sections if they like. For
 example, you can include an appendix which describes the detailed design of an
 algorithm and reference it from the FAQ.
-
-### Community
-
-This RFC originated as a community discussion: https://github.com/cdk8s-team/cdk8s/discussions/1198.
