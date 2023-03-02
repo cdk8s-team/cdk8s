@@ -194,8 +194,8 @@ use service API's to query for the required information.
 
 Maintaining such a script can be complex because it requires constant coordination between two
 decoupled parts of the application. Every time a new cloud resource is utilized, it needs to
-be added in two places. This makes it clear that such decoupling is not natural, and is only caused
-by technical limitations.
+be added in two places. This makes it clear that such decoupling is not natural,
+and is only caused by technical limitations.
 
 #### Pre Synth Provisioning
 
