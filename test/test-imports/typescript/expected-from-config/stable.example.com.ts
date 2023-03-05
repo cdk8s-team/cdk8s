@@ -62,14 +62,14 @@ export class CronTab extends ApiObject {
  */
 export interface CronTabProps {
   /**
-   * @schema CronTab#spec
-   */
-  readonly spec?: CronTabSpec;
-
-  /**
    * @schema CronTab#metadata
    */
   readonly metadata?: ApiObjectMetadata;
+
+  /**
+   * @schema CronTab#spec
+   */
+  readonly spec?: CronTabSpec;
 
 }
 
@@ -80,8 +80,8 @@ export interface CronTabProps {
 export function toJson_CronTabProps(obj: CronTabProps | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'spec': toJson_CronTabSpec(obj.spec),
     'metadata': obj.metadata,
+    'spec': toJson_CronTabSpec(obj.spec),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});

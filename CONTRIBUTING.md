@@ -465,7 +465,7 @@ Throughout this process, update the tracking issue:
 
 The following state diagram describes the RFC process:
 
-![rfc-states](./images/lifecycle.png)
+![rfc-states](./rfc/images/lifecycle.png)
 
 <!--
 digraph states {

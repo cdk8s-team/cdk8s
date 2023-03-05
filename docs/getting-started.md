@@ -864,7 +864,7 @@ Here's how to implement `WebService`:
                     container_port: int = 8080):
             super().__init__(scope, id)
 
-            label = {'app': Node.of(self).unique_id}
+            label = {'app': Node.of(self).id} # only unique in current scope, for app-unique id use Node.of(self).addr
 
             k8s.KubeService(self, 'service',
                             spec=k8s.ServiceSpec(

@@ -1,5 +1,9 @@
 {
   "name": "root",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cdk8s-team/cdk8s.git"
+  },
   "scripts": {
     "build": "npx projen build",
     "clobber": "npx projen clobber",
@@ -16,23 +20,31 @@
     "upgrade": "npx projen upgrade",
     "projen": "npx projen"
   },
+  "author": {
+    "name": "Amazon Web Services",
+    "organization": false
+  },
   "devDependencies": {
+    "@cdk8s/projen-common": "^0.0.268",
     "@types/jest": "^26.0.24",
-    "@types/node": "^14.18.36",
-    "cdk8s": "^2.6.42",
-    "cdk8s-cli": "^2.1.129",
-    "cdk8s-plus-23": "^2.4.14",
-    "cdk8s-plus-24": "^2.4.14",
-    "cdk8s-plus-25": "^2.4.14",
-    "constructs": "^10.1.243",
+    "@types/node": "^14.18.37",
+    "cdk8s": "^2.7.18",
+    "cdk8s-cli": "^2.1.148",
+    "cdk8s-plus-24": "^2.4.43",
+    "cdk8s-plus-25": "^2.4.42",
+    "cdk8s-plus-26": "^2.0.13",
+    "constructs": "^10.1.267",
     "jest": "^27",
     "jest-junit": "^13",
-    "lerna": "^4",
+    "lerna": "^6.5.1",
     "npm-check-updates": "^16",
-    "projen": "^0.67.40",
+    "projen": "^0.67.72",
     "semver": "^7.3.8",
     "ts-jest": "^27.1.5",
     "typescript": "^4.9.5"
+  },
+  "engines": {
+    "node": ">= 14.17.0"
   },
   "main": "lib/index.js",
   "license": "Apache-2.0",
