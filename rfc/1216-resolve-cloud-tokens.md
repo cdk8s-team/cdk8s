@@ -51,8 +51,8 @@ new kplus.CronJob(manifest, 'CronJob', {
  }]
 });
 
-k8sApp.synth();
 awsApp.synth();
+k8sApp.synth();
 ```
 
 > Note that for brevity, both the AWS CDK application and the cdk8s application
@@ -125,8 +125,8 @@ new kplus.CronJob(manifest, 'CronJob', {
  }]
 });
 
-k8sApp.synth({ resolveCDKTFTokens: true });
 awsApp.synth();
+k8sApp.synth({ resolveCDKTFTokens: true });
 ```
 
 Note that enabling this functionality means that:
@@ -134,6 +134,10 @@ Note that enabling this functionality means that:
 1. `cdk8s synth` must be executed after the cloud resources have been provisioned.
 2. `cdk8s synth` must be executed in an environment that has connectivity
 and permissions to query cloud resources.
+
+#### Deployment
+
+There are two 
 
 ---
 
@@ -244,6 +248,66 @@ No
 
 > Briefly describe alternative approaches that you considered. If there are
 > hairy details, include them in an appendix.
+
+#### CloudControl API
+
+#### CfnOutput
+
+In this solution, whenever cdk8s encounters an AWS CDK token, it will:
+
+- If the corresponding CloudFormation output is defined, fetch its value.
+- If the corresponding CloudFormation output is missing, define it.
+
+For example, given the following definition:
+
+```ts
+new kplus.CronJob(manifest, 'CronJob', {
+  schedule: k8s.Cron.daily(),
+  containers: [{
+    image: 'job',
+    envVariables: {
+      // passing the bucket name via an env variable
+      BUCKET_NAME: kplus.EnvValue.fromValue(bucket.bucketName),
+    }
+ }]
+});
+```
+
+Resolving the `bucket.bucketName` token will look something like:
+
+```ts
+// some output id generated from the token
+const outputId = 'some-stable-id'
+
+// 'stack' is the AWS CDK stack where 'bucket' is defined.
+if (outputExists(stack, outputId)) {
+  return fetchValue(stack, outputId)
+} else {
+  new CfnOutput(stack, outputId, { value: bucket.bucketName });
+  return bucket.bucketName
+}
+```
+
+##### Pros
+
+- Outputs can be created for any CloudFormation attribute, which means all AWS CDK
+attributes will be supported.
+
+##### Cons
+
+While it makes sense for the cdk8s application to depend on the AWS CDK application,
+injecting these synthetic outputs also creates the reverse dependency. This is non intuitive and
+has some surprising implications:
+
+- Synthesizing the cdk8s application **must happen before** synthesizing the AWS CDK application.
+Otherwise, the necessary CloudFormation outputs won't exist.
+- Synthesizing the AWS CDK application separately from the cdk8s application will result in a different cloud assembly.
+- The cdk8s application needs to be synthesized twice, once to add the CloudFormation outputs, and once to fetch their values. This means that the first synthesis will inherently produce an invalid manifest.
+
+
+#### BucketDeployment
+
+
 
 ### What are the drawbacks of this solution?
 
