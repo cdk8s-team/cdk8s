@@ -135,12 +135,22 @@ Note that enabling this functionality means that:
 2. `cdk8s synth` must be executed in an environment that has connectivity
 and permissions to query cloud resources.
 
-Depending on your pipelines, different workflows need to be employed in order to deploy
-such applications.
+Depending on your repository setup, different mechanisms need to be employed in order
+to define and deploy such applications.
 
-#### Single Pipeline
+#### Single Repo
 
-#### Multiple Pipelines
+In case your cdk8s application is defined in the same repo as your cloud application, you can
+just intertwine cdk8s constructs alongside the cloud constructs, exactly like is
+shown in the example above. Deploying this app is fairly straight forward:
+
+1. Deploy the cloud resources (e.g `cdk deploy` or `cdktf deploy`)
+2. Synthesize the cdk8s application (e.g `cdk8s synth`)
+3. Deploy the Kubernetes manifests (e.g `kubectl apply`)
+
+#### Multiple Repositories
+
+TBD - How to share a CDK app...?
 
 ---
 
@@ -258,7 +268,7 @@ No
 
 In this solution, whenever cdk8s encounters an AWS CDK token, it will:
 
-- If the corresponding CloudFormation output is defined, fetch its value.
+- If the corresponding CloudFormation output exists and is deployed, fetch its value.
 - If the corresponding CloudFormation output is missing, define it.
 
 For example, given the following definition:
@@ -282,11 +292,11 @@ Resolving the `bucket.bucketName` token will look something like:
 // some output id generated from the token
 const outputId = 'some-stable-id'
 
-// 'stack' is the AWS CDK stack where 'bucket' is defined.
-if (outputExists(stack, outputId)) {
+try {
   return fetchValue(stack, outputId)
-} else {
+} catch (error: OutputNotFound) {
   new CfnOutput(stack, outputId, { value: bucket.bucketName });
+  // nothing else we can return here...
   return bucket.bucketName
 }
 ```
@@ -302,15 +312,19 @@ While it makes sense for the cdk8s application to depend on the AWS CDK applicat
 injecting these synthetic outputs also creates the reverse dependency. This is non intuitive and
 has some surprising implications:
 
-- Synthesizing the cdk8s application **must happen before** synthesizing the AWS CDK application.
+- Synthesizing the AWS CDK application **must happen after** synthesizing the cdk8s application.
 Otherwise, the necessary CloudFormation outputs won't exist.
 - Synthesizing the AWS CDK application separately from the cdk8s application will result in a different cloud assembly.
 - The cdk8s application needs to be synthesized twice, once to add the CloudFormation outputs, and once to fetch their values. This means that the first synthesis will inherently produce an invalid manifest.
 
+##### Decision
+
+It is hard to pin-point exactly what challenges the above implications will impose, but their existence
+can create an awkward and error prone experience. We therefore prefer avoiding them.
 
 #### BucketDeployment
 
-
+This solution is similar to the [CfnOutput](#cfnoutput) one
 
 ### What are the drawbacks of this solution?
 
