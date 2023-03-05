@@ -102,6 +102,7 @@ There are no downside of adding these features. This would add on to the value o
 ### What is the technical solution (design) of this feature?
 
 CDK8s CLI provides users with a `synth` command that helps with generating manifests for the given CDK8s App. This design focuses on adding more functionality to this command, like,
+
 **_No Code Synthesis_**
 
   This would give users the capability of generating manifests for CDK8s libraries existing on remote package registries.
