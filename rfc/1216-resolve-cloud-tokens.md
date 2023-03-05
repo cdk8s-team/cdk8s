@@ -33,10 +33,10 @@ import * as aws from 'aws-cdk-lib';
 import * as k8s from 'cdk8s';
 import * as kplus from 'cdk8s-plus-26';
 
-const k8sApp = new k8s.App();
 const awsApp = new aws.App();
-
 const stack = new aws.Stack(awsApp, 'Stack');
+
+const k8sApp = new k8s.App();
 const manifest = new k8s.Chart(k8sApp, 'Manifest');
 
 const bucket = new aws.aws_s3.Bucket(stack, 'Bucket');
@@ -107,10 +107,10 @@ import * as aws from "@cdktf/provider-aws";
 import * as k8s from 'cdk8s';
 import * as kplus from 'cdk8s-plus-26';
 
-const k8sApp = new k8s.App();
 const awsApp = new tf.App();
-
 const stack = new tf.TerraformStack(awsApp, 'Stack');
+
+const k8sApp = new k8s.App();
 const manifest = new k8s.Chart(k8sApp, 'Manifest');
 
 const bucket = new aws.s3Bucket.S3Bucket(stack, 'Bucket');
@@ -135,9 +135,12 @@ Note that enabling this functionality means that:
 2. `cdk8s synth` must be executed in an environment that has connectivity
 and permissions to query cloud resources.
 
-#### Deployment
+Depending on your pipelines, different workflows need to be employed in order to deploy
+such applications.
 
-There are two 
+#### Single Pipeline
+
+#### Multiple Pipelines
 
 ---
 
