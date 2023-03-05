@@ -102,42 +102,42 @@ There are no downside of adding these features. This would add on to the value o
 ### What is the technical solution (design) of this feature?
 
 CDK8s CLI provides users with a `synth` command that helps with generating manifests for the given CDK8s App. This design focuses on adding more functionality to this command, like,
-* _No Code Synthesis_
+**_No Code Synthesis_**
 
-This would give users the capability of generating manifests for CDK8s libraries existing on remote package registries.
+  This would give users the capability of generating manifests for CDK8s libraries existing on remote package registries.
 
-* _Support for helm format_
+**_Support for helm format_**
 
-This would enable users to generate manifests in a structure that is supported by helm and can ease the helm deployment with CDK8s experience for the user.
+  This would enable users to generate manifests in a structure that is supported by helm and can ease the helm deployment with CDK8s experience for the user.
 
-For instance, once implemented the user would be able to run,
-```
-cdk8s synth --package packageName --args args.yaml --format helm --output ./chart
-```
-where,
-* `cdk8s synth`: Is the synth command provided by CDK8s CLI for synthesizing a CDK8s application.
-* `--package`: **[NEW]** This would be a URL to the CDK8s library hosted on a remote package registry. 
-* `--args`: **[NEW]** This would be the input file that would contain the arguments to be supplied to the CDK8s library's construct. The following is how its format would look like,
-  ```yaml
-  library:                                    # Required
-    name: libraryName                         # Required
-    version: libraryVersion                   # Defaults to latest
-    constructs:                               # Required
-      - name: constructName                   # Required
-        properties:                           # Required
-          property-1-name:
-            type: someDataType                # Type and Value are required for a property
-            value: someValue                  
-          property-2-name:
-            type: anotherDataType
-            value:
-              someKey: someValue
-              anotherKey: anotherValue
+  For instance, once implemented the user would be able to run,
   ```
-* `--format`: **[NEW]** This would be the flag that can take helm as an option. This would mean that the manifests we would generate for the user would be structured in such a format that it's easier to deploy with helm.
-* `--output`: This is an existing flag where user can specify in which directory they would like the generated manifests to be stored in.
+  cdk8s synth --package packageName --args args.yaml --format helm --output ./chart
+  ```
+  where,
+  * `cdk8s synth`: Is the synth command provided by CDK8s CLI for synthesizing a CDK8s application.
+  * `--package`: **[NEW]** This would be a URL to the CDK8s library hosted on a remote package registry. 
+  * `--args`: **[NEW]** This would be the input file that would contain the arguments to be supplied to the CDK8s library's construct. The following is how its format would look like,
+    ```yaml
+    library:                                    # Required
+      name: libraryName                         # Required
+      version: libraryVersion                   # Defaults to latest
+      constructs:                               # Required
+        - name: constructName                   # Required
+          properties:                           # Required
+            property-1-name:
+              type: someDataType                # Type and Value are required for a property
+              value: someValue                  
+            property-2-name:
+              type: anotherDataType
+              value:
+                someKey: someValue
+                anotherKey: anotherValue
+    ```
+  * `--format`: **[NEW]** This would be the flag that can take helm as an option. This would mean that the manifests we would generate for the user would be structured in such a format that it's easier to deploy with helm.
+  * `--output`: This is an existing flag where user can specify in which directory they would like the generated manifests to be stored in.
 
-_An example is worth a thousand words_. Let's go through a couple of user scenarios to understand more about the design being proposed.
+  _An example is worth a thousand words_. Let's go through a couple of user scenarios to understand more about the design being proposed.
 
 **No Code Synthesis**
 
@@ -347,15 +347,15 @@ At the end, the temporary directory would be deleted and if there is an error to
 
 * **User runs `cdk8s synth --package packageName`**
 
-This command would result in an error because no input file is being passed. For synthesizing remote libraries we would required the user to pass in an input file.
+  This command would result in an error because no input file is being passed. For synthesizing remote libraries we would required the user to pass in an input file.
 
 * **User runs `cdk8s synth --package packageName --args args.yaml`**
 
-This would work as expected given the values passed are correct. Here, the `--format` would default to CDK8s instead of helm, which means we would just generate the manifest file and place it in a `./dist` folder in the directory this command is run at.
+  This would work as expected given the values passed are correct. Here, the `--format` would default to CDK8s instead of helm, which means we would just generate the manifest file and place it in a `./dist` folder in the directory this command is run at.
 
 * **User runs `cdk8s synth --args args.yaml --format helm --output ./chart`**
 
-This would fail since the `--package` flag is not specified. The synthesis process would not be aware of what to work on. 
+  This would fail since the `--package` flag is not specified. The synthesis process would not be aware of what to work on. 
 
 ---------------------------------------------
 
@@ -364,11 +364,11 @@ This would fail since the `--package` flag is not specified. The synthesis proce
 **Assumptions**
 - The user is running synthesis with `--format helm` for a [CDK8s App and not a CDK8s library](##Appendix).
 
-* User runs **`cdk8s synth --format helm --output ./chart`**
+**User runs `cdk8s synth --format helm --output ./chart`**
 
 Similar to what we see for the [No Code Synthesis design](####Helm-as-output-format), if the format is set for helm, we will create the appropriate file structure for helm chart with values required for helm deployment. The generated manifest files would be placed in `<--output value>/templates` folder since Helm expects manifests to be present in this folder.
 
-* User runs **`cdk8s synth --format helm`**
+**User runs `cdk8s synth --format helm`**
 
 This command would execute successfully. The `--output` value would be set to the default of `./chart` if `--format` is helm, which is true in this scenario.
 
@@ -380,20 +380,20 @@ This is not a breaking change. This is adding new functionality to the CDK8s CLI
 
 * **JSII Assemblies and Abstract Syntax Trees**
 
-[JSII assemblies](https://aws.github.io/jsii/user-guides/language-support/assembly/) give us a lot of context about what the file consists of. For instance, it can help us understand what construct are present in the library and what properties are related to them. This can be very useful and would decrease the user input for the argument's file that they need to pass in for remote synthesis of CDK8s library. 
-Unfortunately, this would only work for libraries that support JSII. We do not force our users to use JSII and hence I looked into similar libraries in different languages that can provide with a similar functionality. Where if presented with a file, the library can generate an abstract syntax tree for it which can provide us with meaningful results. There are two problems with this approach,
-1. This would add more dependencies to our product which in turn adds to more things to maintain or keep up with. 
-2. The experience with AST generation would vary from language to language due to the quality and features of libraries present in each language. This would not give our users a similar experience when working on different languages.
+  [JSII assemblies](https://aws.github.io/jsii/user-guides/language-support/assembly/) give us a lot of context about what the file consists of. For instance, it can help us understand what construct are present in the library and what properties are related to them. This can be very useful and would decrease the user input for the argument's file that they need to pass in for remote synthesis of CDK8s library. 
+  Unfortunately, this would only work for libraries that support JSII. We do not force our users to use JSII and hence I looked into similar libraries in different languages that can provide with a similar functionality. Where if presented with a file, the library can generate an abstract syntax tree for it which can provide us with meaningful results. There are two problems with this approach,
+  1. This would add more dependencies to our product which in turn adds to more things to maintain or keep up with. 
+  2. The experience with AST generation would vary from language to language due to the quality and features of libraries present in each language. This would not give our users a similar experience when working on different languages.
 
 * **`helm create` command**
 
-[helm create](https://helm.sh/docs/helm/helm_create/) is a helm command that generates a templated chart with the necessary folder structure and files needed to deploy the chart with helm. I did not use this to create the chart structure for two reasons,
-1. This would mean that we need to take a dependency with helm or mention to the user that helm needs to be present on their machine for the synthesis to work in this scenario.
-2. This command creates all the necessary structure but also creates files for simple `nginx` application. For our purposes, these files would either needed to be deleted or modified to work with the manifests we are generating. This feels like an over kill to accomplish our requirements.
+  [helm create](https://helm.sh/docs/helm/helm_create/) is a helm command that generates a templated chart with the necessary folder structure and files needed to deploy the chart with helm. I did not use this to create the chart structure for two reasons,
+  1. This would mean that we need to take a dependency with helm or mention to the user that helm needs to be present on their machine for the synthesis to work in this scenario.
+  2. This command creates all the necessary structure but also creates files for simple `nginx` application. For our purposes, these files would either needed to be deleted or modified to work with the manifests we are generating. This feels like an over kill to accomplish our requirements.
 
 ### What are the drawbacks of this solution?
 
-* **Running init while no code synthesis would make synth slower**
+**Running init while no code synthesis would make synth slower**
 
 We need to rely on cdk8s init as part of synthesizing for **No Code Synthesis** since CDK8s libraries are hosted on package registries and not CDK8s apps. So we need to create an app to host them as per the design proposed. This would add to the time we already spend to synthesize manifest. For instance, following are the approximate time taken to run `cdk8s init python-app` five times,
 
@@ -442,6 +442,6 @@ Currently, `No Code Synthesis` just focuses on repositories stored on remote pac
 
 * **What is the difference between CDK8s library and CDK8s app?**
 
-Libraries are reusable components that defines constructs but CDK8s App contains initialization of these constructs with necessary inputs.
+  Libraries are reusable components that defines constructs but CDK8s App contains initialization of these constructs with necessary inputs.
 
 ---
