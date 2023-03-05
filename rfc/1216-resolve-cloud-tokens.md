@@ -324,7 +324,24 @@ can create an awkward and error prone experience. We therefore prefer avoiding t
 
 #### BucketDeployment
 
-This solution is similar to the [CfnOutput](#cfnoutput) one
+This solution is similar to the [CfnOutput](#cfnoutput) one, but instead of creating a `CfnOutput`,
+we create a [`BucketDeployment`](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_s3_deployment.BucketDeployment.html) resource. This resource allows creating a [JSON file](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_s3_deployment.Source.html#static-jsonwbrdataobjectkey-obj) that supports deploy time values. This file can contain the token value and can be downloaded by cdk8s during synthesis.
+
+##### Pros
+
+- The JSON file can contain any token, which means all AWS CDK attributes will be supported.
+- Only a single resource is added to the AWS CDK application, as opposed to multiple outputs.
+- During cdk8s synthesis, only a single network call is needed to download the file, as opposed
+to multiple ones for fetching the outputs.
+
+##### Cons
+
+The cons remain exactly the same as the [ones](#cons) from the `CfnOutput` solution.
+
+##### Decision
+
+The benefits of this solution over the outputs solution are not strong enough
+to overcome the cons, so it is rejected on the same account.
 
 ### What are the drawbacks of this solution?
 
