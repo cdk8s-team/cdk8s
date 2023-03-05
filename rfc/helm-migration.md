@@ -5,6 +5,7 @@
 * **API Bar Raiser**: @iliapolo
 
 Users are now able to synthesize CDK8s libraries hosted on package registries like npm, pypi without the need of setting up a CDK8s app locally. 
+
 And, users can now also choose helm as a format for their generated manifests which would make it easier for them to deploy manifests using helm.
 
 ---
@@ -76,11 +77,12 @@ We have added new features to CDK8s CLI synth command. Now, the users can,
 
 **Helm as supported format**
 
-Currently, the deployment process is not straight forward after generation of manifests with a CDK8s App. This feature would enable you to generate helm charts hosting your generated manifests. This would ease the deployment since helm can accept this chart and deploy it for you to your Kubernetes cluster.
+Currently, the deployment process is not straight forward after generation of manifests with a CDK8s App. This feature would enable you to generate helm charts hosting your generated manifests. This would ease the deployment since helm can accept this chart and deploy it to your Kubernetes cluster.
 
 **No code synthesis**
 
 This would enable you to generate manifests without hosting any code locally. For instance, right now, you would need to have a CDK8s App locally and initialize constructs in these libraries and then run synthesis to generate new manifests. With this feature, you can do that just by mentioning the remote repository and passing in an arguments file in the synthesis command and it would generate the manifests for you. 
+
 Another use case could be as part of your CI/CD process where you just need to add a manifest to your repository each time a new change is introduced to your manifests. 
 
 ---
@@ -101,8 +103,11 @@ There are no downside of adding these features. This would add on to the value o
 
 CDK8s CLI provides users with a `synth` command that helps with generating manifests for the given CDK8s App. This design focuses on adding more functionality to this command, like,
 * _No Code Synthesis_
+
 This would give users the capability of generating manifests for CDK8s libraries existing on remote package registries.
+
 * _Support for helm format_
+
 This would enable users to generate manifests in a structure that is supported by helm and can ease the helm deployment with CDK8s experience for the user.
 
 For instance, once implemented the user would be able to run,
@@ -143,7 +148,7 @@ The `args.yaml` file is being authored by someone who has context regarding what
 
 ![](./images/helm-migration.png)
 
-Let's consider a scenario where the user wants to utilize a CDK8s Python library that is hosted on `pypi`(a remote spackage registry), like, https://pypi.org/project/cdk8s-jenkins/. And, the user would like to synthesize this library into a helm supported format for deploying the generated manifest. The command would look like,
+Let's consider a scenario where the user wants to utilize a CDK8s Python library that is hosted on `pypi`(a remote package registry), like, https://pypi.org/project/cdk8s-jenkins/. And, the user would like to synthesize this library into a helm supported format for deploying the generated manifest. The command would look like,
 
 ```
 cdk8s synth --package https://pypi.org/project/cdk8s-jenkins/ --args args.yaml --format helm --output ./chart
@@ -405,20 +410,20 @@ We need to rely on cdk8s init as part of synthesizing for **No Code Synthesis** 
 Implementation for these features can begin in two phases,
 
 * **Support helm format**
- ** Add support for `--format` flag and set default to CDK8s. Set flag to [hide](https://github.com/yargs/yargs/pull/190) for now.
- ** Create helm chart structure and template relevant files 
- ** Synthesize application to helm chart structure
- ** Un-hide the flag
+   - Add support for `--format` flag and set default to CDK8s. Set flag to [hide](https://github.com/yargs/yargs/pull/190) for now.
+   - Create helm chart structure and template relevant files 
+   - Synthesize application to helm chart structure
+   - Un-hide the flag
 
 * **No Code Synthesis support**
-  ** Add support for `--package` flag and `--args` flag. Set flag to [hide](https://github.com/yargs/yargs/pull/190) for now.
-  ** Add validations for `--args` file format and `--package` inputs. 
-  ** Update template files to support new keys for substitution
-  ** Update cdk8s synth command. This would involve,
-    *** Invoke cdk8s init 
-    *** Pass in arguments to the templated files
-    *** Set config file to temp folder
-  ** Un-hide the flag
+   - Add support for `--package` flag and `--args` flag. Set flag to [hide](https://github.com/yargs/yargs/pull/190) for now.
+   - Add validations for `--args` file format and `--package` inputs. 
+   - Update template files to support new keys for substitution
+   - Update cdk8s synth command. This would involve,
+      - Invoke cdk8s init 
+      - Pass in arguments to the templated files
+      - Set config file to temp folder
+   - Un-hide the flag
 
 ### Are there any open issues that need to be addressed later?
 
@@ -436,6 +441,7 @@ Currently, `No Code Synthesis` just focuses on repositories stored on remote pac
 ## Appendix
 
 * **What is the difference between CDK8s library and CDK8s app?**
+
 Libraries are reusable components that defines constructs but CDK8s App contains initialization of these constructs with necessary inputs.
 
 ---
