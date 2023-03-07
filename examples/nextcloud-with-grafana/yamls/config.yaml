@@ -1,0 +1,38 @@
+namespace:
+  main: nextcloud
+  metrics: metrics
+victoria:
+  name: victoriam
+  port: 8428
+  config_file: victoria.yaml
+  prom_path: /etc/prometheus/
+  prom_config_name: config.yaml
+  storage: 1
+grafana:
+  name: grafana
+  port: 3000
+  storage: 1
+db:
+  name: mariadb
+  port: 3306
+  storage: 2
+network:
+  host: nextcloud.example.com
+  production_tls: https://acme-v02.api.letsencrypt.org/directory
+  staging_tls: https://acme-staging-v02.api.letsencrypt.org/directory
+  email_tls: smss.lite@gmail.com
+  staging: false
+redis:
+  name: redis
+  port: 6379
+  replicas: 1
+nextcloud:
+  name: nextcloud
+  port: 80
+  storage: 1
+storage:
+  class: rawfile-btrfs
+helm:
+  cert_manager: true
+  traefik: false
+secrets_path: secrets.yaml
