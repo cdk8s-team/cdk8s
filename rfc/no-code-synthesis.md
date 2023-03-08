@@ -1,4 +1,4 @@
-# HELM MIGRATION
+# NO CODE SYNTHESIS
 
 * **Original Author(s):**: @vinayak-kukreja
 * **Tracking Issue**: TODO:
@@ -6,23 +6,10 @@
 
 Users are now able to synthesize CDK8s libraries hosted on package registries like npm, pypi without the need of setting up a CDK8s app locally. 
 
-And, users can now also choose helm as a format for their generated manifests which would make it easier for them to deploy manifests using helm.
-
 ---
 
 ## Working Backwards
 ### README
-
-**Synthesize to helm format**
-
-You can generate manifest in a helm supported format which can then be used for deploying to Kubernetes cluster with helm. This can be done by using the `--format` flag set to `helm`. 
-
-```
-cdk8s synth --format helm --output ./chart
-```
-
-> **Note:**
-This is only possible for CDK8s App right now and not CDK8s libraries since libraries are reusable components that defines constructs but CDK8s App contains initialization of these constructs with necessary inputs.
 
 **No Code Synthesis**
 
@@ -49,11 +36,7 @@ library:
 
 Now, you can run the synthesis with,
 ```
-cdk8s synth --package https://pypi.org/project/cdk8s-jenkins/ --args args.yaml --format helm --output ./chart
-```
-and, this would generate a helm deployable format which you can deploy by,
-```
-helm install <release-name> ./chart
+cdk8s synth --package https://pypi.org/project/cdk8s-jenkins/ --args args.yaml --output ./chart
 ```
 ---
 
@@ -69,17 +52,9 @@ helm install <release-name> ./chart
 
 ### What are we launching today?
 
-We have added new features to CDK8s CLI synth command. Now, the users can,
-* Synthesize manifests for a CDK8s App to a helm chart supported format. This chart can then be used to deploy to Kubernetes cluster with `helm install`
-* Synthesize manifests for CDK8s libraries hosted on remote package registries like NPM, PYPI.
+We have added a new features to CDK8s CLI synth command. Now, the users can synthesize manifests for CDK8s libraries hosted on remote package registries like NPM, PYPI.
 
 ### Why should I use this feature?
-
-**Helm as supported format**
-
-Currently, the deployment process is not straight forward after generation of manifests with a CDK8s App. This feature would enable you to generate helm charts hosting your generated manifests. This would ease the deployment since helm can accept this chart and deploy it to your Kubernetes cluster.
-
-**No code synthesis**
 
 This would enable you to generate manifests without hosting any code locally. For instance, right now, you would need to have a CDK8s App locally and initialize constructs in these libraries and then run synthesis to generate new manifests. With this feature, you can do that just by mentioning the remote repository and passing in an arguments file in the synthesis command and it would generate the manifests for you. 
 
@@ -91,9 +66,7 @@ Another use case could be as part of your CI/CD process where you just need to a
 
 ### Why are we doing this?
 
-The motivation for this change is to,
-1. Ease the deployment process for the users by providing them with `helm` as a synthesis format option.
-2. Reduce the churn with synthesizing one-off CDK8s libraries by enabling them to generate manifests by synthesizing libraries hosted on remote package registries.
+The motivation for this change is to reduce the churn with synthesizing one-off CDK8s libraries by enabling them to generate manifests by synthesizing libraries hosted on remote package registries.
 
 ### Why should we _not_ do this?
 
@@ -101,58 +74,47 @@ There are no downside of adding these features. This would add on to the value o
 
 ### What is the technical solution (design) of this feature?
 
-CDK8s CLI provides users with a `synth` command that helps with generating manifests for the given CDK8s App. This design focuses on adding more functionality to this command, like,
+CDK8s CLI provides users with a `synth` command that helps with generating manifests for the given CDK8s App. This design focuses on adding more functionality to this command, like, this would give users the capability of generating manifests for CDK8s libraries existing on remote package registries.
 
-**_No Code Synthesis_**
-
-  This would give users the capability of generating manifests for CDK8s libraries existing on remote package registries.
-
-**_Support for helm format_**
-
-  This would enable users to generate manifests in a structure that is supported by helm and can ease the helm deployment with CDK8s experience for the user.
-
-  For instance, once implemented the user would be able to run,
+For instance, once implemented the user would be able to run,
+```
+cdk8s synth --package packageName --args args.yaml --output ./chart
+```
+where,
+* `cdk8s synth`: Is the synth command provided by CDK8s CLI for synthesizing a CDK8s application.
+* `--package`: **[NEW]** This would be a URL to the CDK8s library hosted on a remote package registry. 
+* `--args`: **[NEW]** This would be the input file that would contain the arguments to be supplied to the CDK8s library's construct. The following is how its format would look like,
+  ```yaml
+  library:                                    # Required
+    name: libraryName                         # Required
+    version: libraryVersion                   # Defaults to latest
+    constructs:                               # Required
+      - name: constructName                   # Required
+        properties:                           # Required
+          property-1-name:
+            type: someDataType                # Type and Value are required for a property
+            value: someValue                  
+          property-2-name:
+            type: anotherDataType
+            value:
+              someKey: someValue
+              anotherKey: anotherValue
   ```
-  cdk8s synth --package packageName --args args.yaml --format helm --output ./chart
-  ```
-  where,
-  * `cdk8s synth`: Is the synth command provided by CDK8s CLI for synthesizing a CDK8s application.
-  * `--package`: **[NEW]** This would be a URL to the CDK8s library hosted on a remote package registry. 
-  * `--args`: **[NEW]** This would be the input file that would contain the arguments to be supplied to the CDK8s library's construct. The following is how its format would look like,
-    ```yaml
-    library:                                    # Required
-      name: libraryName                         # Required
-      version: libraryVersion                   # Defaults to latest
-      constructs:                               # Required
-        - name: constructName                   # Required
-          properties:                           # Required
-            property-1-name:
-              type: someDataType                # Type and Value are required for a property
-              value: someValue                  
-            property-2-name:
-              type: anotherDataType
-              value:
-                someKey: someValue
-                anotherKey: anotherValue
-    ```
-  * `--format`: **[NEW]** This would be the flag that can take helm as an option. This would mean that the manifests we would generate for the user would be structured in such a format that it's easier to deploy with helm.
-  * `--output`: This is an existing flag where user can specify in which directory they would like the generated manifests to be stored in.
+* `--output`: This is an existing flag where user can specify in which directory they would like the generated manifests to be stored in.
 
-  _An example is worth a thousand words_. Let's go through a couple of user scenarios to understand more about the design being proposed.
-
-**No Code Synthesis**
+_An example is worth a thousand words_. Let's go through a couple of user scenarios to understand more about the design being proposed.
 
 > **Assumption**
 The `args.yaml` file is being authored by someone who has context regarding what values can be passed to the construct in library they want to synthesize. For instance, this can be added as guidance by CDK8s library authors for the users to be aware of how to utilize.
 
-**User runs `cdk8s synth --package packageName --args args.yaml --format helm --output ./chart`**
+**User runs `cdk8s synth --package packageName --args args.yaml --output ./chart`**
 
-![](./images/helm-migration.png)
+![](./images/no-code-synthesis.png)
 
-Let's consider a scenario where the user wants to utilize a CDK8s Python library that is hosted on `pypi`(a remote package registry), like, https://pypi.org/project/cdk8s-jenkins/. And, the user would like to synthesize this library into a helm supported format for deploying the generated manifest. The command would look like,
+Let's consider a scenario where the user wants to utilize a CDK8s Python library that is hosted on `pypi`(a remote package registry), like, https://pypi.org/project/cdk8s-jenkins/. The command would look like,
 
 ```
-cdk8s synth --package https://pypi.org/project/cdk8s-jenkins/ --args args.yaml --format helm --output ./chart
+cdk8s synth --package https://pypi.org/project/cdk8s-jenkins/ --args args.yaml --output ./chart
 ```
 
 The user would be passing in `args.yaml` which would provide inputs for the requested library which here is `cdk8s-jenkins`. The following is how the yaml file would look like for this [construct](https://github.com/cdk8s-team/cdk8s-jenkins/blob/main/src/jenkins.ts), 
@@ -297,48 +259,11 @@ constructs = "~={{ constructs_version }}"
 
 where `library` is the CDK8s library name and `library_version` is the requested library version. Both of these values will be retrieved from the `args.yaml` file that the user passes in. And the library would be installed as part of post sscaff hook where we run [pipenv install](https://github.com/cdk8s-team/cdk8s-cli/blob/2.x/templates/python-app/.hooks.sscaff.js#L29). 
 
-#### Helm as output format 
-
-Now, the app would be prepared with the requested library and running it would generate the manifest for us. Before that is done, there needs to be setup done based on what the `--format` was for this synthesis. 
-
-We would need to generate a structure similar to what Helm Charts look like. The following is a simpler folder structure to what `helm create` produces. The user can add more to it if they desire but this would work for our purpose.
-
-```
-chart/              # Value of --output. Defaults to chart if format is helm
-├── Chart.yaml      # Information about your chart
-├── Readme.md       # A generic readme conveying this chart is generated by CDK8s
-└── templates/      # The template files. These would contain the generated manifest files
-```
-
-This structure would be created using `sscaff` in the directory mentioned by `--output` flag. `Chart.yaml` is required to be part of the helm chart structure for a successful deployment. The following is how the templated `Chart.yaml` file would be,
-
-```yaml
-apiVersion: v2                                      # The chart API version. v2 is for Helm 3 and v1 is for previous versions. 
-name: {{ library }}                                 # CDK8s library name
-description: Generated chart for {{ library }}      # Description for the chart
-type: application                                   # The chart type can either be ‘application’ or ‘library’. Application charts can be deployed to Kubernetes.
-version: {{ version }}                              # Chart version. Defaults to 0.0.1
-appVersion: {{ app-version }}                       # App version. Defaults to library's version.
-```
-
-Here, `library` is the library name and `version` would be picked up from `args.yaml`. For `appVersion`, we would substitute the value based on the current version of the CDK8s library that was requested. 
-
 #### Synthesizing
 
 Since the initial setup is now completed, we continue with synthesizing the application. Now we have our application in place, the `synth` command needs to be aware of the [app](https://github.com/cdk8s-team/cdk8s-cli/blob/2.x/src/cli/cmds/synth.ts#L16) that should be synthesized. Be default, it looks for the `cdk8s.yaml` file in the current folder which would not be present since we are trying to synthesize a remote repository. And since, we had created a temporary directory earlier which hosts our temporary CDK8s application, we can check for the [config file](https://github.com/cdk8s-team/cdk8s-cli/blob/2.x/src/config.ts#L7) present at the temporary directory location which would be `os` dependent: `path.join(os.tmpdir(), 'cdk8s.yaml')`. 
 
-With this, the synthesis process would resume as normal and since format was `helm`, the template that is generated by synthesizing is placed in the `<--output value>/templates` folder. And the user can now run,
-
-```
-helm install <release-name> ./<--output value>
-```
-
->**CallOut:**
-Each time this command is run, the files in `--output` would be overwritten. The user can run,
-```
-helm upgrade <same-release-name> ./<--output value>
-```
-to update their deployment.
+With this, the synthesis process would resume as normal and generate the manifests in the output folder.
 
 #### Cleanup
 
@@ -350,28 +275,13 @@ At the end, the temporary directory would be deleted and if there is an error to
 
   This command would result in an error because no input file is being passed. For synthesizing remote libraries we would required the user to pass in an input file.
 
+* **User runs `cdk8s synth --args args.yaml`**
+
+  This would fail since the `--package` flag is not specified. The synthesis process would not be aware of what to work on.
+
 * **User runs `cdk8s synth --package packageName --args args.yaml`**
 
-  This would work as expected given the values passed are correct. Here, the `--format` would default to CDK8s instead of helm, which means we would just generate the manifest file and place it in a `./dist` folder in the directory this command is run at.
-
-* **User runs `cdk8s synth --args args.yaml --format helm --output ./chart`**
-
-  This would fail since the `--package` flag is not specified. The synthesis process would not be aware of what to work on. 
-
----------------------------------------------
-
-**Synthesize CDK8s Apps into Helm Charts**
-
-**Assumptions**
-- The user is running synthesis with `--format helm` for a [CDK8s App and not a CDK8s library](##Appendix).
-
-**User runs `cdk8s synth --format helm --output ./chart`**
-
-Similar to what we see for the [No Code Synthesis design](####Helm-as-output-format), if the format is set for helm, we will create the appropriate file structure for helm chart with values required for helm deployment. The generated manifest files would be placed in `<--output value>/templates` folder since Helm expects manifests to be present in this folder.
-
-**User runs `cdk8s synth --format helm`**
-
-This command would execute successfully. The `--output` value would be set to the default of `./chart` if `--format` is helm, which is true in this scenario.
+  This would work as expected given the values passed are correct. Here the manifest files will be generated and placed it in a `./dist` folder in the directory this command is run at. 
 
 ### Is this a breaking change?
 
@@ -385,12 +295,6 @@ This is not a breaking change. This is adding new functionality to the CDK8s CLI
   Unfortunately, this would only work for libraries that support JSII. We do not force our users to use JSII and hence I looked into similar libraries in different languages that can provide with a similar functionality. Where if presented with a file, the library can generate an abstract syntax tree for it which can provide us with meaningful results. There are two problems with this approach,
   1. This would add more dependencies to our product which in turn adds to more things to maintain or keep up with. 
   2. The experience with AST generation would vary from language to language due to the quality and features of libraries present in each language. This would not give our users a similar experience when working on different languages.
-
-* **`helm create` command**
-
-  [helm create](https://helm.sh/docs/helm/helm_create/) is a helm command that generates a templated chart with the necessary folder structure and files needed to deploy the chart with helm. I did not use this to create the chart structure for two reasons,
-  1. This would mean that we need to take a dependency with helm or mention to the user that helm needs to be present on their machine for the synthesis to work in this scenario.
-  2. This command creates all the necessary structure but also creates files for simple `nginx` application. For our purposes, these files would either needed to be deleted or modified to work with the manifests we are generating. This feels like an over kill to accomplish our requirements.
 
 ### What are the drawbacks of this solution?
 
@@ -408,23 +312,14 @@ We need to rely on cdk8s init as part of synthesizing for **No Code Synthesis** 
 
 ### What is the high-level project plan?
 
-Implementation for these features can begin in two phases,
-
-* **Support helm format**
-   - Add support for `--format` flag and set default to CDK8s. Set flag to [hide](https://github.com/yargs/yargs/pull/190) for now.
-   - Create helm chart structure and template relevant files 
-   - Synthesize application to helm chart structure
-   - Un-hide the flag
-
-* **No Code Synthesis support**
-   - Add support for `--package` flag and `--args` flag. Set flag to [hide](https://github.com/yargs/yargs/pull/190) for now.
-   - Add validations for `--args` file format and `--package` inputs. 
-   - Update template files to support new keys for substitution
-   - Update cdk8s synth command. This would involve,
-      - Invoke cdk8s init 
-      - Pass in arguments to the templated files
-      - Set config file to temp folder
-   - Un-hide the flag
+  - Add support for `--package` flag and `--args` flag. Set flag to [hide](https://github.com/yargs/yargs/pull/190) for now.
+  - Add validations for `--args` file format and `--package` inputs. 
+  - Update template files to support new keys for substitution
+  - Update cdk8s synth command. This would involve,
+    - Invoke cdk8s init 
+    - Pass in arguments to the templated files
+    - Set config file to temp folder
+  - Un-hide the flag
 
 ### Are there any open issues that need to be addressed later?
 
@@ -433,9 +328,6 @@ This phase of implementation starts with supporting Typescript(NPM) and Python(P
 
 * **Additional features for CDK8s libraries supporting JSII**
 The `No Code Synthesis` functionality experience can be much smoother if the CDK8s library is supporting JSII. This would enable us to access the JSII assembly for the library and get much of the contextual data that is being passed in the arguments YAML file during synthesis.
-
-* **Support helm format synthesis for locally stored CDK8s libraries**
-Currently, `No Code Synthesis` just focuses on repositories stored on remote package registries. This can also be tuned to support local path to a CDK8s library. 
 
 ---
 
