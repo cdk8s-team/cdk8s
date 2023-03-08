@@ -36,7 +36,7 @@ library:
 
 Now, you can run the synthesis with,
 ```
-cdk8s synth --package https://pypi.org/project/cdk8s-jenkins/ --args args.yaml --output ./chart
+cdk8s synth --package https://pypi.org/project/cdk8s-jenkins/ --args args.yaml
 ```
 ---
 
@@ -70,7 +70,7 @@ The motivation for this change is to reduce the churn with synthesizing one-off 
 
 ### Why should we _not_ do this?
 
-There are no downside of adding these features. This would add on to the value of our product.
+There are no downside of adding this feature. This would add on to the value of our product.
 
 ### What is the technical solution (design) of this feature?
 
@@ -78,7 +78,7 @@ CDK8s CLI provides users with a `synth` command that helps with generating manif
 
 For instance, once implemented the user would be able to run,
 ```
-cdk8s synth --package packageName --args args.yaml --output ./chart
+cdk8s synth --package packageName --args args.yaml --output ./dist
 ```
 where,
 * `cdk8s synth`: Is the synth command provided by CDK8s CLI for synthesizing a CDK8s application.
@@ -107,14 +107,14 @@ _An example is worth a thousand words_. Let's go through a couple of user scenar
 > **Assumption**
 The `args.yaml` file is being authored by someone who has context regarding what values can be passed to the construct in library they want to synthesize. For instance, this can be added as guidance by CDK8s library authors for the users to be aware of how to utilize.
 
-**User runs `cdk8s synth --package packageName --args args.yaml --output ./chart`**
+**User runs `cdk8s synth --package packageName --args args.yaml --output ./dist`**
 
 ![](./images/no-code-synthesis.png)
 
 Let's consider a scenario where the user wants to utilize a CDK8s Python library that is hosted on `pypi`(a remote package registry), like, https://pypi.org/project/cdk8s-jenkins/. The command would look like,
 
 ```
-cdk8s synth --package https://pypi.org/project/cdk8s-jenkins/ --args args.yaml --output ./chart
+cdk8s synth --package https://pypi.org/project/cdk8s-jenkins/ --args args.yaml --output ./dist
 ```
 
 The user would be passing in `args.yaml` which would provide inputs for the requested library which here is `cdk8s-jenkins`. The following is how the yaml file would look like for this [construct](https://github.com/cdk8s-team/cdk8s-jenkins/blob/main/src/jenkins.ts), 
