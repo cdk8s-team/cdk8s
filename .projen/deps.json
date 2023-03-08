@@ -47,7 +47,6 @@
     },
     {
       "name": "lerna",
-      "version": "^4",
       "type": "build"
     },
     {

@@ -3689,8 +3689,8 @@ class ClusterInstallationSpecLivenessProbeHttpGetPort(
 
     @builtins.property
     @jsii.member(jsii_name="value")
-    def value(self) -> typing.Any:
-        return typing.cast(typing.Any, jsii.get(self, "value"))
+    def value(self) -> typing.Union[builtins.str, jsii.Number]:
+        return typing.cast(typing.Union[builtins.str, jsii.Number], jsii.get(self, "value"))
 
 
 @jsii.data_type(
@@ -3798,8 +3798,8 @@ class ClusterInstallationSpecLivenessProbeTcpSocketPort(
 
     @builtins.property
     @jsii.member(jsii_name="value")
-    def value(self) -> typing.Any:
-        return typing.cast(typing.Any, jsii.get(self, "value"))
+    def value(self) -> typing.Union[builtins.str, jsii.Number]:
+        return typing.cast(typing.Union[builtins.str, jsii.Number], jsii.get(self, "value"))
 
 
 @jsii.data_type(
@@ -4934,8 +4934,8 @@ class ClusterInstallationSpecReadinessProbeHttpGetPort(
 
     @builtins.property
     @jsii.member(jsii_name="value")
-    def value(self) -> typing.Any:
-        return typing.cast(typing.Any, jsii.get(self, "value"))
+    def value(self) -> typing.Union[builtins.str, jsii.Number]:
+        return typing.cast(typing.Union[builtins.str, jsii.Number], jsii.get(self, "value"))
 
 
 @jsii.data_type(
@@ -5043,8 +5043,8 @@ class ClusterInstallationSpecReadinessProbeTcpSocketPort(
 
     @builtins.property
     @jsii.member(jsii_name="value")
-    def value(self) -> typing.Any:
-        return typing.cast(typing.Any, jsii.get(self, "value"))
+    def value(self) -> typing.Union[builtins.str, jsii.Number]:
+        return typing.cast(typing.Union[builtins.str, jsii.Number], jsii.get(self, "value"))
 
 
 @jsii.data_type(

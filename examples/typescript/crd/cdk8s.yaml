@@ -5,4 +5,4 @@ imports:
   - https://raw.githubusercontent.com/jenkinsci/kubernetes-operator/master/deploy/crds/jenkins.io_jenkins_crd.yaml
   - mattermost:=mattermost_crd.yaml
   - version.yaml
-  - https://github.com/knative/serving/releases/download/v0.14.0/serving-crds.yaml
+  - https://github.com/knative/serving/releases/download/knative-v1.9.2/serving-crds.yaml

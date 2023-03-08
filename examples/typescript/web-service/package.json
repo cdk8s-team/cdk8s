@@ -17,6 +17,6 @@
     "synth": "node ./index.js"
   },
   "dependencies": {
-    "cdk8s": "2.2.87"
+    "cdk8s": "^2.2.87"
   }
 }
