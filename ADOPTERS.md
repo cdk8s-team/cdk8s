@@ -22,3 +22,6 @@ If you are open to others contacting you about your use of cdk8s, add your Slack
 | Organization | Description | Contacts | Link |
 | --- | --- | --- | --- |
 | [example] Amazon, Inc. | Building cdk8s and cdk8s+ | `@jgarr`, `@iliapolo` | [Announcing GA for cdk8s](https://aws.amazon.com/blogs/containers/announcing-the-general-availability-of-cdk8s-and-support-for-go/) |
+| 8gears Container Registry | With cdk8s we dynamically generate manifests for different destinations of our Harbor-based SaaS. Multi-Cloud, Edge.  | `@vad1mo`  | [container-registry.com](https://container-registry.com/) |
+| Cloudflare | Using cdk8s to manage large multi-tenant clusters with low drift and high velocity | `@heckler1` | [Cloudflare](https://www.cloudflare.com) |
+| PreciseTarget | We use cdk8s to manage all applications running in kubernetes across mulitple clusters. | `@steven-esser` | [PreciseTarget](https://www.precisetarget.com) |
