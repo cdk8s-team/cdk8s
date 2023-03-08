@@ -156,7 +156,7 @@ to deploy to their Kubernetes cluster.
 
 This command would execute successfully and will store the chart to the default location. 
 
-For the default directory, since the directory name is suggested to be the chart name by [helm](https://v2.helm.sh/docs/developing_charts/#the-chart-file-structure).So, the `--output` value would be set to the default of library name(if no code synthesis) or directory name(if CDK8s app is local) if `--format` is helm, which is true in this scenario.
+For the default directory, since the directory name is suggested to be the chart name by [helm](https://v2.helm.sh/docs/developing_charts/#the-chart-file-structure). So, the `--output` value would be set to the default of library name(if no code synthesis) or directory name(if CDK8s app is local) if `--format` is helm, which is true in this scenario.
 
 ### Is this a breaking change?
 
