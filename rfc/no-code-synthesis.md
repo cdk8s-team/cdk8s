@@ -329,6 +329,9 @@ This phase of implementation starts with supporting Typescript(NPM) and Python(P
 * **Additional features for CDK8s libraries supporting JSII**
 The `No Code Synthesis` functionality experience can be much smoother if the CDK8s library is supporting JSII. This would enable us to access the JSII assembly for the library and get much of the contextual data that is being passed in the arguments YAML file during synthesis.
 
+* **Support no code synthesis for locally stored CDK8s libraries**
+Currently, `No Code Synthesis` just focuses on repositories stored on remote package registries. This can also be tuned to support local path to a CDK8s library. 
+
 ---
 
 ## Appendix
