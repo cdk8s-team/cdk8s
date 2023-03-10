@@ -17,7 +17,7 @@
         <link rel="next" href="../python/">
       
       <link rel="icon" href="../../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.1">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.2">
     
     
       
@@ -25,7 +25,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.402914a4.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.7bf56d0a.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.a0c5b2b5.min.css">
@@ -5687,10 +5687,10 @@
 </ul>
 <hr />
 <h5 id="dockerregistryauthoptional"><code>dockerRegistryAuth</code><sup>Optional</sup> <a name="cdk8s-plus-25.AbstractPod.property.dockerRegistryAuth"></a><a class="headerlink" href="#dockerregistryauthoptional" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">dockerRegistryAuth</span><span class="o">:</span><span class="w"> </span><span class="kt">DockerConfigSecret</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">dockerRegistryAuth</span><span class="o">:</span><span class="w"> </span><span class="kt">ISecret</span><span class="p">;</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> <a href="#cdk8s-plus-25.DockerConfigSecret"><code>cdk8s-plus-25.DockerConfigSecret</code></a></li>
+<li><em>Type:</em> <a href="#cdk8s-plus-25.ISecret"><code>cdk8s-plus-25.ISecret</code></a></li>
 </ul>
 <hr />
 <h5 id="restartpolicyoptional"><code>restartPolicy</code><sup>Optional</sup> <a name="cdk8s-plus-25.AbstractPod.property.restartPolicy"></a><a class="headerlink" href="#restartpolicyoptional" title="Permanent link">&para;</a></h5>
@@ -8964,10 +8964,10 @@ added or removed. There must be at least one container in a Pod.</p>
 </blockquote>
 <hr />
 <h5 id="dockerregistryauthoptional_1"><code>dockerRegistryAuth</code><sup>Optional</sup> <a name="cdk8s-plus-25.AbstractPodProps.property.dockerRegistryAuth"></a><a class="headerlink" href="#dockerregistryauthoptional_1" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">dockerRegistryAuth</span><span class="o">:</span><span class="w"> </span><span class="kt">DockerConfigSecret</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">dockerRegistryAuth</span><span class="o">:</span><span class="w"> </span><span class="kt">ISecret</span><span class="p">;</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> <a href="#cdk8s-plus-25.DockerConfigSecret"><code>cdk8s-plus-25.DockerConfigSecret</code></a></li>
+<li><em>Type:</em> <a href="#cdk8s-plus-25.ISecret"><code>cdk8s-plus-25.ISecret</code></a></li>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
@@ -10366,10 +10366,10 @@ added or removed. There must be at least one container in a Pod.</p>
 </blockquote>
 <hr />
 <h5 id="dockerregistryauthoptional_2"><code>dockerRegistryAuth</code><sup>Optional</sup> <a name="cdk8s-plus-25.CronJobProps.property.dockerRegistryAuth"></a><a class="headerlink" href="#dockerregistryauthoptional_2" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">dockerRegistryAuth</span><span class="o">:</span><span class="w"> </span><span class="kt">DockerConfigSecret</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">dockerRegistryAuth</span><span class="o">:</span><span class="w"> </span><span class="kt">ISecret</span><span class="p">;</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> <a href="#cdk8s-plus-25.DockerConfigSecret"><code>cdk8s-plus-25.DockerConfigSecret</code></a></li>
+<li><em>Type:</em> <a href="#cdk8s-plus-25.ISecret"><code>cdk8s-plus-25.ISecret</code></a></li>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
@@ -10666,10 +10666,10 @@ added or removed. There must be at least one container in a Pod.</p>
 </blockquote>
 <hr />
 <h5 id="dockerregistryauthoptional_3"><code>dockerRegistryAuth</code><sup>Optional</sup> <a name="cdk8s-plus-25.DaemonSetProps.property.dockerRegistryAuth"></a><a class="headerlink" href="#dockerregistryauthoptional_3" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">dockerRegistryAuth</span><span class="o">:</span><span class="w"> </span><span class="kt">DockerConfigSecret</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">dockerRegistryAuth</span><span class="o">:</span><span class="w"> </span><span class="kt">ISecret</span><span class="p">;</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> <a href="#cdk8s-plus-25.DockerConfigSecret"><code>cdk8s-plus-25.DockerConfigSecret</code></a></li>
+<li><em>Type:</em> <a href="#cdk8s-plus-25.ISecret"><code>cdk8s-plus-25.ISecret</code></a></li>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
@@ -10895,10 +10895,10 @@ added or removed. There must be at least one container in a Pod.</p>
 </blockquote>
 <hr />
 <h5 id="dockerregistryauthoptional_4"><code>dockerRegistryAuth</code><sup>Optional</sup> <a name="cdk8s-plus-25.DeploymentProps.property.dockerRegistryAuth"></a><a class="headerlink" href="#dockerregistryauthoptional_4" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">dockerRegistryAuth</span><span class="o">:</span><span class="w"> </span><span class="kt">DockerConfigSecret</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">dockerRegistryAuth</span><span class="o">:</span><span class="w"> </span><span class="kt">ISecret</span><span class="p">;</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> <a href="#cdk8s-plus-25.DockerConfigSecret"><code>cdk8s-plus-25.DockerConfigSecret</code></a></li>
+<li><em>Type:</em> <a href="#cdk8s-plus-25.ISecret"><code>cdk8s-plus-25.ISecret</code></a></li>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
@@ -12049,10 +12049,10 @@ added or removed. There must be at least one container in a Pod.</p>
 </blockquote>
 <hr />
 <h5 id="dockerregistryauthoptional_5"><code>dockerRegistryAuth</code><sup>Optional</sup> <a name="cdk8s-plus-25.JobProps.property.dockerRegistryAuth"></a><a class="headerlink" href="#dockerregistryauthoptional_5" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">dockerRegistryAuth</span><span class="o">:</span><span class="w"> </span><span class="kt">DockerConfigSecret</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">dockerRegistryAuth</span><span class="o">:</span><span class="w"> </span><span class="kt">ISecret</span><span class="p">;</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> <a href="#cdk8s-plus-25.DockerConfigSecret"><code>cdk8s-plus-25.DockerConfigSecret</code></a></li>
+<li><em>Type:</em> <a href="#cdk8s-plus-25.ISecret"><code>cdk8s-plus-25.ISecret</code></a></li>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
@@ -13133,10 +13133,10 @@ added or removed. There must be at least one container in a Pod.</p>
 </blockquote>
 <hr />
 <h5 id="dockerregistryauthoptional_6"><code>dockerRegistryAuth</code><sup>Optional</sup> <a name="cdk8s-plus-25.PodProps.property.dockerRegistryAuth"></a><a class="headerlink" href="#dockerregistryauthoptional_6" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">dockerRegistryAuth</span><span class="o">:</span><span class="w"> </span><span class="kt">DockerConfigSecret</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">dockerRegistryAuth</span><span class="o">:</span><span class="w"> </span><span class="kt">ISecret</span><span class="p">;</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> <a href="#cdk8s-plus-25.DockerConfigSecret"><code>cdk8s-plus-25.DockerConfigSecret</code></a></li>
+<li><em>Type:</em> <a href="#cdk8s-plus-25.ISecret"><code>cdk8s-plus-25.ISecret</code></a></li>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
@@ -14223,10 +14223,10 @@ added or removed. There must be at least one container in a Pod.</p>
 </blockquote>
 <hr />
 <h5 id="dockerregistryauthoptional_7"><code>dockerRegistryAuth</code><sup>Optional</sup> <a name="cdk8s-plus-25.StatefulSetProps.property.dockerRegistryAuth"></a><a class="headerlink" href="#dockerregistryauthoptional_7" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">dockerRegistryAuth</span><span class="o">:</span><span class="w"> </span><span class="kt">DockerConfigSecret</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">dockerRegistryAuth</span><span class="o">:</span><span class="w"> </span><span class="kt">ISecret</span><span class="p">;</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> <a href="#cdk8s-plus-25.DockerConfigSecret"><code>cdk8s-plus-25.DockerConfigSecret</code></a></li>
+<li><em>Type:</em> <a href="#cdk8s-plus-25.ISecret"><code>cdk8s-plus-25.ISecret</code></a></li>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
@@ -14742,10 +14742,10 @@ added or removed. There must be at least one container in a Pod.</p>
 </blockquote>
 <hr />
 <h5 id="dockerregistryauthoptional_8"><code>dockerRegistryAuth</code><sup>Optional</sup> <a name="cdk8s-plus-25.WorkloadProps.property.dockerRegistryAuth"></a><a class="headerlink" href="#dockerregistryauthoptional_8" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">dockerRegistryAuth</span><span class="o">:</span><span class="w"> </span><span class="kt">DockerConfigSecret</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">dockerRegistryAuth</span><span class="o">:</span><span class="w"> </span><span class="kt">ISecret</span><span class="p">;</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> <a href="#cdk8s-plus-25.DockerConfigSecret"><code>cdk8s-plus-25.DockerConfigSecret</code></a></li>
+<li><em>Type:</em> <a href="#cdk8s-plus-25.ISecret"><code>cdk8s-plus-25.ISecret</code></a></li>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
@@ -18037,7 +18037,7 @@ are automatically created.</p>
     <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.indexes", "navigation.tracking", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.b78d2936.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.fc8c2696.min.js"></script>
       
     
   </body>

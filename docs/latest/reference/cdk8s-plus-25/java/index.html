@@ -17,7 +17,7 @@
         <link rel="next" href="../go/">
       
       <link rel="icon" href="../../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.1">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.2">
     
     
       
@@ -25,7 +25,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.402914a4.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.7bf56d0a.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.a0c5b2b5.min.css">
@@ -5564,7 +5564,7 @@
 <span class="c1">//  .automountServiceAccountToken(java.lang.Boolean)</span>
 <span class="c1">//  .containers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .dns(PodDnsProps)</span>
-<span class="c1">//  .dockerRegistryAuth(DockerConfigSecret)</span>
+<span class="c1">//  .dockerRegistryAuth(ISecret)</span>
 <span class="c1">//  .hostAliases(java.util.List&lt;HostAlias&gt;)</span>
 <span class="c1">//  .initContainers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .isolate(java.lang.Boolean)</span>
@@ -5623,7 +5623,7 @@ added or removed. There must be at least one container in a Pod.</p>
 <hr />
 <h5 id="dockerregistryauthoptional"><code>dockerRegistryAuth</code><sup>Optional</sup> <a name="org.cdk8s.plus25.AbstractPodProps.parameter.dockerRegistryAuth"></a><a class="headerlink" href="#dockerregistryauthoptional" title="Permanent link">&para;</a></h5>
 <ul>
-<li><em>Type:</em> <a href="#org.cdk8s.plus25.DockerConfigSecret"><code>org.cdk8s.plus25.DockerConfigSecret</code></a></li>
+<li><em>Type:</em> <a href="#org.cdk8s.plus25.ISecret"><code>org.cdk8s.plus25.ISecret</code></a></li>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
@@ -5817,10 +5817,10 @@ Account (for example, default).</p>
 </ul>
 <hr />
 <h5 id="dockerregistryauthoptional_1"><code>dockerRegistryAuth</code><sup>Optional</sup> <a name="org.cdk8s.plus25.AbstractPod.property.dockerRegistryAuth"></a><a class="headerlink" href="#dockerregistryauthoptional_1" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">DockerConfigSecret</span><span class="w"> </span><span class="nf">getDockerRegistryAuth</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">ISecret</span><span class="w"> </span><span class="nf">getDockerRegistryAuth</span><span class="p">();</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> <a href="#org.cdk8s.plus25.DockerConfigSecret"><code>org.cdk8s.plus25.DockerConfigSecret</code></a></li>
+<li><em>Type:</em> <a href="#org.cdk8s.plus25.ISecret"><code>org.cdk8s.plus25.ISecret</code></a></li>
 </ul>
 <hr />
 <h5 id="restartpolicyoptional_1"><code>restartPolicy</code><sup>Optional</sup> <a name="org.cdk8s.plus25.AbstractPod.property.restartPolicy"></a><a class="headerlink" href="#restartpolicyoptional_1" title="Permanent link">&para;</a></h5>
@@ -6751,7 +6751,7 @@ is enforced during validation process.</p>
 <span class="c1">//  .automountServiceAccountToken(java.lang.Boolean)</span>
 <span class="c1">//  .containers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .dns(PodDnsProps)</span>
-<span class="c1">//  .dockerRegistryAuth(DockerConfigSecret)</span>
+<span class="c1">//  .dockerRegistryAuth(ISecret)</span>
 <span class="c1">//  .hostAliases(java.util.List&lt;HostAlias&gt;)</span>
 <span class="c1">//  .initContainers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .isolate(java.lang.Boolean)</span>
@@ -6823,7 +6823,7 @@ added or removed. There must be at least one container in a Pod.</p>
 <hr />
 <h5 id="dockerregistryauthoptional_2"><code>dockerRegistryAuth</code><sup>Optional</sup> <a name="org.cdk8s.plus25.CronJobProps.parameter.dockerRegistryAuth"></a><a class="headerlink" href="#dockerregistryauthoptional_2" title="Permanent link">&para;</a></h5>
 <ul>
-<li><em>Type:</em> <a href="#org.cdk8s.plus25.DockerConfigSecret"><code>org.cdk8s.plus25.DockerConfigSecret</code></a></li>
+<li><em>Type:</em> <a href="#org.cdk8s.plus25.ISecret"><code>org.cdk8s.plus25.ISecret</code></a></li>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
@@ -7115,7 +7115,7 @@ but with different flags and/or different memory and cpu requests for different 
 <span class="c1">//  .automountServiceAccountToken(java.lang.Boolean)</span>
 <span class="c1">//  .containers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .dns(PodDnsProps)</span>
-<span class="c1">//  .dockerRegistryAuth(DockerConfigSecret)</span>
+<span class="c1">//  .dockerRegistryAuth(ISecret)</span>
 <span class="c1">//  .hostAliases(java.util.List&lt;HostAlias&gt;)</span>
 <span class="c1">//  .initContainers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .isolate(java.lang.Boolean)</span>
@@ -7178,7 +7178,7 @@ added or removed. There must be at least one container in a Pod.</p>
 <hr />
 <h5 id="dockerregistryauthoptional_3"><code>dockerRegistryAuth</code><sup>Optional</sup> <a name="org.cdk8s.plus25.DaemonSetProps.parameter.dockerRegistryAuth"></a><a class="headerlink" href="#dockerregistryauthoptional_3" title="Permanent link">&para;</a></h5>
 <ul>
-<li><em>Type:</em> <a href="#org.cdk8s.plus25.DockerConfigSecret"><code>org.cdk8s.plus25.DockerConfigSecret</code></a></li>
+<li><em>Type:</em> <a href="#org.cdk8s.plus25.ISecret"><code>org.cdk8s.plus25.ISecret</code></a></li>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
@@ -7343,7 +7343,7 @@ existing Deployments and adopt all their resources with new Deployments.</p>
 <span class="c1">//  .automountServiceAccountToken(java.lang.Boolean)</span>
 <span class="c1">//  .containers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .dns(PodDnsProps)</span>
-<span class="c1">//  .dockerRegistryAuth(DockerConfigSecret)</span>
+<span class="c1">//  .dockerRegistryAuth(ISecret)</span>
 <span class="c1">//  .hostAliases(java.util.List&lt;HostAlias&gt;)</span>
 <span class="c1">//  .initContainers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .isolate(java.lang.Boolean)</span>
@@ -7409,7 +7409,7 @@ added or removed. There must be at least one container in a Pod.</p>
 <hr />
 <h5 id="dockerregistryauthoptional_4"><code>dockerRegistryAuth</code><sup>Optional</sup> <a name="org.cdk8s.plus25.DeploymentProps.parameter.dockerRegistryAuth"></a><a class="headerlink" href="#dockerregistryauthoptional_4" title="Permanent link">&para;</a></h5>
 <ul>
-<li><em>Type:</em> <a href="#org.cdk8s.plus25.DockerConfigSecret"><code>org.cdk8s.plus25.DockerConfigSecret</code></a></li>
+<li><em>Type:</em> <a href="#org.cdk8s.plus25.ISecret"><code>org.cdk8s.plus25.ISecret</code></a></li>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
@@ -8257,7 +8257,7 @@ You can also use a Job to run multiple Pods in parallel.</p>
 <span class="c1">//  .automountServiceAccountToken(java.lang.Boolean)</span>
 <span class="c1">//  .containers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .dns(PodDnsProps)</span>
-<span class="c1">//  .dockerRegistryAuth(DockerConfigSecret)</span>
+<span class="c1">//  .dockerRegistryAuth(ISecret)</span>
 <span class="c1">//  .hostAliases(java.util.List&lt;HostAlias&gt;)</span>
 <span class="c1">//  .initContainers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .isolate(java.lang.Boolean)</span>
@@ -8322,7 +8322,7 @@ added or removed. There must be at least one container in a Pod.</p>
 <hr />
 <h5 id="dockerregistryauthoptional_5"><code>dockerRegistryAuth</code><sup>Optional</sup> <a name="org.cdk8s.plus25.JobProps.parameter.dockerRegistryAuth"></a><a class="headerlink" href="#dockerregistryauthoptional_5" title="Permanent link">&para;</a></h5>
 <ul>
-<li><em>Type:</em> <a href="#org.cdk8s.plus25.DockerConfigSecret"><code>org.cdk8s.plus25.DockerConfigSecret</code></a></li>
+<li><em>Type:</em> <a href="#org.cdk8s.plus25.ISecret"><code>org.cdk8s.plus25.ISecret</code></a></li>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
@@ -9263,7 +9263,7 @@ created by clients and scheduled onto hosts.</p>
 <span class="c1">//  .automountServiceAccountToken(java.lang.Boolean)</span>
 <span class="c1">//  .containers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .dns(PodDnsProps)</span>
-<span class="c1">//  .dockerRegistryAuth(DockerConfigSecret)</span>
+<span class="c1">//  .dockerRegistryAuth(ISecret)</span>
 <span class="c1">//  .hostAliases(java.util.List&lt;HostAlias&gt;)</span>
 <span class="c1">//  .initContainers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .isolate(java.lang.Boolean)</span>
@@ -9322,7 +9322,7 @@ added or removed. There must be at least one container in a Pod.</p>
 <hr />
 <h5 id="dockerregistryauthoptional_6"><code>dockerRegistryAuth</code><sup>Optional</sup> <a name="org.cdk8s.plus25.PodProps.parameter.dockerRegistryAuth"></a><a class="headerlink" href="#dockerregistryauthoptional_6" title="Permanent link">&para;</a></h5>
 <ul>
-<li><em>Type:</em> <a href="#org.cdk8s.plus25.DockerConfigSecret"><code>org.cdk8s.plus25.DockerConfigSecret</code></a></li>
+<li><em>Type:</em> <a href="#org.cdk8s.plus25.ISecret"><code>org.cdk8s.plus25.ISecret</code></a></li>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
@@ -10486,7 +10486,7 @@ volumes to the new Pods that replace any that have failed.</p>
 <span class="c1">//  .automountServiceAccountToken(java.lang.Boolean)</span>
 <span class="c1">//  .containers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .dns(PodDnsProps)</span>
-<span class="c1">//  .dockerRegistryAuth(DockerConfigSecret)</span>
+<span class="c1">//  .dockerRegistryAuth(ISecret)</span>
 <span class="c1">//  .hostAliases(java.util.List&lt;HostAlias&gt;)</span>
 <span class="c1">//  .initContainers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .isolate(java.lang.Boolean)</span>
@@ -10553,7 +10553,7 @@ added or removed. There must be at least one container in a Pod.</p>
 <hr />
 <h5 id="dockerregistryauthoptional_7"><code>dockerRegistryAuth</code><sup>Optional</sup> <a name="org.cdk8s.plus25.StatefulSetProps.parameter.dockerRegistryAuth"></a><a class="headerlink" href="#dockerregistryauthoptional_7" title="Permanent link">&para;</a></h5>
 <ul>
-<li><em>Type:</em> <a href="#org.cdk8s.plus25.DockerConfigSecret"><code>org.cdk8s.plus25.DockerConfigSecret</code></a></li>
+<li><em>Type:</em> <a href="#org.cdk8s.plus25.ISecret"><code>org.cdk8s.plus25.ISecret</code></a></li>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
@@ -11139,7 +11139,7 @@ In Kubernetes, a Pod represents a set of running containers on your cluster.</p>
 <span class="c1">//  .automountServiceAccountToken(java.lang.Boolean)</span>
 <span class="c1">//  .containers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .dns(PodDnsProps)</span>
-<span class="c1">//  .dockerRegistryAuth(DockerConfigSecret)</span>
+<span class="c1">//  .dockerRegistryAuth(ISecret)</span>
 <span class="c1">//  .hostAliases(java.util.List&lt;HostAlias&gt;)</span>
 <span class="c1">//  .initContainers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .isolate(java.lang.Boolean)</span>
@@ -11201,7 +11201,7 @@ added or removed. There must be at least one container in a Pod.</p>
 <hr />
 <h5 id="dockerregistryauthoptional_8"><code>dockerRegistryAuth</code><sup>Optional</sup> <a name="org.cdk8s.plus25.WorkloadProps.parameter.dockerRegistryAuth"></a><a class="headerlink" href="#dockerregistryauthoptional_8" title="Permanent link">&para;</a></h5>
 <ul>
-<li><em>Type:</em> <a href="#org.cdk8s.plus25.DockerConfigSecret"><code>org.cdk8s.plus25.DockerConfigSecret</code></a></li>
+<li><em>Type:</em> <a href="#org.cdk8s.plus25.ISecret"><code>org.cdk8s.plus25.ISecret</code></a></li>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
@@ -11370,7 +11370,7 @@ its pod template.</p>
 <span class="c1">//  .automountServiceAccountToken(java.lang.Boolean)</span>
 <span class="c1">//  .containers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .dns(PodDnsProps)</span>
-<span class="c1">//  .dockerRegistryAuth(DockerConfigSecret)</span>
+<span class="c1">//  .dockerRegistryAuth(ISecret)</span>
 <span class="c1">//  .hostAliases(java.util.List&lt;HostAlias&gt;)</span>
 <span class="c1">//  .initContainers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .isolate(java.lang.Boolean)</span>
@@ -11426,10 +11426,10 @@ added or removed. There must be at least one container in a Pod.</p>
 </blockquote>
 <hr />
 <h5 id="dockerregistryauthoptional_9"><code>dockerRegistryAuth</code><sup>Optional</sup> <a name="org.cdk8s.plus25.AbstractPodProps.property.dockerRegistryAuth"></a><a class="headerlink" href="#dockerregistryauthoptional_9" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">DockerConfigSecret</span><span class="w"> </span><span class="nf">getDockerRegistryAuth</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">ISecret</span><span class="w"> </span><span class="nf">getDockerRegistryAuth</span><span class="p">();</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> <a href="#org.cdk8s.plus25.DockerConfigSecret"><code>org.cdk8s.plus25.DockerConfigSecret</code></a></li>
+<li><em>Type:</em> <a href="#org.cdk8s.plus25.ISecret"><code>org.cdk8s.plus25.ISecret</code></a></li>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
@@ -12912,7 +12912,7 @@ somehow it manages to get access to host file system.</li>
 <span class="c1">//  .automountServiceAccountToken(java.lang.Boolean)</span>
 <span class="c1">//  .containers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .dns(PodDnsProps)</span>
-<span class="c1">//  .dockerRegistryAuth(DockerConfigSecret)</span>
+<span class="c1">//  .dockerRegistryAuth(ISecret)</span>
 <span class="c1">//  .hostAliases(java.util.List&lt;HostAlias&gt;)</span>
 <span class="c1">//  .initContainers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .isolate(java.lang.Boolean)</span>
@@ -12981,10 +12981,10 @@ added or removed. There must be at least one container in a Pod.</p>
 </blockquote>
 <hr />
 <h5 id="dockerregistryauthoptional_10"><code>dockerRegistryAuth</code><sup>Optional</sup> <a name="org.cdk8s.plus25.CronJobProps.property.dockerRegistryAuth"></a><a class="headerlink" href="#dockerregistryauthoptional_10" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">DockerConfigSecret</span><span class="w"> </span><span class="nf">getDockerRegistryAuth</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">ISecret</span><span class="w"> </span><span class="nf">getDockerRegistryAuth</span><span class="p">();</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> <a href="#org.cdk8s.plus25.DockerConfigSecret"><code>org.cdk8s.plus25.DockerConfigSecret</code></a></li>
+<li><em>Type:</em> <a href="#org.cdk8s.plus25.ISecret"><code>org.cdk8s.plus25.ISecret</code></a></li>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
@@ -13238,7 +13238,7 @@ start a new execution at 10:22:00.</p>
 <span class="c1">//  .automountServiceAccountToken(java.lang.Boolean)</span>
 <span class="c1">//  .containers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .dns(PodDnsProps)</span>
-<span class="c1">//  .dockerRegistryAuth(DockerConfigSecret)</span>
+<span class="c1">//  .dockerRegistryAuth(ISecret)</span>
 <span class="c1">//  .hostAliases(java.util.List&lt;HostAlias&gt;)</span>
 <span class="c1">//  .initContainers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .isolate(java.lang.Boolean)</span>
@@ -13298,10 +13298,10 @@ added or removed. There must be at least one container in a Pod.</p>
 </blockquote>
 <hr />
 <h5 id="dockerregistryauthoptional_11"><code>dockerRegistryAuth</code><sup>Optional</sup> <a name="org.cdk8s.plus25.DaemonSetProps.property.dockerRegistryAuth"></a><a class="headerlink" href="#dockerregistryauthoptional_11" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">DockerConfigSecret</span><span class="w"> </span><span class="nf">getDockerRegistryAuth</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">ISecret</span><span class="w"> </span><span class="nf">getDockerRegistryAuth</span><span class="p">();</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> <a href="#org.cdk8s.plus25.DockerConfigSecret"><code>org.cdk8s.plus25.DockerConfigSecret</code></a></li>
+<li><em>Type:</em> <a href="#org.cdk8s.plus25.ISecret"><code>org.cdk8s.plus25.ISecret</code></a></li>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
@@ -13488,7 +13488,7 @@ you must explicitly set a name starting from the second expose call.</p>
 <span class="c1">//  .automountServiceAccountToken(java.lang.Boolean)</span>
 <span class="c1">//  .containers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .dns(PodDnsProps)</span>
-<span class="c1">//  .dockerRegistryAuth(DockerConfigSecret)</span>
+<span class="c1">//  .dockerRegistryAuth(ISecret)</span>
 <span class="c1">//  .hostAliases(java.util.List&lt;HostAlias&gt;)</span>
 <span class="c1">//  .initContainers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .isolate(java.lang.Boolean)</span>
@@ -13551,10 +13551,10 @@ added or removed. There must be at least one container in a Pod.</p>
 </blockquote>
 <hr />
 <h5 id="dockerregistryauthoptional_12"><code>dockerRegistryAuth</code><sup>Optional</sup> <a name="org.cdk8s.plus25.DeploymentProps.property.dockerRegistryAuth"></a><a class="headerlink" href="#dockerregistryauthoptional_12" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">DockerConfigSecret</span><span class="w"> </span><span class="nf">getDockerRegistryAuth</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">ISecret</span><span class="w"> </span><span class="nf">getDockerRegistryAuth</span><span class="p">();</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> <a href="#org.cdk8s.plus25.DockerConfigSecret"><code>org.cdk8s.plus25.DockerConfigSecret</code></a></li>
+<li><em>Type:</em> <a href="#org.cdk8s.plus25.ISecret"><code>org.cdk8s.plus25.ISecret</code></a></li>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
@@ -14761,7 +14761,7 @@ termination and value of the Host header is used for routing.</p>
 <span class="c1">//  .automountServiceAccountToken(java.lang.Boolean)</span>
 <span class="c1">//  .containers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .dns(PodDnsProps)</span>
-<span class="c1">//  .dockerRegistryAuth(DockerConfigSecret)</span>
+<span class="c1">//  .dockerRegistryAuth(ISecret)</span>
 <span class="c1">//  .hostAliases(java.util.List&lt;HostAlias&gt;)</span>
 <span class="c1">//  .initContainers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .isolate(java.lang.Boolean)</span>
@@ -14823,10 +14823,10 @@ added or removed. There must be at least one container in a Pod.</p>
 </blockquote>
 <hr />
 <h5 id="dockerregistryauthoptional_13"><code>dockerRegistryAuth</code><sup>Optional</sup> <a name="org.cdk8s.plus25.JobProps.property.dockerRegistryAuth"></a><a class="headerlink" href="#dockerregistryauthoptional_13" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">DockerConfigSecret</span><span class="w"> </span><span class="nf">getDockerRegistryAuth</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">ISecret</span><span class="w"> </span><span class="nf">getDockerRegistryAuth</span><span class="p">();</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> <a href="#org.cdk8s.plus25.DockerConfigSecret"><code>org.cdk8s.plus25.DockerConfigSecret</code></a></li>
+<li><em>Type:</em> <a href="#org.cdk8s.plus25.ISecret"><code>org.cdk8s.plus25.ISecret</code></a></li>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
@@ -15961,7 +15961,7 @@ Duplicate domain names are removed.</p>
 <span class="c1">//  .automountServiceAccountToken(java.lang.Boolean)</span>
 <span class="c1">//  .containers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .dns(PodDnsProps)</span>
-<span class="c1">//  .dockerRegistryAuth(DockerConfigSecret)</span>
+<span class="c1">//  .dockerRegistryAuth(ISecret)</span>
 <span class="c1">//  .hostAliases(java.util.List&lt;HostAlias&gt;)</span>
 <span class="c1">//  .initContainers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .isolate(java.lang.Boolean)</span>
@@ -16017,10 +16017,10 @@ added or removed. There must be at least one container in a Pod.</p>
 </blockquote>
 <hr />
 <h5 id="dockerregistryauthoptional_14"><code>dockerRegistryAuth</code><sup>Optional</sup> <a name="org.cdk8s.plus25.PodProps.property.dockerRegistryAuth"></a><a class="headerlink" href="#dockerregistryauthoptional_14" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">DockerConfigSecret</span><span class="w"> </span><span class="nf">getDockerRegistryAuth</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">ISecret</span><span class="w"> </span><span class="nf">getDockerRegistryAuth</span><span class="p">();</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> <a href="#org.cdk8s.plus25.DockerConfigSecret"><code>org.cdk8s.plus25.DockerConfigSecret</code></a></li>
+<li><em>Type:</em> <a href="#org.cdk8s.plus25.ISecret"><code>org.cdk8s.plus25.ISecret</code></a></li>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
@@ -17167,7 +17167,7 @@ its endpoints, which Kubernetes will not modify.</li>
 <span class="c1">//  .automountServiceAccountToken(java.lang.Boolean)</span>
 <span class="c1">//  .containers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .dns(PodDnsProps)</span>
-<span class="c1">//  .dockerRegistryAuth(DockerConfigSecret)</span>
+<span class="c1">//  .dockerRegistryAuth(ISecret)</span>
 <span class="c1">//  .hostAliases(java.util.List&lt;HostAlias&gt;)</span>
 <span class="c1">//  .initContainers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .isolate(java.lang.Boolean)</span>
@@ -17231,10 +17231,10 @@ added or removed. There must be at least one container in a Pod.</p>
 </blockquote>
 <hr />
 <h5 id="dockerregistryauthoptional_15"><code>dockerRegistryAuth</code><sup>Optional</sup> <a name="org.cdk8s.plus25.StatefulSetProps.property.dockerRegistryAuth"></a><a class="headerlink" href="#dockerregistryauthoptional_15" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">DockerConfigSecret</span><span class="w"> </span><span class="nf">getDockerRegistryAuth</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">ISecret</span><span class="w"> </span><span class="nf">getDockerRegistryAuth</span><span class="p">();</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> <a href="#org.cdk8s.plus25.DockerConfigSecret"><code>org.cdk8s.plus25.DockerConfigSecret</code></a></li>
+<li><em>Type:</em> <a href="#org.cdk8s.plus25.ISecret"><code>org.cdk8s.plus25.ISecret</code></a></li>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
@@ -17737,7 +17737,7 @@ contain &lsquo;:&rsquo;.</p>
 <span class="c1">//  .automountServiceAccountToken(java.lang.Boolean)</span>
 <span class="c1">//  .containers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .dns(PodDnsProps)</span>
-<span class="c1">//  .dockerRegistryAuth(DockerConfigSecret)</span>
+<span class="c1">//  .dockerRegistryAuth(ISecret)</span>
 <span class="c1">//  .hostAliases(java.util.List&lt;HostAlias&gt;)</span>
 <span class="c1">//  .initContainers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .isolate(java.lang.Boolean)</span>
@@ -17796,10 +17796,10 @@ added or removed. There must be at least one container in a Pod.</p>
 </blockquote>
 <hr />
 <h5 id="dockerregistryauthoptional_16"><code>dockerRegistryAuth</code><sup>Optional</sup> <a name="org.cdk8s.plus25.WorkloadProps.property.dockerRegistryAuth"></a><a class="headerlink" href="#dockerregistryauthoptional_16" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">DockerConfigSecret</span><span class="w"> </span><span class="nf">getDockerRegistryAuth</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">ISecret</span><span class="w"> </span><span class="nf">getDockerRegistryAuth</span><span class="p">();</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> <a href="#org.cdk8s.plus25.DockerConfigSecret"><code>org.cdk8s.plus25.DockerConfigSecret</code></a></li>
+<li><em>Type:</em> <a href="#org.cdk8s.plus25.ISecret"><code>org.cdk8s.plus25.ISecret</code></a></li>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
@@ -21475,7 +21475,7 @@ are automatically created.</p>
     <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.indexes", "navigation.tracking", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.b78d2936.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.fc8c2696.min.js"></script>
       
     
   </body>

@@ -17,7 +17,7 @@
         <link rel="next" href="../java/">
       
       <link rel="icon" href="../../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.1">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.2">
     
     
       
@@ -25,7 +25,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.402914a4.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.7bf56d0a.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.a0c5b2b5.min.css">
@@ -5566,7 +5566,7 @@
   <span class="n">automount_service_account_token</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">dns</span><span class="p">:</span> <span class="n">PodDnsProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-  <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">DockerConfigSecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">ISecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_aliases</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">HostAlias</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">init_containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">isolate</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -5625,7 +5625,7 @@ added or removed. There must be at least one container in a Pod.</p>
 <hr />
 <h5 id="docker_registry_authoptional"><code>docker_registry_auth</code><sup>Optional</sup> <a name="cdk8s_plus_25.AbstractPodProps.parameter.docker_registry_auth"></a><a class="headerlink" href="#docker_registry_authoptional" title="Permanent link">&para;</a></h5>
 <ul>
-<li><em>Type:</em> <a href="#cdk8s_plus_25.DockerConfigSecret"><code>cdk8s_plus_25.DockerConfigSecret</code></a></li>
+<li><em>Type:</em> <a href="#cdk8s_plus_25.ISecret"><code>cdk8s_plus_25.ISecret</code></a></li>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
@@ -6203,10 +6203,10 @@ Otherwise, no startup probe is defined.</li>
 </ul>
 <hr />
 <h5 id="docker_registry_authoptional_1"><code>docker_registry_auth</code><sup>Optional</sup> <a name="cdk8s_plus_25.AbstractPod.property.docker_registry_auth"></a><a class="headerlink" href="#docker_registry_authoptional_1" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">DockerConfigSecret</span>
+<div class="highlight"><pre><span></span><code><span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">ISecret</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> <a href="#cdk8s_plus_25.DockerConfigSecret"><code>cdk8s_plus_25.DockerConfigSecret</code></a></li>
+<li><em>Type:</em> <a href="#cdk8s_plus_25.ISecret"><code>cdk8s_plus_25.ISecret</code></a></li>
 </ul>
 <hr />
 <h5 id="restart_policyoptional_1"><code>restart_policy</code><sup>Optional</sup> <a name="cdk8s_plus_25.AbstractPod.property.restart_policy"></a><a class="headerlink" href="#restart_policyoptional_1" title="Permanent link">&para;</a></h5>
@@ -7213,7 +7213,7 @@ is enforced during validation process.</p>
   <span class="n">automount_service_account_token</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">dns</span><span class="p">:</span> <span class="n">PodDnsProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-  <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">DockerConfigSecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">ISecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_aliases</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">HostAlias</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">init_containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">isolate</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -7285,7 +7285,7 @@ added or removed. There must be at least one container in a Pod.</p>
 <hr />
 <h5 id="docker_registry_authoptional_2"><code>docker_registry_auth</code><sup>Optional</sup> <a name="cdk8s_plus_25.CronJobProps.parameter.docker_registry_auth"></a><a class="headerlink" href="#docker_registry_authoptional_2" title="Permanent link">&para;</a></h5>
 <ul>
-<li><em>Type:</em> <a href="#cdk8s_plus_25.DockerConfigSecret"><code>cdk8s_plus_25.DockerConfigSecret</code></a></li>
+<li><em>Type:</em> <a href="#cdk8s_plus_25.ISecret"><code>cdk8s_plus_25.ISecret</code></a></li>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
@@ -7579,7 +7579,7 @@ but with different flags and/or different memory and cpu requests for different 
   <span class="n">automount_service_account_token</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">dns</span><span class="p">:</span> <span class="n">PodDnsProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-  <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">DockerConfigSecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">ISecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_aliases</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">HostAlias</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">init_containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">isolate</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -7642,7 +7642,7 @@ added or removed. There must be at least one container in a Pod.</p>
 <hr />
 <h5 id="docker_registry_authoptional_3"><code>docker_registry_auth</code><sup>Optional</sup> <a name="cdk8s_plus_25.DaemonSetProps.parameter.docker_registry_auth"></a><a class="headerlink" href="#docker_registry_authoptional_3" title="Permanent link">&para;</a></h5>
 <ul>
-<li><em>Type:</em> <a href="#cdk8s_plus_25.DockerConfigSecret"><code>cdk8s_plus_25.DockerConfigSecret</code></a></li>
+<li><em>Type:</em> <a href="#cdk8s_plus_25.ISecret"><code>cdk8s_plus_25.ISecret</code></a></li>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
@@ -7809,7 +7809,7 @@ existing Deployments and adopt all their resources with new Deployments.</p>
   <span class="n">automount_service_account_token</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">dns</span><span class="p">:</span> <span class="n">PodDnsProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-  <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">DockerConfigSecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">ISecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_aliases</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">HostAlias</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">init_containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">isolate</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -7875,7 +7875,7 @@ added or removed. There must be at least one container in a Pod.</p>
 <hr />
 <h5 id="docker_registry_authoptional_4"><code>docker_registry_auth</code><sup>Optional</sup> <a name="cdk8s_plus_25.DeploymentProps.parameter.docker_registry_auth"></a><a class="headerlink" href="#docker_registry_authoptional_4" title="Permanent link">&para;</a></h5>
 <ul>
-<li><em>Type:</em> <a href="#cdk8s_plus_25.DockerConfigSecret"><code>cdk8s_plus_25.DockerConfigSecret</code></a></li>
+<li><em>Type:</em> <a href="#cdk8s_plus_25.ISecret"><code>cdk8s_plus_25.ISecret</code></a></li>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
@@ -8847,7 +8847,7 @@ You can also use a Job to run multiple Pods in parallel.</p>
   <span class="n">automount_service_account_token</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">dns</span><span class="p">:</span> <span class="n">PodDnsProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-  <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">DockerConfigSecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">ISecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_aliases</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">HostAlias</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">init_containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">isolate</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -8912,7 +8912,7 @@ added or removed. There must be at least one container in a Pod.</p>
 <hr />
 <h5 id="docker_registry_authoptional_5"><code>docker_registry_auth</code><sup>Optional</sup> <a name="cdk8s_plus_25.JobProps.parameter.docker_registry_auth"></a><a class="headerlink" href="#docker_registry_authoptional_5" title="Permanent link">&para;</a></h5>
 <ul>
-<li><em>Type:</em> <a href="#cdk8s_plus_25.DockerConfigSecret"><code>cdk8s_plus_25.DockerConfigSecret</code></a></li>
+<li><em>Type:</em> <a href="#cdk8s_plus_25.ISecret"><code>cdk8s_plus_25.ISecret</code></a></li>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
@@ -9924,7 +9924,7 @@ created by clients and scheduled onto hosts.</p>
   <span class="n">automount_service_account_token</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">dns</span><span class="p">:</span> <span class="n">PodDnsProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-  <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">DockerConfigSecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">ISecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_aliases</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">HostAlias</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">init_containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">isolate</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -9983,7 +9983,7 @@ added or removed. There must be at least one container in a Pod.</p>
 <hr />
 <h5 id="docker_registry_authoptional_6"><code>docker_registry_auth</code><sup>Optional</sup> <a name="cdk8s_plus_25.PodProps.parameter.docker_registry_auth"></a><a class="headerlink" href="#docker_registry_authoptional_6" title="Permanent link">&para;</a></h5>
 <ul>
-<li><em>Type:</em> <a href="#cdk8s_plus_25.DockerConfigSecret"><code>cdk8s_plus_25.DockerConfigSecret</code></a></li>
+<li><em>Type:</em> <a href="#cdk8s_plus_25.ISecret"><code>cdk8s_plus_25.ISecret</code></a></li>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
@@ -11304,7 +11304,7 @@ volumes to the new Pods that replace any that have failed.</p>
   <span class="n">automount_service_account_token</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">dns</span><span class="p">:</span> <span class="n">PodDnsProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-  <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">DockerConfigSecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">ISecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_aliases</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">HostAlias</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">init_containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">isolate</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -11371,7 +11371,7 @@ added or removed. There must be at least one container in a Pod.</p>
 <hr />
 <h5 id="docker_registry_authoptional_7"><code>docker_registry_auth</code><sup>Optional</sup> <a name="cdk8s_plus_25.StatefulSetProps.parameter.docker_registry_auth"></a><a class="headerlink" href="#docker_registry_authoptional_7" title="Permanent link">&para;</a></h5>
 <ul>
-<li><em>Type:</em> <a href="#cdk8s_plus_25.DockerConfigSecret"><code>cdk8s_plus_25.DockerConfigSecret</code></a></li>
+<li><em>Type:</em> <a href="#cdk8s_plus_25.ISecret"><code>cdk8s_plus_25.ISecret</code></a></li>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
@@ -12215,7 +12215,7 @@ In Kubernetes, a Pod represents a set of running containers on your cluster.</p>
   <span class="n">automount_service_account_token</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">dns</span><span class="p">:</span> <span class="n">PodDnsProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-  <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">DockerConfigSecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">ISecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_aliases</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">HostAlias</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">init_containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">isolate</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -12277,7 +12277,7 @@ added or removed. There must be at least one container in a Pod.</p>
 <hr />
 <h5 id="docker_registry_authoptional_8"><code>docker_registry_auth</code><sup>Optional</sup> <a name="cdk8s_plus_25.WorkloadProps.parameter.docker_registry_auth"></a><a class="headerlink" href="#docker_registry_authoptional_8" title="Permanent link">&para;</a></h5>
 <ul>
-<li><em>Type:</em> <a href="#cdk8s_plus_25.DockerConfigSecret"><code>cdk8s_plus_25.DockerConfigSecret</code></a></li>
+<li><em>Type:</em> <a href="#cdk8s_plus_25.ISecret"><code>cdk8s_plus_25.ISecret</code></a></li>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
@@ -12448,7 +12448,7 @@ its pod template.</p>
   <span class="n">automount_service_account_token</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">dns</span><span class="p">:</span> <span class="n">PodDnsProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-  <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">DockerConfigSecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">ISecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_aliases</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">HostAlias</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">init_containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">isolate</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -12504,10 +12504,10 @@ added or removed. There must be at least one container in a Pod.</p>
 </blockquote>
 <hr />
 <h5 id="docker_registry_authoptional_9"><code>docker_registry_auth</code><sup>Optional</sup> <a name="cdk8s_plus_25.AbstractPodProps.property.docker_registry_auth"></a><a class="headerlink" href="#docker_registry_authoptional_9" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">DockerConfigSecret</span>
+<div class="highlight"><pre><span></span><code><span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">ISecret</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> <a href="#cdk8s_plus_25.DockerConfigSecret"><code>cdk8s_plus_25.DockerConfigSecret</code></a></li>
+<li><em>Type:</em> <a href="#cdk8s_plus_25.ISecret"><code>cdk8s_plus_25.ISecret</code></a></li>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
@@ -13990,7 +13990,7 @@ somehow it manages to get access to host file system.</li>
   <span class="n">automount_service_account_token</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">dns</span><span class="p">:</span> <span class="n">PodDnsProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-  <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">DockerConfigSecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">ISecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_aliases</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">HostAlias</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">init_containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">isolate</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -14059,10 +14059,10 @@ added or removed. There must be at least one container in a Pod.</p>
 </blockquote>
 <hr />
 <h5 id="docker_registry_authoptional_10"><code>docker_registry_auth</code><sup>Optional</sup> <a name="cdk8s_plus_25.CronJobProps.property.docker_registry_auth"></a><a class="headerlink" href="#docker_registry_authoptional_10" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">DockerConfigSecret</span>
+<div class="highlight"><pre><span></span><code><span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">ISecret</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> <a href="#cdk8s_plus_25.DockerConfigSecret"><code>cdk8s_plus_25.DockerConfigSecret</code></a></li>
+<li><em>Type:</em> <a href="#cdk8s_plus_25.ISecret"><code>cdk8s_plus_25.ISecret</code></a></li>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
@@ -14316,7 +14316,7 @@ start a new execution at 10:22:00.</p>
   <span class="n">automount_service_account_token</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">dns</span><span class="p">:</span> <span class="n">PodDnsProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-  <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">DockerConfigSecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">ISecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_aliases</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">HostAlias</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">init_containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">isolate</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -14376,10 +14376,10 @@ added or removed. There must be at least one container in a Pod.</p>
 </blockquote>
 <hr />
 <h5 id="docker_registry_authoptional_11"><code>docker_registry_auth</code><sup>Optional</sup> <a name="cdk8s_plus_25.DaemonSetProps.property.docker_registry_auth"></a><a class="headerlink" href="#docker_registry_authoptional_11" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">DockerConfigSecret</span>
+<div class="highlight"><pre><span></span><code><span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">ISecret</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> <a href="#cdk8s_plus_25.DockerConfigSecret"><code>cdk8s_plus_25.DockerConfigSecret</code></a></li>
+<li><em>Type:</em> <a href="#cdk8s_plus_25.ISecret"><code>cdk8s_plus_25.ISecret</code></a></li>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
@@ -14566,7 +14566,7 @@ you must explicitly set a name starting from the second expose call.</p>
   <span class="n">automount_service_account_token</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">dns</span><span class="p">:</span> <span class="n">PodDnsProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-  <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">DockerConfigSecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">ISecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_aliases</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">HostAlias</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">init_containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">isolate</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -14629,10 +14629,10 @@ added or removed. There must be at least one container in a Pod.</p>
 </blockquote>
 <hr />
 <h5 id="docker_registry_authoptional_12"><code>docker_registry_auth</code><sup>Optional</sup> <a name="cdk8s_plus_25.DeploymentProps.property.docker_registry_auth"></a><a class="headerlink" href="#docker_registry_authoptional_12" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">DockerConfigSecret</span>
+<div class="highlight"><pre><span></span><code><span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">ISecret</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> <a href="#cdk8s_plus_25.DockerConfigSecret"><code>cdk8s_plus_25.DockerConfigSecret</code></a></li>
+<li><em>Type:</em> <a href="#cdk8s_plus_25.ISecret"><code>cdk8s_plus_25.ISecret</code></a></li>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
@@ -15839,7 +15839,7 @@ termination and value of the Host header is used for routing.</p>
   <span class="n">automount_service_account_token</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">dns</span><span class="p">:</span> <span class="n">PodDnsProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-  <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">DockerConfigSecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">ISecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_aliases</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">HostAlias</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">init_containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">isolate</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -15901,10 +15901,10 @@ added or removed. There must be at least one container in a Pod.</p>
 </blockquote>
 <hr />
 <h5 id="docker_registry_authoptional_13"><code>docker_registry_auth</code><sup>Optional</sup> <a name="cdk8s_plus_25.JobProps.property.docker_registry_auth"></a><a class="headerlink" href="#docker_registry_authoptional_13" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">DockerConfigSecret</span>
+<div class="highlight"><pre><span></span><code><span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">ISecret</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> <a href="#cdk8s_plus_25.DockerConfigSecret"><code>cdk8s_plus_25.DockerConfigSecret</code></a></li>
+<li><em>Type:</em> <a href="#cdk8s_plus_25.ISecret"><code>cdk8s_plus_25.ISecret</code></a></li>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
@@ -17039,7 +17039,7 @@ Duplicate domain names are removed.</p>
   <span class="n">automount_service_account_token</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">dns</span><span class="p">:</span> <span class="n">PodDnsProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-  <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">DockerConfigSecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">ISecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_aliases</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">HostAlias</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">init_containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">isolate</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -17095,10 +17095,10 @@ added or removed. There must be at least one container in a Pod.</p>
 </blockquote>
 <hr />
 <h5 id="docker_registry_authoptional_14"><code>docker_registry_auth</code><sup>Optional</sup> <a name="cdk8s_plus_25.PodProps.property.docker_registry_auth"></a><a class="headerlink" href="#docker_registry_authoptional_14" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">DockerConfigSecret</span>
+<div class="highlight"><pre><span></span><code><span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">ISecret</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> <a href="#cdk8s_plus_25.DockerConfigSecret"><code>cdk8s_plus_25.DockerConfigSecret</code></a></li>
+<li><em>Type:</em> <a href="#cdk8s_plus_25.ISecret"><code>cdk8s_plus_25.ISecret</code></a></li>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
@@ -18245,7 +18245,7 @@ its endpoints, which Kubernetes will not modify.</li>
   <span class="n">automount_service_account_token</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">dns</span><span class="p">:</span> <span class="n">PodDnsProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-  <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">DockerConfigSecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">ISecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_aliases</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">HostAlias</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">init_containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">isolate</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -18309,10 +18309,10 @@ added or removed. There must be at least one container in a Pod.</p>
 </blockquote>
 <hr />
 <h5 id="docker_registry_authoptional_15"><code>docker_registry_auth</code><sup>Optional</sup> <a name="cdk8s_plus_25.StatefulSetProps.property.docker_registry_auth"></a><a class="headerlink" href="#docker_registry_authoptional_15" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">DockerConfigSecret</span>
+<div class="highlight"><pre><span></span><code><span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">ISecret</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> <a href="#cdk8s_plus_25.DockerConfigSecret"><code>cdk8s_plus_25.DockerConfigSecret</code></a></li>
+<li><em>Type:</em> <a href="#cdk8s_plus_25.ISecret"><code>cdk8s_plus_25.ISecret</code></a></li>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
@@ -18815,7 +18815,7 @@ contain &lsquo;:&rsquo;.</p>
   <span class="n">automount_service_account_token</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">dns</span><span class="p">:</span> <span class="n">PodDnsProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-  <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">DockerConfigSecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">ISecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_aliases</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">HostAlias</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">init_containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">isolate</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -18874,10 +18874,10 @@ added or removed. There must be at least one container in a Pod.</p>
 </blockquote>
 <hr />
 <h5 id="docker_registry_authoptional_16"><code>docker_registry_auth</code><sup>Optional</sup> <a name="cdk8s_plus_25.WorkloadProps.property.docker_registry_auth"></a><a class="headerlink" href="#docker_registry_authoptional_16" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">DockerConfigSecret</span>
+<div class="highlight"><pre><span></span><code><span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">ISecret</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> <a href="#cdk8s_plus_25.DockerConfigSecret"><code>cdk8s_plus_25.DockerConfigSecret</code></a></li>
+<li><em>Type:</em> <a href="#cdk8s_plus_25.ISecret"><code>cdk8s_plus_25.ISecret</code></a></li>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
@@ -23265,7 +23265,7 @@ are automatically created.</p>
     <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.indexes", "navigation.tracking", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.b78d2936.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.fc8c2696.min.js"></script>
       
     
   </body>
