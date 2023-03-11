@@ -19,7 +19,6 @@ For instance, considering repository like [cdk8s-jenkins](https://pypi.org/proje
 
 ```yaml
 library:                    
-  name: cdk8s-jenkins
   version: 0.0.218
   constructs:
     - name: Jenkins
@@ -86,7 +85,6 @@ where,
 * `--args`: **[NEW]** This would be the input file that would contain the arguments to be supplied to the CDK8s library's construct. The following is how its format would look like,
   ```yaml
   library:                                    # Required
-    name: libraryName                         # Required
     version: libraryVersion                   # Defaults to latest
     constructs:                               # Required
       - name: constructName                   # Required
@@ -121,7 +119,6 @@ The user would be passing in `args.yaml` which would provide inputs for the requ
 
 ```yaml
 library:                    
-  name: cdk8s-jenkins
   version: 0.0.218
   constructs:
     - name: Jenkins
@@ -162,13 +159,12 @@ The equivalent JSON would look like,
         }
       }
     ], 
-    "name": "cdk8s-jenkins"
   }
 }
 ```
 
 Here,
-* `cdk8s-jenkins`: The example remote CDK8s library here.
+* `cdk8s-jenkins`: The example remote CDK8s library here. We can get this value from the URL specified by the user, which here is `https://pypi.org/project/cdk8s-jenkins/`.
 * `Jenkins`: The construct within the CDK8s library that user wants to utilize.
 * `properties`: The properties that can be passed to the construct. Here they are `disableCsrfProtection` and `plugins`. The `type` here represents the data type and `value` is the property value. The data type here could only be _pure data types_.
 
@@ -213,7 +209,7 @@ MyChart(app, "{{ $base }}")
 app.synth()
 ```
 
-Here, I am introducing two keys that are `dependencies` and `initialization` that can be substituted with [sscaff](https://github.com/cdklabs/node-sscaff) which substitute values based on keys it encounters in the template. We can get these values based on the inputs passed in the `args.yaml` file. 
+Here, I am introducing two keys that are `dependencies` and `initialization` that can be substituted with [sscaff](https://github.com/cdklabs/node-sscaff) which substitute values based on keys it encounters in the template. We can get these values based on the inputs passed in the `args.yaml` file and the library URL specified by the user. 
 
 For instance, the following would be substituted based on what language we are working with,
 - `{{ dependencies }}`: `from cdk8s_jenkins import Jenkins`.
@@ -257,7 +253,8 @@ constructs = "~={{ constructs_version }}"
 {{ library }} = "~={{ library_version }}"   # <--------
 ```
 
-where `library` is the CDK8s library name and `library_version` is the requested library version. Both of these values will be retrieved from the `args.yaml` file that the user passes in. And the library would be installed as part of post sscaff hook where we run [pipenv install](https://github.com/cdk8s-team/cdk8s-cli/blob/2.x/templates/python-app/.hooks.sscaff.js#L29). 
+where `library` is the CDK8s library name and `library_version` is the requested library version. `library_version` value will be retrieved from the `args.yaml` file that the user passes in and the `library` value can be retrieved from the URl specified by the user. If library version is not passed in the args.yaml, we will use the latest version(npm view library-name version).
+And the library would be installed as part of post sscaff hook where we run [pipenv install](https://github.com/cdk8s-team/cdk8s-cli/blob/2.x/templates/python-app/.hooks.sscaff.js#L29). 
 
 #### Synthesizing
 
