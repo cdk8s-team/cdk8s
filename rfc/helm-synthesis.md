@@ -116,11 +116,10 @@ chart/              # Value of --output. Defaults to directoryName if format is 
     * **_A remotely hosted CDK8s library_**
         
         Here, values for,
-        * `{{ library }}` and `{{ app-version }}` are substituted from argument file that is passed in. If value for `{{ app-version }}` is not present, then it's left as empty during substitution. Format for the argument file that would be passed in is as follows,
+        * `{{ library }}` is substituted from URL specified by user and `{{ app-version }}` is substituted from argument file that is passed in. If value for `{{ app-version }}` is not present, then the latest version of the library is used. Format for the argument file that would be passed in is as follows,
         ```yaml
         library:                                      # Required
-            name: libraryName                         # Required
-            version: libraryVersion                   # Defaults to latest while installing
+            version: libraryVersion                   # Defaults to latest
             constructs:                               # Required
             - name: constructName                     # Required
                 properties:                           # Required
