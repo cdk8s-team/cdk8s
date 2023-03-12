@@ -20,7 +20,7 @@ In short, here is what you have to do to make this happen:
     spec:
       containers:
         - name: test-container
-          image: k8s.gcr.io/busybox
+          image: registry.k8s.io/busybox
           command: [ "/bin/sh", "-c", "ls /etc/config/" ]
           volumeMounts:
           - name: config-volume
@@ -49,7 +49,7 @@ const volume = pod.addConfigMapVolume(config);
 // add a container to the pod and mount the files
 // to /etc/config, and print them on initialization
 const container = pod.addContainer('test-container');
-container.image = 'k8s.gcr.io/busybox';
+container.image = 'registry.k8s.io/busybox';
 container.mount(volume, '/etc/config'); // <-- NICE!
 container.command = "/bin/sh", "-c", "ls /etc/config/";
 container.restartPolicy = PodRestartPolicy.NEVER;
