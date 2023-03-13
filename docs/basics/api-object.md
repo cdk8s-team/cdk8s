@@ -32,7 +32,7 @@ new kplus.Deployment(chart, 'deployment', {
 app.synth();
 ```
 
-Generates a `Deployment` with the name: `my-chart-deployment-c8c354dd`.
+Generates a `Deployment` with the name: `my-chart-deployment-c8c354dd`. Where `my-chart` is the id of the `Chart`, `deployment` is the id of the `Deployment`, and `c8c354dd` is the hash suffix.
 
 In Kubernetes, only one resource of a given kind can have a given name at a time.
 Hashes are used to ensure that all resources have unique identifiers. However, they are
