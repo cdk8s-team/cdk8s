@@ -34,9 +34,13 @@ app.synth();
 
 Generates a `Deployment` with the name: `my-chart-deployment-c8c354dd`. Where `my-chart` is the id of the `Chart`, `deployment` is the id of the `Deployment`, and `c8c354dd` is the hash suffix.
 
-In Kubernetes, only one resource of a given kind can have a given name at a time.
-Hashes are used to ensure that all resources have unique identifiers. However, they are
-not required and it may sometimes be undesirable to include the hash suffixes.
+You can programmatically access the name of any resource in a cdk8s app by accessing the `.name` property of a resource. For example:
+
+```ts
+const deployment = new kplus.Deployment(chart, 'deployment', {
+  containers: [{ image: 'nginx' }]
+});
+const deploymentName = deployment.name;
 
 To remove hashes from resource names, you can change the above code by setting the
 `ChartProps.disableResourceNameHashes` value to `true` like so:
