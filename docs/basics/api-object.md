@@ -42,8 +42,7 @@ const deployment = new kplus.Deployment(chart, 'deployment', {
 });
 const deploymentName = deployment.name;
 
-To remove hashes from resource names, you can change the above code by setting the
-`ChartProps.disableResourceNameHashes` value to `true` like so:
+To remove hashes from resource names, you can set the `disableResourceNameHashes` property to `true`:
 
 ```ts
 import { App, Chart } from 'cdk8s';
