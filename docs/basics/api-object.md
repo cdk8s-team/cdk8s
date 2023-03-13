@@ -51,4 +51,16 @@ const chart = new MyChart(app, 'my-chart', {
 });
 ...
 ```
-Which would similarly generate a `Deployment` now with the name: `my-chart-deployment`.
+Which would similarly generate a `Deployment` with the name: `my-chart-deployment`. Note that disabling hashes introduces the possibility of name clashes. For example, the following code:
+
+```ts
+// think of this as a custom construct
+const c = new Construct(this, 'Construct');
+
+new kplus.Deployment(c, 'Deployment', {
+  containers: [{ image: 'image' }]
+});
+
+new kplus.Deployment(this, 'Construct-Deployment', {
+  containers: [{ image: 'image' }]
+})
