@@ -340,9 +340,42 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          ApiObject
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         ApiObject
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#resource-names" class="md-nav__link">
+    Resource Names
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2248,6 +2281,21 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#resource-names" class="md-nav__link">
+    Resource Names
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2274,6 +2322,59 @@ It is possible to customize the prefix by providing a string value to the
 <code>--class-prefix</code> flag, or by passing <code>--no-class-prefix</code>. (Note: if no prefix is
 used for k8s resources, this may lead to conflicts - see
 https://github.com/cdk8s-team/cdk8s/issues/140).</p>
+<h3 id="resource-names">Resource Names<a class="headerlink" href="#resource-names" title="Permanent link">&para;</a></h3>
+<p>By default, cdk8s will autogenerate a name for every resource when it is instantiated.
+The name is created from the path of the construct, and suffixed with a hash of that path.</p>
+<p>For example, the following code:</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">App</span><span class="p">,</span><span class="w"> </span><span class="nx">Chart</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-25&#39;</span><span class="p">;</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">App</span><span class="p">();</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">chart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">MyChart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;my-chart&#39;</span><span class="p">);</span>
+
+<span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Deployment</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;deployment&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">containers</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;nginx&#39;</span><span class="w"> </span><span class="p">}]</span>
+<span class="p">});</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">synth</span><span class="p">();</span>
+</code></pre></div>
+<p>generates a <code>Deployment</code> with the name: <code>my-chart-deployment-c8c354dd</code>. Where <code>my-chart</code> is the id of the <code>Chart</code>, <code>deployment</code> is the id of the <code>Deployment</code>, and <code>c8c354dd</code> is the hash suffix.</p>
+<p>You can programmatically access the name of any resource in a cdk8s app by accessing the <code>.name</code> property of a resource. For example:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">deployment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Deployment</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;deployment&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">containers</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;nginx&#39;</span><span class="w"> </span><span class="p">}]</span>
+<span class="p">});</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">deploymentName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">deployment</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
+</code></pre></div>
+<p>To remove hashes from resource names, you can set the <code>disableResourceNameHashes</code> property to <code>true</code>:</p>
+<p><div class="highlight"><pre><span></span><code><span class="p">...</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">chart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">MyChart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;my-chart&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">disableResourceNameHashes</span><span class="o">:</span><span class="w"> </span><span class="kt">true</span><span class="p">,</span>
+<span class="p">});</span>
+<span class="p">...</span>
+</code></pre></div>
+Which would similarly generate a <code>Deployment</code> with the name: <code>my-chart-deployment</code>. Note that disabling hashes introduces the possibility of name clashes. For example, the following code:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// think of this as a custom construct</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Construct</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Construct&#39;</span><span class="p">);</span>
+
+<span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Deployment</span><span class="p">(</span><span class="nx">c</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Deployment&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">containers</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;image&#39;</span><span class="w"> </span><span class="p">}]</span>
+<span class="p">});</span>
+
+<span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Deployment</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Construct-Deployment&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">containers</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;image&#39;</span><span class="w"> </span><span class="p">}]</span>
+<span class="p">})</span>
+</code></pre></div>
+<p>will produce two deployments with the same name: <code>chart-construct-deployment</code>.
+This happens because cdk8s uses a hyphen (<code>-</code>) as the delimiter between elements
+in the path, so if the id of your construct also contains a hyphen (<code>-</code>), a collision
+can occur. In addition, you can explicitly set a name for every resource by using the <code>metadata.name</code> property:</p>
+<div class="highlight"><pre><span></span><code><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Deployment</span><span class="p">(</span><span class="nx">c</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Deployment&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">metadata</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;my-deployment&#39;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="p">...</span>
+<span class="p">});</span>
+</code></pre></div>
 
 
 
