@@ -45,18 +45,10 @@ const deploymentName = deployment.name;
 To remove hashes from resource names, you can set the `disableResourceNameHashes` property to `true`:
 
 ```ts
-import { App, Chart } from 'cdk8s';
-import * as kplus from 'cdk8s-plus-25';
-
-const app = new App();
+...
 const chart = new MyChart(app, 'my-chart', {
     disableResourceNameHashes: true,
 });
-
-new kplus.Deployment(chart, 'deployment', {
-  containers: [{ image: 'nginx' }]
-});
-
-app.synth();
+...
 ```
 Which would similarly generate a `Deployment` now with the name: `my-chart-deployment`.
