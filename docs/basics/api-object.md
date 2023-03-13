@@ -32,7 +32,7 @@ new kplus.Deployment(chart, 'deployment', {
 app.synth();
 ```
 
-Generates a `Deployment` with the name: `my-chart-deployment-c8c354dd`. Where `my-chart` is the id of the `Chart`, `deployment` is the id of the `Deployment`, and `c8c354dd` is the hash suffix.
+generates a `Deployment` with the name: `my-chart-deployment-c8c354dd`. Where `my-chart` is the id of the `Chart`, `deployment` is the id of the `Deployment`, and `c8c354dd` is the hash suffix.
 
 You can programmatically access the name of any resource in a cdk8s app by accessing the `.name` property of a resource. For example:
 
@@ -41,6 +41,7 @@ const deployment = new kplus.Deployment(chart, 'deployment', {
   containers: [{ image: 'nginx' }]
 });
 const deploymentName = deployment.name;
+```
 
 To remove hashes from resource names, you can set the `disableResourceNameHashes` property to `true`:
 
@@ -64,3 +65,18 @@ new kplus.Deployment(c, 'Deployment', {
 new kplus.Deployment(this, 'Construct-Deployment', {
   containers: [{ image: 'image' }]
 })
+```
+
+will produce two deployments with the same name: `chart-construct-deployment`.
+This happens because cdk8s uses a hyphen (`-`) as the delimiter between elements
+in the path, so if the id of your construct also contains a hyphen (`-`), a collision
+can occur. In addition, you can explicitly set a name for every resource by using the `metadata.name` property:
+
+```ts
+new kplus.Deployment(c, 'Deployment', {
+  metadata: {
+    name: 'my-deployment'
+  },
+  ...
+});
+```
