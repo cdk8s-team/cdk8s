@@ -153,6 +153,27 @@ func NewKubeCertificateSigningRequestV1Beta1_Override(k KubeCertificateSigningRe
 	)
 }
 
+// Return whether the given object is an `ApiObject`.
+//
+// We do attribute detection since we can't reliably use 'instanceof'.
+func KubeCertificateSigningRequestV1Beta1_IsApiObject(o interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateKubeCertificateSigningRequestV1Beta1_IsApiObjectParameters(o); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeCertificateSigningRequestV1Beta1",
+		"isApiObject",
+		[]interface{}{o},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

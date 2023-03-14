@@ -155,6 +155,27 @@ func NewKubeControllerRevisionV1Beta2_Override(k KubeControllerRevisionV1Beta2, 
 	)
 }
 
+// Return whether the given object is an `ApiObject`.
+//
+// We do attribute detection since we can't reliably use 'instanceof'.
+func KubeControllerRevisionV1Beta2_IsApiObject(o interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateKubeControllerRevisionV1Beta2_IsApiObjectParameters(o); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeControllerRevisionV1Beta2",
+		"isApiObject",
+		[]interface{}{o},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

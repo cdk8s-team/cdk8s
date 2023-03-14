@@ -5,6 +5,10 @@ package k8s
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func validateKubeRoleList_IsApiObjectParameters(o interface{}) error {
+	return nil
+}
+
 func validateKubeRoleList_IsConstructParameters(x interface{}) error {
 	return nil
 }
