@@ -153,6 +153,27 @@ func NewJenkins_Override(j Jenkins, scope constructs.Construct, id *string, prop
 	)
 }
 
+// Return whether the given object is an `ApiObject`.
+//
+// We do attribute detection since we can't reliably use 'instanceof'.
+func Jenkins_IsApiObject(o interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateJenkins_IsApiObjectParameters(o); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"jenkinsio.Jenkins",
+		"isApiObject",
+		[]interface{}{o},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

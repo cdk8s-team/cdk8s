@@ -5,14 +5,18 @@ on:
   issues:
     types:
       - opened
+  pull_request:
+    types:
+      - opened
 jobs:
   assign-to-project:
     runs-on: ubuntu-latest
     permissions:
       issues: write
+      pull-requests: write
+    if: github.repository == cdk8s-team/cdk8s
     steps:
       - uses: actions/add-to-project@v0.4.0
         with:
           project-url: https://github.com/orgs/cdk8s-team/projects/12
           github-token: ${{ secrets.PROJEN_GITHUB_TOKEN }}
-          labeled: needs-triage
