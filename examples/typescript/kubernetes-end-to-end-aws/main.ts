@@ -2,18 +2,14 @@ import { Construct } from 'constructs';
 import * as k8s  from 'cdk8s';
 import * as kplus from 'cdk8s-plus-25';
 import * as aws from 'aws-cdk-lib';
-import * as ec2 from 'aws-cdk-lib/aws-ec2';
 import * as eks from 'aws-cdk-lib/aws-eks';
 import * as kubectl from '@aws-cdk/lambda-layer-kubectl-v24'
 
-export class MyStack extends aws.Stack {
+export class KubernetesEnd2End extends aws.Stack {
   constructor(scope: Construct, name: string) {
     super(scope, name);
 
-    const vpc = new ec2.Vpc(this, 'Vpc', { maxAzs: 2, natGateways: 1 });
-
     const cluster = new eks.Cluster(this, 'Cluster', {
-      vpc,
       version: eks.KubernetesVersion.V1_25,
 
       // allows the cluster to provision load balancers
@@ -29,6 +25,7 @@ export class MyStack extends aws.Stack {
     cluster.addHelmChart('KubeView', {
       repository: 'https://benc-uk.github.io/kubeview/charts',
       chart: 'kubeview',
+      namespace: 'kube-system',
       values: {
         // control the service name since we will need to
         // refernece to it from our app
@@ -39,7 +36,9 @@ export class MyStack extends aws.Stack {
     // the helm chart creates a load balancer backed service by default.
     // the load balancer is provisioned using the alb controller we configured
     // on the cluster
-    const kubeViewAddress = cluster.getServiceLoadBalancerAddress('kubeview');
+    const kubeViewAddress = cluster.getServiceLoadBalancerAddress('kubeview', {
+      namespace: 'kube-system',
+    });
 
     new aws.CfnOutput(this, 'KubeViewEndpoint', {
       value: `http://${kubeViewAddress}`
@@ -83,5 +82,5 @@ export class MyStack extends aws.Stack {
 }
 
 const app = new aws.App();
-new MyStack(app, 'cdk8s-aws-cdk');
+new KubernetesEnd2End(app, 'kubernetes-end-to-end');
 app.synth();
