@@ -1,0 +1,27 @@
+{
+  "name": "cdk8s-aws-cdk",
+  "version": "0.0.0",
+  "main": "main.js",
+  "types": "main.ts",
+  "license": "Apache-2.0",
+  "private": true,
+  "scripts": {
+    "synth": "cdk -a 'node main.js' synth",
+    "compile": "tsc",
+    "watch": "tsc -w",
+    "test": "echo ok",
+    "build": "rm -rf cdk.out && npm run compile && npm run synth",
+    "deploy": "npm run build && cdk -a 'node main.js' deploy",
+    "destroy": "npm run build && cdk -a 'node main.js' destroy"
+  },
+  "dependencies": {
+    "cdk8s": "^2.7.34",
+    "cdk8s-plus-25": "^2.5.8",
+    "aws-cdk-lib": "^2.69.0",
+    "constructs": "^10.1.279",
+    "@aws-cdk/lambda-layer-kubectl-v24": "^2.0.134"
+  },
+  "devDependencies": {
+    "aws-cdk": "^2.69.0"
+  }
+}
