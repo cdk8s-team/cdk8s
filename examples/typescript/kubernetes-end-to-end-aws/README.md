@@ -4,12 +4,19 @@ In this example, we will walk through an end-to-end guide for deploying
 a Kubernetes application from scratch to AWS. We will:
 
 1. Provision an Amazon EKS cluster.
-2. Install the [AWS Load Balancer Controller](https://kubernetes-sigs.github.io/aws-load-balancer-controller) onto the cluster.
-3. Install the KubeView cluster visualiser onto the cluster.
+3. Install the KubeView cluster visualizer onto the cluster.
 4. Deploy a Kubernetes workload.
 
 Since we are deploying to AWS, we will use the AWS CDK as our framework. AWS CDK integrates
 with Helm, which we will use for common middleware, and cdk8s, which we will use for our application definition. This allows us to define all our components in the same codebase, and deploy it all with a single tool.
+
+> **If you're just interested in the final code, it is available [here](./main.ts).**
+
+![](./architecture.png)
+
+> The above diagram doesn't contain the KubeView visualizer.
+
+## Definition
 
 ### 0) Setting Up
 
@@ -58,10 +65,15 @@ Each of the following steps describes a component and provides the code snippets
 you need to add (inside the constructor of the stack) to define it.
 As you go through, copy-paste them sequentially into your file.
 
-### 1) Provision an Amazon EKS cluster
+### 1) Define an Amazon EKS cluster
 
 AWS CDK provides a construct library for defining EKS clusters. All you need to do
 is specify a version, and it will create a 2 node cluster inside a dedicated VPC.
+
+In order to access applications inside the clusters from the internet,
+the cluster needs the ability to provision on-demand AWS load balancers that
+route to internal Kubernetes resources. The [AWS Load Balancer Controller](https://kubernetes-sigs.github.io/aws-load-balancer-controller) enables just that,
+and can be installed via the `albController` property. So, our complete cluster definition is:
 
 In addition, the `eks.Cluster` construct is able to apply Kubernetes manifests onto the
 cluster (we will use that capability later) via the `kubectl` utility.
@@ -70,23 +82,6 @@ cluster, which can be done via the `kubectlLayer` property.
 
 ```ts
 const cluster = new eks.Cluster(this, 'Cluster', {
-  version: eks.KubernetesVersion.V1_25,
-
-  // match the cluster version to kubectl version
-  kubectlLayer: new kubectl.KubectlV25Layer(this, 'Kubectl'),
-});
-```
-
-### 2) Install the AWS Load Balancer Controller
-
-In order to access applications inside those clusters from the internet,
-the cluster needs the ability to provision on-demand AWS load balancers that
-route to internal Kubernetes services. The [AWS Load Balancer Controller](https://kubernetes-sigs.github.io/aws-load-balancer-controller) enables just that, and can be installed
-via the `albController` property.
-
-```ts
-const cluster = new eks.Cluster(this, 'Cluster', {
-  vpc,
   version: eks.KubernetesVersion.V1_25,
 
   // match the cluster version to kubectl version
@@ -100,7 +95,7 @@ const cluster = new eks.Cluster(this, 'Cluster', {
 });
 ```
 
-### 3) Install KubeView
+### 2) Define KubeView
 
 Kubernetes clusters often contain common middleware that has cross-application concerns
 such as observability, certificate management, and more. Such middleware can be easily installed with [helm](https://helm.sh/), which is natively supported by the `eks.Cluster` construct.
@@ -146,7 +141,7 @@ new aws.CfnOutput(this, 'KubeViewEndpoint', {
 });
 ```
 
-### 4) Deploy the Application
+### 3) Define the Application
 
 Now its time to define our application workload. We use a very simple [http-echo](https://hub.docker.com/r/hashicorp/http-echo/) server that responds to requests with whatever
 message it was configured with at launch. To define this workload, we'll use [cdk8s-plus](https://github.com/cdk8s-team/cdk8s-plus):
@@ -188,8 +183,8 @@ cluster.addCdk8sChart(chart.node.id, chart, {
 
 There are two properties worth noting here:
 
-- `ingressAlb`: Ingress resources need to be specially annotated for them to be picked up and implemented by the AWS Load Balancer Controller. Setting this property to `true` will make the cluster automatically detect `Ingress` resources, and add the necessary annotation.
-- `ingressAlbScheme`: By default, the provisioned ALB is `internal`, so we need explicitly make it `internet-facing`.
+- `ingressAlb:` Ingress resources need to be specially annotated for them to be picked up and implemented by the AWS Load Balancer Controller. Setting this property to `true` will make the cluster automatically detect `Ingress` resources, and add the necessary annotation.
+- `ingressAlbScheme:` By default, the provisioned ALB is `internal`, so we need explicitly make it `internet-facing`.
 
 And, similarly to the KubeView endpoint, we need to fetch the generated address of the ALB,
 this time from the state of the ingress resource:
@@ -203,3 +198,31 @@ new aws.CfnOutput(this, 'ApplicationEndpoint', {
   value: `http://${appAddress}`,
 })
 ```
+
+## Deployment
+
+As mentioned before, this entire stack, comprised out of both AWS and Kubernetes resource
+can be deployment with a single AWS CDK command:
+
+```console
+cdk deploy
+```
+
+Once the deployment finishes, you should see the following output:
+
+```console
+
+```
+
+It contains:
+
+- ``
+
+### Including Application Code
+
+### Imported Clusters
+
+## Destroying
+
+
+

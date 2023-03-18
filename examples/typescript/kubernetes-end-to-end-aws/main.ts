@@ -12,13 +12,14 @@ export class KubernetesEnd2End extends aws.Stack {
     const cluster = new eks.Cluster(this, 'Cluster', {
       version: eks.KubernetesVersion.V1_25,
 
+      // match the cluster version to kubectl version
+      kubectlLayer: new kubectl.KubectlV25Layer(this, 'Kubectl'),
+
       // allows the cluster to provision load balancers
       // for kubernetes service and ingress resources.
       albController: {
         version: eks.AlbControllerVersion.V2_4_1,
       },
-
-      kubectlLayer: new kubectl.KubectlV25Layer(this, 'Kubectl'),
     });
 
     // https://artifacthub.io/packages/helm/kubeview/kubeview
@@ -28,7 +29,7 @@ export class KubernetesEnd2End extends aws.Stack {
       namespace: 'kube-system',
       values: {
         // control the service name since we will need to
-        // refernece to it from our app
+        // reference to it from our app
         fullnameOverride: 'kubeview'
       }
     });
@@ -63,10 +64,14 @@ export class KubernetesEnd2End extends aws.Stack {
     const service = deployment.exposeViaService({ serviceType: kplus.ServiceType.NODE_PORT });
     ingress.addRule('/', kplus.IngressBackend.fromService(service));
 
-    cluster.addCdk8sChart(chart.node.id, chart, {
+    const echoServer = cluster.addCdk8sChart(chart.node.id, chart, {
       ingressAlb: true,
       ingressAlbScheme: eks.AlbScheme.INTERNET_FACING,
     });
+
+    // the deletion of `echoServer` is what instructs the controller to delete the ELB.
+    // so we need to make sure this happens before the controller is deleted.
+    echoServer.node.addDependency(cluster.albController ?? []);
 
     // our cluster is configured to automatically annotate ingress resource
     // such that they are backed by the alb controller.
@@ -75,7 +80,6 @@ export class KubernetesEnd2End extends aws.Stack {
     new aws.CfnOutput(this, 'ApplicationEndpoint', {
       value: `http://${appAddress}`,
     })
-
 
   }
 
