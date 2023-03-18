@@ -3,7 +3,7 @@ import * as k8s  from 'cdk8s';
 import * as kplus from 'cdk8s-plus-25';
 import * as aws from 'aws-cdk-lib';
 import * as eks from 'aws-cdk-lib/aws-eks';
-import * as kubectl from '@aws-cdk/lambda-layer-kubectl-v24'
+import * as kubectl from '@aws-cdk/lambda-layer-kubectl-v25'
 
 export class KubernetesEnd2End extends aws.Stack {
   constructor(scope: Construct, name: string) {
@@ -18,7 +18,7 @@ export class KubernetesEnd2End extends aws.Stack {
         version: eks.AlbControllerVersion.V2_4_1,
       },
 
-      kubectlLayer: new kubectl.KubectlV24Layer(this, 'Kubectl'),
+      kubectlLayer: new kubectl.KubectlV25Layer(this, 'Kubectl'),
     });
 
     // https://artifacthub.io/packages/helm/kubeview/kubeview
@@ -45,7 +45,6 @@ export class KubernetesEnd2End extends aws.Stack {
     });
 
     const chart = new k8s.Chart(new k8s.App(), 'HttpEcho');
-    const ingress = new kplus.Ingress(chart, 'Ingress');
 
     const deployment = new kplus.Deployment(chart, 'Deployment', {
       containers: [{
@@ -60,6 +59,7 @@ export class KubernetesEnd2End extends aws.Stack {
       }],
     });
 
+    const ingress = new kplus.Ingress(chart, 'Ingress');
     const service = deployment.exposeViaService({ serviceType: kplus.ServiceType.NODE_PORT });
     ingress.addRule('/', kplus.IngressBackend.fromService(service));
 

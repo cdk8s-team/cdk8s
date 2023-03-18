@@ -19,7 +19,7 @@
     "cdk8s-plus-25": "^2.5.8",
     "aws-cdk-lib": "^2.69.0",
     "constructs": "^10.1.279",
-    "@aws-cdk/lambda-layer-kubectl-v24": "^2.0.134"
+    "@aws-cdk/lambda-layer-kubectl-v25": "^2.0.3"
   },
   "devDependencies": {
     "aws-cdk": "^2.69.0"
