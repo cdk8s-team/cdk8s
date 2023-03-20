@@ -2221,6 +2221,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#csivolumeoptions" class="md-nav__link">
+    CsiVolumeOptions 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#daemonsetprops" class="md-nav__link">
     DaemonSetProps 
   </a>
@@ -4357,6 +4364,13 @@
           <li class="md-nav__item">
   <a href="#cronjobprops" class="md-nav__link">
     CronJobProps 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#csivolumeoptions" class="md-nav__link">
+    CsiVolumeOptions 
   </a>
   
 </li>
@@ -10986,11 +11000,11 @@ image. Volumes can not mount onto other volumes</p>
 </ul>
 <p>Options.</p>
 <hr />
-<h5 id="fromemptydir"><code>fromEmptyDir</code> <a name="org.cdk8s.plus24.Volume.fromEmptyDir"></a><a class="headerlink" href="#fromemptydir" title="Permanent link">&para;</a></h5>
+<h5 id="fromcsi"><code>fromCsi</code> <a name="org.cdk8s.plus24.Volume.fromCsi"></a><a class="headerlink" href="#fromcsi" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.Volume</span><span class="p">;</span>
 
-<span class="n">Volume</span><span class="p">.</span><span class="na">fromEmptyDir</span><span class="p">(</span><span class="n">Construct</span><span class="w"> </span><span class="n">scope</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="n">name</span><span class="p">)</span>
-<span class="n">Volume</span><span class="p">.</span><span class="na">fromEmptyDir</span><span class="p">(</span><span class="n">Construct</span><span class="w"> </span><span class="n">scope</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">EmptyDirVolumeOptions</span><span class="w"> </span><span class="n">options</span><span class="p">)</span>
+<span class="n">Volume</span><span class="p">.</span><span class="na">fromCsi</span><span class="p">(</span><span class="n">Construct</span><span class="w"> </span><span class="n">scope</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="n">driver</span><span class="p">)</span>
+<span class="n">Volume</span><span class="p">.</span><span class="na">fromCsi</span><span class="p">(</span><span class="n">Construct</span><span class="w"> </span><span class="n">scope</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="n">driver</span><span class="p">,</span><span class="w"> </span><span class="n">CsiVolumeOptions</span><span class="w"> </span><span class="n">options</span><span class="p">)</span>
 </code></pre></div>
 <h6 id="scoperequired_52"><code>scope</code><sup>Required</sup> <a name="org.cdk8s.plus24.Volume.parameter.scope"></a><a class="headerlink" href="#scoperequired_52" title="Permanent link">&para;</a></h6>
 <ul>
@@ -11002,22 +11016,23 @@ image. Volumes can not mount onto other volumes</p>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 </ul>
 <hr />
-<h6 id="namerequired_10"><code>name</code><sup>Required</sup> <a name="org.cdk8s.plus24.Volume.parameter.name"></a><a class="headerlink" href="#namerequired_10" title="Permanent link">&para;</a></h6>
+<h6 id="driverrequired"><code>driver</code><sup>Required</sup> <a name="org.cdk8s.plus24.Volume.parameter.driver"></a><a class="headerlink" href="#driverrequired" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 </ul>
+<p>The name of the CSI driver to use to populate the volume.</p>
 <hr />
 <h6 id="optionsoptional_11"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus24.Volume.parameter.options"></a><a class="headerlink" href="#optionsoptional_11" title="Permanent link">&para;</a></h6>
 <ul>
-<li><em>Type:</em> <a href="#org.cdk8s.plus24.EmptyDirVolumeOptions"><code>org.cdk8s.plus24.EmptyDirVolumeOptions</code></a></li>
+<li><em>Type:</em> <a href="#org.cdk8s.plus24.CsiVolumeOptions"><code>org.cdk8s.plus24.CsiVolumeOptions</code></a></li>
 </ul>
-<p>Additional options.</p>
+<p>Options for the CSI volume, including driver-specific ones.</p>
 <hr />
-<h5 id="fromgcepersistentdisk"><code>fromGcePersistentDisk</code> <a name="org.cdk8s.plus24.Volume.fromGcePersistentDisk"></a><a class="headerlink" href="#fromgcepersistentdisk" title="Permanent link">&para;</a></h5>
+<h5 id="fromemptydir"><code>fromEmptyDir</code> <a name="org.cdk8s.plus24.Volume.fromEmptyDir"></a><a class="headerlink" href="#fromemptydir" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.Volume</span><span class="p">;</span>
 
-<span class="n">Volume</span><span class="p">.</span><span class="na">fromGcePersistentDisk</span><span class="p">(</span><span class="n">Construct</span><span class="w"> </span><span class="n">scope</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="n">pdName</span><span class="p">)</span>
-<span class="n">Volume</span><span class="p">.</span><span class="na">fromGcePersistentDisk</span><span class="p">(</span><span class="n">Construct</span><span class="w"> </span><span class="n">scope</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="n">pdName</span><span class="p">,</span><span class="w"> </span><span class="n">GCEPersistentDiskVolumeOptions</span><span class="w"> </span><span class="n">options</span><span class="p">)</span>
+<span class="n">Volume</span><span class="p">.</span><span class="na">fromEmptyDir</span><span class="p">(</span><span class="n">Construct</span><span class="w"> </span><span class="n">scope</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="n">name</span><span class="p">)</span>
+<span class="n">Volume</span><span class="p">.</span><span class="na">fromEmptyDir</span><span class="p">(</span><span class="n">Construct</span><span class="w"> </span><span class="n">scope</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">EmptyDirVolumeOptions</span><span class="w"> </span><span class="n">options</span><span class="p">)</span>
 </code></pre></div>
 <h6 id="scoperequired_53"><code>scope</code><sup>Required</sup> <a name="org.cdk8s.plus24.Volume.parameter.scope"></a><a class="headerlink" href="#scoperequired_53" title="Permanent link">&para;</a></h6>
 <ul>
@@ -11029,12 +11044,39 @@ image. Volumes can not mount onto other volumes</p>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 </ul>
 <hr />
-<h6 id="pdnamerequired_2"><code>pdName</code><sup>Required</sup> <a name="org.cdk8s.plus24.Volume.parameter.pdName"></a><a class="headerlink" href="#pdnamerequired_2" title="Permanent link">&para;</a></h6>
+<h6 id="namerequired_10"><code>name</code><sup>Required</sup> <a name="org.cdk8s.plus24.Volume.parameter.name"></a><a class="headerlink" href="#namerequired_10" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 </ul>
 <hr />
 <h6 id="optionsoptional_12"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus24.Volume.parameter.options"></a><a class="headerlink" href="#optionsoptional_12" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.plus24.EmptyDirVolumeOptions"><code>org.cdk8s.plus24.EmptyDirVolumeOptions</code></a></li>
+</ul>
+<p>Additional options.</p>
+<hr />
+<h5 id="fromgcepersistentdisk"><code>fromGcePersistentDisk</code> <a name="org.cdk8s.plus24.Volume.fromGcePersistentDisk"></a><a class="headerlink" href="#fromgcepersistentdisk" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.Volume</span><span class="p">;</span>
+
+<span class="n">Volume</span><span class="p">.</span><span class="na">fromGcePersistentDisk</span><span class="p">(</span><span class="n">Construct</span><span class="w"> </span><span class="n">scope</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="n">pdName</span><span class="p">)</span>
+<span class="n">Volume</span><span class="p">.</span><span class="na">fromGcePersistentDisk</span><span class="p">(</span><span class="n">Construct</span><span class="w"> </span><span class="n">scope</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="n">pdName</span><span class="p">,</span><span class="w"> </span><span class="n">GCEPersistentDiskVolumeOptions</span><span class="w"> </span><span class="n">options</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="scoperequired_54"><code>scope</code><sup>Required</sup> <a name="org.cdk8s.plus24.Volume.parameter.scope"></a><a class="headerlink" href="#scoperequired_54" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <a href="#software.constructs.Construct"><code>software.constructs.Construct</code></a></li>
+</ul>
+<hr />
+<h6 id="idrequired_54"><code>id</code><sup>Required</sup> <a name="org.cdk8s.plus24.Volume.parameter.id"></a><a class="headerlink" href="#idrequired_54" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+</ul>
+<hr />
+<h6 id="pdnamerequired_2"><code>pdName</code><sup>Required</sup> <a name="org.cdk8s.plus24.Volume.parameter.pdName"></a><a class="headerlink" href="#pdnamerequired_2" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+</ul>
+<hr />
+<h6 id="optionsoptional_13"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus24.Volume.parameter.options"></a><a class="headerlink" href="#optionsoptional_13" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus24.GCEPersistentDiskVolumeOptions"><code>org.cdk8s.plus24.GCEPersistentDiskVolumeOptions</code></a></li>
 </ul>
@@ -11044,12 +11086,12 @@ image. Volumes can not mount onto other volumes</p>
 
 <span class="n">Volume</span><span class="p">.</span><span class="na">fromHostPath</span><span class="p">(</span><span class="n">Construct</span><span class="w"> </span><span class="n">scope</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">HostPathVolumeOptions</span><span class="w"> </span><span class="n">options</span><span class="p">)</span>
 </code></pre></div>
-<h6 id="scoperequired_54"><code>scope</code><sup>Required</sup> <a name="org.cdk8s.plus24.Volume.parameter.scope"></a><a class="headerlink" href="#scoperequired_54" title="Permanent link">&para;</a></h6>
+<h6 id="scoperequired_55"><code>scope</code><sup>Required</sup> <a name="org.cdk8s.plus24.Volume.parameter.scope"></a><a class="headerlink" href="#scoperequired_55" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <a href="#software.constructs.Construct"><code>software.constructs.Construct</code></a></li>
 </ul>
 <hr />
-<h6 id="idrequired_54"><code>id</code><sup>Required</sup> <a name="org.cdk8s.plus24.Volume.parameter.id"></a><a class="headerlink" href="#idrequired_54" title="Permanent link">&para;</a></h6>
+<h6 id="idrequired_55"><code>id</code><sup>Required</sup> <a name="org.cdk8s.plus24.Volume.parameter.id"></a><a class="headerlink" href="#idrequired_55" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 </ul>
@@ -11070,32 +11112,6 @@ image. Volumes can not mount onto other volumes</p>
 <span class="n">Volume</span><span class="p">.</span><span class="na">fromPersistentVolumeClaim</span><span class="p">(</span><span class="n">Construct</span><span class="w"> </span><span class="n">scope</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">IPersistentVolumeClaim</span><span class="w"> </span><span class="n">claim</span><span class="p">)</span>
 <span class="n">Volume</span><span class="p">.</span><span class="na">fromPersistentVolumeClaim</span><span class="p">(</span><span class="n">Construct</span><span class="w"> </span><span class="n">scope</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">IPersistentVolumeClaim</span><span class="w"> </span><span class="n">claim</span><span class="p">,</span><span class="w"> </span><span class="n">PersistentVolumeClaimVolumeOptions</span><span class="w"> </span><span class="n">options</span><span class="p">)</span>
 </code></pre></div>
-<h6 id="scoperequired_55"><code>scope</code><sup>Required</sup> <a name="org.cdk8s.plus24.Volume.parameter.scope"></a><a class="headerlink" href="#scoperequired_55" title="Permanent link">&para;</a></h6>
-<ul>
-<li><em>Type:</em> <a href="#software.constructs.Construct"><code>software.constructs.Construct</code></a></li>
-</ul>
-<hr />
-<h6 id="idrequired_55"><code>id</code><sup>Required</sup> <a name="org.cdk8s.plus24.Volume.parameter.id"></a><a class="headerlink" href="#idrequired_55" title="Permanent link">&para;</a></h6>
-<ul>
-<li><em>Type:</em> <code>java.lang.String</code></li>
-</ul>
-<hr />
-<h6 id="claimrequired_1"><code>claim</code><sup>Required</sup> <a name="org.cdk8s.plus24.Volume.parameter.claim"></a><a class="headerlink" href="#claimrequired_1" title="Permanent link">&para;</a></h6>
-<ul>
-<li><em>Type:</em> <a href="#org.cdk8s.plus24.IPersistentVolumeClaim"><code>org.cdk8s.plus24.IPersistentVolumeClaim</code></a></li>
-</ul>
-<hr />
-<h6 id="optionsoptional_13"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus24.Volume.parameter.options"></a><a class="headerlink" href="#optionsoptional_13" title="Permanent link">&para;</a></h6>
-<ul>
-<li><em>Type:</em> <a href="#org.cdk8s.plus24.PersistentVolumeClaimVolumeOptions"><code>org.cdk8s.plus24.PersistentVolumeClaimVolumeOptions</code></a></li>
-</ul>
-<hr />
-<h5 id="fromsecret"><code>fromSecret</code> <a name="org.cdk8s.plus24.Volume.fromSecret"></a><a class="headerlink" href="#fromsecret" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.Volume</span><span class="p">;</span>
-
-<span class="n">Volume</span><span class="p">.</span><span class="na">fromSecret</span><span class="p">(</span><span class="n">Construct</span><span class="w"> </span><span class="n">scope</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">ISecret</span><span class="w"> </span><span class="n">secr</span><span class="p">)</span>
-<span class="n">Volume</span><span class="p">.</span><span class="na">fromSecret</span><span class="p">(</span><span class="n">Construct</span><span class="w"> </span><span class="n">scope</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">ISecret</span><span class="w"> </span><span class="n">secr</span><span class="p">,</span><span class="w"> </span><span class="n">SecretVolumeOptions</span><span class="w"> </span><span class="n">options</span><span class="p">)</span>
-</code></pre></div>
 <h6 id="scoperequired_56"><code>scope</code><sup>Required</sup> <a name="org.cdk8s.plus24.Volume.parameter.scope"></a><a class="headerlink" href="#scoperequired_56" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <a href="#software.constructs.Construct"><code>software.constructs.Construct</code></a></li>
@@ -11106,13 +11122,39 @@ image. Volumes can not mount onto other volumes</p>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 </ul>
 <hr />
+<h6 id="claimrequired_1"><code>claim</code><sup>Required</sup> <a name="org.cdk8s.plus24.Volume.parameter.claim"></a><a class="headerlink" href="#claimrequired_1" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.plus24.IPersistentVolumeClaim"><code>org.cdk8s.plus24.IPersistentVolumeClaim</code></a></li>
+</ul>
+<hr />
+<h6 id="optionsoptional_14"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus24.Volume.parameter.options"></a><a class="headerlink" href="#optionsoptional_14" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.plus24.PersistentVolumeClaimVolumeOptions"><code>org.cdk8s.plus24.PersistentVolumeClaimVolumeOptions</code></a></li>
+</ul>
+<hr />
+<h5 id="fromsecret"><code>fromSecret</code> <a name="org.cdk8s.plus24.Volume.fromSecret"></a><a class="headerlink" href="#fromsecret" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.Volume</span><span class="p">;</span>
+
+<span class="n">Volume</span><span class="p">.</span><span class="na">fromSecret</span><span class="p">(</span><span class="n">Construct</span><span class="w"> </span><span class="n">scope</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">ISecret</span><span class="w"> </span><span class="n">secr</span><span class="p">)</span>
+<span class="n">Volume</span><span class="p">.</span><span class="na">fromSecret</span><span class="p">(</span><span class="n">Construct</span><span class="w"> </span><span class="n">scope</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">ISecret</span><span class="w"> </span><span class="n">secr</span><span class="p">,</span><span class="w"> </span><span class="n">SecretVolumeOptions</span><span class="w"> </span><span class="n">options</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="scoperequired_57"><code>scope</code><sup>Required</sup> <a name="org.cdk8s.plus24.Volume.parameter.scope"></a><a class="headerlink" href="#scoperequired_57" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <a href="#software.constructs.Construct"><code>software.constructs.Construct</code></a></li>
+</ul>
+<hr />
+<h6 id="idrequired_57"><code>id</code><sup>Required</sup> <a name="org.cdk8s.plus24.Volume.parameter.id"></a><a class="headerlink" href="#idrequired_57" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+</ul>
+<hr />
 <h6 id="secrrequired_1"><code>secr</code><sup>Required</sup> <a name="org.cdk8s.plus24.Volume.parameter.secr"></a><a class="headerlink" href="#secrrequired_1" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus24.ISecret"><code>org.cdk8s.plus24.ISecret</code></a></li>
 </ul>
 <p>The secret to use to populate the volume.</p>
 <hr />
-<h6 id="optionsoptional_14"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus24.Volume.parameter.options"></a><a class="headerlink" href="#optionsoptional_14" title="Permanent link">&para;</a></h6>
+<h6 id="optionsoptional_15"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus24.Volume.parameter.options"></a><a class="headerlink" href="#optionsoptional_15" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus24.SecretVolumeOptions"><code>org.cdk8s.plus24.SecretVolumeOptions</code></a></li>
 </ul>
@@ -11152,12 +11194,12 @@ In Kubernetes, a Pod represents a set of running containers on your cluster.</p>
 <span class="c1">//  .spread(java.lang.Boolean)</span>
 <span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
-<h5 id="scoperequired_57"><code>scope</code><sup>Required</sup> <a name="org.cdk8s.plus24.Workload.parameter.scope"></a><a class="headerlink" href="#scoperequired_57" title="Permanent link">&para;</a></h5>
+<h5 id="scoperequired_58"><code>scope</code><sup>Required</sup> <a name="org.cdk8s.plus24.Workload.parameter.scope"></a><a class="headerlink" href="#scoperequired_58" title="Permanent link">&para;</a></h5>
 <ul>
 <li><em>Type:</em> <a href="#software.constructs.Construct"><code>software.constructs.Construct</code></a></li>
 </ul>
 <hr />
-<h5 id="idrequired_57"><code>id</code><sup>Required</sup> <a name="org.cdk8s.plus24.Workload.parameter.id"></a><a class="headerlink" href="#idrequired_57" title="Permanent link">&para;</a></h5>
+<h5 id="idrequired_58"><code>id</code><sup>Required</sup> <a name="org.cdk8s.plus24.Workload.parameter.id"></a><a class="headerlink" href="#idrequired_58" title="Permanent link">&para;</a></h5>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 </ul>
@@ -12411,7 +12453,7 @@ file mode, like fsGroup, and the result can be other mode bits set.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">PathMapping</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getItems</span><span class="p">();</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus24.PathMapping">klzzwxh:11844</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus24.PathMapping">klzzwxh:11904</a>></li>
 <li><em>Default:</em> no mapping</li>
 </ul>
 <p>If unspecified, each key-value pair in the Data field of the referenced ConfigMap will be projected into the volume as a file whose name is the key and content is the value.</p>
@@ -12621,7 +12663,7 @@ with a duplicate key will take precedence.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">EnvValue</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getEnvVariables</span><span class="p">();</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus24.EnvValue">klzzwxh:11798</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus24.EnvValue">klzzwxh:11858</a>></li>
 <li><em>Default:</em> No environment variables.</li>
 </ul>
 <p>Environment variables to set in the container.</p>
@@ -13228,9 +13270,60 @@ start a new execution at 10:22:00.</p>
 <p>{@link https://en.wikipedia.org/wiki/List_of_tz_database_time_zones} for list of valid timezone values.</p>
 </blockquote>
 <hr />
+<h3 id="csivolumeoptions">CsiVolumeOptions <a name="org.cdk8s.plus24.CsiVolumeOptions"></a><a class="headerlink" href="#csivolumeoptions" title="Permanent link">&para;</a></h3>
+<p>Options for the CSI driver based volume.</p>
+<h4 id="initializer_23">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_23" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.CsiVolumeOptions</span><span class="p">;</span>
+
+<span class="n">CsiVolumeOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
+<span class="c1">//  .attributes(java.util.Map&lt;java.lang.String, java.lang.String&gt;)</span>
+<span class="c1">//  .fsType(java.lang.String)</span>
+<span class="c1">//  .name(java.lang.String)</span>
+<span class="c1">//  .readOnly(java.lang.Boolean)</span>
+<span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
+</code></pre></div>
+<h5 id="attributesoptional"><code>attributes</code><sup>Optional</sup> <a name="org.cdk8s.plus24.CsiVolumeOptions.property.attributes"></a><a class="headerlink" href="#attributesoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getAttributes</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> java.util.Map<java.lang.String, <code>java.lang.String</code>></li>
+<li><em>Default:</em> undefined</li>
+</ul>
+<p>Any driver-specific attributes to pass to the CSI volume builder.</p>
+<hr />
+<h5 id="fstypeoptional_7"><code>fsType</code><sup>Optional</sup> <a name="org.cdk8s.plus24.CsiVolumeOptions.property.fsType"></a><a class="headerlink" href="#fstypeoptional_7" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getFsType</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+<li><em>Default:</em> driver-dependent</li>
+</ul>
+<p>The filesystem type to mount.</p>
+<p>Ex. &ldquo;ext4&rdquo;, &ldquo;xfs&rdquo;, &ldquo;ntfs&rdquo;. If not provided,
+the empty value is passed to the associated CSI driver, which will
+determine the default filesystem to apply.</p>
+<hr />
+<h5 id="nameoptional_6"><code>name</code><sup>Optional</sup> <a name="org.cdk8s.plus24.CsiVolumeOptions.property.name"></a><a class="headerlink" href="#nameoptional_6" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getName</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+<li><em>Default:</em> auto-generated</li>
+</ul>
+<p>The volume name.</p>
+<hr />
+<h5 id="readonlyoptional_7"><code>readOnly</code><sup>Optional</sup> <a name="org.cdk8s.plus24.CsiVolumeOptions.property.readOnly"></a><a class="headerlink" href="#readonlyoptional_7" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span><span class="w"> </span><span class="nf">getReadOnly</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Whether the mounted volume should be read-only or not.</p>
+<hr />
 <h3 id="daemonsetprops">DaemonSetProps <a name="org.cdk8s.plus24.DaemonSetProps"></a><a class="headerlink" href="#daemonsetprops" title="Permanent link">&para;</a></h3>
 <p>Properties for <code>DaemonSet</code>.</p>
-<h4 id="initializer_23">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_23" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_24">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_24" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.DaemonSetProps</span><span class="p">;</span>
 
 <span class="n">DaemonSetProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -13440,7 +13533,7 @@ its pod template.</p>
 <hr />
 <h3 id="deploymentexposeviaserviceoptions">DeploymentExposeViaServiceOptions <a name="org.cdk8s.plus24.DeploymentExposeViaServiceOptions"></a><a class="headerlink" href="#deploymentexposeviaserviceoptions" title="Permanent link">&para;</a></h3>
 <p>Options for <code>Deployment.exposeViaService</code>.</p>
-<h4 id="initializer_24">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_24" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_25">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_25" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.DeploymentExposeViaServiceOptions</span><span class="p">;</span>
 
 <span class="n">DeploymentExposeViaServiceOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -13449,7 +13542,7 @@ its pod template.</p>
 <span class="c1">//  .serviceType(ServiceType)</span>
 <span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
-<h5 id="nameoptional_6"><code>name</code><sup>Optional</sup> <a name="org.cdk8s.plus24.DeploymentExposeViaServiceOptions.property.name"></a><a class="headerlink" href="#nameoptional_6" title="Permanent link">&para;</a></h5>
+<h5 id="nameoptional_7"><code>name</code><sup>Optional</sup> <a name="org.cdk8s.plus24.DeploymentExposeViaServiceOptions.property.name"></a><a class="headerlink" href="#nameoptional_7" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getName</span><span class="p">();</span>
 </code></pre></div>
 <ul>
@@ -13480,7 +13573,7 @@ you must explicitly set a name starting from the second expose call.</p>
 <hr />
 <h3 id="deploymentprops">DeploymentProps <a name="org.cdk8s.plus24.DeploymentProps"></a><a class="headerlink" href="#deploymentprops" title="Permanent link">&para;</a></h3>
 <p>Properties for <code>Deployment</code>.</p>
-<h4 id="initializer_25">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_25" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_26">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_26" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.DeploymentProps</span><span class="p">;</span>
 
 <span class="n">DeploymentProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -13731,7 +13824,7 @@ reason will be surfaced in the deployment status.</p>
 <hr />
 <h3 id="deploymentstrategyrollingupdateoptions">DeploymentStrategyRollingUpdateOptions <a name="org.cdk8s.plus24.DeploymentStrategyRollingUpdateOptions"></a><a class="headerlink" href="#deploymentstrategyrollingupdateoptions" title="Permanent link">&para;</a></h3>
 <p>Options for <code>DeploymentStrategy.rollingUpdate</code>.</p>
-<h4 id="initializer_26">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_26" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_27">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_27" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.DeploymentStrategyRollingUpdateOptions</span><span class="p">;</span>
 
 <span class="n">DeploymentStrategyRollingUpdateOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -13773,7 +13866,7 @@ number of pods available at all times during the update is at least 70% of desir
 <hr />
 <h3 id="dnsoption">DnsOption <a name="org.cdk8s.plus24.DnsOption"></a><a class="headerlink" href="#dnsoption" title="Permanent link">&para;</a></h3>
 <p>Custom DNS option.</p>
-<h4 id="initializer_27">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_27" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_28">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_28" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.DnsOption</span><span class="p">;</span>
 
 <span class="n">DnsOption</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -13800,7 +13893,7 @@ number of pods available at all times during the update is at least 70% of desir
 <hr />
 <h3 id="dockerconfigsecretprops">DockerConfigSecretProps <a name="org.cdk8s.plus24.DockerConfigSecretProps"></a><a class="headerlink" href="#dockerconfigsecretprops" title="Permanent link">&para;</a></h3>
 <p>Options for <code>DockerConfigSecret</code>.</p>
-<h4 id="initializer_28">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_28" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_29">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_29" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.DockerConfigSecretProps</span><span class="p">;</span>
 
 <span class="n">DockerConfigSecretProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -13840,7 +13933,7 @@ number of pods available at all times during the update is at least 70% of desir
 <hr />
 <h3 id="emptydirvolumeoptions">EmptyDirVolumeOptions <a name="org.cdk8s.plus24.EmptyDirVolumeOptions"></a><a class="headerlink" href="#emptydirvolumeoptions" title="Permanent link">&para;</a></h3>
 <p>Options for volumes populated with an empty directory.</p>
-<h4 id="initializer_29">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_29" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_30">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_30" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.EmptyDirVolumeOptions</span><span class="p">;</span>
 
 <span class="n">EmptyDirVolumeOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -13877,7 +13970,7 @@ here and the sum of memory limits of all containers in a pod.</p>
 <hr />
 <h3 id="envvaluefromconfigmapoptions">EnvValueFromConfigMapOptions <a name="org.cdk8s.plus24.EnvValueFromConfigMapOptions"></a><a class="headerlink" href="#envvaluefromconfigmapoptions" title="Permanent link">&para;</a></h3>
 <p>Options to specify an envionment variable value from a ConfigMap key.</p>
-<h4 id="initializer_30">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_30" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_31">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_31" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.EnvValueFromConfigMapOptions</span><span class="p">;</span>
 
 <span class="n">EnvValueFromConfigMapOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -13895,7 +13988,7 @@ here and the sum of memory limits of all containers in a pod.</p>
 <hr />
 <h3 id="envvaluefromfieldrefoptions">EnvValueFromFieldRefOptions <a name="org.cdk8s.plus24.EnvValueFromFieldRefOptions"></a><a class="headerlink" href="#envvaluefromfieldrefoptions" title="Permanent link">&para;</a></h3>
 <p>Options to specify an environment variable value from a field reference.</p>
-<h4 id="initializer_31">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_31" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_32">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_32" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.EnvValueFromFieldRefOptions</span><span class="p">;</span>
 
 <span class="n">EnvValueFromFieldRefOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -13921,7 +14014,7 @@ here and the sum of memory limits of all containers in a pod.</p>
 <hr />
 <h3 id="envvaluefromprocessoptions">EnvValueFromProcessOptions <a name="org.cdk8s.plus24.EnvValueFromProcessOptions"></a><a class="headerlink" href="#envvaluefromprocessoptions" title="Permanent link">&para;</a></h3>
 <p>Options to specify an environment variable value from the process environment.</p>
-<h4 id="initializer_32">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_32" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_33">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_33" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.EnvValueFromProcessOptions</span><span class="p">;</span>
 
 <span class="n">EnvValueFromProcessOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -13940,7 +14033,7 @@ here and the sum of memory limits of all containers in a pod.</p>
 <hr />
 <h3 id="envvaluefromresourceoptions">EnvValueFromResourceOptions <a name="org.cdk8s.plus24.EnvValueFromResourceOptions"></a><a class="headerlink" href="#envvaluefromresourceoptions" title="Permanent link">&para;</a></h3>
 <p>Options to specify an environment variable value from a resource.</p>
-<h4 id="initializer_33">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_33" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_34">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_34" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.EnvValueFromResourceOptions</span><span class="p">;</span>
 
 <span class="n">EnvValueFromResourceOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -13966,7 +14059,7 @@ here and the sum of memory limits of all containers in a pod.</p>
 <hr />
 <h3 id="envvaluefromsecretoptions">EnvValueFromSecretOptions <a name="org.cdk8s.plus24.EnvValueFromSecretOptions"></a><a class="headerlink" href="#envvaluefromsecretoptions" title="Permanent link">&para;</a></h3>
 <p>Options to specify an environment variable value from a Secret.</p>
-<h4 id="initializer_34">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_34" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_35">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_35" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.EnvValueFromSecretOptions</span><span class="p">;</span>
 
 <span class="n">EnvValueFromSecretOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -13984,7 +14077,7 @@ here and the sum of memory limits of all containers in a pod.</p>
 <hr />
 <h3 id="ephemeralstorageresources">EphemeralStorageResources <a name="org.cdk8s.plus24.EphemeralStorageResources"></a><a class="headerlink" href="#ephemeralstorageresources" title="Permanent link">&para;</a></h3>
 <p>Emphemeral storage request and limit.</p>
-<h4 id="initializer_35">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_35" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_36">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_36" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.EphemeralStorageResources</span><span class="p">;</span>
 
 <span class="n">EphemeralStorageResources</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -14008,7 +14101,7 @@ here and the sum of memory limits of all containers in a pod.</p>
 <hr />
 <h3 id="exposedeploymentviaingressoptions">ExposeDeploymentViaIngressOptions <a name="org.cdk8s.plus24.ExposeDeploymentViaIngressOptions"></a><a class="headerlink" href="#exposedeploymentviaingressoptions" title="Permanent link">&para;</a></h3>
 <p>Options for exposing a deployment via an ingress.</p>
-<h4 id="initializer_36">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_36" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_37">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_37" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.ExposeDeploymentViaIngressOptions</span><span class="p">;</span>
 
 <span class="n">ExposeDeploymentViaIngressOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -14019,7 +14112,7 @@ here and the sum of memory limits of all containers in a pod.</p>
 <span class="c1">//  .pathType(HttpIngressPathType)</span>
 <span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
-<h5 id="nameoptional_7"><code>name</code><sup>Optional</sup> <a name="org.cdk8s.plus24.ExposeDeploymentViaIngressOptions.property.name"></a><a class="headerlink" href="#nameoptional_7" title="Permanent link">&para;</a></h5>
+<h5 id="nameoptional_8"><code>name</code><sup>Optional</sup> <a name="org.cdk8s.plus24.ExposeDeploymentViaIngressOptions.property.name"></a><a class="headerlink" href="#nameoptional_8" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getName</span><span class="p">();</span>
 </code></pre></div>
 <ul>
@@ -14068,7 +14161,7 @@ you must explicitly set a name starting from the second expose call.</p>
 <hr />
 <h3 id="exposeserviceviaingressoptions">ExposeServiceViaIngressOptions <a name="org.cdk8s.plus24.ExposeServiceViaIngressOptions"></a><a class="headerlink" href="#exposeserviceviaingressoptions" title="Permanent link">&para;</a></h3>
 <p>Options for exposing a service using an ingress.</p>
-<h4 id="initializer_37">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_37" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_38">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_38" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.ExposeServiceViaIngressOptions</span><span class="p">;</span>
 
 <span class="n">ExposeServiceViaIngressOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -14095,7 +14188,7 @@ you must explicitly set a name starting from the second expose call.</p>
 <p>The type of the path.</p>
 <hr />
 <h3 id="fromserviceaccountnameoptions">FromServiceAccountNameOptions <a name="org.cdk8s.plus24.FromServiceAccountNameOptions"></a><a class="headerlink" href="#fromserviceaccountnameoptions" title="Permanent link">&para;</a></h3>
-<h4 id="initializer_38">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_38" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_39">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_39" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.FromServiceAccountNameOptions</span><span class="p">;</span>
 
 <span class="n">FromServiceAccountNameOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -14113,7 +14206,7 @@ you must explicitly set a name starting from the second expose call.</p>
 <hr />
 <h3 id="gcepersistentdiskpersistentvolumeprops">GCEPersistentDiskPersistentVolumeProps <a name="org.cdk8s.plus24.GCEPersistentDiskPersistentVolumeProps"></a><a class="headerlink" href="#gcepersistentdiskpersistentvolumeprops" title="Permanent link">&para;</a></h3>
 <p>Properties for <code>GCEPersistentDiskPersistentVolume</code>.</p>
-<h4 id="initializer_39">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_39" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_40">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_40" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.GCEPersistentDiskPersistentVolumeProps</span><span class="p">;</span>
 
 <span class="n">GCEPersistentDiskPersistentVolumeProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -14232,7 +14325,7 @@ the volume after it has been released of its claim.</p>
 <p>https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk</p>
 </blockquote>
 <hr />
-<h5 id="fstypeoptional_7"><code>fsType</code><sup>Optional</sup> <a name="org.cdk8s.plus24.GCEPersistentDiskPersistentVolumeProps.property.fsType"></a><a class="headerlink" href="#fstypeoptional_7" title="Permanent link">&para;</a></h5>
+<h5 id="fstypeoptional_8"><code>fsType</code><sup>Optional</sup> <a name="org.cdk8s.plus24.GCEPersistentDiskPersistentVolumeProps.property.fsType"></a><a class="headerlink" href="#fstypeoptional_8" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getFsType</span><span class="p">();</span>
 </code></pre></div>
 <ul>
@@ -14257,7 +14350,7 @@ the volume after it has been released of its claim.</p>
 Examples: For volume /dev/sda1, you specify the partition as &ldquo;1&rdquo;.
 Similarly, the volume partition for /dev/sda is &ldquo;0&rdquo; (or you can leave the property empty).</p>
 <hr />
-<h5 id="readonlyoptional_7"><code>readOnly</code><sup>Optional</sup> <a name="org.cdk8s.plus24.GCEPersistentDiskPersistentVolumeProps.property.readOnly"></a><a class="headerlink" href="#readonlyoptional_7" title="Permanent link">&para;</a></h5>
+<h5 id="readonlyoptional_8"><code>readOnly</code><sup>Optional</sup> <a name="org.cdk8s.plus24.GCEPersistentDiskPersistentVolumeProps.property.readOnly"></a><a class="headerlink" href="#readonlyoptional_8" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span><span class="w"> </span><span class="nf">getReadOnly</span><span class="p">();</span>
 </code></pre></div>
 <ul>
@@ -14271,7 +14364,7 @@ Similarly, the volume partition for /dev/sda is &ldquo;0&rdquo; (or you can leav
 <hr />
 <h3 id="gcepersistentdiskvolumeoptions">GCEPersistentDiskVolumeOptions <a name="org.cdk8s.plus24.GCEPersistentDiskVolumeOptions"></a><a class="headerlink" href="#gcepersistentdiskvolumeoptions" title="Permanent link">&para;</a></h3>
 <p>Options of <code>Volume.fromGcePersistentDisk</code>.</p>
-<h4 id="initializer_40">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_40" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_41">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_41" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.GCEPersistentDiskVolumeOptions</span><span class="p">;</span>
 
 <span class="n">GCEPersistentDiskVolumeOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -14281,7 +14374,7 @@ Similarly, the volume partition for /dev/sda is &ldquo;0&rdquo; (or you can leav
 <span class="c1">//  .readOnly(java.lang.Boolean)</span>
 <span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
-<h5 id="fstypeoptional_8"><code>fsType</code><sup>Optional</sup> <a name="org.cdk8s.plus24.GCEPersistentDiskVolumeOptions.property.fsType"></a><a class="headerlink" href="#fstypeoptional_8" title="Permanent link">&para;</a></h5>
+<h5 id="fstypeoptional_9"><code>fsType</code><sup>Optional</sup> <a name="org.cdk8s.plus24.GCEPersistentDiskVolumeOptions.property.fsType"></a><a class="headerlink" href="#fstypeoptional_9" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getFsType</span><span class="p">();</span>
 </code></pre></div>
 <ul>
@@ -14294,7 +14387,7 @@ Similarly, the volume partition for /dev/sda is &ldquo;0&rdquo; (or you can leav
 <p>https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore</p>
 </blockquote>
 <hr />
-<h5 id="nameoptional_8"><code>name</code><sup>Optional</sup> <a name="org.cdk8s.plus24.GCEPersistentDiskVolumeOptions.property.name"></a><a class="headerlink" href="#nameoptional_8" title="Permanent link">&para;</a></h5>
+<h5 id="nameoptional_9"><code>name</code><sup>Optional</sup> <a name="org.cdk8s.plus24.GCEPersistentDiskVolumeOptions.property.name"></a><a class="headerlink" href="#nameoptional_9" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getName</span><span class="p">();</span>
 </code></pre></div>
 <ul>
@@ -14315,7 +14408,7 @@ Similarly, the volume partition for /dev/sda is &ldquo;0&rdquo; (or you can leav
 Examples: For volume /dev/sda1, you specify the partition as &ldquo;1&rdquo;.
 Similarly, the volume partition for /dev/sda is &ldquo;0&rdquo; (or you can leave the property empty).</p>
 <hr />
-<h5 id="readonlyoptional_8"><code>readOnly</code><sup>Optional</sup> <a name="org.cdk8s.plus24.GCEPersistentDiskVolumeOptions.property.readOnly"></a><a class="headerlink" href="#readonlyoptional_8" title="Permanent link">&para;</a></h5>
+<h5 id="readonlyoptional_9"><code>readOnly</code><sup>Optional</sup> <a name="org.cdk8s.plus24.GCEPersistentDiskVolumeOptions.property.readOnly"></a><a class="headerlink" href="#readonlyoptional_9" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span><span class="w"> </span><span class="nf">getReadOnly</span><span class="p">();</span>
 </code></pre></div>
 <ul>
@@ -14329,7 +14422,7 @@ Similarly, the volume partition for /dev/sda is &ldquo;0&rdquo; (or you can leav
 <hr />
 <h3 id="handlerfromhttpgetoptions">HandlerFromHttpGetOptions <a name="org.cdk8s.plus24.HandlerFromHttpGetOptions"></a><a class="headerlink" href="#handlerfromhttpgetoptions" title="Permanent link">&para;</a></h3>
 <p>Options for <code>Handler.fromHttpGet</code>.</p>
-<h4 id="initializer_41">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_41" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_42">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_42" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.HandlerFromHttpGetOptions</span><span class="p">;</span>
 
 <span class="n">HandlerFromHttpGetOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -14347,7 +14440,7 @@ Similarly, the volume partition for /dev/sda is &ldquo;0&rdquo; (or you can leav
 <hr />
 <h3 id="handlerfromtcpsocketoptions">HandlerFromTcpSocketOptions <a name="org.cdk8s.plus24.HandlerFromTcpSocketOptions"></a><a class="headerlink" href="#handlerfromtcpsocketoptions" title="Permanent link">&para;</a></h3>
 <p>Options for <code>Handler.fromTcpSocket</code>.</p>
-<h4 id="initializer_42">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_42" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_43">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_43" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.HandlerFromTcpSocketOptions</span><span class="p">;</span>
 
 <span class="n">HandlerFromTcpSocketOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -14375,7 +14468,7 @@ Similarly, the volume partition for /dev/sda is &ldquo;0&rdquo; (or you can leav
 <hr />
 <h3 id="horizontalpodautoscalerprops">HorizontalPodAutoscalerProps <a name="org.cdk8s.plus24.HorizontalPodAutoscalerProps"></a><a class="headerlink" href="#horizontalpodautoscalerprops" title="Permanent link">&para;</a></h3>
 <p>Properties for HorizontalPodAutoscaler.</p>
-<h4 id="initializer_43">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_43" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_44">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_44" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.HorizontalPodAutoscalerProps</span><span class="p">;</span>
 
 <span class="n">HorizontalPodAutoscalerProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -14460,7 +14553,7 @@ at least one Object or External metric is configured.</p>
 <hr />
 <h3 id="hostalias">HostAlias <a name="org.cdk8s.plus24.HostAlias"></a><a class="headerlink" href="#hostalias" title="Permanent link">&para;</a></h3>
 <p>HostAlias holds the mapping between IP and hostnames that will be injected as an entry in the pod&rsquo;s /etc/hosts file.</p>
-<h4 id="initializer_44">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_44" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_45">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_45" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.HostAlias</span><span class="p">;</span>
 
 <span class="n">HostAlias</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -14486,7 +14579,7 @@ at least one Object or External metric is configured.</p>
 <hr />
 <h3 id="hostpathvolumeoptions">HostPathVolumeOptions <a name="org.cdk8s.plus24.HostPathVolumeOptions"></a><a class="headerlink" href="#hostpathvolumeoptions" title="Permanent link">&para;</a></h3>
 <p>Options for a HostPathVolume-based volume.</p>
-<h4 id="initializer_45">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_45" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_46">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_46" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.HostPathVolumeOptions</span><span class="p">;</span>
 
 <span class="n">HostPathVolumeOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -14513,7 +14606,7 @@ at least one Object or External metric is configured.</p>
 <hr />
 <h3 id="httpgetprobeoptions">HttpGetProbeOptions <a name="org.cdk8s.plus24.HttpGetProbeOptions"></a><a class="headerlink" href="#httpgetprobeoptions" title="Permanent link">&para;</a></h3>
 <p>Options for <code>Probe.fromHttpGet()</code>.</p>
-<h4 id="initializer_46">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_46" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_47">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_47" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.HttpGetProbeOptions</span><span class="p">;</span>
 
 <span class="n">HttpGetProbeOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -14601,7 +14694,7 @@ at least one Object or External metric is configured.</p>
 <hr />
 <h3 id="ingressprops">IngressProps <a name="org.cdk8s.plus24.IngressProps"></a><a class="headerlink" href="#ingressprops" title="Permanent link">&para;</a></h3>
 <p>Properties for <code>Ingress</code>.</p>
-<h4 id="initializer_47">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_47" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_48">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_48" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.IngressProps</span><span class="p">;</span>
 
 <span class="n">IngressProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -14659,7 +14752,7 @@ extension, if the ingress controller fulfilling the ingress supports SNI.</p>
 <p>Represents the rules mapping the paths under a specified host to the related backend services.</p>
 <p>Incoming requests are first evaluated for a host match,
 then routed to the backend associated with the matching path.</p>
-<h4 id="initializer_48">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_48" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_49">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_49" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.IngressRule</span><span class="p">;</span>
 
 <span class="n">IngressRule</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -14719,7 +14812,7 @@ types will be matched by prefix.</p>
 <hr />
 <h3 id="ingresstls">IngressTls <a name="org.cdk8s.plus24.IngressTls"></a><a class="headerlink" href="#ingresstls" title="Permanent link">&para;</a></h3>
 <p>Represents the TLS configuration mapping that is passed to the ingress controller for SSL termination.</p>
-<h4 id="initializer_49">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_49" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_50">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_50" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.IngressTls</span><span class="p">;</span>
 
 <span class="n">IngressTls</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -14753,7 +14846,7 @@ termination and value of the Host header is used for routing.</p>
 <hr />
 <h3 id="jobprops">JobProps <a name="org.cdk8s.plus24.JobProps"></a><a class="headerlink" href="#jobprops" title="Permanent link">&para;</a></h3>
 <p>Properties for <code>Job</code>.</p>
-<h4 id="initializer_50">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_50" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_51">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_51" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.JobProps</span><span class="p">;</span>
 
 <span class="n">JobProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -14989,7 +15082,7 @@ field is alpha-level and is only honored by servers that enable the
 <hr />
 <h3 id="labelselectoroptions">LabelSelectorOptions <a name="org.cdk8s.plus24.LabelSelectorOptions"></a><a class="headerlink" href="#labelselectoroptions" title="Permanent link">&para;</a></h3>
 <p>Options for <code>LabelSelector.of</code>.</p>
-<h4 id="initializer_51">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_51" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_52">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_52" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.LabelSelectorOptions</span><span class="p">;</span>
 
 <span class="n">LabelSelectorOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -15015,7 +15108,7 @@ field is alpha-level and is only honored by servers that enable the
 <hr />
 <h3 id="labelselectorrequirement">LabelSelectorRequirement <a name="org.cdk8s.plus24.LabelSelectorRequirement"></a><a class="headerlink" href="#labelselectorrequirement" title="Permanent link">&para;</a></h3>
 <p>A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.</p>
-<h4 id="initializer_52">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_52" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_53">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_53" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.LabelSelectorRequirement</span><span class="p">;</span>
 
 <span class="n">LabelSelectorRequirement</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -15053,7 +15146,7 @@ the values array must be empty. This array is replaced during a strategic merge 
 <hr />
 <h3 id="memoryresources">MemoryResources <a name="org.cdk8s.plus24.MemoryResources"></a><a class="headerlink" href="#memoryresources" title="Permanent link">&para;</a></h3>
 <p>Memory request and limit.</p>
-<h4 id="initializer_53">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_53" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_54">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_54" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.MemoryResources</span><span class="p">;</span>
 
 <span class="n">MemoryResources</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -15077,7 +15170,7 @@ the values array must be empty. This array is replaced during a strategic merge 
 <hr />
 <h3 id="metriccontainerresourceoptions">MetricContainerResourceOptions <a name="org.cdk8s.plus24.MetricContainerResourceOptions"></a><a class="headerlink" href="#metriccontainerresourceoptions" title="Permanent link">&para;</a></h3>
 <p>Options for <code>Metric.containerResource()</code>.</p>
-<h4 id="initializer_54">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_54" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_55">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_55" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.MetricContainerResourceOptions</span><span class="p">;</span>
 
 <span class="n">MetricContainerResourceOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -15103,7 +15196,7 @@ the values array must be empty. This array is replaced during a strategic merge 
 <hr />
 <h3 id="metricobjectoptions">MetricObjectOptions <a name="org.cdk8s.plus24.MetricObjectOptions"></a><a class="headerlink" href="#metricobjectoptions" title="Permanent link">&para;</a></h3>
 <p>Options for <code>Metric.object()</code>.</p>
-<h4 id="initializer_55">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_55" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_56">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_56" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.MetricObjectOptions</span><span class="p">;</span>
 
 <span class="n">MetricObjectOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -15150,7 +15243,7 @@ for more specific metrics scoping.</p>
 <hr />
 <h3 id="metricoptions">MetricOptions <a name="org.cdk8s.plus24.MetricOptions"></a><a class="headerlink" href="#metricoptions" title="Permanent link">&para;</a></h3>
 <p>Base options for a Metric.</p>
-<h4 id="initializer_56">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_56" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_57">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_57" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.MetricOptions</span><span class="p">;</span>
 
 <span class="n">MetricOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -15188,7 +15281,7 @@ for more specific metrics scoping.</p>
 <hr />
 <h3 id="mountoptions">MountOptions <a name="org.cdk8s.plus24.MountOptions"></a><a class="headerlink" href="#mountoptions" title="Permanent link">&para;</a></h3>
 <p>Options for mounts.</p>
-<h4 id="initializer_57">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_57" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_58">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_58" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.MountOptions</span><span class="p">;</span>
 
 <span class="n">MountOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -15210,7 +15303,7 @@ for more specific metrics scoping.</p>
 <p>Mount propagation allows for sharing volumes mounted by a Container to
 other Containers in the same Pod, or even to other Pods on the same node.</p>
 <hr />
-<h5 id="readonlyoptional_9"><code>readOnly</code><sup>Optional</sup> <a name="org.cdk8s.plus24.MountOptions.property.readOnly"></a><a class="headerlink" href="#readonlyoptional_9" title="Permanent link">&para;</a></h5>
+<h5 id="readonlyoptional_10"><code>readOnly</code><sup>Optional</sup> <a name="org.cdk8s.plus24.MountOptions.property.readOnly"></a><a class="headerlink" href="#readonlyoptional_10" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span><span class="w"> </span><span class="nf">getReadOnly</span><span class="p">();</span>
 </code></pre></div>
 <ul>
@@ -15244,7 +15337,7 @@ $(VAR_NAME) are expanded using the container&rsquo;s environment. Defaults to &l
 <hr />
 <h3 id="namespaceprops">NamespaceProps <a name="org.cdk8s.plus24.NamespaceProps"></a><a class="headerlink" href="#namespaceprops" title="Permanent link">&para;</a></h3>
 <p>Properties for <code>Namespace</code>.</p>
-<h4 id="initializer_58">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_58" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_59">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_59" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.NamespaceProps</span><span class="p">;</span>
 
 <span class="n">NamespaceProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -15261,7 +15354,7 @@ $(VAR_NAME) are expanded using the container&rsquo;s environment. Defaults to &l
 <hr />
 <h3 id="namespaceselectorconfig">NamespaceSelectorConfig <a name="org.cdk8s.plus24.NamespaceSelectorConfig"></a><a class="headerlink" href="#namespaceselectorconfig" title="Permanent link">&para;</a></h3>
 <p>Configuration for selecting namespaces.</p>
-<h4 id="initializer_59">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_59" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_60">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_60" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.NamespaceSelectorConfig</span><span class="p">;</span>
 
 <span class="n">NamespaceSelectorConfig</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -15287,7 +15380,7 @@ $(VAR_NAME) are expanded using the container&rsquo;s environment. Defaults to &l
 <hr />
 <h3 id="namespacesselectoptions">NamespacesSelectOptions <a name="org.cdk8s.plus24.NamespacesSelectOptions"></a><a class="headerlink" href="#namespacesselectoptions" title="Permanent link">&para;</a></h3>
 <p>Options for <code>Namespaces.select</code>.</p>
-<h4 id="initializer_60">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_60" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_61">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_61" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.NamespacesSelectOptions</span><span class="p">;</span>
 
 <span class="n">NamespacesSelectOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -15328,7 +15421,7 @@ provide a more advanced matching mechanism.</p>
 <hr />
 <h3 id="networkpolicyaddegressruleoptions">NetworkPolicyAddEgressRuleOptions <a name="org.cdk8s.plus24.NetworkPolicyAddEgressRuleOptions"></a><a class="headerlink" href="#networkpolicyaddegressruleoptions" title="Permanent link">&para;</a></h3>
 <p>Options for <code>NetworkPolicy.addEgressRule</code>.</p>
-<h4 id="initializer_61">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_61" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_62">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_62" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.NetworkPolicyAddEgressRuleOptions</span><span class="p">;</span>
 
 <span class="n">NetworkPolicyAddEgressRuleOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -15347,7 +15440,7 @@ provide a more advanced matching mechanism.</p>
 <h3 id="networkpolicypeerconfig">NetworkPolicyPeerConfig <a name="org.cdk8s.plus24.NetworkPolicyPeerConfig"></a><a class="headerlink" href="#networkpolicypeerconfig" title="Permanent link">&para;</a></h3>
 <p>Configuration for network peers.</p>
 <p>A peer can either by an ip block, or a selection of pods, not both.</p>
-<h4 id="initializer_62">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_62" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_63">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_63" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.NetworkPolicyPeerConfig</span><span class="p">;</span>
 
 <span class="n">NetworkPolicyPeerConfig</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -15373,7 +15466,7 @@ provide a more advanced matching mechanism.</p>
 <hr />
 <h3 id="networkpolicyportprops">NetworkPolicyPortProps <a name="org.cdk8s.plus24.NetworkPolicyPortProps"></a><a class="headerlink" href="#networkpolicyportprops" title="Permanent link">&para;</a></h3>
 <p>Properties for <code>NetworkPolicyPort</code>.</p>
-<h4 id="initializer_63">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_63" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_64">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_64" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.NetworkPolicyPortProps</span><span class="p">;</span>
 
 <span class="n">NetworkPolicyPortProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -15413,7 +15506,7 @@ Use this to specify a port range, rather that a specific one.</p>
 <hr />
 <h3 id="networkpolicyprops">NetworkPolicyProps <a name="org.cdk8s.plus24.NetworkPolicyProps"></a><a class="headerlink" href="#networkpolicyprops" title="Permanent link">&para;</a></h3>
 <p>Properties for <code>NetworkPolicy</code>.</p>
-<h4 id="initializer_64">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_64" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_65">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_65" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.NetworkPolicyProps</span><span class="p">;</span>
 
 <span class="n">NetworkPolicyProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -15465,7 +15558,7 @@ In this case, the rules for each are combined additively.</p>
 <hr />
 <h3 id="networkpolicyrule">NetworkPolicyRule <a name="org.cdk8s.plus24.NetworkPolicyRule"></a><a class="headerlink" href="#networkpolicyrule" title="Permanent link">&para;</a></h3>
 <p>Describes a rule allowing traffic from / to pods matched by a network policy selector.</p>
-<h4 id="initializer_65">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_65" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_66">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_66" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.NetworkPolicyRule</span><span class="p">;</span>
 
 <span class="n">NetworkPolicyRule</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -15492,7 +15585,7 @@ In this case, the rules for each are combined additively.</p>
 <hr />
 <h3 id="networkpolicytraffic">NetworkPolicyTraffic <a name="org.cdk8s.plus24.NetworkPolicyTraffic"></a><a class="headerlink" href="#networkpolicytraffic" title="Permanent link">&para;</a></h3>
 <p>Describes how the network policy should configure egress / ingress traffic.</p>
-<h4 id="initializer_66">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_66" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_67">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_67" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.NetworkPolicyTraffic</span><span class="p">;</span>
 
 <span class="n">NetworkPolicyTraffic</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -15521,7 +15614,7 @@ In this case, the rules for each are combined additively.</p>
 <hr />
 <h3 id="nodetaintqueryoptions">NodeTaintQueryOptions <a name="org.cdk8s.plus24.NodeTaintQueryOptions"></a><a class="headerlink" href="#nodetaintqueryoptions" title="Permanent link">&para;</a></h3>
 <p>Options for <code>NodeTaintQuery</code>.</p>
-<h4 id="initializer_67">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_67" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_68">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_68" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.NodeTaintQueryOptions</span><span class="p">;</span>
 
 <span class="n">NodeTaintQueryOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -15550,7 +15643,7 @@ In this case, the rules for each are combined additively.</p>
 <hr />
 <h3 id="pathmapping">PathMapping <a name="org.cdk8s.plus24.PathMapping"></a><a class="headerlink" href="#pathmapping" title="Permanent link">&para;</a></h3>
 <p>Maps a string key to a path within a volume.</p>
-<h4 id="initializer_68">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_68" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_69">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_69" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.PathMapping</span><span class="p">;</span>
 
 <span class="n">PathMapping</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -15582,7 +15675,7 @@ the result can be other mode bits set.</p>
 <hr />
 <h3 id="persistentvolumeclaimprops">PersistentVolumeClaimProps <a name="org.cdk8s.plus24.PersistentVolumeClaimProps"></a><a class="headerlink" href="#persistentvolumeclaimprops" title="Permanent link">&para;</a></h3>
 <p>Properties for <code>PersistentVolumeClaim</code>.</p>
-<h4 id="initializer_69">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_69" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_70">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_70" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.PersistentVolumeClaimProps</span><span class="p">;</span>
 
 <span class="n">PersistentVolumeClaimProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -15672,7 +15765,7 @@ create a bi-directional bounded claim.</p>
 <hr />
 <h3 id="persistentvolumeclaimvolumeoptions">PersistentVolumeClaimVolumeOptions <a name="org.cdk8s.plus24.PersistentVolumeClaimVolumeOptions"></a><a class="headerlink" href="#persistentvolumeclaimvolumeoptions" title="Permanent link">&para;</a></h3>
 <p>Options for a PersistentVolumeClaim-based volume.</p>
-<h4 id="initializer_70">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_70" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_71">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_71" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.PersistentVolumeClaimVolumeOptions</span><span class="p">;</span>
 
 <span class="n">PersistentVolumeClaimVolumeOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -15680,7 +15773,7 @@ create a bi-directional bounded claim.</p>
 <span class="c1">//  .readOnly(java.lang.Boolean)</span>
 <span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
-<h5 id="nameoptional_9"><code>name</code><sup>Optional</sup> <a name="org.cdk8s.plus24.PersistentVolumeClaimVolumeOptions.property.name"></a><a class="headerlink" href="#nameoptional_9" title="Permanent link">&para;</a></h5>
+<h5 id="nameoptional_10"><code>name</code><sup>Optional</sup> <a name="org.cdk8s.plus24.PersistentVolumeClaimVolumeOptions.property.name"></a><a class="headerlink" href="#nameoptional_10" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getName</span><span class="p">();</span>
 </code></pre></div>
 <ul>
@@ -15689,7 +15782,7 @@ create a bi-directional bounded claim.</p>
 </ul>
 <p>The volume name.</p>
 <hr />
-<h5 id="readonlyoptional_10"><code>readOnly</code><sup>Optional</sup> <a name="org.cdk8s.plus24.PersistentVolumeClaimVolumeOptions.property.readOnly"></a><a class="headerlink" href="#readonlyoptional_10" title="Permanent link">&para;</a></h5>
+<h5 id="readonlyoptional_11"><code>readOnly</code><sup>Optional</sup> <a name="org.cdk8s.plus24.PersistentVolumeClaimVolumeOptions.property.readOnly"></a><a class="headerlink" href="#readonlyoptional_11" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span><span class="w"> </span><span class="nf">getReadOnly</span><span class="p">();</span>
 </code></pre></div>
 <ul>
@@ -15700,7 +15793,7 @@ create a bi-directional bounded claim.</p>
 <hr />
 <h3 id="persistentvolumeprops">PersistentVolumeProps <a name="org.cdk8s.plus24.PersistentVolumeProps"></a><a class="headerlink" href="#persistentvolumeprops" title="Permanent link">&para;</a></h3>
 <p>Properties for <code>PersistentVolume</code>.</p>
-<h4 id="initializer_71">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_71" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_72">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_72" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.PersistentVolumeProps</span><span class="p">;</span>
 
 <span class="n">PersistentVolumeProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -15805,7 +15898,7 @@ the volume after it has been released of its claim.</p>
 <hr />
 <h3 id="podconnectionsallowfromoptions">PodConnectionsAllowFromOptions <a name="org.cdk8s.plus24.PodConnectionsAllowFromOptions"></a><a class="headerlink" href="#podconnectionsallowfromoptions" title="Permanent link">&para;</a></h3>
 <p>Options for <code>PodConnections.allowFrom</code>.</p>
-<h4 id="initializer_72">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_72" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_73">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_73" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.PodConnectionsAllowFromOptions</span><span class="p">;</span>
 
 <span class="n">PodConnectionsAllowFromOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -15833,7 +15926,7 @@ the volume after it has been released of its claim.</p>
 <hr />
 <h3 id="podconnectionsallowtooptions">PodConnectionsAllowToOptions <a name="org.cdk8s.plus24.PodConnectionsAllowToOptions"></a><a class="headerlink" href="#podconnectionsallowtooptions" title="Permanent link">&para;</a></h3>
 <p>Options for <code>PodConnections.allowTo</code>.</p>
-<h4 id="initializer_73">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_73" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_74">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_74" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.PodConnectionsAllowToOptions</span><span class="p">;</span>
 
 <span class="n">PodConnectionsAllowToOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -15861,7 +15954,7 @@ the volume after it has been released of its claim.</p>
 <hr />
 <h3 id="poddnsprops">PodDnsProps <a name="org.cdk8s.plus24.PodDnsProps"></a><a class="headerlink" href="#poddnsprops" title="Permanent link">&para;</a></h3>
 <p>Properties for <code>PodDns</code>.</p>
-<h4 id="initializer_74">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_74" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_75">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_75" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.PodDnsProps</span><span class="p">;</span>
 
 <span class="n">PodDnsProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -15909,7 +16002,7 @@ otherwise this property is optional.
 The servers listed will be combined to the base nameservers generated from
 the specified DNS policy with duplicate addresses removed.</p>
 <hr />
-<h5 id="optionsoptional_15"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus24.PodDnsProps.property.options"></a><a class="headerlink" href="#optionsoptional_15" title="Permanent link">&para;</a></h5>
+<h5 id="optionsoptional_16"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus24.PodDnsProps.property.options"></a><a class="headerlink" href="#optionsoptional_16" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">DnsOption</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getOptions</span><span class="p">();</span>
 </code></pre></div>
 <ul>
@@ -15953,7 +16046,7 @@ Duplicate domain names are removed.</p>
 <hr />
 <h3 id="podprops">PodProps <a name="org.cdk8s.plus24.PodProps"></a><a class="headerlink" href="#podprops" title="Permanent link">&para;</a></h3>
 <p>Properties for <code>Pod</code>.</p>
-<h4 id="initializer_75">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_75" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_76">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_76" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.PodProps</span><span class="p">;</span>
 
 <span class="n">PodProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -16119,7 +16212,7 @@ Account (for example, default).</p>
 <hr />
 <h3 id="podsalloptions">PodsAllOptions <a name="org.cdk8s.plus24.PodsAllOptions"></a><a class="headerlink" href="#podsalloptions" title="Permanent link">&para;</a></h3>
 <p>Options for <code>Pods.all</code>.</p>
-<h4 id="initializer_76">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_76" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_77">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_77" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.PodsAllOptions</span><span class="p">;</span>
 
 <span class="n">PodsAllOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -16138,7 +16231,7 @@ Account (for example, default).</p>
 <hr />
 <h3 id="podschedulingattractoptions">PodSchedulingAttractOptions <a name="org.cdk8s.plus24.PodSchedulingAttractOptions"></a><a class="headerlink" href="#podschedulingattractoptions" title="Permanent link">&para;</a></h3>
 <p>Options for <code>PodScheduling.attract</code>.</p>
-<h4 id="initializer_77">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_77" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_78">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_78" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.PodSchedulingAttractOptions</span><span class="p">;</span>
 
 <span class="n">PodSchedulingAttractOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -16156,7 +16249,7 @@ Account (for example, default).</p>
 <hr />
 <h3 id="podschedulingcolocateoptions">PodSchedulingColocateOptions <a name="org.cdk8s.plus24.PodSchedulingColocateOptions"></a><a class="headerlink" href="#podschedulingcolocateoptions" title="Permanent link">&para;</a></h3>
 <p>Options for <code>PodScheduling.colocate</code>.</p>
-<h4 id="initializer_78">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_78" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_79">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_79" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.PodSchedulingColocateOptions</span><span class="p">;</span>
 
 <span class="n">PodSchedulingColocateOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -16184,7 +16277,7 @@ Account (for example, default).</p>
 <hr />
 <h3 id="podschedulingseparateoptions">PodSchedulingSeparateOptions <a name="org.cdk8s.plus24.PodSchedulingSeparateOptions"></a><a class="headerlink" href="#podschedulingseparateoptions" title="Permanent link">&para;</a></h3>
 <p>Options for <code>PodScheduling.separate</code>.</p>
-<h4 id="initializer_79">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_79" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_80">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_80" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.PodSchedulingSeparateOptions</span><span class="p">;</span>
 
 <span class="n">PodSchedulingSeparateOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -16212,7 +16305,7 @@ Account (for example, default).</p>
 <hr />
 <h3 id="podsecuritycontextprops">PodSecurityContextProps <a name="org.cdk8s.plus24.PodSecurityContextProps"></a><a class="headerlink" href="#podsecuritycontextprops" title="Permanent link">&para;</a></h3>
 <p>Properties for <code>PodSecurityContext</code>.</p>
-<h4 id="initializer_80">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_80" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_81">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_81" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.PodSecurityContextProps</span><span class="p">;</span>
 
 <span class="n">PodSecurityContextProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -16285,7 +16378,7 @@ It will have no effect on ephemeral volume types such as: secret, configmaps and
 <hr />
 <h3 id="podselectorconfig">PodSelectorConfig <a name="org.cdk8s.plus24.PodSelectorConfig"></a><a class="headerlink" href="#podselectorconfig" title="Permanent link">&para;</a></h3>
 <p>Configuration for selecting pods, optionally in particular namespaces.</p>
-<h4 id="initializer_81">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_81" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_82">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_82" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.PodSelectorConfig</span><span class="p">;</span>
 
 <span class="n">PodSelectorConfig</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -16311,7 +16404,7 @@ It will have no effect on ephemeral volume types such as: secret, configmaps and
 <hr />
 <h3 id="podsselectoptions">PodsSelectOptions <a name="org.cdk8s.plus24.PodsSelectOptions"></a><a class="headerlink" href="#podsselectoptions" title="Permanent link">&para;</a></h3>
 <p>Options for <code>Pods.select</code>.</p>
-<h4 id="initializer_82">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_82" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_83">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_83" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.PodsSelectOptions</span><span class="p">;</span>
 
 <span class="n">PodsSelectOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -16350,7 +16443,7 @@ It will have no effect on ephemeral volume types such as: secret, configmaps and
 <hr />
 <h3 id="probeoptions">ProbeOptions <a name="org.cdk8s.plus24.ProbeOptions"></a><a class="headerlink" href="#probeoptions" title="Permanent link">&para;</a></h3>
 <p>Probe options.</p>
-<h4 id="initializer_83">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_83" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_84">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_84" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.ProbeOptions</span><span class="p">;</span>
 
 <span class="n">ProbeOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -16418,7 +16511,7 @@ It will have no effect on ephemeral volume types such as: secret, configmaps and
 <hr />
 <h3 id="resourceprops">ResourceProps <a name="org.cdk8s.plus24.ResourceProps"></a><a class="headerlink" href="#resourceprops" title="Permanent link">&para;</a></h3>
 <p>Initialization properties for resources.</p>
-<h4 id="initializer_84">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_84" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_85">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_85" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.ResourceProps</span><span class="p">;</span>
 
 <span class="n">ResourceProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -16435,7 +16528,7 @@ It will have no effect on ephemeral volume types such as: secret, configmaps and
 <hr />
 <h3 id="rolebindingprops">RoleBindingProps <a name="org.cdk8s.plus24.RoleBindingProps"></a><a class="headerlink" href="#rolebindingprops" title="Permanent link">&para;</a></h3>
 <p>Properties for <code>RoleBinding</code>.</p>
-<h4 id="initializer_85">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_85" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_86">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_86" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.RoleBindingProps</span><span class="p">;</span>
 
 <span class="n">RoleBindingProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -16462,7 +16555,7 @@ It will have no effect on ephemeral volume types such as: secret, configmaps and
 <hr />
 <h3 id="rolepolicyrule">RolePolicyRule <a name="org.cdk8s.plus24.RolePolicyRule"></a><a class="headerlink" href="#rolepolicyrule" title="Permanent link">&para;</a></h3>
 <p>Policy rule of a `Role.</p>
-<h4 id="initializer_86">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_86" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_87">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_87" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.RolePolicyRule</span><span class="p">;</span>
 
 <span class="n">RolePolicyRule</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -16489,7 +16582,7 @@ It will have no effect on ephemeral volume types such as: secret, configmaps and
 <hr />
 <h3 id="roleprops">RoleProps <a name="org.cdk8s.plus24.RoleProps"></a><a class="headerlink" href="#roleprops" title="Permanent link">&para;</a></h3>
 <p>Properties for <code>Role</code>.</p>
-<h4 id="initializer_87">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_87" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_88">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_88" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.RoleProps</span><span class="p">;</span>
 
 <span class="n">RoleProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -16515,7 +16608,7 @@ It will have no effect on ephemeral volume types such as: secret, configmaps and
 <p>A list of rules the role should allow.</p>
 <hr />
 <h3 id="scalingpolicy">ScalingPolicy <a name="org.cdk8s.plus24.ScalingPolicy"></a><a class="headerlink" href="#scalingpolicy" title="Permanent link">&para;</a></h3>
-<h4 id="initializer_88">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_88" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_89">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_89" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.ScalingPolicy</span><span class="p">;</span>
 
 <span class="n">ScalingPolicy</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -16543,7 +16636,7 @@ It will have no effect on ephemeral volume types such as: secret, configmaps and
 <hr />
 <h3 id="scalingrules">ScalingRules <a name="org.cdk8s.plus24.ScalingRules"></a><a class="headerlink" href="#scalingrules" title="Permanent link">&para;</a></h3>
 <p>Defines the scaling behavior for one direction.</p>
-<h4 id="initializer_89">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_89" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_90">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_90" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.ScalingRules</span><span class="p">;</span>
 
 <span class="n">ScalingRules</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -16587,7 +16680,7 @@ It will have no effect on ephemeral volume types such as: secret, configmaps and
 <hr />
 <h3 id="scalingtarget">ScalingTarget <a name="org.cdk8s.plus24.ScalingTarget"></a><a class="headerlink" href="#scalingtarget" title="Permanent link">&para;</a></h3>
 <p>Properties used to configure the target of an Autoscaler.</p>
-<h4 id="initializer_90">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_90" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_91">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_91" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.ScalingTarget</span><span class="p">;</span>
 
 <span class="n">ScalingTarget</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -16643,7 +16736,7 @@ fixed number of replicas.</p>
 <hr />
 <h3 id="secretprops">SecretProps <a name="org.cdk8s.plus24.SecretProps"></a><a class="headerlink" href="#secretprops" title="Permanent link">&para;</a></h3>
 <p>Options for <code>Secret</code>.</p>
-<h4 id="initializer_91">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_91" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_92">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_92" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.SecretProps</span><span class="p">;</span>
 
 <span class="n">SecretProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -16696,7 +16789,7 @@ handling of secret data by various controllers.</p>
 <hr />
 <h3 id="secretvalue">SecretValue <a name="org.cdk8s.plus24.SecretValue"></a><a class="headerlink" href="#secretvalue" title="Permanent link">&para;</a></h3>
 <p>Represents a specific value in JSON secret.</p>
-<h4 id="initializer_92">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_92" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_93">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_93" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.SecretValue</span><span class="p">;</span>
 
 <span class="n">SecretValue</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -16722,7 +16815,7 @@ handling of secret data by various controllers.</p>
 <hr />
 <h3 id="secretvolumeoptions">SecretVolumeOptions <a name="org.cdk8s.plus24.SecretVolumeOptions"></a><a class="headerlink" href="#secretvolumeoptions" title="Permanent link">&para;</a></h3>
 <p>Options for the Secret-based volume.</p>
-<h4 id="initializer_93">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_93" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_94">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_94" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.SecretVolumeOptions</span><span class="p">;</span>
 
 <span class="n">SecretVolumeOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -16751,7 +16844,7 @@ file mode, like fsGroup, and the result can be other mode bits set.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">PathMapping</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getItems</span><span class="p">();</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus24.PathMapping">klzzwxh:10762</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus24.PathMapping">klzzwxh:10809</a>></li>
 <li><em>Default:</em> no mapping</li>
 </ul>
 <p>If unspecified, each key-value pair in the Data field of the referenced secret will be projected into the volume as a file whose name is the key and content is the value.</p>
@@ -16761,7 +16854,7 @@ is specified which is not present in the secret, the volume setup will
 error unless it is marked optional. Paths must be relative and may not
 contain the &lsquo;..&rsquo; path or start with &lsquo;..&rsquo;.</p>
 <hr />
-<h5 id="nameoptional_10"><code>name</code><sup>Optional</sup> <a name="org.cdk8s.plus24.SecretVolumeOptions.property.name"></a><a class="headerlink" href="#nameoptional_10" title="Permanent link">&para;</a></h5>
+<h5 id="nameoptional_11"><code>name</code><sup>Optional</sup> <a name="org.cdk8s.plus24.SecretVolumeOptions.property.name"></a><a class="headerlink" href="#nameoptional_11" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getName</span><span class="p">();</span>
 </code></pre></div>
 <ul>
@@ -16781,7 +16874,7 @@ contain the &lsquo;..&rsquo; path or start with &lsquo;..&rsquo;.</p>
 <hr />
 <h3 id="serviceaccountprops">ServiceAccountProps <a name="org.cdk8s.plus24.ServiceAccountProps"></a><a class="headerlink" href="#serviceaccountprops" title="Permanent link">&para;</a></h3>
 <p>Properties for initialization of <code>ServiceAccount</code>.</p>
-<h4 id="initializer_94">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_94" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_95">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_95" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.ServiceAccountProps</span><span class="p">;</span>
 
 <span class="n">ServiceAccountProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -16824,7 +16917,7 @@ contain the &lsquo;..&rsquo; path or start with &lsquo;..&rsquo;.</p>
 <hr />
 <h3 id="serviceaccounttokensecretprops">ServiceAccountTokenSecretProps <a name="org.cdk8s.plus24.ServiceAccountTokenSecretProps"></a><a class="headerlink" href="#serviceaccounttokensecretprops" title="Permanent link">&para;</a></h3>
 <p>Options for <code>ServiceAccountTokenSecret</code>.</p>
-<h4 id="initializer_95">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_95" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_96">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_96" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.ServiceAccountTokenSecretProps</span><span class="p">;</span>
 
 <span class="n">ServiceAccountTokenSecretProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -16861,7 +16954,7 @@ contain the &lsquo;..&rsquo; path or start with &lsquo;..&rsquo;.</p>
 <hr />
 <h3 id="servicebindoptions">ServiceBindOptions <a name="org.cdk8s.plus24.ServiceBindOptions"></a><a class="headerlink" href="#servicebindoptions" title="Permanent link">&para;</a></h3>
 <p>Options for <code>Service.bind</code>.</p>
-<h4 id="initializer_96">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_96" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_97">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_97" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.ServiceBindOptions</span><span class="p">;</span>
 
 <span class="n">ServiceBindOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -16871,7 +16964,7 @@ contain the &lsquo;..&rsquo; path or start with &lsquo;..&rsquo;.</p>
 <span class="c1">//  .targetPort(java.lang.Number)</span>
 <span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
-<h5 id="nameoptional_11"><code>name</code><sup>Optional</sup> <a name="org.cdk8s.plus24.ServiceBindOptions.property.name"></a><a class="headerlink" href="#nameoptional_11" title="Permanent link">&para;</a></h5>
+<h5 id="nameoptional_12"><code>name</code><sup>Optional</sup> <a name="org.cdk8s.plus24.ServiceBindOptions.property.name"></a><a class="headerlink" href="#nameoptional_12" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getName</span><span class="p">();</span>
 </code></pre></div>
 <ul>
@@ -16920,7 +17013,7 @@ requires one.</p>
 <hr />
 <h3 id="serviceingressbackendoptions">ServiceIngressBackendOptions <a name="org.cdk8s.plus24.ServiceIngressBackendOptions"></a><a class="headerlink" href="#serviceingressbackendoptions" title="Permanent link">&para;</a></h3>
 <p>Options for setting up backends for ingress rules.</p>
-<h4 id="initializer_97">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_97" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_98">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_98" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.ServiceIngressBackendOptions</span><span class="p">;</span>
 
 <span class="n">ServiceIngressBackendOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -16944,7 +17037,7 @@ requires one.</p>
 <hr />
 <h3 id="serviceport">ServicePort <a name="org.cdk8s.plus24.ServicePort"></a><a class="headerlink" href="#serviceport" title="Permanent link">&para;</a></h3>
 <p>Definition of a service port.</p>
-<h4 id="initializer_98">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_98" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_99">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_99" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.ServicePort</span><span class="p">;</span>
 
 <span class="n">ServicePort</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -16955,7 +17048,7 @@ requires one.</p>
 <span class="w">    </span><span class="p">.</span><span class="na">port</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span><span class="p">)</span>
 <span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
-<h5 id="nameoptional_12"><code>name</code><sup>Optional</sup> <a name="org.cdk8s.plus24.ServicePort.property.name"></a><a class="headerlink" href="#nameoptional_12" title="Permanent link">&para;</a></h5>
+<h5 id="nameoptional_13"><code>name</code><sup>Optional</sup> <a name="org.cdk8s.plus24.ServicePort.property.name"></a><a class="headerlink" href="#nameoptional_13" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getName</span><span class="p">();</span>
 </code></pre></div>
 <ul>
@@ -17012,7 +17105,7 @@ requires one.</p>
 <hr />
 <h3 id="serviceprops">ServiceProps <a name="org.cdk8s.plus24.ServiceProps"></a><a class="headerlink" href="#serviceprops" title="Permanent link">&para;</a></h3>
 <p>Properties for <code>Service</code>.</p>
-<h4 id="initializer_99">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_99" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_100">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_100" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.ServiceProps</span><span class="p">;</span>
 
 <span class="n">ServiceProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -17122,7 +17215,7 @@ its endpoints, which Kubernetes will not modify.</li>
 <hr />
 <h3 id="sshauthsecretprops">SshAuthSecretProps <a name="org.cdk8s.plus24.SshAuthSecretProps"></a><a class="headerlink" href="#sshauthsecretprops" title="Permanent link">&para;</a></h3>
 <p>Options for <code>SshAuthSecret</code>.</p>
-<h4 id="initializer_100">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_100" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_101">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_101" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.SshAuthSecretProps</span><span class="p">;</span>
 
 <span class="n">SshAuthSecretProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -17159,7 +17252,7 @@ its endpoints, which Kubernetes will not modify.</li>
 <hr />
 <h3 id="statefulsetprops">StatefulSetProps <a name="org.cdk8s.plus24.StatefulSetProps"></a><a class="headerlink" href="#statefulsetprops" title="Permanent link">&para;</a></h3>
 <p>Properties for initialization of <code>StatefulSet</code>.</p>
-<h4 id="initializer_101">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_101" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_102">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_102" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.StatefulSetProps</span><span class="p">;</span>
 
 <span class="n">StatefulSetProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -17414,7 +17507,7 @@ its pod template.</p>
 <hr />
 <h3 id="statefulsetupdatestrategyrollingupdateoptions">StatefulSetUpdateStrategyRollingUpdateOptions <a name="org.cdk8s.plus24.StatefulSetUpdateStrategyRollingUpdateOptions"></a><a class="headerlink" href="#statefulsetupdatestrategyrollingupdateoptions" title="Permanent link">&para;</a></h3>
 <p>Options for <code>StatefulSetUpdateStrategy.rollingUpdate</code>.</p>
-<h4 id="initializer_102">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_102" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_103">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_103" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.StatefulSetUpdateStrategyRollingUpdateOptions</span><span class="p">;</span>
 
 <span class="n">StatefulSetUpdateStrategyRollingUpdateOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -17440,7 +17533,7 @@ update, roll out a canary, or perform a phased roll out.</p>
 <p>Subject contains a reference to the object or user identities a role binding applies to.</p>
 <p>This can either hold a direct API object reference, or a value
 for non-objects such as user and group names.</p>
-<h4 id="initializer_103">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_103" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_104">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_104" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.SubjectConfiguration</span><span class="p">;</span>
 
 <span class="n">SubjectConfiguration</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -17493,7 +17586,7 @@ should report an error.</p>
 <hr />
 <h3 id="sysctl">Sysctl <a name="org.cdk8s.plus24.Sysctl"></a><a class="headerlink" href="#sysctl" title="Permanent link">&para;</a></h3>
 <p>Sysctl defines a kernel parameter to be set.</p>
-<h4 id="initializer_104">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_104" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_105">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_105" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.Sysctl</span><span class="p">;</span>
 
 <span class="n">Sysctl</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -17519,7 +17612,7 @@ should report an error.</p>
 <hr />
 <h3 id="tcpsocketprobeoptions">TcpSocketProbeOptions <a name="org.cdk8s.plus24.TcpSocketProbeOptions"></a><a class="headerlink" href="#tcpsocketprobeoptions" title="Permanent link">&para;</a></h3>
 <p>Options for <code>Probe.fromTcpSocket()</code>.</p>
-<h4 id="initializer_105">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_105" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_106">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_106" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.TcpSocketProbeOptions</span><span class="p">;</span>
 
 <span class="n">TcpSocketProbeOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -17607,7 +17700,7 @@ should report an error.</p>
 <hr />
 <h3 id="tlssecretprops">TlsSecretProps <a name="org.cdk8s.plus24.TlsSecretProps"></a><a class="headerlink" href="#tlssecretprops" title="Permanent link">&para;</a></h3>
 <p>Options for <code>TlsSecret</code>.</p>
-<h4 id="initializer_106">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_106" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_107">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_107" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.TlsSecretProps</span><span class="p">;</span>
 
 <span class="n">TlsSecretProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -17653,7 +17746,7 @@ should report an error.</p>
 <hr />
 <h3 id="volumemount">VolumeMount <a name="org.cdk8s.plus24.VolumeMount"></a><a class="headerlink" href="#volumemount" title="Permanent link">&para;</a></h3>
 <p>Mount a volume from the pod to the container.</p>
-<h4 id="initializer_107">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_107" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_108">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_108" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.VolumeMount</span><span class="p">;</span>
 
 <span class="n">VolumeMount</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -17677,7 +17770,7 @@ should report an error.</p>
 <p>Mount propagation allows for sharing volumes mounted by a Container to
 other Containers in the same Pod, or even to other Pods on the same node.</p>
 <hr />
-<h5 id="readonlyoptional_11"><code>readOnly</code><sup>Optional</sup> <a name="org.cdk8s.plus24.VolumeMount.property.readOnly"></a><a class="headerlink" href="#readonlyoptional_11" title="Permanent link">&para;</a></h5>
+<h5 id="readonlyoptional_12"><code>readOnly</code><sup>Optional</sup> <a name="org.cdk8s.plus24.VolumeMount.property.readOnly"></a><a class="headerlink" href="#readonlyoptional_12" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span><span class="w"> </span><span class="nf">getReadOnly</span><span class="p">();</span>
 </code></pre></div>
 <ul>
@@ -17729,7 +17822,7 @@ contain &lsquo;:&rsquo;.</p>
 <hr />
 <h3 id="workloadprops">WorkloadProps <a name="org.cdk8s.plus24.WorkloadProps"></a><a class="headerlink" href="#workloadprops" title="Permanent link">&para;</a></h3>
 <p>Properties for <code>Workload</code>.</p>
-<h4 id="initializer_108">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_108" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_109">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_109" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.WorkloadProps</span><span class="p">;</span>
 
 <span class="n">WorkloadProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -17929,7 +18022,7 @@ its pod template.</p>
 <hr />
 <h3 id="workloadschedulingspreadoptions">WorkloadSchedulingSpreadOptions <a name="org.cdk8s.plus24.WorkloadSchedulingSpreadOptions"></a><a class="headerlink" href="#workloadschedulingspreadoptions" title="Permanent link">&para;</a></h3>
 <p>Options for <code>WorkloadScheduling.spread</code>.</p>
-<h4 id="initializer_109">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_109" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_110">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_110" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus24.WorkloadSchedulingSpreadOptions</span><span class="p">;</span>
 
 <span class="n">WorkloadSchedulingSpreadOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -18401,7 +18494,7 @@ with a duplicate key will take precedence.</p>
 <hr />
 <h5 id="envvariablesoptional_1"><code>envVariables</code><sup>Optional</sup> <a name="org.cdk8s.plus24.ContainerProps.parameter.envVariables"></a><a class="headerlink" href="#envvariablesoptional_1" title="Permanent link">&para;</a></h5>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus24.EnvValue">klzzwxh:10275</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus24.EnvValue">klzzwxh:10322</a>></li>
 <li><em>Default:</em> No environment variables.</li>
 </ul>
 <p>Environment variables to set in the container.</p>
@@ -18427,7 +18520,7 @@ with a duplicate key will take precedence.</p>
 <p>Periodic probe of container liveness.</p>
 <p>Container will be restarted if the probe fails.</p>
 <hr />
-<h5 id="nameoptional_13"><code>name</code><sup>Optional</sup> <a name="org.cdk8s.plus24.ContainerProps.parameter.name"></a><a class="headerlink" href="#nameoptional_13" title="Permanent link">&para;</a></h5>
+<h5 id="nameoptional_14"><code>name</code><sup>Optional</sup> <a name="org.cdk8s.plus24.ContainerProps.parameter.name"></a><a class="headerlink" href="#nameoptional_14" title="Permanent link">&para;</a></h5>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 <li><em>Default:</em> &lsquo;main&rsquo;</li>
@@ -18552,7 +18645,7 @@ Otherwise, no startup probe is defined.</li>
 </ul>
 <p>The storage to mount.</p>
 <hr />
-<h6 id="optionsoptional_16"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus24.Container.parameter.options"></a><a class="headerlink" href="#optionsoptional_16" title="Permanent link">&para;</a></h6>
+<h6 id="optionsoptional_17"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus24.Container.parameter.options"></a><a class="headerlink" href="#optionsoptional_17" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus24.MountOptions"><code>org.cdk8s.plus24.MountOptions</code></a></li>
 </ul>
@@ -18822,7 +18915,7 @@ somehow it manages to get access to host file system.</li>
 <span class="n">DeploymentStrategy</span><span class="p">.</span><span class="na">rollingUpdate</span><span class="p">()</span>
 <span class="n">DeploymentStrategy</span><span class="p">.</span><span class="na">rollingUpdate</span><span class="p">(</span><span class="n">DeploymentStrategyRollingUpdateOptions</span><span class="w"> </span><span class="n">options</span><span class="p">)</span>
 </code></pre></div>
-<h6 id="optionsoptional_17"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus24.DeploymentStrategy.parameter.options"></a><a class="headerlink" href="#optionsoptional_17" title="Permanent link">&para;</a></h6>
+<h6 id="optionsoptional_18"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus24.DeploymentStrategy.parameter.options"></a><a class="headerlink" href="#optionsoptional_18" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus24.DeploymentStrategyRollingUpdateOptions"><code>org.cdk8s.plus24.DeploymentStrategyRollingUpdateOptions</code></a></li>
 </ul>
@@ -18841,7 +18934,7 @@ somehow it manages to get access to host file system.</li>
 <hr />
 <h5 id="variablesrequired"><code>variables</code><sup>Required</sup> <a name="org.cdk8s.plus24.Env.parameter.variables"></a><a class="headerlink" href="#variablesrequired" title="Permanent link">&para;</a></h5>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus24.EnvValue">klzzwxh:10135</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus24.EnvValue">klzzwxh:10182</a>></li>
 </ul>
 <hr />
 <h4 id="methods_26">Methods <a name="Methods"></a><a class="headerlink" href="#methods_26" title="Permanent link">&para;</a></h4>
@@ -18907,7 +19000,7 @@ somehow it manages to get access to host file system.</li>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">EnvValue</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getVariables</span><span class="p">();</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus24.EnvValue">klzzwxh:10112</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus24.EnvValue">klzzwxh:10159</a>></li>
 </ul>
 <p>The environment variables for this container.</p>
 <p>Returns a copy. To add environment variables use <code>container.env.addVariable()</code>.</p>
@@ -18958,7 +19051,7 @@ somehow it manages to get access to host file system.</li>
 </ul>
 <p>The key to extract the value from.</p>
 <hr />
-<h6 id="optionsoptional_18"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus24.EnvValue.parameter.options"></a><a class="headerlink" href="#optionsoptional_18" title="Permanent link">&para;</a></h6>
+<h6 id="optionsoptional_19"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus24.EnvValue.parameter.options"></a><a class="headerlink" href="#optionsoptional_19" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus24.EnvValueFromConfigMapOptions"><code>org.cdk8s.plus24.EnvValueFromConfigMapOptions</code></a></li>
 </ul>
@@ -18976,7 +19069,7 @@ somehow it manages to get access to host file system.</li>
 </ul>
 <p>: The field reference.</p>
 <hr />
-<h6 id="optionsoptional_19"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus24.EnvValue.parameter.options"></a><a class="headerlink" href="#optionsoptional_19" title="Permanent link">&para;</a></h6>
+<h6 id="optionsoptional_20"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus24.EnvValue.parameter.options"></a><a class="headerlink" href="#optionsoptional_20" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus24.EnvValueFromFieldRefOptions"><code>org.cdk8s.plus24.EnvValueFromFieldRefOptions</code></a></li>
 </ul>
@@ -18994,7 +19087,7 @@ somehow it manages to get access to host file system.</li>
 </ul>
 <p>The key to read.</p>
 <hr />
-<h6 id="optionsoptional_20"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus24.EnvValue.parameter.options"></a><a class="headerlink" href="#optionsoptional_20" title="Permanent link">&para;</a></h6>
+<h6 id="optionsoptional_21"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus24.EnvValue.parameter.options"></a><a class="headerlink" href="#optionsoptional_21" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus24.EnvValueFromProcessOptions"><code>org.cdk8s.plus24.EnvValueFromProcessOptions</code></a></li>
 </ul>
@@ -19012,7 +19105,7 @@ somehow it manages to get access to host file system.</li>
 </ul>
 <p>: Resource to select the value from.</p>
 <hr />
-<h6 id="optionsoptional_21"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus24.EnvValue.parameter.options"></a><a class="headerlink" href="#optionsoptional_21" title="Permanent link">&para;</a></h6>
+<h6 id="optionsoptional_22"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus24.EnvValue.parameter.options"></a><a class="headerlink" href="#optionsoptional_22" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus24.EnvValueFromResourceOptions"><code>org.cdk8s.plus24.EnvValueFromResourceOptions</code></a></li>
 </ul>
@@ -19030,7 +19123,7 @@ somehow it manages to get access to host file system.</li>
 </ul>
 <p>The secret value (secrent + key).</p>
 <hr />
-<h6 id="optionsoptional_22"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus24.EnvValue.parameter.options"></a><a class="headerlink" href="#optionsoptional_22" title="Permanent link">&para;</a></h6>
+<h6 id="optionsoptional_23"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus24.EnvValue.parameter.options"></a><a class="headerlink" href="#optionsoptional_23" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus24.EnvValueFromSecretOptions"><code>org.cdk8s.plus24.EnvValueFromSecretOptions</code></a></li>
 </ul>
@@ -19088,7 +19181,7 @@ somehow it manages to get access to host file system.</li>
 </ul>
 <p>The URL path to hit.</p>
 <hr />
-<h6 id="optionsoptional_23"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus24.Handler.parameter.options"></a><a class="headerlink" href="#optionsoptional_23" title="Permanent link">&para;</a></h6>
+<h6 id="optionsoptional_24"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus24.Handler.parameter.options"></a><a class="headerlink" href="#optionsoptional_24" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus24.HandlerFromHttpGetOptions"><code>org.cdk8s.plus24.HandlerFromHttpGetOptions</code></a></li>
 </ul>
@@ -19100,7 +19193,7 @@ somehow it manages to get access to host file system.</li>
 <span class="n">Handler</span><span class="p">.</span><span class="na">fromTcpSocket</span><span class="p">()</span>
 <span class="n">Handler</span><span class="p">.</span><span class="na">fromTcpSocket</span><span class="p">(</span><span class="n">HandlerFromTcpSocketOptions</span><span class="w"> </span><span class="n">options</span><span class="p">)</span>
 </code></pre></div>
-<h6 id="optionsoptional_24"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus24.Handler.parameter.options"></a><a class="headerlink" href="#optionsoptional_24" title="Permanent link">&para;</a></h6>
+<h6 id="optionsoptional_25"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus24.Handler.parameter.options"></a><a class="headerlink" href="#optionsoptional_25" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus24.HandlerFromTcpSocketOptions"><code>org.cdk8s.plus24.HandlerFromTcpSocketOptions</code></a></li>
 </ul>
@@ -19131,7 +19224,7 @@ somehow it manages to get access to host file system.</li>
 </ul>
 <p>The service object.</p>
 <hr />
-<h6 id="optionsoptional_25"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus24.IngressBackend.parameter.options"></a><a class="headerlink" href="#optionsoptional_25" title="Permanent link">&para;</a></h6>
+<h6 id="optionsoptional_26"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus24.IngressBackend.parameter.options"></a><a class="headerlink" href="#optionsoptional_26" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus24.ServiceIngressBackendOptions"><code>org.cdk8s.plus24.ServiceIngressBackendOptions</code></a></li>
 </ul>
@@ -19244,7 +19337,7 @@ somehow it manages to get access to host file system.</li>
 <span class="n">LabelSelector</span><span class="p">.</span><span class="na">of</span><span class="p">()</span>
 <span class="n">LabelSelector</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">LabelSelectorOptions</span><span class="w"> </span><span class="n">options</span><span class="p">)</span>
 </code></pre></div>
-<h6 id="optionsoptional_26"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus24.LabelSelector.parameter.options"></a><a class="headerlink" href="#optionsoptional_26" title="Permanent link">&para;</a></h6>
+<h6 id="optionsoptional_27"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus24.LabelSelector.parameter.options"></a><a class="headerlink" href="#optionsoptional_27" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus24.LabelSelectorOptions"><code>org.cdk8s.plus24.LabelSelectorOptions</code></a></li>
 </ul>
@@ -19655,7 +19748,7 @@ somehow it manages to get access to host file system.</li>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 </ul>
 <hr />
-<h6 id="optionsoptional_27"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus24.NodeTaintQuery.parameter.options"></a><a class="headerlink" href="#optionsoptional_27" title="Permanent link">&para;</a></h6>
+<h6 id="optionsoptional_28"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus24.NodeTaintQuery.parameter.options"></a><a class="headerlink" href="#optionsoptional_28" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus24.NodeTaintQueryOptions"><code>org.cdk8s.plus24.NodeTaintQueryOptions</code></a></li>
 </ul>
@@ -19676,7 +19769,7 @@ somehow it manages to get access to host file system.</li>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 </ul>
 <hr />
-<h6 id="optionsoptional_28"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus24.NodeTaintQuery.parameter.options"></a><a class="headerlink" href="#optionsoptional_28" title="Permanent link">&para;</a></h6>
+<h6 id="optionsoptional_29"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus24.NodeTaintQuery.parameter.options"></a><a class="headerlink" href="#optionsoptional_29" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus24.NodeTaintQueryOptions"><code>org.cdk8s.plus24.NodeTaintQueryOptions</code></a></li>
 </ul>
@@ -19761,7 +19854,7 @@ somehow it manages to get access to host file system.</li>
 <li><em>Type:</em> <a href="#org.cdk8s.plus24.INetworkPolicyPeer"><code>org.cdk8s.plus24.INetworkPolicyPeer</code></a></li>
 </ul>
 <hr />
-<h6 id="optionsoptional_29"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus24.PodConnections.parameter.options"></a><a class="headerlink" href="#optionsoptional_29" title="Permanent link">&para;</a></h6>
+<h6 id="optionsoptional_30"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus24.PodConnections.parameter.options"></a><a class="headerlink" href="#optionsoptional_30" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus24.PodConnectionsAllowFromOptions"><code>org.cdk8s.plus24.PodConnectionsAllowFromOptions</code></a></li>
 </ul>
@@ -19775,7 +19868,7 @@ somehow it manages to get access to host file system.</li>
 <li><em>Type:</em> <a href="#org.cdk8s.plus24.INetworkPolicyPeer"><code>org.cdk8s.plus24.INetworkPolicyPeer</code></a></li>
 </ul>
 <hr />
-<h6 id="optionsoptional_30"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus24.PodConnections.parameter.options"></a><a class="headerlink" href="#optionsoptional_30" title="Permanent link">&para;</a></h6>
+<h6 id="optionsoptional_31"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus24.PodConnections.parameter.options"></a><a class="headerlink" href="#optionsoptional_31" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus24.PodConnectionsAllowToOptions"><code>org.cdk8s.plus24.PodConnectionsAllowToOptions</code></a></li>
 </ul>
@@ -19827,7 +19920,7 @@ otherwise this property is optional.
 The servers listed will be combined to the base nameservers generated from
 the specified DNS policy with duplicate addresses removed.</p>
 <hr />
-<h5 id="optionsoptional_31"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus24.PodDnsProps.parameter.options"></a><a class="headerlink" href="#optionsoptional_31" title="Permanent link">&para;</a></h5>
+<h5 id="optionsoptional_32"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus24.PodDnsProps.parameter.options"></a><a class="headerlink" href="#optionsoptional_32" title="Permanent link">&para;</a></h5>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.plus24.DnsOption"><code>org.cdk8s.plus24.DnsOption</code></a>&gt;</li>
 </ul>
@@ -19974,7 +20067,7 @@ Duplicate domain names are removed.</p>
 <li><em>Type:</em> <a href="#org.cdk8s.plus24.LabeledNode"><code>org.cdk8s.plus24.LabeledNode</code></a></li>
 </ul>
 <hr />
-<h6 id="optionsoptional_32"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus24.PodScheduling.parameter.options"></a><a class="headerlink" href="#optionsoptional_32" title="Permanent link">&para;</a></h6>
+<h6 id="optionsoptional_33"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus24.PodScheduling.parameter.options"></a><a class="headerlink" href="#optionsoptional_33" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus24.PodSchedulingAttractOptions"><code>org.cdk8s.plus24.PodSchedulingAttractOptions</code></a></li>
 </ul>
@@ -19988,7 +20081,7 @@ Duplicate domain names are removed.</p>
 <li><em>Type:</em> <a href="#org.cdk8s.plus24.IPodSelector"><code>org.cdk8s.plus24.IPodSelector</code></a></li>
 </ul>
 <hr />
-<h6 id="optionsoptional_33"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus24.PodScheduling.parameter.options"></a><a class="headerlink" href="#optionsoptional_33" title="Permanent link">&para;</a></h6>
+<h6 id="optionsoptional_34"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus24.PodScheduling.parameter.options"></a><a class="headerlink" href="#optionsoptional_34" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus24.PodSchedulingColocateOptions"><code>org.cdk8s.plus24.PodSchedulingColocateOptions</code></a></li>
 </ul>
@@ -20002,7 +20095,7 @@ Duplicate domain names are removed.</p>
 <li><em>Type:</em> <a href="#org.cdk8s.plus24.IPodSelector"><code>org.cdk8s.plus24.IPodSelector</code></a></li>
 </ul>
 <hr />
-<h6 id="optionsoptional_34"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus24.PodScheduling.parameter.options"></a><a class="headerlink" href="#optionsoptional_34" title="Permanent link">&para;</a></h6>
+<h6 id="optionsoptional_35"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus24.PodScheduling.parameter.options"></a><a class="headerlink" href="#optionsoptional_35" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus24.PodSchedulingSeparateOptions"><code>org.cdk8s.plus24.PodSchedulingSeparateOptions</code></a></li>
 </ul>
@@ -20134,7 +20227,7 @@ It will have no effect on ephemeral volume types such as: secret, configmaps and
 </ul>
 <p>The command to execute.</p>
 <hr />
-<h6 id="optionsoptional_35"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus24.Probe.parameter.options"></a><a class="headerlink" href="#optionsoptional_35" title="Permanent link">&para;</a></h6>
+<h6 id="optionsoptional_36"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus24.Probe.parameter.options"></a><a class="headerlink" href="#optionsoptional_36" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus24.CommandProbeOptions"><code>org.cdk8s.plus24.CommandProbeOptions</code></a></li>
 </ul>
@@ -20152,7 +20245,7 @@ It will have no effect on ephemeral volume types such as: secret, configmaps and
 </ul>
 <p>The URL path to hit.</p>
 <hr />
-<h6 id="optionsoptional_36"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus24.Probe.parameter.options"></a><a class="headerlink" href="#optionsoptional_36" title="Permanent link">&para;</a></h6>
+<h6 id="optionsoptional_37"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus24.Probe.parameter.options"></a><a class="headerlink" href="#optionsoptional_37" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus24.HttpGetProbeOptions"><code>org.cdk8s.plus24.HttpGetProbeOptions</code></a></li>
 </ul>
@@ -20164,7 +20257,7 @@ It will have no effect on ephemeral volume types such as: secret, configmaps and
 <span class="n">Probe</span><span class="p">.</span><span class="na">fromTcpSocket</span><span class="p">()</span>
 <span class="n">Probe</span><span class="p">.</span><span class="na">fromTcpSocket</span><span class="p">(</span><span class="n">TcpSocketProbeOptions</span><span class="w"> </span><span class="n">options</span><span class="p">)</span>
 </code></pre></div>
-<h6 id="optionsoptional_37"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus24.Probe.parameter.options"></a><a class="headerlink" href="#optionsoptional_37" title="Permanent link">&para;</a></h6>
+<h6 id="optionsoptional_38"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus24.Probe.parameter.options"></a><a class="headerlink" href="#optionsoptional_38" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus24.TcpSocketProbeOptions"><code>org.cdk8s.plus24.TcpSocketProbeOptions</code></a></li>
 </ul>
@@ -20240,7 +20333,7 @@ It will have no effect on ephemeral volume types such as: secret, configmaps and
 <span class="n">StatefulSetUpdateStrategy</span><span class="p">.</span><span class="na">rollingUpdate</span><span class="p">()</span>
 <span class="n">StatefulSetUpdateStrategy</span><span class="p">.</span><span class="na">rollingUpdate</span><span class="p">(</span><span class="n">StatefulSetUpdateStrategyRollingUpdateOptions</span><span class="w"> </span><span class="n">options</span><span class="p">)</span>
 </code></pre></div>
-<h6 id="optionsoptional_38"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus24.StatefulSetUpdateStrategy.parameter.options"></a><a class="headerlink" href="#optionsoptional_38" title="Permanent link">&para;</a></h6>
+<h6 id="optionsoptional_39"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus24.StatefulSetUpdateStrategy.parameter.options"></a><a class="headerlink" href="#optionsoptional_39" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus24.StatefulSetUpdateStrategyRollingUpdateOptions"><code>org.cdk8s.plus24.StatefulSetUpdateStrategyRollingUpdateOptions</code></a></li>
 </ul>
@@ -20345,7 +20438,7 @@ switch, but nodes in different zones should not.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="nf">spread</span><span class="p">()</span>
 <span class="kd">public</span><span class="w"> </span><span class="nf">spread</span><span class="p">(</span><span class="n">WorkloadSchedulingSpreadOptions</span><span class="w"> </span><span class="n">options</span><span class="p">)</span>
 </code></pre></div>
-<h6 id="optionsoptional_39"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus24.WorkloadScheduling.parameter.options"></a><a class="headerlink" href="#optionsoptional_39" title="Permanent link">&para;</a></h6>
+<h6 id="optionsoptional_40"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus24.WorkloadScheduling.parameter.options"></a><a class="headerlink" href="#optionsoptional_40" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus24.WorkloadSchedulingSpreadOptions"><code>org.cdk8s.plus24.WorkloadSchedulingSpreadOptions</code></a></li>
 </ul>
@@ -20861,7 +20954,7 @@ switch, but nodes in different zones should not.</p>
 </ul>
 <p>Secret&rsquo;s key.</p>
 <hr />
-<h6 id="optionsoptional_40"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus24.ISecret.parameter.options"></a><a class="headerlink" href="#optionsoptional_40" title="Permanent link">&para;</a></h6>
+<h6 id="optionsoptional_41"><code>options</code><sup>Optional</sup> <a name="org.cdk8s.plus24.ISecret.parameter.options"></a><a class="headerlink" href="#optionsoptional_41" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus24.EnvValueFromSecretOptions"><code>org.cdk8s.plus24.EnvValueFromSecretOptions</code></a></li>
 </ul>
