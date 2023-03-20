@@ -1,7 +1,9 @@
+import * as path from 'path';
 import { Construct } from 'constructs';
 import * as k8s  from 'cdk8s';
 import * as kplus from 'cdk8s-plus-25';
 import * as aws from 'aws-cdk-lib';
+import * as ecr from 'aws-cdk-lib/aws-ecr-assets';
 import * as eks from 'aws-cdk-lib/aws-eks';
 import * as kubectl from '@aws-cdk/lambda-layer-kubectl-v25'
 
@@ -45,11 +47,16 @@ export class KubernetesEnd2End extends aws.Stack {
       value: `http://${kubeViewAddress}`
     });
 
+    const image = new ecr.DockerImageAsset(this, 'Image', {
+      directory: path.join(__dirname, 'server'),
+    });
+    image.repository.grantPull(cluster.defaultNodegroup!.role)
+
     const chart = new k8s.Chart(new k8s.App(), 'HttpEcho');
 
     const deployment = new kplus.Deployment(chart, 'Deployment', {
       containers: [{
-        image: 'hashicorp/http-echo',
+        image: image.imageUri,
         portNumber: 5678,
         args: ['-text', 'hello'],
         securityContext: {

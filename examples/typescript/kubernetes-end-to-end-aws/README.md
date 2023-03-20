@@ -5,12 +5,14 @@ a Kubernetes application from scratch to AWS. We will:
 
 1. Provision an Amazon EKS cluster.
 3. Install the KubeView cluster visualizer onto the cluster.
-4. Deploy a Kubernetes workload.
+4. Deploy a Kubernetes application.
 
 Since we are deploying to AWS, we will use the AWS CDK as our framework. AWS CDK integrates
 with Helm, which we will use for common middleware, and cdk8s, which we will use for our application definition. This allows us to define all our components in the same codebase, and deploy it all with a single tool.
 
 > **If you're just interested in the final code, it is available [here](./main.ts).**
+
+## Architecture
 
 ![](./architecture.png)
 
@@ -220,9 +222,75 @@ It contains:
 
 ### Including Application Code
 
+AWS CDK can build docker images and upload it to an ECR repository. This allows us to deploy
+local application code as well, not just images hosted on remote registries.
+
+To see it in action, we will write a simple http server with nodejs. Create a `server/server.js` file and paste the following code to it:
+
+```js
+#!/usr/bin/env node
+const http = require('http');
+const os = require('os');
+
+const server = http.createServer((req, res) => {
+  res.write('hello, world\n');
+  res.write(`url=${req.url}\n`);
+  res.write(`host=${os.hostname()}`);
+
+  res.end();
+});
+
+process.on('SIGINT', () => process.exit(1));
+
+const port = process.env.PORT ?? 5678;
+server.listen(port);
+console.error(`listening on port ${port}`);
+```
+
+To define a Docker image from this code, add the following to the `main.ts` file (place it appropriately):
+
+```ts
+const image = new ecr.DockerImageAsset(this, 'Image', {
+  directory: path.join(__dirname, 'server'),
+});
+image.repository.grantPull(cluster.defaultNodegroup!.role)
+```
+
+Now, instead of hard-coding an image URI, you can pass a dynamic value to cdk8s:
+
+```ts
+const deployment = new kplus.Deployment(chart, 'Deployment', {
+  containers: [{
+    image: image.imageUri,
+    portNumber: 5678,
+  }],
+});
+```
+
+Deploying this code is done exactly the same as we just did.
+
 ### Imported Clusters
+
+In some cases, the pipeline that creates the EKS cluster will not be the same as the
+one that deploys the Kubernetes application. That is, a cluster may have already been
+provisioned when it comes time for the application pipeline to run.
+
+To support this use-case, you can use [imported clusters](https://github.com/aws/aws-cdk/tree/main/packages/%40aws-cdk/aws-eks#using-existing-clusters).
+
+```ts
+const cluster = eks.Cluster.fromClusterAttributes(this, 'Cluster', {
+  clusterName: 'my-cluster-name',
+  kubectlRoleArn: 'arn:aws:iam::1111111:role/iam-role-that-has-masters-access',
+});
+```
+
+With this code, an new EKS cluster will not be provisioned. Instead, the existing cluster
+is referenced, and is used to apply Kubernetes manifests to.
+
+Deploying this code is done exactly the same as we just did.
 
 ## Destroying
 
+Not much to it here, just run `cdk destroy`.
 
 
