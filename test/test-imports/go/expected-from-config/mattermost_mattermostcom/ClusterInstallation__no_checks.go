@@ -5,6 +5,10 @@ package mattermost_mattermostcom
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func validateClusterInstallation_IsApiObjectParameters(o interface{}) error {
+	return nil
+}
+
 func validateClusterInstallation_IsConstructParameters(x interface{}) error {
 	return nil
 }

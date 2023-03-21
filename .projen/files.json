@@ -6,6 +6,7 @@
     ".github/ISSUE_TEMPLATE/feature-request.md",
     ".github/workflows/auto-approve.yml",
     ".github/workflows/build.yml",
+    ".github/workflows/dependabot-security-alerts.yml",
     ".github/workflows/integ.yml",
     ".github/workflows/pull-request-lint.yml",
     ".github/workflows/triage.yml",
