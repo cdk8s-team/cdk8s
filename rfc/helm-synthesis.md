@@ -42,22 +42,7 @@ We have added a new option to `cdk8s synth` command that allows users to synthes
 
 ### Why should I use this feature?
 
-Helm is a renowned package manager for Kubernetes and is also popular among developers as a deployment tool. It also helps you manage your deployed charts to your cluster.
-If you  currently have a cdk8s app, the process of deploying the generated manifests is complex. There is no functionality currently provided by cdk8s that helps with deploying the manifests. Currently the deployment process would look like the following for your cdk8s app,
-1. You create a repository hosting your cdk8s application. You can create the repository using `cdk8s init <project-type>` command and then add your custom code to it.
-2. Then you build and synthesizes your application using `cdk8s synth`. This generates manifests by default to the `dist` folder.
-3. Now to deploy these to your Kubernetes cluster, you would have to run,
-   ```
-    kubectl apply -f ./dist
-   ```
-
-Now, with the implementation of this feature, the you can run,
-```
-cdk8s synth --format helm --chart-api-version v2 --chart-version 1.0.0 | helm install <release-name> ./dist
-```
-which would create a helm chart hosting the generated manifests and deploy the resources to your Kubernetes cluster. There are two benefits of this,
-1. It would make the manifest creation process much easier for you. You would now be writing code in a familiar programming language instead of complex yaml files to create Kubernetes manifests.
-2. And, this would ease deployment, as well as let you integrate this with your established workflow utilizing helm. 
+You should use this feature if you'd like to deploy your cdk8s application using Helm.
 
 ---
 
@@ -65,7 +50,22 @@ which would create a helm chart hosting the generated manifests and deploy the r
 
 ### Why are we doing this?
 
-The motivation for this change is to ease the deployment process for the users by providing them with `helm` as a synthesis format option.
+Helm is a renowned package manager for Kubernetes and is also popular among developers as a deployment tool. It eases the process of deploying to Kubernetes cluster for its users.
+If a user currently have a cdk8s app, the process of deploying the generated manifests is complex. There is no functionality currently provided by cdk8s that helps with deploying the manifests. Currently the deployment process would look like the following for users cdk8s app,
+1. User creates a repository hosting their cdk8s application. They can create the repository using `cdk8s init <project-type>` command and then add their custom code to it.
+2. Then user builds and synthesizes their application using `cdk8s synth`. This generates manifests by default to the `dist` folder.
+3. Now to deploy these to the user Kubernetes cluster, they would have to run,
+   ```
+    kubectl apply -f ./dist
+   ```
+
+Now, with the implementation of this feature, the user can run,
+```
+cdk8s synth --format helm --chart-api-version v2 --chart-version 1.0.0 | helm install <release-name> ./dist
+```
+which would create a helm chart hosting the generated manifests and deploy the resources to their Kubernetes cluster. There are two benefits of this,
+1. It would make the manifest authoring process much easier for the user. They would now be writing code in a familiar programming language instead of complex yaml files to create Kubernetes manifests.
+2. And, this would ease deployment, as well as let them integrate this with their established workflow that already uses helm. 
 
 ### Why should we _not_ do this?
 
