@@ -51,6 +51,7 @@ You should use this feature if you'd like to deploy your cdk8s application using
 ### Why are we doing this?
 
 Helm is a renowned package manager for Kubernetes and is also popular among developers as a deployment tool. It eases the process of deploying to Kubernetes cluster for its users.
+
 If a user currently have a cdk8s app, the process of deploying the generated manifests is complex. There is no functionality currently provided by cdk8s that helps with deploying the manifests. Currently the deployment process would look like the following for users cdk8s app,
 1. User creates a repository hosting their cdk8s application. They can create the repository using `cdk8s init <project-type>` command and then add their custom code to it.
 2. Then user builds and synthesizes their application using `cdk8s synth`. This generates manifests by default to the `dist` folder.
@@ -69,9 +70,7 @@ which would create a helm chart hosting the generated manifests and deploy the r
 
 ### Why should we _not_ do this?
 
-* CDK8s currently does not offer a solution for Kubernetes deployment on its own. But, this does not block the user in any way. They can still deploy the generated manifests using `kubectl apply -f <folder>`. Enabling output format as helm is just us meeting the customers where they are and not creating our own custom solution for deployments.
-* If we proceed with implementing this RFC, this would take up developer time and effort and that needs to be weigh against customer demand for such a feature when we know a workaround exists for deploying manifests to Kubernetes cluster.
-
+* CDK8s currently does not offer a custom solution for Kubernetes deployment on its own. But, this does not block the user in any way. They can still deploy the generated manifests using `kubectl apply -f <folder>`. Since a workaround already exists, if we proceed with implementing this RFC, this would take up developers time and effort and will add to maintenance load of cdk8s.
 
 ### What is the technical solution (design) of this feature?
 
@@ -79,21 +78,19 @@ CDK8s CLI currently provides users with a `synth` command that helps with genera
 
 For instance, once implemented the user would be able to run,
 ```
-cdk8s synth --format helm --chart-api-version v1 --chart-version 1.0.0 --output ./chart && 
+cdk8s synth --format helm --chart-api-version v2 --chart-version 1.0.0 --output ./chart && 
 helm install <release-name> ./chart
 ```
 where,
 * `cdk8s synth`: Is the synth command provided by cdk8s CLI for synthesizing a cdk8s application.
 * `--format`: **[NEW]** This would be the flag that can take helm as an option. This would mean that the manifests we would generate for the user would be structured in such a format that it's easier to deploy with helm. By default, this would be cdk8s, which means synthesis would take place as usual.
-* `--chart-api-version`: **[NEW]** This is the chart API version of the helm chart that user wants to use. This is used in `Charts.yaml` file and determines the chart API to be used for helm.
+* `--chart-api-version`: **[NEW]** This is the chart API version of the helm chart that user wants to use. This is used in `Charts.yaml` file and determines the chart API to be used for helm. The two possible values here are `v1` for Helm 2 and below and `v2` for Helm 3.
 * `--chart-version`: **[NEW]** This is the chart version that user wants for their helm chart. It follows the [SemVer 2](https://semver.org/) standard.
-* `--output`: This is an existing flag where user can specify in which directory they would like the generated manifests to be stored in. If not passed in, and format is set to helm, we will have it default to `/chart` folder.
+* `--output`: This is an existing flag where user can specify in which directory they would like the generated manifests to be stored in.
 * `helm install`:
    - [Command](https://helm.sh/docs/helm/helm_install/) to deploy manifests hosted within a helm chart to Kubernetes cluster. 
    - `<release-name>`: The release name for the helm deployment.
    - `./chart`: Is the folder here where we have the generated helm chart by cdk8s app.
-
-_An example is worth a thousand words_. Let's go through a couple of user scenarios to understand more about the design being proposed.
 
 **Synthesize cdk8s Apps into Helm Charts**
 
@@ -104,7 +101,7 @@ _An example is worth a thousand words_. Let's go through a couple of user scenar
 
 ```mermaid
 ---
-title: cdk8s synth --format helm --chart-api-version v1 --chart-version 1.0.0 --output ./chart
+title: cdk8s synth --format helm --chart-api-version v2 --chart-version 1.0.0 --output ./chart
 ---
 flowchart TD
     A([cdk8s synth command executed])
@@ -125,9 +122,6 @@ flowchart TD
 
 For helm to consume our generated manifests for deployment, we would need to generate a structure similar to what [Helm Charts](https://v2.helm.sh/docs/developing_charts/) look like. The following is a simpler folder structure complying with helm structure. 
 
-NOTE:
-* Any user changes to this structure would be overwritten the next time synthesis takes place.
-
 ```
 chart/              # Value of --output. Defaults to directoryName if format is helm
 ├── Chart.yaml      # [REQUIRED] Information about your chart
@@ -135,6 +129,9 @@ chart/              # Value of --output. Defaults to directoryName if format is 
 └── templates/      # The templates folder. This would contain the generated manifest files
 └── crds/           # The crds folder. This would host all the custom resource definitions needed by the helm chart
 ```
+
+NOTE:
+* Any user changes to this structure would be overwritten the next time synthesis takes place.
     
 This structure would be created using [sscaff](https://github.com/cdklabs/node-sscaff) in the directory mentioned by `--output` flag. `sscaff` will allow us to copy an entire folder structure as suggested above, with capability of substituting keys and applying pre/post node.js hooks on it.
 
@@ -152,15 +149,14 @@ type: application                                   # The chart type can either 
 
 Here, `{{ key }}` can be substituted with a value with the help of sscaff.    
 The values for,
+
     * `{{ api-version }}` key is retrieved from `--chart-api-version` cli flag. The allowed values for this would be `v1 and v2`. If not passed in, it would default to `v2`. 
     * `{{ library }}` key would be substituted with name of the `--output` directory. If not set, it would default to the name of the current directory.
     * `{{ version }}` key would be **required** if format is set to `helm`. This can be retrieved from the `--chart-version` cli flag. Helm [relies on this value](https://v2.helm.sh/docs/charts/#charts-and-versioning) for multiple things, one of them being,
+        
         ```
         The version field inside of the Chart.yaml is used by many of the Helm tools, including the CLI and the Tiller server. When generating a package, the helm package command will use the version that it finds in the Chart.yaml as a token in the package name. The system assumes that the version number in the chart package name matches the version number in the Chart.yaml. Failure to meet this assumption will cause an error.
         ```
-
-NOTE: 
-There are no difference in `apiVersion` [v1](https://helm.sh/docs/topics/charts/) and [v2](https://v2.helm.sh/docs/charts/) for required properties in `Chart.yaml`.
 
 The synthesis process would resume as normal after the substitution of keys is finished. And since format was `helm`, the template that is generated by synthesizing is placed in the `<--output value>/templates` folder. And the user can now run,
 
@@ -172,7 +168,7 @@ to deploy to their Kubernetes cluster.
 
 **CRDs**
 
-If the API Version mentioned is v2 in `--chart-api-version`, that means the user is utilizing Helm V3. This version of helm provides users with a dedicated folder named `crds` to store the necessary CRDs. 
+If the `apiVersion` mentioned is `v2` in `--chart-api-version`, that means the user is utilizing Helm V3. This version of helm provides users with a dedicated folder named `crds` to store the necessary CRDs. 
 So, if the CRDs are mentioned in the `cdk8s.yaml` file in the user's cdk8s app, then those would be downloaded and added to the `crds` folder.
 
 NOTE:
@@ -195,7 +191,7 @@ This is not a breaking change. This is adding new functionality to the cdk8s CLI
 * **[helm-x](https://github.com/mumoshu/helm-x) and [chartify](https://github.com/helmfile/chartify) libraries**
   
   * One of the functionality that these libraries provide users is to convert Kubernetes resource YAMLs to Helm Charts. These can be used to generate helm charts from our generated manifests from cdk8s app. Currently, these are version `0.x.x`, which means adding these to support our feature could result in added maintenance load for the team. I believe adding a solution of our own would give us more control and not limit us to a library's functionality.
-  * Another reason to not use these are that it would add a dependency on a binary file.
+  * Another reason to not use these is that it would add a dependency on a binary file.
 
 ### What are the drawbacks of this solution?
 
