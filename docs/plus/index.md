@@ -260,7 +260,7 @@ app.synth();
     App app = new App();
     Chart chart = new Chart(app, "Chart");
 
-    Deployment.Builder.create(this, "Deployment")
+    Deployment.Builder.create(chart, "Deployment")
       .replicas(3)
       .containers(Arrays.asList(ContainerProps.builder()
         .image("ubuntu")
