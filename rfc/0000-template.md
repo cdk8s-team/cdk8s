@@ -1,93 +1,130 @@
-Feature name| (fill me in with a unique identifier, my-awesome-feature)  |
-------------|------------------------------------------------------------|
-Issue #     | (tracking issue number)
-Start Date  | (fill me in with today's date, YYYY-MM-DD)                 |
-RFC PR      | (leave this empty)                                         |
+# {RFC_TITLE}
 
-<!-- replace the blockquoted sections with your content -->
+* **Original Author(s):**: @{AUTHOR}
+* **Tracking Issue**: #{TRACKING_ISSUE}
+* **API Bar Raiser**: @{BAR_RAISER_USER}
 
-# Summary
+> Write one sentence which is a brief description of the feature from a user
+> perspective ("impact on users").
 
-> Brief description of the feature.
+## Working Backwards
 
-# Motivation
+> This section should contain one or more "artifacts from the future", as if the
+> feature was already released and we are publishing its CHANGELOG, README,
+> CONTRIBUTING.md and optionally a PRESS RELEASE. This is the most important
+> section of your RFC. It's a powerful thought exercise which will challenge you
+> to truly think about this feature from a user's point of view.
+>
+> Choose *one or more* of the options below:
+>
+> * **CHANGELOG**: Write the changelog entry for this feature in conventional
+>   form (e.g. `feat(eks): cluster tags`). If this change includes a breaking
+>   change, include a `BREAKING CHANGE` clause with information on how to
+>   migrate. If migration is complicated, refer to a fictional GitHub issue and
+>   add its contents here.
+>
+> * **README**: If this is a new feature, write the README section which
+>   describes this new feature. It should describe the feature and walk users
+>   through usage examples and description of the various options and behavior.
+>
+> * **PRESS RELEASE**: If this is a major feature (~6 months of work), write the
+>   press release which announces this feature. The press release is a single
+>   page that includes 7 paragraphs: (1) summary, (2) problem, (3) solution, (4)
+>   leader quote, (5) user experience, (6) customer testimonial and (7) one
+>   sentence call to action.
 
-> Why are we doing this? What use cases does it support? What is the expected
-> outcome?
+---
 
-# Basic Example
+Ticking the box below indicates that the public API of this RFC has been
+signed-off by the API bar raiser (the `api-approved` label was applied to the
+RFC pull request):
 
-> If the proposal involves a new or changed API, include a basic code example.
-> Omit this section if it's not applicable.
-> 
-> Please focus on explaining the motivation so that if this RFC is not accepted,
-> the motivation could be used to develop alternative solutions. In other words,
-> enumerate the constraints you are trying to solve without coupling them too
-> closely to the solution you have in mind.
+```
+[ ] Signed-off by API Bar Raiser @xxxxx
+```
 
-# Design Summary
+## Public FAQ
 
-> Summarize the approach of the feature design in a couple of sentences. Call out
-> any known patterns or best practices the design is based around.
+> This section should include answers to questions readers will likely ask about
+> this release. Similar to the "working backwards", this section should be
+> written in a language as if the feature is now released.
+>
+> The template includes a some common questions, feel free to add any questions
+> that might be relevant to this feature or omit questions that you feel are not
+> applicable.
 
-# Detailed Design
+### What are we launching today?
 
-> This is the bulk of the RFC. Explain the design in enough detail for somebody
-> familiar with cdk8s to understand, and for somebody familiar with the
-> implementation to implement. This should get into specifics and corner-cases,
-> and include examples of how the feature is used. Any new terminology should be
-> defined here.
-> 
-> Include any diagrams and/or visualizations that help to demonstrate the design.
-> Here are some tools that we often use:
-> 
-> - [Graphviz](http://graphviz.it/#/gallery/structs.gv)
-> - [PlantText](https://www.planttext.com)
+> What exactly are we launching? Is this a new feature in an existing module? A
+> new module? A whole framework? A change in the CLI?
 
-# Drawbacks
+### Why should I use this feature?
 
-> Why should we _not_ do this? Please consider:
-> 
-> - implementation cost, both in term of code size and complexity
-> - whether the proposed feature can be implemented in user space
-> - the impact on teaching people how to use cdk8s
-> - integration of this feature with other existing and planned features
-> - cost of migrating existing cdk8s applications (is it a breaking change?)
-> 
-> There are tradeoffs to choosing any path. Attempt to identify them here.
+> Describe use cases that are addressed by this feature.
 
-# Rationale and Alternatives
+## Internal FAQ
 
-> - Why is this design the best in the space of possible designs?
-> - What other designs have been considered and what is the rationale for not
->   choosing them?
-> - What is the impact of not doing this?
+> The goal of this section is to help decide if this RFC should be implemented.
+> It should include answers to questions that the team is likely ask. Contrary
+> to the rest of the RFC, answers should be written "from the present" and
+> likely discuss design approach, implementation plans, alternative considered
+> and other considerations that will help decide if this RFC should be
+> implemented.
 
-# Adoption Strategy
+### Why are we doing this?
 
-> If we implement this proposal, how will existing cdk8s developers adopt it? Is
-> this a breaking change? How can we assist in adoption?
+> What is the motivation for this change?
 
-# Unresolved questions
+### Why should we _not_ do this?
 
-> - What parts of the design do you expect to resolve through the RFC process
->   before this gets merged?
-> - What parts of the design do you expect to resolve through the implementation
->   of this feature before stabilization?
-> - What related issues do you consider out of scope for this RFC that could be
->   addressed in the future independently of the solution that comes out of this
->   RFC?
+> Is there a way to address this use case with the current product? What are the
+> downsides of implementing this feature?
 
-# Future Possibilities
+### What is the technical solution (design) of this feature?
 
-> Think about what the natural extension and evolution of your proposal would be
-> and how it would affect cdk8s as whole. Try to use this section as a tool to
-> more
-> fully consider all possible interactions with the project and ecosystem in your
-> proposal. Also consider how this fits into the roadmap for the project.
-> 
-> This is a good place to "dump ideas", if they are out of scope for the RFC you
-> are writing but are otherwise related.
-> 
-> If you have tried and cannot think of any future possibilities, you may simply
-> state that you cannot think of anything.
+> Briefly describe the high-level design approach for implementing this feature.
+>
+> As appropriate, you can add an appendix with a more detailed design document.
+>
+> This is a good place to reference a prototype or proof of concept, which is
+> highly recommended for most RFCs.
+
+### Is this a breaking change?
+
+> If the answer is no. Otherwise:
+>
+> Describe what ways did you consider to deliver this without breaking users?
+>
+> Make sure to include a `BREAKING CHANGE` clause under the CHANGELOG section with a description of the breaking
+> changes and the migration path.
+
+### What alternative solutions did you consider?
+
+> Briefly describe alternative approaches that you considered. If there are
+> hairy details, include them in an appendix.
+
+### What are the drawbacks of this solution?
+
+> Describe any problems/risks that can be introduced if we implement this RFC.
+
+### What is the high-level project plan?
+
+> Describe your plan on how to deliver this feature from prototyping to GA.
+> Especially think about how to "bake" it in the open and get constant feedback
+> from users before you stabilize the APIs.
+>
+> If you have a project board with your implementation plan, this is a good
+> place to link to it.
+
+### Are there any open issues that need to be addressed later?
+
+> Describe any major open issues that this RFC did not take into account. Once
+> the RFC is approved, create GitHub issues for these issues and update this RFC
+> of the project board with these issue IDs.
+
+## Appendix
+
+Feel free to add any number of appendices as you see fit. Appendices are
+expected to allow readers to dive deeper to certain sections if they like. For
+example, you can include an appendix which describes the detailed design of an
+algorithm and reference it from the FAQ.

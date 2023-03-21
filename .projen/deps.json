@@ -1,6 +1,10 @@
 {
   "dependencies": [
     {
+      "name": "@cdk8s/projen-common",
+      "type": "build"
+    },
+    {
       "name": "@types/jest",
       "type": "build"
     },
@@ -17,15 +21,15 @@
       "type": "build"
     },
     {
-      "name": "cdk8s-plus-23",
-      "type": "build"
-    },
-    {
       "name": "cdk8s-plus-24",
       "type": "build"
     },
     {
       "name": "cdk8s-plus-25",
+      "type": "build"
+    },
+    {
+      "name": "cdk8s-plus-26",
       "type": "build"
     },
     {
@@ -43,7 +47,6 @@
     },
     {
       "name": "lerna",
-      "version": "^4",
       "type": "build"
     },
     {
