@@ -4,7 +4,7 @@ set -x
 
 scriptdir=$(cd $(dirname $0) && pwd)
 nodemodulesdir=${scriptdir}/../node_modules
-outdir=${1:-${scriptdir}/../website/public/docs}
+outdir=${1:-${scriptdir}/../website/static/docs}
 
 # resolve path
 mkdir -p "${outdir}"
@@ -21,7 +21,7 @@ cp CHANGELOG.md docs/
 cp CONTRIBUTING.md docs/
 cp ROADMAP.md docs/
 
-CDK8S_PLUS_VERSIONS=("cdk8s-plus-23" "cdk8s-plus-24" "cdk8s-plus-25")
+CDK8S_PLUS_VERSIONS=("cdk8s-plus-24" "cdk8s-plus-25" "cdk8s-plus-26")
 
 # copy API reference docs from cdk8s and each cdk8s+ package version
 for module in cdk8s ${CDK8S_PLUS_VERSIONS[@]}; do

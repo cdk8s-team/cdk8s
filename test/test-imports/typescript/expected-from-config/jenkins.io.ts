@@ -6163,7 +6163,7 @@ export class JenkinsSpecMasterContainersLivenessProbeHttpGetPort {
   public static fromString(value: string): JenkinsSpecMasterContainersLivenessProbeHttpGetPort {
     return new JenkinsSpecMasterContainersLivenessProbeHttpGetPort(value);
   }
-  private constructor(public readonly value: any) {
+  private constructor(public readonly value: number | string) {
   }
 }
 
@@ -6179,7 +6179,7 @@ export class JenkinsSpecMasterContainersLivenessProbeTcpSocketPort {
   public static fromString(value: string): JenkinsSpecMasterContainersLivenessProbeTcpSocketPort {
     return new JenkinsSpecMasterContainersLivenessProbeTcpSocketPort(value);
   }
-  private constructor(public readonly value: any) {
+  private constructor(public readonly value: number | string) {
   }
 }
 
@@ -6232,7 +6232,7 @@ export class JenkinsSpecMasterContainersReadinessProbeHttpGetPort {
   public static fromString(value: string): JenkinsSpecMasterContainersReadinessProbeHttpGetPort {
     return new JenkinsSpecMasterContainersReadinessProbeHttpGetPort(value);
   }
-  private constructor(public readonly value: any) {
+  private constructor(public readonly value: number | string) {
   }
 }
 
@@ -6248,7 +6248,7 @@ export class JenkinsSpecMasterContainersReadinessProbeTcpSocketPort {
   public static fromString(value: string): JenkinsSpecMasterContainersReadinessProbeTcpSocketPort {
     return new JenkinsSpecMasterContainersReadinessProbeTcpSocketPort(value);
   }
-  private constructor(public readonly value: any) {
+  private constructor(public readonly value: number | string) {
   }
 }
 
@@ -6548,7 +6548,7 @@ export class JenkinsSpecMasterContainersLifecyclePostStartHttpGetPort {
   public static fromString(value: string): JenkinsSpecMasterContainersLifecyclePostStartHttpGetPort {
     return new JenkinsSpecMasterContainersLifecyclePostStartHttpGetPort(value);
   }
-  private constructor(public readonly value: any) {
+  private constructor(public readonly value: number | string) {
   }
 }
 
@@ -6564,7 +6564,7 @@ export class JenkinsSpecMasterContainersLifecyclePostStartTcpSocketPort {
   public static fromString(value: string): JenkinsSpecMasterContainersLifecyclePostStartTcpSocketPort {
     return new JenkinsSpecMasterContainersLifecyclePostStartTcpSocketPort(value);
   }
-  private constructor(public readonly value: any) {
+  private constructor(public readonly value: number | string) {
   }
 }
 
@@ -6617,7 +6617,7 @@ export class JenkinsSpecMasterContainersLifecyclePreStopHttpGetPort {
   public static fromString(value: string): JenkinsSpecMasterContainersLifecyclePreStopHttpGetPort {
     return new JenkinsSpecMasterContainersLifecyclePreStopHttpGetPort(value);
   }
-  private constructor(public readonly value: any) {
+  private constructor(public readonly value: number | string) {
   }
 }
 
@@ -6633,7 +6633,7 @@ export class JenkinsSpecMasterContainersLifecyclePreStopTcpSocketPort {
   public static fromString(value: string): JenkinsSpecMasterContainersLifecyclePreStopTcpSocketPort {
     return new JenkinsSpecMasterContainersLifecyclePreStopTcpSocketPort(value);
   }
-  private constructor(public readonly value: any) {
+  private constructor(public readonly value: number | string) {
   }
 }
 

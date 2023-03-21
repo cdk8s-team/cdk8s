@@ -2,6 +2,8 @@ site_name: cdk8s
 repo_url: https://github.com/cdk8s-team/cdk8s
 repo_name: cdk8s-team/cdk8s
 edit_uri: blob/master/docs
+# Used for canonical URLS and sitemap.xml
+site_url: https://cdk8s.io/docs/latest/
 theme:
   name: material
   favicon: assets/favicon.png
@@ -49,6 +51,35 @@ markdown_extensions:
 plugins:
   - search
   - awesome-pages
+  # Allows us to ignore files from the final build
+  # https://github.com/apenwarr/mkdocs-exclude
+  - exclude:
+      glob:
+        - '*.sh'
+        - 'requirements.txt'
+  # Support redirects
+  # https://github.com/mkmkdocs-redirects
+  - redirects:
+        redirect_maps:
+            # /plus docs are now split into subdirs for each cdk8s+ version. Redirect the old traffic to the latest (cdk8s-plus-25/).
+            plus/config-map.md: plus/cdk8s-plus-25/config-map.md
+            plus/container.md: plus/cdk8s-plus-25/container.md
+            plus/cronjob.md: plus/cdk8s-plus-25/cronjob.md
+            plus/deployment.md: plus/cdk8s-plus-25/deployment.md
+            plus/horizontal-pod-autoscaler.md: plus/cdk8s-plus-25/horizontal-pod-autoscaler.md
+            plus/ingress.md: plus/cdk8s-plus-25/ingress.md
+            plus/job.md: plus/cdk8s-plus-25/job.md
+            plus/namespace.md: plus/cdk8s-plus-25/namespace.md
+            plus/network-policy.md: plus/cdk8s-plus-25/network-policy.md
+            plus/pod.md: plus/cdk8s-plus-25/pod.md
+            plus/pv.md: plus/cdk8s-plus-25/pv.md
+            plus/pvc.md: plus/cdk8s-plus-25/pvc.md
+            plus/rbac.md: plus/cdk8s-plus-25/rbac.md
+            plus/secret.md: plus/cdk8s-plus-25/secret.md
+            plus/service.md: plus/cdk8s-plus-25/service.md
+            plus/service-account.md: plus/cdk8s-plus-25/service-account.md
+            plus/volume.md: plus/cdk8s-plus-25/volume.md
+
 
 # footer
 extra:
@@ -64,4 +95,4 @@ extra:
       link: https://stackoverflow.com/questions/tagged/cdk8s
       name: cdk8s on Stack Overflow
 
-copyright: © 2020, Amazon Web Services, Inc. or its affiliates. © cdk8s project authors. All rights reserved.
+copyright: © 2022, Amazon Web Services, Inc. or its affiliates. © cdk8s project authors. All rights reserved.

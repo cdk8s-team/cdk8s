@@ -1,14 +1,16 @@
 const { javascript } = require('projen');
+const { Cdk8sTeamNodeProject } = require('@cdk8s/projen-common');
 const { JobPermission } = require('projen/lib/github/workflows-model');
 
 const mainBranch = 'master';
 
-const project = new javascript.NodeProject({
+const project = new Cdk8sTeamNodeProject({
   name: 'root',
+  repoName: 'cdk8s',
   defaultReleaseBranch: mainBranch,
   pullRequestTemplate: false,
   projenUpgradeSecret: 'PROJEN_GITHUB_TOKEN',
-  releaseWorkflow: false,
+  release: false,
   workflowBootstrapSteps: [
     {
       name: 'installing dependencies',
@@ -23,25 +25,21 @@ const project = new javascript.NodeProject({
     },
   ],
   devDeps: [
+    '@cdk8s/projen-common',
     '@types/jest',
     '@types/node',
     'cdk8s',
     'cdk8s-cli',
-    'cdk8s-plus-23',
     'cdk8s-plus-24',
     'cdk8s-plus-25',
+    'cdk8s-plus-26',
     'constructs',
-    'lerna@^4',
+    'lerna',
     'semver',
     'ts-jest',
     'typescript',
     'projen',
   ],
-  autoApproveOptions: {
-    allowedUsernames: ['cdk8s-automation'],
-    secret: 'GITHUB_TOKEN'
-  },
-  autoApproveUpgrades: true,
 });
 
 project.gitignore.exclude('.vscode/');
@@ -91,7 +89,7 @@ workflow.addJobs({
     permissions: {
       contents: JobPermission.WRITE,
     },
-    runsOn: 'ubuntu-18.04',
+    runsOn: 'ubuntu-latest',
     steps: [
       {
         name: 'Checkout sources',
@@ -152,10 +150,9 @@ workflow.addJobs({
 // See docs/build.sh.
 const packages = [
   'cdk8s',
-  'cdk8s-plus-22',
-  'cdk8s-plus-23',
   'cdk8s-plus-24',
   'cdk8s-plus-25',
+  'cdk8s-plus-26',
 ];
 for (const pkg of packages) {
   for (const language of ['java', 'typescript', 'python']) {

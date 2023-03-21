@@ -12,6 +12,8 @@ markup:
     renderer:
       unsafe: true # Allows you to write raw html in your md files
 
+enableRobotsTXT: true
+
 params:
   summary: Define Kubernetes apps and components using familiar languages
   subtitle: Cloud Development Kit for Kubernetes
@@ -57,3 +59,11 @@ params:
 
   footer_title: Go from code to config
   footer_subtitle: Easily define Kubernetes applications for any cluster
+
+# Required since Hugo version 0.91.0
+# https://github.com/wowchemy/wowchemy-hugo-themes/discussions/2559#discussioncomment-1840591
+security:
+  funcs:
+    getenv:
+      - ^HUGO_
+      - ^CDK8S_*

@@ -30,7 +30,7 @@ The following example queries for all the `Deployment` resources in the
 dashboard:
 
 ```ts
-const deploymentApiObject = dashboard.apiObjects.find(c => c.kind === 'Deployment);
+const deploymentApiObject = dashboard.apiObjects.find(c => c.kind === 'Deployment');
 ```
 
 NOTE: names of included objects (`metadata.name`) are preserved. This means that
