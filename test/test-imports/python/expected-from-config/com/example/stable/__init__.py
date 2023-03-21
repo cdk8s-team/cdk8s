@@ -12,12 +12,12 @@ from typeguard import check_type
 
 from ._jsii import *
 
-import cdk8s
-import constructs
+import cdk8s as _cdk8s_d3d9af27
+import constructs as _constructs_77d1e7e8
 
 
 class CronTab(
-    cdk8s.ApiObject,
+    _cdk8s_d3d9af27.ApiObject,
     metaclass=jsii.JSIIMeta,
     jsii_type="comexamplestable.CronTab",
 ):
@@ -27,11 +27,11 @@ class CronTab(
 
     def __init__(
         self,
-        scope: constructs.Construct,
+        scope: _constructs_77d1e7e8.Construct,
         id: builtins.str,
         *,
-        metadata: typing.Optional[typing.Union[cdk8s.ApiObjectMetadata, typing.Dict[str, typing.Any]]] = None,
-        spec: typing.Optional[typing.Union["CronTabSpec", typing.Dict[str, typing.Any]]] = None,
+        metadata: typing.Optional[typing.Union[_cdk8s_d3d9af27.ApiObjectMetadata, typing.Dict[builtins.str, typing.Any]]] = None,
+        spec: typing.Optional[typing.Union["CronTabSpec", typing.Dict[builtins.str, typing.Any]]] = None,
     ) -> None:
         '''Defines a "CronTab" API object.
 
@@ -41,15 +41,7 @@ class CronTab(
         :param spec: 
         '''
         if __debug__:
-            def stub(
-                scope: constructs.Construct,
-                id: builtins.str,
-                *,
-                metadata: typing.Optional[typing.Union[cdk8s.ApiObjectMetadata, typing.Dict[str, typing.Any]]] = None,
-                spec: typing.Optional[typing.Union[CronTabSpec, typing.Dict[str, typing.Any]]] = None,
-            ) -> None:
-                ...
-            type_hints = typing.get_type_hints(stub)
+            type_hints = typing.get_type_hints(_typecheckingstub__35e3deeaa934c86c08854096e921a6efa46a7163083e2c01089896d36c02f9a8)
             check_type(argname="argument scope", value=scope, expected_type=type_hints["scope"])
             check_type(argname="argument id", value=id, expected_type=type_hints["id"])
         props = CronTabProps(metadata=metadata, spec=spec)
@@ -61,8 +53,8 @@ class CronTab(
     def manifest(
         cls,
         *,
-        metadata: typing.Optional[typing.Union[cdk8s.ApiObjectMetadata, typing.Dict[str, typing.Any]]] = None,
-        spec: typing.Optional[typing.Union["CronTabSpec", typing.Dict[str, typing.Any]]] = None,
+        metadata: typing.Optional[typing.Union[_cdk8s_d3d9af27.ApiObjectMetadata, typing.Dict[builtins.str, typing.Any]]] = None,
+        spec: typing.Optional[typing.Union["CronTabSpec", typing.Dict[builtins.str, typing.Any]]] = None,
     ) -> typing.Any:
         '''Renders a Kubernetes manifest for "CronTab".
 
@@ -82,9 +74,9 @@ class CronTab(
 
     @jsii.python.classproperty
     @jsii.member(jsii_name="GVK")
-    def GVK(cls) -> cdk8s.GroupVersionKind:
+    def GVK(cls) -> _cdk8s_d3d9af27.GroupVersionKind:
         '''Returns the apiVersion and kind for "CronTab".'''
-        return typing.cast(cdk8s.GroupVersionKind, jsii.sget(cls, "GVK"))
+        return typing.cast(_cdk8s_d3d9af27.GroupVersionKind, jsii.sget(cls, "GVK"))
 
 
 @jsii.data_type(
@@ -96,8 +88,8 @@ class CronTabProps:
     def __init__(
         self,
         *,
-        metadata: typing.Optional[typing.Union[cdk8s.ApiObjectMetadata, typing.Dict[str, typing.Any]]] = None,
-        spec: typing.Optional[typing.Union["CronTabSpec", typing.Dict[str, typing.Any]]] = None,
+        metadata: typing.Optional[typing.Union[_cdk8s_d3d9af27.ApiObjectMetadata, typing.Dict[builtins.str, typing.Any]]] = None,
+        spec: typing.Optional[typing.Union["CronTabSpec", typing.Dict[builtins.str, typing.Any]]] = None,
     ) -> None:
         '''
         :param metadata: 
@@ -106,32 +98,26 @@ class CronTabProps:
         :schema: CronTab
         '''
         if isinstance(metadata, dict):
-            metadata = cdk8s.ApiObjectMetadata(**metadata)
+            metadata = _cdk8s_d3d9af27.ApiObjectMetadata(**metadata)
         if isinstance(spec, dict):
             spec = CronTabSpec(**spec)
         if __debug__:
-            def stub(
-                *,
-                metadata: typing.Optional[typing.Union[cdk8s.ApiObjectMetadata, typing.Dict[str, typing.Any]]] = None,
-                spec: typing.Optional[typing.Union[CronTabSpec, typing.Dict[str, typing.Any]]] = None,
-            ) -> None:
-                ...
-            type_hints = typing.get_type_hints(stub)
+            type_hints = typing.get_type_hints(_typecheckingstub__55d9e2e8559872207304a036e062247049f221fcd481acb9b5b042edd0014998)
             check_type(argname="argument metadata", value=metadata, expected_type=type_hints["metadata"])
             check_type(argname="argument spec", value=spec, expected_type=type_hints["spec"])
-        self._values: typing.Dict[str, typing.Any] = {}
+        self._values: typing.Dict[builtins.str, typing.Any] = {}
         if metadata is not None:
             self._values["metadata"] = metadata
         if spec is not None:
             self._values["spec"] = spec
 
     @builtins.property
-    def metadata(self) -> typing.Optional[cdk8s.ApiObjectMetadata]:
+    def metadata(self) -> typing.Optional[_cdk8s_d3d9af27.ApiObjectMetadata]:
         '''
         :schema: CronTab#metadata
         '''
         result = self._values.get("metadata")
-        return typing.cast(typing.Optional[cdk8s.ApiObjectMetadata], result)
+        return typing.cast(typing.Optional[_cdk8s_d3d9af27.ApiObjectMetadata], result)
 
     @builtins.property
     def spec(self) -> typing.Optional["CronTabSpec"]:
@@ -174,18 +160,11 @@ class CronTabSpec:
         :schema: CronTabSpec
         '''
         if __debug__:
-            def stub(
-                *,
-                cron_spec: typing.Optional[builtins.str] = None,
-                image: typing.Optional[builtins.str] = None,
-                replicas: typing.Optional[jsii.Number] = None,
-            ) -> None:
-                ...
-            type_hints = typing.get_type_hints(stub)
+            type_hints = typing.get_type_hints(_typecheckingstub__6102c3cab5ceb6e3f09f7447387dd1faa38dbdb1d8496fb6613acae82f20c0fb)
             check_type(argname="argument cron_spec", value=cron_spec, expected_type=type_hints["cron_spec"])
             check_type(argname="argument image", value=image, expected_type=type_hints["image"])
             check_type(argname="argument replicas", value=replicas, expected_type=type_hints["replicas"])
-        self._values: typing.Dict[str, typing.Any] = {}
+        self._values: typing.Dict[builtins.str, typing.Any] = {}
         if cron_spec is not None:
             self._values["cron_spec"] = cron_spec
         if image is not None:
@@ -236,3 +215,30 @@ __all__ = [
 ]
 
 publication.publish()
+
+def _typecheckingstub__35e3deeaa934c86c08854096e921a6efa46a7163083e2c01089896d36c02f9a8(
+    scope: _constructs_77d1e7e8.Construct,
+    id: builtins.str,
+    *,
+    metadata: typing.Optional[typing.Union[_cdk8s_d3d9af27.ApiObjectMetadata, typing.Dict[builtins.str, typing.Any]]] = None,
+    spec: typing.Optional[typing.Union[CronTabSpec, typing.Dict[builtins.str, typing.Any]]] = None,
+) -> None:
+    """Type checking stubs"""
+    pass
+
+def _typecheckingstub__55d9e2e8559872207304a036e062247049f221fcd481acb9b5b042edd0014998(
+    *,
+    metadata: typing.Optional[typing.Union[_cdk8s_d3d9af27.ApiObjectMetadata, typing.Dict[builtins.str, typing.Any]]] = None,
+    spec: typing.Optional[typing.Union[CronTabSpec, typing.Dict[builtins.str, typing.Any]]] = None,
+) -> None:
+    """Type checking stubs"""
+    pass
+
+def _typecheckingstub__6102c3cab5ceb6e3f09f7447387dd1faa38dbdb1d8496fb6613acae82f20c0fb(
+    *,
+    cron_spec: typing.Optional[builtins.str] = None,
+    image: typing.Optional[builtins.str] = None,
+    replicas: typing.Optional[jsii.Number] = None,
+) -> None:
+    """Type checking stubs"""
+    pass

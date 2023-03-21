@@ -3,15 +3,6 @@
 ![](./website/static/images/animation.gif)
 
 [![Website](https://github.com/cdk8s-team/cdk8s/workflows/website/badge.svg)](https://github.com/cdk8s-team/cdk8s/actions/workflows/website.yml)
-[![cdk8s](https://img.shields.io/github/workflow/status/cdk8s-team/cdk8s-core/release?label=cdk8s&logo=GitHub)](https://github.com/cdk8s-team/cdk8s-core/actions/workflows/release.yml)
-[![cdk8s-cli](https://img.shields.io/github/workflow/status/cdk8s-team/cdk8s-cli/release?label=cdk8s-cli&logo=GitHub)](https://github.com/cdk8s-team/cdk8s-cli/actions/workflows/release.yml)
-[![cdk8s-plus-23](https://img.shields.io/github/workflow/status/cdk8s-team/cdk8s-plus/release-k8s.21?label=cdk8s-plus-23&logo=GitHub)](https://github.com/cdk8s-team/cdk8s-plus/actions/workflows/release-k8s.23.yml)
-[![cdk8s-plus-24](https://img.shields.io/github/workflow/status/cdk8s-team/cdk8s-plus/release-k8s.20?label=cdk8s-plus-24&logo=GitHub)](https://github.com/cdk8s-team/cdk8s-plus/actions/workflows/release-k8s.24.yml)
-[![cdk8s-plus-25](https://img.shields.io/github/workflow/status/cdk8s-team/cdk8s-plus/release-k8s.20?label=cdk8s-plus-25&logo=GitHub)](https://github.com/cdk8s-team/cdk8s-plus/actions/workflows/release-k8s.25.yml)
-[![npm version](https://badge.fury.io/js/cdk8s.svg)](https://badge.fury.io/js/cdk8s)
-[![PyPI version](https://badge.fury.io/py/cdk8s.svg)](https://badge.fury.io/py/cdk8s)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.cdk8s/cdk8s/badge.svg?style=plastic)](https://maven-badges.herokuapp.com/maven-central/org.cdk8s/cdk8s)
-[![Known Vulnerabilities](https://snyk.io/test/github/cdk8s-team/cdk8s/badge.svg)](https://snyk.io/test/github/cdk8s-team/cdk8s)
 
 [![View on Construct Hub](https://constructs.dev/badge?package=cdk8s)](https://constructs.dev/packages/cdk8s)
 
@@ -26,12 +17,13 @@ Contents:
 - [Repositories](#repositories)
 - [Overview](#overview)
 - [Getting Started](#getting-started)
-- [Help & Feedback](#help--feedback)
+- [Help \& Feedback](#help--feedback)
 - [Documentation](#documentation)
 - [Examples](#examples)
 - [Roadmap](#roadmap)
 - [Community](#community)
 - [Contributing](#contributing)
+- [CDK8s.io website](#cdk8sio-website)
 - [License](#license)
 
 ## Repositories
@@ -101,6 +93,8 @@ See our [roadmap](https://github.com/cdk8s-team/cdk8s/projects/1) for details ab
 
 See [Awesome cdk8s](https://github.com/dungahk/awesome-cdk8s).
 
+If you're a cdk8s user please consider adding your name to the [ADOPTERS](./ADOPTERS.md) file.
+
 ## Contributing
 
 The cdk8s project adheres to the [CNCF Code of
@@ -115,7 +109,10 @@ Join us for the cdk8s community meeting which takes place the [2nd Tuesday of th
 * Meeting link: [https://chime.aws/7929414778](https://chime.aws/7929414778)
 * [Agenda](https://docs.google.com/document/d/1QmZS2_cphxbs2VPfDCkrUVcoDwiawryh704hEfAyrBk/edit?usp=sharing)
 
+## CDK8s.io website
+
+See [Docs Directory](./docs/README.md).
+
 ## License
 
 This project is distributed under the [Apache License, Version 2.0](./LICENSE).
-
