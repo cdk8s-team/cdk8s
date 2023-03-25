@@ -254,6 +254,9 @@ console.error(`listening on port ${port}`);
 To define a Docker image from this code, add the following to the `main.ts` file (place it appropriately):
 
 ```ts
+import * as ecr from 'aws-cdk-lib/aws-ecr-assets';
+import * as path from 'path';
+
 const image = new ecr.DockerImageAsset(this, 'Image', {
   directory: path.join(__dirname, 'server'),
 });
