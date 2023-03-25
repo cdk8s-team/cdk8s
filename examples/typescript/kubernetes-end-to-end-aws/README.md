@@ -8,7 +8,9 @@ a Kubernetes application from scratch to AWS. We will:
 4. Deploy a Kubernetes application.
 
 Since we are deploying to AWS, we will use the AWS CDK as our framework. AWS CDK integrates
-with Helm, which we will use for common middleware, and cdk8s, which we will use for our application definition. This allows us to define all our components in the same codebase, and deploy it all with a single tool.
+with Helm, which we will use for common middleware, and cdk8s, which we will use for our application 
+definition. This allows us to define all our components in the same codebase, and deploy it all with a 
+single tool.
 
 > **If you're just interested in the final code, it is available [here](./main.ts).**
 
@@ -74,8 +76,8 @@ is specify a version, and it will create a 2 node cluster inside a dedicated VPC
 
 In order to access applications inside the clusters from the internet,
 the cluster needs the ability to provision on-demand AWS load balancers that
-route to internal Kubernetes resources. The [AWS Load Balancer Controller](https://kubernetes-sigs.github.io/aws-load-balancer-controller) enables just that,
-and can be installed via the `albController` property. So, our complete cluster definition is:
+route to internal Kubernetes resources. The [AWS Load Balancer Controller](https://kubernetes-sigs.github.io/aws-load-balancer-controller) e
+nables just that, and can be installed via the `albController` property. So, our complete cluster definition is:
 
 In addition, the `eks.Cluster` construct is able to apply Kubernetes manifests onto the
 cluster (we will use that capability later) via the `kubectl` utility.
@@ -100,13 +102,14 @@ const cluster = new eks.Cluster(this, 'Cluster', {
 ### 2) Define KubeView
 
 Kubernetes clusters often contain common middleware that has cross-application concerns
-such as observability, certificate management, and more. Such middleware can be easily installed with [helm](https://helm.sh/), which is natively supported by the `eks.Cluster` construct.
+such as observability, certificate management, and more. Such middleware can be easily 
+installed with [helm](https://helm.sh/), which is natively supported by the `eks.Cluster` construct.
 
 > In fact, the AWS CDK uses helm internally to install the AWS Load Balancer Controller,
 which is also a common middleware component.
 
-In this example, we install [KubeView](https://artifacthub.io/packages/helm/kubeview/kubeview), a visualizer that helps you understand the relationships between Kubernetes
-resources in your cluster.
+In this example, we install [KubeView](https://artifacthub.io/packages/helm/kubeview/kubeview), 
+a visualizer that helps you understand the relationships between Kubernetes resources in your cluster.
 
 ```ts
 // https://artifacthub.io/packages/helm/kubeview/kubeview
@@ -123,7 +126,8 @@ cluster.addHelmChart('KubeView', {
 ```
 
 Kubeview is exposed via an ELB, and to access it, we need to fetch its generated DNS address.
-The address is stored in the state of the Kubernetes service that is backed by the ELB, and can be fetched using the `getServiceLoadBalancerAddress` method:
+The address is stored in the state of the Kubernetes service that is backed by the ELB, and 
+can be fetched using the `getServiceLoadBalancerAddress` method:
 
 ```ts
 // the helm chart creates a load balancer backed service by default.
@@ -145,8 +149,10 @@ new aws.CfnOutput(this, 'KubeViewEndpoint', {
 
 ### 3) Define the Application
 
-Now its time to define our application workload. We use a very simple [http-echo](https://hub.docker.com/r/hashicorp/http-echo/) server that responds to requests with whatever
-message it was configured with at launch. To define this workload, we'll use [cdk8s-plus](https://github.com/cdk8s-team/cdk8s-plus):
+Now its time to define our application workload. We use a very simple 
+[http-echo](https://hub.docker.com/r/hashicorp/http-echo/) server that responds to 
+requests with whatever message it was configured with at launch. To define this workload, 
+we'll use [cdk8s-plus](https://github.com/cdk8s-team/cdk8s-plus):
 
 ```ts
 const chart = new k8s.Chart(new k8s.App(), 'HttpEcho');
@@ -185,8 +191,11 @@ cluster.addCdk8sChart(chart.node.id, chart, {
 
 There are two properties worth noting here:
 
-- `ingressAlb:` Ingress resources need to be specially annotated for them to be picked up and implemented by the AWS Load Balancer Controller. Setting this property to `true` will make the cluster automatically detect `Ingress` resources, and add the necessary annotation.
-- `ingressAlbScheme:` By default, the provisioned ALB is `internal`, so we need explicitly make it `internet-facing`.
+- `ingressAlb:` Ingress resources need to be specially annotated for them to be picked up and 
+implemented by the AWS Load Balancer Controller. Setting this property to `true` will make the cluster 
+automatically detect `Ingress` resources, and add the necessary annotation.
+- `ingressAlbScheme:` By default, the provisioned ALB is `internal`, so we need explicitly 
+make it `internet-facing`.
 
 And, similarly to the KubeView endpoint, we need to fetch the generated address of the ALB,
 this time from the state of the ingress resource:
@@ -203,29 +212,25 @@ new aws.CfnOutput(this, 'ApplicationEndpoint', {
 
 ## Deployment
 
-As mentioned before, this entire stack, comprised out of both AWS and Kubernetes resource
-can be deployment with a single AWS CDK command:
+As mentioned before, this entire architecture, comprised out of both AWS and Kubernetes resources,
+can be deployed with a single AWS CDK command:
 
 ```console
-cdk deploy
+cdk -a './node-modules/.bin/ts-node main.ts' deploy
 ```
 
-Once the deployment finishes, you should see the following output:
+In the output, you will see the values for the outputs we defined.
 
-```console
-
-```
-
-It contains:
-
-- ``
+- `kubernetes-end-to-end.ApplicationEndpoint = ` Click it, you should see response from our app.
+- `kubernetes-end-to-end.KubeViewEndpoint = ` Click it, you should see how `KubeView` visualized our app. 
 
 ### Including Application Code
 
 AWS CDK can build docker images and upload it to an ECR repository. This allows us to deploy
 local application code as well, not just images hosted on remote registries.
 
-To see it in action, we will write a simple http server with nodejs. Create a `server/server.js` file and paste the following code to it:
+To see it in action, we will write a simple http server with nodejs. 
+Create a `server/server.js` file and paste the following code to it:
 
 ```js
 #!/usr/bin/env node

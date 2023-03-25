@@ -33,7 +33,7 @@
     "cdk8s-plus-24": "^2.5.7",
     "cdk8s-plus-25": "^2.5.7",
     "cdk8s-plus-26": "^2.1.7",
-    "constructs": "^10.1.278",
+    "constructs": "^10.1.279",
     "jest": "^27",
     "jest-junit": "^13",
     "lerna": "^6.5.1",
