@@ -29,7 +29,7 @@ Create a new directory and install the necessary dependencies:
 ```console
 mkdir kubernetes-end-to-end
 cd kubernetes-end-to-end
-npm install aws-cdk aws-cdk-lib cdk8s cdk8s-plus-25 @aws-cdk/lambda-layer-kubectl-v25 constructs
+npm install aws-cdk aws-cdk-lib cdk8s cdk8s-plus-25 @aws-cdk/lambda-layer-kubectl-v25 constructs ts-node
 ```
 
 > Don't worry if some dependencies are not clear just yet, they will be.
@@ -219,18 +219,17 @@ can be deployed with a single AWS CDK command:
 cdk -a './node-modules/.bin/ts-node main.ts' deploy
 ```
 
-In the output, you will see the values for the outputs we defined.
+It may take about 15-20 minutes to provision. In the output, you will see the values for the outputs we defined.
 
 - `kubernetes-end-to-end.ApplicationEndpoint = ` Click it, you should see response from our app.
 - `kubernetes-end-to-end.KubeViewEndpoint = ` Click it, you should see how `KubeView` visualized our app. 
 
-### Including Application Code
+### Including Application Code (Optional)
 
 AWS CDK can build docker images and upload it to an ECR repository. This allows us to deploy
 local application code as well, not just images hosted on remote registries.
 
-To see it in action, we will write a simple http server with nodejs. 
-Create a `server/server.js` file and paste the following code to it:
+To see it in action, create a `server/server.js` file and paste the following code to it:
 
 ```js
 #!/usr/bin/env node
@@ -261,12 +260,12 @@ const image = new ecr.DockerImageAsset(this, 'Image', {
 image.repository.grantPull(cluster.defaultNodegroup!.role)
 ```
 
-Now, instead of hard-coding an image URI, you can pass a dynamic value to cdk8s:
+Now, instead of hard coding an image URI, you can pass a deploy time value to cdk8s:
 
 ```ts
 const deployment = new kplus.Deployment(chart, 'Deployment', {
   containers: [{
-    image: image.imageUri,
+    image: image.imageUri, // deploy time value
     portNumber: 5678,
   }],
 });
@@ -274,7 +273,7 @@ const deployment = new kplus.Deployment(chart, 'Deployment', {
 
 Deploying this code is done exactly the same as we just did.
 
-### Imported Clusters
+### Imported Clusters (Optional)
 
 In some cases, the pipeline that creates the EKS cluster will not be the same as the
 one that deploys the Kubernetes application. That is, a cluster may have already been
@@ -289,7 +288,7 @@ const cluster = eks.Cluster.fromClusterAttributes(this, 'Cluster', {
 });
 ```
 
-With this code, an new EKS cluster will not be provisioned. Instead, the existing cluster
+With this code, a new EKS cluster will not be provisioned. Instead, the existing cluster
 is referenced, and is used to apply Kubernetes manifests to.
 
 Deploying this code is done exactly the same as we just did.
