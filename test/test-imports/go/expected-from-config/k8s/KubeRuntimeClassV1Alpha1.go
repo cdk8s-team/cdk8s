@@ -155,6 +155,27 @@ func NewKubeRuntimeClassV1Alpha1_Override(k KubeRuntimeClassV1Alpha1, scope cons
 	)
 }
 
+// Return whether the given object is an `ApiObject`.
+//
+// We do attribute detection since we can't reliably use 'instanceof'.
+func KubeRuntimeClassV1Alpha1_IsApiObject(o interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateKubeRuntimeClassV1Alpha1_IsApiObjectParameters(o); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"k8s.KubeRuntimeClassV1Alpha1",
+		"isApiObject",
+		[]interface{}{o},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`
