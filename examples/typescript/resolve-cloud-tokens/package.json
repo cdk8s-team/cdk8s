@@ -10,6 +10,7 @@
       "watch": "tsc -w",
       "test": "echo ok",
       "clean": "rm -rf cdk.out cdktf.out dist",
+      "install-cdk8s-core": "cd ../../../../cdk8s-core && yarn compile && yarn package:js && mv ./dist/js/cdk8s@0.0.0.jsii.tgz ./../cdk8s/examples/typescript/resolve-cloud-tokens/cdk8s.v0.0.0.jsii.tgz",
       "synth": "npx ts-node poc.ts",
       "deploy": "cdk -a 'npx ts-node poc.ts' deploy --require-approval never && cdktf deploy --auto-approve && npm run synth",
       "destroy": "cdk -a 'npx ts-node poc.ts' destroy --require-approval never && cdktf destroy --auto-approve"
