@@ -25,10 +25,13 @@ Contains some useful tasks to interact with the poc.
 
 To see it in action:
 
-1. Clone this repo and `cd examples/typescript/resolve-cloud-tokens`
-2. `yarn install`
-3. Install [terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) (dont worry, its easy) and put it in your PATH.
-4. Setup AWS credentials however you like.
+1. Clone this repo
+2. `cd cdk8s`
+3. `git checkout epolon/rfc-resolve-cloud-tokens`
+4. `cd examples/typescript/resolve-cloud-tokens`
+5. `yarn install`
+6. Install [terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) (dont worry, its easy) and put it in your PATH.
+7. Setup AWS credentials however you like.
 
 First, run `yarn synth`. This will synthesize all the stacks and charts in the `poc.ts` file. When its done, you'll see:
 
