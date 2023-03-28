@@ -6,21 +6,16 @@
     "license": "Apache-2.0",
     "private": true,
     "scripts": {
-      "synth": "cdk -a 'node main.js' synth",
       "compile": "tsc",
       "watch": "tsc -w",
       "test": "echo ok",
-      "deploy": "npm run cdk:deploy && npm run cdktf:deploy && npm cdk8s:synth",
-      "cdk:synth": "cdk synth",
-      "cdk:deploy": "cdk deploy",
-      "cdk:destroy": "cdk destroy",
-      "cdktf:synth": "cdktf synth",
-      "cdktf:deploy": "cdktf deploy --auto-approve",
-      "cdktf:destroy": "cdktf destroy",
-      "cdk8s:synth": "cdk8s synth"
+      "clean": "rm -rf cdk.out cdktf.out dist",
+      "synth": "npx ts-node poc.ts",
+      "deploy": "cdk -a 'npx ts-node poc.ts' deploy --require-approval never && cdktf deploy --auto-approve && npm run synth",
+      "destroy": "cdk -a 'npx ts-node poc.ts' destroy --require-approval never && cdktf destroy --auto-approve"
     },
     "dependencies": {
-      "cdk8s": "^2.7.34",
+      "cdk8s": "./cdk8s.v0.0.0.jsii.tgz",
       "cdk8s-plus-25": "^2.5.8",
       "aws-cdk-lib": "^2.69.0",
       "cdktf": "^0.15.5",

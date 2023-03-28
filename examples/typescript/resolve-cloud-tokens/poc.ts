@@ -1,5 +1,8 @@
 import { Construct } from 'constructs';
 
+import * as k8s from 'cdk8s';
+import * as kplus from 'cdk8s-plus-25';
+
 import * as awscdk from 'aws-cdk-lib';
 
 import * as cdktf from 'cdktf';
@@ -19,9 +22,7 @@ export class AWSCDKStack extends awscdk.Stack {
     this.roleName = new awscdk.aws_iam.Role(this, 'Role', { assumedBy: new awscdk.aws_iam.AnyPrincipal() }).roleName;
     this.queueName = new awscdk.aws_sqs.Queue(this, 'Queue').queueName;
     this.topicName = new awscdk.aws_sns.Topic(this, 'Topic').topicName;
-
   }
-
 }
 
 export class CDKTFStack extends cdktf.TerraformStack {
@@ -59,16 +60,53 @@ export class CDKTFStack extends cdktf.TerraformStack {
       key: 'tf.state',
       region: provider.region,
     });
-
-
   }
+}
+
+export interface MyChartProps extends k8s.ChartProps {
+
+  readonly bucketName: string;
+  readonly roleName: string;
+  readonly queueName: string;
+  readonly topicName: string;
 
 }
 
+export class MyChart extends k8s.Chart {
+
+  constructor(scope: Construct, id: string, props: MyChartProps) {
+    super(scope as any, id, props);
+
+    const deployment = new kplus.Deployment(this as any, 'Deployment');
+
+    const container = deployment.addContainer({ image: 'image' });
+    container.env.addVariable('BUCKET_NAME', kplus.EnvValue.fromValue(props.bucketName));
+    container.env.addVariable('ROLE_NAME', kplus.EnvValue.fromValue(props.roleName));
+    container.env.addVariable('QUEUE_NAME', kplus.EnvValue.fromValue(props.queueName));
+    container.env.addVariable('TOPIC_NAME', kplus.EnvValue.fromValue(props.topicName));
+  } 
+}
 
 const cdkApp = new awscdk.App({ outdir: 'cdk.out' });
 const cdktfApp = new cdktf.App({ outdir: 'cdktf.out' });
-export const cdkStack = new AWSCDKStack(cdkApp as any, 'aws');
-export const cdktfStack = new CDKTFStack(cdktfApp as any, 'aws');
+const cdkStack = new AWSCDKStack(cdkApp as any, 'aws');
+const cdktfStack = new CDKTFStack(cdktfApp as any, 'aws');
+const cdk8sApp = new k8s.App({ awscdkStack: cdkStack, cdktfStack: cdktfStack });
+
+new MyChart(cdk8sApp as any, 'k8s-with-awscdk', { 
+  bucketName: cdkStack.bucketName,
+  queueName: cdkStack.queueName,
+  roleName: cdkStack.roleName,
+  topicName: cdkStack.topicName,
+});
+
+new MyChart(cdk8sApp as any, 'k8s-with-cdktf', { 
+  bucketName: cdktfStack.bucketName,
+  queueName: cdktfStack.queueName,
+  roleName: cdktfStack.roleName,
+  topicName: cdktfStack.topicName,
+});
+
 cdkApp.synth();
 cdktfApp.synth();
+cdk8sApp.synth();
