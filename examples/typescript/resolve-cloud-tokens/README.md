@@ -4,7 +4,7 @@ PoC for the discussion and upcoming RFC regarding [resolving cloud tokens](https
 
 ## What
 
-### [`poc.ts`](./poc.ts)
+### `poc.ts`
 
 The expected code a user could write after this feature is implemented. It contains:
 
@@ -13,11 +13,11 @@ The expected code a user could write after this feature is implemented. It conta
 - CDK8s chart that defines a `Deployment` with the names of the AWS CDK resources as environment variables. (note the names are only known *after* deployment)
 - CDK8s chart that defines a `Deployment` with the names of the CDKTF resources as environment variables. (note the names are only known *after* deployment)
 
-### [`cdk8s.v0.0.0.jsii.tgz`](./cdk8s.v0.0.0.jsii.tgz)
+### `cdk8s.v0.0.0.jsii.tgz`
 
 Patched version of [cdk8s-core](https://github.com/cdk8s-team/cdk8s-core) with added support for this feature.
 
-### [`package.json`](./package.json)
+### `package.json`
 
 Contains some useful tasks to interact with the poc.
 
