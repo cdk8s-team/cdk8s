@@ -23,17 +23,23 @@ Contains some useful tasks to interact with the poc.
 
 ## How
 
-To see it in action:
+To see it in action, clone this repo, and inside of it run:
 
-1. Clone this repo
-2. `cd cdk8s`
-3. `git checkout epolon/rfc-resolve-cloud-tokens`
-4. `cd examples/typescript/resolve-cloud-tokens`
-5. `yarn install`
-6. Install [terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) (dont worry, its easy) and put it in your PATH.
-7. Setup AWS credentials however you like.
+```console
+git checkout epolon/rfc-resolve-cloud-tokens && cd examples/typescript/resolve-cloud-tokens && yarn install
+```
 
-First, run `yarn synth`. This will synthesize all the stacks and charts in the `poc.ts` file. When its done, you'll see:
+```console
+export AWS_DEFAULT_REGION=us-east-1
+```
+
+You'll also need to install [terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) (dont worry, its easy) and put it in your PATH.
+
+Run `yarn synth`. This will synthesize all the stacks and charts in the `poc.ts` file.
+
+> Dont worry about the `Error: Backend initialization required, please run "terraform init"` messages you see.
+
+When its done, you will have the following directories:
 
 #### `cdk.out`
 
@@ -90,7 +96,8 @@ containers:
 
 This is because the deployment of the AWS resources hasn't happened yet, so there is no way of knowing the values of those tokens. In this case, cdk8s will fallback to their original representation.
 
-Now, run `yarn deploy`. This will deploy the resources and call CDK8s synthesis once again. When its done, look at the manifests again, they will now contain the deploy time values of the tokens.
+Setup AWS credentials however you like and run `yarn deploy`. This will deploy the resources and call CDK8s synthesis once again. 
+When its done, look at the manifests again, they will now contain the deploy time values of the tokens.
 
 For example, for the AWS CDK one we will have:
 
