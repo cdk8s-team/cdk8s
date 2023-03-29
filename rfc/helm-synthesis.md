@@ -71,7 +71,7 @@ Helm is a powerful package manager for Kubernetes and is also popular among deve
 
 Currently, a cdk8s application produces a directory of pure Kubernetes manifests. Deploying those manifests using helm requires user intervention because helm expect a different directory structure, with custom metadata files.
 
-Now, with the implementation of this feature, the user can run,
+With the implementation of this feature, the user would be able to run:
 ```
 cdk8s synth --format helm --chart-api-version v2 --chart-version 1.0.0 && helm install <release-name> ./dist
 ```
