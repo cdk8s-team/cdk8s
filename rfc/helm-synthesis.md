@@ -19,7 +19,7 @@ cdk8s synth --format helm --chart-version 1.0.0
 
 Execution of prior command would create a helm chart directory structure:
 ```
-chart/              
+dist/              
 ├── Chart.yaml      
 ├── Readme.md      
 └── templates/      
