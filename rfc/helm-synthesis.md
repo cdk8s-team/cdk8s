@@ -29,7 +29,7 @@ dist/
 The synthesized manifests of the cdk8s app would be present in the `templates` folder and, your chart's `Chart.yaml` would be:
 ```
 apiVersion: v2                        
-name: <app-directory-name>                                 
+name: <cdk8s-app-directory-name>                                 
 version: 1.0.0                             
 description: Generated chart for <app-directory-name>  
 type: application
