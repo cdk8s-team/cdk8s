@@ -88,7 +88,7 @@ We plan on adding a few new options to the `cdk8s synth` command:
 * `--chart-api-version`: This is the chart API version of the helm chart. The two possible values here are `v1` for Helm 2 and below, and `v2` for Helm 3. If not passed in by the user, it would default to `v2` API version. 
 * `--chart-version`: This is the chart version that user wants for their helm chart. It follows the [SemVer 2](https://semver.org/) standard. This is *required* to be passed in by the user when synthesis format is helm. 
 
-For helm to consume our generated manifests for deployment, we would need to generate a structure similar to what [Helm Charts](https://v2.helm.sh/docs/developing_charts/) look like. The following is a simpler folder structure complying with helm structure. 
+For helm to consume our generated manifests for deployment, we would need to generate a structure similar to what [Helm Charts](https://v2.helm.sh/docs/developing_charts/) look like. The following is a sample folder structure complying with helm structure. 
 
 ```
 chart/              # Directory where chart is stored. It is the value of --output. Defaults to `/dist`
