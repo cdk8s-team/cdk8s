@@ -2884,7 +2884,7 @@ resources inspired by <a href="https://github.com/paulbouwer">paulbouwer</a>&lsq
 <div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="p">(</span>
-<span class="w">  </span><span class="s">&quot;example.com/hello-k8s/imports/k8s&quot;</span>
+<span class="w">  </span><span class="s">&quot;example.com/hello/imports/k8s&quot;</span>
 <span class="w">  </span><span class="s">&quot;github.com/aws/constructs-go/constructs/v10&quot;</span>
 <span class="w">  </span><span class="s">&quot;github.com/aws/jsii-runtime-go&quot;</span>
 <span class="w">  </span><span class="s">&quot;github.com/cdk8s-team/cdk8s-core-go/cdk8s/v2&quot;</span>
@@ -2908,7 +2908,7 @@ resources inspired by <a href="https://github.com/paulbouwer">paulbouwer</a>&lsq
 <span class="w">      </span><span class="nx">Type</span><span class="p">:</span><span class="w"> </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;LoadBalancer&quot;</span><span class="p">),</span>
 <span class="w">      </span><span class="nx">Ports</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="p">[]</span><span class="o">*</span><span class="nx">k8s</span><span class="p">.</span><span class="nx">ServicePort</span><span class="p">{{</span>
 <span class="w">        </span><span class="nx">Port</span><span class="p">:</span><span class="w">       </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">Number</span><span class="p">(</span><span class="mi">80</span><span class="p">),</span>
-<span class="w">        </span><span class="nx">TargetPort</span><span class="p">:</span><span class="w"> </span><span class="nx">k8s</span><span class="p">.</span><span class="nx">IntOrString_FromNumber</span><span class="p">(</span><span class="nx">jsii</span><span class="p">.</span><span class="nx">Number</span><span class="p">(</span><span class="mi">8000</span><span class="p">)),</span>
+<span class="w">        </span><span class="nx">TargetPort</span><span class="p">:</span><span class="w"> </span><span class="nx">k8s</span><span class="p">.</span><span class="nx">IntOrString_FromNumber</span><span class="p">(</span><span class="nx">jsii</span><span class="p">.</span><span class="nx">Number</span><span class="p">(</span><span class="mi">8080</span><span class="p">)),</span>
 <span class="w">      </span><span class="p">}},</span>
 <span class="w">      </span><span class="nx">Selector</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">label</span><span class="p">,</span>
 <span class="w">    </span><span class="p">},</span>
