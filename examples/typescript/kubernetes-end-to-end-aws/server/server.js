@@ -12,6 +12,6 @@ const server = http.createServer((req, res) => {
 
 process.on('SIGINT', () => process.exit(1));
 
-const port = process.env.PORT ?? 5678;
+const port = process.env.PORT ?? 8080;
 server.listen(port);
 console.error(`listening on port ${port}`);

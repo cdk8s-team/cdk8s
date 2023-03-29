@@ -49,9 +49,8 @@ export class KubernetesEnd2End extends aws.Stack {
 
     const deployment = new kplus.Deployment(chart, 'Deployment', {
       containers: [{
-        image: 'hashicorp/http-echo',
-        portNumber: 5678,
-        args: ['-text', 'hello'],
+        image: 'paulbouwer/hello-kubernetes:1.5',
+        portNumber: 8080,
         securityContext: {
           // required because the default image runs with a root user
           // and cdk8s-plus forbids that by default.

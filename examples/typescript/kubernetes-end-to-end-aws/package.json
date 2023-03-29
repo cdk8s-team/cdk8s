@@ -10,9 +10,9 @@
     "compile": "tsc",
     "watch": "tsc -w",
     "test": "echo ok",
-    "build": "rm -rf cdk.out && npm run compile",
-    "deploy": "npm run build && cdk -a 'node main.js' deploy --no-rollback",
-    "destroy": "npm run build && cdk -a 'node main.js' destroy"
+    "build": "npm run compile",
+    "deploy": "cdk -a 'npx ts-node main.ts' deploy --no-rollback",
+    "destroy": "cdk -a 'npx ts-node main.ts' destroy"
   },
   "dependencies": {
     "cdk8s": "^2.7.34",
@@ -22,6 +22,7 @@
     "@aws-cdk/lambda-layer-kubectl-v25": "^2.0.3"
   },
   "devDependencies": {
-    "aws-cdk": "^2.69.0"
+    "aws-cdk": "^2.69.0",
+    "ts-node": "^10.9.1"
   }
 }

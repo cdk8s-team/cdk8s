@@ -10,6 +10,7 @@
       "es2016"
     ],
     "module": "CommonJS",
+    "noEmit": true,
     "noEmitOnError": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": true,

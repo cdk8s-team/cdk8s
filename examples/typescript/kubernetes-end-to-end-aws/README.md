@@ -162,9 +162,8 @@ const chart = new k8s.Chart(new k8s.App(), 'HttpEcho');
 
 const deployment = new kplus.Deployment(chart, 'Deployment', {
   containers: [{
-    image: 'hashicorp/http-echo',
-    portNumber: 5678,
-    args: ['-text', 'hello'],
+    image: 'paulbouwer/hello-kubernetes:1.5',
+    portNumber: 8080,
     securityContext: {
       // required because the default image runs with a root user
       // and cdk8s-plus forbids that by default.
@@ -272,7 +271,7 @@ Now, instead of hard coding an image URI, you can pass a deploy time value to cd
 const deployment = new kplus.Deployment(chart, 'Deployment', {
   containers: [{
     image: image.imageUri, // deploy time value
-    portNumber: 5678,
+    portNumber: 8080,
   }],
 });
 ```
