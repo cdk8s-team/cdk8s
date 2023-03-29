@@ -532,7 +532,7 @@ resources inspired by [paulbouwer](https://github.com/paulbouwer)'s
     package main
 
     import (
-      "example.com/hello-k8s/imports/k8s"
+      "example.com/hello/imports/k8s"
       "github.com/aws/constructs-go/constructs/v10"
       "github.com/aws/jsii-runtime-go"
       "github.com/cdk8s-team/cdk8s-core-go/cdk8s/v2"
@@ -556,7 +556,7 @@ resources inspired by [paulbouwer](https://github.com/paulbouwer)'s
           Type: jsii.String("LoadBalancer"),
           Ports: &[]*k8s.ServicePort{{
             Port:       jsii.Number(80),
-            TargetPort: k8s.IntOrString_FromNumber(jsii.Number(8000)),
+            TargetPort: k8s.IntOrString_FromNumber(jsii.Number(8080)),
           }},
           Selector: &label,
         },
