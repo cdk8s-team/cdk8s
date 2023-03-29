@@ -79,7 +79,7 @@ This will create a helm chart containing the generated manifests and deploy them
 
 ### Why should we _not_ do this?
 
-Customers are not currently blocked for deploying to helm with our synthesized manifests. They would need to create the appropriate helm chart folder structure by themselves and place the synthesized manifests in the templates folder of the chart. With this structure, they can deploy the manifests to their Kubernetes cluster. Now, since a workaround already exists, if we proceed with implementing this RFC, this would take up developers time and effort and will add to maintenance load of cdk8s.
+Customers are not currently blocked for deploying to helm with our synthesized manifests. They would need to create the appropriate helm chart folder structure by themselves and place the synthesized manifests in the templates folder of the chart. With this structure, they can deploy the manifests to their Kubernetes cluster. Since a workaround already exists, if we proceed with implementing this RFC, this would take up developers time and effort and will add to maintenance load of cdk8s.
 
 ### What is the technical solution (design) of this feature?
 
