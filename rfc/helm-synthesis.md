@@ -73,7 +73,7 @@ Currently, a cdk8s application produces a directory of pure Kubernetes manifests
 
 With the implementation of this feature, the user would be able to run:
 ```
-cdk8s synth --format helm --chart-api-version v2 --chart-version 1.0.0 && helm install <release-name> ./dist
+cdk8s synth --format helm --chart-version 1.0.0 && helm install <release-name> ./dist
 ```
 This will create a helm chart containing the generated manifests and deploy them to the Kubernetes cluster via helm. Also note that until now, they only way to **easily** deploy the output of `cdk8s synth` was using `kubectl apply`, which is less common in production workloads. This feature opens the door for robust and easy deployment of cdk8s applications in a production environment. 
 
