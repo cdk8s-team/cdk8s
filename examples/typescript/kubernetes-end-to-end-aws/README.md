@@ -1,5 +1,8 @@
 # Kubernetes End-2-End | AWS
 
+> **Note, you do not need to clone this repository to run the example.**
+> **Just follow the instructions provided here and copy-paste the given code as you go.**
+
 In this example, we will walk through an end-to-end guide for deploying
 a Kubernetes application from scratch to AWS. We will:
 
