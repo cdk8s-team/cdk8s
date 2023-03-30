@@ -2569,22 +2569,42 @@ manifests.</p>
 <span class="w">  </span><span class="nt">&lt;version&gt;</span>2.0.0<span class="nt">&lt;/version&gt;</span>
 <span class="nt">&lt;/dependency&gt;</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.App</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">com.mycompany.app</span><span class="p">;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">software.constructs.Construct</span><span class="p">;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.App</span><span class="p">;</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.Chart</span><span class="p">;</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus26.Deployment</span><span class="p">;</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus26.ContainerProps</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.ChartProps</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus25.Deployment</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.plus25.ContainerProps</span><span class="p">;</span>
 
-<span class="n">App</span><span class="w"> </span><span class="n">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">App</span><span class="p">();</span>
-<span class="n">Chart</span><span class="w"> </span><span class="n">chart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Chart</span><span class="p">(</span><span class="n">app</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Chart&quot;</span><span class="p">);</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Arrays</span><span class="p">;</span>
 
-<span class="n">Deployment</span><span class="p">.</span><span class="na">Builder</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="n">chart</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Deployment&quot;</span><span class="p">)</span>
-<span class="w">  </span><span class="p">.</span><span class="na">replicas</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="w">  </span><span class="p">.</span><span class="na">containers</span><span class="p">(</span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="n">ContainerProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
-<span class="w">    </span><span class="p">.</span><span class="na">image</span><span class="p">(</span><span class="s">&quot;ubuntu&quot;</span><span class="p">)</span>
-<span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">()))</span>
-<span class="w">  </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Chart</span><span class="w"> </span>
+<span class="p">{</span>
 
-<span class="n">app</span><span class="p">.</span><span class="na">synth</span><span class="p">();</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Main</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">Construct</span><span class="w"> </span><span class="n">scope</span><span class="p">,</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Main</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">Construct</span><span class="w"> </span><span class="n">scope</span><span class="p">,</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">ChartProps</span><span class="w"> </span><span class="n">options</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">super</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">options</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">Deployment</span><span class="p">.</span><span class="na">Builder</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Deployment&quot;</span><span class="p">)</span>
+<span class="w">          </span><span class="p">.</span><span class="na">replicas</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="w">          </span><span class="p">.</span><span class="na">containers</span><span class="p">(</span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="n">ContainerProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
+<span class="w">            </span><span class="p">.</span><span class="na">image</span><span class="p">(</span><span class="s">&quot;ubuntu&quot;</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">build</span><span class="p">()))</span>
+<span class="w">          </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">App</span><span class="w"> </span><span class="n">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">App</span><span class="p">();</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">Chart</span><span class="w"> </span><span class="n">chart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Main</span><span class="p">(</span><span class="n">app</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Chart&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">app</span><span class="p">.</span><span class="na">synth</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
