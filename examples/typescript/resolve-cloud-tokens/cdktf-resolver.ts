@@ -31,7 +31,7 @@ export class CdkTfTokenResolver implements ITokenResolver {
       return this.fetch(reference);
     } catch (error) {
       // deployment hasn't happened yet
-      return resolved;
+      return value;
     }
 
   }

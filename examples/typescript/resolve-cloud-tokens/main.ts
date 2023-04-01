@@ -18,7 +18,7 @@ export class AWSCDKStack extends awscdk.Stack {
   public readonly topic: awscdk.aws_sns.Topic;
 
   constructor(scope: Construct, name: string) {
-    super(scope as any, name);
+    super(scope, name);
 
     this.bucket = new awscdk.aws_s3.Bucket(this, 'Bucket', { removalPolicy: awscdk.RemovalPolicy.DESTROY });
     this.role = new awscdk.aws_iam.Role(this, 'Role', { assumedBy: new awscdk.aws_iam.ServicePrincipal('ec2.amazonaws.com') });
@@ -36,14 +36,14 @@ export class CDKTFStack extends cdktf.TerraformStack {
   public readonly topic: awstf.snsTopic.SnsTopic;
 
   constructor(scope: Construct, id: string) {
-    super(scope as any, id);
+    super(scope, id);
 
-    const provider = new awstf.provider.AwsProvider(this as any, "AWS", {
+    const provider = new awstf.provider.AwsProvider(this, "AWS", {
       region: "us-east-1",
     });
 
-    this.bucket = new awstf.s3Bucket.S3Bucket(this as any, 'Bucket');
-    this.role = new awstf.iamRole.IamRole(this as any, 'Role', {
+    this.bucket = new awstf.s3Bucket.S3Bucket(this, 'Bucket');
+    this.role = new awstf.iamRole.IamRole(this, 'Role', {
       assumeRolePolicy: JSON.stringify({
         Version: "2012-10-17",
         Statement: [
@@ -57,8 +57,8 @@ export class CDKTFStack extends cdktf.TerraformStack {
         ],
       })
     });
-    this.queue = new awstf.sqsQueue.SqsQueue(this as any, 'Queue');
-    this.topic = new awstf.snsTopic.SnsTopic(this as any, 'Topic');
+    this.queue = new awstf.sqsQueue.SqsQueue(this, 'Queue');
+    this.topic = new awstf.snsTopic.SnsTopic(this, 'Topic');
 
     new cdktf.S3Backend(this, {
       bucket: 'epolon-us-east-1-terraform',
@@ -80,9 +80,9 @@ export interface MyChartProps extends k8s.ChartProps {
 export class MyChart extends k8s.Chart {
 
   constructor(scope: Construct, id: string, props: MyChartProps) {
-    super(scope as any, id, props);
+    super(scope, id, props);
 
-    const deployment = new kplus.Deployment(this as any, 'Deployment');
+    const deployment = new kplus.Deployment(this, 'Deployment');
 
     const container = deployment.addContainer({ image: 'image' });
     container.env.addVariable('BUCKET_NAME', kplus.EnvValue.fromValue(props.bucketName));
@@ -95,8 +95,8 @@ export class MyChart extends k8s.Chart {
 const cdk8sApp = new k8s.App();
 const awscdkApp = new awscdk.App({ outdir: 'cdk.out' });
 const cdktfApp = new cdktf.App({ outdir: 'cdktf.out' });
-const awscdkStack = new AWSCDKStack(awscdkApp as any, 'aws');
-const cdktfStack = new CDKTFStack(cdktfApp as any, 'aws');
+const awscdkStack = new AWSCDKStack(awscdkApp, 'aws');
+const cdktfStack = new CDKTFStack(cdktfApp, 'aws');
 
 const awscdkResolver = new AwsCdkTokenResolver(awscdkStack);
 const cdktfResolver = new CdkTfTokenResolver(cdktfStack);

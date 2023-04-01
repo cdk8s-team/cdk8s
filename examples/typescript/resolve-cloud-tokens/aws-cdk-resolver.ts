@@ -30,7 +30,7 @@ export class AwsCdkTokenResolver implements ITokenResolver {
       return this.fetch(token);
     } catch (error) {
       // deployment hasn't happened yet
-      return resolved;
+      return value;
     }
 
   }
