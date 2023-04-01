@@ -3107,10 +3107,8 @@ cdk8s-plus-26@^2.2.12:
 
 cdk8s@./cdk8s.v0.0.0.jsii.tgz:
   version "0.0.0"
-  resolved "./cdk8s.v0.0.0.jsii.tgz#c4f906fc73130c1887ec0deae4acee47a788acf4"
+  resolved "./cdk8s.v0.0.0.jsii.tgz#66f34aacbf46076e373e4766696df18161de5ea1"
   dependencies:
-    "@aws-sdk/client-cloudcontrol" "^3.282.0"
-    "@aws-sdk/client-cloudformation" "^3.299.0"
     fast-json-patch "^3.1.1"
     follow-redirects "^1.15.2"
     yaml "2.0.0-7"
