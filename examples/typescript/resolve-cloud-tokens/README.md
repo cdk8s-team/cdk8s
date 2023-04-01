@@ -32,7 +32,7 @@ The part the code that interacts with the cloud provider for CDKTF.
 [`cdk8s.v0.0.0.jsii.tgz`](./cdk8s.v0.0.0.jsii.tgz)
 
 Patched version of [cdk8s-core](https://github.com/cdk8s-team/cdk8s-core) with added support for this feature.
-
+See https://github.com/cdk8s-team/cdk8s-core/pull/1163.
 
 [`package.json`](./package.json)
 
