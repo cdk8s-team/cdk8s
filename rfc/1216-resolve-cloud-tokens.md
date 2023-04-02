@@ -15,8 +15,8 @@ resources defined with the AWS CDK or the CDK For Terraform.
 
 ### README
 
-Custom resolvers are a mechanism to inject custom logic into the cdk8s value resolution process. It allows to 
-transform any value just before being written to the Kubernetes manifest.
+Custom resolvers are a mechanism to inject custom logic into the cdk8s value resolution process. 
+It allows to transform any value just before being written to the Kubernetes manifest.
 
 To define a custom resolver, fist create a class that implements the `ITokenResolver` interface:
 
@@ -35,7 +35,7 @@ export class MyCustomResolver implements ITokenResolver {
 Where the `context` argument contains information about the value that is 
 currently being resolved:
 
-- **scope**: `ApiObject` currently being resolved.
+- **obj**: `ApiObject` currently being resolved.
 - **key**: Array containing the JSON path elements of they keys leading up to the value.
 
 Then, when you create a cdk8s `Chart`, pass the resolver instance to it via the `resolver` property:
@@ -63,7 +63,7 @@ new KubeService(this, 'Service', {
 Your resolver will be invoked with the following arguments:
 
 - **context**
-  - *scope*: The `KubeService` instance of type `ApiObject`.
+  - *obj*: The `KubeService` instance of type `ApiObject`.
   - *key*: `['spec', 'type']`
 - **value**: `LoadBalancer`
 
@@ -276,7 +276,7 @@ const awsApp = new aws.App();
 const stack = new aws.Stack(awsApp, 'Stack');
 const manifest = new k8s.Chart(k8sApp, 'Manifest');
 
-// define the bucket with a well known name
+// define the bucket without an explicit name
 new aws.aws_s3.Bucket(stack, 'Bucket');
 
 // pass the bucket name to the CronJob container
@@ -319,35 +319,113 @@ spec:
 
 To generate a deployable manifest, an additional lookup phase is required that will
 fetch the value of the bucket name directly from AWS. Currently, customers are forced 
-to implement this lookup by themselves. This pro
+to implement this lookup by themselves, which presents non trivial challenges and burden. 
 
-
-
-
-In addition, adding this capability into the framework may attract Kubernetes users who
-don't currently leverage the CDK ecosystem to define and deploy their workloads.
+This feature aims to alleviate that, and make it as easy as possible to author such 
+complex applications. 
 
 ### Why should we _not_ do this?
 
-The main reason not to do this is because there are several ways to
-address the use-case without this feature. A few approaches are possible:
+There are several mechanisms customers could implement this capability without explicit 
+support from the cdk8s team. Given that, one could argue that the effort would not be 
+worth the value. Following is an outline of such mechanisms:
 
-#### Pre Synth Query
+#### Explicit Token Resolution
+
+Instead of passing tokens directly to cdk8s, customers could explicitly fetch its 
+concrete value with a `fetchAWS` function they implement:
+
+```ts
+...
+
+// define the bucket without an explicit name
+new aws.aws_s3.Bucket(stack, 'Bucket');
+
+// fetch its name directly from AWS
+const bucketName = fetchToken(bucket.bucketName);
+
+// pass the bucket name to the CronJob container
+new kplus.CronJob(manifest, 'CronJob', {
+ containers: [{ 
+   image: 'job',
+   envVariables: {
+     BUCKET_NAME: kplus.EnvValue.fromValue(bucketName),
+   }
+ }]
+});
+
+...
+```
+
+There are several challenges with this:
+
+- Implementing the `fetchAWS` function is not trivial. It requires deep knowledge of 
+the AWS CDK token system and must handle premature resolution (i.e when executed before deployment finishes).
+- Error prone. Users may forget to call the `fetchAWS` method and mistakenly pass the token instead.
+- Not idiomatic / ergonomic. It is unnatural for users to incorporate such code into CDK applications.
+
+#### Explicit Output Resolution
+
+Here, customers defined a `CfnOutput` for each value they would like to expose to the cdk8s application.
+Those outputs are then explicitly resolved using a `fetchAWS` function they implement:
+
+```ts
+...
+
+// define the bucket without an explicit name
+new aws.aws_s3.Bucket(stack, 'Bucket');
+
+const bucketNameOutput = new aws.CfnOutput(this, 'BucketName', {
+  value: bucket.bucketName,
+});
+
+// fetch its name directly from AWS
+const bucketName = fetchAWS(bucketNameOutput);
+
+// pass the bucket name to the CronJob container
+new kplus.CronJob(manifest, 'CronJob', {
+ containers: [{ 
+   image: 'job',
+   envVariables: {
+     BUCKET_NAME: kplus.EnvValue.fromValue(bucketName),
+   }
+ }]
+});
+
+...
+```
+
+This approach simplifies the implementation of the `fetchAWS` function because it only needs 
+to detect and interpret `CfnOutput` types, and not general tokens. It also makes the calls to AWS 
+simpler because it only requires a single `DescribeStack` call. However, it still isn't trivial.
+
+In addition, the usability challenges still remain:
+
+- Error prone. Users may forget to define and output and call the `fetchAWS` function and mistakenly pass the token instead.
+- Not idiomatic / ergonomic. It is unnatural for users to incorporate such code into CDK applications.
+
+#### Out-Of-Band Query
 
 In this approach, customers decouple the definition of cloud infrastructure from the
 definition of Kubernetes resources. That is, instead of referencing `bucket.bucketName`
 in the Kubernetes spec, they might extract it from an env variable via `process.env.BUCKET_NAME`.
 
-The responsibility of populating the `BUCKET_NAME` env variable falls to an
-external script that must be executed before calling `cdk8s synth`. The script will
-use service API's to query for the required information.
+```ts
+...
 
-Maintaining such a script can be complex because it requires constant coordination between two
-decoupled parts of the application. Every time a new cloud resource is utilized, it needs to
-be added in two places. This makes it clear that such decoupling is not natural,
-and is only caused by technical limitations.
+new kplus.CronJob(manifest, 'CronJob', {
+ containers: [{ 
+   image: 'job',
+   envVariables: {
+     BUCKET_NAME: kplus.EnvValue.fromValue(process.env.BUCKET_NAME),
+   }
+ }]
+});
 
-#### Pre Synth Provisioning
+...
+```
+
+#### Out-Of-Band Provisioning
 
 In this approach, the cloud infrastructure is split into two:
 
@@ -359,23 +437,46 @@ cdk8s application, or externally.
 
 > <sup>*</sup> Independent with respect to usage in Kubernetes resource definitions.
 
-This separation into imperative provisioning essentially re-introduces all
-the complexity that IaC aims to solve.
 
-#### Post Synth Query
+However, this separation into imperative provisioning essentially re-introduces all
+the complexity that IaC aims to solve, and is not desirable.
+
+#### Post Synth Processing
 
 In this approach, cloud infrastructure and Kubernetes resources are defined in the same
 application using the standard IaC tooling. The Kubernetes resources are tightly coupled
-with their required cloud resources. To overcome the problem of the un-deployable manifest,
-Customers have to post-process the result of `cdk8s synth` to produce the final deployable
-manifest. This post synthesis step inspects the manifest for references to
-cloud resources, interprets them, and performs the necessary lookups.
+with their required cloud resources. 
+
+```ts
+...
+
+// define the bucket without an explicit name
+new aws.aws_s3.Bucket(stack, 'Bucket');
+
+// pass the bucket name to the CronJob container
+new kplus.CronJob(manifest, 'CronJob', {
+ containers: [{ 
+   image: 'job',
+   envVariables: {
+     BUCKET_NAME: kplus.EnvValue.fromValue(bucket.bucketName),
+   }
+ }]
+});
+
+cdk8sApp.synth();
+
+...
+```
+
+To overcome the problem of unresolved tokens, customers have to post-process the result 
+of `cdk8sApp.synth()` to produce the final deployable manifest. This post synthesis 
+step inspects the manifest for references to cloud resources, interprets them, 
+and performs the necessary lookups.
 
 From an application maintenance perspective, this approach is actually pretty robust.
 The problem is that implementing and maintaining such a post synthesis step is not at all
 trivial. This RFC essentially proposes baking this step into the cdk8s framework, so that
-customers don't have to deal with the complexities it poses, outlined further down in
-this RFC.
+customers don't have to deal with the complexities it poses.
 
 ### What is the technical solution (design) of this feature?
 
@@ -386,6 +487,59 @@ this RFC.
 > This is a good place to reference a prototype or proof of concept, which is
 > highly recommended for most RFCs.
 
+The high-level design consists of three parts:
+
+#### Custom Resolvers
+
+When cdk8s applications are synthesized, the [`resolve`](https://github.com/cdk8s-team/cdk8s-core/blob/v2.7.52/src/_resolve.ts#L3) 
+function is called for every property of the user defined resource spec. Currently, it handles 
+resolving instances of [`Lazy`](https://github.com/cdk8s-team/cdk8s-core/blob/v2.7.52/src/_resolve.ts#L10) 
+and [implicit tokens](https://github.com/cdk8s-team/cdk8s-core/blob/v2.7.52/src/_resolve.ts#L16).
+
+To allow the lookups described in this RFC, we will provide a custom resolution hook in this 
+function in the form of an interface, that customers can implement:
+
+```ts
+import { ApiObject } from './api-object';
+
+export class ResolutionContext {
+
+  public readonly obj: ApiObject;
+  public readonly key: string[];
+
+}
+
+export interface IResolver {
+
+  resolve(context: ResolutionContext, value: any): any;
+}
+```
+
+When a cdk8s chart is defined, a custom resolver can be passed to it:
+
+```ts
+new Chart(app, 'Chart', { resolver: new MyClassThatImplementsIResolver() })
+```
+
+During synthesis, the `resolve` function of the custom resolver will be invoked on every primitive value.
+The return value of this function will replace the original value and be written into the manifest.
+
+> **PoC: https://github.com/cdk8s-team/cdk8s-core/pull/1163**
+
+#### `@cdk8s/aws-cdk-token-resolver`
+
+A new jsii package containing a class that implements the `IResolver` interface. It can identify AWS CDK
+tokens, and fetch their concrete values by making AWS service calls.
+
+> **PoC: [aws-cdk-resolver.ts](./../examples/typescript/resolve-cloud-tokens/aws-cdk-resolver.ts)**
+
+#### `@cdk8s/cdktf-token-resolver`
+
+A new jsii package containing a class that implements the `IResolver` interface. It can identify CDKTF
+tokens, and fetch their concrete values by terraform state calls.
+
+> **PoC: [cdktf-resolver.ts](./../examples/typescript/resolve-cloud-tokens/cdktf-resolver.ts)**
+
 ### Is this a breaking change?
 
 No
@@ -394,6 +548,13 @@ No
 
 > Briefly describe alternative approaches that you considered. If there are
 > hairy details, include them in an appendix.
+
+
+#### Outputs
+
+
+
+
 
 #### CloudControl API
 
@@ -496,8 +657,3 @@ to overcome the cons, so it is rejected on the same account.
 > of the project board with these issue IDs.
 
 ## Appendix
-
-Feel free to add any number of appendices as you see fit. Appendices are
-expected to allow readers to dive deeper to certain sections if they like. For
-example, you can include an appendix which describes the detailed design of an
-algorithm and reference it from the FAQ.
