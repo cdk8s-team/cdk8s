@@ -437,7 +437,6 @@ cdk8s application, or externally.
 
 > <sup>*</sup> Independent with respect to usage in Kubernetes resource definitions.
 
-
 However, this separation into imperative provisioning essentially re-introduces all
 the complexity that IaC aims to solve, and is not desirable.
 
@@ -524,16 +523,7 @@ The return value of this function will replace the original value and be written
 A new jsii package containing a class that implements the `IResolver` interface. It can 
 identify AWS CDK tokens, and fetch their concrete values by issuing AWS service calls.
 
-Following is an overview of the fetching function implementation:
-
-```mermaid
-flowchart TD
-    A("cloudformation.DescribeStackResource")-->B("Extract Physical Resource ID")
-    B("Extract Physical Resource ID")-->|"Attribute === 'Ref'"|C("Return Physical Resource ID")
-    B("Extract Physical Resource ID")-->|"Attribute !== 'Ref'"|D("cloudcontrol.GetResource")
-    D("cloudcontrol.GetResource")-->E("Extract Resource Properties")
-    E("Extract Resource Properties")-->F("Return Attribute Value")
-```
+> See [Appendix](#implementation-of-aws-cdk-token-resolver) for an implementation outline.
 
 > **PoC: [aws-cdk-resolver.ts](./../examples/typescript/resolve-cloud-tokens/aws-cdk-resolver.ts)**
 
@@ -542,14 +532,7 @@ flowchart TD
 A new jsii package containing a class that implements the `IResolver` interface. It can 
 identify CDKTF tokens, and fetch their concrete values by issuing terraform state calls.
 
-Following is an overview of the fetching function implementation:
-
-```mermaid
-flowchart LR
-    A("terraform show -json")-->B("Find Resource By Address")
-    B("Find Resource By Address")-->C("Extract Resource Properties")
-    C("Extract Resource Properties")-->D("Return Attribute Value")
-```
+> See [Appendix](#implementation-of-cdktf-token-resolver) for an implementation outline.
 
 > **PoC: [cdktf-resolver.ts](./../examples/typescript/resolve-cloud-tokens/cdktf-resolver.ts)**
 
@@ -559,48 +542,22 @@ No
 
 ### What alternative solutions did you consider?
 
-> Briefly describe alternative approaches that you considered. If there are
-> hairy details, include them in an appendix.
-
-
 #### Outputs
 
+> The following speaks about AWS CDK as an example, but exactly the same capabilities exist
+> in the CDKTF, and therefore the same reasoning applies to it as well.
 
-
-
-
-#### CloudControl API
-
-#### CfnOutput
-
-In this solution, whenever cdk8s encounters an AWS CDK token, it will:
-
-- If the corresponding CloudFormation output exists and is deployed, fetch its value.
-- If the corresponding CloudFormation output is missing, define it.
-
-For example, given the following definition:
-
-```ts
-new kplus.CronJob(manifest, 'CronJob', {
-  schedule: k8s.Cron.daily(),
-  containers: [{
-    image: 'job',
-    envVariables: {
-      // passing the bucket name via an env variable
-      BUCKET_NAME: kplus.EnvValue.fromValue(bucket.bucketName),
-    }
- }]
-});
-```
-
-Resolving the `bucket.bucketName` token will look something like:
+In this solution, whenever cdk8s encounters a token, instead of trying to 
+fetch its corresponding *attribute* value, it will fetch its corresponding *output* value.
+If the value doesn't exist, cdk8s will add a corresponding `CfnOutput` resource to the 
+AWS CDK stack. It would look something like this:
 
 ```ts
 // some output id generated from the token
 const outputId = 'some-stable-id'
 
 try {
-  return fetchValue(stack, outputId)
+  return fetchOutputValue(stack, outputId)
 } catch (error: OutputNotFound) {
   new CfnOutput(stack, outputId, { value: bucket.bucketName });
   // nothing else we can return here...
@@ -608,61 +565,36 @@ try {
 }
 ```
 
-##### Pros
+This solution has the benefit of automatically supporting every value that 
+can be defined in an AWS CDK application. It also simplifies the fetching logic because 
+it requires a single `cloudformation.DescribeStackResource` call. 
 
-- Outputs can be created for any CloudFormation attribute, which means all AWS CDK
-attributes will be supported.
+However, this option was discarded because of usability concerns:
 
-##### Cons
-
-While it makes sense for the cdk8s application to depend on the AWS CDK application,
-injecting these synthetic outputs also creates the reverse dependency. This is non intuitive and
-has some surprising implications:
-
-- Synthesizing the AWS CDK application **must happen after** synthesizing the cdk8s application.
-Otherwise, the necessary CloudFormation outputs won't exist.
+- Requires synthesis of the cdk8s app to happen before the AWS CDK app. This can only be 
+controlled by the user, and therefore error prone.
 - Synthesizing the AWS CDK application separately from the cdk8s application will result in a different cloud assembly.
-- The cdk8s application needs to be synthesized twice, once to add the CloudFormation outputs, and once to fetch their values. This means that the first synthesis will inherently produce an invalid manifest.
+- The cdk8s application needs to be synthesized twice, once to add the CloudFormation outputs, and once to fetch their values. 
+This means that the first synthesis will inherently produce an invalid manifest.
+- Will create a cyclic dependency in case the cdk8s and AWS CDK application are in different repositories / packages.
 
-##### Decision
+#### Utility Functions
 
-It is hard to pin-point exactly what challenges the above implications will impose, but their existence
-can create an awkward and error prone experience. We therefore prefer avoiding them.
+Instead of integrating this lookup into the cdk8s resolution process, we could have offered a couple
+of utility function that can perform lookups based on the token they are invoked with.
+This would have made is fairly easy for customers to implement either [Explicit Output Resolution](#explicit-output-resolution) 
+or [Explicit Token Resolution](#explicit-token-resolution) by themselves.
 
-#### BucketDeployment
+This option was discarded because it just doesn't satisfy all we wanted to achieve with this feature. 
+Also, its engineering effort is not far from the full blown capability we ended choosing, so might as well do the 
+the whole thing.
 
-This solution is similar to the [CfnOutput](#cfnoutput) one, but instead of creating a `CfnOutput`,
-we create a [`BucketDeployment`](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_s3_deployment.BucketDeployment.html) resource. This resource allows creating a [JSON file](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_s3_deployment.Source.html#static-jsonwbrdataobjectkey-obj) that supports deploy time values. This file can contain the token value and can be downloaded by cdk8s during synthesis.
-
-##### Pros
-
-- The JSON file can contain any token, which means all AWS CDK attributes will be supported.
-- Only a single resource is added to the AWS CDK application, as opposed to multiple outputs.
-- During cdk8s synthesis, only a single network call is needed to download the file, as opposed
-to multiple ones for fetching the outputs.
-
-##### Cons
-
-The cons remain exactly the same as the [ones](#cons) from the `CfnOutput` solution.
-
-##### Decision
-
-The benefits of this solution over the outputs solution are not strong enough
-to overcome the cons, so it is rejected on the same account.
 
 ### What are the drawbacks of this solution?
 
 > Describe any problems/risks that can be introduced if we implement this RFC.
 
 ### What is the high-level project plan?
-
-> Describe your plan on how to deliver this feature from prototyping to GA.
-> Especially think about how to "bake" it in the open and get constant feedback
-> from users before you stabilize the APIs.
->
-> If you have a project board with your implementation plan, this is a good
-> place to link to it.
-
 
 ```mermaid
 flowchart TD
@@ -681,8 +613,69 @@ flowchart TD
 
 ### Are there any open issues that need to be addressed later?
 
-> Describe any major open issues that this RFC did not take into account. Once
-> the RFC is approved, create GitHub issues for these issues and update this RFC
-> of the project board with these issue IDs.
+There are still some open questions that are under investigation and need 
+to be resolved before starting implementation.
+
+1. Since `Ref` is a CloudFormation specific attribute, it does not exist as a key in 
+the resource properties as returned by the 
+[Cloud Control GetResource](https://docs.aws.amazon.com/cloudcontrolapi/latest/APIReference/API_GetResource.html) API. 
+This implementation **assumes** that `Ref` will always represent the CloudFormation Physical Resource ID, and 
+will simply return it. We know that for some resources, `Ref` will return the ARN of the resource, instead of 
+the resource name. For example, for the 
+[`AWS::Batch::SchedulingPolicy`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-schedulingpolicy.html#aws-resource-batch-schedulingpolicy-return-values) resource.
+
+    One might think that this would break the implementation, which would mistakenly return the name 
+    of the policy, instead of the ARN. But as it turns out, even though the policy has a name, its 
+    CloudFormation Physical Resource ID is actually its ARN.
+
+    ![](./1216-batch-scheduling-policy-name.png)
+
+    ![](./1216-batch-scheduling-policy-pyhsical-id.png)
+
+    The same behavior was observed for `AWS::SNS::Topic` for example. This assumption 
+    seems correct, but hasn't yet been verified.
+
+    If this assumption proves incorrect, it is unlikely to be a blocker. If users are 
+    explicitly interested in the ARN, they can use `resource.attrArn` instead of `resource.ref`.
+
+2. When the requested attribute is not `Ref`, the function invokes the 
+[Cloud Control GetResource](https://docs.aws.amazon.com/cloudcontrolapi/latest/APIReference/API_GetResource.html) 
+API. For the `Identifier` argument, we pass the CloudFormation Physical Resource ID. Empirical evidence show this 
+assumption is valid, but has yet to be verified. If this assumption proves incorrect, we would have to understand
+which and how many resources behave differently, and either:
+    - Snowflake those resources.
+    - Not support them (i.e let the mechanism fail)
+    - Abandon this solution and go with the [Outputs](#outputs) alternative.
+
+3. CloudFormation attribute values are extracted as is from the result of the [Cloud Control GetResource](https://docs.aws.amazon.com/cloudcontrolapi/latest/APIReference/API_GetResource.html) API. E.g, a `QueueName` property is expected to exist on the 
+Cloud Control resource properties which corresponds to the same `QueueName` CloudFormation attribute. 
+This assumption needs verification. If it proves incorrect, we would have to understand
+which and how many resources behave differently, and either:
+    - Snowflake those resources.
+    - Not support them (i.e let the mechanism fail)
+    - Abandon this solution and go with the [Outputs](#outputs) alternative.
+
 
 ## Appendix
+
+### Implementation of AWS CDK Token Resolver
+
+Following is an overview of the fetching function implementation:
+
+```mermaid
+flowchart TD
+    A("cloudformation.DescribeStackResource")-->B("Extract Physical Resource ID")
+    B("Extract Physical Resource ID")-->|"Attribute === 'Ref'"|C("Return Physical Resource ID")
+    B("Extract Physical Resource ID")-->|"Attribute !== 'Ref'"|D("cloudcontrol.GetResource")
+    D("cloudcontrol.GetResource")-->E("Extract Resource Properties")
+    E("Extract Resource Properties")-->F("Return Attribute Value")
+```
+
+### Implementation of CDKTF Token Resolver
+
+```mermaid
+flowchart LR
+    A("terraform show -json")-->B("Find Resource By Address")
+    B("Find Resource By Address")-->C("Extract Resource Properties")
+    C("Extract Resource Properties")-->D("Return Attribute Value")
+```

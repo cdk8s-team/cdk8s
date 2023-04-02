@@ -15,7 +15,12 @@ export class AWSCDKStack extends awscdk.Stack {
   public readonly bucket: awscdk.aws_s3.Bucket;
   public readonly role: awscdk.aws_iam.Role;
   public readonly queue: awscdk.aws_sqs.Queue;
+
+  // a resources that isn't supported by cloud control
   public readonly topic: awscdk.aws_sns.Topic;
+
+  // a resource who's Ref attribute returns the Arn
+  public readonly batchSchedulingPolicy: awscdk.aws_batch.CfnSchedulingPolicy;
 
   constructor(scope: Construct, name: string) {
     super(scope, name);
@@ -24,6 +29,7 @@ export class AWSCDKStack extends awscdk.Stack {
     this.role = new awscdk.aws_iam.Role(this, 'Role', { assumedBy: new awscdk.aws_iam.ServicePrincipal('ec2.amazonaws.com') });
     this.queue = new awscdk.aws_sqs.Queue(this, 'Queue');
     this.topic = new awscdk.aws_sns.Topic(this, 'Topic');
+    this.batchSchedulingPolicy = new awscdk.aws_batch.CfnSchedulingPolicy(this, 'BatchSchedulingPolicy');
 
   }
 }
@@ -34,6 +40,7 @@ export class CDKTFStack extends cdktf.TerraformStack {
   public readonly role: awstf.iamRole.IamRole;
   public readonly queue: awstf.sqsQueue.SqsQueue;
   public readonly topic: awstf.snsTopic.SnsTopic;
+  public readonly batchSchedulingPolicy: awstf.batchSchedulingPolicy.BatchSchedulingPolicy;
 
   constructor(scope: Construct, id: string) {
     super(scope, id);
@@ -59,6 +66,9 @@ export class CDKTFStack extends cdktf.TerraformStack {
     });
     this.queue = new awstf.sqsQueue.SqsQueue(this, 'Queue');
     this.topic = new awstf.snsTopic.SnsTopic(this, 'Topic');
+    this.batchSchedulingPolicy = new awstf.batchSchedulingPolicy.BatchSchedulingPolicy(this, 'BatchSchedulingPolicy', {
+      name: 'why-is-this-required'
+    });
 
     new cdktf.S3Backend(this, {
       bucket: 'epolon-us-east-1-terraform',
@@ -74,6 +84,7 @@ export interface MyChartProps extends k8s.ChartProps {
   readonly roleName: string;
   readonly queueName: string;
   readonly topicName: string;
+  readonly batchSchedulingPolicyArn: string;
 
 }
 
@@ -89,6 +100,7 @@ export class MyChart extends k8s.Chart {
     container.env.addVariable('ROLE_NAME', kplus.EnvValue.fromValue(props.roleName));
     container.env.addVariable('QUEUE_NAME', kplus.EnvValue.fromValue(props.queueName));
     container.env.addVariable('TOPIC_NAME', kplus.EnvValue.fromValue(props.topicName));
+    container.env.addVariable('BATCH_SCHEDULING_POLICY_ARN', kplus.EnvValue.fromValue(props.batchSchedulingPolicyArn));
 
     new kplus.k8s.KubeService(this, 'Job', {
       spec: {
@@ -112,6 +124,7 @@ new MyChart(cdk8sApp, 'k8s-with-awscdk', {
   queueName: awscdkStack.queue.queueName,
   roleName: awscdkStack.role.roleName,
   topicName: awscdkStack.topic.topicName,
+  batchSchedulingPolicyArn: awscdkStack.batchSchedulingPolicy.ref,
   externalTokenResolver: awscdkResolver,
 });
 
@@ -120,6 +133,7 @@ new MyChart(cdk8sApp, 'k8s-with-cdktf', {
   queueName: cdktfStack.queue.name,
   roleName: cdktfStack.role.name,
   topicName: cdktfStack.topic.name,
+  batchSchedulingPolicyArn: cdktfStack.batchSchedulingPolicy.arn,
   externalTokenResolver: cdktfResolver,
 });
 

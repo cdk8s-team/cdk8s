@@ -92,3 +92,8 @@ cdktf should download a state snapshot and store in cdktf.out so that automation
 ### AWS SDK V3
 
 - `const client = new aws.CloudControlClient()` should be possible since all config is optional.
+
+### AWS CDK
+
+- Why doesn't EIP logical id have a hash suffix?
+- Why don't logical ids contain the stack id? 
