@@ -516,7 +516,7 @@ new Chart(app, 'Chart', { resolver: new MyClassThatImplementsIResolver() })
 During synthesis, the `resolve` function of the custom resolver will be invoked on every primitive value.
 The return value of this function will replace the original value and be written into the manifest.
 
-> **PoC: https://github.com/cdk8s-team/cdk8s-core/pull/1163**
+**PoC:** https://github.com/cdk8s-team/cdk8s-core/pull/1163
 
 #### Package `@cdk8s/aws-cdk-token-resolver`
 
@@ -525,7 +525,7 @@ identify AWS CDK tokens, and fetch their concrete values by issuing AWS service 
 
 > See [Appendix](#implementation-of-aws-cdk-token-resolver) for an implementation outline.
 
-> **PoC: [aws-cdk-resolver.ts](./../examples/typescript/resolve-cloud-tokens/aws-cdk-resolver.ts)**
+**PoC:** [aws-cdk-resolver.ts](./../examples/typescript/resolve-cloud-tokens/aws-cdk-resolver.ts)
 
 #### Package `@cdk8s/cdktf-token-resolver`
 
@@ -534,7 +534,7 @@ identify CDKTF tokens, and fetch their concrete values by issuing terraform stat
 
 > See [Appendix](#implementation-of-cdktf-token-resolver) for an implementation outline.
 
-> **PoC: [cdktf-resolver.ts](./../examples/typescript/resolve-cloud-tokens/cdktf-resolver.ts)**
+**PoC:** [cdktf-resolver.ts](./../examples/typescript/resolve-cloud-tokens/cdktf-resolver.ts)
 
 ### Is this a breaking change?
 
@@ -618,13 +618,12 @@ to be resolved before starting implementation.
 
 1. Since `Ref` is a CloudFormation specific attribute, it does not exist as a key in 
 the resource properties as returned by the 
-[Cloud Control GetResource](https://docs.aws.amazon.com/cloudcontrolapi/latest/APIReference/API_GetResource.html) API. 
-This implementation **assumes** that `Ref` will always represent the CloudFormation Physical Resource ID, and 
-will simply return it. We know that for some resources, `Ref` will return the ARN of the resource, instead of 
-the resource name. For example, for the 
+[Cloud Control GetResource](https://docs.aws.amazon.com/cloudcontrolapi/latest/APIReference/API_GetResource.html) API.
+In this case, the implementation will return the CloudFormation Physical Resource ID as returned by the [CloudFormation DescribeStackResource](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStackResource.html) API, assuming they represent the same thing. We know that for 
+some resources, `Ref` will return the ARN of the resource, instead of the resource name. For example, for the 
 [`AWS::Batch::SchedulingPolicy`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-schedulingpolicy.html#aws-resource-batch-schedulingpolicy-return-values) resource.
 
-    One might think that this would break the implementation, which would mistakenly return the name 
+    This might break the implementation, which would mistakenly return the name 
     of the policy, instead of the ARN. But as it turns out, even though the policy has a name, its 
     CloudFormation Physical Resource ID is actually its ARN.
 
@@ -633,16 +632,14 @@ the resource name. For example, for the
     ![](./1216-batch-scheduling-policy-pyhsical-id.png)
 
     The same behavior was observed for `AWS::SNS::Topic` for example. This assumption 
-    seems correct, but hasn't yet been verified.
-
-    If this assumption proves incorrect, it is unlikely to be a blocker. If users are 
+    seems correct, but hasn't yet been verified. Even if it proves false, it is unlikely to be a blocker. If users are 
     explicitly interested in the ARN, they can use `resource.attrArn` instead of `resource.ref`.
 
 2. When the requested attribute is not `Ref`, the function invokes the 
 [Cloud Control GetResource](https://docs.aws.amazon.com/cloudcontrolapi/latest/APIReference/API_GetResource.html) 
-API. For the `Identifier` argument, we pass the CloudFormation Physical Resource ID. Empirical evidence show this 
-assumption is valid, but has yet to be verified. If this assumption proves incorrect, we would have to understand
-which and how many resources behave differently, and either:
+API to get access to resource properties. For the `Identifier` argument, we pass the CloudFormation Physical Resource ID. 
+Empirical evidence show this assumption is valid, but has yet to be verified. If this assumption proves incorrect, 
+we would have to understand which and how many resources behave differently, and either:
     - Snowflake those resources.
     - Not support them (i.e let the mechanism fail)
     - Abandon this solution and go with the [Outputs](#outputs) alternative.
