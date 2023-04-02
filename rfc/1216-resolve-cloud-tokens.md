@@ -524,12 +524,32 @@ The return value of this function will replace the original value and be written
 A new jsii package containing a class that implements the `IResolver` interface. It can 
 identify AWS CDK tokens, and fetch their concrete values by issuing AWS service calls.
 
+Following is an overview of the fetching function implementation:
+
+```mermaid
+flowchart TD
+    A("cloudformation.DescribeStackResource")-->B("Extract Physical Resource ID")
+    B("Extract Physical Resource ID")-->|"Attribute === 'Ref'"|C("Return Physical Resource ID")
+    B("Extract Physical Resource ID")-->|"Attribute !== 'Ref'"|D("cloudcontrol.GetResource")
+    D("cloudcontrol.GetResource")-->E("Extract Resource Properties")
+    E("Extract Resource Properties")-->F("Return Attribute Value")
+```
+
 > **PoC: [aws-cdk-resolver.ts](./../examples/typescript/resolve-cloud-tokens/aws-cdk-resolver.ts)**
 
 #### Package `@cdk8s/cdktf-token-resolver`
 
 A new jsii package containing a class that implements the `IResolver` interface. It can 
 identify CDKTF tokens, and fetch their concrete values by issuing terraform state calls.
+
+Following is an overview of the fetching function implementation:
+
+```mermaid
+flowchart LR
+    A("terraform show -json")-->B("Find Resource By Address")
+    B("Find Resource By Address")-->C("Extract Resource Properties")
+    C("Extract Resource Properties")-->D("Return Attribute Value")
+```
 
 > **PoC: [cdktf-resolver.ts](./../examples/typescript/resolve-cloud-tokens/cdktf-resolver.ts)**
 
