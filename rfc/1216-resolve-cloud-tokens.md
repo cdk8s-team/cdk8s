@@ -21,16 +21,22 @@ transform any value just before being written to the Kubernetes manifest.
 To define a custom resolver, fist create a class that implements the `ITokenResolver` interface:
 
 ```ts
-import { ITokenResolver } from 'cdk8s';
+import { ITokenResolver, ResolutionContext } from 'cdk8s';
 
 export class MyCustomResolver implements ITokenResolver {
 
-  public resolve(value: any): any {
+  public resolve(context: ResolutionContext, value: any): any {
     // run some custom logic
   }
 
 }
 ```
+
+Where the `context` argument contains information about the value that is 
+currently being resolved:
+
+- **scope**: `ApiObject` currently being resolved.
+- **key**: Array containing the JSON path elements of they keys leading up to the value.
 
 Then, when you create a cdk8s `Chart`, pass the resolver instance to it via the `resolver` property:
 
@@ -40,6 +46,27 @@ import { App, Chart } from 'cdk8s'
 const app = new App();
 new Chart(app, 'Chart', { resolver: new MyCustomResolver() });
 ```
+
+When you run `cdk8s synth`, your custom logic will be invoked, and the return 
+value will replace the original value and be written to the manifest.
+
+For example, if you define a Kubernetes service like so:
+
+```ts
+new KubeService(this, 'Service', {
+  spec: {
+    type: 'LoadBalancer',
+  }
+});
+```
+
+Your resolver will be invoked with the following arguments:
+
+- **context**
+  - *scope*: The `KubeService` instance of type `ApiObject`.
+  - *key*: `['spec', 'type']`
+- **value**: `LoadBalancer`
+
 
 One common use-case for this feature is to automatically resolve deploy time 
 attributes of cloud resources, and pass them to your Kubernetes workloads. To that end, 
@@ -63,11 +90,10 @@ const stack = new aws.Stack(awsApp, 'Stack');
 const resolver = new AwsCdkTokenResolver(stack);
 
 const k8sApp = new k8s.App();
-const manifest = new k8s.Chart(k8sApp, 'Manifest', {
-  tokenResolution: resolver,
-});
+const manifest = new k8s.Chart(k8sApp, 'Manifest', { resolver });
 
 const bucket = new aws.aws_s3.Bucket(stack, 'Bucket');
+
 new kplus.CronJob(manifest, 'CronJob', {
   schedule: k8s.Cron.daily(),
   containers: [{
@@ -89,7 +115,7 @@ Since your Kubernetes resources now depend on AWS CDK deploy tokens, you'll firs
 and only then `cdk8s synth`.
 
 > Otherwise, the Kubernetes manifests will contain a string representation of the tokens (e.g `${Token[TOKEN.25]}`), 
-> instead of the concrete values.
+> instead of the concrete values. To learn more AWS CDK tokens, see [here](https://docs.aws.amazon.com/cdk/v2/guide/tokens.html).
 
 #### CDK For Terraform
 
@@ -102,13 +128,18 @@ import * as aws from "@cdktf/provider-aws";
 import * as k8s from 'cdk8s';
 import * as kplus from 'cdk8s-plus-26';
 
+import { CdkTfTokenResolver } from '@cdk8s/cdktf-token-resolver';
+
 const awsApp = new tf.App();
 const stack = new tf.TerraformStack(awsApp, 'Stack');
 
+const resolver = new CdkTfTokenResolver(stack);
+
 const k8sApp = new k8s.App();
-const manifest = new k8s.Chart(k8sApp, 'Manifest');
+const manifest = new k8s.Chart(k8sApp, 'Manifest', { resolver });
 
 const bucket = new aws.s3Bucket.S3Bucket(stack, 'Bucket');
+
 new kplus.CronJob(manifest, 'CronJob', {
   schedule: k8s.Cron.daily(),
   containers: [{
@@ -121,7 +152,7 @@ new kplus.CronJob(manifest, 'CronJob', {
 });
 
 awsApp.synth();
-k8sApp.synth({ resolveCDKTFTokens: true });
+k8sApp.synth();
 ```
 
 Notice we create two applications: one for our cdk8s constructs, and one for our CDKTF constructs.
@@ -130,7 +161,7 @@ Since your Kubernetes resources now depend on CDKTF tokens, you'll first need to
 and only then `cdk8s synth`.
 
 > Otherwise, the Kubernetes manifests will contain a string representation of the tokens (e.g `${TfToken[TOKEN.0]}`), 
-> instead of the concrete values.
+> instead of the concrete values. To learn more CDKTF tokens, see [here](https://developer.hashicorp.com/terraform/cdktf/concepts/tokens).
 
 ---
 
@@ -146,30 +177,152 @@ RFC pull request):
 
 ### What are we launching today?
 
-A new feature in the `cdk8s` core library that allows synthesizing cdk8s
-applications that reference tokens from the AWS CDK or CDKTF frameworks.
+This launch consists of three deliverables:
+
+- A new feature in the `cdk8s` core library that allows injecting custom resolution logic during synthesis.
+- A new package called `@cdk8s/aws-cdk-token-resolver` containing a resolver that knows to detect 
+AWS CDK tokens, and fetch its concrete values from AWS.
+- A new package called `@cdk8s/cdktf-token-resolver` containing a resolver that knows to detect 
+CDKTF tokens, and fetch its concrete values from terraform state files.
 
 ### Why should I use this feature?
 
-If your Kubernetes workloads rely on resources offered by a cloud provider,
-you can use this new feature to define cloud infrastructure and Kubernetes
-resources in the same application. You can leverage either the AWS CDK or
-the CDK For Terraform for your cloud infrastructure, and seamlessly reference
-it in your cdk8s application.
+If you need to perform some sort of automatic transformation on user defined resource 
+definitions, before they get written to the Kubernetes manifest.
+
+More concretely, if your Kubernetes workloads rely on resources offered by a 
+cloud provider, you can use this new feature to define cloud infrastructure 
+and Kubernetes resources in the same application. You can leverage either the 
+AWS CDK or the CDK For Terraform for your cloud infrastructure, and seamlessly 
+reference it in your cdk8s application.
 
 ## Internal FAQ
 
 ### Why are we doing this?
 
-To alleviate customer pain in defining Kubernetes applications that leverage
-cloud infrastructure. Currently, synthesizing a cdk8s application that references
-cloud resources will result in an invalid and un-deployable Kubernetes manifest.
-Customers are therefore forced to eject from the cdk8s framework in order to implement
-such applications. Some customers we've spoken to have expressed concerns with
-with such an approach, and would love to see built-in support for this in cdk8s.
+It is common for Kubernetes applications to leverage cloud resources for their operation.
+Those cloud resources are often defined and provisioned using other CDK frameworks, 
+such as the AWS CDK or the CDKTF. Since cdk8s is built on the same technologies, and supports the 
+same programming languages, it stands to reason that users would want to define both cloud and 
+Kubernetes resources within the same codebase. As an example, consider a Kubernetes `CronJob` 
+that needs an S3 `Bucket` to store periodic computation results.
 
-So, even though this feature doesn't necessarily unlock the use-case, it provides a
-much better experience that can delight our customers.
+When the bucket name is known during synthesis (by explicitly setting the name of the bucket), 
+this can be achieved fairly easily, for instance using the AWS CDK:
+
+```ts
+import * as aws from 'aws-cdk-lib';
+import * as k8s from 'cdk8s';
+import * as kplus from 'cdk8s-plus-26';
+
+const k8sApp = new k8s.App();
+const awsApp = new aws.App();
+
+const stack = new aws.Stack(awsApp, 'Stack');
+const manifest = new k8s.Chart(k8sApp, 'Manifest');
+
+const bucketName = 'my-bucket';
+
+// define the bucket with a well known name
+new aws.aws_s3.Bucket(stack, 'Bucket', { bucketName });
+
+// pass the bucket name to the CronJob container
+new kplus.CronJob(manifest, 'CronJob', {
+ containers: [{ 
+   image: 'job',
+   envVariables: {
+     BUCKET_NAME: kplus.EnvValue.fromValue(bucketName),
+   }
+ }]
+});
+
+k8sApp.synth();
+awsApp.synth();
+```
+
+This application with synthesize a proper Kubernetes manifest containing the name of bucket:
+
+```yaml
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: manifest-cronjob-c86481e8
+spec:
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          labels:
+            cdk8s.io/metadata.addr: Manifest-CronJob-c89809bc
+        spec:
+          containers:
+            - env:
+                - name: BUCKET_NAME
+                  value: my-bucket
+              image: job
+```
+
+However, if the bucket is not explicitly specified (as mentioned by the 
+[AWS CDK best practices guide](https://docs.aws.amazon.com/cdk/v2/guide/best-practices.html)):
+
+```ts
+import * as aws from 'aws-cdk-lib';
+import * as k8s from 'cdk8s';
+import * as kplus from 'cdk8s-plus-26';
+
+const k8sApp = new k8s.App();
+const awsApp = new aws.App();
+
+const stack = new aws.Stack(awsApp, 'Stack');
+const manifest = new k8s.Chart(k8sApp, 'Manifest');
+
+// define the bucket with a well known name
+new aws.aws_s3.Bucket(stack, 'Bucket');
+
+// pass the bucket name to the CronJob container
+new kplus.CronJob(manifest, 'CronJob', {
+ containers: [{ 
+   image: 'job',
+   envVariables: {
+     BUCKET_NAME: kplus.EnvValue.fromValue(bucket.bucketName),
+   }
+ }]
+});
+
+k8sApp.synth();
+awsApp.synth();
+```
+
+The synthesized Kubernetes manifest will not be deployable, as it will not 
+contain the actual value of the bucket name, but rather a string 
+representation of the AWS CDK token, *representing* the bucket name.
+
+```yaml
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: manifest-cronjob-c86481e8
+spec:
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          labels:
+            cdk8s.io/metadata.addr: Manifest-CronJob-c89809bc
+        spec:
+          containers:
+            - env:
+                - name: BUCKET_NAME
+                  value: ${Token[TOKEN.603]} # whoops, no good
+              image: job
+```
+
+To generate a deployable manifest, an additional lookup phase is required that will
+fetch the value of the bucket name directly from AWS. Currently, customers are forced 
+to implement this lookup by themselves. This pro
+
+
+
 
 In addition, adding this capability into the framework may attract Kubernetes users who
 don't currently leverage the CDK ecosystem to define and deploy their workloads.

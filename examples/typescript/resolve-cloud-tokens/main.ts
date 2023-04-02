@@ -89,6 +89,12 @@ export class MyChart extends k8s.Chart {
     container.env.addVariable('ROLE_NAME', kplus.EnvValue.fromValue(props.roleName));
     container.env.addVariable('QUEUE_NAME', kplus.EnvValue.fromValue(props.queueName));
     container.env.addVariable('TOPIC_NAME', kplus.EnvValue.fromValue(props.topicName));
+
+    new kplus.k8s.KubeService(this, 'Job', {
+      spec: {
+        type: 'LoadBalancer',
+      }
+    });
   }
 }
 
