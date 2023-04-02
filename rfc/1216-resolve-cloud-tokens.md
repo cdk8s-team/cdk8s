@@ -480,13 +480,6 @@ customers don't have to deal with the complexities it poses.
 
 ### What is the technical solution (design) of this feature?
 
-> Briefly describe the high-level design approach for implementing this feature.
->
-> As appropriate, you can add an appendix with a more detailed design document.
->
-> This is a good place to reference a prototype or proof of concept, which is
-> highly recommended for most RFCs.
-
 The high-level design consists of three parts:
 
 #### Custom Resolvers
@@ -526,17 +519,17 @@ The return value of this function will replace the original value and be written
 
 > **PoC: https://github.com/cdk8s-team/cdk8s-core/pull/1163**
 
-#### `@cdk8s/aws-cdk-token-resolver`
+#### Package `@cdk8s/aws-cdk-token-resolver`
 
-A new jsii package containing a class that implements the `IResolver` interface. It can identify AWS CDK
-tokens, and fetch their concrete values by making AWS service calls.
+A new jsii package containing a class that implements the `IResolver` interface. It can 
+identify AWS CDK tokens, and fetch their concrete values by issuing AWS service calls.
 
 > **PoC: [aws-cdk-resolver.ts](./../examples/typescript/resolve-cloud-tokens/aws-cdk-resolver.ts)**
 
-#### `@cdk8s/cdktf-token-resolver`
+#### Package `@cdk8s/cdktf-token-resolver`
 
-A new jsii package containing a class that implements the `IResolver` interface. It can identify CDKTF
-tokens, and fetch their concrete values by terraform state calls.
+A new jsii package containing a class that implements the `IResolver` interface. It can 
+identify CDKTF tokens, and fetch their concrete values by issuing terraform state calls.
 
 > **PoC: [cdktf-resolver.ts](./../examples/typescript/resolve-cloud-tokens/cdktf-resolver.ts)**
 
@@ -649,6 +642,22 @@ to overcome the cons, so it is rejected on the same account.
 >
 > If you have a project board with your implementation plan, this is a good
 > place to link to it.
+
+
+```mermaid
+flowchart TD
+    A("Custom Resolvers")-->B("@cdk8s/aws-cdk-token-resolver")
+    A("Custom Resolvers")-->C("@cdk8s/cdktf-token-resolver")
+    B("@cdk8s/aws-cdk-token-resolver")-->D("Add Examples")
+    C("@cdk8s/cdktf-token-resolver")-->E("Add Examples")
+    D("Add Examples")-->F("Publish Docs (cdk8s.io)")
+    E("Add Examples")-->F("Publish Docs (cdk8s.io)")
+    F("Publish Docs (cdk8s.io)")-->G("Youtube Demo")
+    F("Publish Docs (cdk8s.io)")-->H("Announcement Blogpost (Preview)")
+    G("Youtube Demo")-->I("Bake for 3 months")
+    H("Announcement Blogpost (Preview)")-->I("Bake for 3 months")
+    I("Bake for 3 months")-->J("Announcement Blogpost (GA)")
+```
 
 ### Are there any open issues that need to be addressed later?
 
