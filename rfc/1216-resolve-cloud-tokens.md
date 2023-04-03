@@ -712,43 +712,37 @@ available attribute is `Ref`, so its impossible to end up in the faulty code pat
 
 Here are some more randomly selected examples, that reveal more different behaviors:
 
-**`AWS::Cassandra::Table`**
+**AWS::Cassandra::Table**
 
-> Primary identifier: `[ "/properties/KeyspaceName", "/properties/TableName" ]`.
-
-Looking at the [CloudFormation docs][6] we see that `Ref` actually returns `myKeyspace|myTable`, which
+Primary identifier: `[ "/properties/KeyspaceName", "/properties/TableName" ]`. Looking at 
+the [CloudFormation docs][6] we see that `Ref` actually returns `myKeyspace|myTable`, which
 incidentally (or not) corresponds to the primary identifier.
 
-**`AWS::ECS::TaskSet`**
+**AWS::ECS::TaskSet**
 
-> Primary identifier: `[ "/properties/Cluster", "/properties/Service", "/properties/Id" ]`.
-
-Looking at the [CloudFormation docs][7] we also see that `Ref` returns only the Id, which 
+Primary identifier: `[ "/properties/Cluster", "/properties/Service", "/properties/Id" ]`. Looking 
+at the [CloudFormation docs][7] we also see that `Ref` returns only the Id, which 
 doesn't corresponds to the primary identifier. However, `Id` is also the only attribute on this 
 resource, so its actually impossible to request anything else.
 
-**`AWS::Kendra::DataSource`**
+**AWS::Kendra::DataSource**
 
-> Primary identifier: `[ "/properties/Id", "/properties/IndexId" ]`
+Primary identifier: `[ "/properties/Id", "/properties/IndexId" ]`. Looking at 
+the [CloudFormation docs][8] we see that `Ref` actually returns `<data source ID>|<index ID>`, 
+which incidentally (or not) corresponds to the primary identifier.
 
-Looking at the [CloudFormation docs][8] we see that `Ref` actually returns `<data source ID>|<index ID>`, which
-incidentally (or not) corresponds to the primary identifier.
+**AWS::Logs::MetricFilter**
 
-**`AWS::Logs::MetricFilter`**
+Primary identifier: `[ "/properties/LogGroupName", "/properties/FilterName" ]`. Looking 
+at [CloudFormation docs][9], we see this resource has no attributes at all.
 
-> Primary identifier: `[ "/properties/LogGroupName", "/properties/FilterName" ]`
+**AWS::Redshift::EndpointAuthorization**
 
-Looking at [CloudFormation docs][9], we see this resource has no attributes at all.
-
-**`AWS::Redshift::EndpointAuthorization`**
-
-> Primary identifier: `[ "/properties/ClusterIdentifier", "/properties/Account" ]`.
-
-Looking at the [CloudFormation docs][10] docs, we see many attributes, but it 
-doesn't mention the `Ref` attribute. This is probably a documentation mistake 
-because every resource has a `Ref`. Its unclear what its return value is, and therefore
-unclear if it is possible to fetch any other attributes. We still need to try and deploy
-this resource to find out for sure.
+Primary identifier: `[ "/properties/ClusterIdentifier", "/properties/Account" ]`. Looking 
+at the [CloudFormation docs][10] docs, we see many attributes, but it doesn't mention the `Ref` 
+attribute. This is probably a documentation mistake because every resource has a `Ref`. 
+Its unclear what its return value is, and therefore unclear if it is possible to fetch 
+any other attributes. We still need to try and deploy this resource to find out for sure.
 
 
 [1]: https://docs.aws.amazon.com/cloudcontrolapi/latest/APIReference/API_GetResource.html
