@@ -4,8 +4,9 @@
 * **Tracking Issue**: https://github.com/cdk8s-team/cdk8s/issues/1216
 * **API Bar Raiser**: @rix0rrr
 
-Users can now author cdk8s applications that rely on cloud
-resources defined with the AWS CDK or the CDK For Terraform.
+Users can now configure custom resolvers to control how cdk8s resolves values before writing 
+them to the manifest. In addition, Custom resolvers for the AWS CDK and CDKTF token system are available, 
+allowing users to author cdk8s applications that rely on cloud resources.
 
 ## Working Backwards
 
@@ -18,7 +19,7 @@ resources defined with the AWS CDK or the CDK For Terraform.
 Custom resolvers are a mechanism to inject custom logic into the cdk8s value resolution process. 
 It allows to transform any value just before being written to the Kubernetes manifest.
 
-To define a custom resolver, fist create a class that implements the `ITokenResolver` interface:
+To define a custom resolver, first create a class that implements the `ITokenResolver` interface:
 
 ```ts
 import { ITokenResolver, ResolutionContext } from 'cdk8s';
@@ -32,13 +33,12 @@ export class MyCustomResolver implements ITokenResolver {
 }
 ```
 
-Where the `context` argument contains information about the value that is 
-currently being resolved:
+The `context` argument contains information about the value that is currently being resolved:
 
 - **obj**: `ApiObject` currently being resolved.
 - **key**: Array containing the JSON path elements of they keys leading up to the value.
 
-Then, when you create a cdk8s `Chart`, pass the resolver instance to it via the `resolver` property:
+When you create a cdk8s `Chart`, pass the resolver instance to it via the `resolver` property:
 
 ```ts
 import { App, Chart } from 'cdk8s'
@@ -48,9 +48,8 @@ new Chart(app, 'Chart', { resolver: new MyCustomResolver() });
 ```
 
 When you run `cdk8s synth`, your custom logic will be invoked, and the return 
-value will replace the original value and be written to the manifest.
-
-For example, if you define a Kubernetes service like so:
+value will replace the original value and be written to the manifest. For example, if 
+you define a Kubernetes service like so:
 
 ```ts
 new KubeService(this, 'Service', {
@@ -117,6 +116,38 @@ and only then `cdk8s synth`.
 > Otherwise, the Kubernetes manifests will contain a string representation of the tokens (e.g `${Token[TOKEN.25]}`), 
 > instead of the concrete values. To learn more AWS CDK tokens, see [here](https://docs.aws.amazon.com/cdk/v2/guide/tokens.html).
 
+The implementation of the resolver utilizes [Cloud Control](https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/what-is-cloudcontrolapi.html)
+to fetch the runtime attributes of a resource. However, not all CloudFormation resources are currently supported by Cloud Control.
+
+> For a list of supported resources, see [here](https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/supported-resources.html).
+
+In case you need an attribute for such a resource, you can add a `CfnOutput` resource to your stack, and use the resolver to 
+explicitly fetch its value from the deployed stack. For example:
+
+```ts
+...
+
+// create the output
+const bucketNameOutput = new aws.CfnOutput(this, 'BucketName', {
+  value: bucket.bucketName,
+});
+
+const bucketName = resolver.fetchOutput(bucketNameOutput);
+
+new kplus.CronJob(manifest, 'CronJob', {
+  schedule: k8s.Cron.daily(),
+  containers: [{
+    image: 'job',
+    envVariables: {
+      // passing the output value
+      BUCKET_NAME: kplus.EnvValue.fromValue(bucketName),
+    }
+ }]
+});
+
+...
+```
+
 #### CDK For Terraform
 
 In this example, we create an S3 `Bucket` with the CDKTF, and pass its (deploy time generated) name 
@@ -157,7 +188,7 @@ k8sApp.synth();
 
 Notice we create two applications: one for our cdk8s constructs, and one for our CDKTF constructs.
 Both are defined and synthesized in the same file, but can be separated as needed.
-Since your Kubernetes resources now depend on CDKTF tokens, you'll first need to run `cdk deploy`, 
+Since your Kubernetes resources now depend on CDKTF tokens, you'll first need to run `cdktf deploy`, 
 and only then `cdk8s synth`.
 
 > Otherwise, the Kubernetes manifests will contain a string representation of the tokens (e.g `${TfToken[TOKEN.0]}`), 
@@ -205,7 +236,7 @@ Those cloud resources are often defined and provisioned using other CDK framewor
 such as the AWS CDK or the CDKTF. Since cdk8s is built on the same technologies, and supports the 
 same programming languages, it stands to reason that users would want to define both cloud and 
 Kubernetes resources within the same codebase. As an example, consider a Kubernetes `CronJob` 
-that needs an S3 `Bucket` to store periodic computation results.
+that needs an S3 `Bucket` to store its periodic computation results.
 
 When the bucket name is known during synthesis (by explicitly setting the name of the bucket), 
 this can be achieved fairly easily, for instance using the AWS CDK:
@@ -262,7 +293,7 @@ spec:
               image: job
 ```
 
-However, if the bucket is not explicitly specified (as mentioned by the 
+However, if the bucket is not explicitly specified (as recommended by the 
 [AWS CDK best practices guide](https://docs.aws.amazon.com/cdk/v2/guide/best-practices.html)):
 
 ```ts
@@ -333,7 +364,7 @@ worth the value. Following is an outline of such mechanisms:
 #### Explicit Token Resolution
 
 Instead of passing tokens directly to cdk8s, customers could explicitly fetch its 
-concrete value with a `fetchAWS` function they implement:
+concrete value with a `fetchToken` function they implement:
 
 ```ts
 ...
@@ -359,15 +390,15 @@ new kplus.CronJob(manifest, 'CronJob', {
 
 There are several challenges with this:
 
-- Implementing the `fetchAWS` function is not trivial. It requires deep knowledge of 
+- Implementing the `fetchToken` function is not trivial. It requires deep knowledge of 
 the AWS CDK token system and must handle premature resolution (i.e when executed before deployment finishes).
-- Error prone. Users may forget to call the `fetchAWS` method and mistakenly pass the token instead.
+- Error prone. Users may forget to call the `fetchToken` method and mistakenly pass the token instead.
 - Not idiomatic / ergonomic. It is unnatural for users to incorporate such code into CDK applications.
 
 #### Explicit Output Resolution
 
-Here, customers defined a `CfnOutput` for each value they would like to expose to the cdk8s application.
-Those outputs are then explicitly resolved using a `fetchAWS` function they implement:
+Here, customers define a `CfnOutput` for each value they would like to expose to the cdk8s application.
+Those outputs are then explicitly resolved using a `fetchOutput` function they implement:
 
 ```ts
 ...
@@ -380,7 +411,7 @@ const bucketNameOutput = new aws.CfnOutput(this, 'BucketName', {
 });
 
 // fetch its name directly from AWS
-const bucketName = fetchAWS(bucketNameOutput);
+const bucketName = fetchOutput(bucketNameOutput);
 
 // pass the bucket name to the CronJob container
 new kplus.CronJob(manifest, 'CronJob', {
@@ -395,13 +426,13 @@ new kplus.CronJob(manifest, 'CronJob', {
 ...
 ```
 
-This approach simplifies the implementation of the `fetchAWS` function because it only needs 
+This approach simplifies the implementation of fetching values from AWS, as the function only needs 
 to detect and interpret `CfnOutput` types, and not general tokens. It also makes the calls to AWS 
 simpler because it only requires a single `DescribeStack` call. However, it still isn't trivial.
 
 In addition, the usability challenges still remain:
 
-- Error prone. Users may forget to define and output and call the `fetchAWS` function and mistakenly pass the token instead.
+- Error prone. Users may forget to define and output and call the `fetchOutput` function and mistakenly pass the token instead.
 - Not idiomatic / ergonomic. It is unnatural for users to incorporate such code into CDK applications.
 
 #### Out-Of-Band Query
@@ -425,6 +456,15 @@ new kplus.CronJob(manifest, 'CronJob', {
 ...
 ```
 
+The responsibility of populating the `BUCKET_NAME` env variable falls to an external 
+script that must be executed before calling cdk8s synth. The script will use service 
+API's to query for the required information.
+
+Maintaining such a script can be complex because it requires constant coordination 
+between two decoupled parts of the application. Every time a new cloud resource is 
+utilized, it needs to be added in two places. This makes it clear that such decoupling 
+is not natural, and is only caused by technical limitations.
+
 #### Out-Of-Band Provisioning
 
 In this approach, the cloud infrastructure is split into two:
@@ -433,7 +473,9 @@ In this approach, the cloud infrastructure is split into two:
 the IaC application (AWS CDK or CDKTF).
 - The second part contains the resources being used by Kubernetes resources,
 and are provisioned imperatively before synthesis, either as part of the
-cdk8s application, or externally.
+cdk8s application, or externally. The imperative nature of provisioning allows waiting
+on resource creation and passing any required information to downstream processes, 
+such as `cdk8s synth`.
 
 > <sup>*</sup> Independent with respect to usage in Kubernetes resource definitions.
 
@@ -538,6 +580,9 @@ flowchart TD
     H("Extract Resource Properties")-->I("Return Attribute Value")
 ```
 
+> Note that the PoC code doesn't currently contain the `fetchOutput` method described in the README.
+> We assume this function is fairly easy to implement by invoking `cloudformation.DescribeStacks` and extracting
+> the output value.
 
 **There are some noteworthy points to pay attention to:**
 
@@ -577,13 +622,13 @@ No
 
 #### Outputs
 
-In this solution, whenever cdk8s encounters an AWS token, instead of trying to 
+In this solution, whenever cdk8s encounters an AWS CDK token, instead of trying to 
 fetch its corresponding *attribute* value, it will fetch its corresponding *output* value.
 If the value doesn't exist, cdk8s will add a corresponding `CfnOutput` resource to the 
-AWS CDK stack. It would look something like this:
+stack. It would look something like this:
 
 ```ts
-// some output id generated from the token
+// some output id generated from the token (after stack.resolve)
 const outputId = 'some-stable-id'
 
 try {
@@ -597,7 +642,7 @@ try {
 
 This solution has the benefit of automatically supporting every value that 
 can be defined in an AWS CDK application. It also simplifies the fetching logic because 
-it requires a single `cloudformation.DescribeStackResource` call. 
+it requires a single `cloudformation.DescribeStacks` call. 
 
 However, this option was discarded because of usability concerns:
 
@@ -614,7 +659,7 @@ information.**
 #### Utility Functions
 
 Instead of integrating this lookup into the cdk8s resolution process, we could have offered a couple
-of utility function that can perform lookups based on the token they are invoked with.
+of utility functions that can perform lookups based on the token they are invoked with.
 This would have made is fairly easy for customers to implement either [Explicit Output Resolution](#explicit-output-resolution) 
 or [Explicit Token Resolution](#explicit-token-resolution) by themselves.
 
@@ -624,7 +669,9 @@ the whole thing.
 
 ### What are the drawbacks of this solution?
 
-> Describe any problems/risks that can be introduced if we implement this RFC.
+- The current solution has some quirks and unknowns into which AWS CDK tokens can be
+resolved during cdk8s synthesis. If we end up creating many snowflakes in the code, 
+the maintenance burden of this capability may be too big.
 
 ### What is the high-level project plan?
 
@@ -661,6 +708,46 @@ We need to get an accurate list of unsupported resources and see how this implem
 behaves on them. If we see there are too many of them, we might decide to abandon this 
 solution and go with the [Outputs](#outputs) alternative.
 
+3. The AWS CDK token resolver needs to know which stack contains the resource that is
+referenced by the token. Currently, the resolver requires the user explicitly pass the stack
+in its constructor. This is somewhat error prone because the user might mistakenly use a token
+from a different stack. Consider this:
+
+    ```ts
+    const stack1 = new Stack1(...);
+    const stack2 = new Stack2(...);
+
+    // create the resolver with stack1
+    const resolver = new AwsCdkTokenResolver(stack1);
+
+    new kplus.CronJob(manifest, 'CronJob', {
+    containers: [{ 
+      image: 'job',
+      envVariables: {
+        // but pass a token for a resource in stack2
+        BUCKET_NAME: kplus.EnvValue.fromValue(stack2.bucket.bucketName),
+      }
+    }]
+    });
+    ```
+
+    In this case, the implementation will either error out (best case), or 
+    return a value from a different stack in case the in-stack (worst case)
+    logical ids are the same. Ideally we would want to instantiate the resolver
+    with the app instance, not the stack. The resolver would then somehow 
+    automatically identify which stack it needs based on the token. 
+    This might be possible but I haven't yet dived deeper into it. One 
+    thing worth mentioning though is that the AWS CDK logical IDs [**do not contain the 
+    id of the stack**](https://github.com/aws/aws-cdk/blob/main/packages/aws-cdk-lib/core/lib/stack.ts#L1273), 
+    contradictory to what the documentation](https://docs.aws.amazon.com/cdk/v2/guide/identifiers.html#identifiers_logical_ids) states:
+
+    > *For example, the Amazon S3 bucket in the previous example that is created within 
+    > `Stack2` results in an `AWS::S3::Bucket` resource. The resource's logical ID 
+    > is `Stack2MyBucket4DD88B4F` in the resulting AWS CloudFormation template.*
+
+    This makes it impossible to automatically detect which stack a resource belongs to 
+    based solely on its logical ID.
+
 ## Appendix
 
 ### `Ref` vs `PhysicalResourceID`
@@ -670,7 +757,7 @@ we know that for some resources, `Ref` will return the ARN of the resource,
 instead of the resource name, which is usually used as the *physical id*. 
 This might break the implementation, which would mistakenly return the name of 
 the resource, instead of the ARN. However, looking at the [`AWS::Batch::SchedulingPolicy`][3] 
-resource as an example, we see even though the policy has a name, its *physical id* is actually its ARN.
+resource as an example, we see that even though the policy has a name, its *physical id* is actually its ARN.
 
 ![](./1216-batch-scheduling-policy-name.png)
 
@@ -684,7 +771,7 @@ of `resource.ref`.
 
 ### `PhysicalResourceID` vs `PrimaryIdentifier`
 
-Research shows that this assumption is safe when there is a single *primary identifier* 
+Research shows that the primary identifier maps to the physical id when there is a single *primary identifier* 
 for the resource, but breaks when its a composite. For example, the *primary identifier* 
 for the `AWS::ApiGateway::Stage` resource is, as defined by its schema:
 
@@ -692,7 +779,7 @@ for the `AWS::ApiGateway::Stage` resource is, as defined by its schema:
   "primaryIdentifier" : [ "/properties/RestApiId", "/properties/StageName" ],
   ```
 
-This means the in order to invoke the [cloudcontrol/GetResource][1] API on a stage, we
+This means that in order to invoke the [cloudcontrol/GetResource][1] API on a stage, we
 must pass a string in the form of `${ApiId}|${StageName}` (See [Using a resource's primary identifier](4)).
 However, the *physical id* (and the return value of `Ref`) for a stage is only its name.
 
@@ -710,7 +797,7 @@ Searching for resources with a composite primary identifier among [resource sche
 total resources. However, specifically for the `AWS::ApiGateway::Stage` resource, the only
 available attribute is `Ref`, so its impossible to end up in the faulty code path.
 
-Here are some more randomly selected examples, that reveal more different behaviors:
+Here are some more randomly selected examples, that reveal even more different behaviors:
 
 **AWS::Cassandra::Table**
 

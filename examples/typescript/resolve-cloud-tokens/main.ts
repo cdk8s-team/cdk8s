@@ -36,6 +36,10 @@ export class AWSCDKStack extends awscdk.Stack {
     this.topic = new awscdk.aws_sns.Topic(this, 'Topic');
     this.batchSchedulingPolicy = new awscdk.aws_batch.CfnSchedulingPolicy(this, 'BatchSchedulingPolicy');
 
+    new awscdk.CfnOutput(this, 'BucketName', {
+      value: this.bucket.bucketName,
+    });
+
     const api = new awscdk.aws_apigateway.RestApi(this, 'Api');
     api.root.addMethod('GET', new awscdk.aws_apigateway.MockIntegration());
     this.stage = api.deploymentStage;
