@@ -382,7 +382,7 @@ This is not a breaking change. This is adding new functionality to the cdk8s cli
 
 ### What alternative solutions did you consider?
 
-* **Creating a hosted service**
+**Creating a hosted service**
 
 Current solution relies on utilizing the user's setup to run this synthesis. Instead we could also create our hosted service that does this processing for the users and return the manifests to them. An advantage with this approach is that we would have control over cleanup of the temporary directories created for synthesis. In the proposed solution, if cleanup is not done correctly, it would lead to errors. 
 
