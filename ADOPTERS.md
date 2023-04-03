@@ -26,4 +26,7 @@ If you are open to others contacting you about your use of cdk8s, add your Slack
 | Cloudflare | Using cdk8s to manage large multi-tenant clusters with low drift and high velocity | `@heckler1` | [Cloudflare](https://www.cloudflare.com) |
 | Concrete Genius | CDK and cdk8s are used to manage our AWS and local development infrastructure | `@njlaw` | [Concrete Genius](https://concretegenius.com) |
 | Datamole | Relying on seamless CDK - CDK8s interoperability to manage AWS EKS workloads | `@datamole-ai` | [Datamole](https://www.datamole.ai/) |
+| Finimize | Using both CDK and cdk8s to create a consistent experience when describing our IaC | `@pykita` | [Finimize](https://finimize.com/) |
+| Griffin | Using CDK, CDK8s, and CDK8s+ to manage our AWS infra and EKS workloads | `@dancmeyers` | [Griffin](https://griffin.com/) |
 | PreciseTarget | We use cdk8s to manage all applications running in kubernetes across mulitple clusters. | `@steven-esser` | [PreciseTarget](https://www.precisetarget.com) |
+

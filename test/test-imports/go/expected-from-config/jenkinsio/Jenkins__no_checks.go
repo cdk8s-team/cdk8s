@@ -5,6 +5,10 @@ package jenkinsio
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func validateJenkins_IsApiObjectParameters(o interface{}) error {
+	return nil
+}
+
 func validateJenkins_IsConstructParameters(x interface{}) error {
 	return nil
 }

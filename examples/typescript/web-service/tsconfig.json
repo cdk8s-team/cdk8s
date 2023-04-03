@@ -7,7 +7,7 @@
     "inlineSourceMap": true,
     "inlineSources": true,
     "lib": [
-      "es2016"
+      "es2020"
     ],
     "module": "CommonJS",
     "noEmitOnError": true,

@@ -252,22 +252,42 @@ app.synth();
     ```
 
     ```java
+    package com.mycompany.app;
+
+    import software.constructs.Construct;
+
     import org.cdk8s.App;
     import org.cdk8s.Chart;
-    import org.cdk8s.plus26.Deployment;
-    import org.cdk8s.plus26.ContainerProps;
+    import org.cdk8s.ChartProps;
+    import org.cdk8s.plus25.Deployment;
+    import org.cdk8s.plus25.ContainerProps;
 
-    App app = new App();
-    Chart chart = new Chart(app, "Chart");
+    import java.util.Arrays;
 
-    Deployment.Builder.create(this, "Deployment")
-      .replicas(3)
-      .containers(Arrays.asList(ContainerProps.builder()
-        .image("ubuntu")
-        .build()))
-      .build();
+    public class Main extends Chart 
+    {
 
-    app.synth();
+        public Main(final Construct scope, final String id) {
+            this(scope, id, null);
+        }
+
+        public Main(final Construct scope, final String id, final ChartProps options) {
+            super(scope, id, options);
+
+            Deployment.Builder.create(this, "Deployment")
+              .replicas(3)
+              .containers(Arrays.asList(ContainerProps.builder()
+                .image("ubuntu")
+                .build()))
+              .build();
+        }
+
+        public static void main(String[] args) {
+            final App app = new App();
+            final Chart chart = new Main(app, "Chart");
+            app.synth();
+        }
+    }
     ```
 
 === "Go"
