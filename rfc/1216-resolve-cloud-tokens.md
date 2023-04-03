@@ -520,21 +520,54 @@ The return value of this function will replace the original value and be written
 
 #### Package `@cdk8s/aws-cdk-token-resolver`
 
+> PoC: [aws-cdk-resolver.ts](./../examples/typescript/resolve-cloud-tokens/aws-cdk-resolver.ts)
+
 A new jsii package containing a class that implements the `IResolver` interface. It can 
 identify AWS CDK tokens, and fetch their concrete values by issuing AWS service calls.
 
-> See [Appendix](#implementation-of-aws-cdk-token-resolver) for an implementation outline.
+Following is an outline of the implementation:
 
-**PoC:** [aws-cdk-resolver.ts](./../examples/typescript/resolve-cloud-tokens/aws-cdk-resolver.ts)
+```mermaid
+flowchart TD
+    A("AwsCdkTokenResolver.resolve")-->|not Token.isUnresolved|B("Return")
+    A("AwsCdkTokenResolver.resolve")-->|Token.isUnresolved|D("cloudformation.DescribeStackResource")
+    D("cloudformation.DescribeStackResource")-->E("Extract Physical Resource ID")
+    E("Extract Physical Resource ID")-->|"Attribute === 'Ref'"|F("Return Physical Resource ID")
+    E("Extract Physical Resource ID")-->|"Attribute !== 'Ref'"|G("cloudcontrol.GetResource")
+    G("cloudcontrol.GetResource")-->H("Extract Resource Properties")
+    H("Extract Resource Properties")-->I("Return Attribute Value")
+```
+
+
+**There are some noteworthy points to pay attention to:**
+
+- Since `Ref` is a CloudFormation specific attribute, it does not exist as a key in 
+the resource properties as returned by the [cloudcontrol/GetResource][1] API.
+In this case, the implementation will return the *physical id* as returned by 
+the [cloudformation/DescribeStackResource][2] API, assuming they represent the same 
+thing. See [Appendix](#ref-vs-physicalresourceid) for more details and research on this.
+
+- The implementation uses the *physical id* as the `Identifier` argument when calling 
+the [cloudcontrol/GetResource][1] API, assuming they map 1:1. See [Appendix](#physicalresourceid-vs-primaryidentifier) 
+for more details and research on this.
 
 #### Package `@cdk8s/cdktf-token-resolver`
+
+> PoC: [cdktf-resolver.ts](./../examples/typescript/resolve-cloud-tokens/cdktf-resolver.ts)
 
 A new jsii package containing a class that implements the `IResolver` interface. It can 
 identify CDKTF tokens, and fetch their concrete values by issuing terraform state calls.
 
-> See [Appendix](#implementation-of-cdktf-token-resolver) for an implementation outline.
+Following is an outline of the implementation:
 
-**PoC:** [cdktf-resolver.ts](./../examples/typescript/resolve-cloud-tokens/cdktf-resolver.ts)
+```mermaid
+flowchart TD
+    A("CdkTfResolver.resolve")-->|not Token.isUnresolved|B("Return")
+    A("CdkTfResolver.resolve")-->|Token.isUnresolved|D("cloudformation.DescribeStackResource")
+    D("terraform show -json")-->E("Find Resource By Address")
+    E("Find Resource By Address")-->F("Extract Resource Properties")
+    F("Extract Resource Properties")-->G("Return Attribute Value")
+```
 
 ### Is this a breaking change?
 
@@ -544,10 +577,7 @@ No
 
 #### Outputs
 
-> The following speaks about AWS CDK as an example, but exactly the same capabilities exist
-> in the CDKTF, and therefore the same reasoning applies to it as well.
-
-In this solution, whenever cdk8s encounters a token, instead of trying to 
+In this solution, whenever cdk8s encounters an AWS token, instead of trying to 
 fetch its corresponding *attribute* value, it will fetch its corresponding *output* value.
 If the value doesn't exist, cdk8s will add a corresponding `CfnOutput` resource to the 
 AWS CDK stack. It would look something like this:
@@ -578,6 +608,9 @@ controlled by the user, and therefore error prone.
 This means that the first synthesis will inherently produce an invalid manifest.
 - Will create a cyclic dependency in case the cdk8s and AWS CDK application are in different repositories / packages.
 
+**Note that for CDKTF, there's no reason to use outputs because the state file provides all the necessary
+information.**
+
 #### Utility Functions
 
 Instead of integrating this lookup into the cdk8s resolution process, we could have offered a couple
@@ -588,7 +621,6 @@ or [Explicit Token Resolution](#explicit-token-resolution) by themselves.
 This option was discarded because it just doesn't satisfy all we wanted to achieve with this feature. 
 Also, its engineering effort is not far from the full blown capability we ended choosing, so might as well do the 
 the whole thing.
-
 
 ### What are the drawbacks of this solution?
 
@@ -613,66 +645,120 @@ flowchart TD
 
 ### Are there any open issues that need to be addressed later?
 
-There are still some open questions that are under investigation and need 
-to be resolved before starting implementation.
-
-1. Since `Ref` is a CloudFormation specific attribute, it does not exist as a key in 
-the resource properties as returned by the 
-[Cloud Control GetResource](https://docs.aws.amazon.com/cloudcontrolapi/latest/APIReference/API_GetResource.html) API.
-In this case, the implementation will return the CloudFormation Physical Resource ID as returned by the [CloudFormation DescribeStackResource](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStackResource.html) API, assuming they represent the same thing. We know that for 
-some resources, `Ref` will return the ARN of the resource, instead of the resource name. For example, for the 
-[`AWS::Batch::SchedulingPolicy`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-schedulingpolicy.html#aws-resource-batch-schedulingpolicy-return-values) resource.
-
-    This might break the implementation, which would mistakenly return the name 
-    of the policy, instead of the ARN. But as it turns out, even though the policy has a name, its 
-    CloudFormation Physical Resource ID is actually its ARN.
-
-    ![](./1216-batch-scheduling-policy-name.png)
-
-    ![](./1216-batch-scheduling-policy-pyhsical-id.png)
-
-    The same behavior was observed for `AWS::SNS::Topic` for example. This assumption 
-    seems correct, but hasn't yet been verified. Even if it proves false, it is unlikely to be a blocker. If users are 
-    explicitly interested in the ARN, they can use `resource.attrArn` instead of `resource.ref`.
-
-2. When the requested attribute is not `Ref`, the function invokes the 
-[Cloud Control GetResource](https://docs.aws.amazon.com/cloudcontrolapi/latest/APIReference/API_GetResource.html) 
-API to get access to resource properties. For the `Identifier` argument, we pass the CloudFormation Physical Resource ID. 
-Empirical evidence show this assumption is valid, but has yet to be verified. If this assumption proves incorrect, 
+1. CloudFormation attribute values are extracted as is from the result of the [cloudcontrol/GetResource][1] API. 
+E.g, a `QueueName` property is expected to exist on the Cloud Control resource properties which corresponds to 
+the same `QueueName` CloudFormation attribute. This assumption needs verification. If it proves incorrect, 
 we would have to understand which and how many resources behave differently, and either:
     - Snowflake those resources.
     - Not support them (i.e let the mechanism fail)
     - Abandon this solution and go with the [Outputs](#outputs) alternative.
 
-3. CloudFormation attribute values are extracted as is from the result of the [Cloud Control GetResource](https://docs.aws.amazon.com/cloudcontrolapi/latest/APIReference/API_GetResource.html) API. E.g, a `QueueName` property is expected to exist on the 
-Cloud Control resource properties which corresponds to the same `QueueName` CloudFormation attribute. 
-This assumption needs verification. If it proves incorrect, we would have to understand
-which and how many resources behave differently, and either:
-    - Snowflake those resources.
-    - Not support them (i.e let the mechanism fail)
-    - Abandon this solution and go with the [Outputs](#outputs) alternative.
-
+2. Cloud Control doesn't yet support all CloudFormation resources. For example 
+the resource `AWS::SNS::Topic` is not supported (according to this [list][11]). However, 
+the PoC referenced in this RFC does utilize this resource, and everything seems to work fine. 
+Its not clear yet what is going on. Most likely, the list is out-of-date. 
+We need to get an accurate list of unsupported resources and see how this implementation 
+behaves on them. If we see there are too many of them, we might decide to abandon this 
+solution and go with the [Outputs](#outputs) alternative.
 
 ## Appendix
 
-### Implementation of AWS CDK Token Resolver
+### `Ref` vs `PhysicalResourceID`
 
-Following is an overview of the fetching function implementation:
+Assuming `Ref` always maps to the *physical id* can be problematic because 
+we know that for some resources, `Ref` will return the ARN of the resource, 
+instead of the resource name, which is usually used as the *physical id*. 
+This might break the implementation, which would mistakenly return the name of 
+the resource, instead of the ARN. However, looking at the [`AWS::Batch::SchedulingPolicy`][3] 
+resource as an example, we see even though the policy has a name, its *physical id* is actually its ARN.
 
-```mermaid
-flowchart TD
-    A("cloudformation.DescribeStackResource")-->B("Extract Physical Resource ID")
-    B("Extract Physical Resource ID")-->|"Attribute === 'Ref'"|C("Return Physical Resource ID")
-    B("Extract Physical Resource ID")-->|"Attribute !== 'Ref'"|D("cloudcontrol.GetResource")
-    D("cloudcontrol.GetResource")-->E("Extract Resource Properties")
-    E("Extract Resource Properties")-->F("Return Attribute Value")
+![](./1216-batch-scheduling-policy-name.png)
+
+![](./1216-batch-scheduling-policy-pyhsical-id.png)
+
+Which means the implementation will behave correctly and return the ARN when 
+asked for `Ref`. The same behavior was observed for `AWS::SNS::Topic` for example. 
+Even if some resources behave differently, it is unlikely to be a blocker. 
+If users are explicitly interested in the ARN, they can use `resource.attrArn` instead 
+of `resource.ref`.
+
+### `PhysicalResourceID` vs `PrimaryIdentifier`
+
+Research shows that this assumption is safe when there is a single *primary identifier* 
+for the resource, but breaks when its a composite. For example, the *primary identifier* 
+for the `AWS::ApiGateway::Stage` resource is, as defined by its schema:
+
+  ```json
+  "primaryIdentifier" : [ "/properties/RestApiId", "/properties/StageName" ],
+  ```
+
+This means the in order to invoke the [cloudcontrol/GetResource][1] API on a stage, we
+must pass a string in the form of `${ApiId}|${StageName}` (See [Using a resource's primary identifier](4)).
+However, the *physical id* (and the return value of `Ref`) for a stage is only its name.
+
+![](./1216-stage-pyhsical-id.png)
+
+Invoking the API with just its name results in an error:
+
+```console
+'Identifier prod is not valid for identifier [/properties/RestApiId, /properties/StageName]'
 ```
 
-### Implementation of CDKTF Token Resolver
+This means that for such resources, retrieving any attribute other than `Ref` will not work.
+Searching for resources with a composite primary identifier among [resource schemas][5] 
+(using the `"primaryIdentifier" : \[.+,.+\]` regex) reveals 321 such resources out of 998 
+total resources. However, specifically for the `AWS::ApiGateway::Stage` resource, the only
+available attribute is `Ref`, so its impossible to end up in the faulty code path.
 
-```mermaid
-flowchart LR
-    A("terraform show -json")-->B("Find Resource By Address")
-    B("Find Resource By Address")-->C("Extract Resource Properties")
-    C("Extract Resource Properties")-->D("Return Attribute Value")
-```
+Here are some more randomly selected examples, that reveal more different behaviors:
+
+**`AWS::Cassandra::Table`**
+
+> Primary identifier: `[ "/properties/KeyspaceName", "/properties/TableName" ]`.
+
+Looking at the [CloudFormation docs][6] we see that `Ref` actually returns `myKeyspace|myTable`, which
+incidentally (or not) corresponds to the primary identifier.
+
+**`AWS::ECS::TaskSet`**
+
+> Primary identifier: `[ "/properties/Cluster", "/properties/Service", "/properties/Id" ]`.
+
+Looking at the [CloudFormation docs][7] we also see that `Ref` returns only the Id, which 
+doesn't corresponds to the primary identifier. However, `Id` is also the only attribute on this 
+resource, so its actually impossible to request anything else.
+
+**`AWS::Kendra::DataSource`**
+
+> Primary identifier: `[ "/properties/Id", "/properties/IndexId" ]`
+
+Looking at the [CloudFormation docs][8] we see that `Ref` actually returns `<data source ID>|<index ID>`, which
+incidentally (or not) corresponds to the primary identifier.
+
+**`AWS::Logs::MetricFilter`**
+
+> Primary identifier: `[ "/properties/LogGroupName", "/properties/FilterName" ]`
+
+Looking at [CloudFormation docs][9], we see this resource has no attributes at all.
+
+**`AWS::Redshift::EndpointAuthorization`**
+
+> Primary identifier: `[ "/properties/ClusterIdentifier", "/properties/Account" ]`.
+
+Looking at the [CloudFormation docs][10] docs, we see many attributes, but it 
+doesn't mention the `Ref` attribute. This is probably a documentation mistake 
+because every resource has a `Ref`. Its unclear what its return value is, and therefore
+unclear if it is possible to fetch any other attributes. We still need to try and deploy
+this resource to find out for sure.
+
+
+[1]: https://docs.aws.amazon.com/cloudcontrolapi/latest/APIReference/API_GetResource.html
+[2]: https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStackResource.html
+[3]: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-schedulingpolicy.html#aws-resource-batch-schedulingpolicy-return-values
+[4]: https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-identifier.html#resource-identifier-using
+[5]: https://github.com/cdklabs/awscdk-service-spec/tree/main/sources/CloudFormationSchema/us-east-1
+[6]: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#aws-resource-cassandra-table-return-values
+[7]: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#aws-resource-ecs-taskset-return-values
+[8]: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#aws-resource-kendra-datasource-return-values
+[9]: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-metricfilter.html
+[10]: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-endpointauthorization.html#cfn-redshift-endpointauthorization-account
+[11]: https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/supported-resources.html

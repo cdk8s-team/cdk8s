@@ -16,11 +16,16 @@ export class AWSCDKStack extends awscdk.Stack {
   public readonly role: awscdk.aws_iam.Role;
   public readonly queue: awscdk.aws_sqs.Queue;
 
-  // a resources that isn't supported by cloud control
+  // a resources that isn't supported by cloud control?
+  // see https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/supported-resources.html
   public readonly topic: awscdk.aws_sns.Topic;
 
   // a resource who's Ref attribute returns the Arn
   public readonly batchSchedulingPolicy: awscdk.aws_batch.CfnSchedulingPolicy;
+
+  // resources that have a composite primary identifier and `Ref`
+  // doesn't corresponds to it.
+  public readonly stage: awscdk.aws_apigateway.Stage;
 
   constructor(scope: Construct, name: string) {
     super(scope, name);
@@ -30,6 +35,10 @@ export class AWSCDKStack extends awscdk.Stack {
     this.queue = new awscdk.aws_sqs.Queue(this, 'Queue');
     this.topic = new awscdk.aws_sns.Topic(this, 'Topic');
     this.batchSchedulingPolicy = new awscdk.aws_batch.CfnSchedulingPolicy(this, 'BatchSchedulingPolicy');
+
+    const api = new awscdk.aws_apigateway.RestApi(this, 'Api');
+    api.root.addMethod('GET', new awscdk.aws_apigateway.MockIntegration());
+    this.stage = api.deploymentStage;
 
   }
 }
@@ -85,6 +94,7 @@ export interface MyChartProps extends k8s.ChartProps {
   readonly queueName: string;
   readonly topicName: string;
   readonly batchSchedulingPolicyArn: string;
+  readonly stageName?: string;
 
 }
 
@@ -101,6 +111,7 @@ export class MyChart extends k8s.Chart {
     container.env.addVariable('QUEUE_NAME', kplus.EnvValue.fromValue(props.queueName));
     container.env.addVariable('TOPIC_NAME', kplus.EnvValue.fromValue(props.topicName));
     container.env.addVariable('BATCH_SCHEDULING_POLICY_ARN', kplus.EnvValue.fromValue(props.batchSchedulingPolicyArn));
+    container.env.addVariable('STAGE_NAME', kplus.EnvValue.fromValue(props.stageName ?? 'N/A'));
 
     new kplus.k8s.KubeService(this, 'Job', {
       spec: {
@@ -125,6 +136,7 @@ new MyChart(cdk8sApp, 'k8s-with-awscdk', {
   roleName: awscdkStack.role.roleName,
   topicName: awscdkStack.topic.topicName,
   batchSchedulingPolicyArn: awscdkStack.batchSchedulingPolicy.ref,
+  stageName: awscdkStack.stage.stageName,
   externalTokenResolver: awscdkResolver,
 });
 
