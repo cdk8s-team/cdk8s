@@ -492,14 +492,12 @@ This is not a breaking change. This is adding new functionality to the cdk8s cli
 
   To resolve this, we can add an `additionalProperties` property to `values` which can get any additional property a user wants to add other than the auto generated properties.
 
-### What is the high-level project plan? TODO:
+### What is the high-level project plan?
 
-> Describe your plan on how to deliver this feature from prototyping to GA.
-> Especially think about how to "bake" it in the open and get constant feedback
-> from users before you stabilize the APIs.
->
-> If you have a project board with your implementation plan, this is a good
-> place to link to it.
+* Addressing the open issues.
+* Implementing the feature and adding tests for it. 
+* Initially this feature can be marked as experimental for the users. In this time we can keep track of issues being created for the feature and if there are feature requests for it.
+* Once stable, we can create a blog post about this feature demonstrating an end to end development workflow for the user.
 
 ### Are there any open issues that need to be addressed later? TODO:
 
