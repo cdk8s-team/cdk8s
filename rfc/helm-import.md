@@ -480,18 +480,3 @@ Multiple values.schema.json
 Errors in schemas
 
 ## Appendix TODO:
-
-Feel free to add any number of appendices as you see fit. Appendices are
-expected to allow readers to dive deeper to certain sections if they like. For
-example, you can include an appendix which describes the detailed design of an
-algorithm and reference it from the FAQ.
-
-
-
----
-helm pull airflow --repo https://airflow.apache.org/  --version 1.8.0
-helm template airflow --repo https://airflow.apache.org/ --version 1.8.0
-
-
-TODO:
-* How is helm chart generated with multiple values.yaml or schemas?
