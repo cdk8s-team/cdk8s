@@ -8,6 +8,8 @@
     ".github/workflows/build.yml",
     ".github/workflows/integ.yml",
     ".github/workflows/pull-request-lint.yml",
+    ".github/workflows/security.yml",
+    ".github/workflows/stale.yml",
     ".github/workflows/triage.yml",
     ".github/workflows/upgrade.yml",
     ".github/workflows/website.yml",
