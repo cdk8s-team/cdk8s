@@ -455,7 +455,7 @@ This would fail since the url would not lead to a helm chart.
 
 This is not a breaking change. This is adding new functionality to the cdk8s cli import command. 
 
-### What alternative solutions did you consider? TODO:
+### What alternative solutions did you consider?
 
 * **Using omit utility type**
 
@@ -499,8 +499,20 @@ This is not a breaking change. This is adding new functionality to the cdk8s cli
 * Initially this feature can be marked as experimental for the users. In this time we can keep track of issues being created for the feature and if there are feature requests for it.
 * Once stable, we can create a blog post about this feature demonstrating an end to end development workflow for the user.
 
-### Are there any open issues that need to be addressed later? TODO:
+### Are there any open issues that need to be addressed later?
 
-Errors in schemas
+During my research, I encountered couple of errors when processing different `values.schemas.json` for code generation. Taking an example of Airflow helm chart, some of the errors that I encountered were:
 
-## Appendix TODO:
+* **`unsupported array type undefined`**
+  * [Error Link](https://github.com/cdklabs/json2jsii/blob/main/src/type-generator.ts#L538)
+  * Impacting property in schema: [resultBackendConnection](https://github.com/apache/airflow/blob/main/chart/values.schema.json#L1038-L1095)
+
+* **`for "properties", if "type" is specified it has to be an "object"`**
+  * [Error Link](https://github.com/cdklabs/json2jsii/blob/main/src/type-generator.ts#L229)
+  * Impacting properties in schema:
+    * [precedingPaths](https://github.com/apache/airflow/blob/main/chart/values.schema.json#L261-L265)
+    * [succeedingPaths](https://github.com/apache/airflow/blob/main/chart/values.schema.json#L266-L270)
+    * [extraMappings](https://github.com/apache/airflow/blob/main/chart/values.schema.json#L4241-L4245)
+    * [overrideMappings](https://github.com/apache/airflow/blob/main/chart/values.schema.json#L4246-L4250)
+
+Before releasing the feature, we need to invest into testing the solution with different schemas and add sanitization to properties where possible and callout schema patterns that cannot be supported.
