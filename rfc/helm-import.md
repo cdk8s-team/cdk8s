@@ -457,14 +457,40 @@ This is not a breaking change. This is adding new functionality to the cdk8s cli
 
 ### What alternative solutions did you consider? TODO:
 
-* Omit
-* --helm
-* APIObjectDefinition
+* **Using omit utility type**
 
-### What are the drawbacks of this solution? TODO:
+  In the proposed solution we are recreating a similar interface to [HelmProps](https://github.com/cdk8s-team/cdk8s-core/blob/2.x/src/helm.ts#L15-L77). This is unideal since it adds redundancy. The reason for doing this is because:
+  
+    1. We already would know the `chart` value and it would not make sense to ask the user for it which is required in HelmProps.
+    2. `values` could have data types associated with its properties which is not supported in HelmProps.
+  
+  I initially used [Omit utility type](https://www.typescriptlang.org/docs/handbook/utility-types.html#omittype-keys) and it works but just for typescript. When trying to transpile it to other languages it gives out an error due to jsii limitation. 
 
-Redundancy HelmProps
-Multiple values.schema.json
+* **--helm as a flag**
+
+  Instead of using `cdk8s import helm:url`, I initially thought of using a flag `--helm` where if present would mean that the url is supposed to be of a helm chart. This adds a flag to the import command and keeping it as `helm:` makes it similar to what we have for `github:`.
+
+* **Reusing ApiObjectDefinition**
+
+  In the proposed solution, I have added `HelmObjectDefinition` as an interface instead of reusing and adding to [ApiObjectDefinition](https://github.com/cdk8s-team/cdk8s-cli/blob/2.x/src/import/codegen.ts#L10-L37). I think the two interface represent different things and it would not make sense to combine them for this feature.
+
+### What are the drawbacks of this solution?
+
+* **Interface similar to HelmProps**
+  
+  As mentioned in the previous sections, there is an interface similar to HelmProps in the proposed solution due to a jsii limitation. We can use `mgrain's` [project](https://github.com/mrgrain/jsii-struct-builder) to reduce code but the emitted interface would still be similar to HelmProps. 
+
+* **Multiple values.schema.json**
+
+  We are considering only the `values.schema.json` present at the root of the chart since helm by default looks for `values.yaml` at the root of the chart. I have seen multiple values.yaml files in a chart's sub-folders and these can have schema associate with them. 
+
+  We can combine all the schema files we find in a chart to one schema file and code generate on it. But there can be conflicts in doing this.
+
+* **Limiting values properties**
+
+  Building on previous point, if we just include one schema file for code generation, it can lead to missing properties that the user is able to provision for manually when using `values.yaml` file. 
+
+  To resolve this, we can add an `additionalProperties` property to `values` which can get any additional property a user wants to add other than the auto generated properties.
 
 ### What is the high-level project plan? TODO:
 
