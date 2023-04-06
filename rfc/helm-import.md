@@ -1,10 +1,10 @@
-# HELM IMPORT
+# Helm Import 
 
 * **Original Author(s):** @vinayak-kukreja
 * **Tracking Issue:** https://github.com/cdk8s-team/cdk8s/issues/1271
 * **API Bar Raiser:** @iliapolo
 
-Users are now able to import helm charts into their cdk8s application with `cdk8s import` command.
+Users are now able to import helm charts into their cdk8s app with `cdk8s import` command.
 
 ## Working Backwards
 
@@ -44,9 +44,9 @@ app.synth();
 
 > **Note:**
 >
-> * You would nee `Helm` to be installed on your machine for using this feature. 
+> * You would need `Helm` to be installed on your machine for using this feature. 
 > * We assume that you are authenticated to access the helm chart being mentioned in the url.
-> * If a helm chart contains a `values.schema.json` then the `values` properties within the construct properties for the chart would be associate with specific types. For instance, in the prior example `fullnameOverride` is not of `any` type and instead is of `string` type since `airflow` chart has a `values.schema.json` file in it.
+> * If a helm chart contains a `values.schema.json` then the `values` properties within the construct properties for the chart would have specific types. For instance, in the prior example `fullnameOverride` is not of `any` type and instead is of `string` type since `airflow` chart has a `values.schema.json` file in it.
 
 ---
 
@@ -62,29 +62,29 @@ RFC pull request):
 
 ### What are we launching today?
 
-We have added a new feature to the `cdk8s import` command which allows users to import helm charts into their cdk8s application.
+We have added a new feature to the `cdk8s import` command which allows users to import helm charts into their cdk8s app.
 
 ### Why should I use this feature?
 
-You should use this feature if you would like to manage your helm chart within your cdk8s application. This feature would allow you to add values for your helm chart in a type safe manner if a `values.schema.json` file is present within the chart being used.
+You should use this feature if you would like to use helm charts within your cdk8s app. This feature would allow you to add values for helm chart in a type safe manner if a `values.schema.json` file is present within the chart being used.
 
 ## Internal FAQ
 
 ### Why are we doing this?
 
-Our current support for including helm charts to cdk8s application adds churn for the user to setup the [helm construct](https://cdk8s.io/docs/latest/basics/helm/) and pass in values to the construct. This feature would have two advantages over the current solution:
-1. It would make it easier for the user to setup a construct for their helm chart. They would just need to run the `cdk8s import` command with a valid url and we would auto generate the construct for them with some default values.
+Our current support for including helm charts to cdk8s app adds churn for the user to setup the [Helm construct](https://cdk8s.io/docs/latest/basics/helm/) and pass in values to the construct. This feature would have two advantages over the current solution:
+1. It would make it easier for the user to setup a construct for helm charts. They would just need to run the `cdk8s import` command with a valid url and we would auto generate the construct for them.
 2. If a `values.schema.json` file is present in the helm chart that the user is referring, then our generated construct would have type safe values properties. This is not supported in Helm construct currently.
 
 ### Why should we _not_ do this?
 
-As mentioned above, we do currently have a [solution]((https://cdk8s.io/docs/latest/basics/helm/)) for including users helm charts in their cdk8s application. The proposed feature is definitely an enhancement but would take up developers time and effort to implement and maintain.
+As mentioned above, we do currently have a [solution]((https://cdk8s.io/docs/latest/basics/helm/)) for including helm charts in cdk8s app. The proposed feature is definitely an enhancement but would take up developers time and effort to implement and maintain.
 
 ### What is the technical solution (design) of this feature?
 
 #### Helm chart url
 
-The following would be the format for a helm url being passed in to the import command:
+The following would be the format for a helm url being passed into the import command:
 
 ```
 cdk8s import helm:<repo-url>/<chart-name>@<chart-version>
@@ -97,11 +97,11 @@ We can mention an example in [cdk8s import](https://github.com/cdk8s-team/cdk8s-
 ```
 
 Here,
-* **helm:** - Is how we will identify if the url being passed in supposed to be a helm chart.
-* **https://airflow.apache.org/airflow@1.8.0** - Is the helm chart url.
-    * **https://airflow.apache.org/** - Is the helm repo. 
-    * **airflow** - Is the name of the helm chart.
-    * **1.8.0** - Is the helm chart version.
+* `helm:`: Is how we will identify if the url being passed in supposed to be a helm chart.
+* `https://airflow.apache.org/airflow@1.8.0`: Is the helm chart url.
+    * `https://airflow.apache.org/`: Is the helm repo. 
+    * `airflow`: Is the name of the helm chart.
+    * `1.8.0`: Is the helm chart version.
 
 #### Identifying a helm chart
 
@@ -124,7 +124,7 @@ async function matchImporter(importSpec: ImportSpec, argv: any): Promise<ImportB
 
 #### `ImportHelm` class
 
-We would create a new class for importing called as `ImportHelm` which would extends [ImportBase class](https://github.com/cdk8s-team/cdk8s-cli/blob/2.x/src/import/base.ts#L39). The following are sections explaining what would be added to this class.
+We would create a new class for importing helm charts called as `ImportHelm` which would extends [ImportBase class](https://github.com/cdk8s-team/cdk8s-cli/blob/2.x/src/import/base.ts#L39). The following are sections explaining what would be added to this class.
 
 ##### Validating and getting information from the url
 
@@ -166,7 +166,7 @@ function getHelmChartDetails(url: string) {
 }
 ```
 
-##### `values.schema.json`
+##### Getting `values.schema.json` file
 
 When the user would run the import command, we would need to identify if a `values.schema.json` is present in the helm chart being mentioned. To do so, we can create a temporary directory and pull in and extract the chart in that directory. 
 
@@ -237,9 +237,7 @@ After extraction, we would look for the `values.schema.json` in the root of the 
 
 #### Code Generation
 
-ImportBase class has an abstract methods [moduleNames](https://github.com/cdk8s-team/cdk8s-cli/blob/2.x/src/import/base.ts#L40) and [generateTypeScript](https://github.com/cdk8s-team/cdk8s-cli/blob/2.x/src/import/base.ts#L42). As part of the new class `ImportHelm` we also need to define these.
-
-Now, when the [import](https://github.com/cdk8s-team/cdk8s-cli/blob/2.x/src/import/base.ts#L44) function is [invoked]((https://github.com/cdk8s-team/cdk8s-cli/blob/2.x/src/import/dispatch.ts#L17)), it invokes the [generateTypeScript](https://github.com/cdk8s-team/cdk8s-cli/blob/2.x/src/import/base.ts#L80-L82) function. 
+ImportBase class has abstract methods [moduleNames](https://github.com/cdk8s-team/cdk8s-cli/blob/2.x/src/import/base.ts#L40) and [generateTypeScript](https://github.com/cdk8s-team/cdk8s-cli/blob/2.x/src/import/base.ts#L42). As part of the new class `ImportHelm` we also need to define these. Because, when the [import](https://github.com/cdk8s-team/cdk8s-cli/blob/2.x/src/import/base.ts#L44) function is [invoked]((https://github.com/cdk8s-team/cdk8s-cli/blob/2.x/src/import/dispatch.ts#L17)), it invokes the [generateTypeScript](https://github.com/cdk8s-team/cdk8s-cli/blob/2.x/src/import/base.ts#L80-L82) function. 
 
 ```typescript
   public get moduleNames() {
@@ -276,12 +274,12 @@ Now, when the [import](https://github.com/cdk8s-team/cdk8s-cli/blob/2.x/src/impo
   }
 ```
 
-For code generation, we already utilize [codemaker](https://www.npmjs.com/package/codemaker). Let's start with `emitHelmHeader(code)`. This function would be responsible for adding relevant imports that the construct would need to run.
+For code generation, we already utilize [codemaker](https://www.npmjs.com/package/codemaker). The `emitHelmHeader(code)`   function would be responsible for adding any relevant imports for the generated construct.
 
 ```typescript
 /**
  * Emit imports for generated helm construct
- * @param code CodeMaker istance
+ * @param code CodeMaker instance
  */
 export function emitHelmHeader(code: CodeMaker) {
   code.line('// generated by cdk8s');
@@ -291,7 +289,7 @@ export function emitHelmHeader(code: CodeMaker) {
 }
 ```
 
-After this, we check if there was a schema found in the helm chart. If we did find any, the definitions of the schema as passed in to the [TypeGenerator](https://github.com/cdklabs/json2jsii). TypeGenerator makes it possible to emit structs for a schema and also enables to emit custom types.
+If we did find `values.schema.json` in the helm chart, the definitions of the schema as passed in to the [TypeGenerator](https://github.com/cdklabs/json2jsii). TypeGenerator makes it possible to emit structs for a schema and also enables to emit custom types.
 
 We then invoke `generateHelmConstruct` function. In this function, we are emitting: 
   * A custom type. This would be our helm construct.
@@ -368,7 +366,7 @@ export function generateHelmConstruct(typegen: TypeGenerator, def: HelmObjectDef
 }
 ```
 
-The generated construct would just be invoking [Helm Construct](https://github.com/cdk8s-team/cdk8s-core/blob/2.x/src/helm.ts) constructor and that would use [helm template](https://github.com/cdk8s-team/cdk8s-core/blob/2.x/src/helm.ts#L137-L159) command to generate the manifest with the values that the user has passed in. 
+The generated construct would just be invoking [Helm construct](https://github.com/cdk8s-team/cdk8s-core/blob/2.x/src/helm.ts) constructor and that would use [helm template](https://github.com/cdk8s-team/cdk8s-core/blob/2.x/src/helm.ts#L137-L159) command to generate the manifest with the values that the user has passed in. 
 
 > **Note:**
 > 
@@ -377,11 +375,11 @@ The generated construct would just be invoking [Helm Construct](https://github.c
 
 #### Transpiling to other languages
 
-After the code is successfully generated in typescript, we transpile it to other languages in our [ImportBase](https://github.com/cdk8s-team/cdk8s-cli/blob/2.x/src/import/base.ts#L90-L150) class using [jsii srcmak](https://github.com/cdklabs/jsii-srcmak). There are no changes required in this for this feature.
+After the code is successfully generated in typescript, we transpile it to other languages in our [ImportBase](https://github.com/cdk8s-team/cdk8s-cli/blob/2.x/src/import/base.ts#L90-L150) class using [jsii srcmak](https://github.com/cdklabs/jsii-srcmak). There are no changes required here for this feature.
 
 > **Note:**
 >
-> The language naming conventions are followed when typescript code is transpiled. This results in casing changes for the properties of the generated construct. But, this does not impact the manifest generation since as part of transpiling the corelation between properties is maintained. For instance, following is some of the properties for `airflow` helm chart in python:
+> The language naming conventions are followed when typescript code is transpiled. This results in casing changes for the properties of the generated construct. But, this does not impact the manifest generation since as part of transpiling the casing corelation between properties and transpiled properties is added. For instance, following is some of the properties mapping for `airflow` helm chart in python:
 > ```python
 > @jsii.data_type(
 >    jsii_type="airflowtest.AirflowValuesProps",
@@ -398,7 +396,25 @@ After the code is successfully generated in typescript, we transpile it to other
 > )
 > ```
 
-#### Flowchart
+#### Sub scenarios
+
+* **cdk8s import Demo:=helm:https://airflow.apache.org/airflow@1.8.0**
+
+  This would work as expected and will add "Demo" as the [module name prefix](https://github.com/cdk8s-team/cdk8s-cli/blob/2.x/src/cli/cmds/import.ts#L57-L62).
+
+* **cdk8s import helm:https://airflow.apache.org/airflow**
+
+  This would fail the regex since no chart version is being mentioned in the url.
+
+* **cdk8s import helm:https://airflow.apache.org/**
+
+  This would fail since no chart has been mentioned in the url.
+
+* **cdk8s import helm:www.google.com/airflow@1.8.0**
+
+  This would fail since the url would not lead to a helm chart.
+
+### Flowchart
 
 ```mermaid
 ---
@@ -432,25 +448,6 @@ flowchart TD
     C --> S
 ```
 
-#### Sub scenarios
-
-* **cdk8s import Demo:=helm:https://airflow.apache.org/airflow@1.8.0**
-
-This would work as expected and will add "Demo" as the [module name prefix](https://github.com/cdk8s-team/cdk8s-cli/blob/2.x/src/cli/cmds/import.ts#L57-L62).
-
-* **cdk8s import helm:https://airflow.apache.org/airflow**
-
-This would fail the regex since no chart version is being mentioned in the url.
-
-* **cdk8s import helm:https://airflow.apache.org/**
-
-This would fail since no chart has been mentioned in the url.
-
-* **cdk8s import helm:www.google.com/airflow@1.8.0**
-
-This would fail since the url would not lead to a helm chart.
-
-
 ### Is this a breaking change?
 
 This is not a breaking change. This is adding new functionality to the cdk8s cli import command. 
@@ -468,7 +465,7 @@ This is not a breaking change. This is adding new functionality to the cdk8s cli
 
 * **--helm as a flag**
 
-  Instead of using `cdk8s import helm:url`, I initially thought of using a flag `--helm` where if present would mean that the url is supposed to be of a helm chart. This adds a flag to the import command and keeping it as `helm:` makes it similar to what we have for `github:`.
+  Instead of using `cdk8s import helm:url`, I initially thought of using a flag `--helm` where if present, it would mean that the url is supposed to be leading to a helm chart. This adds a flag to the import command and keeping it as `helm:` makes it similar to what we have for `github:`.
 
 * **Reusing ApiObjectDefinition**
 
@@ -482,7 +479,7 @@ This is not a breaking change. This is adding new functionality to the cdk8s cli
 
 * **Multiple values.schema.json**
 
-  We are considering only the `values.schema.json` present at the root of the chart since helm by default looks for `values.yaml` at the root of the chart. I have seen multiple values.yaml files in a chart's sub-folders and these can have schema associate with them. 
+  We are considering only the `values.schema.json` present at the root of the chart since helm by default looks for `values.yaml` at the root of the chart. I have seen multiple values.yaml files in a chart's sub-folders and these can have schema associated with them. 
 
   We can combine all the schema files we find in a chart to one schema file and code generate on it. But there can be conflicts in doing this.
 
