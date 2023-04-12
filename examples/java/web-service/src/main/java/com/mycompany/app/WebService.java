@@ -1,30 +1,10 @@
 package com.mycompany.app;
 
+import org.cdk8s.plus25.k8s.*;
+import org.jetbrains.annotations.NotNull;
 import software.constructs.Construct;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
-
-import org.cdk8s.App;
-import org.cdk8s.Chart;
-
-import imports.k8s.IntOrString;
-import imports.k8s.LabelSelector;
-import imports.k8s.ObjectMeta;
-import imports.k8s.PodTemplateSpec;
-import imports.k8s.KubeService;
-import imports.k8s.KubeServiceProps;
-import imports.k8s.ServicePort;
-import imports.k8s.ServiceSpec;
-import imports.k8s.DeploymentSpec;
-import imports.k8s.PodSpec;
-import imports.k8s.Container;
-import imports.k8s.ContainerPort;
-import imports.k8s.KubeDeployment;
-import imports.k8s.KubeDeploymentProps;
+import java.util.*;
 
 /**
  * Hello world!
@@ -32,11 +12,7 @@ import imports.k8s.KubeDeploymentProps;
 public class WebService extends Construct 
 {
 
-    public WebService(final Construct scope, final String id) {
-        this(scope, id, null);
-    }
-
-    public WebService(final Construct scope, final String id, final WebServiceOptions options) {
+    public WebService(@NotNull final Construct scope,@NotNull final String id, final WebServiceOptions options) {
         super(scope, id);
 
         final int portNumber = Optional.of(options.getPort()).orElse(80);
@@ -88,7 +64,7 @@ public class WebService extends Construct
             .spec(podSpec)
             .build();
         final DeploymentSpec deploymentSpec = new DeploymentSpec.Builder()
-            .replicas(1)
+            .replicas(replicas)
             .selector(labelSelector)
             .template(podTemplateSpec)
             .build();
