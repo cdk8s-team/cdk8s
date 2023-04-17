@@ -1132,7 +1132,6 @@ Here's how to implement `WebService`:
     )
 
     type WebServiceProps struct {
-      constructs.ConstructOptions
       Image         *string
       Replicas      *float64
       Port          *float64
@@ -1140,11 +1139,7 @@ Here's how to implement `WebService`:
     }
 
     func NewWebService(scope constructs.Construct, id *string, props *WebServiceProps) constructs.Construct {
-      var cprops constructs.ConstructOptions
-      if props != nil {
-        cprops = props.ConstructOptions
-      }
-      construct := constructs.NewConstruct(scope, id, &cprops)
+      construct := constructs.NewConstruct(scope, id)
 
       replicas := props.Replicas
       if replicas == nil {
