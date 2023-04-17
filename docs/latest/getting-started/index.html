@@ -3438,7 +3438,6 @@ actually quite useful.</p>
 <span class="p">)</span>
 
 <span class="kd">type</span><span class="w"> </span><span class="nx">WebServiceProps</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">constructs</span><span class="p">.</span><span class="nx">ConstructOptions</span>
 <span class="w">  </span><span class="nx">Image</span><span class="w">         </span><span class="o">*</span><span class="kt">string</span>
 <span class="w">  </span><span class="nx">Replicas</span><span class="w">      </span><span class="o">*</span><span class="kt">float64</span>
 <span class="w">  </span><span class="nx">Port</span><span class="w">          </span><span class="o">*</span><span class="kt">float64</span>
@@ -3446,11 +3445,7 @@ actually quite useful.</p>
 <span class="p">}</span>
 
 <span class="kd">func</span><span class="w"> </span><span class="nx">NewWebService</span><span class="p">(</span><span class="nx">scope</span><span class="w"> </span><span class="nx">constructs</span><span class="p">.</span><span class="nx">Construct</span><span class="p">,</span><span class="w"> </span><span class="nx">id</span><span class="w"> </span><span class="o">*</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">props</span><span class="w"> </span><span class="o">*</span><span class="nx">WebServiceProps</span><span class="p">)</span><span class="w"> </span><span class="nx">constructs</span><span class="p">.</span><span class="nx">Construct</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">cprops</span><span class="w"> </span><span class="nx">constructs</span><span class="p">.</span><span class="nx">ConstructOptions</span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="nx">props</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">cprops</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">props</span><span class="p">.</span><span class="nx">ConstructOptions</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="w">  </span><span class="nx">construct</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">constructs</span><span class="p">.</span><span class="nx">NewConstruct</span><span class="p">(</span><span class="nx">scope</span><span class="p">,</span><span class="w"> </span><span class="nx">id</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">cprops</span><span class="p">)</span>
+<span class="w">  </span><span class="nx">construct</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">constructs</span><span class="p">.</span><span class="nx">NewConstruct</span><span class="p">(</span><span class="nx">scope</span><span class="p">,</span><span class="w"> </span><span class="nx">id</span><span class="p">)</span>
 
 <span class="w">  </span><span class="nx">replicas</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">props</span><span class="p">.</span><span class="nx">Replicas</span>
 <span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="nx">replicas</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
