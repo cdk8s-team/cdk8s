@@ -70,7 +70,7 @@ from constructs import Construct
 from cdk8s import App, Chart
 from imports import k8s
 
-class MyChart(Chart):
+class MyAwesomeApp(Chart):
     def __init__(self, scope: Construct, id: str):
         super().__init__(scope, id)
 
@@ -84,15 +84,15 @@ class MyChart(Chart):
         )
 
 app = App()
-MyChart(app, "python-service")
+MyAwesomeApp(app, "python-service")
 
 app.synth()
 ```
 
 A few things worth noting about this sample:
 
-* The `__init__` method of the `MyChart` class creates a Kubernetes [Service](https://kubernetes.io/docs/concepts/services-networking/service/) by instantiating the `k8s.KubeService` class with the following parameters: `self` as the scope of the Service resource within the `MyChart` class, a string identifier "my-service", and a `k8s.ServiceSpec` object that defines the Service specification with a selector dictionary having the key "app" and the value "my-app", a list of ports containing a single `k8s.ServicePort` object with a port set to 80 and a target_port set to 8080, and a `type` parameter with the value "LoadBalancer".
-* An instance of the `MyChart` class is created with the identifier "python-service".
+* The `__init__` method of the `MyAwesomeApp` class creates a Kubernetes [Service](https://kubernetes.io/docs/concepts/services-networking/service/) by instantiating the `k8s.KubeService` class with the following parameters: `self` as the scope of the Service resource within the `MyAwesomeApp` class, a string identifier "my-service", and a `k8s.ServiceSpec` object that defines the Service specification with a selector dictionary having the key "app" and the value "my-app", a list of ports containing a single `k8s.ServicePort` object with a port set to 80 and a target_port set to 8080, and a `type` parameter with the value "LoadBalancer".
+* An instance of the `MyAwesomeApp` class is created with the identifier "python-service".
 
 ## Generating Kubernetes manifests
 After you have defined the Kubernetes resources for your project, you are ready to generate the Kubernetes manifest that will define your Service resource. 
