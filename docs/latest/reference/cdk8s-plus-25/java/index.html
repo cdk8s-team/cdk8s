@@ -5580,6 +5580,7 @@
 <span class="c1">//  .dns(PodDnsProps)</span>
 <span class="c1">//  .dockerRegistryAuth(ISecret)</span>
 <span class="c1">//  .hostAliases(java.util.List&lt;HostAlias&gt;)</span>
+<span class="c1">//  .hostNetwork(java.lang.Boolean)</span>
 <span class="c1">//  .initContainers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .isolate(java.lang.Boolean)</span>
 <span class="c1">//  .restartPolicy(RestartPolicy)</span>
@@ -5647,6 +5648,13 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.plus25.HostAlias"><code>org.cdk8s.plus25.HostAlias</code></a>&gt;</li>
 </ul>
 <p>HostAlias holds the mapping between IP and hostnames that will be injected as an entry in the pod&rsquo;s hosts file.</p>
+<hr />
+<h5 id="hostnetworkoptional"><code>hostNetwork</code><sup>Optional</sup> <a name="org.cdk8s.plus25.AbstractPodProps.parameter.hostNetwork"></a><a class="headerlink" href="#hostnetworkoptional" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Host network for the pod.</p>
 <hr />
 <h5 id="initcontainersoptional"><code>initContainers</code><sup>Optional</sup> <a name="org.cdk8s.plus25.AbstractPodProps.parameter.initContainers"></a><a class="headerlink" href="#initcontainersoptional" title="Permanent link">&para;</a></h5>
 <ul>
@@ -5835,6 +5843,13 @@ Account (for example, default).</p>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus25.ISecret"><code>org.cdk8s.plus25.ISecret</code></a></li>
+</ul>
+<hr />
+<h5 id="hostnetworkoptional_1"><code>hostNetwork</code><sup>Optional</sup> <a name="org.cdk8s.plus25.AbstractPod.property.hostNetwork"></a><a class="headerlink" href="#hostnetworkoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span><span class="w"> </span><span class="nf">getHostNetwork</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
 </ul>
 <hr />
 <h5 id="restartpolicyoptional_1"><code>restartPolicy</code><sup>Optional</sup> <a name="org.cdk8s.plus25.AbstractPod.property.restartPolicy"></a><a class="headerlink" href="#restartpolicyoptional_1" title="Permanent link">&para;</a></h5>
@@ -6767,6 +6782,7 @@ is enforced during validation process.</p>
 <span class="c1">//  .dns(PodDnsProps)</span>
 <span class="c1">//  .dockerRegistryAuth(ISecret)</span>
 <span class="c1">//  .hostAliases(java.util.List&lt;HostAlias&gt;)</span>
+<span class="c1">//  .hostNetwork(java.lang.Boolean)</span>
 <span class="c1">//  .initContainers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .isolate(java.lang.Boolean)</span>
 <span class="c1">//  .restartPolicy(RestartPolicy)</span>
@@ -6847,6 +6863,13 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.plus25.HostAlias"><code>org.cdk8s.plus25.HostAlias</code></a>&gt;</li>
 </ul>
 <p>HostAlias holds the mapping between IP and hostnames that will be injected as an entry in the pod&rsquo;s hosts file.</p>
+<hr />
+<h5 id="hostnetworkoptional_2"><code>hostNetwork</code><sup>Optional</sup> <a name="org.cdk8s.plus25.CronJobProps.parameter.hostNetwork"></a><a class="headerlink" href="#hostnetworkoptional_2" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Host network for the pod.</p>
 <hr />
 <h5 id="initcontainersoptional_1"><code>initContainers</code><sup>Optional</sup> <a name="org.cdk8s.plus25.CronJobProps.parameter.initContainers"></a><a class="headerlink" href="#initcontainersoptional_1" title="Permanent link">&para;</a></h5>
 <ul>
@@ -7131,6 +7154,7 @@ but with different flags and/or different memory and cpu requests for different 
 <span class="c1">//  .dns(PodDnsProps)</span>
 <span class="c1">//  .dockerRegistryAuth(ISecret)</span>
 <span class="c1">//  .hostAliases(java.util.List&lt;HostAlias&gt;)</span>
+<span class="c1">//  .hostNetwork(java.lang.Boolean)</span>
 <span class="c1">//  .initContainers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .isolate(java.lang.Boolean)</span>
 <span class="c1">//  .restartPolicy(RestartPolicy)</span>
@@ -7202,6 +7226,13 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.plus25.HostAlias"><code>org.cdk8s.plus25.HostAlias</code></a>&gt;</li>
 </ul>
 <p>HostAlias holds the mapping between IP and hostnames that will be injected as an entry in the pod&rsquo;s hosts file.</p>
+<hr />
+<h5 id="hostnetworkoptional_3"><code>hostNetwork</code><sup>Optional</sup> <a name="org.cdk8s.plus25.DaemonSetProps.parameter.hostNetwork"></a><a class="headerlink" href="#hostnetworkoptional_3" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Host network for the pod.</p>
 <hr />
 <h5 id="initcontainersoptional_2"><code>initContainers</code><sup>Optional</sup> <a name="org.cdk8s.plus25.DaemonSetProps.parameter.initContainers"></a><a class="headerlink" href="#initcontainersoptional_2" title="Permanent link">&para;</a></h5>
 <ul>
@@ -7359,6 +7390,7 @@ existing Deployments and adopt all their resources with new Deployments.</p>
 <span class="c1">//  .dns(PodDnsProps)</span>
 <span class="c1">//  .dockerRegistryAuth(ISecret)</span>
 <span class="c1">//  .hostAliases(java.util.List&lt;HostAlias&gt;)</span>
+<span class="c1">//  .hostNetwork(java.lang.Boolean)</span>
 <span class="c1">//  .initContainers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .isolate(java.lang.Boolean)</span>
 <span class="c1">//  .restartPolicy(RestartPolicy)</span>
@@ -7433,6 +7465,13 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.plus25.HostAlias"><code>org.cdk8s.plus25.HostAlias</code></a>&gt;</li>
 </ul>
 <p>HostAlias holds the mapping between IP and hostnames that will be injected as an entry in the pod&rsquo;s hosts file.</p>
+<hr />
+<h5 id="hostnetworkoptional_4"><code>hostNetwork</code><sup>Optional</sup> <a name="org.cdk8s.plus25.DeploymentProps.parameter.hostNetwork"></a><a class="headerlink" href="#hostnetworkoptional_4" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Host network for the pod.</p>
 <hr />
 <h5 id="initcontainersoptional_3"><code>initContainers</code><sup>Optional</sup> <a name="org.cdk8s.plus25.DeploymentProps.parameter.initContainers"></a><a class="headerlink" href="#initcontainersoptional_3" title="Permanent link">&para;</a></h5>
 <ul>
@@ -8273,6 +8312,7 @@ You can also use a Job to run multiple Pods in parallel.</p>
 <span class="c1">//  .dns(PodDnsProps)</span>
 <span class="c1">//  .dockerRegistryAuth(ISecret)</span>
 <span class="c1">//  .hostAliases(java.util.List&lt;HostAlias&gt;)</span>
+<span class="c1">//  .hostNetwork(java.lang.Boolean)</span>
 <span class="c1">//  .initContainers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .isolate(java.lang.Boolean)</span>
 <span class="c1">//  .restartPolicy(RestartPolicy)</span>
@@ -8346,6 +8386,13 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.plus25.HostAlias"><code>org.cdk8s.plus25.HostAlias</code></a>&gt;</li>
 </ul>
 <p>HostAlias holds the mapping between IP and hostnames that will be injected as an entry in the pod&rsquo;s hosts file.</p>
+<hr />
+<h5 id="hostnetworkoptional_5"><code>hostNetwork</code><sup>Optional</sup> <a name="org.cdk8s.plus25.JobProps.parameter.hostNetwork"></a><a class="headerlink" href="#hostnetworkoptional_5" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Host network for the pod.</p>
 <hr />
 <h5 id="initcontainersoptional_4"><code>initContainers</code><sup>Optional</sup> <a name="org.cdk8s.plus25.JobProps.parameter.initContainers"></a><a class="headerlink" href="#initcontainersoptional_4" title="Permanent link">&para;</a></h5>
 <ul>
@@ -9279,6 +9326,7 @@ created by clients and scheduled onto hosts.</p>
 <span class="c1">//  .dns(PodDnsProps)</span>
 <span class="c1">//  .dockerRegistryAuth(ISecret)</span>
 <span class="c1">//  .hostAliases(java.util.List&lt;HostAlias&gt;)</span>
+<span class="c1">//  .hostNetwork(java.lang.Boolean)</span>
 <span class="c1">//  .initContainers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .isolate(java.lang.Boolean)</span>
 <span class="c1">//  .restartPolicy(RestartPolicy)</span>
@@ -9346,6 +9394,13 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.plus25.HostAlias"><code>org.cdk8s.plus25.HostAlias</code></a>&gt;</li>
 </ul>
 <p>HostAlias holds the mapping between IP and hostnames that will be injected as an entry in the pod&rsquo;s hosts file.</p>
+<hr />
+<h5 id="hostnetworkoptional_6"><code>hostNetwork</code><sup>Optional</sup> <a name="org.cdk8s.plus25.PodProps.parameter.hostNetwork"></a><a class="headerlink" href="#hostnetworkoptional_6" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Host network for the pod.</p>
 <hr />
 <h5 id="initcontainersoptional_5"><code>initContainers</code><sup>Optional</sup> <a name="org.cdk8s.plus25.PodProps.parameter.initContainers"></a><a class="headerlink" href="#initcontainersoptional_5" title="Permanent link">&para;</a></h5>
 <ul>
@@ -10502,6 +10557,7 @@ volumes to the new Pods that replace any that have failed.</p>
 <span class="c1">//  .dns(PodDnsProps)</span>
 <span class="c1">//  .dockerRegistryAuth(ISecret)</span>
 <span class="c1">//  .hostAliases(java.util.List&lt;HostAlias&gt;)</span>
+<span class="c1">//  .hostNetwork(java.lang.Boolean)</span>
 <span class="c1">//  .initContainers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .isolate(java.lang.Boolean)</span>
 <span class="c1">//  .restartPolicy(RestartPolicy)</span>
@@ -10577,6 +10633,13 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.plus25.HostAlias"><code>org.cdk8s.plus25.HostAlias</code></a>&gt;</li>
 </ul>
 <p>HostAlias holds the mapping between IP and hostnames that will be injected as an entry in the pod&rsquo;s hosts file.</p>
+<hr />
+<h5 id="hostnetworkoptional_7"><code>hostNetwork</code><sup>Optional</sup> <a name="org.cdk8s.plus25.StatefulSetProps.parameter.hostNetwork"></a><a class="headerlink" href="#hostnetworkoptional_7" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Host network for the pod.</p>
 <hr />
 <h5 id="initcontainersoptional_6"><code>initContainers</code><sup>Optional</sup> <a name="org.cdk8s.plus25.StatefulSetProps.parameter.initContainers"></a><a class="headerlink" href="#initcontainersoptional_6" title="Permanent link">&para;</a></h5>
 <ul>
@@ -11183,6 +11246,7 @@ In Kubernetes, a Pod represents a set of running containers on your cluster.</p>
 <span class="c1">//  .dns(PodDnsProps)</span>
 <span class="c1">//  .dockerRegistryAuth(ISecret)</span>
 <span class="c1">//  .hostAliases(java.util.List&lt;HostAlias&gt;)</span>
+<span class="c1">//  .hostNetwork(java.lang.Boolean)</span>
 <span class="c1">//  .initContainers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .isolate(java.lang.Boolean)</span>
 <span class="c1">//  .restartPolicy(RestartPolicy)</span>
@@ -11253,6 +11317,13 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.plus25.HostAlias"><code>org.cdk8s.plus25.HostAlias</code></a>&gt;</li>
 </ul>
 <p>HostAlias holds the mapping between IP and hostnames that will be injected as an entry in the pod&rsquo;s hosts file.</p>
+<hr />
+<h5 id="hostnetworkoptional_8"><code>hostNetwork</code><sup>Optional</sup> <a name="org.cdk8s.plus25.WorkloadProps.parameter.hostNetwork"></a><a class="headerlink" href="#hostnetworkoptional_8" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Host network for the pod.</p>
 <hr />
 <h5 id="initcontainersoptional_7"><code>initContainers</code><sup>Optional</sup> <a name="org.cdk8s.plus25.WorkloadProps.parameter.initContainers"></a><a class="headerlink" href="#initcontainersoptional_7" title="Permanent link">&para;</a></h5>
 <ul>
@@ -11414,6 +11485,7 @@ its pod template.</p>
 <span class="c1">//  .dns(PodDnsProps)</span>
 <span class="c1">//  .dockerRegistryAuth(ISecret)</span>
 <span class="c1">//  .hostAliases(java.util.List&lt;HostAlias&gt;)</span>
+<span class="c1">//  .hostNetwork(java.lang.Boolean)</span>
 <span class="c1">//  .initContainers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .isolate(java.lang.Boolean)</span>
 <span class="c1">//  .restartPolicy(RestartPolicy)</span>
@@ -11483,6 +11555,15 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.plus25.HostAlias"><code>org.cdk8s.plus25.HostAlias</code></a>&gt;</li>
 </ul>
 <p>HostAlias holds the mapping between IP and hostnames that will be injected as an entry in the pod&rsquo;s hosts file.</p>
+<hr />
+<h5 id="hostnetworkoptional_9"><code>hostNetwork</code><sup>Optional</sup> <a name="org.cdk8s.plus25.AbstractPodProps.property.hostNetwork"></a><a class="headerlink" href="#hostnetworkoptional_9" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span><span class="w"> </span><span class="nf">getHostNetwork</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Host network for the pod.</p>
 <hr />
 <h5 id="initcontainersoptional_8"><code>initContainers</code><sup>Optional</sup> <a name="org.cdk8s.plus25.AbstractPodProps.property.initContainers"></a><a class="headerlink" href="#initcontainersoptional_8" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">ContainerProps</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getInitContainers</span><span class="p">();</span>
@@ -12453,7 +12534,7 @@ file mode, like fsGroup, and the result can be other mode bits set.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">PathMapping</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getItems</span><span class="p">();</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus25.PathMapping">klzzwxh:11898</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus25.PathMapping">klzzwxh:12004</a>></li>
 <li><em>Default:</em> no mapping</li>
 </ul>
 <p>If unspecified, each key-value pair in the Data field of the referenced ConfigMap will be projected into the volume as a file whose name is the key and content is the value.</p>
@@ -12663,7 +12744,7 @@ with a duplicate key will take precedence.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">EnvValue</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getEnvVariables</span><span class="p">();</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus25.EnvValue">klzzwxh:11852</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus25.EnvValue">klzzwxh:11958</a>></li>
 <li><em>Default:</em> No environment variables.</li>
 </ul>
 <p>Environment variables to set in the container.</p>
@@ -12956,6 +13037,7 @@ somehow it manages to get access to host file system.</li>
 <span class="c1">//  .dns(PodDnsProps)</span>
 <span class="c1">//  .dockerRegistryAuth(ISecret)</span>
 <span class="c1">//  .hostAliases(java.util.List&lt;HostAlias&gt;)</span>
+<span class="c1">//  .hostNetwork(java.lang.Boolean)</span>
 <span class="c1">//  .initContainers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .isolate(java.lang.Boolean)</span>
 <span class="c1">//  .restartPolicy(RestartPolicy)</span>
@@ -13038,6 +13120,15 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.plus25.HostAlias"><code>org.cdk8s.plus25.HostAlias</code></a>&gt;</li>
 </ul>
 <p>HostAlias holds the mapping between IP and hostnames that will be injected as an entry in the pod&rsquo;s hosts file.</p>
+<hr />
+<h5 id="hostnetworkoptional_10"><code>hostNetwork</code><sup>Optional</sup> <a name="org.cdk8s.plus25.CronJobProps.property.hostNetwork"></a><a class="headerlink" href="#hostnetworkoptional_10" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span><span class="w"> </span><span class="nf">getHostNetwork</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Host network for the pod.</p>
 <hr />
 <h5 id="initcontainersoptional_9"><code>initContainers</code><sup>Optional</sup> <a name="org.cdk8s.plus25.CronJobProps.property.initContainers"></a><a class="headerlink" href="#initcontainersoptional_9" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">ContainerProps</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getInitContainers</span><span class="p">();</span>
@@ -13333,6 +13424,7 @@ determine the default filesystem to apply.</p>
 <span class="c1">//  .dns(PodDnsProps)</span>
 <span class="c1">//  .dockerRegistryAuth(ISecret)</span>
 <span class="c1">//  .hostAliases(java.util.List&lt;HostAlias&gt;)</span>
+<span class="c1">//  .hostNetwork(java.lang.Boolean)</span>
 <span class="c1">//  .initContainers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .isolate(java.lang.Boolean)</span>
 <span class="c1">//  .restartPolicy(RestartPolicy)</span>
@@ -13406,6 +13498,15 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.plus25.HostAlias"><code>org.cdk8s.plus25.HostAlias</code></a>&gt;</li>
 </ul>
 <p>HostAlias holds the mapping between IP and hostnames that will be injected as an entry in the pod&rsquo;s hosts file.</p>
+<hr />
+<h5 id="hostnetworkoptional_11"><code>hostNetwork</code><sup>Optional</sup> <a name="org.cdk8s.plus25.DaemonSetProps.property.hostNetwork"></a><a class="headerlink" href="#hostnetworkoptional_11" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span><span class="w"> </span><span class="nf">getHostNetwork</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Host network for the pod.</p>
 <hr />
 <h5 id="initcontainersoptional_10"><code>initContainers</code><sup>Optional</sup> <a name="org.cdk8s.plus25.DaemonSetProps.property.initContainers"></a><a class="headerlink" href="#initcontainersoptional_10" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">ContainerProps</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getInitContainers</span><span class="p">();</span>
@@ -13583,6 +13684,7 @@ you must explicitly set a name starting from the second expose call.</p>
 <span class="c1">//  .dns(PodDnsProps)</span>
 <span class="c1">//  .dockerRegistryAuth(ISecret)</span>
 <span class="c1">//  .hostAliases(java.util.List&lt;HostAlias&gt;)</span>
+<span class="c1">//  .hostNetwork(java.lang.Boolean)</span>
 <span class="c1">//  .initContainers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .isolate(java.lang.Boolean)</span>
 <span class="c1">//  .restartPolicy(RestartPolicy)</span>
@@ -13659,6 +13761,15 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.plus25.HostAlias"><code>org.cdk8s.plus25.HostAlias</code></a>&gt;</li>
 </ul>
 <p>HostAlias holds the mapping between IP and hostnames that will be injected as an entry in the pod&rsquo;s hosts file.</p>
+<hr />
+<h5 id="hostnetworkoptional_12"><code>hostNetwork</code><sup>Optional</sup> <a name="org.cdk8s.plus25.DeploymentProps.property.hostNetwork"></a><a class="headerlink" href="#hostnetworkoptional_12" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span><span class="w"> </span><span class="nf">getHostNetwork</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Host network for the pod.</p>
 <hr />
 <h5 id="initcontainersoptional_11"><code>initContainers</code><sup>Optional</sup> <a name="org.cdk8s.plus25.DeploymentProps.property.initContainers"></a><a class="headerlink" href="#initcontainersoptional_11" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">ContainerProps</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getInitContainers</span><span class="p">();</span>
@@ -14856,6 +14967,7 @@ termination and value of the Host header is used for routing.</p>
 <span class="c1">//  .dns(PodDnsProps)</span>
 <span class="c1">//  .dockerRegistryAuth(ISecret)</span>
 <span class="c1">//  .hostAliases(java.util.List&lt;HostAlias&gt;)</span>
+<span class="c1">//  .hostNetwork(java.lang.Boolean)</span>
 <span class="c1">//  .initContainers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .isolate(java.lang.Boolean)</span>
 <span class="c1">//  .restartPolicy(RestartPolicy)</span>
@@ -14931,6 +15043,15 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.plus25.HostAlias"><code>org.cdk8s.plus25.HostAlias</code></a>&gt;</li>
 </ul>
 <p>HostAlias holds the mapping between IP and hostnames that will be injected as an entry in the pod&rsquo;s hosts file.</p>
+<hr />
+<h5 id="hostnetworkoptional_13"><code>hostNetwork</code><sup>Optional</sup> <a name="org.cdk8s.plus25.JobProps.property.hostNetwork"></a><a class="headerlink" href="#hostnetworkoptional_13" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span><span class="w"> </span><span class="nf">getHostNetwork</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Host network for the pod.</p>
 <hr />
 <h5 id="initcontainersoptional_12"><code>initContainers</code><sup>Optional</sup> <a name="org.cdk8s.plus25.JobProps.property.initContainers"></a><a class="headerlink" href="#initcontainersoptional_12" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">ContainerProps</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getInitContainers</span><span class="p">();</span>
@@ -16056,6 +16177,7 @@ Duplicate domain names are removed.</p>
 <span class="c1">//  .dns(PodDnsProps)</span>
 <span class="c1">//  .dockerRegistryAuth(ISecret)</span>
 <span class="c1">//  .hostAliases(java.util.List&lt;HostAlias&gt;)</span>
+<span class="c1">//  .hostNetwork(java.lang.Boolean)</span>
 <span class="c1">//  .initContainers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .isolate(java.lang.Boolean)</span>
 <span class="c1">//  .restartPolicy(RestartPolicy)</span>
@@ -16125,6 +16247,15 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.plus25.HostAlias"><code>org.cdk8s.plus25.HostAlias</code></a>&gt;</li>
 </ul>
 <p>HostAlias holds the mapping between IP and hostnames that will be injected as an entry in the pod&rsquo;s hosts file.</p>
+<hr />
+<h5 id="hostnetworkoptional_14"><code>hostNetwork</code><sup>Optional</sup> <a name="org.cdk8s.plus25.PodProps.property.hostNetwork"></a><a class="headerlink" href="#hostnetworkoptional_14" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span><span class="w"> </span><span class="nf">getHostNetwork</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Host network for the pod.</p>
 <hr />
 <h5 id="initcontainersoptional_13"><code>initContainers</code><sup>Optional</sup> <a name="org.cdk8s.plus25.PodProps.property.initContainers"></a><a class="headerlink" href="#initcontainersoptional_13" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">ContainerProps</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getInitContainers</span><span class="p">();</span>
@@ -16844,7 +16975,7 @@ file mode, like fsGroup, and the result can be other mode bits set.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">PathMapping</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getItems</span><span class="p">();</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus25.PathMapping">klzzwxh:10803</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus25.PathMapping">klzzwxh:10894</a>></li>
 <li><em>Default:</em> no mapping</li>
 </ul>
 <p>If unspecified, each key-value pair in the Data field of the referenced secret will be projected into the volume as a file whose name is the key and content is the value.</p>
@@ -17262,6 +17393,7 @@ its endpoints, which Kubernetes will not modify.</li>
 <span class="c1">//  .dns(PodDnsProps)</span>
 <span class="c1">//  .dockerRegistryAuth(ISecret)</span>
 <span class="c1">//  .hostAliases(java.util.List&lt;HostAlias&gt;)</span>
+<span class="c1">//  .hostNetwork(java.lang.Boolean)</span>
 <span class="c1">//  .initContainers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .isolate(java.lang.Boolean)</span>
 <span class="c1">//  .restartPolicy(RestartPolicy)</span>
@@ -17339,6 +17471,15 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.plus25.HostAlias"><code>org.cdk8s.plus25.HostAlias</code></a>&gt;</li>
 </ul>
 <p>HostAlias holds the mapping between IP and hostnames that will be injected as an entry in the pod&rsquo;s hosts file.</p>
+<hr />
+<h5 id="hostnetworkoptional_15"><code>hostNetwork</code><sup>Optional</sup> <a name="org.cdk8s.plus25.StatefulSetProps.property.hostNetwork"></a><a class="headerlink" href="#hostnetworkoptional_15" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span><span class="w"> </span><span class="nf">getHostNetwork</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Host network for the pod.</p>
 <hr />
 <h5 id="initcontainersoptional_14"><code>initContainers</code><sup>Optional</sup> <a name="org.cdk8s.plus25.StatefulSetProps.property.initContainers"></a><a class="headerlink" href="#initcontainersoptional_14" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">ContainerProps</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getInitContainers</span><span class="p">();</span>
@@ -17832,6 +17973,7 @@ contain &lsquo;:&rsquo;.</p>
 <span class="c1">//  .dns(PodDnsProps)</span>
 <span class="c1">//  .dockerRegistryAuth(ISecret)</span>
 <span class="c1">//  .hostAliases(java.util.List&lt;HostAlias&gt;)</span>
+<span class="c1">//  .hostNetwork(java.lang.Boolean)</span>
 <span class="c1">//  .initContainers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .isolate(java.lang.Boolean)</span>
 <span class="c1">//  .restartPolicy(RestartPolicy)</span>
@@ -17904,6 +18046,15 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.plus25.HostAlias"><code>org.cdk8s.plus25.HostAlias</code></a>&gt;</li>
 </ul>
 <p>HostAlias holds the mapping between IP and hostnames that will be injected as an entry in the pod&rsquo;s hosts file.</p>
+<hr />
+<h5 id="hostnetworkoptional_16"><code>hostNetwork</code><sup>Optional</sup> <a name="org.cdk8s.plus25.WorkloadProps.property.hostNetwork"></a><a class="headerlink" href="#hostnetworkoptional_16" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span><span class="w"> </span><span class="nf">getHostNetwork</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Host network for the pod.</p>
 <hr />
 <h5 id="initcontainersoptional_15"><code>initContainers</code><sup>Optional</sup> <a name="org.cdk8s.plus25.WorkloadProps.property.initContainers"></a><a class="headerlink" href="#initcontainersoptional_15" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">ContainerProps</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getInitContainers</span><span class="p">();</span>
@@ -18488,7 +18639,7 @@ with a duplicate key will take precedence.</p>
 <hr />
 <h5 id="envvariablesoptional_1"><code>envVariables</code><sup>Optional</sup> <a name="org.cdk8s.plus25.ContainerProps.parameter.envVariables"></a><a class="headerlink" href="#envvariablesoptional_1" title="Permanent link">&para;</a></h5>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus25.EnvValue">klzzwxh:10319</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus25.EnvValue">klzzwxh:10404</a>></li>
 <li><em>Default:</em> No environment variables.</li>
 </ul>
 <p>Environment variables to set in the container.</p>
@@ -18928,7 +19079,7 @@ somehow it manages to get access to host file system.</li>
 <hr />
 <h5 id="variablesrequired"><code>variables</code><sup>Required</sup> <a name="org.cdk8s.plus25.Env.parameter.variables"></a><a class="headerlink" href="#variablesrequired" title="Permanent link">&para;</a></h5>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus25.EnvValue">klzzwxh:10179</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus25.EnvValue">klzzwxh:10264</a>></li>
 </ul>
 <hr />
 <h4 id="methods_26">Methods <a name="Methods"></a><a class="headerlink" href="#methods_26" title="Permanent link">&para;</a></h4>
@@ -18994,7 +19145,7 @@ somehow it manages to get access to host file system.</li>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">EnvValue</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getVariables</span><span class="p">();</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus25.EnvValue">klzzwxh:10156</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus25.EnvValue">klzzwxh:10241</a>></li>
 </ul>
 <p>The environment variables for this container.</p>
 <p>Returns a copy. To add environment variables use <code>container.env.addVariable()</code>.</p>

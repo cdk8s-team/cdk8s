@@ -5582,6 +5582,7 @@
   <span class="n">dns</span><span class="p">:</span> <span class="n">PodDnsProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">ISecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_aliases</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">HostAlias</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">host_network</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">init_containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">isolate</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">restart_policy</span><span class="p">:</span> <span class="n">RestartPolicy</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -5649,6 +5650,13 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Type:</em> typing.List[<a href="#cdk8s_plus_24.HostAlias"><code>cdk8s_plus_24.HostAlias</code></a>]</li>
 </ul>
 <p>HostAlias holds the mapping between IP and hostnames that will be injected as an entry in the pod&rsquo;s hosts file.</p>
+<hr />
+<h5 id="host_networkoptional"><code>host_network</code><sup>Optional</sup> <a name="cdk8s_plus_24.AbstractPodProps.parameter.host_network"></a><a class="headerlink" href="#host_networkoptional" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>bool</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Host network for the pod.</p>
 <hr />
 <h5 id="init_containersoptional"><code>init_containers</code><sup>Optional</sup> <a name="cdk8s_plus_24.AbstractPodProps.parameter.init_containers"></a><a class="headerlink" href="#init_containersoptional" title="Permanent link">&para;</a></h5>
 <ul>
@@ -6221,6 +6229,13 @@ Otherwise, no startup probe is defined.</li>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s_plus_24.ISecret"><code>cdk8s_plus_24.ISecret</code></a></li>
+</ul>
+<hr />
+<h5 id="host_networkoptional_1"><code>host_network</code><sup>Optional</sup> <a name="cdk8s_plus_24.AbstractPod.property.host_network"></a><a class="headerlink" href="#host_networkoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">host_network</span><span class="p">:</span> <span class="nb">bool</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>bool</code></li>
 </ul>
 <hr />
 <h5 id="restart_policyoptional_1"><code>restart_policy</code><sup>Optional</sup> <a name="cdk8s_plus_24.AbstractPod.property.restart_policy"></a><a class="headerlink" href="#restart_policyoptional_1" title="Permanent link">&para;</a></h5>
@@ -7229,6 +7244,7 @@ is enforced during validation process.</p>
   <span class="n">dns</span><span class="p">:</span> <span class="n">PodDnsProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">ISecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_aliases</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">HostAlias</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">host_network</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">init_containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">isolate</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">restart_policy</span><span class="p">:</span> <span class="n">RestartPolicy</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -7309,6 +7325,13 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Type:</em> typing.List[<a href="#cdk8s_plus_24.HostAlias"><code>cdk8s_plus_24.HostAlias</code></a>]</li>
 </ul>
 <p>HostAlias holds the mapping between IP and hostnames that will be injected as an entry in the pod&rsquo;s hosts file.</p>
+<hr />
+<h5 id="host_networkoptional_2"><code>host_network</code><sup>Optional</sup> <a name="cdk8s_plus_24.CronJobProps.parameter.host_network"></a><a class="headerlink" href="#host_networkoptional_2" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>bool</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Host network for the pod.</p>
 <hr />
 <h5 id="init_containersoptional_1"><code>init_containers</code><sup>Optional</sup> <a name="cdk8s_plus_24.CronJobProps.parameter.init_containers"></a><a class="headerlink" href="#init_containersoptional_1" title="Permanent link">&para;</a></h5>
 <ul>
@@ -7595,6 +7618,7 @@ but with different flags and/or different memory and cpu requests for different 
   <span class="n">dns</span><span class="p">:</span> <span class="n">PodDnsProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">ISecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_aliases</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">HostAlias</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">host_network</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">init_containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">isolate</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">restart_policy</span><span class="p">:</span> <span class="n">RestartPolicy</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -7666,6 +7690,13 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Type:</em> typing.List[<a href="#cdk8s_plus_24.HostAlias"><code>cdk8s_plus_24.HostAlias</code></a>]</li>
 </ul>
 <p>HostAlias holds the mapping between IP and hostnames that will be injected as an entry in the pod&rsquo;s hosts file.</p>
+<hr />
+<h5 id="host_networkoptional_3"><code>host_network</code><sup>Optional</sup> <a name="cdk8s_plus_24.DaemonSetProps.parameter.host_network"></a><a class="headerlink" href="#host_networkoptional_3" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>bool</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Host network for the pod.</p>
 <hr />
 <h5 id="init_containersoptional_2"><code>init_containers</code><sup>Optional</sup> <a name="cdk8s_plus_24.DaemonSetProps.parameter.init_containers"></a><a class="headerlink" href="#init_containersoptional_2" title="Permanent link">&para;</a></h5>
 <ul>
@@ -7825,6 +7856,7 @@ existing Deployments and adopt all their resources with new Deployments.</p>
   <span class="n">dns</span><span class="p">:</span> <span class="n">PodDnsProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">ISecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_aliases</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">HostAlias</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">host_network</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">init_containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">isolate</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">restart_policy</span><span class="p">:</span> <span class="n">RestartPolicy</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -7899,6 +7931,13 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Type:</em> typing.List[<a href="#cdk8s_plus_24.HostAlias"><code>cdk8s_plus_24.HostAlias</code></a>]</li>
 </ul>
 <p>HostAlias holds the mapping between IP and hostnames that will be injected as an entry in the pod&rsquo;s hosts file.</p>
+<hr />
+<h5 id="host_networkoptional_4"><code>host_network</code><sup>Optional</sup> <a name="cdk8s_plus_24.DeploymentProps.parameter.host_network"></a><a class="headerlink" href="#host_networkoptional_4" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>bool</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Host network for the pod.</p>
 <hr />
 <h5 id="init_containersoptional_3"><code>init_containers</code><sup>Optional</sup> <a name="cdk8s_plus_24.DeploymentProps.parameter.init_containers"></a><a class="headerlink" href="#init_containersoptional_3" title="Permanent link">&para;</a></h5>
 <ul>
@@ -8863,6 +8902,7 @@ You can also use a Job to run multiple Pods in parallel.</p>
   <span class="n">dns</span><span class="p">:</span> <span class="n">PodDnsProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">ISecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_aliases</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">HostAlias</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">host_network</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">init_containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">isolate</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">restart_policy</span><span class="p">:</span> <span class="n">RestartPolicy</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -8936,6 +8976,13 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Type:</em> typing.List[<a href="#cdk8s_plus_24.HostAlias"><code>cdk8s_plus_24.HostAlias</code></a>]</li>
 </ul>
 <p>HostAlias holds the mapping between IP and hostnames that will be injected as an entry in the pod&rsquo;s hosts file.</p>
+<hr />
+<h5 id="host_networkoptional_5"><code>host_network</code><sup>Optional</sup> <a name="cdk8s_plus_24.JobProps.parameter.host_network"></a><a class="headerlink" href="#host_networkoptional_5" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>bool</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Host network for the pod.</p>
 <hr />
 <h5 id="init_containersoptional_4"><code>init_containers</code><sup>Optional</sup> <a name="cdk8s_plus_24.JobProps.parameter.init_containers"></a><a class="headerlink" href="#init_containersoptional_4" title="Permanent link">&para;</a></h5>
 <ul>
@@ -9940,6 +9987,7 @@ created by clients and scheduled onto hosts.</p>
   <span class="n">dns</span><span class="p">:</span> <span class="n">PodDnsProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">ISecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_aliases</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">HostAlias</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">host_network</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">init_containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">isolate</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">restart_policy</span><span class="p">:</span> <span class="n">RestartPolicy</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -10007,6 +10055,13 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Type:</em> typing.List[<a href="#cdk8s_plus_24.HostAlias"><code>cdk8s_plus_24.HostAlias</code></a>]</li>
 </ul>
 <p>HostAlias holds the mapping between IP and hostnames that will be injected as an entry in the pod&rsquo;s hosts file.</p>
+<hr />
+<h5 id="host_networkoptional_6"><code>host_network</code><sup>Optional</sup> <a name="cdk8s_plus_24.PodProps.parameter.host_network"></a><a class="headerlink" href="#host_networkoptional_6" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>bool</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Host network for the pod.</p>
 <hr />
 <h5 id="init_containersoptional_5"><code>init_containers</code><sup>Optional</sup> <a name="cdk8s_plus_24.PodProps.parameter.init_containers"></a><a class="headerlink" href="#init_containersoptional_5" title="Permanent link">&para;</a></h5>
 <ul>
@@ -11320,6 +11375,7 @@ volumes to the new Pods that replace any that have failed.</p>
   <span class="n">dns</span><span class="p">:</span> <span class="n">PodDnsProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">ISecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_aliases</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">HostAlias</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">host_network</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">init_containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">isolate</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">restart_policy</span><span class="p">:</span> <span class="n">RestartPolicy</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -11395,6 +11451,13 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Type:</em> typing.List[<a href="#cdk8s_plus_24.HostAlias"><code>cdk8s_plus_24.HostAlias</code></a>]</li>
 </ul>
 <p>HostAlias holds the mapping between IP and hostnames that will be injected as an entry in the pod&rsquo;s hosts file.</p>
+<hr />
+<h5 id="host_networkoptional_7"><code>host_network</code><sup>Optional</sup> <a name="cdk8s_plus_24.StatefulSetProps.parameter.host_network"></a><a class="headerlink" href="#host_networkoptional_7" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>bool</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Host network for the pod.</p>
 <hr />
 <h5 id="init_containersoptional_6"><code>init_containers</code><sup>Optional</sup> <a name="cdk8s_plus_24.StatefulSetProps.parameter.init_containers"></a><a class="headerlink" href="#init_containersoptional_6" title="Permanent link">&para;</a></h5>
 <ul>
@@ -12291,6 +12354,7 @@ In Kubernetes, a Pod represents a set of running containers on your cluster.</p>
   <span class="n">dns</span><span class="p">:</span> <span class="n">PodDnsProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">ISecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_aliases</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">HostAlias</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">host_network</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">init_containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">isolate</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">restart_policy</span><span class="p">:</span> <span class="n">RestartPolicy</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -12361,6 +12425,13 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Type:</em> typing.List[<a href="#cdk8s_plus_24.HostAlias"><code>cdk8s_plus_24.HostAlias</code></a>]</li>
 </ul>
 <p>HostAlias holds the mapping between IP and hostnames that will be injected as an entry in the pod&rsquo;s hosts file.</p>
+<hr />
+<h5 id="host_networkoptional_8"><code>host_network</code><sup>Optional</sup> <a name="cdk8s_plus_24.WorkloadProps.parameter.host_network"></a><a class="headerlink" href="#host_networkoptional_8" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>bool</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Host network for the pod.</p>
 <hr />
 <h5 id="init_containersoptional_7"><code>init_containers</code><sup>Optional</sup> <a name="cdk8s_plus_24.WorkloadProps.parameter.init_containers"></a><a class="headerlink" href="#init_containersoptional_7" title="Permanent link">&para;</a></h5>
 <ul>
@@ -12524,6 +12595,7 @@ its pod template.</p>
   <span class="n">dns</span><span class="p">:</span> <span class="n">PodDnsProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">ISecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_aliases</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">HostAlias</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">host_network</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">init_containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">isolate</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">restart_policy</span><span class="p">:</span> <span class="n">RestartPolicy</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -12593,6 +12665,15 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Type:</em> typing.List[<a href="#cdk8s_plus_24.HostAlias"><code>cdk8s_plus_24.HostAlias</code></a>]</li>
 </ul>
 <p>HostAlias holds the mapping between IP and hostnames that will be injected as an entry in the pod&rsquo;s hosts file.</p>
+<hr />
+<h5 id="host_networkoptional_9"><code>host_network</code><sup>Optional</sup> <a name="cdk8s_plus_24.AbstractPodProps.property.host_network"></a><a class="headerlink" href="#host_networkoptional_9" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">host_network</span><span class="p">:</span> <span class="nb">bool</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>bool</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Host network for the pod.</p>
 <hr />
 <h5 id="init_containersoptional_8"><code>init_containers</code><sup>Optional</sup> <a name="cdk8s_plus_24.AbstractPodProps.property.init_containers"></a><a class="headerlink" href="#init_containersoptional_8" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="n">init_containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span>
@@ -14066,6 +14147,7 @@ somehow it manages to get access to host file system.</li>
   <span class="n">dns</span><span class="p">:</span> <span class="n">PodDnsProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">ISecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_aliases</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">HostAlias</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">host_network</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">init_containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">isolate</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">restart_policy</span><span class="p">:</span> <span class="n">RestartPolicy</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -14148,6 +14230,15 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Type:</em> typing.List[<a href="#cdk8s_plus_24.HostAlias"><code>cdk8s_plus_24.HostAlias</code></a>]</li>
 </ul>
 <p>HostAlias holds the mapping between IP and hostnames that will be injected as an entry in the pod&rsquo;s hosts file.</p>
+<hr />
+<h5 id="host_networkoptional_10"><code>host_network</code><sup>Optional</sup> <a name="cdk8s_plus_24.CronJobProps.property.host_network"></a><a class="headerlink" href="#host_networkoptional_10" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">host_network</span><span class="p">:</span> <span class="nb">bool</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>bool</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Host network for the pod.</p>
 <hr />
 <h5 id="init_containersoptional_9"><code>init_containers</code><sup>Optional</sup> <a name="cdk8s_plus_24.CronJobProps.property.init_containers"></a><a class="headerlink" href="#init_containersoptional_9" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="n">init_containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span>
@@ -14443,6 +14534,7 @@ determine the default filesystem to apply.</p>
   <span class="n">dns</span><span class="p">:</span> <span class="n">PodDnsProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">ISecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_aliases</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">HostAlias</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">host_network</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">init_containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">isolate</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">restart_policy</span><span class="p">:</span> <span class="n">RestartPolicy</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -14516,6 +14608,15 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Type:</em> typing.List[<a href="#cdk8s_plus_24.HostAlias"><code>cdk8s_plus_24.HostAlias</code></a>]</li>
 </ul>
 <p>HostAlias holds the mapping between IP and hostnames that will be injected as an entry in the pod&rsquo;s hosts file.</p>
+<hr />
+<h5 id="host_networkoptional_11"><code>host_network</code><sup>Optional</sup> <a name="cdk8s_plus_24.DaemonSetProps.property.host_network"></a><a class="headerlink" href="#host_networkoptional_11" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">host_network</span><span class="p">:</span> <span class="nb">bool</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>bool</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Host network for the pod.</p>
 <hr />
 <h5 id="init_containersoptional_10"><code>init_containers</code><sup>Optional</sup> <a name="cdk8s_plus_24.DaemonSetProps.property.init_containers"></a><a class="headerlink" href="#init_containersoptional_10" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="n">init_containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span>
@@ -14693,6 +14794,7 @@ you must explicitly set a name starting from the second expose call.</p>
   <span class="n">dns</span><span class="p">:</span> <span class="n">PodDnsProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">ISecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_aliases</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">HostAlias</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">host_network</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">init_containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">isolate</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">restart_policy</span><span class="p">:</span> <span class="n">RestartPolicy</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -14769,6 +14871,15 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Type:</em> typing.List[<a href="#cdk8s_plus_24.HostAlias"><code>cdk8s_plus_24.HostAlias</code></a>]</li>
 </ul>
 <p>HostAlias holds the mapping between IP and hostnames that will be injected as an entry in the pod&rsquo;s hosts file.</p>
+<hr />
+<h5 id="host_networkoptional_12"><code>host_network</code><sup>Optional</sup> <a name="cdk8s_plus_24.DeploymentProps.property.host_network"></a><a class="headerlink" href="#host_networkoptional_12" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">host_network</span><span class="p">:</span> <span class="nb">bool</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>bool</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Host network for the pod.</p>
 <hr />
 <h5 id="init_containersoptional_11"><code>init_containers</code><sup>Optional</sup> <a name="cdk8s_plus_24.DeploymentProps.property.init_containers"></a><a class="headerlink" href="#init_containersoptional_11" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="n">init_containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span>
@@ -15966,6 +16077,7 @@ termination and value of the Host header is used for routing.</p>
   <span class="n">dns</span><span class="p">:</span> <span class="n">PodDnsProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">ISecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_aliases</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">HostAlias</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">host_network</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">init_containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">isolate</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">restart_policy</span><span class="p">:</span> <span class="n">RestartPolicy</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -16041,6 +16153,15 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Type:</em> typing.List[<a href="#cdk8s_plus_24.HostAlias"><code>cdk8s_plus_24.HostAlias</code></a>]</li>
 </ul>
 <p>HostAlias holds the mapping between IP and hostnames that will be injected as an entry in the pod&rsquo;s hosts file.</p>
+<hr />
+<h5 id="host_networkoptional_13"><code>host_network</code><sup>Optional</sup> <a name="cdk8s_plus_24.JobProps.property.host_network"></a><a class="headerlink" href="#host_networkoptional_13" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">host_network</span><span class="p">:</span> <span class="nb">bool</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>bool</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Host network for the pod.</p>
 <hr />
 <h5 id="init_containersoptional_12"><code>init_containers</code><sup>Optional</sup> <a name="cdk8s_plus_24.JobProps.property.init_containers"></a><a class="headerlink" href="#init_containersoptional_12" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="n">init_containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span>
@@ -17166,6 +17287,7 @@ Duplicate domain names are removed.</p>
   <span class="n">dns</span><span class="p">:</span> <span class="n">PodDnsProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">ISecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_aliases</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">HostAlias</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">host_network</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">init_containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">isolate</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">restart_policy</span><span class="p">:</span> <span class="n">RestartPolicy</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -17235,6 +17357,15 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Type:</em> typing.List[<a href="#cdk8s_plus_24.HostAlias"><code>cdk8s_plus_24.HostAlias</code></a>]</li>
 </ul>
 <p>HostAlias holds the mapping between IP and hostnames that will be injected as an entry in the pod&rsquo;s hosts file.</p>
+<hr />
+<h5 id="host_networkoptional_14"><code>host_network</code><sup>Optional</sup> <a name="cdk8s_plus_24.PodProps.property.host_network"></a><a class="headerlink" href="#host_networkoptional_14" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">host_network</span><span class="p">:</span> <span class="nb">bool</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>bool</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Host network for the pod.</p>
 <hr />
 <h5 id="init_containersoptional_13"><code>init_containers</code><sup>Optional</sup> <a name="cdk8s_plus_24.PodProps.property.init_containers"></a><a class="headerlink" href="#init_containersoptional_13" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="n">init_containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span>
@@ -18372,6 +18503,7 @@ its endpoints, which Kubernetes will not modify.</li>
   <span class="n">dns</span><span class="p">:</span> <span class="n">PodDnsProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">ISecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_aliases</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">HostAlias</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">host_network</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">init_containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">isolate</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">restart_policy</span><span class="p">:</span> <span class="n">RestartPolicy</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -18449,6 +18581,15 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Type:</em> typing.List[<a href="#cdk8s_plus_24.HostAlias"><code>cdk8s_plus_24.HostAlias</code></a>]</li>
 </ul>
 <p>HostAlias holds the mapping between IP and hostnames that will be injected as an entry in the pod&rsquo;s hosts file.</p>
+<hr />
+<h5 id="host_networkoptional_15"><code>host_network</code><sup>Optional</sup> <a name="cdk8s_plus_24.StatefulSetProps.property.host_network"></a><a class="headerlink" href="#host_networkoptional_15" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">host_network</span><span class="p">:</span> <span class="nb">bool</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>bool</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Host network for the pod.</p>
 <hr />
 <h5 id="init_containersoptional_14"><code>init_containers</code><sup>Optional</sup> <a name="cdk8s_plus_24.StatefulSetProps.property.init_containers"></a><a class="headerlink" href="#init_containersoptional_14" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="n">init_containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span>
@@ -18942,6 +19083,7 @@ contain &lsquo;:&rsquo;.</p>
   <span class="n">dns</span><span class="p">:</span> <span class="n">PodDnsProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">ISecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_aliases</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">HostAlias</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">host_network</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">init_containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">isolate</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">restart_policy</span><span class="p">:</span> <span class="n">RestartPolicy</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -19014,6 +19156,15 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Type:</em> typing.List[<a href="#cdk8s_plus_24.HostAlias"><code>cdk8s_plus_24.HostAlias</code></a>]</li>
 </ul>
 <p>HostAlias holds the mapping between IP and hostnames that will be injected as an entry in the pod&rsquo;s hosts file.</p>
+<hr />
+<h5 id="host_networkoptional_16"><code>host_network</code><sup>Optional</sup> <a name="cdk8s_plus_24.WorkloadProps.property.host_network"></a><a class="headerlink" href="#host_networkoptional_16" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">host_network</span><span class="p">:</span> <span class="nb">bool</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>bool</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Host network for the pod.</p>
 <hr />
 <h5 id="init_containersoptional_15"><code>init_containers</code><sup>Optional</sup> <a name="cdk8s_plus_24.WorkloadProps.property.init_containers"></a><a class="headerlink" href="#init_containersoptional_15" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="n">init_containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span>

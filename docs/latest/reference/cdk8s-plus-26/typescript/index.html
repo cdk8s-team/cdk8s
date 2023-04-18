@@ -5707,6 +5707,13 @@
 <li><em>Type:</em> <a href="#cdk8s-plus-26.ISecret"><code>cdk8s-plus-26.ISecret</code></a></li>
 </ul>
 <hr />
+<h5 id="hostnetworkoptional"><code>hostNetwork</code><sup>Optional</sup> <a name="cdk8s-plus-26.AbstractPod.property.hostNetwork"></a><a class="headerlink" href="#hostnetworkoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">hostNetwork</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>boolean</code></li>
+</ul>
+<hr />
 <h5 id="restartpolicyoptional"><code>restartPolicy</code><sup>Optional</sup> <a name="cdk8s-plus-26.AbstractPod.property.restartPolicy"></a><a class="headerlink" href="#restartpolicyoptional" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">restartPolicy</span><span class="o">:</span><span class="w"> </span><span class="kt">RestartPolicy</span><span class="p">;</span>
 </code></pre></div>
@@ -9021,6 +9028,15 @@ added or removed. There must be at least one container in a Pod.</p>
 </ul>
 <p>HostAlias holds the mapping between IP and hostnames that will be injected as an entry in the pod&rsquo;s hosts file.</p>
 <hr />
+<h5 id="hostnetworkoptional_1"><code>hostNetwork</code><sup>Optional</sup> <a name="cdk8s-plus-26.AbstractPodProps.property.hostNetwork"></a><a class="headerlink" href="#hostnetworkoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">hostNetwork</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Host network for the pod.</p>
+<hr />
 <h5 id="initcontainersoptional"><code>initContainers</code><sup>Optional</sup> <a name="cdk8s-plus-26.AbstractPodProps.property.initContainers"></a><a class="headerlink" href="#initcontainersoptional" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">initContainers</span><span class="o">:</span><span class="w"> </span><span class="kt">ContainerProps</span><span class="p">[];</span>
 </code></pre></div>
@@ -10423,6 +10439,15 @@ added or removed. There must be at least one container in a Pod.</p>
 </ul>
 <p>HostAlias holds the mapping between IP and hostnames that will be injected as an entry in the pod&rsquo;s hosts file.</p>
 <hr />
+<h5 id="hostnetworkoptional_2"><code>hostNetwork</code><sup>Optional</sup> <a name="cdk8s-plus-26.CronJobProps.property.hostNetwork"></a><a class="headerlink" href="#hostnetworkoptional_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">hostNetwork</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Host network for the pod.</p>
+<hr />
 <h5 id="initcontainersoptional_1"><code>initContainers</code><sup>Optional</sup> <a name="cdk8s-plus-26.CronJobProps.property.initContainers"></a><a class="headerlink" href="#initcontainersoptional_1" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">initContainers</span><span class="o">:</span><span class="w"> </span><span class="kt">ContainerProps</span><span class="p">[];</span>
 </code></pre></div>
@@ -10769,6 +10794,15 @@ added or removed. There must be at least one container in a Pod.</p>
 </ul>
 <p>HostAlias holds the mapping between IP and hostnames that will be injected as an entry in the pod&rsquo;s hosts file.</p>
 <hr />
+<h5 id="hostnetworkoptional_3"><code>hostNetwork</code><sup>Optional</sup> <a name="cdk8s-plus-26.DaemonSetProps.property.hostNetwork"></a><a class="headerlink" href="#hostnetworkoptional_3" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">hostNetwork</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Host network for the pod.</p>
+<hr />
 <h5 id="initcontainersoptional_2"><code>initContainers</code><sup>Optional</sup> <a name="cdk8s-plus-26.DaemonSetProps.property.initContainers"></a><a class="headerlink" href="#initcontainersoptional_2" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">initContainers</span><span class="o">:</span><span class="w"> </span><span class="kt">ContainerProps</span><span class="p">[];</span>
 </code></pre></div>
@@ -10997,6 +11031,15 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Type:</em> <a href="#cdk8s-plus-26.HostAlias"><code>cdk8s-plus-26.HostAlias</code></a>[]</li>
 </ul>
 <p>HostAlias holds the mapping between IP and hostnames that will be injected as an entry in the pod&rsquo;s hosts file.</p>
+<hr />
+<h5 id="hostnetworkoptional_4"><code>hostNetwork</code><sup>Optional</sup> <a name="cdk8s-plus-26.DeploymentProps.property.hostNetwork"></a><a class="headerlink" href="#hostnetworkoptional_4" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">hostNetwork</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Host network for the pod.</p>
 <hr />
 <h5 id="initcontainersoptional_3"><code>initContainers</code><sup>Optional</sup> <a name="cdk8s-plus-26.DeploymentProps.property.initContainers"></a><a class="headerlink" href="#initcontainersoptional_3" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">initContainers</span><span class="o">:</span><span class="w"> </span><span class="kt">ContainerProps</span><span class="p">[];</span>
@@ -12152,6 +12195,15 @@ added or removed. There must be at least one container in a Pod.</p>
 </ul>
 <p>HostAlias holds the mapping between IP and hostnames that will be injected as an entry in the pod&rsquo;s hosts file.</p>
 <hr />
+<h5 id="hostnetworkoptional_5"><code>hostNetwork</code><sup>Optional</sup> <a name="cdk8s-plus-26.JobProps.property.hostNetwork"></a><a class="headerlink" href="#hostnetworkoptional_5" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">hostNetwork</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Host network for the pod.</p>
+<hr />
 <h5 id="initcontainersoptional_4"><code>initContainers</code><sup>Optional</sup> <a name="cdk8s-plus-26.JobProps.property.initContainers"></a><a class="headerlink" href="#initcontainersoptional_4" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">initContainers</span><span class="o">:</span><span class="w"> </span><span class="kt">ContainerProps</span><span class="p">[];</span>
 </code></pre></div>
@@ -13235,6 +13287,15 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Type:</em> <a href="#cdk8s-plus-26.HostAlias"><code>cdk8s-plus-26.HostAlias</code></a>[]</li>
 </ul>
 <p>HostAlias holds the mapping between IP and hostnames that will be injected as an entry in the pod&rsquo;s hosts file.</p>
+<hr />
+<h5 id="hostnetworkoptional_6"><code>hostNetwork</code><sup>Optional</sup> <a name="cdk8s-plus-26.PodProps.property.hostNetwork"></a><a class="headerlink" href="#hostnetworkoptional_6" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">hostNetwork</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Host network for the pod.</p>
 <hr />
 <h5 id="initcontainersoptional_5"><code>initContainers</code><sup>Optional</sup> <a name="cdk8s-plus-26.PodProps.property.initContainers"></a><a class="headerlink" href="#initcontainersoptional_5" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">initContainers</span><span class="o">:</span><span class="w"> </span><span class="kt">ContainerProps</span><span class="p">[];</span>
@@ -14326,6 +14387,15 @@ added or removed. There must be at least one container in a Pod.</p>
 </ul>
 <p>HostAlias holds the mapping between IP and hostnames that will be injected as an entry in the pod&rsquo;s hosts file.</p>
 <hr />
+<h5 id="hostnetworkoptional_7"><code>hostNetwork</code><sup>Optional</sup> <a name="cdk8s-plus-26.StatefulSetProps.property.hostNetwork"></a><a class="headerlink" href="#hostnetworkoptional_7" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">hostNetwork</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Host network for the pod.</p>
+<hr />
 <h5 id="initcontainersoptional_6"><code>initContainers</code><sup>Optional</sup> <a name="cdk8s-plus-26.StatefulSetProps.property.initContainers"></a><a class="headerlink" href="#initcontainersoptional_6" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">initContainers</span><span class="o">:</span><span class="w"> </span><span class="kt">ContainerProps</span><span class="p">[];</span>
 </code></pre></div>
@@ -14844,6 +14914,15 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Type:</em> <a href="#cdk8s-plus-26.HostAlias"><code>cdk8s-plus-26.HostAlias</code></a>[]</li>
 </ul>
 <p>HostAlias holds the mapping between IP and hostnames that will be injected as an entry in the pod&rsquo;s hosts file.</p>
+<hr />
+<h5 id="hostnetworkoptional_8"><code>hostNetwork</code><sup>Optional</sup> <a name="cdk8s-plus-26.WorkloadProps.property.hostNetwork"></a><a class="headerlink" href="#hostnetworkoptional_8" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">hostNetwork</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>Host network for the pod.</p>
 <hr />
 <h5 id="initcontainersoptional_7"><code>initContainers</code><sup>Optional</sup> <a name="cdk8s-plus-26.WorkloadProps.property.initContainers"></a><a class="headerlink" href="#initcontainersoptional_7" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">initContainers</span><span class="o">:</span><span class="w"> </span><span class="kt">ContainerProps</span><span class="p">[];</span>
