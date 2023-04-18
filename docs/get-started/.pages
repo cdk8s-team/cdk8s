@@ -1,0 +1,7 @@
+nav:
+  - index.md
+  - python.md
+  - typescript.md
+  - java.md
+  - go.md
+  - ...
