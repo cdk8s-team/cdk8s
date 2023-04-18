@@ -15,7 +15,7 @@ To get setup, follow these general steps:
 2. Optionally, install an IDE extension to enable code autocompletion. The Code Whisperer [VS Code](https://marketplace.visualstudio.com/items?itemName=AmazonWebServices.aws-toolkit-vscode) and [JetBrains](https://plugins.jetbrains.com/plugin/11349-aws-toolkit) Extensions available in the AWS Toolkit support auto-completion for CDK8s and CDK8s+.
 
 ### Install the CLI
-To initialize a new project and generate Kubernetes manifests, we need the CDK8s CLI:
+To initialize a CDK8s project and auto-generate Kubernetes manifests based on our code, we need the CDK8s CLI:
 
 1. Run the following command to install the CLI using [Homebrew](https://brew.sh/). For more installation methods, see [Install the CDK8s CLI](cli/installation.md).
 ```console
@@ -50,9 +50,8 @@ MyChart(app, "python")
 app.synth()
 ```
 
-A few things worth noting about this sample:
+This sample shows the basic structure of a CDK8s application with the essential libraries: constructs and cdk8s. These libraries supply the foundational classes and methods required for working with CDK8s. It includes the following components:
 
-   * This sample shows the basic structure of a CDK8s application with the essential libraries: constructs and cdk8s. These libraries supply the foundational classes and methods required for working with CDK8s. 
    * A custom `MyChart` class inherits from the `Chart` base class provided by the cdk8s library, serving as a representation of the Kubernetes resources to be generated and managed.
    * The `__init__` method within the `MyChart` class is responsible for initializing the base class (Chart) and specifying the Kubernetes resources. This method is invoked when creating an instance of the class.
    * An instance of the [App](https://cdk8s.io/docs/latest/reference/cdk8s/python/#app) class signifies the primary entry point of the CDK8s application and oversees the application's lifecycle and resources.
