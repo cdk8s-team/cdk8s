@@ -12,14 +12,13 @@ python3 --version
 To get setup, follow these general steps:
 
 1. To begin, you’ll need a development environment with pipenv 2018.11.26+ installed. If you’re not familiar with this setup, use these instructions to [setup pipenv](https://pipenv.pypa.io/en/latest/install/).
-2. Optionally, install an IDE extension to enable code autocompletion. The Code Whisperer [VS Code](https://marketplace.visualstudio.com/items?itemName=AmazonWebServices.aws-toolkit-vscode) and [JetBrains](https://plugins.jetbrains.com/plugin/11349-aws-toolkit) Extensions available in the AWS Toolkit support auto-completion for CDK8s and CDK8s+.
 
 ### Install the CLI
 To initialize a CDK8s project and auto-generate Kubernetes manifests based on our code, we need the CDK8s CLI:
 
-1. Run the following command to install the CLI using [Homebrew](https://brew.sh/). For more installation methods, see [Install the CDK8s CLI](cli/installation.md).
+1. Run the following command to install the CLI using [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm). For more installation methods, see [Install the CDK8s CLI](cli/installation.md).
 ```console
-brew install cdk8s
+npm install -g cdk8s-cli
 ```
 
 ### Create a project
@@ -120,5 +119,6 @@ spec:
 ```
 
 ## Wrap up
-- To continue your journey, develop a complete Kubernetes [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) and [Service](https://kubernetes.io/docs/concepts/services-networking/service/) using the [Hello, Kubernetes!](https://github.com/cdk8s-team/cdk8s/tree/master/examples/python/hello) sample application.
+Keep in mind that this is just a basic demonstration of CDK8s.
+- To continue your journey, develop a complete Kubernetes [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) and [Service](https://kubernetes.io/docs/concepts/services-networking/service/) using the [CDK8s Core](https://github.com/cdk8s-team/cdk8s-examples/blob/main/python/cdk8s-core/main.py) sample application.
 
