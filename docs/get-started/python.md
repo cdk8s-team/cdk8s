@@ -106,19 +106,19 @@ cdk8s synth
 ```
 
 ### View the manifest
-1. Open the `dist/go-service.k8s.yaml` file. You should see a manifest similar to the following:
+1. Open the `dist/getting-started.k8s.yaml` file. You should see a Kubernetes manifest similar to the following:
 ```yaml
 apiVersion: v1
 kind: Service
 metadata:
- name: go-service-service-c8d5f888
+  name: getting-started-my-service-c84dc095
 spec:
- ports:
-   - port: 80
-     targetPort: 8080
- selector:
-   app: my-app
- type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 8080
+  selector:
+    app: my-app
+  type: LoadBalancer
 ```
 
 ## Wrap up
