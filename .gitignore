@@ -38,6 +38,7 @@ junit.xml
 !/.github/workflows/build.yml
 !/.mergify.yml
 !/.github/workflows/upgrade.yml
+!/.npmrc
 !/CODE_OF_CONDUCT.md
 !/DCO
 !/git-hooks/prepare-commit-msg
