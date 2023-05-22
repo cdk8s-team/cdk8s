@@ -99,7 +99,7 @@ workflow.addJobs({
         name: 'Setup Node.js',
         uses: 'actions/setup-node@v2',
         with: {
-          'node-version': '14',
+          'node-version': '16',
         },
       },
       {
@@ -186,7 +186,7 @@ integWorkflow.addJob(integJob, {
       name: 'Set up Node.js',
       uses: 'actions/setup-node@v2',
       with: {
-        'node-version': '14',
+        'node-version': '16',
       },
     },
     {
