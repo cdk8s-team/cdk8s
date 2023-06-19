@@ -26,7 +26,7 @@
     "organization": false
   },
   "devDependencies": {
-    "@cdk8s/projen-common": "^0.0.362",
+    "@cdk8s/projen-common": "^0.0.377",
     "@types/jest": "^26.0.24",
     "@types/node": "^14.18.46",
     "cdk8s": "^2.7.58",
@@ -39,7 +39,7 @@
     "jest-junit": "^15",
     "lerna": "^6.6.2",
     "npm-check-updates": "^16",
-    "projen": "^0.71.82",
+    "projen": "^0.71.100",
     "semver": "^7.5.0",
     "ts-jest": "^27.1.5",
     "typescript": "^4.9.5"
