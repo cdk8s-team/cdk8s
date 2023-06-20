@@ -1,4 +1,3 @@
-// jenkinsio
 package jenkinsio
 
 
