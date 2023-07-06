@@ -4,6 +4,8 @@ const { JobPermission } = require('projen/lib/github/workflows-model');
 
 const mainBranch = 'master';
 
+const NODE_VERSION = '16.20.0';
+
 const project = new Cdk8sTeamNodeProject({
   name: 'root',
   repoName: 'cdk8s',
@@ -40,7 +42,7 @@ const project = new Cdk8sTeamNodeProject({
     'typescript',
     'projen',
   ],
-  workflowNodeVersion: '16.20.0',
+  workflowNodeVersion: NODE_VERSION,
 });
 
 project.gitignore.exclude('.vscode/');
@@ -100,7 +102,7 @@ workflow.addJobs({
         name: 'Setup Node.js',
         uses: 'actions/setup-node@v2',
         with: {
-          'node-version': '14',
+          'node-version': NODE_VERSION,
         },
       },
       {
@@ -187,7 +189,7 @@ integWorkflow.addJob(integJob, {
       name: 'Set up Node.js',
       uses: 'actions/setup-node@v2',
       with: {
-        'node-version': '14',
+        'node-version': NODE_VERSION,
       },
     },
     {
