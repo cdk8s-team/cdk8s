@@ -40,6 +40,7 @@ const project = new Cdk8sTeamNodeProject({
     'typescript',
     'projen',
   ],
+  workflowNodeVersion: '16.20.0',
 });
 
 project.gitignore.exclude('.vscode/');

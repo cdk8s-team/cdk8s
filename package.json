@@ -39,7 +39,7 @@
     "jest-junit": "^15",
     "lerna": "^6.6.2",
     "npm-check-updates": "^16",
-    "projen": "^0.71.125",
+    "projen": "^0.71.126",
     "semver": "^7.5.0",
     "ts-jest": "^27.1.5",
     "typescript": "^4.9.5"
