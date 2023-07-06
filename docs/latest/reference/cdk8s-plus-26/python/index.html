@@ -5604,6 +5604,7 @@
   <span class="n">restart_policy</span><span class="p">:</span> <span class="n">RestartPolicy</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">security_context</span><span class="p">:</span> <span class="n">PodSecurityContextProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">service_account</span><span class="p">:</span> <span class="n">IServiceAccount</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">termination_grace_period</span><span class="p">:</span> <span class="n">Duration</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">volumes</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">Volume</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="p">)</span>
 </code></pre></div>
@@ -5734,6 +5735,13 @@ Account (for example, default).</p>
 <blockquote>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
 </blockquote>
+<hr />
+<h5 id="termination_grace_periodoptional"><code>termination_grace_period</code><sup>Optional</sup> <a name="cdk8s_plus_26.AbstractPodProps.parameter.termination_grace_period"></a><a class="headerlink" href="#termination_grace_periodoptional" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <a href="#cdk8s.Duration"><code>cdk8s.Duration</code></a></li>
+<li><em>Default:</em> Duration.seconds(30)</li>
+</ul>
+<p>Grace period until the pod is terminated.</p>
 <hr />
 <h5 id="volumesoptional"><code>volumes</code><sup>Optional</sup> <a name="cdk8s_plus_26.AbstractPodProps.parameter.volumes"></a><a class="headerlink" href="#volumesoptional" title="Permanent link">&para;</a></h5>
 <ul>
@@ -6266,6 +6274,13 @@ Otherwise, no startup probe is defined.</li>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s_plus_26.IServiceAccount"><code>cdk8s_plus_26.IServiceAccount</code></a></li>
+</ul>
+<hr />
+<h5 id="termination_grace_periodoptional_1"><code>termination_grace_period</code><sup>Optional</sup> <a name="cdk8s_plus_26.AbstractPod.property.termination_grace_period"></a><a class="headerlink" href="#termination_grace_periodoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">termination_grace_period</span><span class="p">:</span> <span class="n">Duration</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <a href="#cdk8s.Duration"><code>cdk8s.Duration</code></a></li>
 </ul>
 <hr />
 <h3 id="awselasticblockstorepersistentvolume">AwsElasticBlockStorePersistentVolume <a name="cdk8s_plus_26.AwsElasticBlockStorePersistentVolume"></a><a class="headerlink" href="#awselasticblockstorepersistentvolume" title="Permanent link">&para;</a></h3>
@@ -7266,6 +7281,7 @@ is enforced during validation process.</p>
   <span class="n">restart_policy</span><span class="p">:</span> <span class="n">RestartPolicy</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">security_context</span><span class="p">:</span> <span class="n">PodSecurityContextProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">service_account</span><span class="p">:</span> <span class="n">IServiceAccount</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">termination_grace_period</span><span class="p">:</span> <span class="n">Duration</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">volumes</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">Volume</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">pod_metadata</span><span class="p">:</span> <span class="n">ApiObjectMetadata</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">select</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -7409,6 +7425,13 @@ Account (for example, default).</p>
 <blockquote>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
 </blockquote>
+<hr />
+<h5 id="termination_grace_periodoptional_2"><code>termination_grace_period</code><sup>Optional</sup> <a name="cdk8s_plus_26.CronJobProps.parameter.termination_grace_period"></a><a class="headerlink" href="#termination_grace_periodoptional_2" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <a href="#cdk8s.Duration"><code>cdk8s.Duration</code></a></li>
+<li><em>Default:</em> Duration.seconds(30)</li>
+</ul>
+<p>Grace period until the pod is terminated.</p>
 <hr />
 <h5 id="volumesoptional_1"><code>volumes</code><sup>Optional</sup> <a name="cdk8s_plus_26.CronJobProps.parameter.volumes"></a><a class="headerlink" href="#volumesoptional_1" title="Permanent link">&para;</a></h5>
 <ul>
@@ -7640,6 +7663,7 @@ but with different flags and/or different memory and cpu requests for different 
   <span class="n">restart_policy</span><span class="p">:</span> <span class="n">RestartPolicy</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">security_context</span><span class="p">:</span> <span class="n">PodSecurityContextProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">service_account</span><span class="p">:</span> <span class="n">IServiceAccount</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">termination_grace_period</span><span class="p">:</span> <span class="n">Duration</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">volumes</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">Volume</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">pod_metadata</span><span class="p">:</span> <span class="n">ApiObjectMetadata</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">select</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -7775,6 +7799,13 @@ Account (for example, default).</p>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
 </blockquote>
 <hr />
+<h5 id="termination_grace_periodoptional_3"><code>termination_grace_period</code><sup>Optional</sup> <a name="cdk8s_plus_26.DaemonSetProps.parameter.termination_grace_period"></a><a class="headerlink" href="#termination_grace_periodoptional_3" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <a href="#cdk8s.Duration"><code>cdk8s.Duration</code></a></li>
+<li><em>Default:</em> Duration.seconds(30)</li>
+</ul>
+<p>Grace period until the pod is terminated.</p>
+<hr />
 <h5 id="volumesoptional_2"><code>volumes</code><sup>Optional</sup> <a name="cdk8s_plus_26.DaemonSetProps.parameter.volumes"></a><a class="headerlink" href="#volumesoptional_2" title="Permanent link">&para;</a></h5>
 <ul>
 <li><em>Type:</em> typing.List[<a href="#cdk8s_plus_26.Volume"><code>cdk8s_plus_26.Volume</code></a>]</li>
@@ -7878,6 +7909,7 @@ existing Deployments and adopt all their resources with new Deployments.</p>
   <span class="n">restart_policy</span><span class="p">:</span> <span class="n">RestartPolicy</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">security_context</span><span class="p">:</span> <span class="n">PodSecurityContextProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">service_account</span><span class="p">:</span> <span class="n">IServiceAccount</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">termination_grace_period</span><span class="p">:</span> <span class="n">Duration</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">volumes</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">Volume</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">pod_metadata</span><span class="p">:</span> <span class="n">ApiObjectMetadata</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">select</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -8015,6 +8047,13 @@ Account (for example, default).</p>
 <blockquote>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
 </blockquote>
+<hr />
+<h5 id="termination_grace_periodoptional_4"><code>termination_grace_period</code><sup>Optional</sup> <a name="cdk8s_plus_26.DeploymentProps.parameter.termination_grace_period"></a><a class="headerlink" href="#termination_grace_periodoptional_4" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <a href="#cdk8s.Duration"><code>cdk8s.Duration</code></a></li>
+<li><em>Default:</em> Duration.seconds(30)</li>
+</ul>
+<p>Grace period until the pod is terminated.</p>
 <hr />
 <h5 id="volumesoptional_3"><code>volumes</code><sup>Optional</sup> <a name="cdk8s_plus_26.DeploymentProps.parameter.volumes"></a><a class="headerlink" href="#volumesoptional_3" title="Permanent link">&para;</a></h5>
 <ul>
@@ -8924,6 +8963,7 @@ You can also use a Job to run multiple Pods in parallel.</p>
   <span class="n">restart_policy</span><span class="p">:</span> <span class="n">RestartPolicy</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">security_context</span><span class="p">:</span> <span class="n">PodSecurityContextProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">service_account</span><span class="p">:</span> <span class="n">IServiceAccount</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">termination_grace_period</span><span class="p">:</span> <span class="n">Duration</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">volumes</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">Volume</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">pod_metadata</span><span class="p">:</span> <span class="n">ApiObjectMetadata</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">select</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -9060,6 +9100,13 @@ Account (for example, default).</p>
 <blockquote>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
 </blockquote>
+<hr />
+<h5 id="termination_grace_periodoptional_5"><code>termination_grace_period</code><sup>Optional</sup> <a name="cdk8s_plus_26.JobProps.parameter.termination_grace_period"></a><a class="headerlink" href="#termination_grace_periodoptional_5" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <a href="#cdk8s.Duration"><code>cdk8s.Duration</code></a></li>
+<li><em>Default:</em> Duration.seconds(30)</li>
+</ul>
+<p>Grace period until the pod is terminated.</p>
 <hr />
 <h5 id="volumesoptional_4"><code>volumes</code><sup>Optional</sup> <a name="cdk8s_plus_26.JobProps.parameter.volumes"></a><a class="headerlink" href="#volumesoptional_4" title="Permanent link">&para;</a></h5>
 <ul>
@@ -10009,6 +10056,7 @@ created by clients and scheduled onto hosts.</p>
   <span class="n">restart_policy</span><span class="p">:</span> <span class="n">RestartPolicy</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">security_context</span><span class="p">:</span> <span class="n">PodSecurityContextProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">service_account</span><span class="p">:</span> <span class="n">IServiceAccount</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">termination_grace_period</span><span class="p">:</span> <span class="n">Duration</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">volumes</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">Volume</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="p">)</span>
 </code></pre></div>
@@ -10139,6 +10187,13 @@ Account (for example, default).</p>
 <blockquote>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
 </blockquote>
+<hr />
+<h5 id="termination_grace_periodoptional_6"><code>termination_grace_period</code><sup>Optional</sup> <a name="cdk8s_plus_26.PodProps.parameter.termination_grace_period"></a><a class="headerlink" href="#termination_grace_periodoptional_6" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <a href="#cdk8s.Duration"><code>cdk8s.Duration</code></a></li>
+<li><em>Default:</em> Duration.seconds(30)</li>
+</ul>
+<p>Grace period until the pod is terminated.</p>
 <hr />
 <h5 id="volumesoptional_5"><code>volumes</code><sup>Optional</sup> <a name="cdk8s_plus_26.PodProps.parameter.volumes"></a><a class="headerlink" href="#volumesoptional_5" title="Permanent link">&para;</a></h5>
 <ul>
@@ -11397,6 +11452,7 @@ volumes to the new Pods that replace any that have failed.</p>
   <span class="n">restart_policy</span><span class="p">:</span> <span class="n">RestartPolicy</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">security_context</span><span class="p">:</span> <span class="n">PodSecurityContextProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">service_account</span><span class="p">:</span> <span class="n">IServiceAccount</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">termination_grace_period</span><span class="p">:</span> <span class="n">Duration</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">volumes</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">Volume</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">pod_metadata</span><span class="p">:</span> <span class="n">ApiObjectMetadata</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">select</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -11535,6 +11591,13 @@ Account (for example, default).</p>
 <blockquote>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
 </blockquote>
+<hr />
+<h5 id="termination_grace_periodoptional_7"><code>termination_grace_period</code><sup>Optional</sup> <a name="cdk8s_plus_26.StatefulSetProps.parameter.termination_grace_period"></a><a class="headerlink" href="#termination_grace_periodoptional_7" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <a href="#cdk8s.Duration"><code>cdk8s.Duration</code></a></li>
+<li><em>Default:</em> Duration.seconds(30)</li>
+</ul>
+<p>Grace period until the pod is terminated.</p>
 <hr />
 <h5 id="volumesoptional_6"><code>volumes</code><sup>Optional</sup> <a name="cdk8s_plus_26.StatefulSetProps.parameter.volumes"></a><a class="headerlink" href="#volumesoptional_6" title="Permanent link">&para;</a></h5>
 <ul>
@@ -12376,6 +12439,7 @@ In Kubernetes, a Pod represents a set of running containers on your cluster.</p>
   <span class="n">restart_policy</span><span class="p">:</span> <span class="n">RestartPolicy</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">security_context</span><span class="p">:</span> <span class="n">PodSecurityContextProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">service_account</span><span class="p">:</span> <span class="n">IServiceAccount</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">termination_grace_period</span><span class="p">:</span> <span class="n">Duration</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">volumes</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">Volume</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">pod_metadata</span><span class="p">:</span> <span class="n">ApiObjectMetadata</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">select</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -12510,6 +12574,13 @@ Account (for example, default).</p>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
 </blockquote>
 <hr />
+<h5 id="termination_grace_periodoptional_8"><code>termination_grace_period</code><sup>Optional</sup> <a name="cdk8s_plus_26.WorkloadProps.parameter.termination_grace_period"></a><a class="headerlink" href="#termination_grace_periodoptional_8" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <a href="#cdk8s.Duration"><code>cdk8s.Duration</code></a></li>
+<li><em>Default:</em> Duration.seconds(30)</li>
+</ul>
+<p>Grace period until the pod is terminated.</p>
+<hr />
 <h5 id="volumesoptional_7"><code>volumes</code><sup>Optional</sup> <a name="cdk8s_plus_26.WorkloadProps.parameter.volumes"></a><a class="headerlink" href="#volumesoptional_7" title="Permanent link">&para;</a></h5>
 <ul>
 <li><em>Type:</em> typing.List[<a href="#cdk8s_plus_26.Volume"><code>cdk8s_plus_26.Volume</code></a>]</li>
@@ -12617,6 +12688,7 @@ its pod template.</p>
   <span class="n">restart_policy</span><span class="p">:</span> <span class="n">RestartPolicy</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">security_context</span><span class="p">:</span> <span class="n">PodSecurityContextProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">service_account</span><span class="p">:</span> <span class="n">IServiceAccount</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">termination_grace_period</span><span class="p">:</span> <span class="n">Duration</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">volumes</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">Volume</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="p">)</span>
 </code></pre></div>
@@ -12761,6 +12833,15 @@ Account (for example, default).</p>
 <blockquote>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
 </blockquote>
+<hr />
+<h5 id="termination_grace_periodoptional_9"><code>termination_grace_period</code><sup>Optional</sup> <a name="cdk8s_plus_26.AbstractPodProps.property.termination_grace_period"></a><a class="headerlink" href="#termination_grace_periodoptional_9" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">termination_grace_period</span><span class="p">:</span> <span class="n">Duration</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <a href="#cdk8s.Duration"><code>cdk8s.Duration</code></a></li>
+<li><em>Default:</em> Duration.seconds(30)</li>
+</ul>
+<p>Grace period until the pod is terminated.</p>
 <hr />
 <h5 id="volumesoptional_8"><code>volumes</code><sup>Optional</sup> <a name="cdk8s_plus_26.AbstractPodProps.property.volumes"></a><a class="headerlink" href="#volumesoptional_8" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="n">volumes</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">Volume</span><span class="p">]</span>
@@ -14391,6 +14472,7 @@ somehow it manages to get access to host file system.</li>
   <span class="n">restart_policy</span><span class="p">:</span> <span class="n">RestartPolicy</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">security_context</span><span class="p">:</span> <span class="n">PodSecurityContextProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">service_account</span><span class="p">:</span> <span class="n">IServiceAccount</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">termination_grace_period</span><span class="p">:</span> <span class="n">Duration</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">volumes</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">Volume</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">pod_metadata</span><span class="p">:</span> <span class="n">ApiObjectMetadata</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">select</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -14548,6 +14630,15 @@ Account (for example, default).</p>
 <blockquote>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
 </blockquote>
+<hr />
+<h5 id="termination_grace_periodoptional_10"><code>termination_grace_period</code><sup>Optional</sup> <a name="cdk8s_plus_26.CronJobProps.property.termination_grace_period"></a><a class="headerlink" href="#termination_grace_periodoptional_10" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">termination_grace_period</span><span class="p">:</span> <span class="n">Duration</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <a href="#cdk8s.Duration"><code>cdk8s.Duration</code></a></li>
+<li><em>Default:</em> Duration.seconds(30)</li>
+</ul>
+<p>Grace period until the pod is terminated.</p>
 <hr />
 <h5 id="volumesoptional_9"><code>volumes</code><sup>Optional</sup> <a name="cdk8s_plus_26.CronJobProps.property.volumes"></a><a class="headerlink" href="#volumesoptional_9" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="n">volumes</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">Volume</span><span class="p">]</span>
@@ -14778,6 +14869,7 @@ determine the default filesystem to apply.</p>
   <span class="n">restart_policy</span><span class="p">:</span> <span class="n">RestartPolicy</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">security_context</span><span class="p">:</span> <span class="n">PodSecurityContextProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">service_account</span><span class="p">:</span> <span class="n">IServiceAccount</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">termination_grace_period</span><span class="p">:</span> <span class="n">Duration</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">volumes</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">Volume</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">pod_metadata</span><span class="p">:</span> <span class="n">ApiObjectMetadata</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">select</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -14927,6 +15019,15 @@ Account (for example, default).</p>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
 </blockquote>
 <hr />
+<h5 id="termination_grace_periodoptional_11"><code>termination_grace_period</code><sup>Optional</sup> <a name="cdk8s_plus_26.DaemonSetProps.property.termination_grace_period"></a><a class="headerlink" href="#termination_grace_periodoptional_11" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">termination_grace_period</span><span class="p">:</span> <span class="n">Duration</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <a href="#cdk8s.Duration"><code>cdk8s.Duration</code></a></li>
+<li><em>Default:</em> Duration.seconds(30)</li>
+</ul>
+<p>Grace period until the pod is terminated.</p>
+<hr />
 <h5 id="volumesoptional_10"><code>volumes</code><sup>Optional</sup> <a name="cdk8s_plus_26.DaemonSetProps.property.volumes"></a><a class="headerlink" href="#volumesoptional_10" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="n">volumes</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">Volume</span><span class="p">]</span>
 </code></pre></div>
@@ -15038,6 +15139,7 @@ you must explicitly set a name starting from the second expose call.</p>
   <span class="n">restart_policy</span><span class="p">:</span> <span class="n">RestartPolicy</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">security_context</span><span class="p">:</span> <span class="n">PodSecurityContextProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">service_account</span><span class="p">:</span> <span class="n">IServiceAccount</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">termination_grace_period</span><span class="p">:</span> <span class="n">Duration</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">volumes</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">Volume</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">pod_metadata</span><span class="p">:</span> <span class="n">ApiObjectMetadata</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">select</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -15189,6 +15291,15 @@ Account (for example, default).</p>
 <blockquote>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
 </blockquote>
+<hr />
+<h5 id="termination_grace_periodoptional_12"><code>termination_grace_period</code><sup>Optional</sup> <a name="cdk8s_plus_26.DeploymentProps.property.termination_grace_period"></a><a class="headerlink" href="#termination_grace_periodoptional_12" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">termination_grace_period</span><span class="p">:</span> <span class="n">Duration</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <a href="#cdk8s.Duration"><code>cdk8s.Duration</code></a></li>
+<li><em>Default:</em> Duration.seconds(30)</li>
+</ul>
+<p>Grace period until the pod is terminated.</p>
 <hr />
 <h5 id="volumesoptional_11"><code>volumes</code><sup>Optional</sup> <a name="cdk8s_plus_26.DeploymentProps.property.volumes"></a><a class="headerlink" href="#volumesoptional_11" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="n">volumes</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">Volume</span><span class="p">]</span>
@@ -16321,6 +16432,7 @@ termination and value of the Host header is used for routing.</p>
   <span class="n">restart_policy</span><span class="p">:</span> <span class="n">RestartPolicy</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">security_context</span><span class="p">:</span> <span class="n">PodSecurityContextProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">service_account</span><span class="p">:</span> <span class="n">IServiceAccount</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">termination_grace_period</span><span class="p">:</span> <span class="n">Duration</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">volumes</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">Volume</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">pod_metadata</span><span class="p">:</span> <span class="n">ApiObjectMetadata</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">select</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -16471,6 +16583,15 @@ Account (for example, default).</p>
 <blockquote>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
 </blockquote>
+<hr />
+<h5 id="termination_grace_periodoptional_13"><code>termination_grace_period</code><sup>Optional</sup> <a name="cdk8s_plus_26.JobProps.property.termination_grace_period"></a><a class="headerlink" href="#termination_grace_periodoptional_13" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">termination_grace_period</span><span class="p">:</span> <span class="n">Duration</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <a href="#cdk8s.Duration"><code>cdk8s.Duration</code></a></li>
+<li><em>Default:</em> Duration.seconds(30)</li>
+</ul>
+<p>Grace period until the pod is terminated.</p>
 <hr />
 <h5 id="volumesoptional_12"><code>volumes</code><sup>Optional</sup> <a name="cdk8s_plus_26.JobProps.property.volumes"></a><a class="headerlink" href="#volumesoptional_12" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="n">volumes</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">Volume</span><span class="p">]</span>
@@ -17531,6 +17652,7 @@ Duplicate domain names are removed.</p>
   <span class="n">restart_policy</span><span class="p">:</span> <span class="n">RestartPolicy</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">security_context</span><span class="p">:</span> <span class="n">PodSecurityContextProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">service_account</span><span class="p">:</span> <span class="n">IServiceAccount</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">termination_grace_period</span><span class="p">:</span> <span class="n">Duration</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">volumes</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">Volume</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="p">)</span>
 </code></pre></div>
@@ -17675,6 +17797,15 @@ Account (for example, default).</p>
 <blockquote>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
 </blockquote>
+<hr />
+<h5 id="termination_grace_periodoptional_14"><code>termination_grace_period</code><sup>Optional</sup> <a name="cdk8s_plus_26.PodProps.property.termination_grace_period"></a><a class="headerlink" href="#termination_grace_periodoptional_14" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">termination_grace_period</span><span class="p">:</span> <span class="n">Duration</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <a href="#cdk8s.Duration"><code>cdk8s.Duration</code></a></li>
+<li><em>Default:</em> Duration.seconds(30)</li>
+</ul>
+<p>Grace period until the pod is terminated.</p>
 <hr />
 <h5 id="volumesoptional_13"><code>volumes</code><sup>Optional</sup> <a name="cdk8s_plus_26.PodProps.property.volumes"></a><a class="headerlink" href="#volumesoptional_13" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="n">volumes</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">Volume</span><span class="p">]</span>
@@ -18747,6 +18878,7 @@ its endpoints, which Kubernetes will not modify.</li>
   <span class="n">restart_policy</span><span class="p">:</span> <span class="n">RestartPolicy</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">security_context</span><span class="p">:</span> <span class="n">PodSecurityContextProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">service_account</span><span class="p">:</span> <span class="n">IServiceAccount</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">termination_grace_period</span><span class="p">:</span> <span class="n">Duration</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">volumes</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">Volume</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">pod_metadata</span><span class="p">:</span> <span class="n">ApiObjectMetadata</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">select</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -18899,6 +19031,15 @@ Account (for example, default).</p>
 <blockquote>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
 </blockquote>
+<hr />
+<h5 id="termination_grace_periodoptional_15"><code>termination_grace_period</code><sup>Optional</sup> <a name="cdk8s_plus_26.StatefulSetProps.property.termination_grace_period"></a><a class="headerlink" href="#termination_grace_periodoptional_15" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">termination_grace_period</span><span class="p">:</span> <span class="n">Duration</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <a href="#cdk8s.Duration"><code>cdk8s.Duration</code></a></li>
+<li><em>Default:</em> Duration.seconds(30)</li>
+</ul>
+<p>Grace period until the pod is terminated.</p>
 <hr />
 <h5 id="volumesoptional_14"><code>volumes</code><sup>Optional</sup> <a name="cdk8s_plus_26.StatefulSetProps.property.volumes"></a><a class="headerlink" href="#volumesoptional_14" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="n">volumes</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">Volume</span><span class="p">]</span>
@@ -19327,6 +19468,7 @@ contain &lsquo;:&rsquo;.</p>
   <span class="n">restart_policy</span><span class="p">:</span> <span class="n">RestartPolicy</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">security_context</span><span class="p">:</span> <span class="n">PodSecurityContextProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">service_account</span><span class="p">:</span> <span class="n">IServiceAccount</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">termination_grace_period</span><span class="p">:</span> <span class="n">Duration</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">volumes</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">Volume</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">pod_metadata</span><span class="p">:</span> <span class="n">ApiObjectMetadata</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">select</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -19474,6 +19616,15 @@ Account (for example, default).</p>
 <blockquote>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
 </blockquote>
+<hr />
+<h5 id="termination_grace_periodoptional_16"><code>termination_grace_period</code><sup>Optional</sup> <a name="cdk8s_plus_26.WorkloadProps.property.termination_grace_period"></a><a class="headerlink" href="#termination_grace_periodoptional_16" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">termination_grace_period</span><span class="p">:</span> <span class="n">Duration</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <a href="#cdk8s.Duration"><code>cdk8s.Duration</code></a></li>
+<li><em>Default:</em> Duration.seconds(30)</li>
+</ul>
+<p>Grace period until the pod is terminated.</p>
 <hr />
 <h5 id="volumesoptional_15"><code>volumes</code><sup>Optional</sup> <a name="cdk8s_plus_26.WorkloadProps.property.volumes"></a><a class="headerlink" href="#volumesoptional_15" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="n">volumes</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">Volume</span><span class="p">]</span>

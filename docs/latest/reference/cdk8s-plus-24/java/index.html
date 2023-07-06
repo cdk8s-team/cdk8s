@@ -5602,6 +5602,7 @@
 <span class="c1">//  .restartPolicy(RestartPolicy)</span>
 <span class="c1">//  .securityContext(PodSecurityContextProps)</span>
 <span class="c1">//  .serviceAccount(IServiceAccount)</span>
+<span class="c1">//  .terminationGracePeriod(Duration)</span>
 <span class="c1">//  .volumes(java.util.List&lt;Volume&gt;)</span>
 <span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
@@ -5732,6 +5733,13 @@ Account (for example, default).</p>
 <blockquote>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
 </blockquote>
+<hr />
+<h5 id="terminationgraceperiodoptional"><code>terminationGracePeriod</code><sup>Optional</sup> <a name="org.cdk8s.plus24.AbstractPodProps.parameter.terminationGracePeriod"></a><a class="headerlink" href="#terminationgraceperiodoptional" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.Duration"><code>org.cdk8s.Duration</code></a></li>
+<li><em>Default:</em> Duration.seconds(30)</li>
+</ul>
+<p>Grace period until the pod is terminated.</p>
 <hr />
 <h5 id="volumesoptional"><code>volumes</code><sup>Optional</sup> <a name="org.cdk8s.plus24.AbstractPodProps.parameter.volumes"></a><a class="headerlink" href="#volumesoptional" title="Permanent link">&para;</a></h5>
 <ul>
@@ -5880,6 +5888,13 @@ Account (for example, default).</p>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus24.IServiceAccount"><code>org.cdk8s.plus24.IServiceAccount</code></a></li>
+</ul>
+<hr />
+<h5 id="terminationgraceperiodoptional_1"><code>terminationGracePeriod</code><sup>Optional</sup> <a name="org.cdk8s.plus24.AbstractPod.property.terminationGracePeriod"></a><a class="headerlink" href="#terminationgraceperiodoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">Duration</span><span class="w"> </span><span class="nf">getTerminationGracePeriod</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.Duration"><code>org.cdk8s.Duration</code></a></li>
 </ul>
 <hr />
 <h3 id="awselasticblockstorepersistentvolume">AwsElasticBlockStorePersistentVolume <a name="org.cdk8s.plus24.AwsElasticBlockStorePersistentVolume"></a><a class="headerlink" href="#awselasticblockstorepersistentvolume" title="Permanent link">&para;</a></h3>
@@ -6804,6 +6819,7 @@ is enforced during validation process.</p>
 <span class="c1">//  .restartPolicy(RestartPolicy)</span>
 <span class="c1">//  .securityContext(PodSecurityContextProps)</span>
 <span class="c1">//  .serviceAccount(IServiceAccount)</span>
+<span class="c1">//  .terminationGracePeriod(Duration)</span>
 <span class="c1">//  .volumes(java.util.List&lt;Volume&gt;)</span>
 <span class="c1">//  .podMetadata(ApiObjectMetadata)</span>
 <span class="c1">//  .select(java.lang.Boolean)</span>
@@ -6947,6 +6963,13 @@ Account (for example, default).</p>
 <blockquote>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
 </blockquote>
+<hr />
+<h5 id="terminationgraceperiodoptional_2"><code>terminationGracePeriod</code><sup>Optional</sup> <a name="org.cdk8s.plus24.CronJobProps.parameter.terminationGracePeriod"></a><a class="headerlink" href="#terminationgraceperiodoptional_2" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.Duration"><code>org.cdk8s.Duration</code></a></li>
+<li><em>Default:</em> Duration.seconds(30)</li>
+</ul>
+<p>Grace period until the pod is terminated.</p>
 <hr />
 <h5 id="volumesoptional_1"><code>volumes</code><sup>Optional</sup> <a name="org.cdk8s.plus24.CronJobProps.parameter.volumes"></a><a class="headerlink" href="#volumesoptional_1" title="Permanent link">&para;</a></h5>
 <ul>
@@ -7176,6 +7199,7 @@ but with different flags and/or different memory and cpu requests for different 
 <span class="c1">//  .restartPolicy(RestartPolicy)</span>
 <span class="c1">//  .securityContext(PodSecurityContextProps)</span>
 <span class="c1">//  .serviceAccount(IServiceAccount)</span>
+<span class="c1">//  .terminationGracePeriod(Duration)</span>
 <span class="c1">//  .volumes(java.util.List&lt;Volume&gt;)</span>
 <span class="c1">//  .podMetadata(ApiObjectMetadata)</span>
 <span class="c1">//  .select(java.lang.Boolean)</span>
@@ -7311,6 +7335,13 @@ Account (for example, default).</p>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
 </blockquote>
 <hr />
+<h5 id="terminationgraceperiodoptional_3"><code>terminationGracePeriod</code><sup>Optional</sup> <a name="org.cdk8s.plus24.DaemonSetProps.parameter.terminationGracePeriod"></a><a class="headerlink" href="#terminationgraceperiodoptional_3" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.Duration"><code>org.cdk8s.Duration</code></a></li>
+<li><em>Default:</em> Duration.seconds(30)</li>
+</ul>
+<p>Grace period until the pod is terminated.</p>
+<hr />
 <h5 id="volumesoptional_2"><code>volumes</code><sup>Optional</sup> <a name="org.cdk8s.plus24.DaemonSetProps.parameter.volumes"></a><a class="headerlink" href="#volumesoptional_2" title="Permanent link">&para;</a></h5>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.plus24.Volume"><code>org.cdk8s.plus24.Volume</code></a>&gt;</li>
@@ -7412,6 +7443,7 @@ existing Deployments and adopt all their resources with new Deployments.</p>
 <span class="c1">//  .restartPolicy(RestartPolicy)</span>
 <span class="c1">//  .securityContext(PodSecurityContextProps)</span>
 <span class="c1">//  .serviceAccount(IServiceAccount)</span>
+<span class="c1">//  .terminationGracePeriod(Duration)</span>
 <span class="c1">//  .volumes(java.util.List&lt;Volume&gt;)</span>
 <span class="c1">//  .podMetadata(ApiObjectMetadata)</span>
 <span class="c1">//  .select(java.lang.Boolean)</span>
@@ -7549,6 +7581,13 @@ Account (for example, default).</p>
 <blockquote>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
 </blockquote>
+<hr />
+<h5 id="terminationgraceperiodoptional_4"><code>terminationGracePeriod</code><sup>Optional</sup> <a name="org.cdk8s.plus24.DeploymentProps.parameter.terminationGracePeriod"></a><a class="headerlink" href="#terminationgraceperiodoptional_4" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.Duration"><code>org.cdk8s.Duration</code></a></li>
+<li><em>Default:</em> Duration.seconds(30)</li>
+</ul>
+<p>Grace period until the pod is terminated.</p>
 <hr />
 <h5 id="volumesoptional_3"><code>volumes</code><sup>Optional</sup> <a name="org.cdk8s.plus24.DeploymentProps.parameter.volumes"></a><a class="headerlink" href="#volumesoptional_3" title="Permanent link">&para;</a></h5>
 <ul>
@@ -8334,6 +8373,7 @@ You can also use a Job to run multiple Pods in parallel.</p>
 <span class="c1">//  .restartPolicy(RestartPolicy)</span>
 <span class="c1">//  .securityContext(PodSecurityContextProps)</span>
 <span class="c1">//  .serviceAccount(IServiceAccount)</span>
+<span class="c1">//  .terminationGracePeriod(Duration)</span>
 <span class="c1">//  .volumes(java.util.List&lt;Volume&gt;)</span>
 <span class="c1">//  .podMetadata(ApiObjectMetadata)</span>
 <span class="c1">//  .select(java.lang.Boolean)</span>
@@ -8470,6 +8510,13 @@ Account (for example, default).</p>
 <blockquote>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
 </blockquote>
+<hr />
+<h5 id="terminationgraceperiodoptional_5"><code>terminationGracePeriod</code><sup>Optional</sup> <a name="org.cdk8s.plus24.JobProps.parameter.terminationGracePeriod"></a><a class="headerlink" href="#terminationgraceperiodoptional_5" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.Duration"><code>org.cdk8s.Duration</code></a></li>
+<li><em>Default:</em> Duration.seconds(30)</li>
+</ul>
+<p>Grace period until the pod is terminated.</p>
 <hr />
 <h5 id="volumesoptional_4"><code>volumes</code><sup>Optional</sup> <a name="org.cdk8s.plus24.JobProps.parameter.volumes"></a><a class="headerlink" href="#volumesoptional_4" title="Permanent link">&para;</a></h5>
 <ul>
@@ -9348,6 +9395,7 @@ created by clients and scheduled onto hosts.</p>
 <span class="c1">//  .restartPolicy(RestartPolicy)</span>
 <span class="c1">//  .securityContext(PodSecurityContextProps)</span>
 <span class="c1">//  .serviceAccount(IServiceAccount)</span>
+<span class="c1">//  .terminationGracePeriod(Duration)</span>
 <span class="c1">//  .volumes(java.util.List&lt;Volume&gt;)</span>
 <span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
@@ -9478,6 +9526,13 @@ Account (for example, default).</p>
 <blockquote>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
 </blockquote>
+<hr />
+<h5 id="terminationgraceperiodoptional_6"><code>terminationGracePeriod</code><sup>Optional</sup> <a name="org.cdk8s.plus24.PodProps.parameter.terminationGracePeriod"></a><a class="headerlink" href="#terminationgraceperiodoptional_6" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.Duration"><code>org.cdk8s.Duration</code></a></li>
+<li><em>Default:</em> Duration.seconds(30)</li>
+</ul>
+<p>Grace period until the pod is terminated.</p>
 <hr />
 <h5 id="volumesoptional_5"><code>volumes</code><sup>Optional</sup> <a name="org.cdk8s.plus24.PodProps.parameter.volumes"></a><a class="headerlink" href="#volumesoptional_5" title="Permanent link">&para;</a></h5>
 <ul>
@@ -10579,6 +10634,7 @@ volumes to the new Pods that replace any that have failed.</p>
 <span class="c1">//  .restartPolicy(RestartPolicy)</span>
 <span class="c1">//  .securityContext(PodSecurityContextProps)</span>
 <span class="c1">//  .serviceAccount(IServiceAccount)</span>
+<span class="c1">//  .terminationGracePeriod(Duration)</span>
 <span class="c1">//  .volumes(java.util.List&lt;Volume&gt;)</span>
 <span class="c1">//  .podMetadata(ApiObjectMetadata)</span>
 <span class="c1">//  .select(java.lang.Boolean)</span>
@@ -10717,6 +10773,13 @@ Account (for example, default).</p>
 <blockquote>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
 </blockquote>
+<hr />
+<h5 id="terminationgraceperiodoptional_7"><code>terminationGracePeriod</code><sup>Optional</sup> <a name="org.cdk8s.plus24.StatefulSetProps.parameter.terminationGracePeriod"></a><a class="headerlink" href="#terminationgraceperiodoptional_7" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.Duration"><code>org.cdk8s.Duration</code></a></li>
+<li><em>Default:</em> Duration.seconds(30)</li>
+</ul>
+<p>Grace period until the pod is terminated.</p>
 <hr />
 <h5 id="volumesoptional_6"><code>volumes</code><sup>Optional</sup> <a name="org.cdk8s.plus24.StatefulSetProps.parameter.volumes"></a><a class="headerlink" href="#volumesoptional_6" title="Permanent link">&para;</a></h5>
 <ul>
@@ -11268,6 +11331,7 @@ In Kubernetes, a Pod represents a set of running containers on your cluster.</p>
 <span class="c1">//  .restartPolicy(RestartPolicy)</span>
 <span class="c1">//  .securityContext(PodSecurityContextProps)</span>
 <span class="c1">//  .serviceAccount(IServiceAccount)</span>
+<span class="c1">//  .terminationGracePeriod(Duration)</span>
 <span class="c1">//  .volumes(java.util.List&lt;Volume&gt;)</span>
 <span class="c1">//  .podMetadata(ApiObjectMetadata)</span>
 <span class="c1">//  .select(java.lang.Boolean)</span>
@@ -11402,6 +11466,13 @@ Account (for example, default).</p>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
 </blockquote>
 <hr />
+<h5 id="terminationgraceperiodoptional_8"><code>terminationGracePeriod</code><sup>Optional</sup> <a name="org.cdk8s.plus24.WorkloadProps.parameter.terminationGracePeriod"></a><a class="headerlink" href="#terminationgraceperiodoptional_8" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.Duration"><code>org.cdk8s.Duration</code></a></li>
+<li><em>Default:</em> Duration.seconds(30)</li>
+</ul>
+<p>Grace period until the pod is terminated.</p>
+<hr />
 <h5 id="volumesoptional_7"><code>volumes</code><sup>Optional</sup> <a name="org.cdk8s.plus24.WorkloadProps.parameter.volumes"></a><a class="headerlink" href="#volumesoptional_7" title="Permanent link">&para;</a></h5>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.plus24.Volume"><code>org.cdk8s.plus24.Volume</code></a>&gt;</li>
@@ -11507,6 +11578,7 @@ its pod template.</p>
 <span class="c1">//  .restartPolicy(RestartPolicy)</span>
 <span class="c1">//  .securityContext(PodSecurityContextProps)</span>
 <span class="c1">//  .serviceAccount(IServiceAccount)</span>
+<span class="c1">//  .terminationGracePeriod(Duration)</span>
 <span class="c1">//  .volumes(java.util.List&lt;Volume&gt;)</span>
 <span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
@@ -11651,6 +11723,15 @@ Account (for example, default).</p>
 <blockquote>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
 </blockquote>
+<hr />
+<h5 id="terminationgraceperiodoptional_9"><code>terminationGracePeriod</code><sup>Optional</sup> <a name="org.cdk8s.plus24.AbstractPodProps.property.terminationGracePeriod"></a><a class="headerlink" href="#terminationgraceperiodoptional_9" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">Duration</span><span class="w"> </span><span class="nf">getTerminationGracePeriod</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.Duration"><code>org.cdk8s.Duration</code></a></li>
+<li><em>Default:</em> Duration.seconds(30)</li>
+</ul>
+<p>Grace period until the pod is terminated.</p>
 <hr />
 <h5 id="volumesoptional_8"><code>volumes</code><sup>Optional</sup> <a name="org.cdk8s.plus24.AbstractPodProps.property.volumes"></a><a class="headerlink" href="#volumesoptional_8" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">Volume</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getVolumes</span><span class="p">();</span>
@@ -12550,7 +12631,7 @@ file mode, like fsGroup, and the result can be other mode bits set.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">PathMapping</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getItems</span><span class="p">();</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus24.PathMapping">klzzwxh:12167</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus24.PathMapping">klzzwxh:12280</a>></li>
 <li><em>Default:</em> no mapping</li>
 </ul>
 <p>If unspecified, each key-value pair in the Data field of the referenced ConfigMap will be projected into the volume as a file whose name is the key and content is the value.</p>
@@ -12688,7 +12769,7 @@ with a duplicate key will take precedence.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">EnvValue</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getEnvVariables</span><span class="p">();</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus24.EnvValue">klzzwxh:12138</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus24.EnvValue">klzzwxh:12251</a>></li>
 <li><em>Default:</em> No environment variables.</li>
 </ul>
 <p>Environment variables to set in the container.</p>
@@ -12974,7 +13055,7 @@ with a duplicate key will take precedence.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">EnvValue</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getEnvVariables</span><span class="p">();</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus24.EnvValue">klzzwxh:12059</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus24.EnvValue">klzzwxh:12172</a>></li>
 <li><em>Default:</em> No environment variables.</li>
 </ul>
 <p>Environment variables to set in the container.</p>
@@ -13281,6 +13362,7 @@ somehow it manages to get access to host file system.</li>
 <span class="c1">//  .restartPolicy(RestartPolicy)</span>
 <span class="c1">//  .securityContext(PodSecurityContextProps)</span>
 <span class="c1">//  .serviceAccount(IServiceAccount)</span>
+<span class="c1">//  .terminationGracePeriod(Duration)</span>
 <span class="c1">//  .volumes(java.util.List&lt;Volume&gt;)</span>
 <span class="c1">//  .podMetadata(ApiObjectMetadata)</span>
 <span class="c1">//  .select(java.lang.Boolean)</span>
@@ -13438,6 +13520,15 @@ Account (for example, default).</p>
 <blockquote>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
 </blockquote>
+<hr />
+<h5 id="terminationgraceperiodoptional_10"><code>terminationGracePeriod</code><sup>Optional</sup> <a name="org.cdk8s.plus24.CronJobProps.property.terminationGracePeriod"></a><a class="headerlink" href="#terminationgraceperiodoptional_10" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">Duration</span><span class="w"> </span><span class="nf">getTerminationGracePeriod</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.Duration"><code>org.cdk8s.Duration</code></a></li>
+<li><em>Default:</em> Duration.seconds(30)</li>
+</ul>
+<p>Grace period until the pod is terminated.</p>
 <hr />
 <h5 id="volumesoptional_9"><code>volumes</code><sup>Optional</sup> <a name="org.cdk8s.plus24.CronJobProps.property.volumes"></a><a class="headerlink" href="#volumesoptional_9" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">Volume</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getVolumes</span><span class="p">();</span>
@@ -13668,6 +13759,7 @@ determine the default filesystem to apply.</p>
 <span class="c1">//  .restartPolicy(RestartPolicy)</span>
 <span class="c1">//  .securityContext(PodSecurityContextProps)</span>
 <span class="c1">//  .serviceAccount(IServiceAccount)</span>
+<span class="c1">//  .terminationGracePeriod(Duration)</span>
 <span class="c1">//  .volumes(java.util.List&lt;Volume&gt;)</span>
 <span class="c1">//  .podMetadata(ApiObjectMetadata)</span>
 <span class="c1">//  .select(java.lang.Boolean)</span>
@@ -13817,6 +13909,15 @@ Account (for example, default).</p>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
 </blockquote>
 <hr />
+<h5 id="terminationgraceperiodoptional_11"><code>terminationGracePeriod</code><sup>Optional</sup> <a name="org.cdk8s.plus24.DaemonSetProps.property.terminationGracePeriod"></a><a class="headerlink" href="#terminationgraceperiodoptional_11" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">Duration</span><span class="w"> </span><span class="nf">getTerminationGracePeriod</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.Duration"><code>org.cdk8s.Duration</code></a></li>
+<li><em>Default:</em> Duration.seconds(30)</li>
+</ul>
+<p>Grace period until the pod is terminated.</p>
+<hr />
 <h5 id="volumesoptional_10"><code>volumes</code><sup>Optional</sup> <a name="org.cdk8s.plus24.DaemonSetProps.property.volumes"></a><a class="headerlink" href="#volumesoptional_10" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">Volume</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getVolumes</span><span class="p">();</span>
 </code></pre></div>
@@ -13928,6 +14029,7 @@ you must explicitly set a name starting from the second expose call.</p>
 <span class="c1">//  .restartPolicy(RestartPolicy)</span>
 <span class="c1">//  .securityContext(PodSecurityContextProps)</span>
 <span class="c1">//  .serviceAccount(IServiceAccount)</span>
+<span class="c1">//  .terminationGracePeriod(Duration)</span>
 <span class="c1">//  .volumes(java.util.List&lt;Volume&gt;)</span>
 <span class="c1">//  .podMetadata(ApiObjectMetadata)</span>
 <span class="c1">//  .select(java.lang.Boolean)</span>
@@ -14079,6 +14181,15 @@ Account (for example, default).</p>
 <blockquote>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
 </blockquote>
+<hr />
+<h5 id="terminationgraceperiodoptional_12"><code>terminationGracePeriod</code><sup>Optional</sup> <a name="org.cdk8s.plus24.DeploymentProps.property.terminationGracePeriod"></a><a class="headerlink" href="#terminationgraceperiodoptional_12" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">Duration</span><span class="w"> </span><span class="nf">getTerminationGracePeriod</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.Duration"><code>org.cdk8s.Duration</code></a></li>
+<li><em>Default:</em> Duration.seconds(30)</li>
+</ul>
+<p>Grace period until the pod is terminated.</p>
 <hr />
 <h5 id="volumesoptional_11"><code>volumes</code><sup>Optional</sup> <a name="org.cdk8s.plus24.DeploymentProps.property.volumes"></a><a class="headerlink" href="#volumesoptional_11" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">Volume</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getVolumes</span><span class="p">();</span>
@@ -15211,6 +15322,7 @@ termination and value of the Host header is used for routing.</p>
 <span class="c1">//  .restartPolicy(RestartPolicy)</span>
 <span class="c1">//  .securityContext(PodSecurityContextProps)</span>
 <span class="c1">//  .serviceAccount(IServiceAccount)</span>
+<span class="c1">//  .terminationGracePeriod(Duration)</span>
 <span class="c1">//  .volumes(java.util.List&lt;Volume&gt;)</span>
 <span class="c1">//  .podMetadata(ApiObjectMetadata)</span>
 <span class="c1">//  .select(java.lang.Boolean)</span>
@@ -15361,6 +15473,15 @@ Account (for example, default).</p>
 <blockquote>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
 </blockquote>
+<hr />
+<h5 id="terminationgraceperiodoptional_13"><code>terminationGracePeriod</code><sup>Optional</sup> <a name="org.cdk8s.plus24.JobProps.property.terminationGracePeriod"></a><a class="headerlink" href="#terminationgraceperiodoptional_13" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">Duration</span><span class="w"> </span><span class="nf">getTerminationGracePeriod</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.Duration"><code>org.cdk8s.Duration</code></a></li>
+<li><em>Default:</em> Duration.seconds(30)</li>
+</ul>
+<p>Grace period until the pod is terminated.</p>
 <hr />
 <h5 id="volumesoptional_12"><code>volumes</code><sup>Optional</sup> <a name="org.cdk8s.plus24.JobProps.property.volumes"></a><a class="headerlink" href="#volumesoptional_12" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">Volume</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getVolumes</span><span class="p">();</span>
@@ -16421,6 +16542,7 @@ Duplicate domain names are removed.</p>
 <span class="c1">//  .restartPolicy(RestartPolicy)</span>
 <span class="c1">//  .securityContext(PodSecurityContextProps)</span>
 <span class="c1">//  .serviceAccount(IServiceAccount)</span>
+<span class="c1">//  .terminationGracePeriod(Duration)</span>
 <span class="c1">//  .volumes(java.util.List&lt;Volume&gt;)</span>
 <span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
@@ -16565,6 +16687,15 @@ Account (for example, default).</p>
 <blockquote>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
 </blockquote>
+<hr />
+<h5 id="terminationgraceperiodoptional_14"><code>terminationGracePeriod</code><sup>Optional</sup> <a name="org.cdk8s.plus24.PodProps.property.terminationGracePeriod"></a><a class="headerlink" href="#terminationgraceperiodoptional_14" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">Duration</span><span class="w"> </span><span class="nf">getTerminationGracePeriod</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.Duration"><code>org.cdk8s.Duration</code></a></li>
+<li><em>Default:</em> Duration.seconds(30)</li>
+</ul>
+<p>Grace period until the pod is terminated.</p>
 <hr />
 <h5 id="volumesoptional_13"><code>volumes</code><sup>Optional</sup> <a name="org.cdk8s.plus24.PodProps.property.volumes"></a><a class="headerlink" href="#volumesoptional_13" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">Volume</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getVolumes</span><span class="p">();</span>
@@ -17213,7 +17344,7 @@ file mode, like fsGroup, and the result can be other mode bits set.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">PathMapping</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getItems</span><span class="p">();</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus24.PathMapping">klzzwxh:10993</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus24.PathMapping">klzzwxh:11086</a>></li>
 <li><em>Default:</em> no mapping</li>
 </ul>
 <p>If unspecified, each key-value pair in the Data field of the referenced secret will be projected into the volume as a file whose name is the key and content is the value.</p>
@@ -17637,6 +17768,7 @@ its endpoints, which Kubernetes will not modify.</li>
 <span class="c1">//  .restartPolicy(RestartPolicy)</span>
 <span class="c1">//  .securityContext(PodSecurityContextProps)</span>
 <span class="c1">//  .serviceAccount(IServiceAccount)</span>
+<span class="c1">//  .terminationGracePeriod(Duration)</span>
 <span class="c1">//  .volumes(java.util.List&lt;Volume&gt;)</span>
 <span class="c1">//  .podMetadata(ApiObjectMetadata)</span>
 <span class="c1">//  .select(java.lang.Boolean)</span>
@@ -17789,6 +17921,15 @@ Account (for example, default).</p>
 <blockquote>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
 </blockquote>
+<hr />
+<h5 id="terminationgraceperiodoptional_15"><code>terminationGracePeriod</code><sup>Optional</sup> <a name="org.cdk8s.plus24.StatefulSetProps.property.terminationGracePeriod"></a><a class="headerlink" href="#terminationgraceperiodoptional_15" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">Duration</span><span class="w"> </span><span class="nf">getTerminationGracePeriod</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.Duration"><code>org.cdk8s.Duration</code></a></li>
+<li><em>Default:</em> Duration.seconds(30)</li>
+</ul>
+<p>Grace period until the pod is terminated.</p>
 <hr />
 <h5 id="volumesoptional_14"><code>volumes</code><sup>Optional</sup> <a name="org.cdk8s.plus24.StatefulSetProps.property.volumes"></a><a class="headerlink" href="#volumesoptional_14" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">Volume</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getVolumes</span><span class="p">();</span>
@@ -18217,6 +18358,7 @@ contain &lsquo;:&rsquo;.</p>
 <span class="c1">//  .restartPolicy(RestartPolicy)</span>
 <span class="c1">//  .securityContext(PodSecurityContextProps)</span>
 <span class="c1">//  .serviceAccount(IServiceAccount)</span>
+<span class="c1">//  .terminationGracePeriod(Duration)</span>
 <span class="c1">//  .volumes(java.util.List&lt;Volume&gt;)</span>
 <span class="c1">//  .podMetadata(ApiObjectMetadata)</span>
 <span class="c1">//  .select(java.lang.Boolean)</span>
@@ -18364,6 +18506,15 @@ Account (for example, default).</p>
 <blockquote>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
 </blockquote>
+<hr />
+<h5 id="terminationgraceperiodoptional_16"><code>terminationGracePeriod</code><sup>Optional</sup> <a name="org.cdk8s.plus24.WorkloadProps.property.terminationGracePeriod"></a><a class="headerlink" href="#terminationgraceperiodoptional_16" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">Duration</span><span class="w"> </span><span class="nf">getTerminationGracePeriod</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.Duration"><code>org.cdk8s.Duration</code></a></li>
+<li><em>Default:</em> Duration.seconds(30)</li>
+</ul>
+<p>Grace period until the pod is terminated.</p>
 <hr />
 <h5 id="volumesoptional_15"><code>volumes</code><sup>Optional</sup> <a name="org.cdk8s.plus24.WorkloadProps.property.volumes"></a><a class="headerlink" href="#volumesoptional_15" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">Volume</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getVolumes</span><span class="p">();</span>
@@ -18877,7 +19028,7 @@ with a duplicate key will take precedence.</p>
 <hr />
 <h5 id="envvariablesoptional_2"><code>envVariables</code><sup>Optional</sup> <a name="org.cdk8s.plus24.ContainerProps.parameter.envVariables"></a><a class="headerlink" href="#envvariablesoptional_2" title="Permanent link">&para;</a></h5>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus24.EnvValue">klzzwxh:10502</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus24.EnvValue">klzzwxh:10587</a>></li>
 <li><em>Default:</em> No environment variables.</li>
 </ul>
 <p>Environment variables to set in the container.</p>
@@ -19323,7 +19474,7 @@ somehow it manages to get access to host file system.</li>
 <hr />
 <h5 id="variablesrequired"><code>variables</code><sup>Required</sup> <a name="org.cdk8s.plus24.Env.parameter.variables"></a><a class="headerlink" href="#variablesrequired" title="Permanent link">&para;</a></h5>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus24.EnvValue">klzzwxh:10360</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus24.EnvValue">klzzwxh:10445</a>></li>
 </ul>
 <hr />
 <h4 id="methods_26">Methods <a name="Methods"></a><a class="headerlink" href="#methods_26" title="Permanent link">&para;</a></h4>
@@ -19389,7 +19540,7 @@ somehow it manages to get access to host file system.</li>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">EnvValue</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getVariables</span><span class="p">();</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus24.EnvValue">klzzwxh:10337</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus24.EnvValue">klzzwxh:10422</a>></li>
 </ul>
 <p>The environment variables for this container.</p>
 <p>Returns a copy. To add environment variables use <code>container.env.addVariable()</code>.</p>

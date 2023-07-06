@@ -5744,6 +5744,13 @@
 <li><em>Type:</em> <a href="#cdk8s-plus-25.IServiceAccount"><code>cdk8s-plus-25.IServiceAccount</code></a></li>
 </ul>
 <hr />
+<h5 id="terminationgraceperiodoptional"><code>terminationGracePeriod</code><sup>Optional</sup> <a name="cdk8s-plus-25.AbstractPod.property.terminationGracePeriod"></a><a class="headerlink" href="#terminationgraceperiodoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">terminationGracePeriod</span><span class="o">:</span><span class="w"> </span><span class="kt">Duration</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <a href="#cdk8s.Duration"><code>cdk8s.Duration</code></a></li>
+</ul>
+<hr />
 <h3 id="awselasticblockstorepersistentvolume">AwsElasticBlockStorePersistentVolume <a name="cdk8s-plus-25.AwsElasticBlockStorePersistentVolume"></a><a class="headerlink" href="#awselasticblockstorepersistentvolume" title="Permanent link">&para;</a></h3>
 <p>Represents an AWS Disk resource that is attached to a kubelet&rsquo;s host machine and then exposed to the pod.</p>
 <blockquote>
@@ -9124,6 +9131,15 @@ Account (for example, default).</p>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
 </blockquote>
 <hr />
+<h5 id="terminationgraceperiodoptional_1"><code>terminationGracePeriod</code><sup>Optional</sup> <a name="cdk8s-plus-25.AbstractPodProps.property.terminationGracePeriod"></a><a class="headerlink" href="#terminationgraceperiodoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">terminationGracePeriod</span><span class="o">:</span><span class="w"> </span><span class="kt">Duration</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <a href="#cdk8s.Duration"><code>cdk8s.Duration</code></a></li>
+<li><em>Default:</em> Duration.seconds(30)</li>
+</ul>
+<p>Grace period until the pod is terminated.</p>
+<hr />
 <h5 id="volumesoptional"><code>volumes</code><sup>Optional</sup> <a name="cdk8s-plus-25.AbstractPodProps.property.volumes"></a><a class="headerlink" href="#volumesoptional" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">volumes</span><span class="o">:</span><span class="w"> </span><span class="kt">Volume</span><span class="p">[];</span>
 </code></pre></div>
@@ -10739,6 +10755,15 @@ Account (for example, default).</p>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
 </blockquote>
 <hr />
+<h5 id="terminationgraceperiodoptional_2"><code>terminationGracePeriod</code><sup>Optional</sup> <a name="cdk8s-plus-25.CronJobProps.property.terminationGracePeriod"></a><a class="headerlink" href="#terminationgraceperiodoptional_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">terminationGracePeriod</span><span class="o">:</span><span class="w"> </span><span class="kt">Duration</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <a href="#cdk8s.Duration"><code>cdk8s.Duration</code></a></li>
+<li><em>Default:</em> Duration.seconds(30)</li>
+</ul>
+<p>Grace period until the pod is terminated.</p>
+<hr />
 <h5 id="volumesoptional_1"><code>volumes</code><sup>Optional</sup> <a name="cdk8s-plus-25.CronJobProps.property.volumes"></a><a class="headerlink" href="#volumesoptional_1" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">volumes</span><span class="o">:</span><span class="w"> </span><span class="kt">Volume</span><span class="p">[];</span>
 </code></pre></div>
@@ -11094,6 +11119,15 @@ Account (for example, default).</p>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
 </blockquote>
 <hr />
+<h5 id="terminationgraceperiodoptional_3"><code>terminationGracePeriod</code><sup>Optional</sup> <a name="cdk8s-plus-25.DaemonSetProps.property.terminationGracePeriod"></a><a class="headerlink" href="#terminationgraceperiodoptional_3" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">terminationGracePeriod</span><span class="o">:</span><span class="w"> </span><span class="kt">Duration</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <a href="#cdk8s.Duration"><code>cdk8s.Duration</code></a></li>
+<li><em>Default:</em> Duration.seconds(30)</li>
+</ul>
+<p>Grace period until the pod is terminated.</p>
+<hr />
 <h5 id="volumesoptional_2"><code>volumes</code><sup>Optional</sup> <a name="cdk8s-plus-25.DaemonSetProps.property.volumes"></a><a class="headerlink" href="#volumesoptional_2" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">volumes</span><span class="o">:</span><span class="w"> </span><span class="kt">Volume</span><span class="p">[];</span>
 </code></pre></div>
@@ -11331,6 +11365,15 @@ Account (for example, default).</p>
 <blockquote>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
 </blockquote>
+<hr />
+<h5 id="terminationgraceperiodoptional_4"><code>terminationGracePeriod</code><sup>Optional</sup> <a name="cdk8s-plus-25.DeploymentProps.property.terminationGracePeriod"></a><a class="headerlink" href="#terminationgraceperiodoptional_4" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">terminationGracePeriod</span><span class="o">:</span><span class="w"> </span><span class="kt">Duration</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <a href="#cdk8s.Duration"><code>cdk8s.Duration</code></a></li>
+<li><em>Default:</em> Duration.seconds(30)</li>
+</ul>
+<p>Grace period until the pod is terminated.</p>
 <hr />
 <h5 id="volumesoptional_3"><code>volumes</code><sup>Optional</sup> <a name="cdk8s-plus-25.DeploymentProps.property.volumes"></a><a class="headerlink" href="#volumesoptional_3" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">volumes</span><span class="o">:</span><span class="w"> </span><span class="kt">Volume</span><span class="p">[];</span>
@@ -12495,6 +12538,15 @@ Account (for example, default).</p>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
 </blockquote>
 <hr />
+<h5 id="terminationgraceperiodoptional_5"><code>terminationGracePeriod</code><sup>Optional</sup> <a name="cdk8s-plus-25.JobProps.property.terminationGracePeriod"></a><a class="headerlink" href="#terminationgraceperiodoptional_5" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">terminationGracePeriod</span><span class="o">:</span><span class="w"> </span><span class="kt">Duration</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <a href="#cdk8s.Duration"><code>cdk8s.Duration</code></a></li>
+<li><em>Default:</em> Duration.seconds(30)</li>
+</ul>
+<p>Grace period until the pod is terminated.</p>
+<hr />
 <h5 id="volumesoptional_4"><code>volumes</code><sup>Optional</sup> <a name="cdk8s-plus-25.JobProps.property.volumes"></a><a class="headerlink" href="#volumesoptional_4" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">volumes</span><span class="o">:</span><span class="w"> </span><span class="kt">Volume</span><span class="p">[];</span>
 </code></pre></div>
@@ -13587,6 +13639,15 @@ Account (for example, default).</p>
 <blockquote>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
 </blockquote>
+<hr />
+<h5 id="terminationgraceperiodoptional_6"><code>terminationGracePeriod</code><sup>Optional</sup> <a name="cdk8s-plus-25.PodProps.property.terminationGracePeriod"></a><a class="headerlink" href="#terminationgraceperiodoptional_6" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">terminationGracePeriod</span><span class="o">:</span><span class="w"> </span><span class="kt">Duration</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <a href="#cdk8s.Duration"><code>cdk8s.Duration</code></a></li>
+<li><em>Default:</em> Duration.seconds(30)</li>
+</ul>
+<p>Grace period until the pod is terminated.</p>
 <hr />
 <h5 id="volumesoptional_5"><code>volumes</code><sup>Optional</sup> <a name="cdk8s-plus-25.PodProps.property.volumes"></a><a class="headerlink" href="#volumesoptional_5" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">volumes</span><span class="o">:</span><span class="w"> </span><span class="kt">Volume</span><span class="p">[];</span>
@@ -14687,6 +14748,15 @@ Account (for example, default).</p>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
 </blockquote>
 <hr />
+<h5 id="terminationgraceperiodoptional_7"><code>terminationGracePeriod</code><sup>Optional</sup> <a name="cdk8s-plus-25.StatefulSetProps.property.terminationGracePeriod"></a><a class="headerlink" href="#terminationgraceperiodoptional_7" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">terminationGracePeriod</span><span class="o">:</span><span class="w"> </span><span class="kt">Duration</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <a href="#cdk8s.Duration"><code>cdk8s.Duration</code></a></li>
+<li><em>Default:</em> Duration.seconds(30)</li>
+</ul>
+<p>Grace period until the pod is terminated.</p>
+<hr />
 <h5 id="volumesoptional_6"><code>volumes</code><sup>Optional</sup> <a name="cdk8s-plus-25.StatefulSetProps.property.volumes"></a><a class="headerlink" href="#volumesoptional_6" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">volumes</span><span class="o">:</span><span class="w"> </span><span class="kt">Volume</span><span class="p">[];</span>
 </code></pre></div>
@@ -15214,6 +15284,15 @@ Account (for example, default).</p>
 <blockquote>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
 </blockquote>
+<hr />
+<h5 id="terminationgraceperiodoptional_8"><code>terminationGracePeriod</code><sup>Optional</sup> <a name="cdk8s-plus-25.WorkloadProps.property.terminationGracePeriod"></a><a class="headerlink" href="#terminationgraceperiodoptional_8" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">terminationGracePeriod</span><span class="o">:</span><span class="w"> </span><span class="kt">Duration</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <a href="#cdk8s.Duration"><code>cdk8s.Duration</code></a></li>
+<li><em>Default:</em> Duration.seconds(30)</li>
+</ul>
+<p>Grace period until the pod is terminated.</p>
 <hr />
 <h5 id="volumesoptional_7"><code>volumes</code><sup>Optional</sup> <a name="cdk8s-plus-25.WorkloadProps.property.volumes"></a><a class="headerlink" href="#volumesoptional_7" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">volumes</span><span class="o">:</span><span class="w"> </span><span class="kt">Volume</span><span class="p">[];</span>
