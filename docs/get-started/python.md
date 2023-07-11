@@ -2,7 +2,8 @@
 In this guide, we'll walk you through the most essential concepts you need to know in order to build a Kubernetes application using cdk8s for Python.
 
 ## Prerequisites
-1. cdk8s for Python supports Python versions 3.7+. Check your Python version:
+1. To install the cdk8s CLI, you need the [Node Package Manager (npm)](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) installed on your local machine. 
+2. cdk8s for Python supports Python versions 3.7+. Check your Python version:
 ```bash
 python3 --version
 ```
