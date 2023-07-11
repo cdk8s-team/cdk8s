@@ -100,7 +100,7 @@ app.synth()
 
 A few things worth noting about this sample:
 
-- The `__init__` method in the custom `MyChart` class leverages Python's inherent features to construct a Kubernetes Deployment. The Deployment is created with specific parameters including replica count, label selectors, and pod specifications. Just as in the custom `MyChart` class instantiation process, this approach utilizes Python's flexible handling of dictionary data structures to dynamically assign the "app" key in label selectors and metadata labels for our Kubernetes resources, creating a clear and concise way to set key configuration details.
+- The `__init__` method in the custom `MyChart` class uses idiomatic Python's features to construct a Kubernetes Deployment. The Deployment is created with specific parameters including replica count, label selectors, and pod specifications. Just as in the custom `MyChart` class instantiation process, this approach utilizes Python's flexible handling of dictionary data structures to dynamically assign the "app" key in label selectors and metadata labels for our Kubernetes resources, creating a clear and concise way to set key configuration details.
 
 ## Generate Kubernetes manifests
 After you have defined the Kubernetes resources for your application, you are ready to generate the Kubernetes manifest that will define your Deployment resource. 
