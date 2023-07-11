@@ -58,7 +58,7 @@ This sample shows the basic structure of a cdk8s application with the essential 
    * The `synth` method is called on the `app` instance, which produces the required Kubernetes YAML manifest files based on the defined resources. Note that in this example, we haven't defined any resources within the `MyChart` constructor, so running the "cdk8s synth" command in the CLI would generate a blank Kubernetes manifest.
 
 ## Defining Kubernetes resources
-Now, we are ready to define Kubernetes resources for our application. In this sample, we illustrate the creation of a basic Kubernetes [Service](https://kubernetes.io/docs/concepts/services-networking/service/) for a sample application. We start by importing the imports directory and the **k8s** sub-directory, which contains an `__init__.py` file where all cdk8s Kubernetes classes and functions are defined.
+Now, we are ready to define Kubernetes resources for our application. In this sample, we define a basic Kubernetes [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) for a sample application. We start by importing the imports directory and the **k8s** sub-directory, which contains an `__init__.py` file where all cdk8s Kubernetes classes and functions are defined.
 
 ### Copy the code sample
 1. Copy and paste the following code sample into the existing `main.py` file of your project.
@@ -99,8 +99,7 @@ app.synth()
 
 A few things worth noting about this sample:
 
-- An `AwesomeApp` class is created by passing the app instance, a string identifier "getting-started", and a custom `app_label` ("my-app") as arguments. This action generates and registers the Kubernetes resources defined in the `AwesomeApp` class within the application. We use the custom `app_label` parameter to dynamically set the "app" key in the "label" selectors and "metadata" labels for our Kubernetes resources.
-- The `__init__` method of the `AwesomeApp` class creates a Kubernetes [Service](https://kubernetes.io/docs/concepts/services-networking/service/) by instantiating the `k8s.KubeService` class with the following parameters: `self` as the scope of the Service resource within the `AwesomeApp` class, a string identifier "my-service", and a `k8s.ServiceSpec` object that defines the Service specification with a selector dictionary having the key "app" and the value set to the `app_label` parameter, a list of ports containing a single `k8s.ServicePort` object with `port` set to 80 and `target_port` set to 8080, and a `type` parameter with the value "LoadBalancer". The `app_label` parameter is passed to the `AwesomeApp` class.
+- The `__init__` method in the custom `AwesomeApp` class leverages Python's inherent features to construct a Kubernetes Deployment. The Deployment is created with specific parameters including replica count, label selectors, and pod specifications. Just as in the custom `AwesomeApp` class instantiation process, this approach utilizes Python's flexible handling of dictionary data structures to dynamically assign the "app" key in label selectors and metadata labels for our Kubernetes resources, creating a clear and concise way to set key configuration details.
 
 ## Generating Kubernetes manifests
 After you have defined the Kubernetes resources for your project, you are ready to generate the Kubernetes manifest that will define your Deployment resource. 
