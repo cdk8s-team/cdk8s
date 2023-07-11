@@ -69,7 +69,7 @@ from constructs import Construct
 from imports import k8s
 
 
-class AwesomeApp(Chart):
+class MyChart(Chart):
    def __init__(self, scope: Construct, ns: str, app_label: str):
        super().__init__(scope, ns)
 
@@ -92,21 +92,21 @@ class AwesomeApp(Chart):
                    )
 
 app = App()
-AwesomeApp(app, "getting-started", app_label="my-app")
+MyChart(app, "getting-started", app_label="my-app")
 
 app.synth()
 ```
 
 A few things worth noting about this sample:
 
-- The `__init__` method in the custom `AwesomeApp` class leverages Python's inherent features to construct a Kubernetes Deployment. The Deployment is created with specific parameters including replica count, label selectors, and pod specifications. Just as in the custom `AwesomeApp` class instantiation process, this approach utilizes Python's flexible handling of dictionary data structures to dynamically assign the "app" key in label selectors and metadata labels for our Kubernetes resources, creating a clear and concise way to set key configuration details.
+- The `__init__` method in the custom `MyChart` class leverages Python's inherent features to construct a Kubernetes Deployment. The Deployment is created with specific parameters including replica count, label selectors, and pod specifications. Just as in the custom `MyChart` class instantiation process, this approach utilizes Python's flexible handling of dictionary data structures to dynamically assign the "app" key in label selectors and metadata labels for our Kubernetes resources, creating a clear and concise way to set key configuration details.
 
 ## Generate Kubernetes manifests
 After you have defined the Kubernetes resources for your application, you are ready to generate the Kubernetes manifest that will define your Deployment resource. 
 
 ### Run the synth command
 1. Open a terminal and navigate to your project directory.
-2. Run the [synth](https://cdk8s.io/docs/latest/cli/synth/) command. This command generates a Kubernetes manifest file in the `dist` folder of your project directory. The manifest file contains all the resources you defined inside the `AwesomeApp` class.
+2. Run the [synth](https://cdk8s.io/docs/latest/cli/synth/) command. This command generates a Kubernetes manifest file in the `dist` folder of your project directory. The manifest file contains all the resources you defined inside the `MyChart` class.
 ```console
 cdk8s synth
 ```
