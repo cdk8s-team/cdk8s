@@ -22,7 +22,7 @@ npm install -g cdk8s-cli
 ```
 
 ### Create a project
-Next, we’ll initialize a project to create the directory structure, install the cdk8s and cdk8s+ packages and all of the dependencies required to run an application using the [init command](https://cdk8s.io/docs/latest/cli/init/). 
+Next, we’ll initialize a project to create the directory structure and install the necessary dependencies using the [init](https://cdk8s.io/docs/latest/cli/init/) command. 
 
 1. In a terminal window, run the `init` command in an empty directory: 
 ```console
@@ -136,8 +136,9 @@ spec:
             - containerPort: 80
 ```
 
-## Wrap up
-Keep in mind, this is just the basic demonstration of cdk8s.
+## Conclusion
+Throughout this guide, we introduced you to the cdk8s Python library and guided you through the process of creating a cdk8s Python application. We initiated a simple project and constructed a Kubernetes Deployment using cdk8s code. This included leveraging Python-specific programming language conventions to dynamically set the "app" key in "label" selectors and "metadata" labels for Kubernetes resources using Python's versatile handling of dictionary data structures. 
 
+## Next up
 - To run a complete code sample, we recommend diving into the Kubernetes [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) and [Service](https://kubernetes.io/docs/concepts/services-networking/service/) using the [CDK8s Core](https://github.com/cdk8s-team/cdk8s-examples/blob/main/python/cdk8s-core/main.py) sample application.
 
