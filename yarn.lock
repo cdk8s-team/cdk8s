@@ -292,10 +292,10 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@cdk8s/projen-common@^0.0.401":
-  version "0.0.401"
-  resolved "https://registry.yarnpkg.com/@cdk8s/projen-common/-/projen-common-0.0.401.tgz#6e502801e757e50f7bdc1832235cb57af778c12e"
-  integrity sha512-udWMsttlsgNRaJ8oIdBbuqIN07dfjaJ1SP+GwAYAT9my+prwn8q8PmVgNg9cls0yByq+91G910iUbrxaNXuG4Q==
+"@cdk8s/projen-common@^0.0.402":
+  version "0.0.402"
+  resolved "https://registry.yarnpkg.com/@cdk8s/projen-common/-/projen-common-0.0.402.tgz#4eaa4547e8a7175d09cd4f5491b48524c724f108"
+  integrity sha512-kzt2AWsSvSsr912NzpwyEdb6JXvOOBizPm0eetkncEFB1OAIkKDQq60qUQkRsjcJAtleUqRhhmj2AlpaD/35tA==
   dependencies:
     codemaker "^1.84.0"
 
@@ -5370,9 +5370,9 @@ minipass@^5.0.0:
   integrity sha512-3FnjYuehv9k6ovOEbyOswadCDPX1piCfhV8ncmYtHOjuPwylVWsghTLo7rabjC3Rx5xD4HDx8Wm1xnMF7S5qFQ==
 
 "minipass@^5.0.0 || ^6.0.2 || ^7.0.0":
-  version "7.0.1"
-  resolved "https://registry.yarnpkg.com/minipass/-/minipass-7.0.1.tgz#dff63464407cd8b83d7f008c0f116fa8c9b77ebf"
-  integrity sha512-NQ8MCKimInjVlaIqx51RKJJB7mINVkLTJbsZKmto4UAAOC/CWXES8PGaOgoBZyqoUsUA/U3DToGK7GJkkHbjJw==
+  version "7.0.2"
+  resolved "https://registry.yarnpkg.com/minipass/-/minipass-7.0.2.tgz#58a82b7d81c7010da5bd4b2c0c85ac4b4ec5131e"
+  integrity sha512-eL79dXrE1q9dBbDCLg7xfn/vl7MS4F1gvJAgjJrQli/jbQWdUttuVawphqpffoIYfRdq78LHx6GP4bU/EQ2ATA==
 
 minizlib@^2.1.1, minizlib@^2.1.2:
   version "2.1.2"
@@ -6245,10 +6245,10 @@ progress@^2.0.3:
   resolved "https://registry.yarnpkg.com/progress/-/progress-2.0.3.tgz#7e8cf8d8f5b8f239c1bc68beb4eb78567d572ef8"
   integrity sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA==
 
-projen@^0.71.131:
-  version "0.71.131"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.71.131.tgz#87e7b3c1982c19c400f9b9c1ddb1f3482912ed60"
-  integrity sha512-X9KOSFo+R/wTCdMgkfqEQGlvEL3vtmVXEbpmDpW97jSiRnUcTpjPOfcWFCyqLorXNnhAa2Qb5t0XOsG4R5aNbg==
+projen@^0.71.133:
+  version "0.71.133"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.71.133.tgz#82ba898128dd991bc6db06adebf8a1f2ed98c034"
+  integrity sha512-q0ZUrcPB7VSZamuos9nIn1gzjXL4KiOHLGmKqTOJWcNTv5VIju+yT205fLA9lkcbnGEY5PyfUdRs53YBUmUsag==
   dependencies:
     "@iarna/toml" "^2.2.5"
     case "^1.6.3"
