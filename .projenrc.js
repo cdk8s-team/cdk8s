@@ -151,6 +151,7 @@ const packages = [
   'cdk8s-plus-24',
   'cdk8s-plus-25',
   'cdk8s-plus-26',
+  'cdk8s-plus-27',
 ];
 for (const pkg of packages) {
   for (const language of ['java', 'typescript', 'python']) {
