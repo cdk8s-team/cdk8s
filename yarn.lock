@@ -289,10 +289,10 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@cdk8s/projen-common@^0.0.403":
-  version "0.0.403"
-  resolved "https://registry.yarnpkg.com/@cdk8s/projen-common/-/projen-common-0.0.403.tgz#974604d52cd61a5843832204a85aa555a7ed4954"
-  integrity sha512-4G6gDe4HjiuxSPOVCIdaSPnhT33hSlr139sB9CgDcrluVQDrJ39vWqx+euQekdJC1Q3P4ERMUjpvZe8h+GWQZQ==
+"@cdk8s/projen-common@^0.0.404":
+  version "0.0.404"
+  resolved "https://registry.yarnpkg.com/@cdk8s/projen-common/-/projen-common-0.0.404.tgz#b77ca29dbe57b48a81fa2e3e9c52dda1f213e297"
+  integrity sha512-R9ZwaxDnMTJIbdO2C0yp7YjckDKHitO5r0l8TJIv5y96vQkDG0wEtD6hv2kIad4Px3BICdfnAeLmluOY7j5IPg==
   dependencies:
     codemaker "^1.84.0"
 
@@ -6237,10 +6237,10 @@ progress@^2.0.3:
   resolved "https://registry.yarnpkg.com/progress/-/progress-2.0.3.tgz#7e8cf8d8f5b8f239c1bc68beb4eb78567d572ef8"
   integrity sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA==
 
-projen@^0.71.134:
-  version "0.71.134"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.71.134.tgz#2dc66eca3c7bed2de9a872de4e46fe8c6dd48f54"
-  integrity sha512-WD5hMGD0uzJRJFa0BXiL8Gc87SZhkVgB1vrsP3KBf2lDgk7gaxfXu0CZs4d+wVkBR6tLlWEdbrOqCpe3PYQ1Cw==
+projen@^0.71.135:
+  version "0.71.135"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.71.135.tgz#5bf9a71cb46b528c6367a53fed5a2377396838e6"
+  integrity sha512-lPqcn1uhSEvu5FPAVQU1v9kdO8B7uV/yjzFMwcefQFXCHCkDILGsWraNbD97aXE/6qaatiNgrbdnbza3coDOLg==
   dependencies:
     "@iarna/toml" "^2.2.5"
     case "^1.6.3"
