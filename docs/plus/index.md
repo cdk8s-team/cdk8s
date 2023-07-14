@@ -59,7 +59,7 @@ manifests.
 ## At a glance
 
 ```typescript
-import * as kplus from 'cdk8s-plus-26';
+import * as kplus from 'cdk8s-plus-27';
 import * as cdk8s from 'cdk8s';
 import * as path from 'path';
 
@@ -177,10 +177,10 @@ app.synth();
 
 === "TypeScript"
 
-    `❯ npm install cdk8s-plus-26 cdk8s constructs`
+    `❯ npm install cdk8s-plus-27 cdk8s constructs`
 
     ```typescript
-    import * as kplus from 'cdk8s-plus-26';
+    import * as kplus from 'cdk8s-plus-27';
     import * as cdk8s from 'cdk8s';
 
     const app = new cdk8s.App();
@@ -198,7 +198,7 @@ app.synth();
 
 === "JavaScript"
 
-    `❯ npm install cdk8s-plus-26 cdk8s constructs`
+    `❯ npm install cdk8s-plus-27 cdk8s constructs`
 
     ```typescript
     const kplus = require('cdk8s-plus-25');
@@ -219,10 +219,10 @@ app.synth();
 
 === "Python"
 
-    `❯ pip install cdk8s-plus-26 cdk8s`
+    `❯ pip install cdk8s-plus-27 cdk8s`
 
     ```python
-    import cdk8s_plus_26 as kplus
+    import cdk8s_plus_27 as kplus
     import cdk8s
 
     app = cdk8s.App()
@@ -297,7 +297,7 @@ app.synth();
       "github.com/aws/constructs-go/constructs/v10"
       "github.com/aws/jsii-runtime-go"
       "github.com/cdk8s-team/cdk8s-core-go/cdk8s/v2"
-      "github.com/cdk8s-team/cdk8s-plus-go/cdk8splus26"
+      "github.com/cdk8s-team/cdk8s-plus-go/cdk8splus27"
     )
     ```
 
@@ -305,9 +305,9 @@ app.synth();
     app := cdk8s.NewApp(nil)
     chart := cdk8s.NewChart(app, jsii.String("ubuntu"), nil)
 
-    cdk8splus26.NewDeployment(chart, jsii.String("Deployment"), &cdk8splus26.DeploymentProps{
+    cdk8splus27.NewDeployment(chart, jsii.String("Deployment"), &cdk8splus27.DeploymentProps{
       Replicas: jsii.Number(3),
-      Containers: &[]*cdk8splus26.ContainerProps{{
+      Containers: &[]*cdk8splus27.ContainerProps{{
         Image: jsii.String("ubuntu"),
       }},
     })
@@ -328,7 +328,7 @@ which are available from within **cdk8s+**, so you don't need to install an addi
 or [import](https://cdk8s.io/docs/latest/cli/import/) any resources. For example:
 
 ```ts
-import * as kplus from 'cdk8s-plus-26';
+import * as kplus from 'cdk8s-plus-27';
 import * as cdk8s from 'cdk8s';
 
 const app = new cdk8s.App();
