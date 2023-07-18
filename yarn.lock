@@ -289,10 +289,10 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@cdk8s/projen-common@^0.0.407":
-  version "0.0.407"
-  resolved "https://registry.yarnpkg.com/@cdk8s/projen-common/-/projen-common-0.0.407.tgz#1438ef6ebffaed5d91ececfbfa3ce823aaecb707"
-  integrity sha512-i2QAdDA3nmXd2wAQIeMl+SsLRKN1/X0VHp52WnVzbYsjyQLEjyKduvt8H4GUPcmlqvK1FDI0J3BhdUR8M9PgoA==
+"@cdk8s/projen-common@^0.0.408":
+  version "0.0.408"
+  resolved "https://registry.yarnpkg.com/@cdk8s/projen-common/-/projen-common-0.0.408.tgz#d590fca5d7b29b7966036530f5a10431019380b5"
+  integrity sha512-XUQhyXEGk3nricJ4D+E1pz6uHEqmFz3BAt4BJWRmzIS3Fu4H3/S7YMWuq0WY+8nT3yfu0S3ofyoTTiEVNRxz4w==
   dependencies:
     codemaker "^1.84.0"
 
@@ -1252,9 +1252,9 @@
   integrity sha512-+Fj43pSMwJs4KRrH/938Uf+uAELIgVBmQzg/q1YG10djyfA3TnrU8N8XzqCh/okZdszqBQTZf96idMfE5lnwTA==
 
 "@sindresorhus/is@^5.2.0":
-  version "5.5.1"
-  resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-5.5.1.tgz#a18b694ca8e9f45d64f578a4779568dd74d232b8"
-  integrity sha512-wTsEUhqTXg1NDW+o9aWANj4LxELwWjqN0F3ltsWwpYoh0NSlMWo+u7FluRrSF2E2uaPYx7dJ3FnTf69git/0ug==
+  version "5.5.2"
+  resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-5.5.2.tgz#cbfd816d556b941f65d32cfc6d708359b826e7ea"
+  integrity sha512-8ZMK+V6YpeZFfW6hU9uAeWVuq8v3t7BaG276gIO+kVqnAcLrHCXdFUOf7kgouyfAarkZtuavIqY3RsXTsTWviw==
 
 "@sinonjs/commons@^1.7.0":
   version "1.8.6"
@@ -2295,9 +2295,9 @@ co@^4.6.0:
   integrity sha512-QVb0dM5HvG+uaxitm8wONl7jltx8dqhfU33DcqtOZcLSVIKSDDLDi7+0LbAKiyI8hD9u42m2YxXSkMGWThaecQ==
 
 codemaker@^1.84.0:
-  version "1.84.0"
-  resolved "https://registry.yarnpkg.com/codemaker/-/codemaker-1.84.0.tgz#da95dc297fc4be657baa49fdc3127ce1f057c6f3"
-  integrity sha512-sOUH3y2q2DEO+gDiBCCoGgkDs8aMY0LTMH0FmHbKpqReZwWDAmWJ0Voc4Thp4Mn380bPku9/ncqyY1a3MZnfEQ==
+  version "1.85.0"
+  resolved "https://registry.yarnpkg.com/codemaker/-/codemaker-1.85.0.tgz#eb523e4625efa6ee5e2f6b4bef4b46c2770feecf"
+  integrity sha512-58SuiaUdM2tTrfjW0HZ8Udiv9nCWUyKLe6tg11QtinTrzPgO0txqBYwo3AX/H6fg/e9NwtlZAqi58cfxSxG9/g==
   dependencies:
     camelcase "^6.3.0"
     decamelize "^5.0.1"
@@ -6237,10 +6237,10 @@ progress@^2.0.3:
   resolved "https://registry.yarnpkg.com/progress/-/progress-2.0.3.tgz#7e8cf8d8f5b8f239c1bc68beb4eb78567d572ef8"
   integrity sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA==
 
-projen@^0.71.138:
-  version "0.71.138"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.71.138.tgz#cf6c2cc3017b127401af3f0fe230eb5c5bb4692b"
-  integrity sha512-4vtVAy6IgJOyTtvCDolOGcejccM5D+e5pEjjhR0rYTnP6ZGk+/w9OUjTQ0CBOs0ZwOs6Xd+oynks4KDPVqKNcQ==
+projen@^0.71.141:
+  version "0.71.141"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.71.141.tgz#74556ecc5a875023acdb2eb0e51f859d70d99512"
+  integrity sha512-G5CKV/NgmWlmHha9xXhxKliZkT8/ZDc9MQ8QQfY2OFT+gneLFR35xJtSzl3Musnu2AgpN5pd6MKcPffjagp+Tw==
   dependencies:
     "@iarna/toml" "^2.2.5"
     case "^1.6.3"
