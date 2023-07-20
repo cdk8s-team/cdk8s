@@ -18,7 +18,8 @@
     "pre-compile": "npx projen pre-compile",
     "test": "npx projen test",
     "upgrade-configuration": "npx projen upgrade-configuration",
-    "upgrade-dependencies": "npx projen upgrade-dependencies",
+    "upgrade-dev-dependencies": "npx projen upgrade-dev-dependencies",
+    "upgrade-runtime-dependencies": "npx projen upgrade-runtime-dependencies",
     "projen": "npx projen"
   },
   "author": {
@@ -26,7 +27,7 @@
     "organization": false
   },
   "devDependencies": {
-    "@cdk8s/projen-common": "^0.0.409",
+    "@cdk8s/projen-common": "^0.0.411",
     "@types/jest": "^26.0.24",
     "@types/node": "^14.18.53",
     "cdk8s": "^2.7.114",
@@ -39,7 +40,7 @@
     "jest-junit": "^15",
     "lerna": "^6.6.2",
     "npm-check-updates": "^16",
-    "projen": "^0.71.142",
+    "projen": "^0.71.144",
     "semver": "^7.5.4",
     "ts-jest": "^27.1.5",
     "typescript": "^4.9.5"
