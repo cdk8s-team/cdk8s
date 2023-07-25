@@ -2096,13 +2096,6 @@ cdk8s-cli@^2.7.0:
   optionalDependencies:
     backport "8.5.0"
 
-cdk8s-plus-24@^2.12.0:
-  version "2.12.0"
-  resolved "https://registry.yarnpkg.com/cdk8s-plus-24/-/cdk8s-plus-24-2.12.0.tgz#0fb0cd2aa14a14965c999ef1dce94720db3e293b"
-  integrity sha512-/KOCBYbrmTAoAtszXH8S+gi5IXiD//iiclgcWeWKwDUX4wGnVVxLDRavIqY7l8mxa3yCNrQLY4chqcTSnadDzA==
-  dependencies:
-    minimatch "^3.1.2"
-
 cdk8s-plus-25@^2.11.0:
   version "2.11.0"
   resolved "https://registry.yarnpkg.com/cdk8s-plus-25/-/cdk8s-plus-25-2.11.0.tgz#a0b6eb774209e74eba5664009d7b4f9e696f3206"
@@ -2114,6 +2107,15 @@ cdk8s-plus-26@^2.7.0:
   version "2.7.0"
   resolved "https://registry.yarnpkg.com/cdk8s-plus-26/-/cdk8s-plus-26-2.7.0.tgz#d424b3e084615c117743622a263a2b1c5b923a47"
   integrity sha512-Lsha18FeLtUBxyQVamscUANIwWUlMw3tZcys5H8JsNWKPlHhKF2rTJuZVfHNiD709N9/IsrxD9ajF2ryxwpOUA==
+  dependencies:
+    minimatch "^3.1.2"
+  optionalDependencies:
+    backport "8.5.0"
+
+cdk8s-plus-27@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/cdk8s-plus-27/-/cdk8s-plus-27-2.0.0.tgz#cbd6ed0c30d46274b881e1888c17199104272c2f"
+  integrity sha512-MeWIn4BXP8Vs7c2eVPr8YLNk1EuWeTGS+KDhXL+SVATTJsK0hehLwjq2St9W+rL3k0ppOMBf+RubuzQUFsVP4g==
   dependencies:
     minimatch "^3.1.2"
   optionalDependencies:

@@ -26,4 +26,3 @@ jobs:
             fix
             chore
           requireScope: false
-          githubBaseUrl: ${{ github.api_url }}

@@ -28,7 +28,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16.20.0
+          node-version: 14.17.0
       - name: Install dependencies
         run: yarn install --check-files
       - name: build
@@ -75,9 +75,7 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
       - name: Push changes
-        env:
-          PULL_REQUEST_REF: ${{ github.event.pull_request.head.ref }}
-        run: |-
-          git add .
-          git commit -s -m "chore: self mutation"
-          git push origin HEAD:$PULL_REQUEST_REF
+        run: |2-
+            git add .
+            git commit -s -m "chore: self mutation"
+            git push origin HEAD:${{ github.event.pull_request.head.ref }}
