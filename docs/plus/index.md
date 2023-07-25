@@ -201,7 +201,7 @@ app.synth();
     `❯ npm install cdk8s-plus-27 cdk8s constructs`
 
     ```typescript
-    const kplus = require('cdk8s-plus-25');
+    const kplus = require('cdk8s-plus-27');
     const cdk8s = require('cdk8s');
 
     const app = new cdk8s.App();
@@ -246,7 +246,7 @@ app.synth();
     </dependency>
     <dependency>
       <groupId>org.cdk8s</groupId>
-      <artifactId>cdk8s-plus-25</artifactId>
+      <artifactId>cdk8s-plus-27</artifactId>
       <version>2.0.0</version>
     </dependency>
     ```
@@ -259,8 +259,8 @@ app.synth();
     import org.cdk8s.App;
     import org.cdk8s.Chart;
     import org.cdk8s.ChartProps;
-    import org.cdk8s.plus25.Deployment;
-    import org.cdk8s.plus25.ContainerProps;
+    import org.cdk8s.plus27.Deployment;
+    import org.cdk8s.plus27.ContainerProps;
 
     import java.util.Arrays;
 
