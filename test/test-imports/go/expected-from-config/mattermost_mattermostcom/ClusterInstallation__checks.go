@@ -1,6 +1,5 @@
 //go:build !no_runtime_type_checking
 
-// mattermost_mattermostcom
 package mattermost_mattermostcom
 
 import (

@@ -1,3 +1,4 @@
+// mattermostcom
 package mattermostcom
 
 import (

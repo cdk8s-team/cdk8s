@@ -1,4 +1,3 @@
-// stableexamplecom
 package stableexamplecom
 
 
