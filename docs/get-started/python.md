@@ -12,7 +12,7 @@ python3 --version
 ### Initial setup
 To get setup, follow these general steps:
 
-1. To begin, you’ll need a development environment with pipenv 2018.11.26+ installed. If you’re not familiar with this setup, use these instructions to [setup pipenv](https://pipenv.pypa.io/en/latest/install/).
+1. To begin, you’ll need pipenv 2018.11.26+ installed. If you’re not familiar with this setup, use these instructions to [setup pipenv](https://pipenv.pypa.io/en/latest/install/).
 
 ### Install the CLI
 To initialize a cdk8s project and auto-generate Kubernetes manifests based on our code, we need the cdk8s CLI:
@@ -30,7 +30,7 @@ Next, we’ll initialize a project to create the directory structure and install
 cdk8s init python-app
 ```
 
-2. In your IDE, open the `main.py` file. 
+1. In your preferred code editor, open the `main.py` file. 
 ```python
 #!/usr/bin/env python
 from constructs import Construct

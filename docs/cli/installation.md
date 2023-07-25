@@ -24,29 +24,9 @@ yarn global add cdk8s-cli
 ## Check version
 To check your version, run the following command:
 ```console
-cdk8s -v
+cdk8s --version
 ```
 You should see something similar to the following:
 ```
-------------------------------------------------------------------------------------------------
-A new version 2.2.12 of cdk8s-cli is available (current 2.1.146).
-Run "npm install -g cdk8s-cli" to install the latest version on your system.
-For additional installation methods, see https://cdk8s.io/docs/latest/getting-started
-------------------------------------------------------------------------------------------------
-cdk8s [command]
-
-Commands:
-  cdk8s import [SPEC]  Imports API objects to your app by generating constructs.
-                                                [aliases: gen, import, generate]
-  cdk8s init TYPE      Create a new cdk8s project from a template.
-  cdk8s synth          Synthesizes Kubernetes manifests for all charts in your
-                       app.                                [aliases: synthesize]
-
-Options:
-  --version        Show version number                                 [boolean]
-  --check-upgrade  Check for cdk8s-cli upgrade         [boolean] [default: true]
-  --help           Show help                                           [boolean]
-
-Options can be specified via environment variables with the "CDK8S_" prefix
-(e.g. "CDK8S_OUTPUT")
+2.2.31
 ```
