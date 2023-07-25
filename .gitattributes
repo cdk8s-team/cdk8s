@@ -12,11 +12,14 @@
 /.github/workflows/security.yml linguist-generated
 /.github/workflows/stale.yml linguist-generated
 /.github/workflows/triage.yml linguist-generated
-/.github/workflows/upgrade.yml linguist-generated
+/.github/workflows/upgrade-configuration.yml linguist-generated
+/.github/workflows/upgrade-dev-dependencies.yml linguist-generated
+/.github/workflows/upgrade-runtime-dependencies.yml linguist-generated
 /.github/workflows/website.yml linguist-generated
 /.gitignore linguist-generated
 /.mergify.yml linguist-generated
 /.npmignore linguist-generated
+/.npmrc linguist-generated
 /.projen/** linguist-generated
 /.projen/deps.json linguist-generated
 /.projen/files.json linguist-generated
