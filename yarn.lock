@@ -2072,15 +2072,15 @@ case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s-cli@^2.6.0:
-  version "2.6.0"
-  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.6.0.tgz#ba313f663614b2e5decc592ce4c1ea90c608f663"
-  integrity sha512-V3HILAGFr9oAGOd9ulHkmV3izN+Dm3eF9YsXaWhsYzHYjg0Iw6R6EULK8NxIzov2zgHjsMffI4oO18yczY/rRg==
+cdk8s-cli@^2.7.0:
+  version "2.7.0"
+  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.7.0.tgz#8bac4f5b2b4a71676d5d0d43de9a3ec34bdb064b"
+  integrity sha512-tLWQy9CjRxH5gSCT0sMmVz3dAeF8T6Xp11XizwCrpowxmjoHaLlWSyaz6oUTe+/8WZP00AXp4Oa1Kru97dsr3Q==
   dependencies:
     "@types/node" "^16"
     ajv "^8.12.0"
-    cdk8s "^2.12.0"
-    cdk8s-plus-25 "^2.10.0"
+    cdk8s "^2.14.0"
+    cdk8s-plus-25 "^2.11.0"
     codemaker "^1.85.0"
     colors "1.4.0"
     constructs "^10.2.69"
@@ -2096,14 +2096,14 @@ cdk8s-cli@^2.6.0:
   optionalDependencies:
     backport "8.5.0"
 
-cdk8s-plus-24@^2.11.0:
-  version "2.11.0"
-  resolved "https://registry.yarnpkg.com/cdk8s-plus-24/-/cdk8s-plus-24-2.11.0.tgz#555a120569284cece6bedb9536a364aaf2fbe161"
-  integrity sha512-QPmHKqV3Fv1rt2RsN7w8P37naNOtIQPV+ox1gp50vSb8Vl9mm7Oin9xTc78ieCP+4nrewA4W6ADdznCxge1KJg==
+cdk8s-plus-24@^2.12.0:
+  version "2.12.0"
+  resolved "https://registry.yarnpkg.com/cdk8s-plus-24/-/cdk8s-plus-24-2.12.0.tgz#0fb0cd2aa14a14965c999ef1dce94720db3e293b"
+  integrity sha512-/KOCBYbrmTAoAtszXH8S+gi5IXiD//iiclgcWeWKwDUX4wGnVVxLDRavIqY7l8mxa3yCNrQLY4chqcTSnadDzA==
   dependencies:
     minimatch "^3.1.2"
 
-cdk8s-plus-25@^2.10.0, cdk8s-plus-25@^2.11.0:
+cdk8s-plus-25@^2.11.0:
   version "2.11.0"
   resolved "https://registry.yarnpkg.com/cdk8s-plus-25/-/cdk8s-plus-25-2.11.0.tgz#a0b6eb774209e74eba5664009d7b4f9e696f3206"
   integrity sha512-BqjncKCdUCLvCkXa5OVv8sNqmY0L6e1AVCL0CDRoKgNXOrudXFc+z7g8scCR15cx1wmpCs052RR9VUSRHp+yzA==
@@ -2119,7 +2119,7 @@ cdk8s-plus-26@^2.7.0:
   optionalDependencies:
     backport "8.5.0"
 
-cdk8s@^2.12.0, cdk8s@^2.14.0:
+cdk8s@^2.14.0:
   version "2.14.0"
   resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-2.14.0.tgz#48f75da0b4e7c9fd161cf6ecbfaa968e6d7606dd"
   integrity sha512-qax2330JH1NLq84JHQHMVBgdZUKUo3D3bQV0BfV76NfcmmVeTLmhkNx5z9uURuR6rp0/qwVuxqxjp3qTRP0BfQ==
