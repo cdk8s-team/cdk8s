@@ -2096,17 +2096,10 @@ cdk8s-cli@^2.9.0:
   optionalDependencies:
     backport "8.5.0"
 
-cdk8s-plus-25@^2.11.0:
+cdk8s-plus-25@^2.11.0, cdk8s-plus-25@^2.12.1:
   version "2.14.0"
   resolved "https://registry.yarnpkg.com/cdk8s-plus-25/-/cdk8s-plus-25-2.14.0.tgz#e05021a98c72d2223a786342b9270a2e3c34b25f"
   integrity sha512-E7AH2fT6Aa2esnLb06ULGriXgeFay4e/5eSymicJCs0N93rcVyaSqpmGcvn0Gifz7wOXmGec3dyHhuqS3yEB7Q==
-  dependencies:
-    minimatch "^3.1.2"
-
-cdk8s-plus-25@^2.12.1:
-  version "2.13.0"
-  resolved "https://registry.yarnpkg.com/cdk8s-plus-25/-/cdk8s-plus-25-2.13.0.tgz#f38ef1e5729c8dbbc0c4a0e7af34f2296cab38ef"
-  integrity sha512-9i0wbHfQ9lVCIyOyDszGZe8/7AOidcNw0vKXqx5EKwkKB5eH0AV3BDjWkFaQK9pJXy3TEXvJxTwi0f77cT4/og==
   dependencies:
     minimatch "^3.1.2"
 
@@ -2120,9 +2113,9 @@ cdk8s-plus-26@^2.7.0:
     backport "8.5.0"
 
 cdk8s-plus-27@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/cdk8s-plus-27/-/cdk8s-plus-27-2.0.0.tgz#cbd6ed0c30d46274b881e1888c17199104272c2f"
-  integrity sha512-MeWIn4BXP8Vs7c2eVPr8YLNk1EuWeTGS+KDhXL+SVATTJsK0hehLwjq2St9W+rL3k0ppOMBf+RubuzQUFsVP4g==
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/cdk8s-plus-27/-/cdk8s-plus-27-2.2.0.tgz#e8565b90769de4eac8ed4446fb7278b4b61386f0"
+  integrity sha512-WyThKUv+gC38VHBlzV2G3epDaeCnpEKd7byyzeO+LOGVRPG9GvQfnqCdBs5YUpgqT95oXfTEsUTsvisLKdy1XQ==
   dependencies:
     minimatch "^3.1.2"
   optionalDependencies:
@@ -2864,9 +2857,9 @@ ejs@^3.1.7:
     jake "^10.8.5"
 
 electron-to-chromium@^1.4.431:
-  version "1.4.471"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.471.tgz#14cb056d0ce4bfa99df57946d57fe46c2330dac3"
-  integrity sha512-GpmGRC1vTl60w/k6YpQ18pSiqnmr0j3un//5TV1idPi6aheNfkT1Ye71tMEabWyNDO6sBMgAR+95Eb0eUUr1tA==
+  version "1.4.472"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.472.tgz#5556e50609a0d66d45e7d96c69b0e7a45c402f88"
+  integrity sha512-JL+vQaO4/3mnE68YLaO6tS61YFTlQp8/9JJj1kMP0CL9GHjLYt8t3T0aA3sW3PvdiXjnVeaZ6Kf0mGtt9+2j+Q==
 
 emittery@^0.8.1:
   version "0.8.1"
@@ -5704,9 +5697,9 @@ npm-packlist@^7.0.0:
     ignore-walk "^6.0.0"
 
 npm-pick-manifest@^8.0.0, npm-pick-manifest@^8.0.1:
-  version "8.0.1"
-  resolved "https://registry.yarnpkg.com/npm-pick-manifest/-/npm-pick-manifest-8.0.1.tgz#c6acd97d1ad4c5dbb80eac7b386b03ffeb289e5f"
-  integrity sha512-mRtvlBjTsJvfCCdmPtiu2bdlx8d/KXtF7yNXNWe7G0Z36qWA9Ny5zXsI2PfBZEv7SXgoxTmNaTzGSbbzDZChoA==
+  version "8.0.2"
+  resolved "https://registry.yarnpkg.com/npm-pick-manifest/-/npm-pick-manifest-8.0.2.tgz#2159778d9c7360420c925c1a2287b5a884c713aa"
+  integrity sha512-1dKY+86/AIiq1tkKVD3l0WI+Gd3vkknVGAggsFeBkTvbhMQ1OND/LKkYv4JtXPKUJ8bOTCyLiqEg2P6QNdK+Gg==
   dependencies:
     npm-install-checks "^6.0.0"
     npm-normalize-package-bin "^3.0.0"
@@ -7490,9 +7483,9 @@ typedarray@^0.0.6:
   integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
 
 typescript@next:
-  version "5.2.0-dev.20230725"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.2.0-dev.20230725.tgz#d302930a09852406e7cde691acbccbed00f91aec"
-  integrity sha512-ckVbPpSTdPA/Fxnrq1/mzO+LgzA64VPjm6YvV/axwZKgxviVHiUy0VvKS5EGBOpgFBwCNuN+ir24KIBGYWQCgQ==
+  version "5.2.0-dev.20230726"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.2.0-dev.20230726.tgz#4ca0c0dd2817f041c5521636fd5afbea7a3f1a04"
+  integrity sha512-WXVjQVYHgcJwZh0r5TzBl42dzg6ap9VS0+8dm76/i0T/BhLnmC3CIBsLHZ5WQ3l1CqO/W5kSuywX94xVg98otA==
 
 typescript@~3.9.10:
   version "3.9.10"
