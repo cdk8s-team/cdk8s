@@ -7,9 +7,6 @@ queue_rules:
       - "#approved-reviews-by>=1"
       - -label~=(do-not-merge)
       - status-success=build
-      - status-success=integ (windows-latest)
-      - status-success=integ (macos-latest)
-      - status-success=integ (ubuntu-latest)
 pull_request_rules:
   - name: Automatic merge on approval and successful build
     actions:
@@ -25,6 +22,3 @@ pull_request_rules:
       - "#approved-reviews-by>=1"
       - -label~=(do-not-merge)
       - status-success=build
-      - status-success=integ (windows-latest)
-      - status-success=integ (macos-latest)
-      - status-success=integ (ubuntu-latest)
