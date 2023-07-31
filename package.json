@@ -16,7 +16,8 @@
     "pre-compile": "npx projen pre-compile",
     "test": "npx projen test",
     "upgrade-configuration": "npx projen upgrade-configuration",
-    "upgrade-dependencies": "npx projen upgrade-dependencies",
+    "upgrade-dev-dependencies": "npx projen upgrade-dev-dependencies",
+    "upgrade-runtime-dependencies": "npx projen upgrade-runtime-dependencies",
     "projen": "npx projen"
   },
   "author": {

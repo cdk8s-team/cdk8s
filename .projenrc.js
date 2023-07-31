@@ -11,19 +11,6 @@ const project = new Cdk8sTeamNodeProject({
   pullRequestTemplate: false,
   projenUpgradeSecret: 'PROJEN_GITHUB_TOKEN',
   release: false,
-  workflowBootstrapSteps: [
-    {
-      name: 'installing dependencies',
-      run: 'tools/install-workflow-deps.sh'
-    },
-    {
-      name: 'Setup Go',
-      uses: 'actions/setup-go@v2',
-      with: {
-        'go-version': '1.18',
-      },
-    },
-  ],
   devDeps: [
     '@cdk8s/projen-common',
     '@types/jest',

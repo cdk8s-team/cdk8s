@@ -37,7 +37,7 @@ junit.xml
 /coverage/
 !/.github/workflows/build.yml
 !/.mergify.yml
-!/.github/workflows/upgrade-dependencies.yml
+!/.github/workflows/upgrade-runtime-dependencies.yml
 !/.npmrc
 !/CODE_OF_CONDUCT.md
 !/DCO
@@ -52,6 +52,7 @@ junit.xml
 !/.github/workflows/triage.yml
 !/.github/workflows/stale.yml
 !/.github/workflows/upgrade-configuration.yml
+!/.github/workflows/upgrade-dev-dependencies.yml
 .vscode/
 *.js
 *.d.ts
