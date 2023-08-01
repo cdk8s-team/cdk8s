@@ -10,8 +10,6 @@
     "compile": "npx projen compile",
     "default": "npx projen default",
     "eject": "npx projen eject",
-    "integ": "npx projen integ",
-    "integ:update": "npx projen integ:update",
     "package": "npx projen package",
     "post-compile": "npx projen post-compile",
     "post-upgrade": "npx projen post-upgrade",
