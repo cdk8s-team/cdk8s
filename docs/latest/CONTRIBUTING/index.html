@@ -2279,27 +2279,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#development-environment" class="md-nav__link">
-    Development environment
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#unit-tests" class="md-nav__link">
-    Unit tests
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#integration-tests" class="md-nav__link">
-    Integration Tests
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#pull-requests" class="md-nav__link">
     Pull Requests
   </a>
@@ -2504,27 +2483,6 @@
           <li class="md-nav__item">
   <a href="#repositories" class="md-nav__link">
     Repositories
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#development-environment" class="md-nav__link">
-    Development environment
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#unit-tests" class="md-nav__link">
-    Unit tests
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#integration-tests" class="md-nav__link">
-    Integration Tests
   </a>
   
 </li>
@@ -2741,90 +2699,6 @@ feedback from the community and maintainers.</p>
 <li><a href="https://github.com/cdk8s-team/cdk8s-core">cdk8s-core</a>: core library</li>
 <li><a href="https://github.com/cdk8s-team/cdk8s-plus">cdk8s-plus</a>: high-level constructs for Kubernetes core.</li>
 </ul>
-<h3 id="development-environment">Development environment<a class="headerlink" href="#development-environment" title="Permanent link">&para;</a></h3>
-<p>Prerequisites:</p>
-<ul>
-<li><a href="https://nodejs.org/en/">Node.js</a> &gt;= 12.14.0</li>
-<li><a href="https://classic.yarnpkg.com/lang/en/">yarn</a> &gt;= 1.22.0</li>
-</ul>
-<p>Prepare your environment:</p>
-<ol>
-<li>Fork <a href="#repositories">the relevant repo</a> and obtain a local clone.</li>
-<li>Install all dependencies: <code>yarn install</code></li>
-<li>Run <code>yarn build</code> to build all modules.</li>
-</ol>
-<h3 id="unit-tests">Unit tests<a class="headerlink" href="#unit-tests" title="Permanent link">&para;</a></h3>
-<p>Unit tests are located under the <code>test/</code> directory within each module and use the <a href="https://jestjs.io/">jest</a> framework.</p>
-<p>To run unit tests, execute <code>yarn test</code> either from the root of the repo (to unit test all modules) or from individual module directories:</p>
-<div class="highlight"><pre><span></span><code>yarn test
-</code></pre></div>
-<p>Out tests utilize <a href="https://jestjs.io/docs/en/snapshot-testing">jest snapshot testing</a>. In case a snapshot needs to be updated, just run:</p>
-<div class="highlight"><pre><span></span><code>yarn test -u
-</code></pre></div>
-<h3 id="integration-tests">Integration Tests<a class="headerlink" href="#integration-tests" title="Permanent link">&para;</a></h3>
-<p>Integration tests are executed <em>against the latest published modules</em>.
-This means that in order to execute integration tests against a development version, you&rsquo;lol need to <code>yarn link</code>
-your local version to this repository (all deps are at the root):</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>cdk8s-core
-$<span class="w"> </span>yarn<span class="w"> </span>link
-$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>../cdk8s
-$<span class="w"> </span>yarn<span class="w"> </span>link<span class="w"> </span>cdk8s
-</code></pre></div>
-<p>Now, you can run integration tests via:</p>
-<div class="highlight"><pre><span></span><code>yarn integ
-</code></pre></div>
-<p>Our integration tests also utilize snapshot testing. To update integration test snapshots, run:</p>
-<div class="highlight"><pre><span></span><code>yarn integ:update
-</code></pre></div>
-<h4 id="running-integration-tests">Running Integration Tests<a class="headerlink" href="#running-integration-tests" title="Permanent link">&para;</a></h4>
-<p>The <code>test</code> directory contains integration tests for the cdk8s project.</p>
-<p>Each subdirectory represents a single test, with an entrypoint of <code>test.sh</code>.
-Tests are written as simple shell scripts and can simulate user activity.</p>
-<p>You can either run individual tests by executing their entrypoint directly (e.g.
-<code>test-python-app/test.sh</code>) or run all tests by executing the script
-<code>./test-all.sh</code>.</p>
-<h4 id="writing-integration-tests">Writing Integration Tests<a class="headerlink" href="#writing-integration-tests" title="Permanent link">&para;</a></h4>
-<ol>
-<li>Create a new subdirectory with a <code>test-</code> prefix.</li>
-<li>Create a file named <code>test.sh</code>, make it executable.</li>
-</ol>
-<p>Test Environment:</p>
-<ul>
-<li>The script <code>test.sh</code> is executed within a temporary working directory under
-  /tmp/xxxx/test (where xxxx is some random tmp file).</li>
-<li>See existing tests as examples on how to bring in auxiliary files to the test.</li>
-<li>Test MUST NOT install any dependencies or the <code>cdk8s</code> CLI. They can expect it
-  to be available in the environment.</li>
-<li>To install dependencies from package managers, use <code>yarn</code>, <code>npm</code>, <code>pipenv</code>,
-  <code>mvn</code> and <code>nuget</code>. Those programs will be shimmed to allow consuming local
-  dependencies.</li>
-</ul>
-<h4 id="snapshot-testing">Snapshot Testing<a class="headerlink" href="#snapshot-testing" title="Permanent link">&para;</a></h4>
-<p>Some integration tests utilize a simple snapshot testing mechanism.</p>
-<p>To update snapshots, run tests with:</p>
-<div class="highlight"><pre><span></span><code>UPDATE_SNAPSHOTS=1
-</code></pre></div>
-<p>Or, run this from the root of the repo:</p>
-<div class="highlight"><pre><span></span><code>yarn integ:update
-</code></pre></div>
-<h4 id="docker-environment-for-integration-tests">Docker environment for integration tests<a class="headerlink" href="#docker-environment-for-integration-tests" title="Permanent link">&para;</a></h4>
-<p>Due to the polyglot nature of the <a href="https://github.com/aws/jsii">jsii</a> tools used by cdk8s,
-the toolchain requirements are somewhat more complicated than for most projects.  To
-help with this, you can use the <code>jsii/superchain</code> docker image that includes all the required tools.</p>
-<p>In order to get an interactive shell within a superchain container you can use the
-following command.</p>
-<div class="highlight"><pre><span></span><code><span class="go">docker run --rm --net=host -it -v $PWD:$PWD -w $PWD jsii/superchain</span>
-</code></pre></div>
-<p>Then once in the docker shell, you can package and execute the tests as normal.</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>pipenv<span class="w">  </span><span class="c1"># Currently not included in jsii docker image</span>
-$<span class="w"> </span>yarn<span class="w"> </span>build
-$<span class="w"> </span>yarn<span class="w"> </span>run<span class="w"> </span>package
-$<span class="w"> </span>yarn<span class="w"> </span>integ:update
-</code></pre></div>
-<blockquote>
-<p>Note: this may leave some files owned as the docker root user id.  These will need to
-  be cleaned up manually.</p>
-</blockquote>
 <h3 id="pull-requests">Pull Requests<a class="headerlink" href="#pull-requests" title="Permanent link">&para;</a></h3>
 <p>We use the PR title when we automatically generate the change log for each
 release. Therefore please following these guidelines to the letter:</p>
@@ -2867,13 +2741,7 @@ docstrings during build.</p>
 <p>A good reference for syntax and capabilities is the <a href="https://squidfunk.github.io/mkdocs-material">mkdocs-material</a> website.</p>
 </blockquote>
 <h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h2>
-<p>Examples are stored under
-<a href="https://github.com/cdk8s-team/cdk8s/tree/master/examples"><code>examples</code></a> and
-organized according to programming language.</p>
-<p>Every example also has an entry under
-<a href="https://github.com/cdk8s-team/cdk8s/tree/master/docs/examples"><code>docs/examples/xxx</code></a>
-which describes the example and includes links to the source code (on the main
-branch).</p>
+<p>https://github.com/cdk8s-team/cdk8s-examples</p>
 <h2 id="rfcs">RFCs<a class="headerlink" href="#rfcs" title="Permanent link">&para;</a></h2>
 <p>To start an RFC process, create a <a href="https://github.com/cdk8s-team/cdk8s/issues/new?assignees=&amp;labels=enhancement&amp;template=rfc.md&amp;title=%5BRFC%5D+describe+your+RFC">new tracking issue</a> and follow the
 instructions in the issue template. It includes a checklist of the various
