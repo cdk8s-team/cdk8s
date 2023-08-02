@@ -37,7 +37,8 @@ junit.xml
 /coverage/
 !/.github/workflows/build.yml
 !/.mergify.yml
-!/.github/workflows/upgrade.yml
+!/.github/workflows/upgrade-runtime-dependencies.yml
+!/.npmrc
 !/CODE_OF_CONDUCT.md
 !/DCO
 !/git-hooks/prepare-commit-msg
@@ -50,6 +51,8 @@ junit.xml
 !/.github/workflows/security.yml
 !/.github/workflows/triage.yml
 !/.github/workflows/stale.yml
+!/.github/workflows/upgrade-configuration.yml
+!/.github/workflows/upgrade-dev-dependencies.yml
 .vscode/
 *.js
 *.d.ts
@@ -58,13 +61,13 @@ dist/
 /docs/reference/cdk8s/java.md
 /docs/reference/cdk8s/typescript.md
 /docs/reference/cdk8s/python.md
-/docs/reference/cdk8s-plus-24/java.md
-/docs/reference/cdk8s-plus-24/typescript.md
-/docs/reference/cdk8s-plus-24/python.md
 /docs/reference/cdk8s-plus-25/java.md
 /docs/reference/cdk8s-plus-25/typescript.md
 /docs/reference/cdk8s-plus-25/python.md
 /docs/reference/cdk8s-plus-26/java.md
 /docs/reference/cdk8s-plus-26/typescript.md
 /docs/reference/cdk8s-plus-26/python.md
+/docs/reference/cdk8s-plus-27/java.md
+/docs/reference/cdk8s-plus-27/typescript.md
+/docs/reference/cdk8s-plus-27/python.md
 !/.github/workflows/integ.yml

@@ -1,4 +1,0 @@
-language: java
-app: mvn exec:java -Dexec.mainClass="com.mycompany.app.HelmBitnami"
-imports:
-  - k8s

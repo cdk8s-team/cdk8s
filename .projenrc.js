@@ -30,9 +30,9 @@ const project = new Cdk8sTeamNodeProject({
     '@types/node',
     'cdk8s',
     'cdk8s-cli',
-    'cdk8s-plus-24',
     'cdk8s-plus-25',
     'cdk8s-plus-26',
+    'cdk8s-plus-27',
     'constructs',
     'lerna',
     'semver',
@@ -50,7 +50,7 @@ project.gitignore.addPatterns('dist/');
 // enable mono-repo
 project.package.addField('private', true);
 project.package.addField('workspaces', {
-  packages: ['examples/**/*']
+  packages: []
 });
 
 // override the default test task to run test across the repo
@@ -83,7 +83,7 @@ project.testTask.spawn(integUpdate);
 
 // deploy website
 const workflow = project.github.addWorkflow('website');
-workflow.on({ push: { branches: [ mainBranch ] } });
+workflow.on({ push: { branches: [mainBranch] } });
 workflow.addJobs({
   deploy: {
     permissions: {
@@ -98,9 +98,6 @@ workflow.addJobs({
       {
         name: 'Setup Node.js',
         uses: 'actions/setup-node@v2',
-        with: {
-          'node-version': '14',
-        },
       },
       {
         name: 'Setup Hugo',
@@ -150,9 +147,9 @@ workflow.addJobs({
 // See docs/build.sh.
 const packages = [
   'cdk8s',
-  'cdk8s-plus-24',
   'cdk8s-plus-25',
   'cdk8s-plus-26',
+  'cdk8s-plus-27',
 ];
 for (const pkg of packages) {
   for (const language of ['java', 'typescript', 'python']) {
@@ -185,9 +182,6 @@ integWorkflow.addJob(integJob, {
     {
       name: 'Set up Node.js',
       uses: 'actions/setup-node@v2',
-      with: {
-        'node-version': '14',
-      },
     },
     {
       name: 'Set up Python 3.x',
