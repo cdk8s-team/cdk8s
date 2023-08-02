@@ -11,19 +11,6 @@ const project = new Cdk8sTeamNodeProject({
   pullRequestTemplate: false,
   projenUpgradeSecret: 'PROJEN_GITHUB_TOKEN',
   release: false,
-  workflowBootstrapSteps: [
-    {
-      name: 'installing dependencies',
-      run: 'tools/install-workflow-deps.sh'
-    },
-    {
-      name: 'Setup Go',
-      uses: 'actions/setup-go@v2',
-      with: {
-        'go-version': '1.18',
-      },
-    },
-  ],
   devDeps: [
     '@cdk8s/projen-common',
     '@types/jest',
@@ -68,18 +55,9 @@ project.package.addPackageResolutions(
   "got@12.3.1"
 );
 
-// integ tests
-const integTask = project.addTask('integ', {
-  exec: 'bash test/test-all.sh',
-});
-const integUpdate = project.addTask('integ:update', {
-  exec: 'bash test/test-all.sh',
-  env: { UPDATE_SNAPSHOTS: '1' }
-});
 
 // construct the build task
 project.compileTask.exec('lerna run build');
-project.testTask.spawn(integUpdate);
 
 // deploy website
 const workflow = project.github.addWorkflow('website');
@@ -157,63 +135,5 @@ for (const pkg of packages) {
   }
 }
 
-const integJob = 'integ';
-const oses = ['windows-latest', 'macos-latest', 'ubuntu-latest'];
-const integWorkflow = project.github.addWorkflow(integJob);
-integWorkflow.on({
-  pull_request: {},
-  workflow_dispatch: {},
-});
-integWorkflow.addJob(integJob, {
-  runsOn: '${{ matrix.os }}',
-  strategy: {
-    failFast: false,
-    matrix: {
-      domain: {
-        os: ['windows-latest', 'macos-latest', 'ubuntu-latest']
-      }
-    }
-  },
-  permissions: {
-    contents: JobPermission.READ,
-  },
-  steps: [
-    { uses: 'actions/checkout@v2' },
-    {
-      name: 'Set up Node.js',
-      uses: 'actions/setup-node@v2',
-    },
-    {
-      name: 'Set up Python 3.x',
-      uses: 'actions/setup-python@v2',
-      with: {
-        'python-version': '3.x',
-      },
-    },
-    {
-      name: 'Install pipenv',
-      run: 'pip install pipenv',
-    },
-    {
-      name: 'Set up Go',
-      uses: 'actions/setup-go@v2',
-      with: {
-        'go-version': '1.18',
-      },
-    },
-    {
-      name: 'Install dependencies',
-      run: 'yarn install --frozen-lockfile',
-    },
-    {
-      name: 'Run integration tests',
-      run: `yarn run ${integTask.name}`,
-    },
-  ],
-});
-
-for (const os of oses) {
-  project.autoMerge.addConditions(`status-success=${integJob} (${os})`);
-}
 
 project.synth();
