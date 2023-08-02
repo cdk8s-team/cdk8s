@@ -2080,7 +2080,7 @@ case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s-cli@^2.9.0:
+cdk8s-cli@^2.15.1:
   version "2.15.1"
   resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.15.1.tgz#01290800bb86e44668ff5923b84430111922324b"
   integrity sha512-Ydx9EhMTvJTp0X11y5FtAkeTCokxOdhg525MYTe98iMiLIIeZA0DFZxNN+q3CGrHm5z2PhlWCZnMWawt+oBAog==
@@ -2104,14 +2104,14 @@ cdk8s-cli@^2.9.0:
   optionalDependencies:
     backport "8.5.0"
 
-cdk8s-plus-25@^2.11.0, cdk8s-plus-25@^2.16.0:
+cdk8s-plus-25@^2.16.0:
   version "2.16.0"
   resolved "https://registry.yarnpkg.com/cdk8s-plus-25/-/cdk8s-plus-25-2.16.0.tgz#b4ba719f029229442879c664b24c5f50d4803cdc"
   integrity sha512-QSxTfuu9sTm8mYuxicQX9kxaNZIYPwt0vkwNojZETLkqIQO7bGmc0Cn3nAwnRDNfRUMs3JwbIcu/SHahN/18/w==
   dependencies:
     minimatch "^3.1.2"
 
-cdk8s-plus-26@^2.7.0:
+cdk8s-plus-26@^2.12.0:
   version "2.12.0"
   resolved "https://registry.yarnpkg.com/cdk8s-plus-26/-/cdk8s-plus-26-2.12.0.tgz#6e7b93e08f46b51a14ed35ca042ffefb39a07f5a"
   integrity sha512-ViPP5DFAKqCPGXM3g45gZIB0VNZ8bBTjdaGNBwIhQEWpIpcMHtAwcGrn7B4rECgrkXoBny1EMPmZPNC6zhqV0w==
@@ -2120,7 +2120,7 @@ cdk8s-plus-26@^2.7.0:
   optionalDependencies:
     backport "8.5.0"
 
-cdk8s-plus-27@^2.0.0:
+cdk8s-plus-27@^2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/cdk8s-plus-27/-/cdk8s-plus-27-2.2.0.tgz#e8565b90769de4eac8ed4446fb7278b4b61386f0"
   integrity sha512-WyThKUv+gC38VHBlzV2G3epDaeCnpEKd7byyzeO+LOGVRPG9GvQfnqCdBs5YUpgqT95oXfTEsUTsvisLKdy1XQ==
@@ -2129,7 +2129,7 @@ cdk8s-plus-27@^2.0.0:
   optionalDependencies:
     backport "8.5.0"
 
-cdk8s@^2.18.0, cdk8s@^2.28.0:
+cdk8s@^2.28.0, cdk8s@^2.29.0:
   version "2.29.0"
   resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-2.29.0.tgz#ffadf1f28dfe8a459bb1139f6fd1132d498f32ec"
   integrity sha512-w6kc457K1xr6dWNRPHIUjDleGNSar+85RZWI+b46DxNw4WdhFuSAEDRAFwcSWyxIv1d++C3ukO/BsFSOXQYU+A==
