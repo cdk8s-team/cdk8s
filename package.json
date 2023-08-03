@@ -10,6 +10,7 @@
     "compile": "npx projen compile",
     "default": "npx projen default",
     "eject": "npx projen eject",
+    "generate-spec": "npx projen generate-spec",
     "integ": "npx projen integ",
     "integ:update": "npx projen integ:update",
     "package": "npx projen package",
@@ -40,7 +41,7 @@
     "jest-junit": "^15",
     "lerna": "^6.6.2",
     "npm-check-updates": "^16",
-    "projen": "^0.71.146",
+    "projen": "^0.71.159",
     "semver": "^7.5.4",
     "ts-jest": "^27.1.5",
     "typescript": "^4.9.5"

@@ -86,6 +86,15 @@
         }
       ]
     },
+    "generate-spec": {
+      "name": "generate-spec",
+      "description": "Generates the new k8s spec in the cdk8s/kubernetes-schemas/ directory",
+      "steps": [
+        {
+          "exec": "tools/import-spec.sh 1.27.0"
+        }
+      ]
+    },
     "install": {
       "name": "install",
       "description": "Install project dependencies and update lockfile (non-frozen)",
@@ -243,7 +252,7 @@
           "exec": "yarn install --check-files"
         },
         {
-          "exec": "yarn upgrade @types/jest @types/node cdk8s cdk8s-cli cdk8s-plus-25 cdk8s-plus-26 cdk8s-plus-27 constructs jest jest-junit lerna npm-check-updates semver ts-jest typescript"
+          "exec": "yarn upgrade "
         },
         {
           "exec": "npx projen"
