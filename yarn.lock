@@ -1820,7 +1820,7 @@ case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s-cli@^2.16.0:
+cdk8s-cli@^2.18.0:
   version "2.18.0"
   resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.18.0.tgz#9b080d0656fd549ff7015b198d56d39269c09314"
   integrity sha512-Y6gMyRX5Zy712ppOXMnLnagHCpuf/BPxqJ/DkJTJ7sBJRjcmI7KPrWxkJNyQr8JZ22Ej1z0VrZNh5b0yhfE54w==
@@ -1844,14 +1844,14 @@ cdk8s-cli@^2.16.0:
   optionalDependencies:
     backport "8.5.0"
 
-cdk8s-plus-25@^2.17.0:
+cdk8s-plus-25@^2.17.0, cdk8s-plus-25@^2.18.0:
   version "2.18.0"
   resolved "https://registry.yarnpkg.com/cdk8s-plus-25/-/cdk8s-plus-25-2.18.0.tgz#459702d0df861dd32c9910a0954fac45a155c325"
   integrity sha512-d/rQo/m4lhvsTcb7fAgGP7u/tubGq7LJMiz+EBoW68c6bkHZ6DwDX8G4Nxo1knP36qfU54qodPhLbAgXJa4hLg==
   dependencies:
     minimatch "^3.1.2"
 
-cdk8s-plus-26@^2.13.0:
+cdk8s-plus-26@^2.14.0:
   version "2.14.0"
   resolved "https://registry.yarnpkg.com/cdk8s-plus-26/-/cdk8s-plus-26-2.14.0.tgz#1eba80749f281e3b5dcf8ae2a24093f1581c8454"
   integrity sha512-jiQwOrH+3H5DM1fVYobVoh7VsZeEEsiIQH3ZaKVnahcK2pvyzaKX3MgE4ruqh0ApTOslAFDPveSb/S+Fw3PeUA==
@@ -1860,7 +1860,7 @@ cdk8s-plus-26@^2.13.0:
   optionalDependencies:
     backport "8.5.0"
 
-cdk8s-plus-27@^2.3.0:
+cdk8s-plus-27@^2.4.0:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/cdk8s-plus-27/-/cdk8s-plus-27-2.4.0.tgz#3851a52b3d062fe19d3719ae547517cc40c4b1f2"
   integrity sha512-tuW9HpoSw5kOshZ+94OLJY/zvCuBUxmOdI0TLkka6HiLOm6J+7df968JFxk/WKg6SO94OyNlW2zaO4MD6LfByg==
@@ -1869,7 +1869,7 @@ cdk8s-plus-27@^2.3.0:
   optionalDependencies:
     backport "8.5.0"
 
-cdk8s@^2.30.0:
+cdk8s@^2.30.0, cdk8s@^2.32.0:
   version "2.32.0"
   resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-2.32.0.tgz#3492a426b0fda380bddde315a0154b6bac67a57e"
   integrity sha512-RJZ2y51W5X+VQboiA6lX9s1ysba0eHlydyoKXGHtRgB2m5HPuAs1r9eg6eodgGYaCETAUxm6SHRyanm2hr1Cqg==
