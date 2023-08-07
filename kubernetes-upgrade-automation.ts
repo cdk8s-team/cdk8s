@@ -1,5 +1,7 @@
 import { Component, typescript } from 'projen';
+import * as fs from 'fs';
 import { GithubCredentials, GithubWorkflow, WorkflowActions, workflows } from 'projen/lib/github';
+import path from 'path';
 
 
 export class K8sUpgradeAutomation extends Component {
@@ -74,3 +76,30 @@ export class K8sUpgradeAutomation extends Component {
     workflow.addJob('generate-summaries', summaries);
   }
 }
+
+export class K8sUpgradeStep2 extends Component {
+
+    constructor(project: typescript.TypeScriptAppProject, newK8sVersion: Number) {
+        super(project);
+
+        const cdk8sPlusDirPath = '../cdk8s-plus/';
+
+        const prevK8sVersion = String(newK8sVersion ?? 27 - 1);
+        const latestK8sVersion = String(newK8sVersion);
+
+        // replace old version with latest version in projen file
+        let projenrcFileData = fs.readFileSync('.projenrc.ts', 'utf-8');
+        projenrcFileData = projenrcFileData.replace(prevK8sVersion, latestK8sVersion);
+        fs.writeFileSync('.projenrc.ts', projenrcFileData);
+
+        // update all files in cdk8s-plus/docs/plus/ with the new syntax, replacing old references of prev cdk8s-plus versions
+        const plusDocsDir = path.join(cdk8sPlusDirPath, 'docs/plus');
+        const files = fs.readdirSync(plusDocsDir);
+        for (const fileName in files) {
+            let docFileData = fs.readFileSync(path.join(plusDocsDir, fileName), 'utf-8');
+            docFileData = docFileData.replace('cdk8s-plus-'+prevK8sVersion, 'cdk8s-plus-'+latestK8sVersion);
+            fs.writeFileSync(path.join(plusDocsDir, fileName), docFileData);
+        };
+    }
+
+  }

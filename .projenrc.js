@@ -71,10 +71,9 @@ project.package.addPackageResolutions(
 // updating new kubernetes spec
 const generateSpecTask = project.addTask('generate-spec', {
   description: 'Generates the new k8s spec in the cdk8s/kubernetes-schemas/ directory',
-  exec: 'tools/import-spec.sh 1.27.0',
-  // permissions: JobPermission.WRITE,
-  // receiveArgs: true,
-  // args: [],
+  exec: 'tools/import-spec.sh',
+  receiveArgs: true,
+  args: [],
 });
 
 // generateSpecTask.exec();
