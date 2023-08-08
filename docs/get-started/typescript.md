@@ -3,17 +3,12 @@ In this guide, we'll walk you through the most essential concepts you need to kn
 
 ## Prerequisites
 1. To install the cdk8s CLI, you need the [Node Package Manager (npm)](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) installed on your local machine. 
-2. cdk8s for Typescript supports Node.js versions 12.13.0+. Check your Node.js version:
+2. cdk8s for Typescript supports Node.js versions 16.20.0+. Check your Node.js version:
 ```bash
 node --version
 ```
 
 ## Set up an environment
-### Initial setup
-To get setup, follow these general steps:
-
-1. To begin, you'll need yarn 1.22.5+ installed. If you're not familiar with this setup, use these instructions to [setup yarn](https://classic.yarnpkg.com/en/docs/install/).
-
 ### Install the CLI
 To initialize a cdk8s project and auto-generate Kubernetes manifests based on our code, we need the cdk8s CLI:
 
