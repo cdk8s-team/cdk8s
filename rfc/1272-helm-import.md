@@ -307,39 +307,31 @@ export function emitHelmHeader(code: CodeMaker) {
 
   We then invoke `generateHelmConstruct` function. In this function, we are emitting: 
     * A custom type. This would be our helm construct.
-    * A `values` property interface which extends schema generated `struct`.
+    * A `values` property interface which extends schema generated `struct` if a schema file was present in the root of the chart. Otherwise, it would
+    be `{ [key: string]: any }` i.e properties will not be typed.
+      * If it is typed, it would also have `global` and `dependencies/sub-charts` as properties within the values interface. Currently, these will be 
+      not strongly typed.
     * An interface representing properties of the construct.
 
   ```typescript
   export function generateHelmConstruct(typegen: TypeGenerator, def: HelmObjectDefinition) {
 
-    const chartName = TypeGenerator.normalizeTypeName(def.chartName);
-    const schema = def.schema;
-    const repoUrl = def.chartUrl;
-    const chartVersion = def.chartVersion;
+  const chartName = TypeGenerator.normalizeTypeName(def.chartName);
+  const schema = def.schema;
+  const repoUrl = def.chartUrl;
+  const chartVersion = def.chartVersion;
 
-    // Create custom type
-    typegen.emitCustomType(chartName, code => {
+  // Create custom type
+  typegen.emitCustomType(chartName, code => {
 
+    const valuesInterface = `${chartName}ValuesProps`;
+    if (schema !== undefined) {
       // Interface for schema generated props
       let schemaGenValuesInterface: string = 'SchemaGeneratedValues';
-      if (schema !== undefined) {
-        schemaGenValuesInterface = typegen.emitType(schemaGenValuesInterface, schema, def.fqn);
-      } else {
-        code.openBlock(`export interface ${schemaGenValuesInterface}`);
-      }
+      schemaGenValuesInterface = typegen.emitType(schemaGenValuesInterface, schema, def.fqn);
 
       // Creating values interface
-      const valuesInterface = `${chartName}ValuesProps`;
       emitValuesInterface();
-
-      // Creating construct properties
-      emitPropsInterface();
-
-      code.line();
-
-      // Creating construct for helm chart
-      emitConstruct();
 
       function emitValuesInterface() {
         code.openBlock(`export interface ${valuesInterface} extends ${schemaGenValuesInterface}`);
@@ -354,50 +346,58 @@ export function emitHelmHeader(code: CodeMaker) {
 
         code.closeBlock();
       }
+    }
 
-      function emitPropsInterface() {
-        code.openBlock(`export interface ${chartName}Props`);
+    // Creating construct properties
+    emitPropsInterface();
 
-        code.line('readonly namespace?: string;');
-        code.line('readonly releaseName?: string;');
-        code.line('readonly helmExecutable?: string;');
-        code.line('readonly helmFlags?: string[];');
+    code.line();
 
-        if (schema === undefined) {
-          code.line('readonly values?: { [key: string]: any };');
-        } else {
-          code.line(`readonly values?: ${valuesInterface};`);
-        }
+    // Creating construct for helm chart
+    emitConstruct();
 
-        code.closeBlock();
+    function emitPropsInterface() {
+      code.openBlock(`export interface ${chartName}Props`);
+
+      code.line('readonly namespace?: string;');
+      code.line('readonly releaseName?: string;');
+      code.line('readonly helmExecutable?: string;');
+      code.line('readonly helmFlags?: string[];');
+
+      if (schema === undefined) {
+        code.line('readonly values?: { [key: string]: any };');
+      } else {
+        code.line(`readonly values?: ${valuesInterface};`);
       }
 
-      function emitConstruct() {
-        code.openBlock(`export class ${chartName} extends Helm`);
+      code.closeBlock();
+    }
 
-        emitInitializer();
+    function emitConstruct() {
+      code.openBlock(`export class ${chartName} extends Helm`);
 
-        code.closeBlock();
-      }
+      emitInitializer();
 
-      function emitInitializer() {
-        code.openBlock(`public constructor(scope: Construct, id: string, props: ${chartName}Props = {})`);
+      code.closeBlock();
+    }
 
-        code.open('const finalProps = {');
-        code.line(`chart: \'${def.chartName}\',`);
-        code.line(`repo: \'${repoUrl}\',`);
-        code.line(`version: \'${chartVersion}\',`);
-        code.line('...props,');
-        code.close('};');
+    function emitInitializer() {
+      code.openBlock(`public constructor(scope: Construct, id: string, props: ${chartName}Props = {})`);
 
-        code.open('super(scope, id, {');
-        code.line('...finalProps,');
-        code.close('});');
+      code.open('const finalProps = {');
+      code.line(`chart: \'${def.chartName}\',`);
+      code.line(`repo: \'${repoUrl}\',`);
+      code.line(`version: \'${chartVersion}\',`);
+      code.line('...props,');
+      code.close('};');
 
-        code.closeBlock();
-      }
-    });
-  }
+      code.open('super(scope, id, {');
+      code.line('...finalProps,');
+      code.close('});');
+
+      code.closeBlock();
+    }
+  });
   ```
 
   The generated construct would just be invoking [Helm construct](https://github.com/cdk8s-team/cdk8s-core/blob/2.x/src/helm.ts) constructor and 
