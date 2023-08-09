@@ -70,4 +70,3 @@ dist/
 /docs/reference/cdk8s-plus-27/java.md
 /docs/reference/cdk8s-plus-27/typescript.md
 /docs/reference/cdk8s-plus-27/python.md
-!/.github/workflows/integ.yml

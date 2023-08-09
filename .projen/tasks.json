@@ -114,25 +114,6 @@
         }
       ]
     },
-    "integ": {
-      "name": "integ",
-      "steps": [
-        {
-          "exec": "bash test/test-all.sh"
-        }
-      ]
-    },
-    "integ:update": {
-      "name": "integ:update",
-      "env": {
-        "UPDATE_SNAPSHOTS": "1"
-      },
-      "steps": [
-        {
-          "exec": "bash test/test-all.sh"
-        }
-      ]
-    },
     "package": {
       "name": "package",
       "description": "Creates the distribution package"
@@ -155,9 +136,6 @@
       "steps": [
         {
           "exec": "lerna run test -- -u"
-        },
-        {
-          "spawn": "integ:update"
         }
       ]
     },
