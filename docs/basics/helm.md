@@ -12,6 +12,7 @@ The following example adds the
 Helm chart with sentinel containers enabled:
 
 > The Bitnami helm repo needs to be added through: `helm repo add bitnami https://charts.bitnami.com/bitnami`
+
 > For accessing private helm repositories, you must be authenticated to the repository in a way that the `helm template` 
 > command recognizes.
 
