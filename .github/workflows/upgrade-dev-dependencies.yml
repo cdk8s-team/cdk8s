@@ -16,12 +16,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: installing dependencies
-        run: tools/install-workflow-deps.sh
-      - name: Setup Go
-        uses: actions/setup-go@v2
-        with:
-          go-version: "1.18"
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
