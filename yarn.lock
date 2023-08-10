@@ -1865,7 +1865,7 @@ case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s-cli@^2.27.0:
+cdk8s-cli@^2.28.0:
   version "2.28.0"
   resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.28.0.tgz#b158da9a6e298c7a7ea220f72ca2923d22f7819e"
   integrity sha512-rrk3ZKCw0WyNJNnAJrAnn3sLdijQVsKxAXojKG2nJNYXJ/4PeNcnSVx6+bNc2GV7Y1M9saA437Sqftesm4ep2g==
@@ -1914,7 +1914,7 @@ cdk8s-plus-27@^2.5.0:
   optionalDependencies:
     backport "8.5.0"
 
-cdk8s@^2.37.0:
+cdk8s@^2.37.0, cdk8s@^2.38.0:
   version "2.38.0"
   resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-2.38.0.tgz#7b06bd504a6a967076d608b3013d0d347095c4e1"
   integrity sha512-8YQTla19S/xvCptOtrJHNCxCcA704kvibyi1kH3RA1Q/86ZCK1K0Cb4CdFpQp50TbuaAaVdvzIp0v/vv+RurEw==
@@ -4516,7 +4516,7 @@ latest-version@^7.0.0:
   dependencies:
     package-json "^8.1.0"
 
-lerna@^7.1.4:
+lerna@^7.1.5:
   version "7.1.5"
   resolved "https://registry.yarnpkg.com/lerna/-/lerna-7.1.5.tgz#f65bde23d477382a221f9373f82d027825fa8622"
   integrity sha512-5bvfmoIH4Czk5mdoLaRPYkM3M63Ei6+TOuXs3MgXmvqD8vs+vQpHuBVmiYFp5Mwsck3FkidJ+eTxfucltA2Lmw==
