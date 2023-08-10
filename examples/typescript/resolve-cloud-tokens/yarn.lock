@@ -1572,9 +1572,9 @@ cdk8s-plus-25@^2.19.0, cdk8s-plus-25@^2.5.8:
   dependencies:
     minimatch "^3.1.2"
 
-cdk8s@./cdk8s.v0.0.0.jsii.tgz:
+cdk8s@./cdk8s.v0.0.1.jsii.tgz:
   version "0.0.0"
-  resolved "./cdk8s.v0.0.0.jsii.tgz#66f34aacbf46076e373e4766696df18161de5ea1"
+  resolved "./cdk8s.v0.0.1.jsii.tgz#7a213147055bb0b4670a9e9a630a09af50aef744"
   dependencies:
     fast-json-patch "^3.1.1"
     follow-redirects "^1.15.2"

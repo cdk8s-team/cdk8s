@@ -5,8 +5,8 @@
 * **API Bar Raiser**: @rix0rrr
 
 Users can now configure custom resolvers to control how cdk8s resolves values before writing 
-them to the manifest. In addition, Custom resolvers for the AWS CDK and CDKTF token system are available, 
-allowing users to author cdk8s applications that rely on cloud resources.
+them to the manifest. In addition, custom resolvers for the AWS CDK and CDKTF token system are available, 
+allowing users to author Kubernetes applications that leverage cloud resources.
 
 ## Working Backwards
 
@@ -19,12 +19,12 @@ allowing users to author cdk8s applications that rely on cloud resources.
 Custom resolvers are a mechanism to inject custom logic into the cdk8s value resolution process. 
 It allows to transform any value just before being written to the Kubernetes manifest.
 
-To define a custom resolver, first create a class that implements the `ITokenResolver` interface:
+To define a custom resolver, first create a class that implements the `IValueResolver` interface:
 
 ```ts
-import { ITokenResolver, ResolutionContext } from 'cdk8s';
+import { IValueResolver, ResolutionContext } from 'cdk8s';
 
-export class MyCustomResolver implements ITokenResolver {
+export class MyCustomResolver implements IValueResolver {
 
   public resolve(context: ResolutionContext, value: any): any {
     // run some custom logic
@@ -36,20 +36,19 @@ export class MyCustomResolver implements ITokenResolver {
 The `context` argument contains information about the value that is currently being resolved:
 
 - **obj**: `ApiObject` currently being resolved.
-- **key**: Array containing the JSON path elements of they keys leading up to the value.
+- **key**: Array containing the JSON path elements of the keys leading up to the value.
 
-When you create a cdk8s `Chart`, pass the resolver instance to it via the `resolver` property:
+When you create a cdk8s `App`, pass the resolver instance to it via the `resolver` property:
 
 ```ts
 import { App, Chart } from 'cdk8s'
 
-const app = new App();
-new Chart(app, 'Chart', { resolver: new MyCustomResolver() });
+const app = new App({ resolver: new MyCustomResolver() });
+new Chart(app, 'Chart');
 ```
 
-When you run `cdk8s synth`, your custom logic will be invoked, and the return 
-value will replace the original value and be written to the manifest. For example, if 
-you define a Kubernetes service like so:
+When you run `cdk8s synth`, your custom logic will be invoked, allowing you to replace the 
+original value about to be written to the manifest. For example, if you define a Kubernetes service like so:
 
 ```ts
 new KubeService(this, 'Service', {
@@ -66,12 +65,13 @@ Your resolver will be invoked with the following arguments:
   - *key*: `['spec', 'type']`
 - **value**: `LoadBalancer`
 
-
 One common use-case for this feature is to automatically resolve deploy time 
-attributes of cloud resources, and pass them to your Kubernetes workloads. To that end, 
-cdk8s provides a resolver for the following CDK frameworks:
+attributes of cloud resources defined by other CDK frameworks.
 
 #### AWS Cloud Development Kit
+
+The `AwsCdkResolver` is able to resolve any [`CfnOutput`](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.CfnOutput.html) 
+defined by your AWS CDK application.
 
 In this example, we create an S3 `Bucket` with the AWS CDK, and pass its (deploy time generated) name 
 as an environment variable to a Kubernetes `CronJob` resource.
@@ -81,25 +81,25 @@ import * as aws from 'aws-cdk-lib';
 import * as k8s from 'cdk8s';
 import * as kplus from 'cdk8s-plus-26';
 
-import { AwsCdkTokenResolver } from '@cdk8s/aws-cdk-token-resolver';
+import { AwsCdkResolver } from '@cdk8s/aws-cdk-resolver';
 
 const awsApp = new aws.App();
-const stack = new aws.Stack(awsApp, 'Stack');
+const stack = new aws.Stack(awsApp, 'aws');
 
-const resolver = new AwsCdkTokenResolver(stack);
-
-const k8sApp = new k8s.App();
-const manifest = new k8s.Chart(k8sApp, 'Manifest', { resolver });
+const k8sApp = new k8s.App({ resolver: new AwsCdkOutputResolver() });
+const manifest = new k8s.Chart(k8sApp, 'Manifest');
 
 const bucket = new aws.aws_s3.Bucket(stack, 'Bucket');
+const bucketName = new aws.CfnOutput(this, 'BucketName', {
+  value: bucket.bucketName,
+});
 
 new kplus.CronJob(manifest, 'CronJob', {
   schedule: k8s.Cron.daily(),
   containers: [{
     image: 'job',
     envVariables: {
-      // passing the bucket name via an env variable
-      BUCKET_NAME: kplus.EnvValue.fromValue(bucket.bucketName),
+      BUCKET_NAME: kplus.EnvValue.fromValue(bucketName.value),
     }
  }]
 });
@@ -108,45 +108,29 @@ awsApp.synth();
 k8sApp.synth();
 ```
 
-Notice we create two applications: one for our cdk8s constructs, and one for our AWS CDK constructs.
-Both are defined and synthesized in the same file, but can be separated as needed.
-Since your Kubernetes resources now depend on AWS CDK deploy tokens, you'll first need to run `cdk deploy`, 
-and only then `cdk8s synth`.
+During cdk8s synthesis, the custom resolver will detect that `bucketName` is not a concrete value, but rather a `CfnOutput`.
+It will then perform AWS service calls in order to fetch the actual value from the deployed infrastructure in your account.
 
-> Otherwise, the Kubernetes manifests will contain a string representation of the tokens (e.g `${Token[TOKEN.25]}`), 
-> instead of the concrete values. To learn more AWS CDK tokens, see [here](https://docs.aws.amazon.com/cdk/v2/guide/tokens.html).
+This means that in order for `cdk8s synth` to succeed, it must be executed *after* the AWS CDK resources have been deployed.
+So your deployment workflow should conceptually be:
 
-The implementation of the resolver utilizes [Cloud Control](https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/what-is-cloudcontrolapi.html)
-to fetch the runtime attributes of a resource. However, not all CloudFormation resources are currently supported by Cloud Control.
+1. `cdk deploy`
+2. `cdk8s synth`
 
-> For a list of supported resources, see [here](https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/supported-resources.html).
+If you run `cdk8s synth` before deploying the AWS resources, cdk8s synthesis will fail with the following message:
 
-In case you need an attribute for such a resource, you can add a `CfnOutput` resource to your stack, and use the resolver to 
-explicitly fetch its value from the deployed stack. For example:
-
-```ts
-...
-
-// create the output
-const bucketNameOutput = new aws.CfnOutput(this, 'BucketName', {
-  value: bucket.bucketName,
-});
-
-const bucketName = resolver.fetchOutput(bucketNameOutput);
-
-new kplus.CronJob(manifest, 'CronJob', {
-  schedule: k8s.Cron.daily(),
-  containers: [{
-    image: 'job',
-    envVariables: {
-      // passing the output value
-      BUCKET_NAME: kplus.EnvValue.fromValue(bucketName),
-    }
- }]
-});
-
-...
+```console
+Failed fetching output value for output key 'BucketName' (stack: aws). Error: Output not found. Are you sure you deployed the CDK stack?
 ```
+
+Also note that you **must** create a `CfnOutput` for the `bucketName` value. Once you do so, you can pass either `bucket.bucketName` or `bucketName.value`.
+If you don't create an appropriate `CfnOutput`, synthesis will fail with the following message:
+
+```console
+Error: Unable to find output defined for token: {"Fn::GetAtt":["Bucket4A7E3555","BucketName"]}. Make sure you defined a CfnOutput for this value.
+```
+
+This is because `AwsCdkResolver` is only able to fetch values for CloudFormation outputs, and not for every resource attribute.
 
 #### CDK For Terraform
 

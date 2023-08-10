@@ -17,10 +17,10 @@
     "synth:cdktf-app": "cdktf synth -a 'npx ts-node ./apps/cdktf-app.ts'",
     "deploy:cdktf-app": "cdktf deploy -a 'npx ts-node ./apps/cdktf-app.ts' --auto-approve",
     "destroy:cdktf-app": "cdktf destroy -a 'npx ts-node ./apps/cdktf-app.ts' --auto-approve",
-    "synth:cdk8s-app": "cdk8s synth -a 'npx ts-node ./apps/cdk8s-app.ts'"
+    "synth:cdk8s-awscdk-app": "cdk8s synth -a 'npx ts-node ./apps/cdk8s-awscdk-app.ts'"
   },
   "dependencies": {
-    "cdk8s": "./cdk8s.v0.0.0.jsii.tgz",
+    "cdk8s": "./cdk8s.v0.0.1.jsii.tgz",
     "cdk8s-plus-25": "^2.5.8",
     "aws-cdk-lib": "^2.69.0",
     "cdktf": "^0.15.5",

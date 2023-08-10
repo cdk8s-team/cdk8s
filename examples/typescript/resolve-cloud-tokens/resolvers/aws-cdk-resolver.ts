@@ -1,73 +1,47 @@
-import { execFileSync } from 'child_process';
 import * as path from 'path';
-import { ITokenResolver } from 'cdk8s';
-import { Token, Stack } from 'aws-cdk-lib';
-import { Construct } from 'constructs';
+import { execFileSync } from 'child_process';
+import { IValueResolver, ResolutionContext } from 'cdk8s';
+import { Token, Stack, Tokenization, Reference, CfnOutput } from 'aws-cdk-lib';
 
-export interface Reference {
-  readonly logicalId: string;
-  readonly attribute: string;
-}
+export class AwsCdkOutputResolver implements IValueResolver {
 
-export class AwsCdkTokenResolver implements ITokenResolver {
+  constructor() {}
 
-  private readonly stack: Stack;
+  public resolve(context: ResolutionContext): any {
 
-  constructor(scope: Construct) {
-    this.stack = Stack.of(scope);
+    if (!Token.isUnresolved(context.value)) {
+      return context.value;
+    }
+
+    const resolvable = Tokenization.reverse(context.value);
+
+    if (!resolvable) {
+      throw new Error(`${context.value} is not resolvable`)
+    }
+
+    if (Reference.isReference(resolvable)) {
+      const stack = Stack.of(resolvable.target);
+      const output = stack.node.findAll().filter(c => c instanceof CfnOutput && c.value === context.value)[0] as CfnOutput;
+      if (!output) {
+        throw new Error(`Unable to find output defined for token: ${JSON.stringify(stack.resolve(context.value))}. Make sure you defined a CfnOutput for this value.`);
+      }
+      const outputValue = this.fetchOutputValue(stack.stackName, stack.resolve(output.logicalId));
+      context.replaceValue(JSON.parse(outputValue));
+    } else {
+      throw new Error(`${context.value} is not a reference`)
+    }
+
   }
 
-  public resolve(value: any): any {
+  private fetchOutputValue(stackName: string, outputName: string): string {
 
-    if (!Token.isUnresolved(value)) {
-      return value;
-    }
-
-    const resolved = this.stack.resolve(value);
-    const token = this.parse(resolved);
-
-    try {
-      return this.fetch(token);
-    } catch (error) {
-      // deployment hasn't happened yet
-      return value;
-    }
-
-  }
-
-  private parse(resolved: any): Reference {
-    const keys = Object.keys(resolved);
-    if (keys.length > 1) {
-      throw Error(`Token must only have 1 key: ${JSON.stringify(resolved)}`);
-    }
-    const key = keys[0];
-    if (key === 'Ref') {
-      return {
-        attribute: key,
-        logicalId: resolved[key],
-      };
-    }
-    if (key === 'Fn::GetAtt') {
-      const value = resolved[keys[0]];
-      // TODO validate this is indeed an array of size 2
-      return {
-        attribute: value[1],
-        logicalId: value[0],
-      };
-    }
-    // TODO handle `Fn` and other intrinsic functions.
-    throw new Error(`Unexpected token: ${JSON.stringify(resolved)}`);
-  }
-
-  private fetch(token: Reference): string {
-
-    const script = path.join(__dirname, '_fetch-aws-cdk-token-value.js');
+    const script = path.join(__dirname, '_fetch-aws-cdk-output-value.js');
     return execFileSync(process.execPath, [
       script,
-      token.logicalId,
-      token.attribute,
-      this.stack.stackName,
+      stackName,
+      outputName,
     ], { encoding: 'utf-8' }).toString().trim();
   }
+
 
 }
