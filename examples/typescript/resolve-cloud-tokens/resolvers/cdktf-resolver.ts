@@ -1,60 +1,68 @@
-import { execFileSync } from 'child_process';
+import { execFileSync, execSync } from 'child_process';
 import * as path from 'path';
-import { ITokenResolver } from "cdk8s";
-import { DefaultTokenResolver, StringConcat, TerraformStack, Token, Tokenization } from "cdktf";
+import { IValueResolver, ResolutionContext } from "cdk8s";
+import { DefaultTokenResolver, StringConcat, TerraformStack, Token, Tokenization, App } from "cdktf";
 import { Construct } from "constructs";
 
-export interface Reference {
-  readonly address: string;
-  readonly attribute: string;
+export interface ResourceAttribute {
+  readonly resourceType: string;
+  readonly resourceName: string;
+  readonly attributeName: string;
 }
 
-export class CdkTfTokenResolver implements ITokenResolver {
+export class CdkTfResolver implements IValueResolver {
 
   private readonly stack: TerraformStack;
+  private readonly stackPath: string;
 
   constructor(scope: Construct) {
     this.stack = TerraformStack.of(scope);
+
+    // need to initialize terraform so that we can pull state.
+    const app = App.of(this.stack);
+    app.synth();
+
+    // TODO is this always the directory of the stack?
+    this.stackPath = path.join(app.outdir, 'stacks', this.stack.node.id);
+
+    execSync('terraform init', { cwd: this.stackPath })
+
   }
 
-  public resolve(value: any): any {
+  public resolve(context: ResolutionContext): any {
 
-    if (!Token.isUnresolved(value)) {
+    if (!Token.isUnresolved(context.value)) {
       return;
     }
 
     const resolver = new DefaultTokenResolver(new StringConcat());
-    const resolved = Tokenization.resolve(value, { resolver, scope: this.stack });
-    const reference = this.parse(resolved);
+    const resolved = Tokenization.resolve(context.value, { resolver, scope: this.stack });
+    const resourceAttribute = this.parse(resolved);
 
-    try {
-      return this.fetch(reference);
-    } catch (error) {
-      // deployment hasn't happened yet
-      return value;
-    }
+    const value = this.fetchResourceAttributeValue(resourceAttribute);
+    context.replaceValue(value);
 
   }
 
-  private parse(resolved: string): Reference {
+  private parse(resolved: string): ResourceAttribute {
     // cdktf tokens are surrounded with ${}
     // TODO add more protections
     const parts = resolved.substring(2, resolved.length - 1).split('.');
     return {
-      address: parts.slice(0, parts.length - 1).join('.'),
-      attribute: parts.slice(-1)[0],
+      resourceType: parts[0],
+      resourceName: parts[1],
+      attributeName: parts[2],
     };
   }
 
-  private fetch(ref: Reference): string {
+  private fetchResourceAttributeValue(attr: ResourceAttribute): string {
 
-    const script = path.join(__dirname, '_fetch-cdktf-token-value.js');
+    const script = path.join(__dirname, '_fetch-cdktf-attribute-value.js');
     return execFileSync(process.execPath, [
       script,
-      ref.address,
-      ref.attribute,
-      // TODO is this always the directory of the stack?
-      this.stack.node.id,
+      attr.resourceName,
+      attr.attributeName,
+      this.stackPath,
     ], { encoding: 'utf-8' }).toString().trim();
   }
 

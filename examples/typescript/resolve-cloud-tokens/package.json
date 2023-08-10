@@ -11,13 +11,14 @@
     "test": "echo ok",
     "clean": "rm -rf cdk.out cdktf.out dist",
     "install-cdk8s-core": "cd ../../../../cdk8s-core && yarn compile && yarn package:js && mv ./dist/js/cdk8s@0.0.0.jsii.tgz ./../cdk8s/examples/typescript/resolve-cloud-tokens/cdk8s.v0.0.0.jsii.tgz",
-    "synth:awscdk-app": "cdk -a 'npx ts-node ./apps/awscdk-app.ts' synth",
-    "deploy:awscdk-app": "cdk -a 'npx ts-node ./apps/awscdk-app.ts' deploy --require-approval never",
-    "destroy:awscdk-app": "cdk -a 'npx ts-node ./apps/awscdk-app.ts' destroy --require-approval never",
-    "synth:cdktf-app": "cdktf synth -a 'npx ts-node ./apps/cdktf-app.ts'",
-    "deploy:cdktf-app": "cdktf deploy -a 'npx ts-node ./apps/cdktf-app.ts' --auto-approve",
-    "destroy:cdktf-app": "cdktf destroy -a 'npx ts-node ./apps/cdktf-app.ts' --auto-approve",
-    "synth:cdk8s-awscdk-app": "cdk8s synth -a 'npx ts-node ./apps/cdk8s-awscdk-app.ts'"
+    "synth:awscdk": "cdk -a 'npx ts-node ./main/awscdk.ts' synth",
+    "deploy:awscdk": "cdk -a 'npx ts-node ./main/awscdk.ts' deploy --require-approval never",
+    "destroy:awscdk": "cdk -a 'npx ts-node ./main/awscdk.ts' destroy --require-approval never",
+    "synth:cdktf": "cd ./main && cdktf synth",
+    "deploy:cdktf": "cd ./main && cdktf deploy --auto-approve",
+    "destroy:cdktf": "cd ./main && cdktf destroy --auto-approve",
+    "synth:cdk8s-awscdk": "cdk8s synth -a 'npx ts-node ./main/cdk8s-awscdk.ts'",
+    "synth:cdk8s-cdktf": "cdk8s synth -a 'npx ts-node ./main/cdk8s-cdktf.ts'"
   },
   "dependencies": {
     "cdk8s": "./cdk8s.v0.0.1.jsii.tgz",

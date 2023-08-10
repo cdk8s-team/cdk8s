@@ -13,9 +13,9 @@ export class AWSCDKStack extends awscdk.Stack {
 
     this.queueName = queue.queueName;
 
-    // new awscdk.CfnOutput(this, 'QueueName', {
-    //   value: this.queueName,
-    // });
+    new awscdk.CfnOutput(this, 'QueueName', {
+      value: this.queueName,
+    });
 
 
   }

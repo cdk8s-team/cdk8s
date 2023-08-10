@@ -108,7 +108,7 @@ awsApp.synth();
 k8sApp.synth();
 ```
 
-During cdk8s synthesis, the custom resolver will detect that `bucketName` is not a concrete value, but rather a `CfnOutput`.
+During cdk8s synthesis, the custom resolver will detect that `bucketName.value` is not a concrete value, but rather a `CfnOutput`.
 It will then perform AWS service calls in order to fetch the actual value from the deployed infrastructure in your account.
 
 This means that in order for `cdk8s synth` to succeed, it must be executed *after* the AWS CDK resources have been deployed.
@@ -117,22 +117,13 @@ So your deployment workflow should conceptually be:
 1. `cdk deploy`
 2. `cdk8s synth`
 
-If you run `cdk8s synth` before deploying the AWS resources, cdk8s synthesis will fail with the following message:
-
-```console
-Failed fetching output value for output key 'BucketName' (stack: aws). Error: Output not found. Are you sure you deployed the CDK stack?
-```
-
-Also note that you **must** create a `CfnOutput` for the `bucketName` value. Once you do so, you can pass either `bucket.bucketName` or `bucketName.value`.
-If you don't create an appropriate `CfnOutput`, synthesis will fail with the following message:
-
-```console
-Error: Unable to find output defined for token: {"Fn::GetAtt":["Bucket4A7E3555","BucketName"]}. Make sure you defined a CfnOutput for this value.
-```
-
-This is because `AwsCdkResolver` is only able to fetch values for CloudFormation outputs, and not for every resource attribute.
+Also note that you **must** create a `CfnOutput` for the `bucketName` value. Once you do so, 
+you can pass either `bucket.bucketName` or `bucketName.value`. This is because `AwsCdkResolver` is 
+only able to fetch values for CloudFormation outputs, and not for every resource attribute.
 
 #### CDK For Terraform
+
+The `CdkTfResolver` is able to resolve any value defined by your CDKTF application.
 
 In this example, we create an S3 `Bucket` with the CDKTF, and pass its (deploy time generated) name 
 as an environment variable to a Kubernetes `CronJob` resource.
@@ -143,14 +134,12 @@ import * as aws from "@cdktf/provider-aws";
 import * as k8s from 'cdk8s';
 import * as kplus from 'cdk8s-plus-26';
 
-import { CdkTfTokenResolver } from '@cdk8s/cdktf-token-resolver';
+import { CdkTfResolver } from '@cdk8s/cdktf-resolver';
 
 const awsApp = new tf.App();
-const stack = new tf.TerraformStack(awsApp, 'Stack');
+const stack = new tf.TerraformStack(awsApp, 'aws');
 
-const resolver = new CdkTfTokenResolver(stack);
-
-const k8sApp = new k8s.App();
+const k8sApp = new k8s.App({ resolver: new CdkTfResolver() });
 const manifest = new k8s.Chart(k8sApp, 'Manifest', { resolver });
 
 const bucket = new aws.s3Bucket.S3Bucket(stack, 'Bucket');
@@ -160,7 +149,6 @@ new kplus.CronJob(manifest, 'CronJob', {
   containers: [{
     image: 'job',
     envVariables: {
-      // passing the bucket name via an env variable
       BUCKET_NAME: kplus.EnvValue.fromValue(bucket.bucket),
     }
  }]
@@ -170,13 +158,17 @@ awsApp.synth();
 k8sApp.synth();
 ```
 
-Notice we create two applications: one for our cdk8s constructs, and one for our CDKTF constructs.
-Both are defined and synthesized in the same file, but can be separated as needed.
-Since your Kubernetes resources now depend on CDKTF tokens, you'll first need to run `cdktf deploy`, 
-and only then `cdk8s synth`.
+During cdk8s synthesis, the custom resolver will detect that `bucket.bucket` is not a concrete 
+value, but rather a `CfnOutput`. It will then use the terraform state file in order to fetch 
+the actual value from the deployed infrastructure in your account.
 
-> Otherwise, the Kubernetes manifests will contain a string representation of the tokens (e.g `${TfToken[TOKEN.0]}`), 
-> instead of the concrete values. To learn more CDKTF tokens, see [here](https://developer.hashicorp.com/terraform/cdktf/concepts/tokens).
+> You must have the `terraform` command line available on the machine performing `cdk8s synth`.
+
+This means that in order for `cdk8s synth` to succeed, it must be executed *after* the CDKTF resources have been deployed.
+So your deployment workflow should conceptually be:
+
+1. `cdktf deploy`
+2. `cdk8s synth`
 
 ---
 
