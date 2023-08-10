@@ -17,17 +17,17 @@ allowing users to author Kubernetes applications that leverage cloud resources.
 ### README
 
 Custom resolvers are a mechanism to inject custom logic into the cdk8s value resolution process. 
-It allows to transform any value just before being written to the Kubernetes manifest.
-
-To define a custom resolver, first create a class that implements the `IValueResolver` interface:
+It allows to transform any value just before being written to the Kubernetes manifest. To define a 
+custom resolver, first create a class that implements the `IValueResolver` interface:
 
 ```ts
 import { IValueResolver, ResolutionContext } from 'cdk8s';
 
 export class MyCustomResolver implements IValueResolver {
 
-  public resolve(context: ResolutionContext, value: any): any {
-    // run some custom logic
+  public resolve(context: ResolutionContext): any {
+    const newValue = ... // run some custom logic
+    context.replaceValue(newValue);
   }
 
 }
@@ -37,6 +37,9 @@ The `context` argument contains information about the value that is currently be
 
 - **obj**: `ApiObject` currently being resolved.
 - **key**: Array containing the JSON path elements of the keys leading up to the value.
+- **value**: The original value.
+
+It also contains the `replaceValue` method you should use to set a replacement value instead of the original.
 
 When you create a cdk8s `App`, pass the resolver instance to it via the `resolver` property:
 
@@ -63,7 +66,7 @@ Your resolver will be invoked with the following arguments:
 - **context**
   - *obj*: The `KubeService` instance of type `ApiObject`.
   - *key*: `['spec', 'type']`
-- **value**: `LoadBalancer`
+  - *value*: `LoadBalancer`
 
 One common use-case for this feature is to automatically resolve deploy time 
 attributes of cloud resources defined by other CDK frameworks.
@@ -71,10 +74,7 @@ attributes of cloud resources defined by other CDK frameworks.
 #### AWS Cloud Development Kit
 
 The `AwsCdkResolver` is able to resolve any [`CfnOutput`](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.CfnOutput.html) 
-defined by your AWS CDK application.
-
-In this example, we create an S3 `Bucket` with the AWS CDK, and pass its (deploy time generated) name 
-as an environment variable to a Kubernetes `CronJob` resource.
+defined by your AWS CDK application. In this example, we create an S3 `Bucket` with the AWS CDK, and pass its (deploy time generated) name as an environment variable to a Kubernetes `CronJob` resource.
 
 ```ts
 import * as aws from 'aws-cdk-lib';
@@ -86,7 +86,7 @@ import { AwsCdkResolver } from '@cdk8s/aws-cdk-resolver';
 const awsApp = new aws.App();
 const stack = new aws.Stack(awsApp, 'aws');
 
-const k8sApp = new k8s.App({ resolver: new AwsCdkOutputResolver() });
+const k8sApp = new k8s.App({ resolver: new AwsCdkResolver() });
 const manifest = new k8s.Chart(k8sApp, 'Manifest');
 
 const bucket = new aws.aws_s3.Bucket(stack, 'Bucket');
@@ -108,11 +108,11 @@ awsApp.synth();
 k8sApp.synth();
 ```
 
-During cdk8s synthesis, the custom resolver will detect that `bucketName.value` is not a concrete value, but rather a `CfnOutput`.
-It will then perform AWS service calls in order to fetch the actual value from the deployed infrastructure in your account.
-
-This means that in order for `cdk8s synth` to succeed, it must be executed *after* the AWS CDK resources have been deployed.
-So your deployment workflow should conceptually be:
+During cdk8s synthesis, the custom resolver will detect that `bucketName.value` is not a concrete value, 
+but rather a `CfnOutput`. It will then perform AWS service calls in order to fetch the 
+actual value from the deployed infrastructure in your account. This means that in order 
+for `cdk8s synth` to succeed, it must be executed *after* the AWS CDK resources 
+have been deployed. So your deployment workflow should (conceptually) be:
 
 1. `cdk deploy`
 2. `cdk8s synth`
@@ -123,10 +123,9 @@ only able to fetch values for CloudFormation outputs, and not for every resource
 
 #### CDK For Terraform
 
-The `CdkTfResolver` is able to resolve any value defined by your CDKTF application.
-
-In this example, we create an S3 `Bucket` with the CDKTF, and pass its (deploy time generated) name 
-as an environment variable to a Kubernetes `CronJob` resource.
+The `CdkTfResolver` is able to resolve any value defined by your CDKTF application. In this example, 
+we create an S3 `Bucket` with the CDKTF, and pass its (deploy time generated) name as 
+an environment variable to a Kubernetes `CronJob` resource.
 
 ```ts
 import * as tf from "cdktf";
@@ -160,15 +159,18 @@ k8sApp.synth();
 
 During cdk8s synthesis, the custom resolver will detect that `bucket.bucket` is not a concrete 
 value, but rather a `CfnOutput`. It will then use the terraform state file in order to fetch 
-the actual value from the deployed infrastructure in your account.
-
-> You must have the `terraform` command line available on the machine performing `cdk8s synth`.
-
-This means that in order for `cdk8s synth` to succeed, it must be executed *after* the CDKTF resources have been deployed.
-So your deployment workflow should conceptually be:
+the actual value from the deployed infrastructure in your account. This means that in order 
+for `cdk8s synth` to succeed, it must be executed *after* the CDKTF resources have been deployed.
+So your deployment workflow should (conceptually) be:
 
 1. `cdktf deploy`
 2. `cdk8s synth`
+
+> **Note that the `terraform` command line must be available on the machine performing `cdk8s synth`.**
+
+#### Cross Repository Workflow
+
+
 
 ---
 

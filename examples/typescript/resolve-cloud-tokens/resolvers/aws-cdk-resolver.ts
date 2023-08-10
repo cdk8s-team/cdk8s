@@ -3,7 +3,7 @@ import { execFileSync } from 'child_process';
 import { IValueResolver, ResolutionContext } from 'cdk8s';
 import { Token, Stack, Tokenization, Reference, CfnOutput } from 'aws-cdk-lib';
 
-export class AwsCdkOutputResolver implements IValueResolver {
+export class AwsCdkResolver implements IValueResolver {
 
   constructor() {}
 
