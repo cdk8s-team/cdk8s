@@ -1874,7 +1874,7 @@ case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s-cli@^2.32.0:
+cdk8s-cli@^2.34.0:
   version "2.34.0"
   resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.34.0.tgz#2b5dbbba4b022b906fb19cbe35ee38928aaaa6ff"
   integrity sha512-7bsbd9j6Y61fGJzapiRupg20iyWoGbbe6csPvY8I2W5vfB4kLI2aCcTF4YUEgs7YDO7cYwoAEi5RSFSbH/v9Kw==
@@ -1898,14 +1898,14 @@ cdk8s-cli@^2.32.0:
   optionalDependencies:
     backport "8.5.0"
 
-cdk8s-plus-25@^2.19.0:
+cdk8s-plus-25@^2.19.0, cdk8s-plus-25@^2.20.0:
   version "2.20.0"
   resolved "https://registry.yarnpkg.com/cdk8s-plus-25/-/cdk8s-plus-25-2.20.0.tgz#d8c76f6a331cfb3b56199a8309d42ceee92a519e"
   integrity sha512-SM2g/+sVG1crSKbTKySbw4fKUxcN95Srevt9r1gkViZy0pdhVYtcFNSeNCJ/+ROK9ZF/t+k24pgf0UG82aKeag==
   dependencies:
     minimatch "^3.1.2"
 
-cdk8s-plus-26@^2.15.0:
+cdk8s-plus-26@^2.16.0:
   version "2.16.0"
   resolved "https://registry.yarnpkg.com/cdk8s-plus-26/-/cdk8s-plus-26-2.16.0.tgz#3f5ee69961fc10cd2929f7d8c972687aadc55cb5"
   integrity sha512-AE/arY9Q7WOtfjiDCLb5pKbZ4ivGZNjnVjWP87fASsHLiqQvLF07/kxw+ZFqMZQPRX96AqrFbGuY2VhKnW9jMQ==
@@ -1914,7 +1914,7 @@ cdk8s-plus-26@^2.15.0:
   optionalDependencies:
     backport "8.5.0"
 
-cdk8s-plus-27@^2.5.0:
+cdk8s-plus-27@^2.6.0:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/cdk8s-plus-27/-/cdk8s-plus-27-2.6.0.tgz#9be69c2fbdbfdcf2e9e92bcc9e266dfcf933d86f"
   integrity sha512-qiIFmWPvrCUKuDSgeGPPlbXd0rIOsPZclYqjp+0DLsROVqDJDAAV2476PH/xHQvaz5N1GN75gMZKNFm/e5qWPg==
@@ -1923,7 +1923,7 @@ cdk8s-plus-27@^2.5.0:
   optionalDependencies:
     backport "8.5.0"
 
-cdk8s@^2.40.0:
+cdk8s@^2.40.0, cdk8s@^2.41.0:
   version "2.41.0"
   resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-2.41.0.tgz#3f66c005c970aad02d334d0433a09e47c8569b56"
   integrity sha512-DdHr+wzwRSThqVmZQGkWCfHUu1GvPYLQjzkHYm8JRKVGPJPVgceLMtsKKT7qyG4fY4KknE/p4r4tC7lesORXSg==
