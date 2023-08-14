@@ -8,7 +8,7 @@ export class K8sVersionUpgrade extends Component {
     constructor(project: typescript.TypeScriptAppProject, latestVersion: string) {
         super(project);
 
-        const workflow: GithubWorkflow = project.github!.addWorkflow('k8s-upgrade-automation-step1');
+        const workflow: GithubWorkflow = project.github!.addWorkflow('k8s-upgrade-automation');
 
         // Running weekly on Sunday at 18:00 UTC
         // https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule
@@ -24,7 +24,7 @@ export class K8sVersionUpgrade extends Component {
 
         const latestK8sVersion = latestVersion;
         const latestVersionNumber = Number(latestK8sVersion.split('.')[1]);
-1
+
         const runsOn = ['ubuntu-latest'];
 
         // PART 1: Prerequisite
@@ -115,13 +115,10 @@ export class K8sVersionUpgrade extends Component {
                     name: 'Create new backport label for old version',
                     uses: 'actions-ecosystem/action-add-labels@v1',
                     with: {
-                        'labels' : `backport-to-k8s-${latestVersionNumber - 1}/main`,
-                        'repo' : 'cdk8s-team/cdk8s-plus',
+                        labels : `backport-to-k8s-${latestVersionNumber - 1}/main`,
+                        repo : 'cdk8s-team/cdk8s-plus',
                         // don't think I'm able to specify the label color with this though ...
-                    }
-                    // run: `git checkout -b k8s.${latestVersionNumber}`,
-                    // env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
-                    // continueOnError: false,
+                    },
                 },
             ],
         };
@@ -146,6 +143,24 @@ export class K8sVersionUpgrade extends Component {
                     with: { 'repo' : 'cdk8s-team/cdk8s-plus' },
                 },
                 {
+                    name: 'Create new branch',
+                    // action from https://github.com/peterjgrainger/action-create-branch
+                    uses: 'peterjgrainger/action-create-branch@v2.2.0',
+                    env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
+                    with: {
+                        branch : `k8s-${latestVersionNumber}/main`,
+                        // not sure what to do for sha here.
+                        sha: '${{ github.event.pull_request.head.sha }}',
+                    },
+                },
+                {
+                    name: 'Update projen and README references to latest k8s version',
+                    // figure out where I'm writing this script!
+                    run: `git push --set-upstream origin k8s.${latestVersionNumber}`,
+                    env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
+                    continueOnError: false,
+                },
+                {
                     name: 'Setup Node.js',
                     uses: 'actions/setup-node@v2',
                     with: { 'node-version': '18.12.0' },
@@ -155,25 +170,97 @@ export class K8sVersionUpgrade extends Component {
                     run: 'yarn install --check-files',
                 },
                 {
-                    name: 'Generate Kubernetes schema',
-                    run: 'npx ts-node ${{ github.workspace }}' + `/tools/import-spec.sh ${latestK8sVersion}`,
+                    name: 'Import the new k8s spec from the prerequisite step',
+                    run: 'yarn run import',
+                },
+                {
+                    name: 'Start local kubernetes cluster',
+                    run: 'yarn run import',
+                    // FIGURE OUT how/where to run kubernetes cluster and configure kubectl to it
+                },
+                {
+                    name: 'Generate API types from the local Kubernetes cluster',
+                    run: 'yarn regenerate-api-information',
+                },
+                {
+                    name: 'Let projen update the remaining files',
+                    run: 'yarn build',
+                },
+                {
+                    name: 'Update references in docs/plus/**',
+                    // figure out where I'm writing this script again!
+                    run: `git push --set-upstream origin k8s.${latestVersionNumber}`,
+                    env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
+                    continueOnError: false,
+                },
+                {
+                    name: 'Push the branch and verify that automation builds/tags/releases the new version successfully.',
+                    run: `git push --set-upstream origin k8s-${latestVersionNumber}/main`,
+                    env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
+                    continueOnError: false,
+                },
+                {
+                    name: 'Set new branch as default branch for repo',
+                    // this might have to be done manually - maybe create a github issue for it?
+                },
+            ],
+        };
+
+        workflow.addJob('create-new-plus-branch', createNewPlusBranch);
+
+        // PART 3: Update CDK8s
+
+        const updateCdk8s: workflows.Job = {
+            runsOn: runsOn,
+            permissions: {
+                contents: workflows.JobPermission.READ,
+                pullRequests: workflows.JobPermission.WRITE,
+            },
+            steps: [
+                {
+                    name: 'Checkout',
+                    uses: 'actions/checkout@v2',
+                },
+                {
+                    name: 'Create new branch',
+                    // action from https://github.com/peterjgrainger/action-create-branch
+                    uses: 'peterjgrainger/action-create-branch@v2.2.0',
+                    env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
+                    with: {
+                        branch : `cdk8s-upgrade/v${latestK8sVersion}`,
+                        // not sure what to do for sha here.
+                        sha: '${{ github.event.pull_request.head.sha }}',
+                    },
+                },
+                {
+                    name: 'Update references to newest k8s version in cdk8s repo',
+                    // figure out where I'm writing this script!
+                    run: `git push --set-upstream origin k8s.${latestVersionNumber}`,
+                    env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
+                    continueOnError: false,
+                },
+                {
+                    name: 'Let projen update the remaining files',
+                    run: 'yarn build',
+                },
+                {
+                    name: 'Update references in docs/** with new syntax',
+                    // figure out where I'm writing this script!
+                    run: `git push --set-upstream origin k8s.${latestVersionNumber}`,
                     env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
                     continueOnError: false,
                 },
                 ...WorkflowActions.createPullRequest({
                     workflowName: 'create-pull-request',
-                    pullRequestTitle: `chore: v${latestK8sVersion} kubernetes-spec`,
-                    pullRequestDescription: `This PR is adds the v${latestK8sVersion} Kubernetes spec. This is required in order for us to add a new version to cdk8s-plus.`,
-                    branchName: `github-actions/generate-k8s-spec-${latestK8sVersion}`,
-                    labels: [
-                    'auto-approve',
-                    ],
+                    pullRequestTitle: `chore(website): cdk8s-plus-${latestVersionNumber}`,
+                    pullRequestDescription: `This PR updates the website with the latest version of cdk8s-plus.`,
+                    branchName: `github-actions/website-update-${latestK8sVersion}`,
                     credentials: GithubCredentials.fromPersonalAccessToken(),
                 }),
             ],
         };
 
-        workflow.addJob('create-new-plus-branch', createNewPlusBranch);
+        workflow.addJob('update-cdk8s-website', updateCdk8s);
     }
 }
 
