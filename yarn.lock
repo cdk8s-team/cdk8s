@@ -1874,7 +1874,7 @@ case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s-cli@^2.34.0:
+cdk8s-cli@^2.36.0:
   version "2.36.0"
   resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.36.0.tgz#fd6c000a6317bc85357e2429ba2c28b73a89ca0f"
   integrity sha512-2z04Pdzxams6a8qLigxMsKtDUZHQWlXLYAcLalBUU7+1UNR3rvCz/iOzkA9xh1iaq66uCaOR/hAF1VyXkOaDOg==
@@ -1923,7 +1923,7 @@ cdk8s-plus-27@^2.6.0:
   optionalDependencies:
     backport "8.5.0"
 
-cdk8s@^2.41.0:
+cdk8s@^2.41.0, cdk8s@^2.42.0:
   version "2.42.0"
   resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-2.42.0.tgz#8d503c28d1d521ef53721894e4caefbddea13433"
   integrity sha512-7d/JN6vviTnSy3Z7BfWQKCQbj5H4Z84yxF80vrvCGb2/SejdGBhH+RAY1kLUwBzySeaVYt4fhKUhs+A/DsyA5g==
