@@ -14,11 +14,11 @@ export class K8sVersionUpgrade extends Component {
         // https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule
         // Reason for adding a buffer here is because Github does not guarantee running action on
         // scheduled time
-        // const schedule = '0 18 * * 0';
+        const schedule = '0 18 * * 0';
         const trigger: workflows.Triggers = {
-            // schedule: [{
-            // cron: schedule,
-            // }],
+            schedule: [{
+            cron: schedule,
+            }],
             workflowDispatch: {},
         };
 
