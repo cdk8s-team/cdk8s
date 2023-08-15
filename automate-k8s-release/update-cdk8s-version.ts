@@ -1,7 +1,9 @@
 import * as fs from 'fs';
 import * as path from 'path';
 
-function main(latestVersionNumber: number) {
+function main(latestVersion: string) {
+
+    const latestVersionNumber = Number(latestVersion);
 
     const filesToBeUpdated = ['.projenrc.js', 'docs/build.sh', 'website/build.sh', 'website/layouts/index.html', 'docs/plus/.pages', 'docs/references/.pages', 'docs/reference/index.md', ];
     
@@ -13,19 +15,19 @@ function main(latestVersionNumber: number) {
         fs.writeFileSync(filePath, curFileData);
     });
 
-    // // make new docs/reference/cdk8s-plus-XX/ directory and add .pages and go.md files
-    // const newDocsReferenceDir = `../docs/reference/cdk8s-plus-${latestVersionNumber}/`;
-    // fs.mkdirSync(newDocsReferenceDir);
-    // const pagesFileData = fs.readFileSync(`../docs/reference/cdk8s-plus-${latestVersionNumber-1}/.pages`, 'utf-8');
-    // fs.writeFileSync(path.join(newDocsReferenceDir, '.pages'), pagesFileData);
-    // let goFileData = fs.readFileSync(`../docs/reference/cdk8s-plus-${latestVersionNumber-1}/go.md`, 'utf-8');
-    // goFileData = goFileData.replace(`${latestVersionNumber - 1}`, `${latestVersionNumber}`);
-    // fs.writeFileSync(path.join(newDocsReferenceDir, 'go.md'), goFileData);
+    // make new docs/reference/cdk8s-plus-XX/ directory and add .pages and go.md files
+    const newDocsReferenceDir = `../docs/reference/cdk8s-plus-${latestVersionNumber}/`;
+    fs.mkdirSync(newDocsReferenceDir);
+    const pagesFileData = fs.readFileSync(`../docs/reference/cdk8s-plus-${latestVersionNumber-1}/.pages`, 'utf-8');
+    fs.writeFileSync(path.join(newDocsReferenceDir, '.pages'), pagesFileData);
+    let goFileData = fs.readFileSync(`../docs/reference/cdk8s-plus-${latestVersionNumber-1}/go.md`, 'utf-8');
+    goFileData = goFileData.replace(`${latestVersionNumber - 1}`, `${latestVersionNumber}`);
+    fs.writeFileSync(path.join(newDocsReferenceDir, 'go.md'), goFileData);
 
-    // // update reference in docs/plus/index.md
-    // let plusIndexFileData = fs.readFileSync('docs/plus/index.md', 'utf-8');
-    // plusIndexFileData = plusIndexFileData.replace(`${latestVersionNumber - 1}`, `${latestVersionNumber}`);
-    // fs.writeFileSync('../docs/plus/index.md', plusIndexFileData);
+    // update reference in docs/plus/index.md
+    let plusIndexFileData = fs.readFileSync('docs/plus/index.md', 'utf-8');
+    plusIndexFileData = plusIndexFileData.replace(`${latestVersionNumber - 1}`, `${latestVersionNumber}`);
+    fs.writeFileSync('../docs/plus/index.md', plusIndexFileData);
 
     // update all references in docs/basics/**
     const docsFileNames = fs.readdirSync('docs/basics/', { encoding: 'utf-8'});
@@ -34,8 +36,6 @@ function main(latestVersionNumber: number) {
         curFileData = curFileData.replace(`${latestVersionNumber - 1}`, `${latestVersionNumber}`);
         fs.writeFileSync(path.join('docs/basics', filePath), curFileData);
     });
-    console.log(docsFileNames);
 }
 
-main(28);
-//   .catch(console.error);
+main(process.argv.slice(2)[0]);
