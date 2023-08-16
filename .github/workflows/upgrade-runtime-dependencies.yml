@@ -4,7 +4,7 @@ name: upgrade-runtime-dependencies
 on:
   workflow_dispatch: {}
   schedule:
-    - cron: 0 0 * * *
+    - cron: 0 6 * * *
 jobs:
   upgrade:
     name: Upgrade
