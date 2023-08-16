@@ -3776,9 +3776,9 @@ istanbul-reports@^3.1.3:
     istanbul-lib-report "^3.0.0"
 
 jackspeak@^2.0.3:
-  version "2.2.3"
-  resolved "https://registry.yarnpkg.com/jackspeak/-/jackspeak-2.2.3.tgz#ac63c57c18d254dc78a1f4ecd1cdeb4daeb6e616"
-  integrity sha512-pF0kfjmg8DJLxDrizHoCZGUFz4P4czQ3HyfW4BU0ffebYkzAVlBywp5zaxW/TM+r0sGbmrQdi8EQQVTJFxnGsQ==
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/jackspeak/-/jackspeak-2.3.0.tgz#aa228a94de830f31d4e4f0184427ce91c4ff1493"
+  integrity sha512-uKmsITSsF4rUWQHzqaRUuyAir3fZfW3f202Ee34lz/gZCi970CPZwyQXLGNgWJvvZbvFyzeyGq0+4fcG/mBKZg==
   dependencies:
     "@isaacs/cliui" "^8.0.2"
   optionalDependencies:
@@ -5782,10 +5782,10 @@ progress@^2.0.3:
   resolved "https://registry.yarnpkg.com/progress/-/progress-2.0.3.tgz#7e8cf8d8f5b8f239c1bc68beb4eb78567d572ef8"
   integrity sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA==
 
-projen@^0.71.146:
-  version "0.71.146"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.71.146.tgz#f59d948f07edbbf3aa2b05163896911c059b9266"
-  integrity sha512-+6TYMiF/S5e4Zbrkan1a0n5oxLzcv3xEmEJJUcNuPIDzyPpZB/KIFNghSJe36na6XhMCQR6nABB8B3U7x8wI3Q==
+projen@^0.72.14:
+  version "0.72.14"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.72.14.tgz#44afb884bd45294d1b737c14ceb529e725f1a932"
+  integrity sha512-ctLMrFJleQbnFwYXK8slLEeosyYkuFX63uKhe3njov6jECLutxOKuEC7JXdn4emt3/piAsVlkEeZw9Z9kloimg==
   dependencies:
     "@iarna/toml" "^2.2.5"
     case "^1.6.3"
