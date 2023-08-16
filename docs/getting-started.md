@@ -109,7 +109,7 @@ When you synthesize the app, a Kubernetes manifest YAML will be produced for
 each `Chart` in your app and will write it to the `dist` directory. At this point, the YAML
 file should be empty since we haven't defined any resources yet.
 
-Let have a look at the code:
+Let's have a look at the code:
 
 === "TypeScript"
     `main.ts`
