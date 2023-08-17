@@ -50,6 +50,8 @@ export class K8sVersionUpgradeAutomation extends Component {
             ],
         }
 
+        workflow.addJob('check-latest-k8s-release', checkLatestVersion);
+
         // PART 1: Prerequisite
 
         const generateK8sSpecJob: workflows.Job = {
