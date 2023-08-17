@@ -3,9 +3,9 @@ import * as fs from 'fs';
 import { GithubCredentials, GithubWorkflow, WorkflowActions, workflows } from 'projen/lib/github';
 import path from 'path';
 
-export class K8sVersionUpgrade extends Component {
+export class K8sVersionUpgradeAutomation extends Component {
 
-    constructor(project: typescript.TypeScriptAppProject, latestVersion: string) {
+    constructor(project: typescript.TypeScriptAppProject) {
         super(project);
 
         const workflow: GithubWorkflow = project.github!.addWorkflow('k8s-upgrade-automation');
@@ -22,8 +22,10 @@ export class K8sVersionUpgrade extends Component {
             workflowDispatch: {},
         };
 
-        const latestK8sVersion = latestVersion;
-        const latestVersionNumber = Number(latestK8sVersion.split('.')[1]);
+        // const latestK8sVersion = latestVersion;
+        // let latestK8sVersion = fs.readFileSync('docs/plus/index.md', 'utf-8');
+        const latestVersionNumber = 27;
+        // Number(latestK8sVersion.split('.')[1]);
 
         const runsOn = ['ubuntu-latest'];
 

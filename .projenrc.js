@@ -1,6 +1,7 @@
 const { javascript } = require('projen');
 const { Cdk8sTeamNodeProject } = require('@cdk8s/projen-common');
 const { JobPermission } = require('projen/lib/github/workflows-model');
+const { K8sVersionUpgrade, K8sVersionUpgradeAutomation } = require('./k8s-upgrade-automation/kubernetes-upgrade-automation');
 
 const mainBranch = 'master';
 
@@ -135,5 +136,7 @@ for (const pkg of packages) {
   }
 }
 
+// Add Kubernetes upgrade automation workflow
+K8sVersionUpgradeAutomation(project);
 
 project.synth();
