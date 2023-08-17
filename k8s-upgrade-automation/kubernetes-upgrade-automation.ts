@@ -27,6 +27,27 @@ export class K8sVersionUpgrade extends Component {
 
         const runsOn = ['ubuntu-latest'];
 
+        // PART 0: Check Latest Kubernetes Version Online
+
+        const checkLatestVersion: workflows.Job = {
+            runsOn: runsOn,
+            permissions: {
+                contents: workflows.JobPermission.READ,
+                pullRequests: workflows.JobPermission.WRITE,
+            },
+            steps: [
+                {
+                    id: 'k8s-latest-release',
+                    name: 'Get latest K8s Release',
+                    uses: 'pozetroninc/github-action-get-latest-release@master',
+                    with: {
+                        'repository' : 'kubernetes/kubernetes',
+                        'excludes' : 'prerelease, draft',
+                    },
+                },
+            ],
+        }
+
         // PART 1: Prerequisite
 
         const generateK8sSpecJob: workflows.Job = {
