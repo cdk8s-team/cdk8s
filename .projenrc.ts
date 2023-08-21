@@ -1,6 +1,6 @@
-import { Cdk8sTeamTypeScriptProject } from "@cdk8s/projen-common";
-import { JobPermission } from "projen/lib/github/workflows-model";
-import { K8sVersionUpgradeAutomation } from "./k8s-upgrade-automation/kubernetes-upgrade-automation";
+import { Cdk8sTeamTypeScriptProject } from '@cdk8s/projen-common';
+import { JobPermission } from 'projen/lib/github/workflows-model';
+import { K8sVersionUpgradeAutomation } from './src/k8s-automation';
 
 const mainBranch = 'master';
 
@@ -37,7 +37,7 @@ project.gitignore.addPatterns('dist/');
 // enable mono-repo
 project.package.addField('private', true);
 project.package.addField('workspaces', {
-  packages: []
+  packages: [],
 });
 
 // override the default test task to run test across the repo
@@ -51,8 +51,8 @@ project.packageTask.reset();
 
 project.package.addPackageResolutions(
   // Pin version of @types/responselike and got, see: https://github.com/sindresorhus/got/issues/2129
-  "@types/responselike@1.0.0",
-  "got@12.3.1"
+  '@types/responselike@1.0.0',
+  'got@12.3.1',
 );
 
 
@@ -71,7 +71,7 @@ workflow.addJobs({
     steps: [
       {
         name: 'Checkout sources',
-        uses: 'actions/checkout@v2'
+        uses: 'actions/checkout@v2',
       },
       {
         name: 'Setup Node.js',
@@ -101,19 +101,19 @@ workflow.addJobs({
         name: 'Build Website',
         run: [
           'cd website',
-          './build.sh'
-        ].join('\n')
+          './build.sh',
+        ].join('\n'),
       },
       {
         name: 'Build Docs Site',
-        run: './docs/build.sh website/public/docs'
+        run: './docs/build.sh website/public/docs',
       },
       {
         name: 'Deploy',
         uses: 'peaceiris/actions-gh-pages@v3',
         with: {
           github_token: '${{ secrets.GITHUB_TOKEN }}',
-          publish_dir: './website/public'
+          publish_dir: './website/public',
         }
       }
     ]

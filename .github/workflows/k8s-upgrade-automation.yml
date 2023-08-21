@@ -5,6 +5,9 @@ on:
   workflow_dispatch: {}
   schedule:
     - cron: 0 18 * * 0
+  push:
+    branches:
+      - sumughan/automate-k8s-release-step1
 jobs:
   check-latest-k8s-release:
     runs-on: ubuntu-latest

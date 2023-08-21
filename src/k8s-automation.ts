@@ -1,8 +1,8 @@
 import { Component } from 'projen';
 import * as typescript from 'projen/lib/typescript';
-import * as fs from 'fs';
+// import * as fs from 'fs';
 import { GithubWorkflow, workflows } from 'projen/lib/github';
-import path from 'path';
+// import path from 'path';
 
 export class K8sVersionUpgradeAutomation extends Component {
 
@@ -20,49 +20,35 @@ export class K8sVersionUpgradeAutomation extends Component {
       schedule: [{
         cron: schedule,
       }],
-      push: 
-    //   [{
-    //     branches: ['sumughan/automate-k8s-release-step1'],
-    //   }],
+      push: {
+        branches: ['sumughan/automate-k8s-release-step1'],
+      },
     };
 
-        // const latestK8sVersion = '1.27.0';
-        // let latestK8sVersion = fs.readFileSync('docs/plus/index.md', 'utf-8');
-        // const latestVersionNumber = 27;
-        // Number(latestK8sVersion.split('.')[1]);
+    const runsOn = ['ubuntu-latest'];
 
-        const runsOn = ['ubuntu-latest'];
+    // PART 0: Check Latest Kubernetes Version Online
 
-        // PART 0: Check Latest Kubernetes Version Online
+    const checkLatestVersion: workflows.Job = {
+      runsOn: runsOn,
+      permissions: {
+        contents: workflows.JobPermission.READ,
+        pullRequests: workflows.JobPermission.WRITE,
+      },
+      steps: [
+        {
+        // id: 'k8s-latest-release',
+          name: 'Get latest K8s Release',
+          uses: 'pozetroninc/github-action-get-latest-release@master',
+          with: {
+            repository: 'kubernetes/kubernetes',
+            excludes: 'prerelease, draft',
+          },
+        },
+      ],
+    };
 
-        const checkLatestVersion: workflows.Job = {
-            runsOn: runsOn,
-            permissions: {
-                contents: workflows.JobPermission.READ,
-                pullRequests: workflows.JobPermission.WRITE,
-            },
-            steps: [
-                {
-                    // id: 'k8s-latest-release',
-                    name: 'Get latest K8s Release',
-                    uses: 'pozetroninc/github-action-get-latest-release@master',
-                    with: {
-                        'repository' : 'kubernetes/kubernetes',
-                        'excludes' : 'prerelease, draft',
-                    },
-                },
-                // {
-                //     id: 'check-release-version',
-                //     run: 'pozetroninc/github-action-get-latest-release@master',
-                //     with: {
-                //         'repository' : 'kubernetes/kubernetes',
-                //         'excludes' : 'prerelease, draft',
-                //     },
-                // },
-            ],
-        }
-
-        workflow.addJob('check-latest-k8s-release', checkLatestVersion);
-        workflow.on(trigger);
-    }
+    workflow.addJob('check-latest-k8s-release', checkLatestVersion);
+    workflow.on(trigger);
+  }
 }
