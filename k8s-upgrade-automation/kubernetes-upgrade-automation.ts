@@ -17,10 +17,10 @@ export class K8sVersionUpgradeAutomation extends Component {
         // scheduled time
         const schedule = '0 18 * * 0';
         const trigger: workflows.Triggers = {
+            workflowDispatch: {},
             schedule: [{
             cron: schedule,
             }],
-            workflowDispatch: {},
         };
 
         // const latestK8sVersion = '1.27.0';
