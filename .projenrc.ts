@@ -1,6 +1,3 @@
-// const { javascript } = require('projen');
-// const { Cdk8sTeamNodeProject, Cdk8sTeamTypeScriptProject } = require('@cdk8s/projen-common');
-// const { JobPermission } = require('projen/lib/github/workflows-model');
 import { Cdk8sTeamTypeScriptProject } from "@cdk8s/projen-common";
 import { JobPermission } from "projen/lib/github/workflows-model";
 import { K8sVersionUpgradeAutomation } from "./k8s-upgrade-automation/kubernetes-upgrade-automation";
@@ -8,12 +5,10 @@ import { K8sVersionUpgradeAutomation } from "./k8s-upgrade-automation/kubernetes
 const mainBranch = 'master';
 
 const project = new Cdk8sTeamTypeScriptProject({
-// Cdk8sTeamNodeProject({
   name: 'root',
   repoName: 'cdk8s',
   defaultReleaseBranch: mainBranch,
   pullRequestTemplate: false,
-  // projenUpgradeSecret: 'PROJEN_GITHUB_TOKEN',
   release: false,
   devDeps: [
     '@cdk8s/projen-common',
@@ -141,7 +136,6 @@ for (const pkg of packages) {
 }
 
 // Add Kubernetes upgrade automation workflow
-// new K8sVersionUpgradeAutomation(project);
 new K8sVersionUpgradeAutomation(project);
 
 project.synth();
