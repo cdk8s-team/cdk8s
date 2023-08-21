@@ -1,4 +1,5 @@
-import { Component, typescript } from 'projen';
+import { Component } from 'projen';
+import * as typescript from 'projen/lib/typescript';
 import * as fs from 'fs';
 import { GithubCredentials, GithubWorkflow, WorkflowActions, workflows } from 'projen/lib/github';
 import path from 'path';
@@ -22,7 +23,7 @@ export class K8sVersionUpgradeAutomation extends Component {
             workflowDispatch: {},
         };
 
-        // const latestK8sVersion = latestVersion;
+        const latestK8sVersion = '1.27.0';
         // let latestK8sVersion = fs.readFileSync('docs/plus/index.md', 'utf-8');
         const latestVersionNumber = 27;
         // Number(latestK8sVersion.split('.')[1]);
@@ -42,6 +43,14 @@ export class K8sVersionUpgradeAutomation extends Component {
                     id: 'k8s-latest-release',
                     name: 'Get latest K8s Release',
                     uses: 'pozetroninc/github-action-get-latest-release@master',
+                    with: {
+                        'repository' : 'kubernetes/kubernetes',
+                        'excludes' : 'prerelease, draft',
+                    },
+                },
+                {
+                    id: 'check-release-version',
+                    run: 'pozetroninc/github-action-get-latest-release@master',
                     with: {
                         'repository' : 'kubernetes/kubernetes',
                         'excludes' : 'prerelease, draft',
