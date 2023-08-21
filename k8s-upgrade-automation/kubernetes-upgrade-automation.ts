@@ -40,7 +40,7 @@ export class K8sVersionUpgradeAutomation extends Component {
             },
             steps: [
                 {
-                    id: 'k8s-latest-release',
+                    // id: 'k8s-latest-release',
                     name: 'Get latest K8s Release',
                     uses: 'pozetroninc/github-action-get-latest-release@master',
                     with: {
