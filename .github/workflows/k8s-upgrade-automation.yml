@@ -14,6 +14,8 @@ jobs:
     permissions:
       contents: read
       pull-requests: write
+    outputs:
+      latestVersion: ${{ steps.k8s-latest-version.outputs.latestVersion }}
     steps:
       - name: Get latest K8s Release
         id: get-k8s-latest-release
@@ -23,4 +25,4 @@ jobs:
           excludes: prerelease, draft
       - name: Get latest K8s minor version
         id: k8s-latest-version
-        run: echo "$(cut -d "." -f 2 <<< "${{ steps.get-k8s-latest-release.outputs.release }}")"
+        run: echo latestVersion="$(cut -d "." -f 2 <<< "${{ steps.get-k8s-latest-release.outputs.release }}")"

@@ -27,9 +27,6 @@ export class K8sVersionUpgradeAutomation extends Component {
 
     const runsOn = ['ubuntu-latest'];
 
-    // const latestK8sVersion = 28;
-    // const latestVersionNumber = '1.28.0';
-
     // PART 0: Check Latest Kubernetes Version Online
 
     const checkLatestVersion: workflows.Job = {
@@ -37,6 +34,12 @@ export class K8sVersionUpgradeAutomation extends Component {
       permissions: {
         contents: workflows.JobPermission.READ,
         pullRequests: workflows.JobPermission.WRITE,
+      },
+      outputs: {
+        latestVersion: {
+          stepId: 'k8s-latest-version',
+          outputName: 'latestVersion',
+        },
       },
       steps: [
         {
@@ -51,14 +54,14 @@ export class K8sVersionUpgradeAutomation extends Component {
         {
           id: 'k8s-latest-version',
           name: 'Get latest K8s minor version',
-          run: 'echo "$(cut -d "." -f 2 <<< "${{ steps.get-k8s-latest-release.outputs.release }}")"',
-        //   run: 'echo "${{ steps.get-k8s-latest-release.outputs.release}}"',
-        //   uses: 'pozetroninc/github-action-get-latest-release@master',
-        //   with: {
-        //     repository: 'kubernetes/kubernetes',
-        //     excludes: 'prerelease, draft',
-        //   },
+          run: 'echo latestVersion="$(cut -d "." -f 2 <<< "${{ steps.get-k8s-latest-release.outputs.release }}")"',
+        //   run: 'echo "$(cut -d "." -f 2 <<< "${{ steps.get-k8s-latest-release.outputs.release }}")"',
         },
+        // {
+        //   id: 'check-if-cdk8s-is-updated',
+        //   name: 'Check to see if cdk8s-plus released latest k8s version on npm',
+        //   run: 'wget -q  -O /tmp/foo https://www.npmjs.com/package/cdk8s-plus-${{steps.k8s-latest-version.output}} | grep "200" /tmp/foo | wc -l',
+        // },
       ],
     };
 
