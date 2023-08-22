@@ -51,7 +51,7 @@ export class K8sVersionUpgradeAutomation extends Component {
         {
           id: 'k8s-latest-version',
           name: 'Get latest K8s minor version',
-          run: 'latest_version="$(cut -d "." -f 1 <<< "${{ steps.get-k8s-latest-release.outputs.release }}")"',
+          run: 'echo "$(cut -d "." -f 1 <<< "${{ steps.get-k8s-latest-release.outputs.release }}")"',
         //   run: 'echo "${{ steps.get-k8s-latest-release.outputs.release}}"',
         //   uses: 'pozetroninc/github-action-get-latest-release@master',
         //   with: {

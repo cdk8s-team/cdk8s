@@ -23,4 +23,4 @@ jobs:
           excludes: prerelease, draft
       - name: Get latest K8s minor version
         id: k8s-latest-version
-        run: latest_version="$(cut -d "." -f 1 <<< "${{ steps.get-k8s-latest-release.outputs.release }}")"
+        run: echo "$(cut -d "." -f 1 <<< "${{ steps.get-k8s-latest-release.outputs.release }}")"
