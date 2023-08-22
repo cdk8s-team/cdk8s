@@ -39,13 +39,23 @@ export class K8sVersionUpgradeAutomation extends Component {
       },
       steps: [
         {
-        // id: 'k8s-latest-release',
+          id: 'get-k8s-latest-release',
           name: 'Get latest K8s Release',
           uses: 'pozetroninc/github-action-get-latest-release@master',
           with: {
             repository: 'kubernetes/kubernetes',
             excludes: 'prerelease, draft',
           },
+        },
+        {
+          id: 'k8s-latest-version',
+          name: 'Get latest K8s minor version',
+          run: 'echo ${{ steps.get-k8s-latest-release.outputs.release }}',
+        //   uses: 'pozetroninc/github-action-get-latest-release@master',
+        //   with: {
+        //     repository: 'kubernetes/kubernetes',
+        //     excludes: 'prerelease, draft',
+        //   },
         },
       ],
     };
