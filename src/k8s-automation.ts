@@ -61,7 +61,7 @@ export class K8sVersionUpgradeAutomation extends Component {
           id: 'check-if-cdk8s-is-updated',
           name: 'Check to see if cdk8s-plus released latest k8s version on npm',
           // returns 1 if website is valid, 0 if invalid
-          run: 'wget -q  -O /tmp/foo https://www.npmjs.com/package/cdk8s-plus-${{steps.k8s-latest-version.outputs.latesVersion}} | grep "200" /tmp/foo | wc -l',
+          run: 'wget -q  -O /tmp/foo https://www.npmjs.com/package/cdk8s-plus-${{steps.k8s-latest-version.outputs.latestVersion}} | grep "200" /tmp/foo | wc -l',
         },
       ],
     };
