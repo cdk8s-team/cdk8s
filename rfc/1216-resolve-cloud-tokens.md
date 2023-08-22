@@ -659,18 +659,6 @@ To replace the value, `context.replaceValue` should be called with the new value
 A new jsii package containing a class that implements the `IValueResolver` interface. It can 
 identify AWS CDK tokens defined inside a `CfnOutput` , and fetch their concrete values by issuing AWS service calls.
 
-**There are some noteworthy points to pay attention to:**
-
-- Since `Ref` is a CloudFormation specific attribute, it does not exist as a key in 
-the resource properties as returned by the [cloudcontrol/GetResource][1] API.
-In this case, the implementation will return the *physical id* as returned by 
-the [cloudformation/DescribeStackResource][2] API, assuming they represent the same 
-thing. See [Appendix](#ref-vs-physicalresourceid) for more details and research on this.
-
-- The implementation uses the *physical id* as the `Identifier` argument when calling 
-the [cloudcontrol/GetResource][1] API, assuming they map 1:1. See [Appendix](#physicalresourceid-vs-primaryidentifier) 
-for more details and research on this.
-
 #### Package `@cdk8s/cdktf-token-resolver`
 
 > PoC: [cdktf-resolver.ts](./../examples/typescript/resolve-cloud-tokens/resolvers/cdktf-resolver.ts)
