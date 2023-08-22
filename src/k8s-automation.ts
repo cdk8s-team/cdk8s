@@ -51,7 +51,7 @@ export class K8sVersionUpgradeAutomation extends Component {
         {
           id: 'k8s-latest-version',
           name: 'Get latest K8s minor version',
-          run: 'echo "${{ steps.get-k8s-latest-release.outputs.release}}: 2"',
+          run: 'echo "{${{ steps.get-k8s-latest-release.outputs.release}}}: 2"',
         //   uses: 'pozetroninc/github-action-get-latest-release@master',
         //   with: {
         //     repository: 'kubernetes/kubernetes',
