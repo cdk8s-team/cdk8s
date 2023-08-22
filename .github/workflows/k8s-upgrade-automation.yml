@@ -23,4 +23,4 @@ jobs:
           excludes: prerelease, draft
       - name: Get latest K8s minor version
         id: k8s-latest-version
-        run: 'echo "${{ steps.get-k8s-latest-release.outputs.release }: 2}"'
+        run: 'echo "${{ steps.get-k8s-latest-release.outputs.release}}: 2"'
