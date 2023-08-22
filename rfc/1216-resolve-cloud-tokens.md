@@ -5,8 +5,8 @@
 * **API Bar Raiser**: @rix0rrr
 
 Users can now configure custom resolvers to control how cdk8s resolves values before writing 
-them to the manifest. In addition, custom resolvers for the AWS CDK and CDKTF token system are available, 
-allowing users to author Kubernetes applications that leverage cloud resources.
+them to the manifest. In addition, custom resolvers for the AWS CDK and CDKTF token systems are available, 
+allowing users to natively pass information about cloud resources to Kubernetes applications.
 
 ## Working Backwards
 
@@ -40,7 +40,6 @@ The `context` argument contains information about the value that is currently be
 - **value**: The original value.
 
 It also contains the `replaceValue` method you should use to set a replacement value instead of the original.
-
 When you create a cdk8s `App`, pass the resolver instance to it via the `resolver` property:
 
 ```ts
@@ -51,7 +50,7 @@ new Chart(app, 'Chart');
 ```
 
 When you run `cdk8s synth`, your custom logic will be invoked, allowing you to replace the 
-original value about to be written to the manifest. For example, if you define a Kubernetes service like so:
+original value. For example, if you define a Kubernetes `Service`` like so:
 
 ```ts
 new KubeService(this, 'Service', {
@@ -64,7 +63,7 @@ new KubeService(this, 'Service', {
 Your resolver will be invoked with the following arguments:
 
 - **context**
-  - *obj*: The `KubeService` instance of type `ApiObject`.
+  - *obj*: The `KubeService` instance.
   - *key*: `['spec', 'type']`
   - *value*: `LoadBalancer`
 
@@ -74,7 +73,8 @@ attributes of cloud resources defined by other CDK frameworks.
 #### AWS Cloud Development Kit
 
 The `AwsCdkResolver` is able to resolve any [`CfnOutput`](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.CfnOutput.html) 
-defined by your AWS CDK application. In this example, we create an S3 `Bucket` with the AWS CDK, and pass its (deploy time generated) name as an environment variable to a Kubernetes `CronJob` resource.
+defined by your AWS CDK application. In this example, we create an S3 `Bucket` with the AWS CDK, and pass its (deploy time generated) 
+name as an environment variable to a Kubernetes `CronJob` resource.
 
 ```ts
 import * as aws from 'aws-cdk-lib';
@@ -99,6 +99,8 @@ new kplus.CronJob(manifest, 'CronJob', {
   containers: [{
     image: 'job',
     envVariables: {
+      // directly passing the value of the `CfnOutput` containing 
+      // the deploy time bucket name
       BUCKET_NAME: kplus.EnvValue.fromValue(bucketName.value),
     }
  }]
@@ -109,7 +111,7 @@ k8sApp.synth();
 ```
 
 During cdk8s synthesis, the custom resolver will detect that `bucketName.value` is not a concrete value, 
-but rather a `CfnOutput`. It will then perform AWS service calls in order to fetch the 
+but rather a value of a `CfnOutput`. It will then perform AWS service calls in order to fetch the 
 actual value from the deployed infrastructure in your account. This means that in order 
 for `cdk8s synth` to succeed, it must be executed *after* the AWS CDK resources 
 have been deployed. So your deployment workflow should (conceptually) be:
@@ -117,9 +119,20 @@ have been deployed. So your deployment workflow should (conceptually) be:
 1. `cdk deploy`
 2. `cdk8s synth`
 
-Also note that you **must** create a `CfnOutput` for the `bucketName` value. Once you do so, 
-you can pass either `bucket.bucketName` or `bucketName.value`. This is because `AwsCdkResolver` is 
-only able to fetch values for CloudFormation outputs, and not for every resource attribute.
+> Note that the `AwsCdkResolver` is **only** able to fetch tokens that have a `CfnOutput` defined for them.
+
+##### Permissions
+
+Since running `cdk8s synth` will now require performing AWS service calls, it must have access 
+to a set of AWS credentials. Following are the set of actions the credentials must allow:
+
+- `cloudformation:DescribeStacks`
+
+Note that the actions cdk8s require are far more scoped down than those normally required for the 
+deployment of AWS CDK applications. It is therefore recommended to not reuse the same set of credentials, 
+and instead create a scoped down `ReadOnly`` role dedicated for cdk8s resolvers.
+
+> Credentials can be provided in any way that is [supported by the AWS SDK for JavaScript](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/setting-credentials-node.html).
 
 #### CDK For Terraform
 
@@ -158,7 +171,7 @@ k8sApp.synth();
 ```
 
 During cdk8s synthesis, the custom resolver will detect that `bucket.bucket` is not a concrete 
-value, but rather a `CfnOutput`. It will then use the terraform state file in order to fetch 
+value, but rather a token. It will then use the terraform state file in order to fetch 
 the actual value from the deployed infrastructure in your account. This means that in order 
 for `cdk8s synth` to succeed, it must be executed *after* the CDKTF resources have been deployed.
 So your deployment workflow should (conceptually) be:
@@ -168,8 +181,24 @@ So your deployment workflow should (conceptually) be:
 
 > **Note that the `terraform` command line must be available on the machine performing `cdk8s synth`.**
 
+##### Permissions
+
+Since running `cdk8s synth` will now require reading tf state, it must have permissions to do so.
+In case a remote state file is used, this means providing a set of credentials for the account that have access
+to where the state if stored. This will vary depending on your cloud provider, but in most cases will involve giving 
+read permissions on a blob storage device (e.g S3 bucket).
+
+Note that the permissions cdk8s require are far more scoped down than those normally required for the 
+deployment of CDKTF applications. It is therefore recommended to not reuse the same set of credentials, 
+and instead create a scoped down `ReadOnly`` role dedicated for cdk8s resolvers.
+
+To make sure the credential you provide are sufficient, you can validate that the following command succeeds:
+
+`terraform state pull`
+
 #### Cross Repository Workflow
 
+Up until now, 
 
 
 ---
@@ -189,9 +218,9 @@ RFC pull request):
 This launch consists of three deliverables:
 
 - A new feature in the `cdk8s` core library that allows injecting custom resolution logic during synthesis.
-- A new package called `@cdk8s/aws-cdk-token-resolver` containing a resolver that knows to detect 
+- A new package called `@cdk8s/aws-cdk-resolver` containing a resolver that knows to detect 
 AWS CDK tokens, and fetch its concrete values from AWS.
-- A new package called `@cdk8s/cdktf-token-resolver` containing a resolver that knows to detect 
+- A new package called `@cdk8s/cdktf-resolver` containing a resolver that knows to detect 
 CDKTF tokens, and fetch its concrete values from terraform state files.
 
 ### Why should I use this feature?
