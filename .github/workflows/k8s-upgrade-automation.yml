@@ -23,7 +23,7 @@ jobs:
           excludes: prerelease, draft
       - name: Get latest K8s minor version
         id: k8s-latest-version
-        run: echo "$(cut -d "." -f 2 <<< "${{ steps.get-k8s-latest-release.outputs.release }}")"
+        run: echo latestVersion="$(cut -d "." -f 2 <<< "${{ steps.get-k8s-latest-release.outputs.release }}")" >> $GITHUB_OUTPUT
       - name: Check to see if cdk8s-plus released latest k8s version on npm
         id: check-if-cdk8s-is-updated
-        run: wget -q  -O /tmp/foo https://www.npmjs.com/package/cdk8s-plus-${{steps.k8s-latest-version}} | grep "200" /tmp/foo | wc -l
+        run: wget -q  -O /tmp/foo https://www.npmjs.com/package/cdk8s-plus-${{steps.k8s-latest-version.outputs.latesVersion}} | grep "200" /tmp/foo | wc -l
