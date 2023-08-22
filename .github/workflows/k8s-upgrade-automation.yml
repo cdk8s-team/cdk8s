@@ -28,4 +28,4 @@ jobs:
         run: echo latestVersion="$(cut -d "." -f 2 <<< "${{ steps.get-k8s-latest-release.outputs.release }}")"
       - name: Check to see if cdk8s-plus released latest k8s version on npm
         id: check-if-cdk8s-is-updated
-        run: wget -q  -O /tmp/foo https://www.npmjs.com/package/cdk8s-plus-${{latestVersion}} | grep "200" /tmp/foo | wc -l
+        run: wget -q  -O /tmp/foo https://www.npmjs.com/package/cdk8s-plus-${{outputs.latestVersion}} | grep "200" /tmp/foo | wc -l
