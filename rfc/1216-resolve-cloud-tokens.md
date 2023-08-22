@@ -90,7 +90,7 @@ const k8sApp = new k8s.App({ resolver: new AwsCdkResolver() });
 const manifest = new k8s.Chart(k8sApp, 'Manifest');
 
 const bucket = new aws.aws_s3.Bucket(stack, 'Bucket');
-const bucketName = new aws.CfnOutput(this, 'BucketName', {
+const bucketName = new aws.CfnOutput(stack, 'BucketName', {
   value: bucket.bucketName,
 });
 
@@ -130,7 +130,7 @@ to a set of AWS credentials. Following are the set of actions the credentials mu
 
 Note that the actions cdk8s require are far more scoped down than those normally required for the 
 deployment of AWS CDK applications. It is therefore recommended to not reuse the same set of credentials, 
-and instead create a scoped down `ReadOnly`` role dedicated for cdk8s resolvers.
+and instead create a scoped down `ReadOnly` role dedicated for cdk8s resolvers.
 
 > Credentials can be provided in any way that is [supported by the AWS SDK for JavaScript](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/setting-credentials-node.html).
 
@@ -190,7 +190,7 @@ read permissions on a blob storage device (e.g S3 bucket).
 
 Note that the permissions cdk8s require are far more scoped down than those normally required for the 
 deployment of CDKTF applications. It is therefore recommended to not reuse the same set of credentials, 
-and instead create a scoped down `ReadOnly`` role dedicated for cdk8s resolvers.
+and instead create a scoped down `ReadOnly` role dedicated for cdk8s resolvers.
 
 To make sure the credential you provide are sufficient, you can validate that the following command succeeds:
 
@@ -198,8 +198,90 @@ To make sure the credential you provide are sufficient, you can validate that th
 
 #### Cross Repository Workflow
 
-Up until now, 
+As we've seen, your `cdk8s` application needs access to the objects defined in your cloud application. If both applications
+are defined within the same file, this is trivial to achieve. If they are in different files, a simple `import` statement will suffice.
+However, what if the applications are managed in two separate repositories? This makes it a little trickier, but still possible. 
+For the sake of the example we will use the AWS CDK, but the same approach can be applied for CDKTF.
 
+In this scenario, `cdk.ts` in the AWS CDK application, stored in a dedicated repository.
+
+```ts
+import * as aws from 'aws-cdk-lib';
+
+const awsApp = new aws.App();
+const stack = new aws.Stack(awsApp, 'aws');
+
+const bucket = new aws.aws_s3.Bucket(stack, 'Bucket');
+const bucketName = new aws.CfnOutput(stack, 'BucketName', {
+  value: bucket.bucketName,
+});
+
+awsApp.synth();
+```
+
+In order for the `cdk8s` application to have cross repository access, the AWS CDK object instances that we want to expose need to be available
+via a package repository. To do this, break up the CDK application into the following files:
+
+`app.ts`
+
+```ts
+import * as aws from 'aws-cdk-lib';
+
+const awsApp = new aws.App();
+const stack = new aws.Stack(awsApp, 'aws');
+
+const bucket = new aws.aws_s3.Bucket(stack, 'Bucket');
+export const bucketName = new aws.CfnOutput(stack, 'BucketName', {
+  value: bucket.bucketName,
+});
+
+// note that we don't call awsApp.synth here
+```
+
+`main.ts`
+
+```ts
+import { awsApp } from './app.ts'
+
+awsApp.synth();
+```
+
+Now, publish the `app.ts` file to a package manager, so that your `cdk8s` application can install and import it. 
+This approach might be somewhat counter intuitive, because normally we only publish classes to the package manager, 
+not instances. Indeed, these types of applications introduce a new use-case that requires the sharing of instances.
+Conceptually, this is no different than writing state<sup>*</sup> to an SSM parameter or an S3 bucket, and it allows us to remain 
+in the boundaries of our programming language, and the typing guarantees it provides.
+
+> <sup>*</sup> Actually, we are only publishing instructions for fetching state, not the state itself.
+
+Assuming `app.ts` was published as the `my-cdk-app` package, our `cdk8s` application will now look like so:
+
+```ts
+import * as k8s from 'cdk8s';
+import * as kplus from 'cdk8s-plus-26';
+
+// import the desired instance from the AWS CDK app.
+import { bucketName } from 'my-cdk-app';
+
+import { AwsCdkResolver } from '@cdk8s/aws-cdk-resolver';
+
+const k8sApp = new k8s.App({ resolver: new AwsCdkResolver() });
+const manifest = new k8s.Chart(k8sApp, 'Manifest');
+
+new kplus.CronJob(manifest, 'CronJob', {
+  schedule: k8s.Cron.daily(),
+  containers: [{
+    image: 'job',
+    envVariables: {
+      // directly passing the value of the `CfnOutput` containing 
+      // the deploy time bucket name
+      BUCKET_NAME: kplus.EnvValue.fromValue(bucketName.value),
+    }
+ }]
+});
+
+k8sApp.synth();
+```
 
 ---
 
@@ -229,10 +311,8 @@ If you need to perform some sort of automatic transformation on user defined res
 definitions, before they get written to the Kubernetes manifest.
 
 More concretely, if your Kubernetes workloads rely on resources offered by a 
-cloud provider, you can use this new feature to define cloud infrastructure 
-and Kubernetes resources in the same application. You can leverage either the 
-AWS CDK or the CDK For Terraform for your cloud infrastructure, and seamlessly 
-reference it in your cdk8s application.
+cloud provider, you can use this new feature to natively pass information 
+about cloud infrastructure to your Kubernetes resources.
 
 ## Internal FAQ
 
@@ -364,7 +444,7 @@ complex applications.
 
 ### Why should we _not_ do this?
 
-There are several mechanisms customers could implement this capability without explicit 
+There are several mechanisms customers could use to implement this capability without explicit 
 support from the cdk8s team. Given that, one could argue that the effort would not be 
 worth the value. Following is an outline of such mechanisms:
 
@@ -547,49 +627,37 @@ export class ResolutionContext {
 
   public readonly obj: ApiObject;
   public readonly key: string[];
+  public readonly value: any;
+
+  public replaceValue(newValue: any): void {
+    ...
+  }
 
 }
 
-export interface IResolver {
+export interface IValueResolver {
 
-  resolve(context: ResolutionContext, value: any): any;
+  resolve(context: ResolutionContext): void;
 }
 ```
 
-When a cdk8s chart is defined, a custom resolver can be passed to it:
+When a cdk8s application is defined, a custom resolver can be passed to it:
 
 ```ts
-new Chart(app, 'Chart', { resolver: new MyClassThatImplementsIResolver() })
+new App({ resolver: new MyClassThatImplementsIResolver() })
 ```
 
 During synthesis, the `resolve` function of the custom resolver will be invoked on every primitive value.
-The return value of this function will replace the original value and be written into the manifest.
+To replace the value, `context.replaceValue` should be called with the new value we wish to write to the manifest.
 
 **PoC:** https://github.com/cdk8s-team/cdk8s-core/pull/1163
 
-#### Package `@cdk8s/aws-cdk-token-resolver`
+#### Package `@cdk8s/aws-cdk-resolver`
 
-> PoC: [aws-cdk-resolver.ts](./../examples/typescript/resolve-cloud-tokens/aws-cdk-resolver.ts)
+> PoC: [aws-cdk-resolver.ts](./../examples/typescript/resolve-cloud-tokens/resolvers/aws-cdk-resolver.ts)
 
-A new jsii package containing a class that implements the `IResolver` interface. It can 
-identify AWS CDK tokens, and fetch their concrete values by issuing AWS service calls.
-
-Following is an outline of the implementation:
-
-```mermaid
-flowchart TD
-    A("AwsCdkTokenResolver.resolve")-->|not Token.isUnresolved|B("Return")
-    A("AwsCdkTokenResolver.resolve")-->|Token.isUnresolved|D("cloudformation.DescribeStackResource")
-    D("cloudformation.DescribeStackResource")-->E("Extract Physical Resource ID")
-    E("Extract Physical Resource ID")-->|"Attribute === 'Ref'"|F("Return Physical Resource ID")
-    E("Extract Physical Resource ID")-->|"Attribute !== 'Ref'"|G("cloudcontrol.GetResource")
-    G("cloudcontrol.GetResource")-->H("Extract Resource Properties")
-    H("Extract Resource Properties")-->I("Return Attribute Value")
-```
-
-> Note that the PoC code doesn't currently contain the `fetchOutput` method described in the README.
-> We assume this function is fairly easy to implement by invoking `cloudformation.DescribeStacks` and extracting
-> the output value.
+A new jsii package containing a class that implements the `IValueResolver` interface. It can 
+identify AWS CDK tokens defined inside a `CfnOutput` , and fetch their concrete values by issuing AWS service calls.
 
 **There are some noteworthy points to pay attention to:**
 
@@ -605,21 +673,10 @@ for more details and research on this.
 
 #### Package `@cdk8s/cdktf-token-resolver`
 
-> PoC: [cdktf-resolver.ts](./../examples/typescript/resolve-cloud-tokens/cdktf-resolver.ts)
+> PoC: [cdktf-resolver.ts](./../examples/typescript/resolve-cloud-tokens/resolvers/cdktf-resolver.ts)
 
-A new jsii package containing a class that implements the `IResolver` interface. It can 
+A new jsii package containing a class that implements the `IValueResolver` interface. It can 
 identify CDKTF tokens, and fetch their concrete values by issuing terraform state calls.
-
-Following is an outline of the implementation:
-
-```mermaid
-flowchart TD
-    A("CdkTfResolver.resolve")-->|not Token.isUnresolved|B("Return")
-    A("CdkTfResolver.resolve")-->|Token.isUnresolved|D("cloudformation.DescribeStackResource")
-    D("terraform show -json")-->E("Find Resource By Address")
-    E("Find Resource By Address")-->F("Extract Resource Properties")
-    F("Extract Resource Properties")-->G("Return Attribute Value")
-```
 
 ### Is this a breaking change?
 
@@ -627,7 +684,27 @@ No
 
 ### What alternative solutions did you consider?
 
-#### Outputs
+#### Cloud Control API
+
+The solution proposed here for AWS CDK is only able to resolve values that have a `CfnOutput` defined for them.
+To overcome this limitation, we could have used Cloud Control API, which presumably allows querying for resource attributes
+in the same semantics that CloudFormation uses. The resolver could have:
+
+1. Detect an AWS CDK token.
+2. Use `Stack.resolve` to extract the logical ID and the attribute name of the token.
+3. Invoke Cloud Control API (i.e `GetResource`) to lookup the value based on the above information.
+
+There are several problems with this approach:
+
+- The implementation uses the *physical id* as the `Identifier` argument when calling 
+the [cloudcontrol/GetResource][1] API, assuming they map 1:1, but this is not always the case. See [Appendix](#physicalresourceid-vs-primaryidentifier) 
+for more details and research on this.
+
+- Cloud Control doesn't yet support all CloudFormation resources.
+
+- Found some API quirks during research which makes me a little un easy using it. See [Appendix](#cc-api-quirk)
+
+#### Automatic Outputs
 
 In this solution, whenever cdk8s encounters an AWS CDK token, instead of trying to 
 fetch its corresponding *attribute* value, it will fetch its corresponding *output* value.
@@ -648,20 +725,21 @@ try {
 ```
 
 This solution has the benefit of automatically supporting every value that 
-can be defined in an AWS CDK application. It also simplifies the fetching logic because 
-it requires a single `cloudformation.DescribeStacks` call. 
+can be defined in an AWS CDK application.
 
-However, this option was discarded because of usability concerns:
+However, in the [cross repository deployment workflow](#cross-repository-workflow) case, 
+which we believe will be highly used, this approach poses a usability issue.
 
-- Requires synthesis of the cdk8s app to happen before the AWS CDK app. This can only be 
-controlled by the user, and therefore error prone.
-- Synthesizing the AWS CDK application separately from the cdk8s application will result in a different cloud assembly.
-- The cdk8s application needs to be synthesized twice, once to add the CloudFormation outputs, and once to fetch their values. 
-This means that the first synthesis will inherently produce an invalid manifest.
-- Will create a cyclic dependency in case the cdk8s and AWS CDK application are in different repositories / packages.
+To understand why, imagine we want to use an SNS topic within our cdk8s application.
+In this scenario, here are the steps required to achieve it.
 
-**Note that for CDKTF, there's no reason to use outputs because the state file provides all the necessary
-information.**
+1. Make a change in the `cdk8s` application to use the topic. This change will likely trigger 
+a deployment of the kubernetes manifest - but this deployment has no chance to succeed because the necessary `CfnOutput` still doesn't exist.
+2. Since this change is what adds the necessary `CfnOutput`, we now need to perform a CDK deployment from the CDK repo.
+3. Go back to the `cdk8s` repository and perform a dummy commit to re-trigger the deployment.
+
+This approach also creates a circular dependency between the repositories, as the CDK repo will need access to the cdk8s application so that the
+outputs can be defined. And the cdk8s repo naturally needs access to the CDK application because it uses information it exposes.
 
 #### Utility Functions
 
@@ -676,105 +754,54 @@ the whole thing.
 
 ### What are the drawbacks of this solution?
 
-- The current solution has some quirks and unknowns into which AWS CDK tokens can be
-resolved during cdk8s synthesis. If we end up creating many snowflakes in the code, 
-the maintenance burden of this capability may be too big.
+When resolving AWS CDK tokens, we are limited to values that have a `CfnOutput` defined for them.
 
 ### What is the high-level project plan?
 
-```mermaid
-flowchart TD
-    A("Custom Resolvers")-->B("@cdk8s/aws-cdk-token-resolver")
-    A("Custom Resolvers")-->C("@cdk8s/cdktf-token-resolver")
-    B("@cdk8s/aws-cdk-token-resolver")-->D("Add Examples")
-    C("@cdk8s/cdktf-token-resolver")-->E("Add Examples")
-    D("Add Examples")-->F("Publish Docs (cdk8s.io)")
-    E("Add Examples")-->F("Publish Docs (cdk8s.io)")
-    F("Publish Docs (cdk8s.io)")-->G("Youtube Demo")
-    F("Publish Docs (cdk8s.io)")-->H("Announcement Blogpost (Preview)")
-    G("Youtube Demo")-->I("Bake for 3 months")
-    H("Announcement Blogpost (Preview)")-->I("Bake for 3 months")
-    I("Bake for 3 months")-->J("Announcement Blogpost (GA)")
-```
-
-### Are there any open issues that need to be addressed later?
-
-1. CloudFormation attribute values are extracted as is from the result of the [cloudcontrol/GetResource][1] API. 
-E.g, a `QueueName` property is expected to exist on the Cloud Control resource properties which corresponds to 
-the same `QueueName` CloudFormation attribute. This assumption needs verification. If it proves incorrect, 
-we would have to understand which and how many resources behave differently, and either:
-    - Snowflake those resources.
-    - Not support them (i.e let the mechanism fail)
-    - Abandon this solution and go with the [Outputs](#outputs) alternative.
-
-2. Cloud Control doesn't yet support all CloudFormation resources. For example 
-the resource `AWS::SNS::Topic` is not supported (according to this [list][11]). However, 
-the PoC referenced in this RFC does utilize this resource, and everything seems to work fine. 
-Its not clear yet what is going on. Most likely, the list is out-of-date. 
-We need to get an accurate list of unsupported resources and see how this implementation 
-behaves on them. If we see there are too many of them, we might decide to abandon this 
-solution and go with the [Outputs](#outputs) alternative.
-
-3. The AWS CDK token resolver needs to know which stack contains the resource that is
-referenced by the token. Currently, the resolver requires the user explicitly pass the stack
-in its constructor. This is somewhat error prone because the user might mistakenly use a token
-from a different stack. Consider this:
-
-    ```ts
-    const stack1 = new Stack1(...);
-    const stack2 = new Stack2(...);
-
-    // create the resolver with stack1
-    const resolver = new AwsCdkTokenResolver(stack1);
-
-    new kplus.CronJob(manifest, 'CronJob', {
-    containers: [{ 
-      image: 'job',
-      envVariables: {
-        // but pass a token for a resource in stack2
-        BUCKET_NAME: kplus.EnvValue.fromValue(stack2.bucket.bucketName),
-      }
-    }]
-    });
-    ```
-
-    In this case, the implementation will either error out (best case), or 
-    return a value from a different stack in case the in-stack (worst case)
-    logical ids are the same. Ideally we would want to instantiate the resolver
-    with the app instance, not the stack. The resolver would then somehow 
-    automatically identify which stack it needs based on the token. 
-    This might be possible but I haven't yet dived deeper into it. One 
-    thing worth mentioning though is that the AWS CDK logical IDs [**do not contain the 
-    id of the stack**](https://github.com/aws/aws-cdk/blob/main/packages/aws-cdk-lib/core/lib/stack.ts#L1273), 
-    contradictory to what the documentation](https://docs.aws.amazon.com/cdk/v2/guide/identifiers.html#identifiers_logical_ids) states:
-
-    > *For example, the Amazon S3 bucket in the previous example that is created within 
-    > `Stack2` results in an `AWS::S3::Bucket` resource. The resource's logical ID 
-    > is `Stack2MyBucket4DD88B4F` in the resulting AWS CloudFormation template.*
-
-    This makes it impossible to automatically detect which stack a resource belongs to 
-    based solely on its logical ID.
+We plan on releasing this as an experimental feature at first because it introduces a new way
+of authoring cdk8s applications. We'd like to bake it the field for a while (3-6 months based on amount of feedback).
 
 ## Appendix
 
-### `Ref` vs `PhysicalResourceID`
+### CC API Quirk
 
-Assuming `Ref` always maps to the *physical id* can be problematic because 
-we know that for some resources, `Ref` will return the ARN of the resource, 
-instead of the resource name, which is usually used as the *physical id*. 
-This might break the implementation, which would mistakenly return the name of 
-the resource, instead of the ARN. However, looking at the [`AWS::Batch::SchedulingPolicy`][3] 
-resource as an example, we see that even though the policy has a name, its *physical id* is actually its ARN.
+```console
+ ❯ aws cloudcontrol list-resources --type-name AWS::SQS::Queue                                                     
+{
+    "ResourceDescriptions": [
+        {
+            "Identifier": "https://sqs.us-east-1.amazonaws.com/185706627232/Stack-Queue4A7E3555-CiJRmiNfSLJZ",
+            "Properties": "{\"QueueUrl\":\"https://sqs.us-east-1.amazonaws.com/185706627232/Stack-Queue4A7E3555-CiJRmiNfSLJZ\"}"
+        },
+        {
+            "Identifier": "https://sqs.us-east-1.amazonaws.com/185706627232/terraform-20230106124443466000000002",
+            "Properties": "{\"QueueUrl\":\"https://sqs.us-east-1.amazonaws.com/185706627232/terraform-20230106124443466000000002\"}"
+        }
+    ],
+    "TypeName": "AWS::SQS::Queue"
+}
+```
 
-![](./1216-batch-scheduling-policy-name.png)
+Seems to suggest the Identifier for a queue is its URL, but querying by the URL doesn't work:
 
-![](./1216-batch-scheduling-policy-pyhsical-id.png)
+```console
+❯ aws cloudcontrol get-resource --type-name AWS::SQS::Queue --identifier "https://sqs.us-east-1.amazonaws.com/185706627232/Stack-Queue4A7E3555-CiJRmiNfSLJZ"
 
-Which means the implementation will behave correctly and return the ARN when 
-asked for `Ref`. The same behavior was observed for `AWS::SNS::Topic` for example. 
-Even if some resources behave differently, it is unlikely to be a blocker. 
-If users are explicitly interested in the ARN, they can use `resource.attrArn` instead 
-of `resource.ref`.
+Error parsing parameter '--identifier': Unable to retrieve https://sqs.us-east-1.amazonaws.com/185706627232/Stack-Queue4A7E3555-CiJRmiNfSLJZ: received non 200 status code of 404
+```
+
+Apparently you need to use the queue name...
+
+```console
+❯ aws cloudcontrol get-resource --type-name AWS::SQS::Queue --identifier "Stack-Queue4A7E3555-CiJRmiNfSLJZ"       [11:54:55]
+{
+    "TypeName": "AWS::SQS::Queue",
+    "ResourceDescription": {
+        "Identifier": "Stack-Queue4A7E3555-CiJRmiNfSLJZ",
+        "Properties": "{\"SqsManagedSseEnabled\":true,\"ReceiveMessageWaitTimeSeconds\":0,\"DelaySeconds\":0,\"MessageRetentionPeriod\":345600,\"MaximumMessageSize\":262144,\"VisibilityTimeout\":30,\"Arn\":\"arn:aws:sqs:us-east-1:185706627232:Stack-Queue4A7E3555-CiJRmiNfSLJZ\",\"QueueName\":\"Stack-Queue4A7E3555-CiJRmiNfSLJZ\",\"QueueUrl\":\"Stack-Queue4A7E3555-CiJRmiNfSLJZ\"}"
+    }
+}
+```
 
 ### `PhysicalResourceID` vs `PrimaryIdentifier`
 
