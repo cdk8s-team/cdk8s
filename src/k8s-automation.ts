@@ -75,7 +75,7 @@ export class K8sVersionUpgradeAutomation extends Component {
         contents: workflows.JobPermission.READ,
         pullRequests: workflows.JobPermission.WRITE,
       },
-      if: '${{ needs.check-latest-k8s-release.steps.get-npm-status-code.outputs.httpStatus }} == 404',
+      if: '${{ needs.check-latest-k8s-release.steps.get-npm-status-code.outputs.httpStatus }} == "200"',
       steps: [
         {
           name: 'Checkout',
