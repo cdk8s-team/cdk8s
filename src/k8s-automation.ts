@@ -65,7 +65,9 @@ export class K8sVersionUpgradeAutomation extends Component {
         {
           id: 'get-npm-status-code',
           name: 'Check to see if cdk8s-plus released latest k8s version on npm by getting HTTP status code from npm url',
-          run: 'echo httpStatus="$(curl -sL -w "%{http_code}\n" "https://www.npmjs.com/package/cdk8s-plus-${{steps.k8s-latest-version.outputs.latestVersion}}" -o /dev/null)" >> $GITHUB_OUTPUT',
+          // run on previous version for testing purposes:
+          run: 'echo httpStatus="$(curl -sL -w "%{http_code}\n" "https://www.npmjs.com/package/cdk8s-plus-27" -o /dev/null)" >> $GITHUB_OUTPUT',
+          //run: 'echo httpStatus="$(curl -sL -w "%{http_code}\n" "https://www.npmjs.com/package/cdk8s-plus-${{steps.k8s-latest-version.outputs.latestVersion}}" -o /dev/null)" >> $GITHUB_OUTPUT',
         },
       ],
     };

@@ -31,7 +31,7 @@ jobs:
         id: get-npm-status-code
         run: |-
           echo httpStatus="$(curl -sL -w "%{http_code}
-          " "https://www.npmjs.com/package/cdk8s-plus-${{steps.k8s-latest-version.outputs.latestVersion}}" -o /dev/null)" >> $GITHUB_OUTPUT
+          " "https://www.npmjs.com/package/cdk8s-plus-27" -o /dev/null)" >> $GITHUB_OUTPUT
   update-cdk8s-repos:
     needs: check-latest-k8s-release
     runs-on: ubuntu-latest
