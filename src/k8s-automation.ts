@@ -85,7 +85,7 @@ export class K8sVersionUpgradeAutomation extends Component {
         {
           name: 'Checkout',
           //   uses: 'actions/checkout@v2',
-          run: 'echo ${{ needs.check-latest-k8s-release.outputs.httpStatus }}',
+          run: 'echo ${{ needs.check-latest-k8s-release.outputs.httpStatus }} == 200',
         },
         // {
         //   name: 'Setup Node.js',

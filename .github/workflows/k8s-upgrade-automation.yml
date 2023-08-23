@@ -40,4 +40,4 @@ jobs:
       pull-requests: write
     steps:
       - name: Checkout
-        run: echo ${{ needs.check-latest-k8s-release.outputs.httpStatus }}
+        run: echo ${{ needs.check-latest-k8s-release.outputs.httpStatus }} == 200
