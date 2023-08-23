@@ -30,6 +30,7 @@ jobs:
           echo httpStatus="$(curl -sL -w "%{http_code}
           " "https://www.npmjs.com/package/cdk8s-plus-${{steps.k8s-latest-version.outputs.latestVersion}}" -o /dev/null)" >> $GITHUB_OUTPUT
   job2:
+    needs: check-latest-k8s-release
     runs-on: ubuntu-latest
     permissions:
       contents: read
