@@ -28,4 +28,4 @@ jobs:
         id: check-if-cdk8s-is-updated
         run: |-
           curl -sL -w "%{http_code}
-          " "https://www.npmjs.com/package/cdk8s-plus-27" -o /dev/null
+          " "https://www.npmjs.com/package/cdk8s-plus-${{steps.k8s-latest-version.outputs.latestVersion}}" -o /dev/null

@@ -63,7 +63,7 @@ export class K8sVersionUpgradeAutomation extends Component {
           // returns 1 if website is valid, 0 if invalid
           //   run: 'wget -q  -O /tmp/foo https://www.npmjs.com/package/cdk8s-plus-${{steps.k8s-latest-version.outputs.latestVersion}} | grep "200" /tmp/foo | wc -l',
           //   run: 'wget -q  -O /tmp/foo https://www.npmjs.com/package/cdk8s-plus-27 | grep "200" /tmp/foo | wc -l',
-          run: 'curl -sL -w "%{http_code}\n" "https://www.npmjs.com/package/cdk8s-plus-27" -o /dev/null',
+          run: 'curl -sL -w "%{http_code}\n" "https://www.npmjs.com/package/cdk8s-plus-${{steps.k8s-latest-version.outputs.latestVersion}}" -o /dev/null',
         },
       ],
     };
