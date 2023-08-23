@@ -37,12 +37,16 @@ export class K8sVersionUpgradeAutomation extends Component {
         contents: workflows.JobPermission.READ,
         pullRequests: workflows.JobPermission.WRITE,
       },
-      //   outputs: {
-      //     latestVersion: {
-      //       stepId: 'k8s-latest-version',
-      //       outputName: 'latestVersion',
-      //     },
-      //   },
+      outputs: {
+        latestVersion: {
+          stepId: 'k8s-latest-version',
+          outputName: 'latestVersion',
+        },
+        httpStatus: {
+          stepId: 'get-npm-status-code',
+          outputName: 'httpStatus',
+        },
+      },
       steps: [
         {
           id: 'get-k8s-latest-release',
@@ -76,7 +80,7 @@ export class K8sVersionUpgradeAutomation extends Component {
         pullRequests: workflows.JobPermission.WRITE,
       },
       needs: ['check-latest-k8s-release'],
-      if: '${{ needs.check-latest-k8s-release.steps.get-npm-status-code.outputs.httpStatu }} == "200"',
+      if: '${{ needs.check-latest-k8s-release.outputs.httpStatu }} == "200"',
       steps: [
         {
           name: 'Checkout',
@@ -110,7 +114,7 @@ export class K8sVersionUpgradeAutomation extends Component {
       ],
     };
 
-    workflow.addJob('job2', generateK8sSpecJob);
+    workflow.addJob('update-cdk8s-repos', generateK8sSpecJob);
 
 
     // const createGoRepoBranchJob: workflows.Job = {

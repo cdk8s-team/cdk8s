@@ -14,6 +14,9 @@ jobs:
     permissions:
       contents: read
       pull-requests: write
+    outputs:
+      latestVersion: ${{ steps.k8s-latest-version.outputs.latestVersion }}
+      httpStatus: ${{ steps.get-npm-status-code.outputs.httpStatus }}
     steps:
       - name: Get latest K8s Release
         id: get-k8s-latest-release
@@ -29,13 +32,13 @@ jobs:
         run: |-
           echo httpStatus="$(curl -sL -w "%{http_code}
           " "https://www.npmjs.com/package/cdk8s-plus-${{steps.k8s-latest-version.outputs.latestVersion}}" -o /dev/null)" >> $GITHUB_OUTPUT
-  job2:
+  update-cdk8s-repos:
     needs: check-latest-k8s-release
     runs-on: ubuntu-latest
     permissions:
       contents: read
       pull-requests: write
-    if: ${{ needs.check-latest-k8s-release.steps.get-npm-status-code.outputs.httpStatu }} == "200"
+    if: ${{ needs.check-latest-k8s-release.outputs.httpStatu }} == "200"
     steps:
       - name: Checkout
         uses: actions/checkout@v2
