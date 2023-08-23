@@ -1,0 +1,39 @@
+{
+  "name": "cdk8s-aws-cdk",
+  "version": "0.0.0",
+  "main": "main.js",
+  "types": "main.ts",
+  "license": "Apache-2.0",
+  "private": true,
+  "scripts": {
+    "compile": "tsc",
+    "watch": "tsc -w",
+    "test": "echo ok",
+    "clean": "rm -rf cdk.out cdktf.out dist",
+    "install-cdk8s-core": "cd ../../../../cdk8s-core && yarn compile && yarn package:js && mv ./dist/js/cdk8s@0.0.0.jsii.tgz ./../cdk8s/examples/typescript/resolve-cloud-tokens/cdk8s.v0.0.0.jsii.tgz",
+    "synth:awscdk": "cdk -a 'npx ts-node ./main/awscdk.ts' synth",
+    "deploy:awscdk": "cdk -a 'npx ts-node ./main/awscdk.ts' deploy --require-approval never",
+    "destroy:awscdk": "cdk -a 'npx ts-node ./main/awscdk.ts' destroy --require-approval never",
+    "synth:cdktf": "cd ./main && cdktf synth",
+    "deploy:cdktf": "cd ./main && cdktf deploy --auto-approve",
+    "destroy:cdktf": "cd ./main && cdktf destroy --auto-approve",
+    "synth:cdk8s-awscdk": "cdk8s synth -a 'npx ts-node ./main/cdk8s-awscdk.ts'",
+    "synth:cdk8s-cdktf": "cdk8s synth -a 'npx ts-node ./main/cdk8s-cdktf.ts'"
+  },
+  "dependencies": {
+    "cdk8s": "./cdk8s.v0.0.1.jsii.tgz",
+    "cdk8s-plus-25": "^2.5.8",
+    "aws-cdk-lib": "^2.69.0",
+    "cdktf": "^0.15.5",
+    "@cdktf/provider-aws": "^12.0.11",
+    "constructs": "^10.1.291"
+  },
+  "devDependencies": {
+    "aws-cdk": "^2.69.0",
+    "cdktf-cli": "^0.15.5",
+    "cdk8s-cli": "^2.2.3",
+    "@aws-sdk/client-cloudcontrol": "^3.282.0",
+    "@aws-sdk/client-cloudformation": "^3.299.0",
+    "ts-node": "^10.9.1"
+  }
+}
