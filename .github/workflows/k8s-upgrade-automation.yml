@@ -27,5 +27,5 @@ jobs:
       - name: Check to see if cdk8s-plus released latest k8s version on npm
         id: check-if-cdk8s-is-updated
         run: |-
-          curl -sL -w "%{http_code}
-          " "https://www.npmjs.com/package/cdk8s-plus-${{steps.k8s-latest-version.outputs.latestVersion}}" -o /dev/null
+          echo httpStatus="$curl -sL -w "%{http_code}
+          " "https://www.npmjs.com/package/cdk8s-plus-${{steps.k8s-latest-version.outputs.latestVersion}}" -o /dev/null" >> $GITHUB_OUTPUT

@@ -55,15 +55,11 @@ export class K8sVersionUpgradeAutomation extends Component {
           id: 'k8s-latest-version',
           name: 'Get latest K8s minor version',
           run: 'echo latestVersion="$(cut -d "." -f 2 <<< "${{ steps.get-k8s-latest-release.outputs.release }}")" >> $GITHUB_OUTPUT',
-          //   run: 'echo "$(cut -d "." -f 2 <<< "${{ steps.get-k8s-latest-release.outputs.release }}")"',
         },
         {
           id: 'check-if-cdk8s-is-updated',
           name: 'Check to see if cdk8s-plus released latest k8s version on npm',
-          // returns 1 if website is valid, 0 if invalid
-          //   run: 'wget -q  -O /tmp/foo https://www.npmjs.com/package/cdk8s-plus-${{steps.k8s-latest-version.outputs.latestVersion}} | grep "200" /tmp/foo | wc -l',
-          //   run: 'wget -q  -O /tmp/foo https://www.npmjs.com/package/cdk8s-plus-27 | grep "200" /tmp/foo | wc -l',
-          run: 'curl -sL -w "%{http_code}\n" "https://www.npmjs.com/package/cdk8s-plus-${{steps.k8s-latest-version.outputs.latestVersion}}" -o /dev/null',
+          run: 'echo httpStatus="$curl -sL -w "%{http_code}\n" "https://www.npmjs.com/package/cdk8s-plus-${{steps.k8s-latest-version.outputs.latestVersion}}" -o /dev/null" >> $GITHUB_OUTPUT',
         },
       ],
     };
