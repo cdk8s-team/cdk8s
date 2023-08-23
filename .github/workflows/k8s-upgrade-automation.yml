@@ -42,3 +42,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18.12.0
+      - name: Install dependencies
+        run: yarn install --check-files
+      - name: Generate Kubernetes schema
+        env:
+          GITHUB_TOKEN: ${{ secrets.PROJEN_GITHUB_TOKEN }}
+        run: npx ts-node ${{ github.workspace }} /tools/import-spec.sh 1.${{ needs.check-latest-k8s-release.outputs.latestVersion }}.0
+        continue-on-error: false

@@ -87,21 +87,21 @@ export class K8sVersionUpgradeAutomation extends Component {
           uses: 'actions/checkout@v2',
           //   run: 'echo ${{ needs.check-latest-k8s-release.outputs.httpStatus }} == 200',
         },
-        // {
-        //   name: 'Setup Node.js',
-        //   uses: 'actions/setup-node@v2',
-        //   with: { 'node-version': '18.12.0' },
-        // },
-        // {
-        //   name: 'Install dependencies',
-        //   run: 'yarn install --check-files',
-        // },
-        // {
-        //   name: 'Generate Kubernetes schema',
-        //   run: 'npx ts-node ${{ github.workspace }}' + `/tools/import-spec.sh ${latestK8sVersion}`,
-        //   env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
-        //   continueOnError: false,
-        // },
+        {
+          name: 'Setup Node.js',
+          uses: 'actions/setup-node@v2',
+          with: { 'node-version': '18.12.0' },
+        },
+        {
+          name: 'Install dependencies',
+          run: 'yarn install --check-files',
+        },
+        {
+          name: 'Generate Kubernetes schema',
+          run: 'npx ts-node ${{ github.workspace }} /tools/import-spec.sh 1.${{ needs.check-latest-k8s-release.outputs.latestVersion }}.0',
+          env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
+          continueOnError: false,
+        },
         // ...WorkflowActions.createPullRequest({
         //   workflowName: 'create-pull-request',
         //   pullRequestTitle: `chore: v${latestK8sVersion} kubernetes-spec`,
