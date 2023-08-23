@@ -38,7 +38,6 @@ jobs:
     permissions:
       contents: read
       pull-requests: write
-    if: ${{ needs.check-latest-k8s-release.outputs.httpStatu }} == "200"
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        run: echo ${{ needs.check-latest-k8s-release.outputs.httpStatus }}

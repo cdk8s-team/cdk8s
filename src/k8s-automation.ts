@@ -80,11 +80,12 @@ export class K8sVersionUpgradeAutomation extends Component {
         pullRequests: workflows.JobPermission.WRITE,
       },
       needs: ['check-latest-k8s-release'],
-      if: '${{ needs.check-latest-k8s-release.outputs.httpStatu }} == "200"',
+      //   if: '${{ needs.check-latest-k8s-release.outputs.httpStatus }} == 200',
       steps: [
         {
           name: 'Checkout',
-          uses: 'actions/checkout@v2',
+          //   uses: 'actions/checkout@v2',
+          run: 'echo ${{ needs.check-latest-k8s-release.outputs.httpStatus }}',
         },
         // {
         //   name: 'Setup Node.js',
