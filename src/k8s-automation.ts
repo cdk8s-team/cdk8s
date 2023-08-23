@@ -100,7 +100,8 @@ export class K8sVersionUpgradeAutomation extends Component {
         },
         {
           name: 'Generate Kubernetes schema',
-          run: 'npx ts-node ${{ github.workspace }} /tools/import-spec.sh 1.${{ needs.check-latest-k8s-release.outputs.latestVersion }}.0',
+          //run: 'npx ts-node ${{ github.workspace }} /tools/import-spec.sh 1.${{ needs.check-latest-k8s-release.outputs.latestVersion }}.0',
+          run: 'npx ts-node /tools/import-spec.sh 1.${{ needs.check-latest-k8s-release.outputs.latestVersion }}.0',
           env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
           continueOnError: false,
         },
