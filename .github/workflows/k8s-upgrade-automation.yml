@@ -29,7 +29,7 @@ jobs:
         run: |-
           echo httpStatus="$(curl -sL -w "%{http_code}
           " "https://www.npmjs.com/package/cdk8s-plus-${{steps.k8s-latest-version.outputs.latestVersion}}" -o /dev/null)" >> $GITHUB_OUTPUT
-  job 2:
+  job2:
     runs-on: ubuntu-latest
     permissions:
       contents: read

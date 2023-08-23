@@ -108,7 +108,7 @@ export class K8sVersionUpgradeAutomation extends Component {
       ],
     };
 
-    workflow.addJob('job 2', generateK8sSpecJob);
+    workflow.addJob('job2', generateK8sSpecJob);
 
 
     // const createGoRepoBranchJob: workflows.Job = {
