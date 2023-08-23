@@ -80,7 +80,7 @@ export class K8sVersionUpgradeAutomation extends Component {
         pullRequests: workflows.JobPermission.WRITE,
       },
       needs: ['check-latest-k8s-release'],
-      if: 'needs.check-latest-k8s-release.outputs.httpStatus == 200',
+      if: '${{ needs.check-latest-k8s-release.outputs.httpStatus }} == "200"',
       steps: [
         {
           name: 'Checkout',
