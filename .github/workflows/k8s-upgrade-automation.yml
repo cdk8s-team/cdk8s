@@ -24,8 +24,17 @@ jobs:
       - name: Get latest K8s minor version
         id: k8s-latest-version
         run: echo latestVersion="$(cut -d "." -f 2 <<< "${{ steps.get-k8s-latest-release.outputs.release }}")" >> $GITHUB_OUTPUT
-      - name: Check to see if cdk8s-plus released latest k8s version on npm
-        id: check-if-cdk8s-is-updated
+      - name: Check to see if cdk8s-plus released latest k8s version on npm by getting HTTP status code from npm url
+        id: get-npm-status-code
         run: |-
           echo httpStatus="$(curl -sL -w "%{http_code}
           " "https://www.npmjs.com/package/cdk8s-plus-${{steps.k8s-latest-version.outputs.latestVersion}}" -o /dev/null)" >> $GITHUB_OUTPUT
+  job 2:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    if: ${{ needs.check-latest-k8s-release.steps.get-npm-status-code.outputs.httpStatus}} == 200
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2

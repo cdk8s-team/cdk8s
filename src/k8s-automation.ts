@@ -24,6 +24,7 @@ export class K8sVersionUpgradeAutomation extends Component {
         branches: ['sumughan/automate-k8s-release-step1'],
       },
     };
+    workflow.on(trigger);
 
     const runsOn = ['ubuntu-latest'];
 
@@ -57,56 +58,58 @@ export class K8sVersionUpgradeAutomation extends Component {
           run: 'echo latestVersion="$(cut -d "." -f 2 <<< "${{ steps.get-k8s-latest-release.outputs.release }}")" >> $GITHUB_OUTPUT',
         },
         {
-          id: 'check-if-cdk8s-is-updated',
-          name: 'Check to see if cdk8s-plus released latest k8s version on npm',
+          id: 'get-npm-status-code',
+          name: 'Check to see if cdk8s-plus released latest k8s version on npm by getting HTTP status code from npm url',
           run: 'echo httpStatus="$(curl -sL -w "%{http_code}\n" "https://www.npmjs.com/package/cdk8s-plus-${{steps.k8s-latest-version.outputs.latestVersion}}" -o /dev/null)" >> $GITHUB_OUTPUT',
         },
       ],
     };
 
     workflow.addJob('check-latest-k8s-release', checkLatestVersion);
-    workflow.on(trigger);
-
     // PART 1: Prerequisite
 
-    // const generateK8sSpecJob: workflows.Job = {
-    //   runsOn: runsOn,
-    //   permissions: {
-    //     contents: workflows.JobPermission.READ,
-    //     pullRequests: workflows.JobPermission.WRITE,
-    //   },
-    //   steps: [
-    //     {
-    //       name: 'Checkout',
-    //       uses: 'actions/checkout@v2',
-    //     },
-    //     {
-    //       name: 'Setup Node.js',
-    //       uses: 'actions/setup-node@v2',
-    //       with: { 'node-version': '18.12.0' },
-    //     },
-    //     {
-    //       name: 'Install dependencies',
-    //       run: 'yarn install --check-files',
-    //     },
-    //     {
-    //       name: 'Generate Kubernetes schema',
-    //       run: 'npx ts-node ${{ github.workspace }}' + `/tools/import-spec.sh ${latestK8sVersion}`,
-    //       env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
-    //       continueOnError: false,
-    //     },
-    //     ...WorkflowActions.createPullRequest({
-    //       workflowName: 'create-pull-request',
-    //       pullRequestTitle: `chore: v${latestK8sVersion} kubernetes-spec`,
-    //       pullRequestDescription: `This PR is adds the v${latestK8sVersion} Kubernetes spec. This is required in order for us to add a new version to cdk8s-plus.`,
-    //       branchName: `github-actions/generate-k8s-spec-${latestK8sVersion}`,
-    //       labels: [
-    //         'auto-approve',
-    //       ],
-    //       credentials: GithubCredentials.fromPersonalAccessToken(),
-    //     }),
-    //   ],
-    // };
+    const generateK8sSpecJob: workflows.Job = {
+      runsOn: runsOn,
+      permissions: {
+        contents: workflows.JobPermission.READ,
+        pullRequests: workflows.JobPermission.WRITE,
+      },
+      if: '${{ needs.check-latest-k8s-release.steps.get-npm-status-code.outputs.httpStatus}} == 200',
+      steps: [
+        {
+          name: 'Checkout',
+          uses: 'actions/checkout@v2',
+        },
+        // {
+        //   name: 'Setup Node.js',
+        //   uses: 'actions/setup-node@v2',
+        //   with: { 'node-version': '18.12.0' },
+        // },
+        // {
+        //   name: 'Install dependencies',
+        //   run: 'yarn install --check-files',
+        // },
+        // {
+        //   name: 'Generate Kubernetes schema',
+        //   run: 'npx ts-node ${{ github.workspace }}' + `/tools/import-spec.sh ${latestK8sVersion}`,
+        //   env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
+        //   continueOnError: false,
+        // },
+        // ...WorkflowActions.createPullRequest({
+        //   workflowName: 'create-pull-request',
+        //   pullRequestTitle: `chore: v${latestK8sVersion} kubernetes-spec`,
+        //   pullRequestDescription: `This PR is adds the v${latestK8sVersion} Kubernetes spec. This is required in order for us to add a new version to cdk8s-plus.`,
+        //   branchName: `github-actions/generate-k8s-spec-${latestK8sVersion}`,
+        //   labels: [
+        //     'auto-approve',
+        //   ],
+        //   credentials: GithubCredentials.fromPersonalAccessToken(),
+        // }),
+      ],
+    };
+
+    workflow.addJob('job 2', generateK8sSpecJob);
+
 
     // const createGoRepoBranchJob: workflows.Job = {
     //   runsOn: runsOn,
