@@ -20,6 +20,7 @@ export class K8sVersionUpgradeAutomation extends Component {
       schedule: [{
         cron: schedule,
       }],
+      // this is for testing purposes only:
       push: {
         branches: ['sumughan/automate-k8s-release-step1'],
       },
@@ -74,7 +75,7 @@ export class K8sVersionUpgradeAutomation extends Component {
         contents: workflows.JobPermission.READ,
         pullRequests: workflows.JobPermission.WRITE,
       },
-      if: '${{ needs.check-latest-k8s-release.steps.get-npm-status-code.outputs.httpStatus}} == 200',
+      if: '${{ needs.check-latest-k8s-release.steps.get-npm-status-code.outputs.httpStatus }} == 404',
       steps: [
         {
           name: 'Checkout',
