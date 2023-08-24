@@ -206,18 +206,6 @@ export class K8sVersionUpgradeAutomation extends Component {
           env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
           continueOnError: false,
         },
-        // this might be unnecessary here:
-        // {
-        //   name: 'Create new branch',
-        //   // action from https://github.com/peterjgrainger/action-create-branch
-        //   uses: 'peterjgrainger/action-create-branch@v2.2.0',
-        //   env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
-        //   with: {
-        //     branch: 'k8s-${{ needs.check-latest-k8s-release.outputs.latestVersion }}/main',
-        //     // not sure what to do for sha here.
-        //     sha: '${{ github.event.pull_request.head.sha }}',
-        //   },
-        // },
         // {
         //   name: 'Update projen and README references to latest k8s version',
         //   // figure out where I'm writing this script!
@@ -317,7 +305,7 @@ export class K8sVersionUpgradeAutomation extends Component {
         },
         {
           name: 'Let projen update the remaining files',
-          // this step will fail if the newest plus package is not published to npm
+          // this step will fail if the newest cdk8s-plus package is not published to npm
           run: 'npx projen build',
         },
         // ...WorkflowActions.createPullRequest({
