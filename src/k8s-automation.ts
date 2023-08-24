@@ -197,7 +197,7 @@ export class K8sVersionUpgradeAutomation extends Component {
           name: 'Checkout',
           uses: 'actions/checkout@v2',
           with: {
-            repo: 'cdk8s-team/cdk8s-plus',
+            repository: 'cdk8s-team/cdk8s-plus',
           },
         },
         {
