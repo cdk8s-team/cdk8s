@@ -51,5 +51,5 @@ jobs:
       - name: Generate Kubernetes schema
         env:
           GITHUB_TOKEN: ${{ secrets.PROJEN_GITHUB_TOKEN }}
-        run: ${{ github.workspace }} /tools/import-spec.sh 1.${{ needs.check-latest-k8s-release.outputs.latestVersion }}.0
+        run: ${{ github.workspace }}/tools/import-spec.sh 1.${{ needs.check-latest-k8s-release.outputs.latestVersion }}.0
         continue-on-error: false
