@@ -27,9 +27,9 @@
   "devDependencies": {
     "@cdk8s/projen-common": "^0.0.448",
     "@types/jest": "^26.0.24",
-    "@types/node": "^14.18.55",
-    "cdk8s": "^2.54.0",
-    "cdk8s-cli": "^2.54.0",
+    "@types/node": "^14.18.56",
+    "cdk8s": "^2.55.0",
+    "cdk8s-cli": "^2.56.0",
     "cdk8s-plus-25": "^2.20.0",
     "cdk8s-plus-26": "^2.16.0",
     "cdk8s-plus-27": "^2.6.0",
