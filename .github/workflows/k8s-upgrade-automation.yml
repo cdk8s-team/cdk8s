@@ -32,7 +32,7 @@ jobs:
         run: |-
           echo httpStatus="$(curl -sL -w "%{http_code}
           " "https://www.npmjs.com/package/cdk8s-plus-27" -o /dev/null)" >> $GITHUB_OUTPUT
-  update-cdk8s-repos:
+  generate-new-k8s-spec:
     needs: check-latest-k8s-release
     runs-on: ubuntu-latest
     permissions:
@@ -52,4 +52,21 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.PROJEN_GITHUB_TOKEN }}
         run: ${{ github.workspace }}/tools/import-spec.sh 1.${{ needs.check-latest-k8s-release.outputs.latestVersion }}.0
+        continue-on-error: false
+  create-go-repo-branch:
+    needs: check-latest-k8s-release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    if: needs.check-latest-k8s-release.outputs.httpStatus == 200
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          repository: cdk8s-team/cdk8s-plus-go
+      - name: Create new branch
+        env:
+          GITHUB_TOKEN: ${{ secrets.PROJEN_GITHUB_TOKEN }}
+        run: git checkout -b k8s.${{ needs.check-latest-k8s-release.outputs.latestVersion }}
         continue-on-error: false

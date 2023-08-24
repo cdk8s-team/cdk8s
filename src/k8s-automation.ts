@@ -65,7 +65,7 @@ export class K8sVersionUpgradeAutomation extends Component {
         {
           id: 'get-npm-status-code',
           name: 'Check to see if cdk8s-plus released latest k8s version on npm by getting HTTP status code from npm url',
-          // run on previous version for testing purposes:
+          // run on previous version for testing purposes only:
           run: 'echo httpStatus="$(curl -sL -w "%{http_code}\n" "https://www.npmjs.com/package/cdk8s-plus-27" -o /dev/null)" >> $GITHUB_OUTPUT',
           //run: 'echo httpStatus="$(curl -sL -w "%{http_code}\n" "https://www.npmjs.com/package/cdk8s-plus-${{steps.k8s-latest-version.outputs.latestVersion}}" -o /dev/null)" >> $GITHUB_OUTPUT',
         },
@@ -87,7 +87,6 @@ export class K8sVersionUpgradeAutomation extends Component {
         {
           name: 'Checkout',
           uses: 'actions/checkout@v2',
-          //   run: 'echo ${{ needs.check-latest-k8s-release.outputs.httpStatus }} == 200',
         },
         {
           name: 'Setup Node.js',
@@ -117,37 +116,41 @@ export class K8sVersionUpgradeAutomation extends Component {
       ],
     };
 
-    workflow.addJob('update-cdk8s-repos', generateK8sSpecJob);
+    workflow.addJob('generate-new-k8s-spec', generateK8sSpecJob);
 
 
-    // const createGoRepoBranchJob: workflows.Job = {
-    //   runsOn: runsOn,
-    //   permissions: {
-    //     contents: workflows.JobPermission.READ,
-    //     pullRequests: workflows.JobPermission.WRITE,
-    //   },
-    //   steps: [
-    //     {
-    //       name: 'Checkout',
-    //       uses: 'actions/checkout@v2',
-    //       with: {
-    //         repository: 'cdk8s-team/cdk8s-plus-go',
-    //       },
-    //     },
-    //     {
-    //       name: 'Create new branch',
-    //       run: `git checkout -b k8s.${latestVersionNumber}`,
-    //       env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
-    //       continueOnError: false,
-    //     },
-    //     {
-    //       name: 'Push new branch',
-    //       run: `git push --set-upstream origin k8s.${latestVersionNumber}`,
-    //       env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
-    //       continueOnError: false,
-    //     },
-    //   ],
-    // };
+    const createGoRepoBranchJob: workflows.Job = {
+      runsOn: runsOn,
+      permissions: {
+        contents: workflows.JobPermission.READ,
+        pullRequests: workflows.JobPermission.WRITE,
+      },
+      needs: ['check-latest-k8s-release'],
+      if: 'needs.check-latest-k8s-release.outputs.httpStatus == 200',
+      steps: [
+        {
+          name: 'Checkout',
+          uses: 'actions/checkout@v2',
+          with: {
+            repository: 'cdk8s-team/cdk8s-plus-go',
+          },
+        },
+        {
+          name: 'Create new branch',
+          run: 'git checkout -b k8s.${{ needs.check-latest-k8s-release.outputs.latestVersion }}',
+          env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
+          continueOnError: false,
+        },
+        // {
+        //   name: 'Push new branch',
+        //   run: `git push --set-upstream origin k8s.${latestVersionNumber}`,
+        //   env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
+        //   continueOnError: false,
+        // },
+      ],
+    };
+
+    workflow.addJob('create-go-repo-branch', createGoRepoBranchJob);
 
     // const createNewBackportLabel: workflows.Job = {
     //   runsOn: runsOn,
