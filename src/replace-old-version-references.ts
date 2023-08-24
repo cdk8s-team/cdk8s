@@ -5,7 +5,7 @@ function main(latestVersion: string) {
 
   const latestVersionNumber = Number(latestVersion);
 
-  const filesToBeUpdated = ['.projenrc.js', 'docs/build.sh', 'website/build.sh', 'website/layouts/index.html', 'docs/plus/.pages', 'docs/references/.pages', 'docs/reference/index.md', ];
+  const filesToBeUpdated = ['.projenrc.ts', 'docs/build.sh', 'website/build.sh', 'website/layouts/index.html', 'docs/plus/.pages', 'docs/reference/.pages', 'docs/reference/index.md'];
 
   filesToBeUpdated.forEach(function (filePath) {
     let curFileData = fs.readFileSync(filePath, 'utf-8');
