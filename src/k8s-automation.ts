@@ -190,6 +190,8 @@ export class K8sVersionUpgradeAutomation extends Component {
     //     contents: workflows.JobPermission.READ,
     //     pullRequests: workflows.JobPermission.WRITE,
     //   },
+    //   needs: ['check-latest-k8s-release'],
+    //   if: 'needs.check-latest-k8s-release.outputs.httpStatus == 200',
     //   steps: [
     //     {
     //       name: 'Checkout',
@@ -204,7 +206,7 @@ export class K8sVersionUpgradeAutomation extends Component {
     //       uses: 'peterjgrainger/action-create-branch@v2.2.0',
     //       env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
     //       with: {
-    //         branch: `k8s-${latestVersionNumber}/main`,
+    //         branch: 'k8s-${{ needs.check-latest-k8s-release.outputs.latestVersion }}/main',
     //         // not sure what to do for sha here.
     //         sha: '${{ github.event.pull_request.head.sha }}',
     //       },
@@ -212,7 +214,7 @@ export class K8sVersionUpgradeAutomation extends Component {
     //     {
     //       name: 'Update projen and README references to latest k8s version',
     //       // figure out where I'm writing this script!
-    //       run: `git push --set-upstream origin k8s.${latestVersionNumber}`,
+    //       run: `git push --set-upstream origin k8s.${{ needs.check-latest-k8s-release.outputs.latestVersion }}`,
     //       env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
     //       continueOnError: false,
     //     },
@@ -245,7 +247,7 @@ export class K8sVersionUpgradeAutomation extends Component {
     //     {
     //       name: 'Update references in docs/plus/**',
     //       // figure out where I'm writing this script again!
-    //       run: `git push --set-upstream origin k8s.${latestVersionNumber}`,
+    //       run: 'git push --set-upstream origin k8s.${latestVersionNumber}',
     //       env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
     //       continueOnError: false,
     //     },
@@ -264,59 +266,61 @@ export class K8sVersionUpgradeAutomation extends Component {
 
     // // workflow.addJob('create-new-plus-branch', createNewPlusBranch);
 
-    // // PART 3: Update CDK8s
+    // PART 3: Update CDK8s
 
-    // const updateCdk8s: workflows.Job = {
-    //   runsOn: runsOn,
-    //   permissions: {
-    //     contents: workflows.JobPermission.READ,
-    //     pullRequests: workflows.JobPermission.WRITE,
-    //   },
-    //   steps: [
-    //     {
-    //       name: 'Checkout',
-    //       uses: 'actions/checkout@v2',
-    //     },
-    //     {
-    //       name: 'Create new branch',
-    //       // action from https://github.com/peterjgrainger/action-create-branch
-    //       uses: 'peterjgrainger/action-create-branch@v2.2.0',
-    //       env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
-    //       with: {
-    //         branch: `cdk8s-upgrade/v${latestK8sVersion}`,
-    //         // not sure what to do for sha here.
-    //         sha: '${{ github.event.pull_request.head.sha }}',
-    //       },
-    //     },
-    //     {
-    //       name: 'Update references to newest k8s version in cdk8s repo',
-    //       // figure out where I'm writing this script!
-    //       run: `git push --set-upstream origin k8s.${latestVersionNumber}`,
-    //       env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
-    //       continueOnError: false,
-    //     },
-    //     {
-    //       name: 'Let projen update the remaining files',
-    //       run: 'yarn build',
-    //     },
-    //     {
-    //       name: 'Update references in docs/** with new syntax',
-    //       // figure out where I'm writing this script!
-    //       run: `git push --set-upstream origin k8s.${latestVersionNumber}`,
-    //       env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
-    //       continueOnError: false,
-    //     },
-    //     ...WorkflowActions.createPullRequest({
-    //       workflowName: 'create-pull-request',
-    //       pullRequestTitle: `chore(website): cdk8s-plus-${latestVersionNumber}`,
-    //       pullRequestDescription: 'This PR updates the website with the latest version of cdk8s-plus.',
-    //       branchName: `github-actions/website-update-${latestK8sVersion}`,
-    //       credentials: GithubCredentials.fromPersonalAccessToken(),
-    //     }),
-    //   ],
-    // };
+    const updateCdk8s: workflows.Job = {
+      runsOn: runsOn,
+      permissions: {
+        contents: workflows.JobPermission.READ,
+        pullRequests: workflows.JobPermission.WRITE,
+      },
+      needs: ['check-latest-k8s-release'],
+      if: 'needs.check-latest-k8s-release.outputs.httpStatus == 200',
+      steps: [
+        {
+          name: 'Checkout',
+          uses: 'actions/checkout@v2',
+        },
+        {
+          name: 'Create new branch',
+          // action from https://github.com/peterjgrainger/action-create-branch
+          uses: 'peterjgrainger/action-create-branch@v2.2.0',
+          env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
+          with: {
+            branch: 'cdk8s-upgrade/v${{ needs.check-latest-k8s-release.outputs.latestVersion }}',
+            // not sure what to do for sha here.
+            sha: '${{ github.event.pull_request.head.sha }}',
+          },
+        },
+        {
+          name: 'Update references to newest k8s version in cdk8s repo',
+          // figure out where I'm writing this script!
+          run: 'npx ts-node ${{ github.workspace }}/src/replace-old-version-references.ts ${{ needs.check-latest-k8s-release.outputs.latestVersion }}',
+          env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
+          continueOnError: false,
+        },
+        {
+          name: 'Let projen update the remaining files',
+          run: 'yarn build',
+        },
+        // {
+        //   name: 'Update references in docs/** with new syntax',
+        //   // figure out where I'm writing this script!
+        //   run: `git push --set-upstream origin k8s.${latestVersionNumber}`,
+        //   env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
+        //   continueOnError: false,
+        // },
+        // ...WorkflowActions.createPullRequest({
+        //   workflowName: 'create-pull-request',
+        //   pullRequestTitle: `chore(website): cdk8s-plus-${latestVersionNumber}`,
+        //   pullRequestDescription: 'This PR updates the website with the latest version of cdk8s-plus.',
+        //   branchName: `github-actions/website-update-${latestK8sVersion}`,
+        //   credentials: GithubCredentials.fromPersonalAccessToken(),
+        // }),
+      ],
+    };
 
-    // workflow.addJob('update-cdk8s-website', updateCdk8s);
+    workflow.addJob('update-cdk8s-website', updateCdk8s);
   }
 }
 
