@@ -7,7 +7,7 @@ function main(latestVersion: string) {
 
   const filesToBeUpdated = ['.projenrc.ts', 'docs/build.sh', 'website/build.sh', 'website/layouts/index.html', 'docs/plus/.pages', 'docs/reference/.pages', 'docs/reference/index.md'];
 
-  filesToBeUpdated.forEach(function (filePath) {
+  filesToBeUpdated.forEach(function (filePath: string) {
     let curFileData = fs.readFileSync(filePath, 'utf-8');
     for (let i = 0; i < 3; i++) {
       curFileData = curFileData.replace(new RegExp(`${latestVersionNumber - 1 - i}`, 'g'), `${latestVersionNumber - i}`);
