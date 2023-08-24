@@ -70,3 +70,15 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.PROJEN_GITHUB_TOKEN }}
         run: git checkout -b k8s.${{ needs.check-latest-k8s-release.outputs.latestVersion }}
         continue-on-error: false
+  add-backport-label:
+    needs: check-latest-k8s-release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    if: needs.check-latest-k8s-release.outputs.httpStatus == 200
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          repository: cdk8s-team/cdk8s-plus

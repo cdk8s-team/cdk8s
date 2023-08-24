@@ -152,38 +152,37 @@ export class K8sVersionUpgradeAutomation extends Component {
 
     workflow.addJob('create-go-repo-branch', createGoRepoBranchJob);
 
-    // const createNewBackportLabel: workflows.Job = {
-    //   runsOn: runsOn,
-    //   permissions: {
-    //     contents: workflows.JobPermission.READ,
-    //     pullRequests: workflows.JobPermission.WRITE,
-    //   },
-    //   steps: [
-    //     {
-    //       name: 'Checkout',
-    //       uses: 'actions/checkout@v2',
-    //       with: {
-    //         'repository' : 'cdk8s-team/cdk8s-plus',
-    //       },
-    //     },
-    //     {
-    //       name: 'Create new backport label for old version',
-    //       uses: 'actions-ecosystem/action-add-labels@v1',
-    //       with: {
-    //         labels: `backport-to-k8s-${latestVersionNumber - 1}/main`,
-    //         repo: 'cdk8s-team/cdk8s-plus',
-    //         // don't think I'm able to specify the label color with this though ...
-    //       },
-    //     },
-    //   ],
-    // };
+    const createNewBackportLabel: workflows.Job = {
+      runsOn: runsOn,
+      permissions: {
+        contents: workflows.JobPermission.READ,
+        pullRequests: workflows.JobPermission.WRITE,
+      },
+      needs: ['check-latest-k8s-release'],
+      if: 'needs.check-latest-k8s-release.outputs.httpStatus == 200',
+      steps: [
+        {
+          name: 'Checkout',
+          uses: 'actions/checkout@v2',
+          with: {
+            repository: 'cdk8s-team/cdk8s-plus',
+          },
+        },
+        // {
+        //   name: 'Create new backport label for old version',
+        //   uses: 'actions-ecosystem/action-add-labels@v1',
+        //   with: {
+        //     labels: `backport-to-k8s-${latestVersionNumber - 1}/main`,
+        //     repo: 'cdk8s-team/cdk8s-plus',
+        //     // don't think I'm able to specify the label color with this though ...
+        //   },
+        // },
+      ],
+    };
 
-    // // workflow.on(trigger);
-    // // workflow.addJob('generate-k8s-spec', generateK8sSpecJob);
-    // // workflow.addJob('create-go-branch', createGoRepoBranchJob);
-    // // workflow.addJob('create-backport-label', createNewBackportLabel);
+    workflow.addJob('add-backport-label', createNewBackportLabel);
 
-    // // PART 2: Creating the new CDK8s+ Branch
+    // PART 2: Creating the new CDK8s+ Branch
 
     // const createNewPlusBranch: workflows.Job = {
     //   runsOn: runsOn,
