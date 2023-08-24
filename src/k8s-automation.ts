@@ -293,6 +293,15 @@ export class K8sVersionUpgradeAutomation extends Component {
           },
         },
         {
+          name: 'Setup Node.js',
+          uses: 'actions/setup-node@v2',
+          with: { 'node-version': '18.12.0' },
+        },
+        {
+          name: 'Install dependencies',
+          run: 'yarn install --check-files',
+        },
+        {
           name: 'Update references to newest k8s version in cdk8s repo',
           // figure out where I'm writing this script!
           run: 'npx ts-node ${{ github.workspace }}/src/replace-old-version-references.ts ${{ needs.check-latest-k8s-release.outputs.latestVersion }}',

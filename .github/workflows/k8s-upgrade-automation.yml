@@ -99,6 +99,12 @@ jobs:
         with:
           branch: cdk8s-upgrade/v${{ needs.check-latest-k8s-release.outputs.latestVersion }}
           sha: ${{ github.event.pull_request.head.sha }}
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18.12.0
+      - name: Install dependencies
+        run: yarn install --check-files
       - name: Update references to newest k8s version in cdk8s repo
         env:
           GITHUB_TOKEN: ${{ secrets.PROJEN_GITHUB_TOKEN }}
