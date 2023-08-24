@@ -111,4 +111,4 @@ jobs:
         run: npx ts-node ${{ github.workspace }}/src/replace-old-version-references.ts ${{ needs.check-latest-k8s-release.outputs.latestVersion }}
         continue-on-error: false
       - name: Let projen update the remaining files
-        run: yarn build
+        run: npx projen build

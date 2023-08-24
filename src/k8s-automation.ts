@@ -310,7 +310,7 @@ export class K8sVersionUpgradeAutomation extends Component {
         },
         {
           name: 'Let projen update the remaining files',
-          run: 'yarn build',
+          run: 'npx projen build',
         },
         // {
         //   name: 'Update references in docs/** with new syntax',
