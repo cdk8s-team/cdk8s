@@ -10,7 +10,7 @@ function replaceRefsInFile(filePath: string, toReplace: string, substitution: st
 
   referencePrefixes.forEach(function (referencePrefix: string) {
     let curFileData = fs.readFileSync(filePath, 'utf-8');
-    curFileData = curFileData.replace(new RegExp(referencePrefix + toReplace, 'g'), substitution);
+    curFileData = curFileData.replace(new RegExp(referencePrefix + toReplace, 'g'), referencePrefix + substitution);
     fs.writeFileSync(filePath, curFileData);
   });
 }
