@@ -42,7 +42,7 @@ function main(latestVersion: string) {
   // update all references in docs/basics/**
   const docsFileNames = fs.readdirSync('docs/basics/', { encoding: 'utf-8' });
   docsFileNames.forEach(function (filePath) {
-    replaceRefsInFile(filePath, `${latestVersionNumber - 1}`, latestVersion);
+    replaceRefsInFile(path.join('docs/basics/', filePath), `${latestVersionNumber - 1}`, latestVersion);
   });
 }
 
