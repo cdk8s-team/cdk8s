@@ -15,7 +15,7 @@ function replaceRefsInFile(filePath: string, toReplace: string, substitution: st
   });
 }
 
-function main(latestVersion: string) {
+export function replaceOldVersionReferences(latestVersion: string) {
 
   const latestVersionNumber = Number(latestVersion);
 
@@ -46,4 +46,4 @@ function main(latestVersion: string) {
   });
 }
 
-main(process.argv.slice(2)[0]);
+replaceOldVersionReferences(process.argv.slice(2)[0]);
