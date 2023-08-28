@@ -206,6 +206,14 @@ export class K8sVersionUpgradeAutomation extends Component {
           env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
           continueOnError: false,
         },
+        {
+          name: 'Update references to newest k8s version in cdk8s-plus repo',
+          run: 'echo hello',
+          // this will throw an error until the PR for adding this file is merged:
+          //run: 'npx ts-node ${{ github.workspace }}/projenrc/replace-version-references.ts ${{ needs.check-latest-k8s-release.outputs.latestVersion }}',
+          env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
+          continueOnError: false,
+        },
         // {
         //   name: 'Update projen and README references to latest k8s version',
         //   // figure out where I'm writing this script!
@@ -306,6 +314,7 @@ export class K8sVersionUpgradeAutomation extends Component {
         {
           name: 'Let projen update the remaining files',
           // this step will fail if the newest cdk8s-plus package is not published to npm
+          // ** do I have to set this to run at a specified time after the previous job maybe?
           run: 'npx projen build',
         },
         // ...WorkflowActions.createPullRequest({
@@ -321,29 +330,3 @@ export class K8sVersionUpgradeAutomation extends Component {
     workflow.addJob('update-cdk8s-website', updateCdk8s);
   }
 }
-
-// export class K8sUpgradeStep2 extends Component {
-
-//     constructor(project: typescript.TypeScriptAppProject, newK8sVersion: Number) {
-//         super(project);
-
-//         const cdk8sPlusDirPath = '../cdk8s-plus/';
-
-//         const prevK8sVersion = String(newK8sVersion ?? 27 - 1);
-//         const latestK8sVersion = String(newK8sVersion);
-
-//         // replace old version with latest version in projen file
-//         let projenrcFileData = fs.readFileSync('.projenrc.ts', 'utf-8');
-//         projenrcFileData = projenrcFileData.replace(prevK8sVersion, latestK8sVersion);
-//         fs.writeFileSync('.projenrc.ts', projenrcFileData);
-
-//         // update all files in cdk8s-plus/docs/plus/ with the new syntax, replacing old references of prev cdk8s-plus versions
-//         const plusDocsDir = path.join(cdk8sPlusDirPath, 'docs/plus');
-//         const files = fs.readdirSync(plusDocsDir);
-//         for (const fileName in files) {
-//             let docFileData = fs.readFileSync(path.join(plusDocsDir, fileName), 'utf-8');
-//             docFileData = docFileData.replace('cdk8s-plus-'+prevK8sVersion, 'cdk8s-plus-'+latestK8sVersion);
-//             fs.writeFileSync(path.join(plusDocsDir, fileName), docFileData);
-//         };
-//     }
-//   }

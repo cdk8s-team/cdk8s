@@ -101,6 +101,11 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.PROJEN_GITHUB_TOKEN }}
         run: git checkout -b k8s-${{ needs.check-latest-k8s-release.outputs.latestVersion }}/main
         continue-on-error: false
+      - name: Update references to newest k8s version in cdk8s-plus repo
+        env:
+          GITHUB_TOKEN: ${{ secrets.PROJEN_GITHUB_TOKEN }}
+        run: echo hello
+        continue-on-error: false
   update-cdk8s-website:
     needs:
       - check-latest-k8s-release
