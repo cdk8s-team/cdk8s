@@ -1,9 +1,6 @@
 import { Component } from 'projen';
 import * as typescript from 'projen/lib/typescript';
-// import * as fs from 'fs';
 import { GithubWorkflow, workflows } from 'projen/lib/github';
-// import path from 'path';
-
 export class K8sVersionUpgradeAutomation extends Component {
 
   constructor(project: typescript.TypeScriptAppProject) {
@@ -143,7 +140,7 @@ export class K8sVersionUpgradeAutomation extends Component {
         },
         // {
         //   name: 'Push new branch',
-        //   run: `git push --set-upstream origin k8s.${latestVersionNumber}`,
+        //   run: 'git push --set-upstream origin k8s.${{ needs.check-latest-k8s-release.outputs.latestVersion }}',
         //   env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
         //   continueOnError: false,
         // },
@@ -172,7 +169,7 @@ export class K8sVersionUpgradeAutomation extends Component {
         //   name: 'Create new backport label for old version',
         //   uses: 'actions-ecosystem/action-add-labels@v1',
         //   with: {
-        //     labels: `backport-to-k8s-${latestVersionNumber - 1}/main`,
+        //     labels: 'backport-to-k8s-${{ needs.check-latest-k8s-release.outputs.latestVersion }}/main',
         //     repo: 'cdk8s-team/cdk8s-plus',
         //     // don't think I'm able to specify the label color with this though ...
         //   },
@@ -191,7 +188,7 @@ export class K8sVersionUpgradeAutomation extends Component {
         pullRequests: workflows.JobPermission.WRITE,
       },
       needs: ['check-latest-k8s-release', 'generate-new-k8s-spec'],
-      if: 'needs.check-latest-k8s-release.outputs.httpStatus == 200',
+      //if: 'needs.check-latest-k8s-release.outputs.httpStatus == 200',
       steps: [
         {
           name: 'Checkout',
