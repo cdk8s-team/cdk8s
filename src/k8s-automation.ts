@@ -214,26 +214,19 @@ export class K8sVersionUpgradeAutomation extends Component {
           env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
           continueOnError: false,
         },
-        // {
-        //   name: 'Update projen and README references to latest k8s version',
-        //   // figure out where I'm writing this script!
-        //   run: `git push --set-upstream origin k8s.${{ needs.check-latest-k8s-release.outputs.latestVersion }}`,
-        //   env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
-        //   continueOnError: false,
-        // },
-        // {
-        //   name: 'Setup Node.js',
-        //   uses: 'actions/setup-node@v2',
-        //   with: { 'node-version': '18.12.0' },
-        // },
-        // {
-        //   name: 'Install dependencies',
-        //   run: 'yarn install --check-files',
-        // },
-        // {
-        //   name: 'Import the new k8s spec from the prerequisite step',
-        //   run: 'yarn run import',
-        // },
+        {
+          name: 'Setup Node.js',
+          uses: 'actions/setup-node@v2',
+          with: { 'node-version': '18.12.0' },
+        },
+        {
+          name: 'Install dependencies',
+          run: 'yarn install --check-files',
+        },
+        {
+          name: 'Import the new k8s spec from the prerequisite step',
+          run: 'yarn run import',
+        },
         // {
         //   name: 'Start local kubernetes cluster',
         //   run: 'yarn run import',
@@ -243,20 +236,13 @@ export class K8sVersionUpgradeAutomation extends Component {
         //   name: 'Generate API types from the local Kubernetes cluster',
         //   run: 'yarn regenerate-api-information',
         // },
-        // {
-        //   name: 'Let projen update the remaining files',
-        //   run: 'yarn build',
-        // },
-        // {
-        //   name: 'Update references in docs/plus/**',
-        //   // figure out where I'm writing this script again!
-        //   run: 'git push --set-upstream origin k8s.${latestVersionNumber}',
-        //   env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
-        //   continueOnError: false,
-        // },
+        {
+          name: 'Let projen update the remaining files',
+          run: 'npx projen build',
+        },
         // {
         //   name: 'Push the branch and verify that automation builds/tags/releases the new version successfully.',
-        //   run: `git push --set-upstream origin k8s-${latestVersionNumber}/main`,
+        //   run: 'git push --set-upstream origin k8s-${{ needs.check-latest-k8s-release.outputs.latestVersion }}/main',
         //   env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
         //   continueOnError: false,
         // },

@@ -106,6 +106,16 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.PROJEN_GITHUB_TOKEN }}
         run: echo hello
         continue-on-error: false
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18.12.0
+      - name: Install dependencies
+        run: yarn install --check-files
+      - name: Import the new k8s spec from the prerequisite step
+        run: yarn run import
+      - name: Let projen update the remaining files
+        run: npx projen build
   update-cdk8s-website:
     needs:
       - check-latest-k8s-release
