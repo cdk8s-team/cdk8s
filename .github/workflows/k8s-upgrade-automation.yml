@@ -118,32 +118,18 @@ jobs:
   update-cdk8s-website:
     needs:
       - check-latest-k8s-release
-      - create-new-plus-branch
+      - update-cdk8s-website
     runs-on: ubuntu-latest
     permissions:
       contents: read
       pull-requests: write
-    if: needs.check-latest-k8s-release.outputs.httpStatus == 200
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Create new branch
-        uses: peterjgrainger/action-create-branch@v2.2.0
+        with:
+          repository: cdk8s-team/cdk-ops
+      - name: Update cdk8s-plus references in cdk-ops repo
         env:
           GITHUB_TOKEN: ${{ secrets.PROJEN_GITHUB_TOKEN }}
-        with:
-          branch: cdk8s-upgrade/v${{ needs.check-latest-k8s-release.outputs.latestVersion }}
-          sha: ${{ github.event.pull_request.head.sha }}
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: 18.12.0
-      - name: Install dependencies
-        run: yarn install --check-files
-      - name: Update references to newest k8s version in cdk8s repo
-        env:
-          GITHUB_TOKEN: ${{ secrets.PROJEN_GITHUB_TOKEN }}
-        run: npx ts-node ${{ github.workspace }}/src/replace-old-version-references.ts ${{ needs.check-latest-k8s-release.outputs.latestVersion }}
+        run: echo hello
         continue-on-error: false
-      - name: Let projen update the remaining files
-        run: npx projen build

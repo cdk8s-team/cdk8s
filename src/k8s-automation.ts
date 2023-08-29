@@ -188,7 +188,6 @@ export class K8sVersionUpgradeAutomation extends Component {
         pullRequests: workflows.JobPermission.WRITE,
       },
       needs: ['check-latest-k8s-release', 'generate-new-k8s-spec'],
-      //if: 'needs.check-latest-k8s-release.outputs.httpStatus == 200',
       steps: [
         {
           name: 'Checkout',
@@ -311,5 +310,33 @@ export class K8sVersionUpgradeAutomation extends Component {
     };
 
     workflow.addJob('update-cdk8s-website', updateCdk8s);
+
+    const updateCdkOps: workflows.Job = {
+      runsOn: runsOn,
+      permissions: {
+        contents: workflows.JobPermission.READ,
+        pullRequests: workflows.JobPermission.WRITE,
+      },
+      needs: ['check-latest-k8s-release', 'update-cdk8s-website'],
+      steps: [
+        {
+          name: 'Checkout',
+          uses: 'actions/checkout@v2',
+          with: {
+            repository: 'cdk8s-team/cdk-ops',
+          },
+        },
+        {
+          name: 'Update cdk8s-plus references in cdk-ops repo',
+          // does this script have to be another new file in cdk-ops?
+          run: 'echo hello',
+          //run: 'npx ts-node ${{ github.workspace }}/src/replace-old-version-references.ts ${{ needs.check-latest-k8s-release.outputs.latestVersion }}',
+          env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
+          continueOnError: false,
+        },
+      ],
+    };
+
+    workflow.addJob('update-cdk8s-website', updateCdkOps);
   }
 }
