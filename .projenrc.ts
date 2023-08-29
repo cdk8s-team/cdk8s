@@ -3,7 +3,7 @@ import { Cdk8sTeamTypeScriptProject } from '@cdk8s/projen-common';
 import { JobPermission } from 'projen/lib/github/workflows-model';
 import { K8sVersionUpgradeAutomation } from './src/k8s-automation';
 
-const SPEC_VERSION = fs.readFileSync('projenrc/latest-k8s-version.txt', 'utf-8');
+const SPEC_VERSION = fs.readFileSync('src/latest-k8s-version.txt', 'utf-8');
 
 // the latest version of k8s we support
 const LATEST_SUPPORTED_K8S_VERSION = Number(SPEC_VERSION);
