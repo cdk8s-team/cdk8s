@@ -203,10 +203,8 @@ export class K8sVersionUpgradeAutomation extends Component {
           continueOnError: false,
         },
         {
-          name: 'Update references to newest k8s version in cdk8s-plus repo',
-          run: 'echo hello',
-          // this will throw an error until the PR for adding this file is merged:
-          //run: 'npx ts-node ${{ github.workspace }}/projenrc/replace-version-references.ts ${{ needs.check-latest-k8s-release.outputs.latestVersion }}',
+          name: 'Update reference of latest cdk8s version in txt file',
+          run: 'echo "${{ needs.check-latest-k8s-release.outputs.latestVersion }}" >> ${{ github.workspace }}/projenrc/latest-k8s-version.txt',
           env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
           continueOnError: false,
         },
@@ -223,18 +221,16 @@ export class K8sVersionUpgradeAutomation extends Component {
           name: 'Import the new k8s spec from the prerequisite step',
           run: 'yarn run import',
         },
-        // {
-        //   name: 'Start local kubernetes cluster',
-        //   run: 'yarn run import',
-        //   // FIGURE OUT how/where to run kubernetes cluster and configure kubectl to it
-        // },
-        // {
-        //   name: 'Generate API types from the local Kubernetes cluster',
-        //   run: 'yarn regenerate-api-information',
-        // },
         {
           name: 'Let projen update the remaining files',
           run: 'npx projen build',
+        },
+        {
+          name: 'Update references of old kubernetes versions with projen task',
+          // this will throw an error until the PR for adding this projentask is merged:
+          run: 'npx projen update-k8s-version-references',
+          env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
+          continueOnError: false,
         },
         // {
         //   name: 'Push the branch and verify that automation builds/tags/releases the new version successfully.',
@@ -293,12 +289,12 @@ export class K8sVersionUpgradeAutomation extends Component {
           env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
           continueOnError: false,
         },
-        {
-          name: 'Let projen update the remaining files',
-          // this step will fail if the newest cdk8s-plus package is not published to npm
-          // ** do I have to set this to run at a specified time after the previous job maybe?
-          run: 'npx projen build',
-        },
+        // {
+        //   name: 'Let projen update the remaining files',
+        //   // this step will fail if the newest cdk8s-plus package is not published to npm
+        //   // ** do I have to set this to run at a specified time after the previous job maybe?
+        //   run: 'npx projen build',
+        // },
         // ...WorkflowActions.createPullRequest({
         //   workflowName: 'create-pull-request',
         //   pullRequestTitle: `chore(website): cdk8s-plus-${latestVersionNumber}`,

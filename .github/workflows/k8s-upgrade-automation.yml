@@ -100,10 +100,10 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.PROJEN_GITHUB_TOKEN }}
         run: git checkout -b k8s-${{ needs.check-latest-k8s-release.outputs.latestVersion }}/main
         continue-on-error: false
-      - name: Update references to newest k8s version in cdk8s-plus repo
+      - name: Update reference of latest cdk8s version in txt file
         env:
           GITHUB_TOKEN: ${{ secrets.PROJEN_GITHUB_TOKEN }}
-        run: echo hello
+        run: echo "${{ needs.check-latest-k8s-release.outputs.latestVersion }}" >> ${{ github.workspace }}/projenrc/latest-k8s-version.txt
         continue-on-error: false
       - name: Setup Node.js
         uses: actions/setup-node@v2
@@ -115,6 +115,11 @@ jobs:
         run: yarn run import
       - name: Let projen update the remaining files
         run: npx projen build
+      - name: Update references of old kubernetes versions with projen task
+        env:
+          GITHUB_TOKEN: ${{ secrets.PROJEN_GITHUB_TOKEN }}
+        run: npx projen update-k8s-version-references
+        continue-on-error: false
   update-cdk8s-website:
     needs:
       - check-latest-k8s-release
@@ -145,8 +150,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.PROJEN_GITHUB_TOKEN }}
         run: npx ts-node ${{ github.workspace }}/src/replace-old-version-references.ts ${{ needs.check-latest-k8s-release.outputs.latestVersion }}
         continue-on-error: false
-      - name: Let projen update the remaining files
-        run: npx projen build
   update-cdk-ops:
     needs:
       - check-latest-k8s-release
