@@ -337,6 +337,6 @@ export class K8sVersionUpgradeAutomation extends Component {
       ],
     };
 
-    workflow.addJob('update-cdk8s-website', updateCdkOps);
+    workflow.addJob('update-cdk-ops', updateCdkOps);
   }
 }
