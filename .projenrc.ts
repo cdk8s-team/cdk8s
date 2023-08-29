@@ -22,9 +22,6 @@ const project = new Cdk8sTeamTypeScriptProject({
     '@types/node',
     'cdk8s',
     'cdk8s-cli',
-    'cdk8s-plus-25',
-    'cdk8s-plus-26',
-    'cdk8s-plus-27',
     'constructs',
     'lerna',
     'semver',
@@ -34,6 +31,10 @@ const project = new Cdk8sTeamTypeScriptProject({
   ],
   projenrcTs: true,
 });
+
+for (let i = 0; i < 3; i++) {
+  project.addDevDeps(`cdk8s-plus-${LATEST_SUPPORTED_K8S_VERSION - i}`);
+}
 
 project.gitignore.exclude('.vscode/');
 project.gitignore.addPatterns('*.js');
