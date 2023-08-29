@@ -1,6 +1,12 @@
+import * as fs from 'fs';
 import { Cdk8sTeamTypeScriptProject } from '@cdk8s/projen-common';
 import { JobPermission } from 'projen/lib/github/workflows-model';
 import { K8sVersionUpgradeAutomation } from './src/k8s-automation';
+
+const SPEC_VERSION = fs.readFileSync('projenrc/latest-k8s-version.txt', 'utf-8');
+
+// the latest version of k8s we support
+const LATEST_SUPPORTED_K8S_VERSION = Number(SPEC_VERSION);
 
 const mainBranch = 'master';
 
@@ -114,21 +120,19 @@ workflow.addJobs({
         with: {
           github_token: '${{ secrets.GITHUB_TOKEN }}',
           publish_dir: './website/public',
-        }
-      }
-    ]
-  }
+        },
+      },
+    ],
+  },
 });
 
 // The API reference is generated when the website is built and released
 // on the main branch, so the files should not be committed to the repo.
 // See docs/build.sh.
-const packages = [
-  'cdk8s',
-  'cdk8s-plus-25',
-  'cdk8s-plus-26',
-  'cdk8s-plus-27',
-];
+let packages = ['cdk8s'];
+for (let i = 0; i < 3; i++) {
+  packages.push(`cdk8s-plus-${LATEST_SUPPORTED_K8S_VERSION - i}`);
+}
 for (const pkg of packages) {
   for (const language of ['java', 'typescript', 'python']) {
     project.gitignore.exclude(`/docs/reference/${pkg}/${language}.md`);
