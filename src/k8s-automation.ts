@@ -245,7 +245,9 @@ export class K8sVersionUpgradeAutomation extends Component {
         //     github_token: '${{ secrets.PROJEN_GITHUB_TOKEN }}',
         //     title: 'chore: set default branch of cdk8s-plus repo to latest for v${{ needs.check-latest-k8s-release.outputs.latestVersion }} k8s upgrade',
         //     body: 'The default branch must be manually set to k8s-${{ needs.check-latest-k8s-release.outputs.latestVersion }}/main',
-        //     labels: ['priority/p0'],
+        //     labels: [
+        //       'priority/p0',
+        //     ],
         //   },
         // },
       ],
@@ -298,15 +300,19 @@ export class K8sVersionUpgradeAutomation extends Component {
         // {
         //   name: 'Let projen update the remaining files',
         //   // this step will fail if the newest cdk8s-plus package is not published to npm
+        //   // Eli said I don't need this step at all?
         //   // ** do I have to set this to run at a specified time after the previous job maybe?
         //   run: 'npx projen build',
         // },
         // ...WorkflowActions.createPullRequest({
         //   workflowName: 'create-pull-request',
-        //   pullRequestTitle: `chore(website): cdk8s-plus-${latestVersionNumber}`,
+        //   pullRequestTitle: 'chore(website): cdk8s-plus-${{ needs.check-latest-k8s-release.outputs.latestVersion }}',
         //   pullRequestDescription: 'This PR updates the website with the latest version of cdk8s-plus.',
-        //   branchName: `github-actions/website-update-${latestK8sVersion}`,
+        //   branchName: 'github-actions/website-update-${{ needs.check-latest-k8s-release.outputs.latestVersion }}',
         //   credentials: GithubCredentials.fromPersonalAccessToken(),
+        //   labels: [
+        //     'auto-approve',
+        //   ],
         // }),
       ],
     };
@@ -329,16 +335,15 @@ export class K8sVersionUpgradeAutomation extends Component {
           },
         },
         {
-          name: 'Update cdk8s-plus references in cdk-ops repo',
+          name: 'Update latest cdk8s-plus version in cdk-ops repo',
           // the PR must be merged in cdk-ops for this to work
           run: 'echo "${{ needs.check-latest-k8s-release.outputs.latestVersion }}" >> ${{ github.workspace }}/projenrc/latest-cdk8s-version.txt',
           env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
           continueOnError: false,
         },
-        // now create a PR for it
         // ...WorkflowActions.createPullRequest({
         //   workflowName: 'create-pull-request',
-        //   pullRequestTitle: `chore: updating to latest cdk8s-plus-version`,
+        //   pullRequestTitle: 'chore: updating latest cdk8s-plus version to v${{ needs.check-latest-k8s-release.outputs.latestVersion }}',
         //   pullRequestDescription: 'This PR updates the reference to of the latest cdk8s-plus version',
         //   branchName: 'github-actions/cdk-ops-k8s-upgrade-${{ needs.check-latest-k8s-release.outputs.latestVersion }}',
         //   labels: [
