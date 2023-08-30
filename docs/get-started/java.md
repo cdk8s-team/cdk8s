@@ -72,7 +72,7 @@ This sample shows the basic structure of a cdk8s application with the essential 
 ## Define Kubernetes resources
 Lorem ipsum.
 ### Copy the code sample
-1. Copy and paste the following code sample into the existing `main.ts` file of your project.
+1. Copy and paste the following code sample into the existing `Main.java` file of your project.
 ```java
 package com.mycompany.app;
 
@@ -173,8 +173,6 @@ spec:
           ports:
             - containerPort: 80
 ```
-
-## Conclusion
 ## Conclusion
 Throughout this guide, we introduced you to the cdk8s Java library and guided you through the process of creating a cdk8s Java application. We initiated a simple project and constructed a Kubernetes Deployment using cdk8s code. This included leveraging Java-specific programming language conventions to dynamically set the "app" key in "label" selectors and "metadata" labels for Kubernetes resources using Java's versatile strong typing and encapsulation features.
 
