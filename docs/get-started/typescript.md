@@ -53,16 +53,49 @@ This sample shows the basic structure of a cdk8s application with the essential 
    * The `synth` method is called on the `app` instance, which produces the required Kubernetes YAML manifest files based on the defined resources. Note that in this example, we haven't defined any resources within the `MyChart` constructor, so running the "cdk8s synth" command in the CLI would generate a blank Kubernetes manifest.
 
 ## Define Kubernetes resources
-Lorem ipsum.
+Now, let's delve into defining Kubernetes resources for our application. In this example, we'll outline a basic Kubernetes [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) for a sample app. We'll start by importing the `imports` directory and the `k8s` sub-directory, which houses the `index.ts` file containing all cdk8s Kubernetes classes and functions.
 ### Copy the code sample
 1. Copy and paste the following code sample into the existing `main.ts` file of your project.
 ```typescript
+import { Construct } from 'constructs';
+import { App, Chart } from 'cdk8s';
+import { KubeDeployment } from './imports/k8s';
 
+class MyChart extends Chart {
+  constructor(scope: Construct, ns: string, appLabel: string) {
+    super(scope, ns);
+
+    // Define a Kubernetes Deployment
+    new KubeDeployment(this, 'my-deployment', {
+      spec: {
+        replicas: 3,
+        selector: { matchLabels: { app: appLabel } },
+        template: {
+          metadata: { labels: { app: appLabel } },
+          spec: {
+            containers: [
+              {
+                name: 'app-container',
+                image: 'nginx:1.19.10',
+                ports: [{ containerPort: 80 }]
+              }
+            ]
+          }
+        }
+      }
+    });
+  }
+}
+
+const app = new App();
+new MyChart(app, 'getting-started', 'my-app');
+
+app.synth();
 ```
 
 A few things worth noting about this sample:
 
-- Lorem ipsum.
+- The `constructor` method in the custom `MyChart` class employs TypeScript's type system to construct a Kubernetes Deployment. This Deployment is configured with specific parameters, such as replica count, label selectors, and pod specifications. This approach leverages TypeScript's type system to dynamically assign the "app" key in label selectors and metadata labels, creating a clear and concise way to set key configuration details.
 
 ## Generate Kubernetes manifests
 After you have defined the Kubernetes resources for your application, you are ready to generate the Kubernetes manifest that will define your Deployment resource. 
@@ -77,7 +110,25 @@ cdk8s synth
 ### View the manifest
 1. Open the `dist/getting-started.k8s.yaml` file. You should see a Kubernetes manifest similar to the following:
 ```yaml
-
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: getting-started-my-deployment-c85252a6
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+        - image: nginx:1.19.10
+          name: app-container
+          ports:
+            - containerPort: 80
 ```
 
 ## Conclusion
