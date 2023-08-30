@@ -74,12 +74,71 @@ Lorem ipsum.
 ### Copy the code sample
 1. Copy and paste the following code sample into the existing `main.ts` file of your project.
 ```java
+package com.mycompany.app;
 
+import software.constructs.Construct;
+import org.cdk8s.App;
+import org.cdk8s.Chart;
+import org.cdk8s.ChartProps;
+import imports.k8s.Container;
+import imports.k8s.ContainerPort;
+import imports.k8s.DeploymentSpec;
+import imports.k8s.KubeDeployment;
+import imports.k8s.KubeDeploymentProps;
+import imports.k8s.LabelSelector;
+import imports.k8s.ObjectMeta;
+import imports.k8s.PodSpec;
+import imports.k8s.PodTemplateSpec;
+
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+
+public class Main extends Chart {
+
+    public Main(final Construct scope, final String id, final String appLabel) {
+        this(scope, id, null, appLabel);
+    }
+
+    public Main(final Construct scope, final String id, final ChartProps props, final String appLabel) {
+        super(scope, id, props);
+
+        Map<String, String> label = Collections.singletonMap("app", appLabel);
+
+        new KubeDeployment(this, "my-deployment", KubeDeploymentProps.builder()
+                .spec(DeploymentSpec.builder()
+                        .replicas(3)
+                        .selector(LabelSelector.builder()
+                                .matchLabels(label)
+                                .build())
+                        .template(PodTemplateSpec.builder()
+                                .metadata(ObjectMeta.builder().labels(label)
+                                        .build())
+                                .spec(PodSpec.builder()
+                                        .containers(List.of(Container.builder()
+                                                .name("app-container-test")
+                                                .image("nginx:1.19.10")
+                                                .ports(List.of(ContainerPort.builder()
+                                                        .containerPort(80)
+                                                        .build()))
+                                                .build()))
+                                        .build())
+                                .build())
+                        .build())
+                .build());
+    }
+
+    public static void main(String[] args) {
+        final App app = new App();
+        new Main(app, "getting-started", "my-app");
+        app.synth();
+    }
+}
 ```
 
 A few things worth noting about this sample:
 
-- Lorem ipsum.
+- The constructor in the custom `Main` class leverages Java's object-oriented programming features to construct a Kubernetes Deployment. The Deployment is defined with specific parameters, including the number of replicas, label selectors, and pod specifications. This constructor employs Java's strong typing and encapsulation to dynamically set the "app" key in label selectors and metadata labels for our Kubernetes resources, creating a clear and concise way to set key configuration details.
 
 ## Generate Kubernetes manifests
 After you have defined the Kubernetes resources for your application, you are ready to generate the Kubernetes manifest that will define your Deployment resource. 
@@ -94,11 +153,30 @@ cdk8s synth
 ### View the manifest
 1. Open the `dist/getting-started.k8s.yaml` file. You should see a Kubernetes manifest similar to the following:
 ```yaml
-
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: getting-started-my-deployment-c85252a6
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+        - image: nginx:1.19.10
+          name: app-container
+          ports:
+            - containerPort: 80
 ```
 
 ## Conclusion
-Lorem ipsum.
+## Conclusion
+Throughout this guide, we introduced you to the cdk8s Java library and guided you through the process of creating a cdk8s Java application. We initiated a simple project and constructed a Kubernetes Deployment using cdk8s code. This included leveraging Java-specific programming language conventions to dynamically set the "app" key in "label" selectors and "metadata" labels for Kubernetes resources using Java's versatile strong typing and encapsulation features.
 
 ## Next up
 - To run a complete code sample, we recommend diving into the Kubernetes [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) and [Service](https://kubernetes.io/docs/concepts/services-networking/service/) using the [cdk8s-core](https://github.com/cdk8s-team/cdk8s-examples/blob/main/java/cdk8s-core/src/main/java/com/example/core/Core.java) sample application.
