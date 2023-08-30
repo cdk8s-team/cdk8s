@@ -132,7 +132,7 @@ spec:
 ```
 
 ## Conclusion
-Lorem ipsum.
+Throughout this guide, we introduced you to the cdk8s Typescript library and guided you through the process of creating a cdk8s Typescript application. We've initiated a simple project and crafted a Kubernetes Deployment using cdk8s code. This involved utilizing TypeScript's strong type system to dynamically set the "app" key in label selectors and metadata labels for Kubernetes resources.
 
 ## Next up
 - To run a complete code sample, we recommend diving into the Kubernetes [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) and [Service](https://kubernetes.io/docs/concepts/services-networking/service/) using the [cdk8s-core](https://github.com/cdk8s-team/cdk8s-examples/blob/main/typescript/cdk8s-core/index.ts) sample application.
