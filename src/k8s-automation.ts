@@ -324,12 +324,22 @@ export class K8sVersionUpgradeAutomation extends Component {
         },
         {
           name: 'Update cdk8s-plus references in cdk-ops repo',
-          // does this script have to be another new file in cdk-ops?
-          run: 'echo hello',
-          //run: 'npx ts-node ${{ github.workspace }}/src/replace-old-version-references.ts ${{ needs.check-latest-k8s-release.outputs.latestVersion }}',
+          // the PR must be merged in cdk-ops for this to work
+          run: 'echo "${{ needs.check-latest-k8s-release.outputs.latestVersion }}" >> ${{ github.workspace }}/projenrc/latest-cdk8s-version.txt',
           env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
           continueOnError: false,
         },
+        // now create a PR for it
+        // ...WorkflowActions.createPullRequest({
+        //   workflowName: 'create-pull-request',
+        //   pullRequestTitle: `chore: updating to latest cdk8s-plus-version`,
+        //   pullRequestDescription: 'This PR updates the reference to of the latest cdk8s-plus version',
+        //   branchName: 'github-actions/cdk-ops-k8s-upgrade-${{ needs.check-latest-k8s-release.outputs.latestVersion }}',
+        //   labels: [
+        //     'auto-approve',
+        //   ],
+        //   credentials: GithubCredentials.fromPersonalAccessToken(),
+        // }),
       ],
     };
 

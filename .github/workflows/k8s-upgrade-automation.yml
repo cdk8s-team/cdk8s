@@ -166,5 +166,5 @@ jobs:
       - name: Update cdk8s-plus references in cdk-ops repo
         env:
           GITHUB_TOKEN: ${{ secrets.PROJEN_GITHUB_TOKEN }}
-        run: echo hello
+        run: echo "${{ needs.check-latest-k8s-release.outputs.latestVersion }}" >> ${{ github.workspace }}/projenrc/latest-cdk8s-version.txt
         continue-on-error: false
