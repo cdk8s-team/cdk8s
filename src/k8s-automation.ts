@@ -102,9 +102,9 @@ export class K8sVersionUpgradeAutomation extends Component {
         },
         // ...WorkflowActions.createPullRequest({
         //   workflowName: 'create-pull-request',
-        //   pullRequestTitle: `chore: v${latestK8sVersion} kubernetes-spec`,
-        //   pullRequestDescription: `This PR is adds the v${latestK8sVersion} Kubernetes spec. This is required in order for us to add a new version to cdk8s-plus.`,
-        //   branchName: `github-actions/generate-k8s-spec-${latestK8sVersion}`,
+        //   pullRequestTitle: 'chore: v${{ needs.check-latest-k8s-release.outputs.latestVersion }} kubernetes-spec',
+        //   pullRequestDescription: 'This PR is adds the v${{ needs.check-latest-k8s-release.outputs.latestVersion }} Kubernetes spec. This is required in order for us to add a new version to cdk8s-plus.',
+        //   branchName: 'github-actions/generate-k8s-spec-${{ needs.check-latest-k8s-release.outputs.latestVersion }}',
         //   labels: [
         //     'auto-approve',
         //   ],
@@ -239,8 +239,14 @@ export class K8sVersionUpgradeAutomation extends Component {
         //   continueOnError: false,
         // },
         // {
-        //   name: 'Set new branch as default branch for repo',
-        //   // this might have to be done manually - maybe create a github issue for it?
+        //   name: 'Create a p0 issue to set the new default branch of the cdk8s-plus repo',
+        //   uses: 'actions-ecosystem/action-create-issue@v1',
+        //   with: {
+        //     github_token: '${{ secrets.PROJEN_GITHUB_TOKEN }}',
+        //     title: 'chore: set default branch of cdk8s-plus repo to latest for v${{ needs.check-latest-k8s-release.outputs.latestVersion }} k8s upgrade',
+        //     body: 'The default branch must be manually set to k8s-${{ needs.check-latest-k8s-release.outputs.latestVersion }}/main',
+        //     labels: ['priority/p0'],
+        //   },
         // },
       ],
     };
