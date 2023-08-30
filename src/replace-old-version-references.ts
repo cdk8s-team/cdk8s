@@ -19,7 +19,7 @@ export function replaceOldVersionReferences(latestVersion: string) {
 
   const latestVersionNumber = Number(latestVersion);
 
-  const filesToBeUpdated = ['website/build.sh', 'website/layouts/index.html', 'docs/plus/.pages', 'docs/reference/.pages', 'docs/reference/index.md'];
+  const filesToBeUpdated = ['website/layouts/index.html', 'docs/plus/.pages', 'docs/reference/.pages', 'docs/reference/index.md'];
 
   filesToBeUpdated.forEach(function (filePath: string) {
     for (let i = 0; i < 3; i++) {
