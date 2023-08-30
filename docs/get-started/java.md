@@ -70,7 +70,7 @@ This sample shows the basic structure of a cdk8s application with the essential 
    * The `synth` method is called on the `app` instance, which produces the required Kubernetes YAML manifest files based on the defined resources. Note that in this example, we haven't defined any resources within the `MyChart` constructor, so running the "cdk8s synth" command in the CLI would generate a blank Kubernetes manifest.
 
 ## Define Kubernetes resources
-Lorem ipsum.
+Now, we are ready to define Kubernetes resources for our application. In this sample, we define a basic Kubernetes [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) for a sample application. We start by importing the `imports.k8s` sub-directory, which contains all the cdk8s Kubernetes classes and functions we'll need. 
 ### Copy the code sample
 1. Copy and paste the following code sample into the existing `Main.java` file of your project.
 ```java
