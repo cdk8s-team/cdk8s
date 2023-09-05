@@ -163,7 +163,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: cdk8s-team/cdk-ops
-      - name: Update cdk8s-plus references in cdk-ops repo
+      - name: Update latest cdk8s-plus version in cdk-ops repo
         env:
           GITHUB_TOKEN: ${{ secrets.PROJEN_GITHUB_TOKEN }}
         run: echo "${{ needs.check-latest-k8s-release.outputs.latestVersion }}" >> ${{ github.workspace }}/projenrc/latest-cdk8s-version.txt

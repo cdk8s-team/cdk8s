@@ -4,7 +4,7 @@ name: upgrade-compiler-dependencies
 on:
   workflow_dispatch: {}
   schedule:
-    - cron: 0 0 * * *
+    - cron: 0 12 * * *
 jobs:
   upgrade:
     name: Upgrade
@@ -63,7 +63,7 @@ jobs:
         with:
           token: ${{ secrets.PROJEN_GITHUB_TOKEN }}
           commit-message: |-
-            feat(deps): upgrade compiler dependencies
+            chore(deps): upgrade compiler dependencies
 
             Upgrades project dependencies. See details in [workflow run].
 
@@ -73,7 +73,7 @@ jobs:
 
             *Automatically created by projen via the "upgrade-compiler-dependencies" workflow*
           branch: github-actions/upgrade-compiler-dependencies
-          title: "feat(deps): upgrade compiler dependencies"
+          title: "chore(deps): upgrade compiler dependencies"
           labels: auto-approve
           body: |-
             Upgrades project dependencies. See details in [workflow run].
