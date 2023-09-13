@@ -9,11 +9,6 @@ go version
 ```
 
 ## Set up an environment
-### Initial setup
-To get setup, follow these general steps:
-
-1. To begin, you’ll need a development environment set-up to use Go modules. If you’re not familiar with this setup, use these instructions to [setup Go modules](https://golang.org/doc/tutorial/create-module).
-
 ### Install the CLI
 To initialize a cdk8s project and auto-generate Kubernetes manifests based on our code, we need the cdk8s CLI:
 
