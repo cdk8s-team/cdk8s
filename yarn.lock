@@ -5224,9 +5224,9 @@ npm-bundled@^3.0.0:
     npm-normalize-package-bin "^3.0.0"
 
 npm-check-updates@^16:
-  version "16.14.0"
-  resolved "https://registry.yarnpkg.com/npm-check-updates/-/npm-check-updates-16.14.0.tgz#e34b5af1176be2347b012946ad9bd0133bfed13e"
-  integrity sha512-0R4S0qsx2FhuSiIYloHc7RQwfZpzO4jdL3rUoYwbOkx5fBc9u77GHHS0FlXYpczHR/kPYmmB/CRkFElOofVeSg==
+  version "16.14.1"
+  resolved "https://registry.yarnpkg.com/npm-check-updates/-/npm-check-updates-16.14.1.tgz#6792508546625ef562beda11d17a3474488129d5"
+  integrity sha512-mu57Ch3JUiB7Wc5Hc9laRDJYBulyQXOvi1NCJAlnQJrS21hMkbt01Y3OSS+kAfHcp8G7uansc9RJlNRgSLzpPA==
   dependencies:
     chalk "^5.3.0"
     cli-table3 "^0.6.3"
@@ -5787,9 +5787,9 @@ progress@^2.0.3:
   integrity sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA==
 
 projen@^0.73.0:
-  version "0.73.17"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.73.17.tgz#1aeb35df78cd96369b929fdbd7fe11dc12e47a84"
-  integrity sha512-rGrwyl+O000K6mtK3U72y/CT4x4NdtPKfJuWG1iNW21GV6Sq2Got7dWucBl12dLviJ4aEeMGC7Hpx/I3vJCosA==
+  version "0.73.19"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.73.19.tgz#74ff85b63669deb618007c402ccf4958976f609a"
+  integrity sha512-Y4VyrzJQ9Q2dMfXrgiFiK8PpGAuYlMCCO9FsKghz5O/zXZQBLjkLevOc8pdIs0Ura/MxS9cckAkeGeiI/0Q0gw==
   dependencies:
     "@iarna/toml" "^2.2.5"
     case "^1.6.3"
