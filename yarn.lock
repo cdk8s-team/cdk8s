@@ -1860,24 +1860,24 @@ camelcase@^7.0.1:
   integrity sha512-xlx1yCK2Oc1APsPXDL2LdlNP6+uu8OCDdhOBSVT279M/S+y75O30C2VuD8T2ogdePBBl7PfPF4504tnLgX3zfw==
 
 caniuse-lite@^1.0.30001517:
-  version "1.0.30001535"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001535.tgz#908a5b7ef11172f51f0b88f3d850aef1c6a3cf7b"
-  integrity sha512-48jLyUkiWFfhm/afF7cQPqPjaUmSraEhK4j+FCTJpgnGGEZHqyLe3hmWH7lIooZdSzXL0ReMvHz0vKDoTBsrwg==
+  version "1.0.30001538"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001538.tgz#9dbc6b9af1ff06b5eb12350c2012b3af56744f3f"
+  integrity sha512-HWJnhnID+0YMtGlzcp3T9drmBJUVDchPJ08tpUGFLs9CYlwWPH2uLgpHn8fND5pCgXVtnGS3H4QR9XLMHVNkHw==
 
 case@^1.6.3:
   version "1.6.3"
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s-cli@^2.93.0:
-  version "2.93.0"
-  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.93.0.tgz#7aef2b3476fa104c415d7ff7200228929369c74c"
-  integrity sha512-3KukidpzRy+T0K8MEEBNnJC/B/HqOPayb0M2+dCFH7k/c88H1/b5uD0yG1dsDP1x3eDCxqsXoI34PUPAd3tbCQ==
+cdk8s-cli@^2.94.0:
+  version "2.94.0"
+  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.94.0.tgz#5453f81d279095a5919dca98a7f5d827ad185c36"
+  integrity sha512-CiKN9/B2ZTLYF0EsHD8StjkeNOkk6n9YH5S5+jN2SnodqRkr5RZPVR4CRcBIrqkdWEOsmyj56/syw5UJVS8HLw==
   dependencies:
     "@types/node" "^16"
     ajv "^8.12.0"
-    cdk8s "^2.64.13"
-    cdk8s-plus-25 "^2.22.12"
+    cdk8s "^2.64.14"
+    cdk8s-plus-25 "^2.22.13"
     codemaker "^1.88.0"
     colors "1.4.0"
     constructs "^10.2.70"
@@ -1893,7 +1893,7 @@ cdk8s-cli@^2.93.0:
   optionalDependencies:
     backport "8.5.0"
 
-cdk8s-plus-25@^2.22.12, cdk8s-plus-25@^2.22.13:
+cdk8s-plus-25@^2.22.13:
   version "2.22.13"
   resolved "https://registry.yarnpkg.com/cdk8s-plus-25/-/cdk8s-plus-25-2.22.13.tgz#06029e4ac65d42ab64e5c04991f45458cc15cac2"
   integrity sha512-9fOgt1GDuH7Sj39dxeX3mT08o23QqYc7Rw0JCzHxsfR6Ib21Q+V+hMRZi8KbpAZUmkvcQR26ze2DQyZeGrouyw==
@@ -1920,10 +1920,10 @@ cdk8s-plus-27@^2.7.15:
   optionalDependencies:
     backport "8.5.0"
 
-cdk8s@^2.64.13:
-  version "2.64.13"
-  resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-2.64.13.tgz#009f54811972c18341c4686511800a3c2949de52"
-  integrity sha512-1wkJqyo/8jYeWHUKp0jS1vf/2+sG0qUDXBi28/iGpWzdJlM8HfYX5LzPuiu9zq/XXpwrKjhAfXjMvVMFzYzetw==
+cdk8s@^2.64.14, cdk8s@^2.64.15:
+  version "2.64.15"
+  resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-2.64.15.tgz#0f36253ace482421b36babb9a5eb242cc5856ad8"
+  integrity sha512-f7kAAPUHUDSzdyjthRgs9zgSPVvFN1hAM9VfUuDDxhxMySfLNsljGWCwOGHBjab3ac+ZwQBI0iUo1W4oIXimPQ==
   dependencies:
     fast-json-patch "^3.1.1"
     follow-redirects "^1.15.2"
@@ -3267,9 +3267,9 @@ graphql-tag@^2.12.6:
     tslib "^2.1.0"
 
 graphql@^16.5.0:
-  version "16.8.0"
-  resolved "https://registry.yarnpkg.com/graphql/-/graphql-16.8.0.tgz#374478b7f27b2dc6153c8f42c1b80157f79d79d4"
-  integrity sha512-0oKGaR+y3qcS5mCu1vb7KG+a89vjn06C7Ihq/dDl3jA+A8B3TKomvi3CiEcVLJQGalbu8F52LxkOym7U5sSfbg==
+  version "16.8.1"
+  resolved "https://registry.yarnpkg.com/graphql/-/graphql-16.8.1.tgz#1930a965bef1170603702acdb68aedd3f3cf6f07"
+  integrity sha512-59LZHPdGZVh695Ud9lRzPBVTtlX9ZCV150Er2W43ro37wVof0ctenSaskPPjN7lVTIN8mSZt8PHUNKZuNQUuxw==
 
 handlebars@^4.7.7:
   version "4.7.8"
@@ -6440,9 +6440,9 @@ spdx-expression-parse@^3.0.0:
     spdx-license-ids "^3.0.0"
 
 spdx-license-ids@^3.0.0:
-  version "3.0.13"
-  resolved "https://registry.yarnpkg.com/spdx-license-ids/-/spdx-license-ids-3.0.13.tgz#7189a474c46f8d47c7b0da4b987bb45e908bd2d5"
-  integrity sha512-XkD+zwiqXHikFZm4AX/7JSCXA98U5Db4AFd5XUg/+9UNtnH75+Z9KxtpYiJZx36mUDVOwH83pl7yvCer6ewM3w==
+  version "3.0.14"
+  resolved "https://registry.yarnpkg.com/spdx-license-ids/-/spdx-license-ids-3.0.14.tgz#d16b09577b7de461c8c3e69734c4b9b467ac791f"
+  integrity sha512-U0eS5wcpu/O2/QZk6PcAMOA8H3ZuvRe4mFHA3Q+LNl1SRDmfQ+mD3RoD6tItqnvqubJ32m/zV2Z/ikSmxccD1Q==
 
 spdx-license-list@^6.6.0:
   version "6.7.0"
@@ -6923,9 +6923,9 @@ typescript@^4.9.5:
   integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
 
 typescript@next:
-  version "5.3.0-dev.20230918"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.3.0-dev.20230918.tgz#ce215c54cf24145fdb5de5245b9a8c12e5987065"
-  integrity sha512-n0gvj+RwjGVYi2fyz/7Bd2lCrh/uRROVyQtgUwXXG2p6tyCUw8UE+7lOdr2dp3hVn6Uo4EliGLfajoWNqhFmuw==
+  version "5.3.0-dev.20230919"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.3.0-dev.20230919.tgz#ee93ccb19d16a89b562bcd851d31e20e545b2ed0"
+  integrity sha512-FU6DZhzId38aY/dX2gHp7phaYkbNJkCx8G//VVs0nVzZv0qjWGggLkMXoMipphO8Hv0TvZu30Zwdt6nzFIbcBQ==
 
 typescript@~3.9.10:
   version "3.9.10"
