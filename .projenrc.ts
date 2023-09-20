@@ -140,6 +140,10 @@ for (const pkg of packages) {
   }
 }
 
+// Projen task to update references to old versions of cdk8s-plus
+const versionTaskObject = project.addTask('replace-old-version-references');
+versionTaskObject.exec('ts-node src/replace-version-references.ts ' + SPEC_VERSION);
+
 // Add Kubernetes upgrade automation workflow
 new K8sVersionUpgradeAutomation(project);
 
