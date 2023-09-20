@@ -8,8 +8,8 @@ function replaceRefsInFile(filePath: string, toReplace: string, substitution: st
   // Kubernetes v1.XX.0
   const referencePrefixes = ['plus-', 'plus', 'PLUS', 'Kubernetes v1.'];
 
+  let curFileData = fs.readFileSync(filePath, 'utf-8');
   referencePrefixes.forEach(function (referencePrefix: string) {
-    let curFileData = fs.readFileSync(filePath, 'utf-8');
     curFileData = curFileData.replace(new RegExp(referencePrefix + toReplace, 'g'), referencePrefix + substitution);
     fs.writeFileSync(filePath, curFileData);
   });
