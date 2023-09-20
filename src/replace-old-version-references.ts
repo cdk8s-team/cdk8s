@@ -3,7 +3,7 @@ import * as path from 'path';
 
 function replaceRefsInFile(filePath: string, toReplace: string, substitution: string) {
   // references in the docs files for version XX appear in the following ways:
-  // cdk8s-plus-XX, cdk8s.plusXX, cdk8splusXX, CDK8s_PLUSXX_VERSION, cdk8s_plus28_version
+  // cdk8s-plus-XX, cdk8s.plusXX, cdk8splusXX, CDK8s_PLUSXX_VERSION, cdk8s_plusXX_version
   // we must also replace references to outdated kubernetes versions. this shows up as:
   // Kubernetes v1.XX.0
   const referencePrefixes = ['plus-', 'plus', 'PLUS', 'Kubernetes v1.'];
