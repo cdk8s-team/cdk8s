@@ -293,7 +293,7 @@ export class K8sVersionUpgradeAutomation extends Component {
         },
         {
           name: 'Update references to newest k8s version in cdk8s repo',
-          run: 'npx ts-node ${{ github.workspace }}/src/replace-old-version-references.ts ${{ needs.check-latest-k8s-release.outputs.latestVersion }}',
+          run: 'npx projen replace-old-version-references',
           env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
           continueOnError: false,
         },
