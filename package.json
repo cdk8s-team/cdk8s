@@ -15,6 +15,7 @@
     "post-compile": "npx projen post-compile",
     "post-upgrade": "npx projen post-upgrade",
     "pre-compile": "npx projen pre-compile",
+    "replace-old-version-references": "npx projen replace-old-version-references",
     "test": "npx projen test",
     "upgrade-compiler-dependencies": "npx projen upgrade-compiler-dependencies",
     "upgrade-configuration": "npx projen upgrade-configuration",
