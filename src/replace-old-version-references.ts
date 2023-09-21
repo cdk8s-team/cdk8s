@@ -40,9 +40,17 @@ export function replaceOldVersionReferences(latestVersion: string) {
   replaceRefsInFile('docs/plus/index.md', `${latestVersionNumber - 1}`, latestVersion);
 
   // update all references in docs/basics/**
-  const docsFileNames = fs.readdirSync('docs/basics/', { encoding: 'utf-8' });
-  docsFileNames.forEach(function (filePath) {
-    replaceRefsInFile(path.join('docs/basics/', filePath), `${latestVersionNumber - 1}`, latestVersion);
+  recursiveReplaceRefsInDir('docs/basics/', `${latestVersionNumber - 1}`, latestVersion);
+}
+
+function recursiveReplaceRefsInDir(dir: string, toReplace: string, substitution: string) {
+  fs.readdirSync(dir, { encoding: 'utf-8' }).forEach(file => {
+    let fullPath = path.join(dir, file);
+    if (fs.lstatSync(fullPath).isDirectory()) {
+      recursiveReplaceRefsInDir(fullPath, toReplace, substitution);
+    } else {
+      replaceRefsInFile(fullPath, toReplace, substitution)
+    }
   });
 }
 
