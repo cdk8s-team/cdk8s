@@ -132,6 +132,14 @@
       "name": "pre-compile",
       "description": "Prepare the project for compilation"
     },
+    "replace-old-version-references": {
+      "name": "replace-old-version-references",
+      "steps": [
+        {
+          "exec": "ts-node src/replace-version-references.ts 27"
+        }
+      ]
+    },
     "test": {
       "name": "test",
       "description": "Run tests",
