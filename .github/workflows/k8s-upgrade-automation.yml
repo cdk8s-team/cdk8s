@@ -21,6 +21,7 @@ jobs:
       pull-requests: write
     outputs:
       latestVersion: ${{ steps.k8s-latest-version.outputs.latestVersion }}
+      previousVersion: ${{ steps.k8s-previous-version.outputs.previousVersion }}
       httpStatus: ${{ steps.get-npm-status-code.outputs.httpStatus }}
     steps:
       - name: Get latest K8s Release
@@ -32,6 +33,9 @@ jobs:
       - name: Get latest K8s minor version
         id: k8s-latest-version
         run: echo latestVersion="$(cut -d "." -f 2 <<< "${{ steps.get-k8s-latest-release.outputs.release }}")" >> $GITHUB_OUTPUT
+      - name: Get latest K8s minor version
+        id: k8s-previous-version
+        run: echo previousVersion="$(( ${steps.k8s-latest-version.outputs.latestVersion} - 1 ))" >> $GITHUB_OUTPUT
       - name: Check to see if cdk8s-plus released latest k8s version on npm by getting HTTP status code from npm url
         id: get-npm-status-code
         run: |-
@@ -98,7 +102,7 @@ jobs:
       - name: Create new branch
         env:
           GITHUB_TOKEN: ${{ secrets.PROJEN_GITHUB_TOKEN }}
-        run: git checkout -b k8s-${{ needs.check-latest-k8s-release.outputs.latestVersion - 5 }}/main
+        run: git checkout -b k8s-${{ needs.check-latest-k8s-release.outputs.latestVersion}}/main
         continue-on-error: false
       - name: Update reference of latest cdk8s version in txt file
         env:

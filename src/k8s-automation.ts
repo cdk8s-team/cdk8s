@@ -47,6 +47,10 @@ export class K8sVersionUpgradeAutomation extends Component {
           stepId: 'k8s-latest-version',
           outputName: 'latestVersion',
         },
+        previousVersion: {
+          stepId: 'k8s-previous-version',
+          outputName: 'previousVersion',
+        },
         httpStatus: {
           stepId: 'get-npm-status-code',
           outputName: 'httpStatus',
@@ -66,6 +70,11 @@ export class K8sVersionUpgradeAutomation extends Component {
           id: 'k8s-latest-version',
           name: 'Get latest K8s minor version',
           run: 'echo latestVersion="$(cut -d "." -f 2 <<< "${{ steps.get-k8s-latest-release.outputs.release }}")" >> $GITHUB_OUTPUT',
+        },
+        {
+          id: 'k8s-previous-version',
+          name: 'Get latest K8s minor version',
+          run: 'echo previousVersion="$(( ${steps.k8s-latest-version.outputs.latestVersion} - 1 ))" >> $GITHUB_OUTPUT',
         },
         {
           id: 'get-npm-status-code',
@@ -179,7 +188,7 @@ export class K8sVersionUpgradeAutomation extends Component {
         //   name: 'Create new backport label for old version',
         //   uses: 'actions-ecosystem/action-add-labels@v1',
         //   with: {
-        //     labels: 'backport-to-k8s-${{ needs.check-latest-k8s-release.outputs.latestVersion }}/main',
+        //     labels: 'backport-to-k8s-${{ needs.check-latest-k8s-release.outputs.previousVersion }}/main',
         //     repo: 'cdk8s-team/cdk8s-plus',
         //     // don't think I'm able to specify the label color with this though ...
         //   },
@@ -208,7 +217,7 @@ export class K8sVersionUpgradeAutomation extends Component {
         },
         {
           name: 'Create new branch',
-          run: 'git checkout -b k8s-${{ needs.check-latest-k8s-release.outputs.latestVersion - 5 }}/main',
+          run: 'git checkout -b k8s-${{ needs.check-latest-k8s-release.outputs.latestVersion}}/main',
           env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
           continueOnError: false,
         },
