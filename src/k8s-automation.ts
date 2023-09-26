@@ -100,14 +100,15 @@ export class K8sVersionUpgradeAutomation extends Component {
           env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
           continueOnError: false,
         },
+        // not auto-approve when debugging
         // ...WorkflowActions.createPullRequest({
         //   workflowName: 'create-pull-request',
         //   pullRequestTitle: 'chore: v${{ needs.check-latest-k8s-release.outputs.latestVersion }} kubernetes-spec',
         //   pullRequestDescription: 'This PR is adds the v${{ needs.check-latest-k8s-release.outputs.latestVersion }} Kubernetes spec. This is required in order for us to add a new version to cdk8s-plus.',
         //   branchName: 'github-actions/generate-k8s-spec-${{ needs.check-latest-k8s-release.outputs.latestVersion }}',
-        //   labels: [
-        //     'auto-approve',
-        //   ],
+        //   // labels: [
+        //   //   'auto-approve',
+        //   // ],
         //   credentials: GithubCredentials.fromPersonalAccessToken(),
         // }),
       ],
@@ -132,12 +133,13 @@ export class K8sVersionUpgradeAutomation extends Component {
             repository: 'cdk8s-team/cdk8s-plus-go',
           },
         },
-        {
-          name: 'Create new branch',
-          run: 'git checkout -b k8s.${{ needs.check-latest-k8s-release.outputs.latestVersion }}',
-          env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
-          continueOnError: false,
-        },
+        // might be unnecessary:
+        // {
+        //   name: 'Create new branch',
+        //   run: 'git checkout -b k8s.${{ needs.check-latest-k8s-release.outputs.latestVersion }}',
+        //   env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
+        //   continueOnError: false,
+        // },
         // {
         //   name: 'Push new branch',
         //   run: 'git push --set-upstream origin k8s.${{ needs.check-latest-k8s-release.outputs.latestVersion }}',
@@ -334,6 +336,7 @@ export class K8sVersionUpgradeAutomation extends Component {
           env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
           continueOnError: false,
         },
+        // not autoapprove for debugging as well
         // ...WorkflowActions.createPullRequest({
         //   workflowName: 'create-pull-request',
         //   pullRequestTitle: 'chore: updating latest cdk8s-plus version to v${{ needs.check-latest-k8s-release.outputs.latestVersion }}',
