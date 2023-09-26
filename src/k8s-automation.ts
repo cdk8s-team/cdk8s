@@ -73,7 +73,7 @@ export class K8sVersionUpgradeAutomation extends Component {
         },
         {
           id: 'k8s-previous-version',
-          name: 'Get latest K8s minor version',
+          name: 'Get previous K8s minor version',
           run: 'echo previousVersion=$(( latestVersion - 1 )) >> $GITHUB_OUTPUT',
         },
         {
