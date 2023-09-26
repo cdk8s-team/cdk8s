@@ -150,6 +150,34 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.PROJEN_GITHUB_TOKEN }}
         run: npx projen replace-old-version-references
         continue-on-error: false
+      - name: Create Pull Request
+        id: create-pr
+        uses: peter-evans/create-pull-request@v4
+        with:
+          token: ${{ secrets.PROJEN_GITHUB_TOKEN }}
+          commit-message: |-
+            chore(website): cdk8s-plus-${{ needs.check-latest-k8s-release.outputs.latestVersion }}
+
+            This PR updates the website with the latest version of cdk8s-plus. See details in [workflow run].
+
+            [Workflow Run]: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+            ------
+
+            *Automatically created by projen via the "create-pull-request" workflow*
+          branch: github-actions/website-update-${{ needs.check-latest-k8s-release.outputs.latestVersion }}
+          title: "chore(website): cdk8s-plus-${{ needs.check-latest-k8s-release.outputs.latestVersion }}"
+          body: |-
+            This PR updates the website with the latest version of cdk8s-plus. See details in [workflow run].
+
+            [Workflow Run]: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+            ------
+
+            *Automatically created by projen via the "create-pull-request" workflow*
+          author: github-actions <github-actions@github.com>
+          committer: github-actions <github-actions@github.com>
+          signoff: true
   update-cdk-ops:
     needs:
       - check-latest-k8s-release

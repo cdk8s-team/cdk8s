@@ -1,6 +1,6 @@
 import { Component } from 'projen';
 import * as typescript from 'projen/lib/typescript';
-import { GithubWorkflow, workflows } from 'projen/lib/github';
+import { GithubWorkflow, workflows, WorkflowActions, GithubCredentials } from 'projen/lib/github';
 export class K8sVersionUpgradeAutomation extends Component {
 
   constructor(project: typescript.TypeScriptAppProject) {
@@ -297,23 +297,16 @@ export class K8sVersionUpgradeAutomation extends Component {
           env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
           continueOnError: false,
         },
-        // {
-        //   name: 'Let projen update the remaining files',
-        //   // this step will fail if the newest cdk8s-plus package is not published to npm
-        //   // Eli said I don't need this step at all?
-        //   // ** do I have to set this to run at a specified time after the previous job maybe?
-        //   run: 'npx projen build',
-        // },
-        // ...WorkflowActions.createPullRequest({
-        //   workflowName: 'create-pull-request',
-        //   pullRequestTitle: 'chore(website): cdk8s-plus-${{ needs.check-latest-k8s-release.outputs.latestVersion }}',
-        //   pullRequestDescription: 'This PR updates the website with the latest version of cdk8s-plus.',
-        //   branchName: 'github-actions/website-update-${{ needs.check-latest-k8s-release.outputs.latestVersion }}',
-        //   credentials: GithubCredentials.fromPersonalAccessToken(),
-        //   labels: [
-        //     'auto-approve',
-        //   ],
-        // }),
+        ...WorkflowActions.createPullRequest({
+          workflowName: 'create-pull-request',
+          pullRequestTitle: 'chore(website): cdk8s-plus-${{ needs.check-latest-k8s-release.outputs.latestVersion }}',
+          pullRequestDescription: 'This PR updates the website with the latest version of cdk8s-plus.',
+          branchName: 'github-actions/website-update-${{ needs.check-latest-k8s-release.outputs.latestVersion }}',
+          credentials: GithubCredentials.fromPersonalAccessToken(),
+          // labels: [
+          //   'auto-approve',
+          // ],
+        }),
       ],
     };
 
