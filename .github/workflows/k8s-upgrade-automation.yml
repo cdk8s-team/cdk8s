@@ -35,7 +35,7 @@ jobs:
         run: echo latestVersion="$(cut -d "." -f 2 <<< "${{ steps.get-k8s-latest-release.outputs.release }}")" >> $GITHUB_OUTPUT
       - name: Get previous K8s minor version
         id: k8s-previous-version
-        run: echo previousVersion=$(( latestVersion - 1 )) >> $GITHUB_OUTPUT
+        run: echo previousVersion=$(( ${latestVersion} - 1 )) >> $GITHUB_OUTPUT
       - name: Check to see if cdk8s-plus released latest k8s version on npm by getting HTTP status code from npm url
         id: get-npm-status-code
         run: |-
