@@ -13,7 +13,15 @@ export class K8sVersionUpgradeAutomation extends Component {
     // scheduled time
     const schedule = '0 18 * * 0';
     const trigger: workflows.Triggers = {
-      workflowDispatch: {},
+      workflowDispatch: {
+        inputs: {
+          testingMode: {
+            description: 'Testing Mode',
+            required: true,
+            default: false,
+          },
+        },
+      },
       schedule: [{
         cron: schedule,
       }],
