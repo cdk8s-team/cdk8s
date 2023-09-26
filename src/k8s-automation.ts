@@ -74,7 +74,7 @@ export class K8sVersionUpgradeAutomation extends Component {
         {
           id: 'k8s-previous-version',
           name: 'Get latest K8s minor version',
-          run: 'echo previousVersion=$(( ${steps.k8s-latest-version.outputs.latestVersion} - 1 )) >> $GITHUB_OUTPUT',
+          run: 'echo previousVersion=$(( latestVersion - 1 )) >> $GITHUB_OUTPUT',
         },
         {
           id: 'get-npm-status-code',
