@@ -1,6 +1,6 @@
 import { Component } from 'projen';
 import * as typescript from 'projen/lib/typescript';
-import { GithubWorkflow, workflows, WorkflowActions, GithubCredentials } from 'projen/lib/github';
+import { GithubWorkflow, workflows } from 'projen/lib/github';
 export class K8sVersionUpgradeAutomation extends Component {
 
   constructor(project: typescript.TypeScriptAppProject) {
@@ -19,7 +19,8 @@ export class K8sVersionUpgradeAutomation extends Component {
             type: 'boolean',
             description: 'Testing Mode',
             required: true,
-            default: false,
+            // set default to true for testing purposes until this PR is merged ...
+            default: true,
           },
         },
       },
@@ -136,7 +137,7 @@ export class K8sVersionUpgradeAutomation extends Component {
 
     workflow.addJob('generate-new-k8s-spec', generateK8sSpecJob);
 
-
+    // delete this job
     const createGoRepoBranchJob: workflows.Job = {
       runsOn: runsOn,
       permissions: {
@@ -250,6 +251,10 @@ export class K8sVersionUpgradeAutomation extends Component {
           run: 'npx projen disable-publishing',
         },
         {
+          name: 'Test package json output',
+          run: 'cat package.json',
+        },
+        {
           name: 'Let projen update the remaining files',
           run: 'npx projen build',
         },
@@ -267,18 +272,18 @@ export class K8sVersionUpgradeAutomation extends Component {
           env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
           continueOnError: false,
         },
-        // {
-        //   name: 'Create a p0 issue to set the new default branch of the cdk8s-plus repo',
-        //   uses: 'actions-ecosystem/action-create-issue@v1',
-        //   with: {
-        //     github_token: '${{ secrets.PROJEN_GITHUB_TOKEN }}',
-        //     title: 'chore: set default branch of cdk8s-plus repo to latest for v${{ needs.check-latest-k8s-release.outputs.latestVersion }} k8s upgrade',
-        //     body: 'The default branch must be manually set to k8s-${{ needs.check-latest-k8s-release.outputs.latestVersion }}/main',
-        //     labels: [
-        //       'priority/p0',
-        //     ],
-        //   },
-        // },
+        {
+          name: 'Create a p0 issue to set the new default branch of the cdk8s-plus repo',
+          uses: 'actions-ecosystem/action-create-issue@v1',
+          with: {
+            github_token: '${{ secrets.PROJEN_GITHUB_TOKEN }}',
+            title: 'chore: set default branch of cdk8s-plus repo to latest for v${{ needs.check-latest-k8s-release.outputs.latestVersion }} k8s upgrade',
+            body: 'The default branch must be manually set to k8s-${{ needs.check-latest-k8s-release.outputs.latestVersion }}/main',
+            labels: [
+              'priority/p0',
+            ],
+          },
+        },
       ],
     };
 
@@ -327,16 +332,16 @@ export class K8sVersionUpgradeAutomation extends Component {
           continueOnError: false,
         },
         // ***Q***: can't make this step conditionally be auto-approve
-        ...WorkflowActions.createPullRequest({
-          workflowName: 'create-pull-request',
-          pullRequestTitle: 'chore(website): cdk8s-plus-${{ needs.check-latest-k8s-release.outputs.latestVersion }}',
-          pullRequestDescription: 'This PR updates the website with the latest version of cdk8s-plus.',
-          branchName: 'github-actions/website-update-${{ needs.check-latest-k8s-release.outputs.latestVersion }}',
-          credentials: GithubCredentials.fromPersonalAccessToken(),
-          // labels: [
-          //   'auto-approve',
-          // ],
-        }),
+        // ...WorkflowActions.createPullRequest({
+        //   workflowName: 'create-pull-request',
+        //   pullRequestTitle: 'chore(website): cdk8s-plus-${{ needs.check-latest-k8s-release.outputs.latestVersion }}',
+        //   pullRequestDescription: 'This PR updates the website with the latest version of cdk8s-plus.',
+        //   branchName: 'github-actions/website-update-${{ needs.check-latest-k8s-release.outputs.latestVersion }}',
+        //   credentials: GithubCredentials.fromPersonalAccessToken(),
+        //   // labels: [
+        //   //   'auto-approve',
+        //   // ],
+        // }),
       ],
     };
 
