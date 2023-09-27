@@ -12,7 +12,7 @@ node --version
 ### Install the CLI
 To initialize a cdk8s project and auto-generate Kubernetes manifests based on our code, we need the cdk8s CLI:
 
-1. Run the following command to install the CLI using [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm). For more installation methods, see [Install the cdk8s CLI](cli/installation.md).
+1. Run the following command to install the CLI using [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm). For more installation methods, see [Install the cdk8s CLI](./../cli/installation.md).
 ```console
 npm install -g cdk8s-cli
 ```
