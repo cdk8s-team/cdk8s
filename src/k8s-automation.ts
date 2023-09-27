@@ -242,6 +242,10 @@ export class K8sVersionUpgradeAutomation extends Component {
           run: 'yarn run import',
         },
         {
+          name: 'Disable publishing if is testingMode is true',
+          run: 'if [ ${{ github.event.inputs.testingMode }} == true ]; then npx projen disable-publishing',
+        },
+        {
           name: 'Let projen update the remaining files',
           run: 'npx projen build',
         },
