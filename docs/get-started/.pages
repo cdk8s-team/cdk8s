@@ -3,4 +3,4 @@ nav:
   - Python: python.md
   - TypeScript: typescript.md
   - Java: java.md
-  - Golang: go.md
+  - Go: go.md
