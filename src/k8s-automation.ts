@@ -19,7 +19,7 @@ export class K8sVersionUpgradeAutomation extends Component {
             type: 'boolean',
             description: 'Testing Mode',
             required: true,
-            default: true,
+            default: false,
           },
         },
       },
@@ -80,6 +80,7 @@ export class K8sVersionUpgradeAutomation extends Component {
         {
           id: 'get-npm-status-code',
           name: 'Check to see if cdk8s-plus released latest k8s version on npm by getting HTTP status code from npm url',
+          // ***Q*** should I have this return 200 if testingMode is on?
           // run on previous version for testing purposes only:
           run: 'echo httpStatus="$(curl -sL -w "%{http_code}\n" "https://www.npmjs.com/package/cdk8s-plus-27" -o /dev/null)" >> $GITHUB_OUTPUT',
           //run: 'echo httpStatus="$(curl -sL -w "%{http_code}\n" "https://www.npmjs.com/package/cdk8s-plus-${{steps.k8s-latest-version.outputs.latestVersion}}" -o /dev/null)" >> $GITHUB_OUTPUT',
@@ -119,6 +120,7 @@ export class K8sVersionUpgradeAutomation extends Component {
           continueOnError: false,
         },
         // not auto-approve when debugging
+        // ***Q*** can't set this to execute autoApprove conditionally based on testingMode parameter ...
         // ...WorkflowActions.createPullRequest({
         //   workflowName: 'create-pull-request',
         //   pullRequestTitle: 'chore: v${{ needs.check-latest-k8s-release.outputs.latestVersion }} kubernetes-spec',
@@ -242,10 +244,10 @@ export class K8sVersionUpgradeAutomation extends Component {
           run: 'yarn run import',
         },
         {
+          // ***Q*** not sure if this is working - difficult
+          if: '${{ github.event.inputs.testingMode }} == true',
           name: 'Disable publishing if testingMode is true',
-          run: 'if [ ${{ github.event.inputs.testingMode }} == true ] ;' + ` then
-                npx projen disable-publishing
-                fi`,
+          run: 'npx projen disable-publishing',
         },
         {
           name: 'Let projen update the remaining files',
@@ -258,12 +260,13 @@ export class K8sVersionUpgradeAutomation extends Component {
           env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
           continueOnError: false,
         },
-        // {
-        //   name: 'Push the branch and verify that automation builds/tags/releases the new version successfully.',
-        //   run: 'git push --set-upstream origin k8s-${{ needs.check-latest-k8s-release.outputs.latestVersion }}/main',
-        //   env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
-        //   continueOnError: false,
-        // },
+        // ***Q***: should i have this 'push' step execute conditionally based on testingMode as well?
+        {
+          name: 'Push the branch and verify that automation builds/tags/releases the new version successfully.',
+          run: 'git push --set-upstream origin k8s-${{ needs.check-latest-k8s-release.outputs.latestVersion }}/main',
+          env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
+          continueOnError: false,
+        },
         // {
         //   name: 'Create a p0 issue to set the new default branch of the cdk8s-plus repo',
         //   uses: 'actions-ecosystem/action-create-issue@v1',
@@ -323,6 +326,7 @@ export class K8sVersionUpgradeAutomation extends Component {
           env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
           continueOnError: false,
         },
+        // ***Q***: can't make this step conditionally be auto-approve
         ...WorkflowActions.createPullRequest({
           workflowName: 'create-pull-request',
           pullRequestTitle: 'chore(website): cdk8s-plus-${{ needs.check-latest-k8s-release.outputs.latestVersion }}',
@@ -360,7 +364,7 @@ export class K8sVersionUpgradeAutomation extends Component {
           env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
           continueOnError: false,
         },
-        // not autoapprove for debugging as well
+        // don't do autoapprove for debugging as well
         // ...WorkflowActions.createPullRequest({
         //   workflowName: 'create-pull-request',
         //   pullRequestTitle: 'chore: updating latest cdk8s-plus version to v${{ needs.check-latest-k8s-release.outputs.latestVersion }}',
