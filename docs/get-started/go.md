@@ -80,7 +80,9 @@ replace example.com/cdk8s-golang/imports/k8s => ./imports/k8s
 ```
 
  ### Copy the code sample
+ 
 1. Copy and paste the following code sample into the existing `main.go` file of your project.
+
  ```typescript
 package main
 
