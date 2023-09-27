@@ -16,9 +16,14 @@ export class K8sVersionUpgradeAutomation extends Component {
       workflowDispatch: {
         inputs: {
           testingMode: {
+            type: 'choice',
             description: 'Testing Mode',
             required: true,
-            default: false,
+            default: 'false',
+            options: [
+              'true',
+              'false',
+            ],
           },
         },
       },

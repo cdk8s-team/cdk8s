@@ -5,9 +5,13 @@ on:
   workflow_dispatch:
     inputs:
       testing_mode:
+        type: choice
         description: Testing Mode
         required: true
-        default: false
+        default: "false"
+        options:
+          - "true"
+          - "false"
   schedule:
     - cron: 0 18 * * 0
   push:
