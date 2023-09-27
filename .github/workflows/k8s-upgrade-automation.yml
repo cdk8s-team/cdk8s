@@ -22,7 +22,7 @@ jobs:
       pull-requests: write
     outputs:
       latestVersion: ${{ steps.k8s-latest-version.outputs.latestVersion }}
-      previousVersion: ${{ steps.k8s-previous-version.outputs.previousVersion }}
+      currentVersion: ${{ steps.k8s-current-version.outputs.currentVersion }}
       httpStatus: ${{ steps.get-npm-status-code.outputs.httpStatus }}
     steps:
       - name: Get latest K8s Release
@@ -35,8 +35,8 @@ jobs:
         id: k8s-latest-version
         run: echo latestVersion="$(cut -d "." -f 2 <<< "${{ steps.get-k8s-latest-release.outputs.release }}")" >> $GITHUB_OUTPUT
       - name: Get previous K8s minor version
-        id: k8s-previous-version
-        run: echo previousVersion=$(( ${{ steps.k8s-latest-version.outputs.latestVersion }} - 1 )) >> $GITHUB_OUTPUT
+        id: k8s-current-version
+        run: echo currentVersion=$(( ${{ steps.k8s-latest-version.outputs.latestVersion }} - 1 )) >> $GITHUB_OUTPUT
       - name: Check to see if cdk8s-plus released latest k8s version on npm by getting HTTP status code from npm url
         id: get-npm-status-code
         run: |-
