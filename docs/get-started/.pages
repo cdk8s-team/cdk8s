@@ -1,6 +1,6 @@
 nav:
   - index.md
-  - python.md
-  - typescript.md
-  - java.md
-  - go.md
+  - Python: python.md
+  - TypeScript: typescript.md
+  - Java: java.md
+  - Golang: go.md
