@@ -63,6 +63,42 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.PROJEN_GITHUB_TOKEN }}
         run: ${{ github.workspace }}/tools/import-spec.sh 1.${{ needs.check-latest-k8s-release.outputs.latestVersion }}.0
         continue-on-error: false
+      - name: Set auto-approve label for PR if in testing mode
+        id: set-auto-approve-label
+        if: ${{ github.event.inputs.testingMode }} == false
+        env:
+          GITHUB_TOKEN: ${{ secrets.PROJEN_GITHUB_TOKEN }}
+        run: echo labels="auto-approve" >> $GITHUB_OUTPUT
+        continue-on-error: false
+      - name: Create Pull Request
+        id: create-pr
+        uses: peter-evans/create-pull-request@v4
+        with:
+          token: ${{ secrets.PROJEN_GITHUB_TOKEN }}
+          commit-message: |-
+            chore: v${{ needs.check-latest-k8s-release.outputs.latestVersion }} kubernetes-spec
+
+            This PR is adds the v${{ needs.check-latest-k8s-release.outputs.latestVersion }} Kubernetes spec. This is required in order for us to add a new version to cdk8s-plus. See details in [workflow run].
+
+            [Workflow Run]: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+            ------
+
+            *Automatically created by projen via the "create-pull-request" workflow*
+          branch: github-actions/generate-k8s-spec-${{ needs.check-latest-k8s-release.outputs.latestVersion }}
+          title: "chore: v${{ needs.check-latest-k8s-release.outputs.latestVersion }} kubernetes-spec"
+          labels: ${{ steps.set-auto-approve-label.outputs.labels }}
+          body: |-
+            This PR is adds the v${{ needs.check-latest-k8s-release.outputs.latestVersion }} Kubernetes spec. This is required in order for us to add a new version to cdk8s-plus. See details in [workflow run].
+
+            [Workflow Run]: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+            ------
+
+            *Automatically created by projen via the "create-pull-request" workflow*
+          author: github-actions <github-actions@github.com>
+          committer: github-actions <github-actions@github.com>
+          signoff: true
   add-backport-label:
     needs: check-latest-k8s-release
     runs-on: ubuntu-latest
@@ -75,6 +111,11 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: cdk8s-team/cdk8s-plus
+      - name: Create new backport label for old version
+        uses: actions-ecosystem/action-add-labels@v1
+        with:
+          labels: backport-to-k8s-${{ needs.check-latest-k8s-release.outputs.currentVersion }}/main
+          repo: cdk8s-team/cdk8s-plus
   create-new-plus-branch:
     needs:
       - check-latest-k8s-release
@@ -161,6 +202,42 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.PROJEN_GITHUB_TOKEN }}
         run: npx projen replace-old-version-references
         continue-on-error: false
+      - name: Set auto-approve label for PR if in testing mode
+        id: set-auto-approve-label
+        if: ${{ github.event.inputs.testingMode }} == false
+        env:
+          GITHUB_TOKEN: ${{ secrets.PROJEN_GITHUB_TOKEN }}
+        run: echo labels="auto-approve" >> $GITHUB_OUTPUT
+        continue-on-error: false
+      - name: Create Pull Request
+        id: create-pr
+        uses: peter-evans/create-pull-request@v4
+        with:
+          token: ${{ secrets.PROJEN_GITHUB_TOKEN }}
+          commit-message: |-
+            chore(website): cdk8s-plus-${{ needs.check-latest-k8s-release.outputs.latestVersion }}
+
+            This PR updates the website with the latest version of cdk8s-plus. See details in [workflow run].
+
+            [Workflow Run]: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+            ------
+
+            *Automatically created by projen via the "create-pull-request" workflow*
+          branch: github-actions/website-update-${{ needs.check-latest-k8s-release.outputs.latestVersion }}
+          title: "chore(website): cdk8s-plus-${{ needs.check-latest-k8s-release.outputs.latestVersion }}"
+          labels: ${{ steps.set-auto-approve-label.outputs.labels }}
+          body: |-
+            This PR updates the website with the latest version of cdk8s-plus. See details in [workflow run].
+
+            [Workflow Run]: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+            ------
+
+            *Automatically created by projen via the "create-pull-request" workflow*
+          author: github-actions <github-actions@github.com>
+          committer: github-actions <github-actions@github.com>
+          signoff: true
   update-cdk-ops:
     needs:
       - check-latest-k8s-release
@@ -179,3 +256,39 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.PROJEN_GITHUB_TOKEN }}
         run: echo "${{ needs.check-latest-k8s-release.outputs.latestVersion }}" >> ${{ github.workspace }}/projenrc/latest-cdk8s-version.txt
         continue-on-error: false
+      - name: Set auto-approve label for PR if in testing mode
+        id: set-auto-approve-label
+        if: ${{ github.event.inputs.testingMode }} == false
+        env:
+          GITHUB_TOKEN: ${{ secrets.PROJEN_GITHUB_TOKEN }}
+        run: echo labels="auto-approve" >> $GITHUB_OUTPUT
+        continue-on-error: false
+      - name: Create Pull Request
+        id: create-pr
+        uses: peter-evans/create-pull-request@v4
+        with:
+          token: ${{ secrets.PROJEN_GITHUB_TOKEN }}
+          commit-message: |-
+            chore: updating latest cdk8s-plus version to v${{ needs.check-latest-k8s-release.outputs.latestVersion }}
+
+            This PR updates the reference to of the latest cdk8s-plus version. See details in [workflow run].
+
+            [Workflow Run]: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+            ------
+
+            *Automatically created by projen via the "create-pull-request" workflow*
+          branch: github-actions/cdk-ops-k8s-upgrade-${{ needs.check-latest-k8s-release.outputs.latestVersion }}
+          title: "chore: updating latest cdk8s-plus version to v${{ needs.check-latest-k8s-release.outputs.latestVersion }}"
+          labels: ${{ steps.set-auto-approve-label.outputs.labels }}
+          body: |-
+            This PR updates the reference to of the latest cdk8s-plus version. See details in [workflow run].
+
+            [Workflow Run]: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+            ------
+
+            *Automatically created by projen via the "create-pull-request" workflow*
+          author: github-actions <github-actions@github.com>
+          committer: github-actions <github-actions@github.com>
+          signoff: true

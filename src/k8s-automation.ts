@@ -1,6 +1,6 @@
 import { Component } from 'projen';
 import * as typescript from 'projen/lib/typescript';
-import { GithubWorkflow, workflows } from 'projen/lib/github';
+import { GithubWorkflow, workflows, GithubCredentials, WorkflowActions } from 'projen/lib/github';
 export class K8sVersionUpgradeAutomation extends Component {
 
   constructor(project: typescript.TypeScriptAppProject) {
@@ -120,18 +120,24 @@ export class K8sVersionUpgradeAutomation extends Component {
           env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
           continueOnError: false,
         },
-        // not auto-approve when debugging
-        // ***Q*** can't set this to execute autoApprove conditionally based on testingMode parameter ...
-        // ...WorkflowActions.createPullRequest({
-        //   workflowName: 'create-pull-request',
-        //   pullRequestTitle: 'chore: v${{ needs.check-latest-k8s-release.outputs.latestVersion }} kubernetes-spec',
-        //   pullRequestDescription: 'This PR is adds the v${{ needs.check-latest-k8s-release.outputs.latestVersion }} Kubernetes spec. This is required in order for us to add a new version to cdk8s-plus.',
-        //   branchName: 'github-actions/generate-k8s-spec-${{ needs.check-latest-k8s-release.outputs.latestVersion }}',
-        //   // labels: [
-        //   //   'auto-approve',
-        //   // ],
-        //   credentials: GithubCredentials.fromPersonalAccessToken(),
-        // }),
+        {
+          name: 'Set auto-approve label for PR if in testing mode',
+          id: 'set-auto-approve-label',
+          if: '${{ github.event.inputs.testingMode }} == false',
+          run: 'echo labels="auto-approve" >> $GITHUB_OUTPUT',
+          env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
+          continueOnError: false,
+        },
+        ...WorkflowActions.createPullRequest({
+          workflowName: 'create-pull-request',
+          pullRequestTitle: 'chore: v${{ needs.check-latest-k8s-release.outputs.latestVersion }} kubernetes-spec',
+          pullRequestDescription: 'This PR is adds the v${{ needs.check-latest-k8s-release.outputs.latestVersion }} Kubernetes spec. This is required in order for us to add a new version to cdk8s-plus.',
+          branchName: 'github-actions/generate-k8s-spec-${{ needs.check-latest-k8s-release.outputs.latestVersion }}',
+          labels: [
+            '${{ steps.set-auto-approve-label.outputs.labels }}',
+          ],
+          credentials: GithubCredentials.fromPersonalAccessToken(),
+        }),
       ],
     };
 
@@ -153,15 +159,14 @@ export class K8sVersionUpgradeAutomation extends Component {
             repository: 'cdk8s-team/cdk8s-plus',
           },
         },
-        // {
-        //   name: 'Create new backport label for old version',
-        //   uses: 'actions-ecosystem/action-add-labels@v1',
-        //   with: {
-        //     labels: 'backport-to-k8s-${{ needs.check-latest-k8s-release.outputs.currentVersion }}/main',
-        //     repo: 'cdk8s-team/cdk8s-plus',
-        //     // don't think I'm able to specify the label color with this though ...
-        //   },
-        // },
+        {
+          name: 'Create new backport label for old version',
+          uses: 'actions-ecosystem/action-add-labels@v1',
+          with: {
+            labels: 'backport-to-k8s-${{ needs.check-latest-k8s-release.outputs.currentVersion }}/main',
+            repo: 'cdk8s-team/cdk8s-plus',
+          },
+        },
       ],
     };
 
@@ -210,7 +215,6 @@ export class K8sVersionUpgradeAutomation extends Component {
           run: 'yarn run import',
         },
         {
-          // ***Q*** not sure if this is working - difficult
           if: '${{ github.event.inputs.testingMode }} == true',
           name: 'Disable publishing if testingMode is true',
           run: 'npx projen disable-publishing',
@@ -230,7 +234,6 @@ export class K8sVersionUpgradeAutomation extends Component {
           env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
           continueOnError: false,
         },
-        // ***Q***: should i have this 'push' step execute conditionally based on testingMode as well?
         {
           name: 'Push the branch and verify that automation builds/tags/releases the new version successfully.',
           run: 'git push --set-upstream origin k8s-${{ needs.check-latest-k8s-release.outputs.latestVersion }}/main',
@@ -296,17 +299,24 @@ export class K8sVersionUpgradeAutomation extends Component {
           env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
           continueOnError: false,
         },
-        // ***Q***: can't make this step conditionally be auto-approve
-        // ...WorkflowActions.createPullRequest({
-        //   workflowName: 'create-pull-request',
-        //   pullRequestTitle: 'chore(website): cdk8s-plus-${{ needs.check-latest-k8s-release.outputs.latestVersion }}',
-        //   pullRequestDescription: 'This PR updates the website with the latest version of cdk8s-plus.',
-        //   branchName: 'github-actions/website-update-${{ needs.check-latest-k8s-release.outputs.latestVersion }}',
-        //   credentials: GithubCredentials.fromPersonalAccessToken(),
-        //   // labels: [
-        //   //   'auto-approve',
-        //   // ],
-        // }),
+        {
+          name: 'Set auto-approve label for PR if in testing mode',
+          id: 'set-auto-approve-label',
+          if: '${{ github.event.inputs.testingMode }} == false',
+          run: 'echo labels="auto-approve" >> $GITHUB_OUTPUT',
+          env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
+          continueOnError: false,
+        },
+        ...WorkflowActions.createPullRequest({
+          workflowName: 'create-pull-request',
+          pullRequestTitle: 'chore(website): cdk8s-plus-${{ needs.check-latest-k8s-release.outputs.latestVersion }}',
+          pullRequestDescription: 'This PR updates the website with the latest version of cdk8s-plus.',
+          branchName: 'github-actions/website-update-${{ needs.check-latest-k8s-release.outputs.latestVersion }}',
+          credentials: GithubCredentials.fromPersonalAccessToken(),
+          labels: [
+            '${{ steps.set-auto-approve-label.outputs.labels }}',
+          ],
+        }),
       ],
     };
 
@@ -334,17 +344,24 @@ export class K8sVersionUpgradeAutomation extends Component {
           env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
           continueOnError: false,
         },
-        // don't do autoapprove for debugging as well
-        // ...WorkflowActions.createPullRequest({
-        //   workflowName: 'create-pull-request',
-        //   pullRequestTitle: 'chore: updating latest cdk8s-plus version to v${{ needs.check-latest-k8s-release.outputs.latestVersion }}',
-        //   pullRequestDescription: 'This PR updates the reference to of the latest cdk8s-plus version',
-        //   branchName: 'github-actions/cdk-ops-k8s-upgrade-${{ needs.check-latest-k8s-release.outputs.latestVersion }}',
-        //   labels: [
-        //     'auto-approve',
-        //   ],
-        //   credentials: GithubCredentials.fromPersonalAccessToken(),
-        // }),
+        {
+          name: 'Set auto-approve label for PR if in testing mode',
+          id: 'set-auto-approve-label',
+          if: '${{ github.event.inputs.testingMode }} == false',
+          run: 'echo labels="auto-approve" >> $GITHUB_OUTPUT',
+          env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
+          continueOnError: false,
+        },
+        ...WorkflowActions.createPullRequest({
+          workflowName: 'create-pull-request',
+          pullRequestTitle: 'chore: updating latest cdk8s-plus version to v${{ needs.check-latest-k8s-release.outputs.latestVersion }}',
+          pullRequestDescription: 'This PR updates the reference to of the latest cdk8s-plus version',
+          branchName: 'github-actions/cdk-ops-k8s-upgrade-${{ needs.check-latest-k8s-release.outputs.latestVersion }}',
+          labels: [
+            '${{ steps.set-auto-approve-label.outputs.labels }}',
+          ],
+          credentials: GithubCredentials.fromPersonalAccessToken(),
+        }),
       ],
     };
 
