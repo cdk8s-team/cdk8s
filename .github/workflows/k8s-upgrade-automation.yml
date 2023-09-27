@@ -119,13 +119,10 @@ jobs:
       - name: Import the new k8s spec from the prerequisite step
         run: yarn run import
       - name: Disable publishing if testingMode is true
-        run: "if [ ${{ github.event.inputs.testingMode }} == true ] ; then
-
-          \                npx projen disable-publishing
-
-          \                fi
-
-          \          "
+        run: |-
+          if [ ${{ github.event.inputs.testingMode }} == true ] ; then
+                          npx projen disable-publishing
+                          fi
       - name: Let projen update the remaining files
         run: npx projen build
       - name: Update references of old kubernetes versions with projen task
