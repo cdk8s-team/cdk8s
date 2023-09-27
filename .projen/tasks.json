@@ -104,25 +104,6 @@
         }
       ]
     },
-    "integ": {
-      "name": "integ",
-      "steps": [
-        {
-          "exec": "bash test/test-all.sh"
-        }
-      ]
-    },
-    "integ:update": {
-      "name": "integ:update",
-      "env": {
-        "UPDATE_SNAPSHOTS": "1"
-      },
-      "steps": [
-        {
-          "exec": "bash test/test-all.sh"
-        }
-      ]
-    },
     "package": {
       "name": "package",
       "description": "Creates the distribution package"
@@ -145,9 +126,6 @@
       "steps": [
         {
           "exec": "lerna run test -- -u"
-        },
-        {
-          "spawn": "integ:update"
         }
       ]
     },
@@ -162,25 +140,13 @@
           "exec": "yarn upgrade npm-check-updates"
         },
         {
-          "exec": "npm-check-updates --dep dev --upgrade --target=minor --filter='projen,@cdk8s/projen-common'"
-        },
-        {
-          "exec": "npm-check-updates --dep bundle --upgrade --target=minor --filter='projen,@cdk8s/projen-common'"
-        },
-        {
-          "exec": "npm-check-updates --dep peer --upgrade --target=minor --filter='projen,@cdk8s/projen-common'"
-        },
-        {
-          "exec": "npm-check-updates --dep prod --upgrade --target=minor --filter='projen,@cdk8s/projen-common'"
-        },
-        {
-          "exec": "npm-check-updates --dep optional --upgrade --target=minor --filter='projen,@cdk8s/projen-common'"
+          "exec": "npm-check-updates --upgrade --target=minor --peer --dep=dev,peer,prod,optional --filter=projen,@cdk8s/projen-common"
         },
         {
           "exec": "yarn install --check-files"
         },
         {
-          "exec": "yarn upgrade @cdk8s/projen-common projen"
+          "exec": "yarn upgrade projen @cdk8s/projen-common"
         },
         {
           "exec": "npx projen"
@@ -201,16 +167,13 @@
           "exec": "yarn upgrade npm-check-updates"
         },
         {
-          "exec": "npm-check-updates --dep dev --upgrade --target=minor --reject='projen,@cdk8s/projen-common'"
-        },
-        {
-          "exec": "npm-check-updates --dep bundle --upgrade --target=minor --reject='projen,@cdk8s/projen-common'"
+          "exec": "npm-check-updates --upgrade --target=minor --peer --dep=dev --filter=@types/jest,@types/node,cdk8s,cdk8s-cli,cdk8s-plus-25,cdk8s-plus-26,cdk8s-plus-27,constructs,jest,jest-junit,lerna,npm-check-updates,semver,ts-jest,typescript"
         },
         {
           "exec": "yarn install --check-files"
         },
         {
-          "exec": "yarn upgrade @types/jest @types/node cdk8s cdk8s-cli cdk8s-plus-24 cdk8s-plus-25 cdk8s-plus-26 constructs jest jest-junit lerna npm-check-updates semver ts-jest typescript"
+          "exec": "yarn upgrade @types/jest @types/node cdk8s cdk8s-cli cdk8s-plus-25 cdk8s-plus-26 cdk8s-plus-27 constructs jest jest-junit lerna npm-check-updates semver ts-jest typescript"
         },
         {
           "exec": "npx projen"
@@ -228,28 +191,7 @@
       },
       "steps": [
         {
-          "exec": "yarn upgrade npm-check-updates"
-        },
-        {
-          "exec": "npm-check-updates --dep peer --upgrade --target=minor --reject='projen,@cdk8s/projen-common'"
-        },
-        {
-          "exec": "npm-check-updates --dep prod --upgrade --target=minor --reject='projen,@cdk8s/projen-common'"
-        },
-        {
-          "exec": "npm-check-updates --dep optional --upgrade --target=minor --reject='projen,@cdk8s/projen-common'"
-        },
-        {
-          "exec": "yarn install --check-files"
-        },
-        {
-          "exec": "yarn upgrade @types/jest @types/node cdk8s cdk8s-cli cdk8s-plus-24 cdk8s-plus-25 cdk8s-plus-26 constructs jest jest-junit lerna npm-check-updates semver ts-jest typescript"
-        },
-        {
-          "exec": "npx projen"
-        },
-        {
-          "spawn": "post-upgrade"
+          "exec": "echo No dependencies to upgrade."
         }
       ]
     }
