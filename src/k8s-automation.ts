@@ -217,7 +217,7 @@ export class K8sVersionUpgradeAutomation extends Component {
         },
         {
           name: 'Create new branch',
-          run: 'git checkout -b k8s-${{ needs.check-latest-k8s-release.outputs.latestVersion}}/main${{ needs.check-latest-k8s-release.outputs.previousVersion}}',
+          run: 'git checkout -b k8s-${{ needs.check-latest-k8s-release.outputs.latestVersion}}/main',
           env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
           continueOnError: false,
         },

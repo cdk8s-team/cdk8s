@@ -102,7 +102,7 @@ jobs:
       - name: Create new branch
         env:
           GITHUB_TOKEN: ${{ secrets.PROJEN_GITHUB_TOKEN }}
-        run: git checkout -b k8s-${{ needs.check-latest-k8s-release.outputs.latestVersion}}/main${{ needs.check-latest-k8s-release.outputs.previousVersion}}
+        run: git checkout -b k8s-${{ needs.check-latest-k8s-release.outputs.latestVersion}}/main
         continue-on-error: false
       - name: Update reference of latest cdk8s version in txt file
         env:
