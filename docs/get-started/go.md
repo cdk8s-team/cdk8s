@@ -18,7 +18,7 @@ npm install -g cdk8s-cli
 ```
 
 ### Create a project
-Next, we’ll initialize a project to create the directory structure and install the necessary dependencies using the [init](https://cdk8s.io/docs/latest/cli/init/) command. 
+Next, we’ll initialize a project to create the directory structure and install the necessary dependencies using the [init](./../cli/init.md) command. 
 
  1. In a terminal window, create a new directory:
 ```bash
