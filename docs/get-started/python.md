@@ -1,4 +1,4 @@
-# Getting started with CDK8s for Python
+# Getting started with cdk8s for Python
 In this guide, we'll walk you through the most essential concepts you need to know in order to build a Kubernetes application using cdk8s for Python.
 
 ## Prerequisites
