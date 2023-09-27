@@ -73,14 +73,8 @@ This sample shows the basic structure of a cdk8s application with the essential 
  ## Define Kubernetes resources
  Now, let's delve into defining Kubernetes resources for our application. In this example, we'll outline a basic Kubernetes [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) for a sample app. We'll start by importing the `imports` directory and the `k8s` sub-directory, which houses all cdk8s Kubernetes classes and functions.
 
-### Update the `go.mod` file
-1. Open your `go.mod` file and add the following line at the bottom of the file:
-```go
-replace example.com/cdk8s-golang/imports/k8s => ./imports/k8s
-```
-
  ### Copy the code sample
- 
+
 1. Copy and paste the following code sample into the existing `main.go` file of your project.
 
  ```typescript
