@@ -73,7 +73,8 @@ imports. You could use them in this fashion:
 The `import` command supports two types of imports:
 
 1. `k8s`: generates constructs from the core Kubernetes API
-2. CRDs: generates constructs from custom resource definitions
+2. `CRDs`: generates constructs from custom resource definitions
+3. `Helm charts`: generates constructs from helm charts.
 
 This section describes specific behavior related to each type of import.
 
@@ -152,3 +153,120 @@ kubectl get crds -o json | cdk8s import /dev/stdin
 ```
 
 > Yes, this works!
+
+### Helm Charts
+
+You can import a helm chart and code generate construct for it. To do this, would would need to pass in either a url or a local path to the helm chart.
+
+The format for the helm chart url is: `helm:<repo-url>/<chart-name>@<chart-version>`.
+
+For example, running the following command would code generate [bitnami's mysql](https://github.com/bitnami/charts/tree/main/bitnami/mysql) helm chart:
+
+```
+cdk8s import helm:https://charts.bitnami.com/bitnami/mysql@9.10.10
+```
+
+You can use this generated constuct in your cdk8s application,
+
+```typescript
+import { Construct } from 'constructs';
+import { App, Chart, ChartProps } from 'cdk8s';
+import { Mysql, MysqlArchitecture } from './imports/mysql';
+
+export class MyChart extends Chart {
+  constructor(scope: Construct, id: string, props: ChartProps = { }) {
+    super(scope, id, props);
+
+    new Mysql(this, 'MySql', {
+      values: {
+        architecture: MysqlArchitecture.STANDALONE,     // <------- type safe property
+      }
+    });
+  }
+}
+
+const app = new App();
+new MyChart(app, 'Typescript-App');
+app.synth();
+```
+
+!!! note
+You would need `helm` to be installed on your machine for using this feature. 
+
+!!! note
+For accessing private helm repositories, you must be authenticated to the repository in a way that the `helm pull` command recognizes.
+
+!!! note
+  This feature is an extention to [helm](../basics/helm.md) support in cdk8s and you will find similar properties of Helm construct in these generated constructs.
+
+#### Helm Chart Schema
+
+If the helm chart that you are importing has a schema file(`values.schema.json`) within it, then the `values` property within the construct properties has code generated type safe sub properties.
+
+For example:
+
+```typescript
+import { Construct } from 'constructs';
+import { App, Chart, ChartProps } from 'cdk8s';
+import { Mysql, MysqlArchitecture } from './imports/mysql';
+
+export class MyChart extends Chart {
+  constructor(scope: Construct, id: string, props: ChartProps = { }) {
+    super(scope, id, props);
+
+    new Mysql(this, 'MySql', {
+      values: {
+        architecture: 'foo',    // <------- This will give an error since this is not `MysqlArchitecture` type which is generated from Schema
+      }
+    });
+  }
+}
+
+const app = new App();
+new MyChart(app, 'Typescript-App');
+app.synth();
+```
+
+If there is no schema present in the helm chart, then `values` will not have type support and you can pass in any values. 
+
+#### Additional values, global and dependencies
+
+Your generated construct's `values` property will also include following properties:
+* `additionalValues`: If the imported helm chart has a schema but that schema does not cover all values accepted by the chart, then you can use this property to pass in those values to the chart.
+* `dependencies`: If the imported helm chart has any dependencies mentioned in `Chart.yaml`, then you will find those as properties in the generated construct. You can use those to pass in values to the dependency. 
+* `global`: This property can be used to set global values. For more information, see [here](https://helm.sh/docs/chart_template_guide/subcharts_and_globals/#global-chart-values).
+
+For example:
+
+```typescript
+import { Construct } from 'constructs';
+import { App, Chart, ChartProps } from 'cdk8s';
+import { Mysql, MysqlArchitecture } from './imports/mysql';
+
+export class MyChart extends Chart {
+  constructor(scope: Construct, id: string, props: ChartProps = { }) {
+    super(scope, id, props);
+
+    new Mysql(this, 'MySql', {
+      values: {
+        architecture: MysqlArchitecture.STANDALONE,
+        common: {                                   // <------- `common` is a dependency for the MySql helm chart
+          names: {
+            namespace: 'foo',
+          }
+        },
+        global: {                                   // <------- global values
+          imageRegistry: 'bar',
+        },
+        additionalValues: {                         // <------- values missing in schema which are not code generated
+          nameOverride: "baz"
+        },
+      }
+    });
+  }
+}
+
+const app = new App();
+new MyChart(app, 'Typescript-App');
+app.synth();
+```
