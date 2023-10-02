@@ -2039,6 +2039,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#helm-synthesis" class="md-nav__link">
+    Helm Synthesis
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3057,6 +3064,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#helm-synthesis" class="md-nav__link">
+    Helm Synthesis
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3195,6 +3209,30 @@ This can be useful for air-gapped synthesis scenarios for example.</p>
 </ul>
 <h3 id="writing-plugins">Writing Plugins<a class="headerlink" href="#writing-plugins" title="Permanent link">&para;</a></h3>
 <p>See <a href="https://github.com/cdk8s-team/cdk8s-validation-plugin-example">cdk8s-validation-plugin-example</a></p>
+<h2 id="helm-synthesis">Helm Synthesis<a class="headerlink" href="#helm-synthesis" title="Permanent link">&para;</a></h2>
+<p>You can synthesize your cdk8s application to a format that is compatible with <a href="https://helm.sh/">helm</a>. </p>
+<p>For example, you can run:</p>
+<div class="highlight"><pre><span></span><code>cdk8s synth --format helm --chart-version 1.0.0
+</code></pre></div>
+<p>Then it will synthesize a generated helm chart to the output folder (default is &lsquo;dist&rsquo;). The <code>--chart-version</code> will be the <a href="https://helm.sh/docs/topics/charts/#charts-and-versioning">version</a> of the helm chart and must follow <a href="https://semver.org/spec/v2.0.0.html">SemVer2</a> standards. The synthesized manifests will be placed in <code>templates/</code> folder. And, if any crds were mentioned in <code>cdk8s.yaml</code> config file as <code>imports</code>, then they will be downloaded and placed in the <code>crds/</code> folder. </p>
+<p>The folder structure will look like:</p>
+<div class="highlight"><pre><span></span><code>dist/              
+├── Chart.yaml
+├── README.md
+├── crds/
+└── templates/
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+</div>
+<p>CRDs are not supported when <code>--chart-api-version</code> is set to <code>v1</code>. </p>
+<p>You can use the synthesized chart to deploy using helm:</p>
+<div class="highlight"><pre><span></span><code>cdk8s synth --format helm --chart-version 1.0.0 &amp;&amp; helm install &lt;release-name&gt; ./dist
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+</div>
+<p>Templates within the generated Helm chart are pure and static Kubernetes manifests; they don&rsquo;t contain any helm template directives. This means they cannot be customized with a values.yaml file or the release name. One important implication of this is that you cannot deploy two different releases of the same chart, as resource names will collide. If you need customization, you can do this within the cdk8s application (for example by explicitly reading a values.yaml file).</p>
 
 
 
