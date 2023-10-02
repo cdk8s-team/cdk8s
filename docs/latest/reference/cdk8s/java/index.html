@@ -2230,6 +2230,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#apiobjectmetadatadefinitionoptions" class="md-nav__link">
+    ApiObjectMetadataDefinitionOptions 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#apiobjectprops" class="md-nav__link">
     ApiObjectProps 
   </a>
@@ -2355,6 +2362,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#implicittokenresolver" class="md-nav__link">
+    ImplicitTokenResolver 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#jsonpatch" class="md-nav__link">
     JsonPatch 
   </a>
@@ -2369,8 +2383,22 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#lazyresolver" class="md-nav__link">
+    LazyResolver 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#names" class="md-nav__link">
     Names 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resolutioncontext" class="md-nav__link">
+    ResolutionContext 
   </a>
   
 </li>
@@ -2412,6 +2440,13 @@
           <li class="md-nav__item">
   <a href="#ianyproducer" class="md-nav__link">
     IAnyProducer 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iresolver" class="md-nav__link">
+    IResolver 
   </a>
   
 </li>
@@ -3309,6 +3344,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#apiobjectmetadatadefinitionoptions" class="md-nav__link">
+    ApiObjectMetadataDefinitionOptions 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#apiobjectprops" class="md-nav__link">
     ApiObjectProps 
   </a>
@@ -3434,6 +3476,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#implicittokenresolver" class="md-nav__link">
+    ImplicitTokenResolver 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#jsonpatch" class="md-nav__link">
     JsonPatch 
   </a>
@@ -3448,8 +3497,22 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#lazyresolver" class="md-nav__link">
+    LazyResolver 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#names" class="md-nav__link">
     Names 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resolutioncontext" class="md-nav__link">
+    ResolutionContext 
   </a>
   
 </li>
@@ -3491,6 +3554,13 @@
           <li class="md-nav__item">
   <a href="#ianyproducer" class="md-nav__link">
     IAnyProducer 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iresolver" class="md-nav__link">
+    IResolver 
   </a>
   
 </li>
@@ -3696,6 +3766,7 @@ construct path to generate a DNS-compatible name for the resource.</p>
 <span class="c1">//  .outdir(java.lang.String)</span>
 <span class="c1">//  .outputFileExtension(java.lang.String)</span>
 <span class="c1">//  .recordConstructMetadata(java.lang.Boolean)</span>
+<span class="c1">//  .resolvers(java.util.List&lt;IResolver&gt;)</span>
 <span class="c1">//  .yamlOutputType(YamlOutputType)</span>
 <span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
@@ -3726,6 +3797,19 @@ and synthesis will fail.</p>
 </ul>
 <p>When set to true, the output directory will contain a <code>construct-metadata.json</code> file that holds construct related metadata on every resource in the app.</p>
 <hr />
+<h5 id="resolversoptional"><code>resolvers</code><sup>Optional</sup> <a name="org.cdk8s.AppProps.parameter.resolvers"></a><a class="headerlink" href="#resolversoptional" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.IResolver"><code>org.cdk8s.IResolver</code></a>&gt;</li>
+<li><em>Default:</em> no resolvers.</li>
+</ul>
+<p>A list of resolvers that can be used to replace property values before they are written to the manifest file.</p>
+<p>When multiple resolvers are passed,
+they are invoked by order in the list, and only the first one that applies
+(e.g calls <code>context.replaceValue</code>) is invoked.</p>
+<blockquote>
+<p>https://cdk8s.io/docs/latest/basics/app/#resolvers</p>
+</blockquote>
+<hr />
 <h5 id="yamloutputtypeoptional"><code>yamlOutputType</code><sup>Optional</sup> <a name="org.cdk8s.AppProps.parameter.yamlOutputType"></a><a class="headerlink" href="#yamloutputtypeoptional" title="Permanent link">&para;</a></h5>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.YamlOutputType"><code>org.cdk8s.YamlOutputType</code></a></li>
@@ -3740,6 +3824,17 @@ and synthesis will fail.</p>
 <h5 id="synthyaml"><code>synthYaml</code> <a name="org.cdk8s.App.synthYaml"></a><a class="headerlink" href="#synthyaml" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="nf">synthYaml</span><span class="p">()</span>
 </code></pre></div>
+<h4 id="static-functions_1">Static Functions <a name="Static Functions"></a><a class="headerlink" href="#static-functions_1" title="Permanent link">&para;</a></h4>
+<h5 id="of_1"><code>of</code> <a name="org.cdk8s.App.of"></a><a class="headerlink" href="#of_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.App</span><span class="p">;</span>
+
+<span class="n">App</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">IConstruct</span><span class="w"> </span><span class="n">c</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="crequired_1"><code>c</code><sup>Required</sup> <a name="org.cdk8s.App.parameter.c"></a><a class="headerlink" href="#crequired_1" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <a href="#software.constructs.IConstruct"><code>software.constructs.IConstruct</code></a></li>
+</ul>
+<hr />
 <h4 id="properties_1">Properties <a name="Properties"></a><a class="headerlink" href="#properties_1" title="Permanent link">&para;</a></h4>
 <h5 id="chartsrequired"><code>charts</code><sup>Required</sup> <a name="org.cdk8s.App.property.charts"></a><a class="headerlink" href="#chartsrequired" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">Chart</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getCharts</span><span class="p">();</span>
@@ -3765,6 +3860,16 @@ and synthesis will fail.</p>
 <li><em>Default:</em> .k8s.yaml</li>
 </ul>
 <p>The file extension to use for rendered YAML files.</p>
+<hr />
+<h5 id="resolversrequired"><code>resolvers</code><sup>Required</sup> <a name="org.cdk8s.App.property.resolvers"></a><a class="headerlink" href="#resolversrequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">IResolver</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getResolvers</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.IResolver"><code>org.cdk8s.IResolver</code></a>&gt;</li>
+</ul>
+<p>Resolvers used by this app.</p>
+<p>This includes both custom resolvers
+passed by the <code>resolvers</code> property, as well as built-in resolvers.</p>
 <hr />
 <h5 id="yamloutputtyperequired"><code>yamlOutputType</code><sup>Required</sup> <a name="org.cdk8s.App.property.yamlOutputType"></a><a class="headerlink" href="#yamloutputtyperequired" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">YamlOutputType</span><span class="w"> </span><span class="nf">getYamlOutputType</span><span class="p">();</span>
@@ -3841,7 +3946,7 @@ and synthesis will fail.</p>
 <h5 id="tojson_1"><code>toJson</code> <a name="org.cdk8s.Chart.toJson"></a><a class="headerlink" href="#tojson_1" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="nf">toJson</span><span class="p">()</span>
 </code></pre></div>
-<h4 id="static-functions_1">Static Functions <a name="Static Functions"></a><a class="headerlink" href="#static-functions_1" title="Permanent link">&para;</a></h4>
+<h4 id="static-functions_2">Static Functions <a name="Static Functions"></a><a class="headerlink" href="#static-functions_2" title="Permanent link">&para;</a></h4>
 <h5 id="ischart"><code>isChart</code> <a name="org.cdk8s.Chart.isChart"></a><a class="headerlink" href="#ischart" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.Chart</span><span class="p">;</span>
 
@@ -3852,12 +3957,12 @@ and synthesis will fail.</p>
 <li><em>Type:</em> <code>java.lang.Object</code></li>
 </ul>
 <hr />
-<h5 id="of_1"><code>of</code> <a name="org.cdk8s.Chart.of"></a><a class="headerlink" href="#of_1" title="Permanent link">&para;</a></h5>
+<h5 id="of_2"><code>of</code> <a name="org.cdk8s.Chart.of"></a><a class="headerlink" href="#of_2" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.Chart</span><span class="p">;</span>
 
 <span class="n">Chart</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">IConstruct</span><span class="w"> </span><span class="n">c</span><span class="p">)</span>
 </code></pre></div>
-<h6 id="crequired_1"><code>c</code><sup>Required</sup> <a name="org.cdk8s.Chart.parameter.c"></a><a class="headerlink" href="#crequired_1" title="Permanent link">&para;</a></h6>
+<h6 id="crequired_2"><code>c</code><sup>Required</sup> <a name="org.cdk8s.Chart.parameter.c"></a><a class="headerlink" href="#crequired_2" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <a href="#software.constructs.IConstruct"><code>software.constructs.IConstruct</code></a></li>
 </ul>
@@ -4133,9 +4238,137 @@ relationships.</p>
 <p>https://kubernetes.io/docs/concepts/overview/working-with-objects/owners-dependents/</p>
 </blockquote>
 <hr />
+<h3 id="apiobjectmetadatadefinitionoptions">ApiObjectMetadataDefinitionOptions <a name="org.cdk8s.ApiObjectMetadataDefinitionOptions"></a><a class="headerlink" href="#apiobjectmetadatadefinitionoptions" title="Permanent link">&para;</a></h3>
+<p>Options for <code>ApiObjectMetadataDefinition</code>.</p>
+<h4 id="initializer_1">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_1" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.ApiObjectMetadataDefinitionOptions</span><span class="p">;</span>
+
+<span class="n">ApiObjectMetadataDefinitionOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
+<span class="c1">//  .annotations(java.util.Map&lt;java.lang.String, java.lang.String&gt;)</span>
+<span class="c1">//  .finalizers(java.util.List&lt;java.lang.String&gt;)</span>
+<span class="c1">//  .labels(java.util.Map&lt;java.lang.String, java.lang.String&gt;)</span>
+<span class="c1">//  .name(java.lang.String)</span>
+<span class="c1">//  .namespace(java.lang.String)</span>
+<span class="c1">//  .ownerReferences(java.util.List&lt;OwnerReference&gt;)</span>
+<span class="w">    </span><span class="p">.</span><span class="na">apiObject</span><span class="p">(</span><span class="n">ApiObject</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
+</code></pre></div>
+<h5 id="annotationsoptional_1"><code>annotations</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectMetadataDefinitionOptions.property.annotations"></a><a class="headerlink" href="#annotationsoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getAnnotations</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> java.util.Map<java.lang.String, <code>java.lang.String</code>></li>
+<li><em>Default:</em> No annotations.</li>
+</ul>
+<p>Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata.</p>
+<p>They are not queryable and should be
+preserved when modifying objects.</p>
+<blockquote>
+<p>http://kubernetes.io/docs/user-guide/annotations</p>
+</blockquote>
+<hr />
+<h5 id="finalizersoptional_1"><code>finalizers</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectMetadataDefinitionOptions.property.finalizers"></a><a class="headerlink" href="#finalizersoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getFinalizers</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> java.util.List&lt;<code>java.lang.String</code>&gt;</li>
+<li><em>Default:</em> No finalizers.</li>
+</ul>
+<p>Namespaced keys that tell Kubernetes to wait until specific conditions are met before it fully deletes resources marked for deletion.</p>
+<p>Must be empty before the object is deleted from the registry. Each entry is
+an identifier for the responsible component that will remove the entry from
+the list. If the deletionTimestamp of the object is non-nil, entries in
+this list can only be removed. Finalizers may be processed and removed in
+any order.  Order is NOT enforced because it introduces significant risk of
+stuck finalizers. finalizers is a shared field, any actor with permission
+can reorder it. If the finalizer list is processed in order, then this can
+lead to a situation in which the component responsible for the first
+finalizer in the list is waiting for a signal (field value, external
+system, or other) produced by a component responsible for a finalizer later
+in the list, resulting in a deadlock. Without enforced ordering finalizers
+are free to order amongst themselves and are not vulnerable to ordering
+changes in the list.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/overview/working-with-objects/finalizers/</p>
+</blockquote>
+<hr />
+<h5 id="labelsoptional_2"><code>labels</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectMetadataDefinitionOptions.property.labels"></a><a class="headerlink" href="#labelsoptional_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getLabels</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> java.util.Map<java.lang.String, <code>java.lang.String</code>></li>
+<li><em>Default:</em> No labels.</li>
+</ul>
+<p>Map of string keys and values that can be used to organize and categorize (scope and select) objects.</p>
+<p>May match selectors of replication controllers and services.</p>
+<blockquote>
+<p>http://kubernetes.io/docs/user-guide/labels</p>
+</blockquote>
+<hr />
+<h5 id="nameoptional_1"><code>name</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectMetadataDefinitionOptions.property.name"></a><a class="headerlink" href="#nameoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getName</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+<li><em>Default:</em> an app-unique name generated by the chart</li>
+</ul>
+<p>The unique, namespace-global, name of this object inside the Kubernetes cluster.</p>
+<p>Normally, you shouldn&rsquo;t specify names for objects and let the CDK generate
+a name for you that is application-unique. The names CDK generates are
+composed from the construct path components, separated by dots and a suffix
+that is based on a hash of the entire path, to ensure uniqueness.</p>
+<p>You can supply custom name allocation logic by overriding the
+<code>chart.generateObjectName</code> method.</p>
+<p>If you use an explicit name here, bear in mind that this reduces the
+composability of your construct because it won&rsquo;t be possible to include
+more than one instance in any app. Therefore it is highly recommended to
+leave this unspecified.</p>
+<hr />
+<h5 id="namespaceoptional_4"><code>namespace</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectMetadataDefinitionOptions.property.namespace"></a><a class="headerlink" href="#namespaceoptional_4" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getNamespace</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+<li><em>Default:</em> undefined (will be assigned to the &lsquo;default&rsquo; namespace)</li>
+</ul>
+<p>Namespace defines the space within each name must be unique.</p>
+<p>An empty namespace is equivalent to the &ldquo;default&rdquo; namespace, but &ldquo;default&rdquo; is the canonical representation.
+Not all objects are required to be scoped to a namespace - the value of this field for those objects will be empty. Must be a DNS_LABEL. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/namespaces</p>
+<hr />
+<h5 id="ownerreferencesoptional_1"><code>ownerReferences</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectMetadataDefinitionOptions.property.ownerReferences"></a><a class="headerlink" href="#ownerreferencesoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">OwnerReference</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getOwnerReferences</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.OwnerReference"><code>org.cdk8s.OwnerReference</code></a>&gt;</li>
+<li><em>Default:</em> automatically set by Kubernetes</li>
+</ul>
+<p>List of objects depended by this object.</p>
+<p>If ALL objects in the list have
+been deleted, this object will be garbage collected. If this object is
+managed by a controller, then an entry in this list will point to this
+controller, with the controller field set to true. There cannot be more
+than one managing controller.</p>
+<p>Kubernetes sets the value of this field automatically for objects that are
+dependents of other objects like ReplicaSets, DaemonSets, Deployments, Jobs
+and CronJobs, and ReplicationControllers. You can also configure these
+relationships manually by changing the value of this field. However, you
+usually don&rsquo;t need to and can allow Kubernetes to automatically manage the
+relationships.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/overview/working-with-objects/owners-dependents/</p>
+</blockquote>
+<hr />
+<h5 id="apiobjectrequired_1"><code>apiObject</code><sup>Required</sup> <a name="org.cdk8s.ApiObjectMetadataDefinitionOptions.property.apiObject"></a><a class="headerlink" href="#apiobjectrequired_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">ApiObject</span><span class="w"> </span><span class="nf">getApiObject</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.ApiObject"><code>org.cdk8s.ApiObject</code></a></li>
+</ul>
+<p>Which ApiObject instance is the metadata attached to.</p>
+<hr />
 <h3 id="apiobjectprops">ApiObjectProps <a name="org.cdk8s.ApiObjectProps"></a><a class="headerlink" href="#apiobjectprops" title="Permanent link">&para;</a></h3>
 <p>Options for defining API objects.</p>
-<h4 id="initializer_1">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_1" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_2">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_2" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.ApiObjectProps</span><span class="p">;</span>
 
 <span class="n">ApiObjectProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -4171,13 +4404,14 @@ relationships.</p>
 framework based on the path of the construct within thes construct tree.</p>
 <hr />
 <h3 id="appprops">AppProps <a name="org.cdk8s.AppProps"></a><a class="headerlink" href="#appprops" title="Permanent link">&para;</a></h3>
-<h4 id="initializer_2">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_2" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_3">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_3" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.AppProps</span><span class="p">;</span>
 
 <span class="n">AppProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
 <span class="c1">//  .outdir(java.lang.String)</span>
 <span class="c1">//  .outputFileExtension(java.lang.String)</span>
 <span class="c1">//  .recordConstructMetadata(java.lang.Boolean)</span>
+<span class="c1">//  .resolvers(java.util.List&lt;IResolver&gt;)</span>
 <span class="c1">//  .yamlOutputType(YamlOutputType)</span>
 <span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
@@ -4214,6 +4448,21 @@ and synthesis will fail.</p>
 </ul>
 <p>When set to true, the output directory will contain a <code>construct-metadata.json</code> file that holds construct related metadata on every resource in the app.</p>
 <hr />
+<h5 id="resolversoptional_1"><code>resolvers</code><sup>Optional</sup> <a name="org.cdk8s.AppProps.property.resolvers"></a><a class="headerlink" href="#resolversoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">IResolver</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getResolvers</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.IResolver"><code>org.cdk8s.IResolver</code></a>&gt;</li>
+<li><em>Default:</em> no resolvers.</li>
+</ul>
+<p>A list of resolvers that can be used to replace property values before they are written to the manifest file.</p>
+<p>When multiple resolvers are passed,
+they are invoked by order in the list, and only the first one that applies
+(e.g calls <code>context.replaceValue</code>) is invoked.</p>
+<blockquote>
+<p>https://cdk8s.io/docs/latest/basics/app/#resolvers</p>
+</blockquote>
+<hr />
 <h5 id="yamloutputtypeoptional_1"><code>yamlOutputType</code><sup>Optional</sup> <a name="org.cdk8s.AppProps.property.yamlOutputType"></a><a class="headerlink" href="#yamloutputtypeoptional_1" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">YamlOutputType</span><span class="w"> </span><span class="nf">getYamlOutputType</span><span class="p">();</span>
 </code></pre></div>
@@ -4224,7 +4473,7 @@ and synthesis will fail.</p>
 <p>How to divide the YAML output into files.</p>
 <hr />
 <h3 id="chartprops">ChartProps <a name="org.cdk8s.ChartProps"></a><a class="headerlink" href="#chartprops" title="Permanent link">&para;</a></h3>
-<h4 id="initializer_3">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_3" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_4">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_4" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.ChartProps</span><span class="p">;</span>
 
 <span class="n">ChartProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -4243,7 +4492,7 @@ and synthesis will fail.</p>
 <p>The autogenerated resource name by default is suffixed with a stable hash of the construct path.</p>
 <p>Setting this property to true drops the hash suffix.</p>
 <hr />
-<h5 id="labelsoptional_2"><code>labels</code><sup>Optional</sup> <a name="org.cdk8s.ChartProps.property.labels"></a><a class="headerlink" href="#labelsoptional_2" title="Permanent link">&para;</a></h5>
+<h5 id="labelsoptional_3"><code>labels</code><sup>Optional</sup> <a name="org.cdk8s.ChartProps.property.labels"></a><a class="headerlink" href="#labelsoptional_3" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getLabels</span><span class="p">();</span>
 </code></pre></div>
 <ul>
@@ -4252,7 +4501,7 @@ and synthesis will fail.</p>
 </ul>
 <p>Labels to apply to all resources in this chart.</p>
 <hr />
-<h5 id="namespaceoptional_4"><code>namespace</code><sup>Optional</sup> <a name="org.cdk8s.ChartProps.property.namespace"></a><a class="headerlink" href="#namespaceoptional_4" title="Permanent link">&para;</a></h5>
+<h5 id="namespaceoptional_5"><code>namespace</code><sup>Optional</sup> <a name="org.cdk8s.ChartProps.property.namespace"></a><a class="headerlink" href="#namespaceoptional_5" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getNamespace</span><span class="p">();</span>
 </code></pre></div>
 <ul>
@@ -4267,7 +4516,7 @@ and synthesis will fail.</p>
 <p>Options to configure a cron expression.</p>
 <p>All fields are strings so you can use complex expressions. Absence of
 a field implies &lsquo;*&rsquo;</p>
-<h4 id="initializer_4">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_4" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_5">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_5" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.CronOptions</span><span class="p">;</span>
 
 <span class="n">CronOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -4324,7 +4573,7 @@ a field implies &lsquo;*&rsquo;</p>
 <p>The day of the week to run this rule at.</p>
 <hr />
 <h3 id="groupversionkind">GroupVersionKind <a name="org.cdk8s.GroupVersionKind"></a><a class="headerlink" href="#groupversionkind" title="Permanent link">&para;</a></h3>
-<h4 id="initializer_5">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_5" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_6">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_6" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.GroupVersionKind</span><span class="p">;</span>
 
 <span class="n">GroupVersionKind</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -4350,7 +4599,7 @@ a field implies &lsquo;*&rsquo;</p>
 <hr />
 <h3 id="helmprops">HelmProps <a name="org.cdk8s.HelmProps"></a><a class="headerlink" href="#helmprops" title="Permanent link">&para;</a></h3>
 <p>Options for <code>Helm</code>.</p>
-<h4 id="initializer_6">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_6" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_7">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_7" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.HelmProps</span><span class="p">;</span>
 
 <span class="n">HelmProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -4391,7 +4640,7 @@ a field implies &lsquo;*&rsquo;</p>
 </ul>
 <p>Additional flags to add to the <code>helm</code> execution.</p>
 <hr />
-<h5 id="namespaceoptional_5"><code>namespace</code><sup>Optional</sup> <a name="org.cdk8s.HelmProps.property.namespace"></a><a class="headerlink" href="#namespaceoptional_5" title="Permanent link">&para;</a></h5>
+<h5 id="namespaceoptional_6"><code>namespace</code><sup>Optional</sup> <a name="org.cdk8s.HelmProps.property.namespace"></a><a class="headerlink" href="#namespaceoptional_6" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getNamespace</span><span class="p">();</span>
 </code></pre></div>
 <ul>
@@ -4441,7 +4690,7 @@ If this is not specified, the latest version is used</p>
 <p>This name is passed to <code>helm template --version</code> and has all the relevant semantics.</p>
 <hr />
 <h3 id="includeprops">IncludeProps <a name="org.cdk8s.IncludeProps"></a><a class="headerlink" href="#includeprops" title="Permanent link">&para;</a></h3>
-<h4 id="initializer_7">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_7" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_8">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_8" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.IncludeProps</span><span class="p">;</span>
 
 <span class="n">IncludeProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -4458,7 +4707,7 @@ If this is not specified, the latest version is used</p>
 <hr />
 <h3 id="nameoptions">NameOptions <a name="org.cdk8s.NameOptions"></a><a class="headerlink" href="#nameoptions" title="Permanent link">&para;</a></h3>
 <p>Options for name generation.</p>
-<h4 id="initializer_8">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_8" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_9">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_9" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.NameOptions</span><span class="p">;</span>
 
 <span class="n">NameOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -4508,7 +4757,7 @@ If this is not specified, the latest version is used</p>
 <p>OwnerReference contains enough information to let you identify an owning object.</p>
 <p>An owning object must be in the same namespace as the dependent, or
 be cluster-scoped, so there is no namespace field.</p>
-<h4 id="initializer_9">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_9" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_10">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_10" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.OwnerReference</span><span class="p">;</span>
 
 <span class="n">OwnerReference</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -4584,7 +4833,7 @@ returned.</p>
 <hr />
 <h3 id="sizeconversionoptions">SizeConversionOptions <a name="org.cdk8s.SizeConversionOptions"></a><a class="headerlink" href="#sizeconversionoptions" title="Permanent link">&para;</a></h3>
 <p>Options for how to convert time to a different unit.</p>
-<h4 id="initializer_10">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_10" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_11">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_11" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.SizeConversionOptions</span><span class="p">;</span>
 
 <span class="n">SizeConversionOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -4602,7 +4851,7 @@ returned.</p>
 <hr />
 <h3 id="timeconversionoptions">TimeConversionOptions <a name="org.cdk8s.TimeConversionOptions"></a><a class="headerlink" href="#timeconversionoptions" title="Permanent link">&para;</a></h3>
 <p>Options for how to convert time to a different unit.</p>
-<h4 id="initializer_11">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_11" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_12">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_12" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.TimeConversionOptions</span><span class="p">;</span>
 
 <span class="n">TimeConversionOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -4631,9 +4880,10 @@ returned.</p>
 <span class="c1">//  .name(java.lang.String)</span>
 <span class="c1">//  .namespace(java.lang.String)</span>
 <span class="c1">//  .ownerReferences(java.util.List&lt;OwnerReference&gt;)</span>
+<span class="w">    </span><span class="p">.</span><span class="na">apiObject</span><span class="p">(</span><span class="n">ApiObject</span><span class="p">)</span>
 <span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
-<h5 id="annotationsoptional_1"><code>annotations</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectMetadata.parameter.annotations"></a><a class="headerlink" href="#annotationsoptional_1" title="Permanent link">&para;</a></h5>
+<h5 id="annotationsoptional_2"><code>annotations</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectMetadataDefinitionOptions.parameter.annotations"></a><a class="headerlink" href="#annotationsoptional_2" title="Permanent link">&para;</a></h5>
 <ul>
 <li><em>Type:</em> java.util.Map<java.lang.String, <code>java.lang.String</code>></li>
 <li><em>Default:</em> No annotations.</li>
@@ -4645,7 +4895,7 @@ preserved when modifying objects.</p>
 <p>http://kubernetes.io/docs/user-guide/annotations</p>
 </blockquote>
 <hr />
-<h5 id="finalizersoptional_1"><code>finalizers</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectMetadata.parameter.finalizers"></a><a class="headerlink" href="#finalizersoptional_1" title="Permanent link">&para;</a></h5>
+<h5 id="finalizersoptional_2"><code>finalizers</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectMetadataDefinitionOptions.parameter.finalizers"></a><a class="headerlink" href="#finalizersoptional_2" title="Permanent link">&para;</a></h5>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<code>java.lang.String</code>&gt;</li>
 <li><em>Default:</em> No finalizers.</li>
@@ -4668,7 +4918,7 @@ changes in the list.</p>
 <p>https://kubernetes.io/docs/concepts/overview/working-with-objects/finalizers/</p>
 </blockquote>
 <hr />
-<h5 id="labelsoptional_3"><code>labels</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectMetadata.parameter.labels"></a><a class="headerlink" href="#labelsoptional_3" title="Permanent link">&para;</a></h5>
+<h5 id="labelsoptional_4"><code>labels</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectMetadataDefinitionOptions.parameter.labels"></a><a class="headerlink" href="#labelsoptional_4" title="Permanent link">&para;</a></h5>
 <ul>
 <li><em>Type:</em> java.util.Map<java.lang.String, <code>java.lang.String</code>></li>
 <li><em>Default:</em> No labels.</li>
@@ -4679,7 +4929,7 @@ changes in the list.</p>
 <p>http://kubernetes.io/docs/user-guide/labels</p>
 </blockquote>
 <hr />
-<h5 id="nameoptional_1"><code>name</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectMetadata.parameter.name"></a><a class="headerlink" href="#nameoptional_1" title="Permanent link">&para;</a></h5>
+<h5 id="nameoptional_2"><code>name</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectMetadataDefinitionOptions.parameter.name"></a><a class="headerlink" href="#nameoptional_2" title="Permanent link">&para;</a></h5>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 <li><em>Default:</em> an app-unique name generated by the chart</li>
@@ -4696,7 +4946,7 @@ composability of your construct because it won&rsquo;t be possible to include
 more than one instance in any app. Therefore it is highly recommended to
 leave this unspecified.</p>
 <hr />
-<h5 id="namespaceoptional_6"><code>namespace</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectMetadata.parameter.namespace"></a><a class="headerlink" href="#namespaceoptional_6" title="Permanent link">&para;</a></h5>
+<h5 id="namespaceoptional_7"><code>namespace</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectMetadataDefinitionOptions.parameter.namespace"></a><a class="headerlink" href="#namespaceoptional_7" title="Permanent link">&para;</a></h5>
 <ul>
 <li><em>Type:</em> <code>java.lang.String</code></li>
 <li><em>Default:</em> undefined (will be assigned to the &lsquo;default&rsquo; namespace)</li>
@@ -4705,7 +4955,7 @@ leave this unspecified.</p>
 <p>An empty namespace is equivalent to the &ldquo;default&rdquo; namespace, but &ldquo;default&rdquo; is the canonical representation.
 Not all objects are required to be scoped to a namespace - the value of this field for those objects will be empty. Must be a DNS_LABEL. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/namespaces</p>
 <hr />
-<h5 id="ownerreferencesoptional_1"><code>ownerReferences</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectMetadata.parameter.ownerReferences"></a><a class="headerlink" href="#ownerreferencesoptional_1" title="Permanent link">&para;</a></h5>
+<h5 id="ownerreferencesoptional_2"><code>ownerReferences</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectMetadataDefinitionOptions.parameter.ownerReferences"></a><a class="headerlink" href="#ownerreferencesoptional_2" title="Permanent link">&para;</a></h5>
 <ul>
 <li><em>Type:</em> java.util.List&lt;<a href="#org.cdk8s.OwnerReference"><code>org.cdk8s.OwnerReference</code></a>&gt;</li>
 <li><em>Default:</em> automatically set by Kubernetes</li>
@@ -4725,6 +4975,12 @@ relationships.</p>
 <blockquote>
 <p>https://kubernetes.io/docs/concepts/overview/working-with-objects/owners-dependents/</p>
 </blockquote>
+<hr />
+<h5 id="apiobjectrequired_2"><code>apiObject</code><sup>Required</sup> <a name="org.cdk8s.ApiObjectMetadataDefinitionOptions.parameter.apiObject"></a><a class="headerlink" href="#apiobjectrequired_2" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.ApiObject"><code>org.cdk8s.ApiObject</code></a></li>
+</ul>
+<p>Which ApiObject instance is the metadata attached to.</p>
 <hr />
 <h4 id="methods_3">Methods <a name="Methods"></a><a class="headerlink" href="#methods_3" title="Permanent link">&para;</a></h4>
 <h5 id="add"><code>add</code> <a name="org.cdk8s.ApiObjectMetadataDefinition.add"></a><a class="headerlink" href="#add" title="Permanent link">&para;</a></h5>
@@ -4803,7 +5059,7 @@ relationships.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="nf">toJson</span><span class="p">()</span>
 </code></pre></div>
 <h4 id="properties_5">Properties <a name="Properties"></a><a class="headerlink" href="#properties_5" title="Permanent link">&para;</a></h4>
-<h5 id="nameoptional_2"><code>name</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectMetadataDefinition.property.name"></a><a class="headerlink" href="#nameoptional_2" title="Permanent link">&para;</a></h5>
+<h5 id="nameoptional_3"><code>name</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectMetadataDefinition.property.name"></a><a class="headerlink" href="#nameoptional_3" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getName</span><span class="p">();</span>
 </code></pre></div>
 <ul>
@@ -4815,7 +5071,7 @@ Otherwise, a name will be generated by calling
 <code>Chart.of(this).generatedObjectName(this)</code>, which by default uses the
 construct path to generate a DNS-compatible name for the resource.</p>
 <hr />
-<h5 id="namespaceoptional_7"><code>namespace</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectMetadataDefinition.property.namespace"></a><a class="headerlink" href="#namespaceoptional_7" title="Permanent link">&para;</a></h5>
+<h5 id="namespaceoptional_8"><code>namespace</code><sup>Optional</sup> <a name="org.cdk8s.ApiObjectMetadataDefinition.property.namespace"></a><a class="headerlink" href="#namespaceoptional_8" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getNamespace</span><span class="p">();</span>
 </code></pre></div>
 <ul>
@@ -4871,7 +5127,7 @@ construct path to generate a DNS-compatible name for the resource.</p>
 </ul>
 <p>The day of the week to run this rule at.</p>
 <hr />
-<h4 id="static-functions_2">Static Functions <a name="Static Functions"></a><a class="headerlink" href="#static-functions_2" title="Permanent link">&para;</a></h4>
+<h4 id="static-functions_3">Static Functions <a name="Static Functions"></a><a class="headerlink" href="#static-functions_3" title="Permanent link">&para;</a></h4>
 <h5 id="annually"><code>annually</code> <a name="org.cdk8s.Cron.annually"></a><a class="headerlink" href="#annually" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.Cron</span><span class="p">;</span>
 
@@ -5066,7 +5322,7 @@ cannot be negative.</p>
 <h5 id="unitlabel"><code>unitLabel</code> <a name="org.cdk8s.Duration.unitLabel"></a><a class="headerlink" href="#unitlabel" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="nf">unitLabel</span><span class="p">()</span>
 </code></pre></div>
-<h4 id="static-functions_3">Static Functions <a name="Static Functions"></a><a class="headerlink" href="#static-functions_3" title="Permanent link">&para;</a></h4>
+<h4 id="static-functions_4">Static Functions <a name="Static Functions"></a><a class="headerlink" href="#static-functions_4" title="Permanent link">&para;</a></h4>
 <h5 id="days"><code>days</code> <a name="org.cdk8s.Duration.days"></a><a class="headerlink" href="#days" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.Duration</span><span class="p">;</span>
 
@@ -5133,13 +5389,32 @@ cannot be negative.</p>
 </ul>
 <p>the amount of Seconds the <code>Duration</code> will represent.</p>
 <hr />
+<h3 id="implicittokenresolver">ImplicitTokenResolver <a name="org.cdk8s.ImplicitTokenResolver"></a><a class="headerlink" href="#implicittokenresolver" title="Permanent link">&para;</a></h3>
+<ul>
+<li><em>Implements:</em> <a href="#org.cdk8s.IResolver"><code>org.cdk8s.IResolver</code></a></li>
+</ul>
+<p>Resolves implicit tokens.</p>
+<h4 id="initializers_9">Initializers <a name="org.cdk8s.ImplicitTokenResolver.Initializer"></a><a class="headerlink" href="#initializers_9" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.ImplicitTokenResolver</span><span class="p">;</span>
+
+<span class="k">new</span><span class="w"> </span><span class="n">ImplicitTokenResolver</span><span class="p">();</span>
+</code></pre></div>
+<h4 id="methods_7">Methods <a name="Methods"></a><a class="headerlink" href="#methods_7" title="Permanent link">&para;</a></h4>
+<h5 id="resolve"><code>resolve</code> <a name="org.cdk8s.ImplicitTokenResolver.resolve"></a><a class="headerlink" href="#resolve" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="nf">resolve</span><span class="p">(</span><span class="n">ResolutionContext</span><span class="w"> </span><span class="n">context</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="contextrequired"><code>context</code><sup>Required</sup> <a name="org.cdk8s.ImplicitTokenResolver.parameter.context"></a><a class="headerlink" href="#contextrequired" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.ResolutionContext"><code>org.cdk8s.ResolutionContext</code></a></li>
+</ul>
+<hr />
 <h3 id="jsonpatch">JsonPatch <a name="org.cdk8s.JsonPatch"></a><a class="headerlink" href="#jsonpatch" title="Permanent link">&para;</a></h3>
 <p>Utility for applying RFC-6902 JSON-Patch to a document.</p>
 <p>Use the the <code>JsonPatch.apply(doc, ...ops)</code> function to apply a set of
 operations to a JSON document and return the result.</p>
 <p>Operations can be created using the factory methods <code>JsonPatch.add()</code>,
 <code>JsonPatch.remove()</code>, etc.</p>
-<h4 id="static-functions_4">Static Functions <a name="Static Functions"></a><a class="headerlink" href="#static-functions_4" title="Permanent link">&para;</a></h4>
+<h4 id="static-functions_5">Static Functions <a name="Static Functions"></a><a class="headerlink" href="#static-functions_5" title="Permanent link">&para;</a></h4>
 <h5 id="add_1"><code>add</code> <a name="org.cdk8s.JsonPatch.add"></a><a class="headerlink" href="#add_1" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.JsonPatch</span><span class="p">;</span>
 
@@ -5243,11 +5518,11 @@ operations to a JSON document and return the result.</p>
 </ul>
 <hr />
 <h3 id="lazy">Lazy <a name="org.cdk8s.Lazy"></a><a class="headerlink" href="#lazy" title="Permanent link">&para;</a></h3>
-<h4 id="methods_7">Methods <a name="Methods"></a><a class="headerlink" href="#methods_7" title="Permanent link">&para;</a></h4>
+<h4 id="methods_8">Methods <a name="Methods"></a><a class="headerlink" href="#methods_8" title="Permanent link">&para;</a></h4>
 <h5 id="produce"><code>produce</code> <a name="org.cdk8s.Lazy.produce"></a><a class="headerlink" href="#produce" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="nf">produce</span><span class="p">()</span>
 </code></pre></div>
-<h4 id="static-functions_5">Static Functions <a name="Static Functions"></a><a class="headerlink" href="#static-functions_5" title="Permanent link">&para;</a></h4>
+<h4 id="static-functions_6">Static Functions <a name="Static Functions"></a><a class="headerlink" href="#static-functions_6" title="Permanent link">&para;</a></h4>
 <h5 id="any"><code>any</code> <a name="org.cdk8s.Lazy.any"></a><a class="headerlink" href="#any" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.Lazy</span><span class="p">;</span>
 
@@ -5258,9 +5533,28 @@ operations to a JSON document and return the result.</p>
 <li><em>Type:</em> <a href="#org.cdk8s.IAnyProducer"><code>org.cdk8s.IAnyProducer</code></a></li>
 </ul>
 <hr />
+<h3 id="lazyresolver">LazyResolver <a name="org.cdk8s.LazyResolver"></a><a class="headerlink" href="#lazyresolver" title="Permanent link">&para;</a></h3>
+<ul>
+<li><em>Implements:</em> <a href="#org.cdk8s.IResolver"><code>org.cdk8s.IResolver</code></a></li>
+</ul>
+<p>Resolvers instanecs of <code>Lazy</code>.</p>
+<h4 id="initializers_10">Initializers <a name="org.cdk8s.LazyResolver.Initializer"></a><a class="headerlink" href="#initializers_10" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.LazyResolver</span><span class="p">;</span>
+
+<span class="k">new</span><span class="w"> </span><span class="n">LazyResolver</span><span class="p">();</span>
+</code></pre></div>
+<h4 id="methods_9">Methods <a name="Methods"></a><a class="headerlink" href="#methods_9" title="Permanent link">&para;</a></h4>
+<h5 id="resolve_1"><code>resolve</code> <a name="org.cdk8s.LazyResolver.resolve"></a><a class="headerlink" href="#resolve_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="nf">resolve</span><span class="p">(</span><span class="n">ResolutionContext</span><span class="w"> </span><span class="n">context</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="contextrequired_1"><code>context</code><sup>Required</sup> <a name="org.cdk8s.LazyResolver.parameter.context"></a><a class="headerlink" href="#contextrequired_1" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.ResolutionContext"><code>org.cdk8s.ResolutionContext</code></a></li>
+</ul>
+<hr />
 <h3 id="names">Names <a name="org.cdk8s.Names"></a><a class="headerlink" href="#names" title="Permanent link">&para;</a></h3>
 <p>Utilities for generating unique and stable names.</p>
-<h4 id="static-functions_6">Static Functions <a name="Static Functions"></a><a class="headerlink" href="#static-functions_6" title="Permanent link">&para;</a></h4>
+<h4 id="static-functions_7">Static Functions <a name="Static Functions"></a><a class="headerlink" href="#static-functions_7" title="Permanent link">&para;</a></h4>
 <h5 id="todnslabel"><code>toDnsLabel</code> <a name="org.cdk8s.Names.toDnsLabel"></a><a class="headerlink" href="#todnslabel" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.Names</span><span class="p">;</span>
 
@@ -5297,12 +5591,87 @@ operations to a JSON document and return the result.</p>
 </ul>
 <p>Name options.</p>
 <hr />
+<h3 id="resolutioncontext">ResolutionContext <a name="org.cdk8s.ResolutionContext"></a><a class="headerlink" href="#resolutioncontext" title="Permanent link">&para;</a></h3>
+<p>Context object for a specific resolution process.</p>
+<h4 id="initializers_11">Initializers <a name="org.cdk8s.ResolutionContext.Initializer"></a><a class="headerlink" href="#initializers_11" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.ResolutionContext</span><span class="p">;</span>
+
+<span class="k">new</span><span class="w"> </span><span class="n">ResolutionContext</span><span class="p">(</span><span class="n">ApiObject</span><span class="w"> </span><span class="n">obj</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Object</span><span class="w"> </span><span class="n">value</span><span class="p">);</span>
+</code></pre></div>
+<h5 id="objrequired"><code>obj</code><sup>Required</sup> <a name="org.cdk8s.ResolutionContext.parameter.obj"></a><a class="headerlink" href="#objrequired" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.ApiObject"><code>org.cdk8s.ApiObject</code></a></li>
+</ul>
+<p>Which ApiObject is currently being resolved.</p>
+<hr />
+<h5 id="keyrequired_4"><code>key</code><sup>Required</sup> <a name="org.cdk8s.ResolutionContext.parameter.key"></a><a class="headerlink" href="#keyrequired_4" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> java.util.List&lt;<code>java.lang.String</code>&gt;</li>
+</ul>
+<p>Which key is currently being resolved.</p>
+<hr />
+<h5 id="valuerequired_6"><code>value</code><sup>Required</sup> <a name="org.cdk8s.ResolutionContext.parameter.value"></a><a class="headerlink" href="#valuerequired_6" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.Object</code></li>
+</ul>
+<p>The value associated to the key currently being resolved.</p>
+<hr />
+<h4 id="methods_10">Methods <a name="Methods"></a><a class="headerlink" href="#methods_10" title="Permanent link">&para;</a></h4>
+<h5 id="replacevalue"><code>replaceValue</code> <a name="org.cdk8s.ResolutionContext.replaceValue"></a><a class="headerlink" href="#replacevalue" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="nf">replaceValue</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Object</span><span class="w"> </span><span class="n">newValue</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="newvaluerequired"><code>newValue</code><sup>Required</sup> <a name="org.cdk8s.ResolutionContext.parameter.newValue"></a><a class="headerlink" href="#newvaluerequired" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <code>java.lang.Object</code></li>
+</ul>
+<hr />
+<h4 id="properties_9">Properties <a name="Properties"></a><a class="headerlink" href="#properties_9" title="Permanent link">&para;</a></h4>
+<h5 id="keyrequired_5"><code>key</code><sup>Required</sup> <a name="org.cdk8s.ResolutionContext.property.key"></a><a class="headerlink" href="#keyrequired_5" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getKey</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> java.util.List&lt;<code>java.lang.String</code>&gt;</li>
+</ul>
+<p>Which key is currently being resolved.</p>
+<hr />
+<h5 id="objrequired_1"><code>obj</code><sup>Required</sup> <a name="org.cdk8s.ResolutionContext.property.obj"></a><a class="headerlink" href="#objrequired_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">ApiObject</span><span class="w"> </span><span class="nf">getObj</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.ApiObject"><code>org.cdk8s.ApiObject</code></a></li>
+</ul>
+<p>Which ApiObject is currently being resolved.</p>
+<hr />
+<h5 id="valuerequired_7"><code>value</code><sup>Required</sup> <a name="org.cdk8s.ResolutionContext.property.value"></a><a class="headerlink" href="#valuerequired_7" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Object</span><span class="w"> </span><span class="nf">getValue</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.Object</code></li>
+</ul>
+<p>The value associated to the key currently being resolved.</p>
+<hr />
+<h5 id="replacedrequired"><code>replaced</code><sup>Required</sup> <a name="org.cdk8s.ResolutionContext.property.replaced"></a><a class="headerlink" href="#replacedrequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span><span class="w"> </span><span class="nf">getReplaced</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+</ul>
+<p>Whether or not the value was replaced by invoking the <code>replaceValue</code> method.</p>
+<hr />
+<h5 id="replacedvaluerequired"><code>replacedValue</code><sup>Required</sup> <a name="org.cdk8s.ResolutionContext.property.replacedValue"></a><a class="headerlink" href="#replacedvaluerequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Object</span><span class="w"> </span><span class="nf">getReplacedValue</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.Object</code></li>
+</ul>
+<p>The replaced value that was set via the <code>replaceValue</code> method.</p>
+<hr />
 <h3 id="size">Size <a name="org.cdk8s.Size"></a><a class="headerlink" href="#size" title="Permanent link">&para;</a></h3>
 <p>Represents the amount of digital storage.</p>
 <p>The amount can be specified either as a literal value (e.g: <code>10</code>) which
 cannot be negative.</p>
 <p>When the amount is passed as a token, unit conversion is not possible.</p>
-<h4 id="methods_8">Methods <a name="Methods"></a><a class="headerlink" href="#methods_8" title="Permanent link">&para;</a></h4>
+<h4 id="methods_11">Methods <a name="Methods"></a><a class="headerlink" href="#methods_11" title="Permanent link">&para;</a></h4>
 <h5 id="togibibytes"><code>toGibibytes</code> <a name="org.cdk8s.Size.toGibibytes"></a><a class="headerlink" href="#togibibytes" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="nf">toGibibytes</span><span class="p">()</span>
 <span class="kd">public</span><span class="w"> </span><span class="nf">toGibibytes</span><span class="p">(</span><span class="n">SizeConversionOptions</span><span class="w"> </span><span class="n">opts</span><span class="p">)</span>
@@ -5348,7 +5717,7 @@ cannot be negative.</p>
 <li><em>Type:</em> <a href="#org.cdk8s.SizeConversionOptions"><code>org.cdk8s.SizeConversionOptions</code></a></li>
 </ul>
 <hr />
-<h4 id="static-functions_7">Static Functions <a name="Static Functions"></a><a class="headerlink" href="#static-functions_7" title="Permanent link">&para;</a></h4>
+<h4 id="static-functions_8">Static Functions <a name="Static Functions"></a><a class="headerlink" href="#static-functions_8" title="Permanent link">&para;</a></h4>
 <h5 id="gibibytes"><code>gibibytes</code> <a name="org.cdk8s.Size.gibibytes"></a><a class="headerlink" href="#gibibytes" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.Size</span><span class="p">;</span>
 
@@ -5401,7 +5770,7 @@ cannot be negative.</p>
 <hr />
 <h3 id="testing">Testing <a name="org.cdk8s.Testing"></a><a class="headerlink" href="#testing" title="Permanent link">&para;</a></h3>
 <p>Testing utilities for cdk8s applications.</p>
-<h4 id="static-functions_8">Static Functions <a name="Static Functions"></a><a class="headerlink" href="#static-functions_8" title="Permanent link">&para;</a></h4>
+<h4 id="static-functions_9">Static Functions <a name="Static Functions"></a><a class="headerlink" href="#static-functions_9" title="Permanent link">&para;</a></h4>
 <h5 id="app_1"><code>app</code> <a name="org.cdk8s.Testing.app"></a><a class="headerlink" href="#app_1" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.Testing</span><span class="p">;</span>
 
@@ -5430,7 +5799,7 @@ cannot be negative.</p>
 <hr />
 <h3 id="yaml">Yaml <a name="org.cdk8s.Yaml"></a><a class="headerlink" href="#yaml" title="Permanent link">&para;</a></h3>
 <p>YAML utilities.</p>
-<h4 id="static-functions_9">Static Functions <a name="Static Functions"></a><a class="headerlink" href="#static-functions_9" title="Permanent link">&para;</a></h4>
+<h4 id="static-functions_10">Static Functions <a name="Static Functions"></a><a class="headerlink" href="#static-functions_10" title="Permanent link">&para;</a></h4>
 <h5 id="formatobjects">~~<code>formatObjects</code>~~ <a name="org.cdk8s.Yaml.formatObjects"></a><a class="headerlink" href="#formatobjects" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.Yaml</span><span class="p">;</span>
 
@@ -5496,10 +5865,24 @@ cannot be negative.</p>
 <ul>
 <li><em>Implemented By:</em> <a href="#org.cdk8s.IAnyProducer"><code>org.cdk8s.IAnyProducer</code></a></li>
 </ul>
-<h4 id="methods_9">Methods <a name="Methods"></a><a class="headerlink" href="#methods_9" title="Permanent link">&para;</a></h4>
+<h4 id="methods_12">Methods <a name="Methods"></a><a class="headerlink" href="#methods_12" title="Permanent link">&para;</a></h4>
 <h5 id="produce_1"><code>produce</code> <a name="org.cdk8s.IAnyProducer.produce"></a><a class="headerlink" href="#produce_1" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="nf">produce</span><span class="p">()</span>
 </code></pre></div>
+<h3 id="iresolver">IResolver <a name="org.cdk8s.IResolver"></a><a class="headerlink" href="#iresolver" title="Permanent link">&para;</a></h3>
+<ul>
+<li><em>Implemented By:</em> <a href="#org.cdk8s.ImplicitTokenResolver"><code>org.cdk8s.ImplicitTokenResolver</code></a>, <a href="#org.cdk8s.LazyResolver"><code>org.cdk8s.LazyResolver</code></a>, <a href="#org.cdk8s.IResolver"><code>org.cdk8s.IResolver</code></a></li>
+</ul>
+<p>Contract for resolver objects.</p>
+<h4 id="methods_13">Methods <a name="Methods"></a><a class="headerlink" href="#methods_13" title="Permanent link">&para;</a></h4>
+<h5 id="resolve_2"><code>resolve</code> <a name="org.cdk8s.IResolver.resolve"></a><a class="headerlink" href="#resolve_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="nf">resolve</span><span class="p">(</span><span class="n">ResolutionContext</span><span class="w"> </span><span class="n">context</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="contextrequired_2"><code>context</code><sup>Required</sup> <a name="org.cdk8s.IResolver.parameter.context"></a><a class="headerlink" href="#contextrequired_2" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <a href="#org.cdk8s.ResolutionContext"><code>org.cdk8s.ResolutionContext</code></a></li>
+</ul>
+<hr />
 <h2 id="enums">Enums <a name="Enums"></a><a class="headerlink" href="#enums" title="Permanent link">&para;</a></h2>
 <h3 id="sizeroundingbehavior">SizeRoundingBehavior <a name="SizeRoundingBehavior"></a><a class="headerlink" href="#sizeroundingbehavior" title="Permanent link">&para;</a></h3>
 <p>Rounding behaviour when converting between units of <code>Size</code>.</p>
