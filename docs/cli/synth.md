@@ -162,7 +162,7 @@ For example, you can run:
 cdk8s synth --format helm --chart-version 1.0.0
 ```
 
-Then it will synthesize a generated helm chart to the output folder (default is 'dist'). The `--chart-version` will be the [version](https://helm.sh/docs/topics/charts/#charts-and-versioning) in `Chart.yaml` of the helm chart. The synthesized manifests will be placed in `templates/` folder. And, if any crds were mentioned in `cdk8s.yaml` config file as `imports`, then they will be downloaded and placed in the `crds/` folder. 
+Then it will synthesize a generated helm chart to the output folder (default is 'dist'). The `--chart-version` will be the [version](https://helm.sh/docs/topics/charts/#charts-and-versioning) of the helm chart and must follow [SemVer2](https://semver.org/spec/v2.0.0.html) standards. The synthesized manifests will be placed in `templates/` folder. And, if any crds were mentioned in `cdk8s.yaml` config file as `imports`, then they will be downloaded and placed in the `crds/` folder. 
 
 The folder structure will look like:
 
