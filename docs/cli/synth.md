@@ -152,3 +152,36 @@ You can also control the plugins storage directory by one of:
 
 See [cdk8s-validation-plugin-example](https://github.com/cdk8s-team/cdk8s-validation-plugin-example)
 
+## Helm Synthesis
+
+You can synthesize your cdk8s application to a format that is compatible with [helm](https://helm.sh/). 
+
+For example, you can run:
+
+```
+cdk8s synth --format helm --chart-version 1.0.0
+```
+
+Then it will synthesize a generated helm chart to the output folder (default is 'dist'). The `--chart-version` will be the [version](https://helm.sh/docs/topics/charts/#charts-and-versioning) of the helm chart and must follow [SemVer2](https://semver.org/spec/v2.0.0.html) standards. The synthesized manifests will be placed in `templates/` folder. And, if any crds were mentioned in `cdk8s.yaml` config file as `imports`, then they will be downloaded and placed in the `crds/` folder. 
+
+The folder structure will look like:
+
+```
+dist/              
+├── Chart.yaml
+├── README.md
+├── crds/
+└── templates/
+```
+
+!!! note
+  CRDs are not supported when `--chart-api-version` is set to `v1`. 
+
+You can use the synthesized chart to deploy using helm:
+
+```
+cdk8s synth --format helm --chart-version 1.0.0 && helm install <release-name> ./dist
+```
+
+!!! note
+  Templates within the generated Helm chart are pure and static Kubernetes manifests; they don't contain any helm template directives. This means they cannot be customized with a values.yaml file or the release name. One important implication of this is that you cannot deploy two different releases of the same chart, as resource names will collide. If you need customization, you can do this within the cdk8s application (for example by explicitly reading a values.yaml file).
