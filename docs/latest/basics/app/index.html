@@ -8,28 +8,28 @@
       
       
       
-        <link rel="canonical" href="https://cdk8s.io/docs/latest/plus/cdk8s-plus-27/ingress/">
+        <link rel="canonical" href="https://cdk8s.io/docs/latest/basics/app/">
       
       
-        <link rel="prev" href="../horizontal-pod-autoscaler/">
+        <link rel="prev" href="../deps/">
       
       
-        <link rel="next" href="../job/">
+        <link rel="next" href="../escape-hatches/">
       
       
-      <link rel="icon" href="../../../assets/favicon.png">
+      <link rel="icon" href="../../assets/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.3">
     
     
       
-        <title>Ingress - cdk8s</title>
+        <title>App - cdk8s</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.79e020e9.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.79e020e9.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.a5377069.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a5377069.min.css">
       
       
 
@@ -48,9 +48,9 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/extra.css">
+      <link rel="stylesheet" href="../../assets/extra.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -75,7 +75,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ingress" class="md-skip">
+        <a href="#app" class="md-skip">
           Skip to content
         </a>
       
@@ -93,7 +93,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="/" title="cdk8s" class="md-header__button md-logo" aria-label="cdk8s" data-md-component="logo">
       
-  <img src="../../../assets/logo.png" alt="logo">
+  <img src="../../assets/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Ingress
+              App
             
           </span>
         </div>
@@ -198,7 +198,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="/" title="cdk8s" class="md-nav__button md-logo" aria-label="cdk8s" data-md-component="logo">
       
-  <img src="../../../assets/logo.png" alt="logo">
+  <img src="../../assets/logo.png" alt="logo">
 
     </a>
     cdk8s
@@ -224,7 +224,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -243,7 +243,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../getting-started/" class="md-nav__link">
+      <a href="../../getting-started/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -260,6 +260,8 @@
       
   
   
+    
+  
   
     
     
@@ -290,17 +292,17 @@
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../basics/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -317,7 +319,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Basics
@@ -332,7 +334,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../basics/constructs/" class="md-nav__link">
+      <a href="../constructs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -352,7 +354,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../basics/chart/" class="md-nav__link">
+      <a href="../chart/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -372,7 +374,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../basics/api-object/" class="md-nav__link">
+      <a href="../api-object/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -392,7 +394,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../basics/deps/" class="md-nav__link">
+      <a href="../deps/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -410,9 +412,29 @@
                 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../../basics/app/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    App
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -421,6 +443,35 @@
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#resolvers" class="md-nav__link">
+    Resolvers
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -432,7 +483,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../basics/escape-hatches/" class="md-nav__link">
+      <a href="../escape-hatches/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -452,7 +503,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../basics/helm/" class="md-nav__link">
+      <a href="../helm/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -472,7 +523,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../basics/include/" class="md-nav__link">
+      <a href="../include/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -492,7 +543,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../basics/testing/" class="md-nav__link">
+      <a href="../testing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -517,8 +568,6 @@
       
   
   
-    
-  
   
     
     
@@ -537,17 +586,17 @@
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../" class="md-nav__link ">
+            <a href="../../plus/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -564,7 +613,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             cdk8s+
@@ -651,7 +700,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cdk8s-plus-25/config-map/" class="md-nav__link">
+      <a href="../../plus/cdk8s-plus-25/config-map/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -671,7 +720,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cdk8s-plus-25/container/" class="md-nav__link">
+      <a href="../../plus/cdk8s-plus-25/container/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -691,7 +740,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cdk8s-plus-25/cronjob/" class="md-nav__link">
+      <a href="../../plus/cdk8s-plus-25/cronjob/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -711,7 +760,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cdk8s-plus-25/deployment/" class="md-nav__link">
+      <a href="../../plus/cdk8s-plus-25/deployment/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -731,7 +780,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cdk8s-plus-25/horizontal-pod-autoscaler/" class="md-nav__link">
+      <a href="../../plus/cdk8s-plus-25/horizontal-pod-autoscaler/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -751,7 +800,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cdk8s-plus-25/ingress/" class="md-nav__link">
+      <a href="../../plus/cdk8s-plus-25/ingress/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -771,7 +820,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cdk8s-plus-25/job/" class="md-nav__link">
+      <a href="../../plus/cdk8s-plus-25/job/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -791,7 +840,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cdk8s-plus-25/namespace/" class="md-nav__link">
+      <a href="../../plus/cdk8s-plus-25/namespace/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -811,7 +860,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cdk8s-plus-25/network-policy/" class="md-nav__link">
+      <a href="../../plus/cdk8s-plus-25/network-policy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -831,7 +880,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cdk8s-plus-25/pod/" class="md-nav__link">
+      <a href="../../plus/cdk8s-plus-25/pod/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -851,7 +900,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cdk8s-plus-25/pv/" class="md-nav__link">
+      <a href="../../plus/cdk8s-plus-25/pv/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -871,7 +920,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cdk8s-plus-25/pvc/" class="md-nav__link">
+      <a href="../../plus/cdk8s-plus-25/pvc/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -891,7 +940,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cdk8s-plus-25/rbac/" class="md-nav__link">
+      <a href="../../plus/cdk8s-plus-25/rbac/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -911,7 +960,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cdk8s-plus-25/secret/" class="md-nav__link">
+      <a href="../../plus/cdk8s-plus-25/secret/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -931,7 +980,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cdk8s-plus-25/service-account/" class="md-nav__link">
+      <a href="../../plus/cdk8s-plus-25/service-account/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -951,7 +1000,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cdk8s-plus-25/service/" class="md-nav__link">
+      <a href="../../plus/cdk8s-plus-25/service/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -971,7 +1020,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cdk8s-plus-25/volume/" class="md-nav__link">
+      <a href="../../plus/cdk8s-plus-25/volume/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1071,7 +1120,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cdk8s-plus-26/config-map/" class="md-nav__link">
+      <a href="../../plus/cdk8s-plus-26/config-map/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1091,7 +1140,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cdk8s-plus-26/container/" class="md-nav__link">
+      <a href="../../plus/cdk8s-plus-26/container/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1111,7 +1160,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cdk8s-plus-26/cronjob/" class="md-nav__link">
+      <a href="../../plus/cdk8s-plus-26/cronjob/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1131,7 +1180,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cdk8s-plus-26/deployment/" class="md-nav__link">
+      <a href="../../plus/cdk8s-plus-26/deployment/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1151,7 +1200,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cdk8s-plus-26/horizontal-pod-autoscaler/" class="md-nav__link">
+      <a href="../../plus/cdk8s-plus-26/horizontal-pod-autoscaler/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1171,7 +1220,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cdk8s-plus-26/ingress/" class="md-nav__link">
+      <a href="../../plus/cdk8s-plus-26/ingress/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1191,7 +1240,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cdk8s-plus-26/job/" class="md-nav__link">
+      <a href="../../plus/cdk8s-plus-26/job/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1211,7 +1260,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cdk8s-plus-26/namespace/" class="md-nav__link">
+      <a href="../../plus/cdk8s-plus-26/namespace/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1231,7 +1280,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cdk8s-plus-26/network-policy/" class="md-nav__link">
+      <a href="../../plus/cdk8s-plus-26/network-policy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1251,7 +1300,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cdk8s-plus-26/pod/" class="md-nav__link">
+      <a href="../../plus/cdk8s-plus-26/pod/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1271,7 +1320,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cdk8s-plus-26/pv/" class="md-nav__link">
+      <a href="../../plus/cdk8s-plus-26/pv/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1291,7 +1340,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cdk8s-plus-26/pvc/" class="md-nav__link">
+      <a href="../../plus/cdk8s-plus-26/pvc/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1311,7 +1360,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cdk8s-plus-26/rbac/" class="md-nav__link">
+      <a href="../../plus/cdk8s-plus-26/rbac/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1331,7 +1380,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cdk8s-plus-26/secret/" class="md-nav__link">
+      <a href="../../plus/cdk8s-plus-26/secret/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1351,7 +1400,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cdk8s-plus-26/service-account/" class="md-nav__link">
+      <a href="../../plus/cdk8s-plus-26/service-account/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1371,7 +1420,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cdk8s-plus-26/service/" class="md-nav__link">
+      <a href="../../plus/cdk8s-plus-26/service/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1391,7 +1440,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cdk8s-plus-26/volume/" class="md-nav__link">
+      <a href="../../plus/cdk8s-plus-26/volume/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1417,8 +1466,6 @@
                 
   
   
-    
-  
   
     
     
@@ -1461,12 +1508,12 @@
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
         
           
           <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
@@ -1480,7 +1527,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_4">
             <span class="md-nav__icon md-icon"></span>
             cdk8s-plus-27
@@ -1493,7 +1540,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../config-map/" class="md-nav__link">
+      <a href="../../plus/cdk8s-plus-27/config-map/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1513,7 +1560,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../container/" class="md-nav__link">
+      <a href="../../plus/cdk8s-plus-27/container/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1533,7 +1580,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cronjob/" class="md-nav__link">
+      <a href="../../plus/cdk8s-plus-27/cronjob/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1553,7 +1600,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../deployment/" class="md-nav__link">
+      <a href="../../plus/cdk8s-plus-27/deployment/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1573,7 +1620,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../horizontal-pod-autoscaler/" class="md-nav__link">
+      <a href="../../plus/cdk8s-plus-27/horizontal-pod-autoscaler/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1591,18 +1638,9 @@
                 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../plus/cdk8s-plus-27/ingress/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1611,7 +1649,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -1623,7 +1660,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../job/" class="md-nav__link">
+      <a href="../../plus/cdk8s-plus-27/job/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1643,7 +1680,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../namespace/" class="md-nav__link">
+      <a href="../../plus/cdk8s-plus-27/namespace/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1663,7 +1700,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../network-policy/" class="md-nav__link">
+      <a href="../../plus/cdk8s-plus-27/network-policy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1683,7 +1720,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pod/" class="md-nav__link">
+      <a href="../../plus/cdk8s-plus-27/pod/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1703,7 +1740,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pv/" class="md-nav__link">
+      <a href="../../plus/cdk8s-plus-27/pv/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1723,7 +1760,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pvc/" class="md-nav__link">
+      <a href="../../plus/cdk8s-plus-27/pvc/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1743,7 +1780,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../rbac/" class="md-nav__link">
+      <a href="../../plus/cdk8s-plus-27/rbac/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1763,7 +1800,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../secret/" class="md-nav__link">
+      <a href="../../plus/cdk8s-plus-27/secret/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1783,7 +1820,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../service-account/" class="md-nav__link">
+      <a href="../../plus/cdk8s-plus-27/service-account/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1803,7 +1840,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../service/" class="md-nav__link">
+      <a href="../../plus/cdk8s-plus-27/service/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1823,7 +1860,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../volume/" class="md-nav__link">
+      <a href="../../plus/cdk8s-plus-27/volume/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1886,7 +1923,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../cli/" class="md-nav__link ">
+            <a href="../../cli/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1918,7 +1955,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cli/installation/" class="md-nav__link">
+      <a href="../../cli/installation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1938,7 +1975,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cli/init/" class="md-nav__link">
+      <a href="../../cli/init/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1958,7 +1995,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cli/import/" class="md-nav__link">
+      <a href="../../cli/import/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1978,7 +2015,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cli/synth/" class="md-nav__link">
+      <a href="../../cli/synth/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2033,7 +2070,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../reference/" class="md-nav__link ">
+            <a href="../../reference/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2111,7 +2148,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../reference/cdk8s/typescript/" class="md-nav__link">
+      <a href="../../reference/cdk8s/typescript/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2131,7 +2168,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../reference/cdk8s/python/" class="md-nav__link">
+      <a href="../../reference/cdk8s/python/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2151,7 +2188,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../reference/cdk8s/java/" class="md-nav__link">
+      <a href="../../reference/cdk8s/java/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2171,7 +2208,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../reference/cdk8s/go/" class="md-nav__link">
+      <a href="../../reference/cdk8s/go/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2245,7 +2282,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../reference/cdk8s-plus-25/typescript/" class="md-nav__link">
+      <a href="../../reference/cdk8s-plus-25/typescript/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2265,7 +2302,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../reference/cdk8s-plus-25/python/" class="md-nav__link">
+      <a href="../../reference/cdk8s-plus-25/python/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2285,7 +2322,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../reference/cdk8s-plus-25/java/" class="md-nav__link">
+      <a href="../../reference/cdk8s-plus-25/java/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2305,7 +2342,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../reference/cdk8s-plus-25/go/" class="md-nav__link">
+      <a href="../../reference/cdk8s-plus-25/go/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2379,7 +2416,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../reference/cdk8s-plus-26/typescript/" class="md-nav__link">
+      <a href="../../reference/cdk8s-plus-26/typescript/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2399,7 +2436,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../reference/cdk8s-plus-26/python/" class="md-nav__link">
+      <a href="../../reference/cdk8s-plus-26/python/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2419,7 +2456,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../reference/cdk8s-plus-26/java/" class="md-nav__link">
+      <a href="../../reference/cdk8s-plus-26/java/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2439,7 +2476,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../reference/cdk8s-plus-26/go/" class="md-nav__link">
+      <a href="../../reference/cdk8s-plus-26/go/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2513,7 +2550,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../reference/cdk8s-plus-27/typescript/" class="md-nav__link">
+      <a href="../../reference/cdk8s-plus-27/typescript/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2533,7 +2570,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../reference/cdk8s-plus-27/python/" class="md-nav__link">
+      <a href="../../reference/cdk8s-plus-27/python/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2553,7 +2590,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../reference/cdk8s-plus-27/java/" class="md-nav__link">
+      <a href="../../reference/cdk8s-plus-27/java/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2573,7 +2610,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../reference/cdk8s-plus-27/go/" class="md-nav__link">
+      <a href="../../reference/cdk8s-plus-27/go/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2628,7 +2665,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../examples/" class="md-nav__link ">
+            <a href="../../examples/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2662,7 +2699,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ecosystem-interoperability/" class="md-nav__link">
+      <a href="../../ecosystem-interoperability/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2681,7 +2718,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../migrating-from-1.x/" class="md-nav__link">
+      <a href="../../migrating-from-1.x/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2855,7 +2892,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../CHANGELOG/" class="md-nav__link">
+      <a href="../../CHANGELOG/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2874,7 +2911,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ROADMAP/" class="md-nav__link">
+      <a href="../../ROADMAP/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2893,7 +2930,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../CONTRIBUTING/" class="md-nav__link">
+      <a href="../../CONTRIBUTING/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2912,7 +2949,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../media/" class="md-nav__link">
+      <a href="../../media/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2947,6 +2984,21 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#resolvers" class="md-nav__link">
+    Resolvers
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2963,63 +3015,104 @@
   
 
 
-<h1 id="ingress">Ingress<a class="headerlink" href="#ingress" title="Permanent link">&para;</a></h1>
-<p><a href="https://kubernetes.io/docs/concepts/services-networking/ingress/">Ingress</a> manages external access to services in a cluster, typically through
-HTTP. Ingress may provide load balancing, SSL termination and name-based virtual
-hosting.</p>
-<div class="admonition tip">
-<p><a href="../../../reference/cdk8s-plus-27/typescript/#ingressv1beta1">API Reference</a></p>
-</div>
-<p>You must have an <a href="https://kubernetes.io/docs/concepts/services-networking/ingress-controllers">Ingress controller</a> to satisfy an Ingress. Only creating an
-Ingress resource has no effect.</p>
-<p>The following example will route HTTP requests sent to the <code>/hello</code> url prefix
-to a service associated with a deployment of the
-<a href="https://github.com/hashicorp/http-echo">hashicorp/http-echo</a> image.</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-27&#39;</span><span class="p">;</span>
-<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Construct</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;constructs&#39;</span><span class="p">;</span>
-<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">App</span><span class="p">,</span><span class="w"> </span><span class="nx">Chart</span><span class="p">,</span><span class="w"> </span><span class="nx">ChartProps</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span>
-
-<span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">MyChart</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Chart</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">scope</span><span class="o">:</span><span class="w"> </span><span class="kt">Construct</span><span class="p">,</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">props</span><span class="o">:</span><span class="w"> </span><span class="kt">ChartProps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">super</span><span class="p">(</span><span class="nx">scope</span><span class="p">,</span><span class="w"> </span><span class="nx">id</span><span class="p">,</span><span class="w"> </span><span class="nx">props</span><span class="p">);</span>
-
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">helloDeployment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Deployment</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Deployment&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nx">containers</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">          </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;hashicorp/http-echo&#39;</span><span class="p">,</span>
-<span class="w">          </span><span class="nx">args</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s1">&#39;-text&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;hello ingress&#39;</span><span class="w"> </span><span class="p">],</span>
-<span class="w">          </span><span class="nx">portNumber</span><span class="o">:</span><span class="w"> </span><span class="kt">5678</span><span class="p">,</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">      </span><span class="p">]</span>
-<span class="w">    </span><span class="p">});</span>
-
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">helloService</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">helloDeployment</span><span class="p">.</span><span class="nx">exposeViaService</span><span class="p">({</span>
-<span class="w">        </span><span class="nx">ports</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">          </span><span class="p">{</span>
-<span class="w">            </span><span class="nx">port</span><span class="o">:</span><span class="w"> </span><span class="kt">5678</span><span class="p">,</span>
-<span class="w">          </span><span class="p">}</span>
-<span class="w">        </span><span class="p">]</span>
-<span class="w">      </span><span class="p">});</span>
-
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">ingress</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Ingress</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;ingress&#39;</span><span class="p">);</span>
-<span class="w">    </span><span class="nx">ingress</span><span class="p">.</span><span class="nx">addRule</span><span class="p">(</span><span class="s1">&#39;/hello&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">IngressBackend</span><span class="p">.</span><span class="nx">fromService</span><span class="p">(</span><span class="nx">helloService</span><span class="p">));</span>
-<span class="w"> </span><span class="p">}</span>
-<span class="p">}</span>
+<h1 id="app">App<a class="headerlink" href="#app" title="Permanent link">&para;</a></h1>
+<p>The <code>App</code> is the entry-point of your <code>cdk8s</code> application, and is the root of the constructs tree.
+Every application first starts by creating an instance of an <code>App</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">App</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span>
 
 <span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">App</span><span class="p">();</span>
-<span class="ow">new</span><span class="w"> </span><span class="nx">MyChart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;ingress&#39;</span><span class="p">);</span>
+</code></pre></div>
+<p>Then, <a href="../chart/">Charts</a> are registered into the app:</p>
+<div class="highlight"><pre><span></span><code><span class="ow">new</span><span class="w"> </span><span class="nx">MyChart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Chart&#39;</span><span class="p">);</span>
+</code></pre></div>
+<p>And finally, the <code>app</code> is synthesized in order to produce the YAML manifests. Overall, your <code>cdk8s</code> 
+application will have the following high level structure to it:</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">App</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span>
+
+<span class="c1">// create the app entry-point</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">App</span><span class="p">();</span>
+
+<span class="c1">// register charts to the app</span>
+<span class="ow">new</span><span class="w"> </span><span class="nx">MyChart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Chart&#39;</span><span class="p">);</span>
+
+<span class="c1">// synthesize the app</span>
 <span class="nx">app</span><span class="p">.</span><span class="nx">synth</span><span class="p">();</span>
 </code></pre></div>
-<p>You can use <code>addHostRule(host, path, backend)</code> to define a route that will only
-apply to requests with this <code>Host</code> header. This can be used to implement virtual
-hosts.</p>
-<p>The <code>addDefaultBackend(backend)</code> and <code>addHostDefaultBackend(host, backend)</code>
-methods can be used to define backends that will accept all requests that do not
-match any other rules.</p>
-<p>The TCP port used to route requests to services will be determined based on
-which ports are exposed by the service (e.g. through <code>serve()</code>). If the service
-exposes multiple ports, then a port must be specified via
-<code>IngressBackend.fromService(service, { port })</code>.</p>
+<h2 id="resolvers">Resolvers<a class="headerlink" href="#resolvers" title="Permanent link">&para;</a></h2>
+<p>Resolvers are a mechanism to inject custom logic into the cdk8s value resolution process. 
+It allows to transform any value just before being written to the Kubernetes manifest. To define a 
+custom resolver, first create a class that implements the <code>IValueResolver</code> interface:</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">IResolver</span><span class="p">,</span><span class="w"> </span><span class="nx">ResolutionContext</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span>
+
+<span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">MyCustomResolver</span><span class="w"> </span><span class="k">implements</span><span class="w"> </span><span class="nx">IValueResolver</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">resolve</span><span class="p">(</span><span class="nx">context</span><span class="o">:</span><span class="w"> </span><span class="kt">ResolutionContext</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nx">any</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">newValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="c1">// run some custom logic</span>
+<span class="w">    </span><span class="nx">context</span><span class="p">.</span><span class="nx">replaceValue</span><span class="p">(</span><span class="nx">newValue</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+<p>The <code>context</code> argument contains information about the value that is currently being resolved:</p>
+<ul>
+<li><strong>obj</strong>: <code>ApiObject</code> currently being resolved.</li>
+<li><strong>key</strong>: Array containing the JSON path elements of the keys leading up to the value.</li>
+<li><strong>value</strong>: The original value.</li>
+</ul>
+<p>It also contains the <code>replaceValue</code> method you should use to set a replacement value instead of the original.
+When you create a cdk8s <code>App</code>, pass the resolver instance to it via the <code>resolvers</code> property:</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">App</span><span class="p">,</span><span class="w"> </span><span class="nx">Chart</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">App</span><span class="p">({</span><span class="w"> </span><span class="nx">resolvers</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="ow">new</span><span class="w"> </span><span class="nx">MyCustomResolver</span><span class="p">()]</span><span class="w"> </span><span class="p">});</span>
+<span class="ow">new</span><span class="w"> </span><span class="nx">Chart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Chart&#39;</span><span class="p">);</span>
+</code></pre></div>
+<p>When you run <code>cdk8s synth</code>, your custom logic will be invoked, allowing you to replace the 
+original value. </p>
+<blockquote>
+<p>When passing multiple resolvers, the first one (by natural order of the array) that invokes <code>replaceValue</code> is considered, and others are ignored.</p>
+</blockquote>
+<p>The resolver is invoked on every value of cdk8s resource, including complex ones. For example, if you define a Kubernetes <code>Service</code> like so:</p>
+<div class="highlight"><pre><span></span><code><span class="ow">new</span><span class="w"> </span><span class="nx">KubeService</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Service&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">spec</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;LoadBalancer&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Your resolver will be invoked like so:</p>
+<ol>
+<li>
+<p>Invoked on the entire spec:</p>
+<ul>
+<li><em>obj</em>: The <code>KubeService</code> instance.</li>
+<li><em>key</em>: <code>['spec']</code></li>
+<li><em>value</em>: <code>{ type: 'LoadBalancer' }</code></li>
+</ul>
+</li>
+<li>
+<p>Invoked on the primitive value:</p>
+<ul>
+<li><em>obj</em>: The <code>KubeService</code> instance.</li>
+<li><em>key</em>: <code>['spec', 'type']</code></li>
+<li><em>value</em>: <code>LoadBalancer</code></li>
+</ul>
+</li>
+</ol>
+<p>This is why you should always implement a type-check on the value before deciding to replace it or not.
+For example:</p>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="nx">resolve</span><span class="p">(</span><span class="nx">context</span><span class="o">:</span><span class="w"> </span><span class="kt">ResolutionContext</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nx">any</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">key</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="ow">typeof</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">value</span><span class="p">)</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;string&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">newValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="c1">// run some custom logic</span>
+<span class="w">    </span><span class="nx">context</span><span class="p">.</span><span class="nx">replaceValue</span><span class="p">(</span><span class="nx">newValue</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>One common use-case for resolvers is to fetch values from deployed infrastructure. 
+This allows authoring cdk8s applications that natively leverage managed cloud resources. 
+To that end, two specific resolvers are available that allow you to integrate cdk8s with other CDK frameworks:</p>
+<ul>
+<li><a href="https://github.com/cdk8s-team/cdk8s-awscdk-resolver">AWS CDK Resolver</a></li>
+<li><a href="https://github.com/cdk8s-team/cdk8s-cdktf-resolver">CDK For Terraform Resolver</a></li>
+</ul>
 
 
 
@@ -3092,10 +3185,10 @@ exposes multiple ports, then a port must be specified via
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.indexes", "navigation.tracking", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.indexes", "navigation.tracking", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.6eac0284.min.js"></script>
+      <script src="../../assets/javascripts/bundle.6eac0284.min.js"></script>
       
     
   </body>

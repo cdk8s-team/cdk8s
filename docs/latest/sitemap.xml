@@ -51,6 +51,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://cdk8s.io/docs/latest/basics/app/</loc>
+         <lastmod>2023-10-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://cdk8s.io/docs/latest/basics/chart/</loc>
          <lastmod>2023-10-02</lastmod>
          <changefreq>daily</changefreq>
