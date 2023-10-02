@@ -175,7 +175,7 @@ dist/
 ```
 
 !!! note
-  CRDs are not supported when `--chart-api-version` is set to `v1`. 
+    CRDs are not supported when `--chart-api-version` is set to `v1`. 
 
 You can use the synthesized chart to deploy using helm:
 
@@ -184,4 +184,4 @@ cdk8s synth --format helm --chart-version 1.0.0 && helm install <release-name> .
 ```
 
 !!! note
-  Templates within the generated Helm chart are pure and static Kubernetes manifests; they don't contain any helm template directives. This means they cannot be customized with a values.yaml file or the release name. One important implication of this is that you cannot deploy two different releases of the same chart, as resource names will collide. If you need customization, you can do this within the cdk8s application (for example by explicitly reading a values.yaml file).
+    Templates within the generated Helm chart are pure and static Kubernetes manifests; they don't contain any helm template directives. This means they cannot be customized with a values.yaml file or the release name. One important implication of this is that you cannot deploy two different releases of the same chart, as resource names will collide. If you need customization, you can do this within the cdk8s application (for example by explicitly reading a values.yaml file).
