@@ -3040,15 +3040,28 @@ application will have the following high level structure to it:</p>
 </code></pre></div>
 <h2 id="resolvers">Resolvers<a class="headerlink" href="#resolvers" title="Permanent link">&para;</a></h2>
 <p>Resolvers are a mechanism to inject custom logic into the cdk8s value resolution process. 
-It allows to transform any value just before being written to the Kubernetes manifest. To define a 
-custom resolver, first create a class that implements the <code>IValueResolver</code> interface:</p>
+It allows to transform any value just before being written to the Kubernetes manifest. </p>
+<p>For example, lets create a resolver that adds a prefix to every resource in our application.
+To define a custom resolver, create a class that implements the <code>IResolver</code> interface:</p>
 <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">IResolver</span><span class="p">,</span><span class="w"> </span><span class="nx">ResolutionContext</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span>
 
-<span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">MyCustomResolver</span><span class="w"> </span><span class="k">implements</span><span class="w"> </span><span class="nx">IValueResolver</span><span class="w"> </span><span class="p">{</span>
+<span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">AddNamePrefixResolver</span><span class="w"> </span><span class="k">implements</span><span class="w"> </span><span class="nx">IResolver</span><span class="w"> </span><span class="p">{</span>
 
-<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">resolve</span><span class="p">(</span><span class="nx">context</span><span class="o">:</span><span class="w"> </span><span class="kt">ResolutionContext</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nx">any</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">newValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="c1">// run some custom logic</span>
-<span class="w">    </span><span class="nx">context</span><span class="p">.</span><span class="nx">replaceValue</span><span class="p">(</span><span class="nx">newValue</span><span class="p">);</span>
+<span class="w">  </span><span class="kr">constructor</span><span class="p">(</span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">prefix</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">resolve</span><span class="p">(</span><span class="nx">context</span><span class="o">:</span><span class="w"> </span><span class="kt">ResolutionContext</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="c1">// check if we are resolving the name property</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">isNameProperty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">key</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="s1">&#39;metadata&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">key</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">key</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">2</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// check we haven&#39;t already added a prefix. this is important because</span>
+<span class="w">    </span><span class="c1">// resolution is recursive, so we need to avoid infinite recursion.</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">isPrefixed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">typeof</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">value</span><span class="p">)</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;string&#39;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">startsWith</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">prefix</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">isNameProperty</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="nx">isPrefixed</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// replace the value with a new one</span>
+<span class="w">      </span><span class="nx">context</span><span class="p">.</span><span class="nx">replaceValue</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">prefix</span><span class="si">}${</span><span class="nx">context</span><span class="p">.</span><span class="nx">value</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="w">  </span><span class="p">}</span>
 
 <span class="p">}</span>
@@ -3063,7 +3076,7 @@ custom resolver, first create a class that implements the <code>IValueResolver</
 When you create a cdk8s <code>App</code>, pass the resolver instance to it via the <code>resolvers</code> property:</p>
 <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">App</span><span class="p">,</span><span class="w"> </span><span class="nx">Chart</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span>
 
-<span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">App</span><span class="p">({</span><span class="w"> </span><span class="nx">resolvers</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="ow">new</span><span class="w"> </span><span class="nx">MyCustomResolver</span><span class="p">()]</span><span class="w"> </span><span class="p">});</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">App</span><span class="p">({</span><span class="w"> </span><span class="nx">resolvers</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="ow">new</span><span class="w"> </span><span class="nx">AddNamePrefixResolver</span><span class="p">(</span><span class="s1">&#39;custom-prefix&#39;</span><span class="p">)]</span><span class="w"> </span><span class="p">});</span>
 <span class="ow">new</span><span class="w"> </span><span class="nx">Chart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Chart&#39;</span><span class="p">);</span>
 </code></pre></div>
 <p>When you run <code>cdk8s synth</code>, your custom logic will be invoked, allowing you to replace the 
@@ -3071,41 +3084,6 @@ original value. </p>
 <blockquote>
 <p>When passing multiple resolvers, the first one (by natural order of the array) that invokes <code>replaceValue</code> is considered, and others are ignored.</p>
 </blockquote>
-<p>The resolver is invoked on every value of cdk8s resource, including complex ones. For example, if you define a Kubernetes <code>Service</code> like so:</p>
-<div class="highlight"><pre><span></span><code><span class="ow">new</span><span class="w"> </span><span class="nx">KubeService</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Service&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">spec</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kr">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;LoadBalancer&#39;</span><span class="p">,</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">});</span>
-</code></pre></div>
-<p>Your resolver will be invoked like so:</p>
-<ol>
-<li>
-<p>Invoked on the entire spec:</p>
-<ul>
-<li><em>obj</em>: The <code>KubeService</code> instance.</li>
-<li><em>key</em>: <code>['spec']</code></li>
-<li><em>value</em>: <code>{ type: 'LoadBalancer' }</code></li>
-</ul>
-</li>
-<li>
-<p>Invoked on the primitive value:</p>
-<ul>
-<li><em>obj</em>: The <code>KubeService</code> instance.</li>
-<li><em>key</em>: <code>['spec', 'type']</code></li>
-<li><em>value</em>: <code>LoadBalancer</code></li>
-</ul>
-</li>
-</ol>
-<p>This is why you should always implement a type-check on the value before deciding to replace it or not.
-For example:</p>
-<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="nx">resolve</span><span class="p">(</span><span class="nx">context</span><span class="o">:</span><span class="w"> </span><span class="kt">ResolutionContext</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nx">any</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">key</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="ow">typeof</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">value</span><span class="p">)</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;string&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">newValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="c1">// run some custom logic</span>
-<span class="w">    </span><span class="nx">context</span><span class="p">.</span><span class="nx">replaceValue</span><span class="p">(</span><span class="nx">newValue</span><span class="p">);</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
 <p>One common use-case for resolvers is to fetch values from deployed infrastructure. 
 This allows authoring cdk8s applications that natively leverage managed cloud resources. 
 To that end, two specific resolvers are available that allow you to integrate cdk8s with other CDK frameworks:</p>
