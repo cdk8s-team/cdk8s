@@ -34,17 +34,31 @@ app.synth();
 ## Resolvers
 
 Resolvers are a mechanism to inject custom logic into the cdk8s value resolution process. 
-It allows to transform any value just before being written to the Kubernetes manifest. To define a 
-custom resolver, first create a class that implements the `IResolver` interface:
+It allows to transform any value just before being written to the Kubernetes manifest. 
+
+For example, lets create a resolver that adds a prefix to every resource in our application.
+To define a custom resolver, create a class that implements the `IResolver` interface:
 
 ```ts
 import { IResolver, ResolutionContext } from 'cdk8s';
 
-export class MyCustomResolver implements IResolver {
+export class AddNamePrefixResolver implements IResolver {
 
-  public resolve(context: ResolutionContext): any {
-    const newValue = ... // run some custom logic
-    context.replaceValue(newValue);
+  constructor(private readonly prefix: string) {}
+
+  public resolve(context: ResolutionContext): void {
+
+    // check if we are resolving the name property
+    const isNameProperty = context.key.includes('metadata') && context.key.includes('name') && context.key.length === 2;
+
+    // check we haven't already added a prefix. this is important because
+    // resolution is recursive, so we need to avoid infinite recursion.
+    const isPrefixed = typeof(context.value) === 'string' && context.value.startsWith(this.prefix);
+
+    if (isNameProperty && !isPrefixed) {
+      // replace the value with a new one
+      context.replaceValue(`${this.prefix}${context.value}`);
+    }
   }
 
 }
@@ -62,7 +76,7 @@ When you create a cdk8s `App`, pass the resolver instance to it via the `resolve
 ```ts
 import { App, Chart } from 'cdk8s'
 
-const app = new App({ resolvers: [new MyCustomResolver()] });
+const app = new App({ resolvers: [new AddNamePrefixResolver('custom-prefix')] });
 new Chart(app, 'Chart');
 ```
 
@@ -70,40 +84,6 @@ When you run `cdk8s synth`, your custom logic will be invoked, allowing you to r
 original value. 
 
 > When passing multiple resolvers, the first one (by natural order of the array) that invokes `replaceValue` is considered, and others are ignored.
-
-The resolver is invoked on every value of cdk8s resource, including complex ones. For example, if you define a Kubernetes `Service` like so:
-
-```ts
-new KubeService(this, 'Service', {
-  spec: {
-    type: 'LoadBalancer',
-  }
-});
-```
-
-Your resolver will be invoked like so:
-
-1. Invoked on the entire spec:
-    - *obj*: The `KubeService` instance.
-    - *key*: `['spec']`
-    - *value*: `{ type: 'LoadBalancer' }`
-
-2. Invoked on the primitive value:
-    - *obj*: The `KubeService` instance.
-    - *key*: `['spec', 'type']`
-    - *value*: `LoadBalancer`
-
-This is why you should always implement a type-check on the value before deciding to replace it or not.
-For example:
-
-```ts
-public resolve(context: ResolutionContext): any {
-  if (context.key.includes('type') && typeof(context.value) === 'string') {
-    const newValue = ... // run some custom logic
-    context.replaceValue(newValue);
-  }
-}
-```
 
 One common use-case for resolvers is to fetch values from deployed infrastructure. 
 This allows authoring cdk8s applications that natively leverage managed cloud resources. 
