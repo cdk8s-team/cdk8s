@@ -35,12 +35,12 @@ app.synth();
 
 Resolvers are a mechanism to inject custom logic into the cdk8s value resolution process. 
 It allows to transform any value just before being written to the Kubernetes manifest. To define a 
-custom resolver, first create a class that implements the `IValueResolver` interface:
+custom resolver, first create a class that implements the `IResolver` interface:
 
 ```ts
 import { IResolver, ResolutionContext } from 'cdk8s';
 
-export class MyCustomResolver implements IValueResolver {
+export class MyCustomResolver implements IResolver {
 
   public resolve(context: ResolutionContext): any {
     const newValue = ... // run some custom logic
