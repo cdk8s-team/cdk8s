@@ -4,10 +4,8 @@ You can use the `Helm` construct in order to include [Helm](https://helm.sh)
 charts.
 
 !!! note
-You will need helm to be [installed](https://helm.sh/docs/intro/install/) locally for this feature.
-
-!!! note
-For accessing private helm repositories, you must be authenticated to the repository in a way that the `helm pull` command recognizes.
+    You will need helm to be [installed](https://helm.sh/docs/intro/install/) locally for this feature.
+    For accessing private helm repositories, you must be authenticated to the repository in a way that the `helm pull` command recognizes.
 
 The following example adds the
 [bitnami/redis](https://github.com/bitnami/charts/tree/master/bitnami/redis)
