@@ -74,7 +74,7 @@ The `import` command supports two types of imports:
 
 1. `k8s`: generates constructs from the core Kubernetes API
 2. `CRDs`: generates constructs from custom resource definitions
-3. `Helm charts`: generates constructs from helm charts.
+3. `Helm Charts`: generates constructs from helm charts.
 
 This section describes specific behavior related to each type of import.
 
