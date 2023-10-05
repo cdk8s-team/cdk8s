@@ -2964,9 +2964,11 @@
 <h1 id="helm-support">Helm Support<a class="headerlink" href="#helm-support" title="Permanent link">&para;</a></h1>
 <p>You can use the <code>Helm</code> construct in order to include <a href="https://helm.sh">Helm</a>
 charts.</p>
-<p>In order to use this construct, you must have <code>helm</code> installed on your system.
-See <a href="https://helm.sh/docs/intro/install/">Installing Helm</a> in the Helm
-documentation for details.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You will need helm to be <a href="https://helm.sh/docs/intro/install/">installed</a> locally for this feature.
+For accessing private helm repositories, you must be authenticated to the repository in a way that the <code>helm pull</code> command recognizes.</p>
+</div>
 <p>The following example adds the
 <a href="https://github.com/bitnami/charts/tree/master/bitnami/redis">bitnami/redis</a>
 Helm chart with sentinel containers enabled:</p>

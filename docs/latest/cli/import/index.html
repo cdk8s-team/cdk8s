@@ -2056,6 +2056,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#helm-charts" class="md-nav__link">
+    Helm Charts
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3114,6 +3121,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#helm-charts" class="md-nav__link">
+    Helm Charts
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3188,7 +3202,8 @@ imports. You could use them in this fashion:</p>
 <p>The <code>import</code> command supports two types of imports:</p>
 <ol>
 <li><code>k8s</code>: generates constructs from the core Kubernetes API</li>
-<li>CRDs: generates constructs from custom resource definitions</li>
+<li><code>CRDs</code>: generates constructs from custom resource definitions</li>
+<li><code>Helm Charts</code>: generates constructs from helm charts.</li>
 </ol>
 <p>This section describes specific behavior related to each type of import.</p>
 <h3 id="kubernetes-apis">Kubernetes APIs<a class="headerlink" href="#kubernetes-apis" title="Permanent link">&para;</a></h3>
@@ -3242,6 +3257,127 @@ is useful, for example, to import all the CRDs from a running cluster:</p>
 <blockquote>
 <p>Yes, this works!</p>
 </blockquote>
+<h3 id="helm-charts">Helm Charts<a class="headerlink" href="#helm-charts" title="Permanent link">&para;</a></h3>
+<p>You can import a helm chart and code generate a dedicated construct for it. To do this, pass either a url 
+or a local path to the helm chart. For example, running the following command would code 
+generate <a href="https://github.com/bitnami/charts/tree/main/bitnami/mysql">bitnami&rsquo;s mysql</a> helm chart:</p>
+<div class="highlight"><pre><span></span><code>cdk8s import helm:https://charts.bitnami.com/bitnami/mysql@9.10.10
+</code></pre></div>
+<blockquote>
+<p>The format for the helm chart url is: <code>helm:&lt;repo-url&gt;/&lt;chart-name&gt;@&lt;chart-version&gt;</code>.</p>
+</blockquote>
+<p>You can use this generated construct in your cdk8s application,</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Construct</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;constructs&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">App</span><span class="p">,</span><span class="w"> </span><span class="nx">Chart</span><span class="p">,</span><span class="w"> </span><span class="nx">ChartProps</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Mysql</span><span class="p">,</span><span class="w"> </span><span class="nx">MysqlArchitecture</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./imports/mysql&#39;</span><span class="p">;</span>
+
+<span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">MyChart</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Chart</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">scope</span><span class="o">:</span><span class="w"> </span><span class="kt">Construct</span><span class="p">,</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">props</span><span class="o">:</span><span class="w"> </span><span class="kt">ChartProps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">super</span><span class="p">(</span><span class="nx">scope</span><span class="p">,</span><span class="w"> </span><span class="nx">id</span><span class="p">,</span><span class="w"> </span><span class="nx">props</span><span class="p">);</span>
+
+<span class="w">    </span><span class="ow">new</span><span class="w"> </span><span class="nx">Mysql</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;MySql&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">values</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">architecture</span><span class="o">:</span><span class="w"> </span><span class="kt">MysqlArchitecture.STANDALONE</span><span class="p">,</span><span class="w">     </span><span class="c1">// &lt;------- type safe property</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">App</span><span class="p">();</span>
+<span class="ow">new</span><span class="w"> </span><span class="nx">MyChart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Typescript-App&#39;</span><span class="p">);</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">synth</span><span class="p">();</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You would need <code>helm</code> to be installed on your machine for using this feature. 
+For accessing private helm repositories, you must be authenticated to the repository in a way that the <code>helm pull</code> command recognizes.</p>
+<p>This feature is an extension to <a href="../../basics/helm/">helm</a> support in cdk8s and you will find similar properties of Helm construct in these generated constructs.</p>
+</div>
+<h4 id="values-schema">Values Schema<a class="headerlink" href="#values-schema" title="Permanent link">&para;</a></h4>
+<p>If the helm chart that you are importing contains a schema file (<code>values.schema.json</code>) within it, 
+then the <code>values</code> property of the construct properties will be typed according to that schema.</p>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Construct</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;constructs&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">App</span><span class="p">,</span><span class="w"> </span><span class="nx">Chart</span><span class="p">,</span><span class="w"> </span><span class="nx">ChartProps</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Mysql</span><span class="p">,</span><span class="w"> </span><span class="nx">MysqlArchitecture</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./imports/mysql&#39;</span><span class="p">;</span>
+
+<span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">MyChart</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Chart</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">scope</span><span class="o">:</span><span class="w"> </span><span class="kt">Construct</span><span class="p">,</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">props</span><span class="o">:</span><span class="w"> </span><span class="kt">ChartProps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">super</span><span class="p">(</span><span class="nx">scope</span><span class="p">,</span><span class="w"> </span><span class="nx">id</span><span class="p">,</span><span class="w"> </span><span class="nx">props</span><span class="p">);</span>
+
+<span class="w">    </span><span class="ow">new</span><span class="w"> </span><span class="nx">Mysql</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;MySql&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">values</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">architecture</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;foo&#39;</span><span class="p">,</span><span class="w">    </span><span class="c1">// &lt;------- This will give an error since this is not `MysqlArchitecture` type which is generated from Schema</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">App</span><span class="p">();</span>
+<span class="ow">new</span><span class="w"> </span><span class="nx">MyChart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Typescript-App&#39;</span><span class="p">);</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">synth</span><span class="p">();</span>
+</code></pre></div>
+<p>If there is no schema present in the helm chart, then <code>values</code> will not have type support and you can pass in any values. </p>
+<h4 id="additional-values-and-globals">Additional Values and Globals<a class="headerlink" href="#additional-values-and-globals" title="Permanent link">&para;</a></h4>
+<p>The generated construct&rsquo;s <code>values</code> property will also include following special properties:</p>
+<ul>
+<li><code>additionalValues</code>: If the imported helm chart has a schema but that schema does not cover all values accepted by the chart, then you can use this property to pass in those values to the chart.</li>
+<li><code>global</code>: This property can be used to set global values. For more information, see <a href="https://helm.sh/docs/chart_template_guide/subcharts_and_globals/#global-chart-values">here</a>.</li>
+</ul>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Construct</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;constructs&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">App</span><span class="p">,</span><span class="w"> </span><span class="nx">Chart</span><span class="p">,</span><span class="w"> </span><span class="nx">ChartProps</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Mysql</span><span class="p">,</span><span class="w"> </span><span class="nx">MysqlArchitecture</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./imports/mysql&#39;</span><span class="p">;</span>
+
+<span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">MyChart</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Chart</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">scope</span><span class="o">:</span><span class="w"> </span><span class="kt">Construct</span><span class="p">,</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">props</span><span class="o">:</span><span class="w"> </span><span class="kt">ChartProps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">super</span><span class="p">(</span><span class="nx">scope</span><span class="p">,</span><span class="w"> </span><span class="nx">id</span><span class="p">,</span><span class="w"> </span><span class="nx">props</span><span class="p">);</span>
+
+<span class="w">    </span><span class="ow">new</span><span class="w"> </span><span class="nx">Mysql</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;MySql&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">values</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">architecture</span><span class="o">:</span><span class="w"> </span><span class="kt">MysqlArchitecture.STANDALONE</span><span class="p">,</span>
+<span class="w">        </span><span class="nb">global</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w">                                   </span><span class="c1">// &lt;------- global values</span>
+<span class="w">          </span><span class="nx">imageRegistry</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;bar&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nx">additionalValues</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w">                         </span><span class="c1">// &lt;------- values missing in schema which are not code generated</span>
+<span class="w">          </span><span class="nx">nameOverride</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;baz&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">App</span><span class="p">();</span>
+<span class="ow">new</span><span class="w"> </span><span class="nx">MyChart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Typescript-App&#39;</span><span class="p">);</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">synth</span><span class="p">();</span>
+</code></pre></div>
+<h4 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h4>
+<p>If the imported helm chart has any dependencies mentioned in <code>Chart.yaml</code>, then you will find those as properties in the generated construct. You can use those to pass in values to the dependency. </p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Construct</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;constructs&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">App</span><span class="p">,</span><span class="w"> </span><span class="nx">Chart</span><span class="p">,</span><span class="w"> </span><span class="nx">ChartProps</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Mysql</span><span class="p">,</span><span class="w"> </span><span class="nx">MysqlArchitecture</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./imports/mysql&#39;</span><span class="p">;</span>
+
+<span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">MyChart</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Chart</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">scope</span><span class="o">:</span><span class="w"> </span><span class="kt">Construct</span><span class="p">,</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">props</span><span class="o">:</span><span class="w"> </span><span class="kt">ChartProps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">super</span><span class="p">(</span><span class="nx">scope</span><span class="p">,</span><span class="w"> </span><span class="nx">id</span><span class="p">,</span><span class="w"> </span><span class="nx">props</span><span class="p">);</span>
+
+<span class="w">    </span><span class="ow">new</span><span class="w"> </span><span class="nx">Mysql</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;MySql&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">values</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">architecture</span><span class="o">:</span><span class="w"> </span><span class="kt">MysqlArchitecture.STANDALONE</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">common</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w">                                   </span><span class="c1">// &lt;------- `common` is a dependency for the MySql helm chart</span>
+<span class="w">          </span><span class="nx">names</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">namespace</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;foo&#39;</span><span class="p">,</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">App</span><span class="p">();</span>
+<span class="ow">new</span><span class="w"> </span><span class="nx">MyChart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Typescript-App&#39;</span><span class="p">);</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">synth</span><span class="p">();</span>
+</code></pre></div>
 
 
 
