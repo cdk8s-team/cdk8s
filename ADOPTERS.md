@@ -30,4 +30,5 @@ If you are open to others contacting you about your use of cdk8s, add your Slack
 | Finimize | Using both CDK and cdk8s to create a consistent experience when describing our IaC | `@pykita` | [Finimize](https://finimize.com/) |
 | Griffin | Using CDK, CDK8s, and CDK8s+ to manage our AWS infra and EKS workloads | `@dancmeyers` | [Griffin](https://griffin.com/) |
 | PreciseTarget | We use cdk8s to manage all applications running in kubernetes across mulitple clusters. | `@steven-esser` | [PreciseTarget](https://www.precisetarget.com) |
+| The Home Depot | Using cdk8s to manage large, multi-tenant Kubernetes clusters with strong consistency across teams. | `@shinebayar-g` | [TheHomeDepot](https://www.homedepot.com/) |
 
