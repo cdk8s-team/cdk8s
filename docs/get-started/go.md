@@ -130,6 +130,7 @@ func main() {
 
 	app.Synth()
 }
+```
 
  A few things worth noting about this sample:
 
