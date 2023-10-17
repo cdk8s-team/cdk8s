@@ -28,9 +28,9 @@ export class K8sVersionUpgradeAutomation extends Component {
         cron: schedule,
       }],
       // this is for testing purposes only:
-      push: {
-        branches: ['sumughan/automate-k8s-release-step1'],
-      },
+      // push: {
+      //   branches: ['sumughan/automate-k8s-release-step1'],
+      // },
     };
     workflow.on(trigger);
 
@@ -81,10 +81,9 @@ export class K8sVersionUpgradeAutomation extends Component {
         {
           id: 'get-npm-status-code',
           name: 'Check to see if cdk8s-plus released latest k8s version on npm by getting HTTP status code from npm url',
-          // ***Q*** should I have this return 200 if testingMode is on?
           // run on previous version for testing purposes only:
-          run: 'echo httpStatus="$(curl -sL -w "%{http_code}\n" "https://www.npmjs.com/package/cdk8s-plus-27" -o /dev/null)" >> $GITHUB_OUTPUT',
-          //run: 'echo httpStatus="$(curl -sL -w "%{http_code}\n" "https://www.npmjs.com/package/cdk8s-plus-${{steps.k8s-latest-version.outputs.latestVersion}}" -o /dev/null)" >> $GITHUB_OUTPUT',
+          // run: 'echo httpStatus="$(curl -sL -w "%{http_code}\n" "https://www.npmjs.com/package/cdk8s-plus-27" -o /dev/null)" >> $GITHUB_OUTPUT',
+          run: 'echo httpStatus="$(curl -sL -w "%{http_code}\n" "https://www.npmjs.com/package/cdk8s-plus-${{steps.k8s-latest-version.outputs.latestVersion}}" -o /dev/null)" >> $GITHUB_OUTPUT',
         },
       ],
     };
