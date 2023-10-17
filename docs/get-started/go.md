@@ -25,7 +25,7 @@ Next, we’ll initialize a project to create the directory structure and install
 mkdir cdk8s-golang
 ```
 
-2. Next, run the following command in an empty directory: 
+2. Next, run the following command inside the `cdk8s-golang` directory: 
 ```console
 cdk8s init go-app
 ```
