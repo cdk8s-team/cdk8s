@@ -1,6 +1,6 @@
 nav:
   - What is cdk8s?: index.md
-  - getting-started.md
+  - Getting started: get-started
   - basics
   - cdk8s+: plus
   - CLI: cli
