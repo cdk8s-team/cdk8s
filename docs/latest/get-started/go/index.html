@@ -461,6 +461,26 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generate-kubernetes-manifests" class="md-nav__link">
+    Generate Kubernetes manifests
+  </a>
+  
+    <nav class="md-nav" aria-label="Generate Kubernetes manifests">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#run-the-synth-command" class="md-nav__link">
+    Run the synth command
+  </a>
+  
+</li>
+        
           <li class="md-nav__item">
   <a href="#view-the-manifest" class="md-nav__link">
     View the manifest
@@ -3235,6 +3255,26 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generate-kubernetes-manifests" class="md-nav__link">
+    Generate Kubernetes manifests
+  </a>
+  
+    <nav class="md-nav" aria-label="Generate Kubernetes manifests">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#run-the-synth-command" class="md-nav__link">
+    Run the synth command
+  </a>
+  
+</li>
+        
           <li class="md-nav__item">
   <a href="#view-the-manifest" class="md-nav__link">
     View the manifest
@@ -3408,20 +3448,20 @@
 
 <span class="w">    </span><span class="nx">app</span><span class="p">.</span><span class="nx">Synth</span><span class="p">()</span>
 <span class="p">}</span>
-
-<span class="w"> </span><span class="nx">A</span><span class="w"> </span><span class="nx">few</span><span class="w"> </span><span class="nx">things</span><span class="w"> </span><span class="nx">worth</span><span class="w"> </span><span class="nx">noting</span><span class="w"> </span><span class="nx">about</span><span class="w"> </span><span class="nx">this</span><span class="w"> </span><span class="nx">sample</span><span class="p">:</span>
-
-<span class="o">-</span><span class="w"> </span><span class="nx">The</span><span class="w"> </span><span class="s">`NewChart`</span><span class="w"> </span><span class="nx">function</span><span class="w"> </span><span class="nx">utilizes</span><span class="w"> </span><span class="nx">Go</span><span class="err">&#39;</span><span class="nx">s</span><span class="w"> </span><span class="nx">strong</span><span class="w"> </span><span class="nx">typing</span><span class="w"> </span><span class="nx">and</span><span class="w"> </span><span class="kd">interface</span><span class="o">-</span><span class="nx">based</span><span class="w"> </span><span class="nx">design</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">construct</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="nx">Kubernetes</span><span class="w"> </span><span class="nx">Deployment</span><span class="p">.</span><span class="w"> </span><span class="nx">This</span><span class="w"> </span><span class="nx">Deployment</span><span class="w"> </span><span class="nx">is</span><span class="w"> </span><span class="nx">set</span><span class="w"> </span><span class="nx">up</span><span class="w"> </span><span class="nx">with</span><span class="w"> </span><span class="nx">specific</span><span class="w"> </span><span class="nx">parameters</span><span class="w"> </span><span class="nx">like</span><span class="w"> </span><span class="nx">replica</span><span class="w"> </span><span class="nx">count</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="w"> </span><span class="nx">selectors</span><span class="p">,</span><span class="w"> </span><span class="nx">and</span><span class="w"> </span><span class="nx">pod</span><span class="w"> </span><span class="nx">specifications</span><span class="p">.</span><span class="w"> </span><span class="nx">This</span><span class="w"> </span><span class="nx">method</span><span class="w"> </span><span class="nx">takes</span><span class="w"> </span><span class="nx">advantage</span><span class="w"> </span><span class="nx">of</span><span class="w"> </span><span class="nx">Go</span><span class="err">&#39;</span><span class="nx">s</span><span class="w"> </span><span class="kd">map</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="nx">structures</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">dynamically</span><span class="w"> </span><span class="nx">assign</span><span class="w"> </span><span class="nx">the</span><span class="w"> </span><span class="s">&quot;app&quot;</span><span class="w"> </span><span class="nx">key</span><span class="w"> </span><span class="nx">in</span><span class="w"> </span><span class="nx">label</span><span class="w"> </span><span class="nx">selectors</span><span class="w"> </span><span class="nx">and</span><span class="w"> </span><span class="nx">metadata</span><span class="w"> </span><span class="nx">labels</span><span class="p">,</span><span class="w"> </span><span class="nx">offering</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="nx">straightforward</span><span class="w"> </span><span class="nx">and</span><span class="w"> </span><span class="nx">efficient</span><span class="w"> </span><span class="nx">way</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">configure</span><span class="w"> </span><span class="nx">essential</span><span class="w"> </span><span class="nx">details</span><span class="p">.</span>
-
-<span class="err">##</span><span class="w"> </span><span class="nx">Generate</span><span class="w"> </span><span class="nx">Kubernetes</span><span class="w"> </span><span class="nx">manifests</span>
-<span class="nx">After</span><span class="w"> </span><span class="nx">you</span><span class="w"> </span><span class="nx">have</span><span class="w"> </span><span class="nx">defined</span><span class="w"> </span><span class="nx">the</span><span class="w"> </span><span class="nx">Kubernetes</span><span class="w"> </span><span class="nx">resources</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">your</span><span class="w"> </span><span class="nx">application</span><span class="p">,</span><span class="w"> </span><span class="nx">you</span><span class="w"> </span><span class="nx">are</span><span class="w"> </span><span class="nx">ready</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">generate</span><span class="w"> </span><span class="nx">the</span><span class="w"> </span><span class="nx">Kubernetes</span><span class="w"> </span><span class="nx">manifest</span><span class="w"> </span><span class="nx">that</span><span class="w"> </span><span class="nx">will</span><span class="w"> </span><span class="nx">define</span><span class="w"> </span><span class="nx">your</span><span class="w"> </span><span class="nx">Deployment</span><span class="w"> </span><span class="nx">resource</span><span class="p">.</span><span class="w"> </span>
-
-<span class="err">###</span><span class="w"> </span><span class="nx">Run</span><span class="w"> </span><span class="nx">the</span><span class="w"> </span><span class="nx">synth</span><span class="w"> </span><span class="nx">command</span>
-<span class="mf">1.</span><span class="w"> </span><span class="nx">Open</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="nx">terminal</span><span class="w"> </span><span class="nx">and</span><span class="w"> </span><span class="nx">navigate</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">your</span><span class="w"> </span><span class="nx">project</span><span class="w"> </span><span class="nx">directory</span><span class="p">.</span>
-<span class="mf">2.</span><span class="w"> </span><span class="nx">Run</span><span class="w"> </span><span class="nx">the</span><span class="w"> </span><span class="p">[</span><span class="nx">synth</span><span class="p">](</span><span class="nx">https</span><span class="p">:</span><span class="c1">//cdk8s.io/docs/latest/cli/synth/) command. This command generates a Kubernetes manifest file in the `dist` folder of your project directory. The manifest file contains all the resources you defined inside the `MyChart` class.</span>
-<span class="s">``</span><span class="err">`</span><span class="nx">console</span>
-<span class="nx">cdk8s</span><span class="w"> </span><span class="nx">synth</span>
 </code></pre></div>
+<p>A few things worth noting about this sample:</p>
+<ul>
+<li>The <code>NewChart</code> function utilizes Go&rsquo;s strong typing and interface-based design to construct a Kubernetes Deployment. This Deployment is set up with specific parameters like replica count, label selectors, and pod specifications. This method takes advantage of Go&rsquo;s map data structures to dynamically assign the &ldquo;app&rdquo; key in label selectors and metadata labels, offering a straightforward and efficient way to configure essential details.</li>
+</ul>
+<h2 id="generate-kubernetes-manifests">Generate Kubernetes manifests<a class="headerlink" href="#generate-kubernetes-manifests" title="Permanent link">&para;</a></h2>
+<p>After you have defined the Kubernetes resources for your application, you are ready to generate the Kubernetes manifest that will define your Deployment resource. </p>
+<h3 id="run-the-synth-command">Run the synth command<a class="headerlink" href="#run-the-synth-command" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Open a terminal and navigate to your project directory.</li>
+<li>Run the <a href="https://cdk8s.io/docs/latest/cli/synth/">synth</a> command. This command generates a Kubernetes manifest file in the <code>dist</code> folder of your project directory. The manifest file contains all the resources you defined inside the <code>MyChart</code> class.
+<div class="highlight"><pre><span></span><code><span class="go">cdk8s synth</span>
+</code></pre></div></li>
+</ol>
 <h3 id="view-the-manifest">View the manifest<a class="headerlink" href="#view-the-manifest" title="Permanent link">&para;</a></h3>
 <ol>
 <li>Open the <code>dist/getting-started.k8s.yaml</code> file. You should see a Kubernetes manifest similar to the following:
