@@ -26,11 +26,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cdk8s.io/docs/latest/getting-started/</loc>
-         <lastmod>2023-10-17</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://cdk8s.io/docs/latest/media/</loc>
          <lastmod>2023-10-17</lastmod>
          <changefreq>daily</changefreq>
@@ -117,6 +112,31 @@
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/examples/</loc>
+         <lastmod>2023-10-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cdk8s.io/docs/latest/get-started/</loc>
+         <lastmod>2023-10-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cdk8s.io/docs/latest/get-started/go/</loc>
+         <lastmod>2023-10-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cdk8s.io/docs/latest/get-started/java/</loc>
+         <lastmod>2023-10-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cdk8s.io/docs/latest/get-started/python/</loc>
+         <lastmod>2023-10-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cdk8s.io/docs/latest/get-started/typescript/</loc>
          <lastmod>2023-10-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
