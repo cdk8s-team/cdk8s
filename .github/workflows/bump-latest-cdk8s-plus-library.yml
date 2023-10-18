@@ -48,7 +48,7 @@ jobs:
     permissions:
       contents: read
       pull-requests: write
-    if: needs.check-latest-k8s-release.outputs.httpStatus != 200 && ${{ github.event.inputs.testingMode }} == false
+    if: needs.check-latest-k8s-release.outputs.httpStatus != 200
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -62,13 +62,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.PROJEN_GITHUB_TOKEN }}
         run: ${{ github.workspace }}/tools/import-spec.sh 1.${{ needs.check-latest-k8s-release.outputs.latestVersion }}.0
-        continue-on-error: false
-      - name: Set auto-approve label for PR if in testing mode
-        id: set-auto-approve-label
-        if: '!(${{ github.event_name }} == "push")'
-        env:
-          GITHUB_TOKEN: ${{ secrets.PROJEN_GITHUB_TOKEN }}
-        run: echo labels="bug" >> $GITHUB_OUTPUT;
         continue-on-error: false
       - name: Create Pull Request
         id: create-pr
@@ -87,7 +80,6 @@ jobs:
             *Automatically created by projen via the "create-pull-request" workflow*
           branch: github-actions/generate-k8s-spec-${{ needs.check-latest-k8s-release.outputs.latestVersion }}${{ steps.set-auto-approve-label.outputs.labels }}
           title: "chore: v${{ needs.check-latest-k8s-release.outputs.latestVersion }}${{ steps.set-auto-approve-label.outputs.labels }} kubernetes-spec"
-          labels: ${{ steps.set-auto-approve-label.outputs.labels }}
           body: |-
             This PR adds the v${{ needs.check-latest-k8s-release.outputs.latestVersion }} Kubernetes spec. This is required in order for us to add a new version to cdk8s-plus. See details in [workflow run].
 
@@ -147,8 +139,7 @@ jobs:
         run: yarn install --check-files
       - name: Import the new k8s spec from the prerequisite step
         run: yarn run import
-      - name: Disable publishing if testingMode is true
-        if: ${{ github.event.inputs.testingMode }} == true
+      - name: Disable publishing
         run: npx projen disable-publishing
       - name: Test package json output
         run: cat package.json
@@ -201,13 +192,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.PROJEN_GITHUB_TOKEN }}
         run: npx projen replace-old-version-references
         continue-on-error: false
-      - name: Set auto-approve label for PR if in testing mode
-        id: set-auto-approve-label
-        if: ${{ github.event.inputs.testingMode }} == false
-        env:
-          GITHUB_TOKEN: ${{ secrets.PROJEN_GITHUB_TOKEN }}
-        run: echo labels="auto-approve" >> $GITHUB_OUTPUT
-        continue-on-error: false
       - name: Create Pull Request
         id: create-pr
         uses: peter-evans/create-pull-request@v4
@@ -225,7 +209,6 @@ jobs:
             *Automatically created by projen via the "create-pull-request" workflow*
           branch: github-actions/website-update-${{ needs.check-latest-k8s-release.outputs.latestVersion }}
           title: "chore(website): cdk8s-plus-${{ needs.check-latest-k8s-release.outputs.latestVersion }}"
-          labels: ${{ steps.set-auto-approve-label.outputs.labels }}
           body: |-
             This PR updates the website with the latest version of cdk8s-plus. See details in [workflow run].
 
@@ -255,13 +238,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.PROJEN_GITHUB_TOKEN }}
         run: echo "${{ needs.check-latest-k8s-release.outputs.latestVersion }}" >> ${{ github.workspace }}/projenrc/latest-cdk8s-version.txt
         continue-on-error: false
-      - name: Set auto-approve label for PR if in testing mode
-        id: set-auto-approve-label
-        if: ${{ github.event.inputs.testingMode }} == false
-        env:
-          GITHUB_TOKEN: ${{ secrets.PROJEN_GITHUB_TOKEN }}
-        run: echo labels="auto-approve" >> $GITHUB_OUTPUT
-        continue-on-error: false
       - name: Create Pull Request
         id: create-pr
         uses: peter-evans/create-pull-request@v4
@@ -279,7 +255,6 @@ jobs:
             *Automatically created by projen via the "create-pull-request" workflow*
           branch: github-actions/cdk-ops-k8s-upgrade-${{ needs.check-latest-k8s-release.outputs.latestVersion }}
           title: "chore: updating latest cdk8s-plus version to v${{ needs.check-latest-k8s-release.outputs.latestVersion }}"
-          labels: ${{ steps.set-auto-approve-label.outputs.labels }}
           body: |-
             This PR updates the reference to of the latest cdk8s-plus version. See details in [workflow run].
 
