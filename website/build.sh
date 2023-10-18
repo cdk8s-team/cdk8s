@@ -6,7 +6,7 @@ get_version() {
   node -p "require('$1/package.json').version"
 }
 
-LATEST_K8S_VERSION=$(< src/latest-k8s-version.txt)
+LATEST_K8S_VERSION=$(< ${scriptdir}/../src/latest-k8s-version.txt)
 
 export CDK8S_CORE_VERSION="$(get_version cdk8s)"
 export CDK8S_PLUSXX_MINUS_2_VERSION="$(get_version cdk8s-plus-$((${LATEST_K8S_VERSION}-2)))"
