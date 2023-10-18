@@ -65,10 +65,9 @@ jobs:
         continue-on-error: false
       - name: Set auto-approve label for PR if in testing mode
         id: set-auto-approve-label
-        if: github.event.inputs.testingMode == false
         env:
           GITHUB_TOKEN: ${{ secrets.PROJEN_GITHUB_TOKEN }}
-        run: echo labels="auto-approve" >> $GITHUB_OUTPUT
+        run: if (${{ github.event.inputs.testingMode == false }});then echo labels="auto-approve" >> $GITHUB_OUTPUT;fi
         continue-on-error: false
       - name: Create Pull Request
         id: create-pr

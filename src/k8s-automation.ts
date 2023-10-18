@@ -126,8 +126,9 @@ export class K8sVersionUpgradeAutomation extends Component {
         {
           name: 'Set auto-approve label for PR if in testing mode',
           id: 'set-auto-approve-label',
-          if: 'github.event.inputs.testingMode == false',
-          run: 'echo labels="auto-approve" >> $GITHUB_OUTPUT',
+          run: 'if (${{ github.event.inputs.testingMode == false }});then echo labels="auto-approve" >> $GITHUB_OUTPUT;fi',
+          // if: 'github.event.inputs.testingMode == false',
+          // run: 'echo labels="auto-approve" >> $GITHUB_OUTPUT',
           env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
           continueOnError: false,
         },
