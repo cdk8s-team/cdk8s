@@ -149,48 +149,6 @@ export class K8sVersionUpgradeAutomation extends Component {
 
     workflow.addJob('generate-new-k8s-spec', generateK8sSpecJob);
 
-    // PART 1: Prerequisite (TESTING MODE)
-
-    const generateK8sSpecJobTestingMode: workflows.Job = {
-      runsOn: runsOn,
-      permissions: {
-        contents: workflows.JobPermission.READ,
-        pullRequests: workflows.JobPermission.WRITE,
-      },
-      needs: ['check-latest-k8s-release'],
-      if: 'needs.check-latest-k8s-release.outputs.httpStatus != 200 && (${{ github.event.inputs.testingMode }} == true || ${{ github.event_name }} == "push")',
-      steps: [
-        {
-          name: 'Checkout',
-          uses: 'actions/checkout@v2',
-        },
-        {
-          name: 'Setup Node.js',
-          uses: 'actions/setup-node@v2',
-          with: { 'node-version': '18.12.0' },
-        },
-        {
-          name: 'Install dependencies',
-          run: 'yarn install --check-files',
-        },
-        {
-          name: 'Generate Kubernetes schema',
-          run: '${{ github.workspace }}/tools/import-spec.sh 1.${{ needs.check-latest-k8s-release.outputs.latestVersion }}.0',
-          env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
-          continueOnError: false,
-        },
-        ...WorkflowActions.createPullRequest({
-          workflowName: 'create-pull-request',
-          pullRequestTitle: 'chore: v${{ needs.check-latest-k8s-release.outputs.latestVersion }}${{ steps.set-auto-approve-label.outputs.labels }} kubernetes-spec',
-          pullRequestDescription: 'This PR adds the v${{ needs.check-latest-k8s-release.outputs.latestVersion }} Kubernetes spec. This is required in order for us to add a new version to cdk8s-plus.',
-          branchName: 'github-actions/generate-k8s-spec-${{ needs.check-latest-k8s-release.outputs.latestVersion }}${{ steps.set-auto-approve-label.outputs.labels }}',
-          credentials: GithubCredentials.fromPersonalAccessToken(),
-        }),
-      ],
-    };
-
-    workflow.addJob('generate-new-k8s-spec-testing-mode', generateK8sSpecJobTestingMode);
-
     const createNewBackportLabel: workflows.Job = {
       runsOn: runsOn,
       permissions: {
