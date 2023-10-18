@@ -126,7 +126,7 @@ export class K8sVersionUpgradeAutomation extends Component {
         {
           name: 'Set auto-approve label for PR if in testing mode',
           id: 'set-auto-approve-label',
-          run: 'if (${{ github.event.inputs.testingMode }} == false);then echo labels="test-auto-approve-label" >> $GITHUB_OUTPUT;fi',
+          run: 'if (github.event.inputs.testingMode == false);then echo labels="test-auto-approve-label" >> $GITHUB_OUTPUT;fi',
           // if: 'github.event.inputs.testingMode == false',
           // run: 'echo labels="auto-approve" >> $GITHUB_OUTPUT',
           env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
@@ -135,7 +135,7 @@ export class K8sVersionUpgradeAutomation extends Component {
         ...WorkflowActions.createPullRequest({
           workflowName: 'create-pull-request',
           pullRequestTitle: 'chore: v${{ needs.check-latest-k8s-release.outputs.latestVersion }} kubernetes-spec',
-          pullRequestDescription: 'This PR is adds the v${{ needs.check-latest-k8s-release.outputs.latestVersion }} Kubernetes spec. This is required in order for us to add a new version to cdk8s-plus.',
+          pullRequestDescription: 'This PR adds the v${{ needs.check-latest-k8s-release.outputs.latestVersion }} Kubernetes spec. This is required in order for us to add a new version to cdk8s-plus.',
           branchName: 'github-actions/generate-k8s-spec-${{ needs.check-latest-k8s-release.outputs.latestVersion }}',
           labels: [
             '${{ steps.set-auto-approve-label.outputs.labels }}',
