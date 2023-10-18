@@ -250,9 +250,7 @@ export class K8sVersionUpgradeAutomation extends Component {
             github_token: '${{ secrets.PROJEN_GITHUB_TOKEN }}',
             title: 'chore: set default branch of cdk8s-plus repo to latest for v${{ needs.check-latest-k8s-release.outputs.latestVersion }} k8s upgrade',
             body: 'The default branch must be manually set to k8s-${{ needs.check-latest-k8s-release.outputs.latestVersion }}/main',
-            labels: [
-              'priority/p0',
-            ],
+            labels: 'priority/p0',
           },
         },
       ],
