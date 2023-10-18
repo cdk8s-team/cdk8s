@@ -78,4 +78,4 @@ dist/
 /docs/reference/cdk8s-plus-25/java.md
 /docs/reference/cdk8s-plus-25/typescript.md
 /docs/reference/cdk8s-plus-25/python.md
-!/.github/workflows/k8s-upgrade-automation.yml
+!/.github/workflows/bump-latest-cdk8s-plus-library.yml

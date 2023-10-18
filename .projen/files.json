@@ -7,7 +7,7 @@
     ".github/ISSUE_TEMPLATE/feature-request.md",
     ".github/workflows/auto-approve.yml",
     ".github/workflows/build.yml",
-    ".github/workflows/k8s-upgrade-automation.yml",
+    ".github/workflows/bump-latest-cdk8s-plus-library.yml",
     ".github/workflows/pull-request-lint.yml",
     ".github/workflows/security.yml",
     ".github/workflows/stale.yml",

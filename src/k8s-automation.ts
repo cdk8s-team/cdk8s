@@ -1,11 +1,15 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { Component } from 'projen';
-import * as typescript from 'projen/lib/typescript';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { GithubWorkflow, workflows, GithubCredentials, WorkflowActions } from 'projen/lib/github';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import * as typescript from 'projen/lib/typescript';
+
 export class K8sVersionUpgradeAutomation extends Component {
 
   constructor(project: typescript.TypeScriptAppProject) {
     super(project);
-    const workflow: GithubWorkflow = project.github!.addWorkflow('k8s-upgrade-automation');
+    const workflow: GithubWorkflow = project.github!.addWorkflow('bump-latest-cdk8s-plus-library');
 
     // Running weekly on Sunday at 18:00 UTC
     // https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule
