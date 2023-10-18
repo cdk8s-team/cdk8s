@@ -24,7 +24,7 @@ export class K8sVersionUpgradeAutomation extends Component {
             description: 'Testing Mode',
             required: true,
             // set default to true for testing purposes until this PR is merged ...
-            default: true,
+            default: false,
           },
         },
       },
@@ -126,7 +126,7 @@ export class K8sVersionUpgradeAutomation extends Component {
         {
           name: 'Set auto-approve label for PR if in testing mode',
           id: 'set-auto-approve-label',
-          run: 'if (${{ github.event.inputs.testingMode }} == false);then echo labels="auto-approve" >> $GITHUB_OUTPUT;fi',
+          run: 'if (${{ github.event.inputs.testingMode }} == false);then echo labels="test-auto-approve-label" >> $GITHUB_OUTPUT;fi',
           // if: 'github.event.inputs.testingMode == false',
           // run: 'echo labels="auto-approve" >> $GITHUB_OUTPUT',
           env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
