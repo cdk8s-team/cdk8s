@@ -32,9 +32,9 @@ export class K8sVersionUpgradeAutomation extends Component {
         cron: schedule,
       }],
       // this is for testing purposes only:
-      // push: {
-      //   branches: ['sumughan/automate-k8s-release-step1'],
-      // },
+      push: {
+        branches: ['sumughan/fix-auto-approve-labelling'],
+      },
     };
     workflow.on(trigger);
 
