@@ -48,7 +48,7 @@ jobs:
     permissions:
       contents: read
       pull-requests: write
-    if: needs.check-latest-k8s-release.outputs.httpStatus != 200 ${{ github.event.inputs.testingMode }} == false
+    if: needs.check-latest-k8s-release.outputs.httpStatus != 200 && ${{ github.event.inputs.testingMode }} == false
     steps:
       - name: Checkout
         uses: actions/checkout@v2
