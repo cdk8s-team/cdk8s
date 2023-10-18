@@ -102,7 +102,7 @@ export class K8sVersionUpgradeAutomation extends Component {
         pullRequests: workflows.JobPermission.WRITE,
       },
       needs: ['check-latest-k8s-release'],
-      if: 'needs.check-latest-k8s-release.outputs.httpStatus == 200',
+      if: 'needs.check-latest-k8s-release.outputs.httpStatus != 200',
       steps: [
         {
           name: 'Checkout',
@@ -153,7 +153,7 @@ export class K8sVersionUpgradeAutomation extends Component {
         pullRequests: workflows.JobPermission.WRITE,
       },
       needs: ['check-latest-k8s-release'],
-      if: 'needs.check-latest-k8s-release.outputs.httpStatus == 200',
+      if: 'needs.check-latest-k8s-release.outputs.httpStatus != 200',
       steps: [
         {
           name: 'Checkout',
@@ -268,7 +268,7 @@ export class K8sVersionUpgradeAutomation extends Component {
       },
       // add the cdk8s-plus update job to needs when it's done:
       needs: ['check-latest-k8s-release', 'create-new-plus-branch'],
-      if: 'needs.check-latest-k8s-release.outputs.httpStatus == 200',
+      if: 'needs.check-latest-k8s-release.outputs.httpStatus != 200',
       steps: [
         {
           name: 'Checkout',
