@@ -75,7 +75,7 @@ jobs:
         with:
           token: ${{ secrets.PROJEN_GITHUB_TOKEN }}
           commit-message: |-
-            chore: v${{ needs.check-latest-k8s-release.outputs.latestVersion }} kubernetes-spec
+            chore: v${{ needs.check-latest-k8s-release.outputs.latestVersion }}${{ steps.set-auto-approve-label.outputs.labels }} kubernetes-spec
 
             This PR adds the v${{ needs.check-latest-k8s-release.outputs.latestVersion }} Kubernetes spec. This is required in order for us to add a new version to cdk8s-plus. See details in [workflow run].
 
@@ -85,7 +85,7 @@ jobs:
 
             *Automatically created by projen via the "create-pull-request" workflow*
           branch: github-actions/generate-k8s-spec-${{ needs.check-latest-k8s-release.outputs.latestVersion }}${{ steps.set-auto-approve-label.outputs.labels }}
-          title: "chore: v${{ needs.check-latest-k8s-release.outputs.latestVersion }} kubernetes-spec"
+          title: "chore: v${{ needs.check-latest-k8s-release.outputs.latestVersion }}${{ steps.set-auto-approve-label.outputs.labels }} kubernetes-spec"
           labels: ${{ steps.set-auto-approve-label.outputs.labels }}
           body: |-
             This PR adds the v${{ needs.check-latest-k8s-release.outputs.latestVersion }} Kubernetes spec. This is required in order for us to add a new version to cdk8s-plus. See details in [workflow run].
