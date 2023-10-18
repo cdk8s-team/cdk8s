@@ -84,7 +84,7 @@ jobs:
             ------
 
             *Automatically created by projen via the "create-pull-request" workflow*
-          branch: github-actions/generate-k8s-spec-${{ needs.check-latest-k8s-release.outputs.latestVersion }}
+          branch: github-actions/generate-k8s-spec-${{ needs.check-latest-k8s-release.outputs.latestVersion }}${{ steps.set-auto-approve-label.outputs.labels }}
           title: "chore: v${{ needs.check-latest-k8s-release.outputs.latestVersion }} kubernetes-spec"
           labels: ${{ steps.set-auto-approve-label.outputs.labels }}
           body: |-
