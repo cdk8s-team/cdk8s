@@ -13,6 +13,7 @@ const mainBranch = 'master';
 const project = new Cdk8sTeamTypeScriptProject({
   name: 'root',
   repoName: 'cdk8s',
+  sampleCode: false,
   defaultReleaseBranch: mainBranch,
   pullRequestTemplate: false,
   release: false,
