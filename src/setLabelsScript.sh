@@ -5,5 +5,6 @@ if [ TESTING_MODE_INPUT = "true" ]
 then
   echo labels="auto-approve" >> $GITHUB_OUTPUT
 else
-  echo labels="" >> $GITHUB_OUTPUT
+  echo "SUMU WHY"
+  # echo labels="" >> $GITHUB_OUTPUT
 fi
