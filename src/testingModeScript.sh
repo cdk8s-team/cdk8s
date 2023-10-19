@@ -1,7 +1,7 @@
 #!/bin/bash
 export testingMode=$1
 
-if [-z $testingMode]; then
+if [$testingMode]; then
   echo labels="auto-approve" >> $GITHUB_OUTPUT
 fi
 
