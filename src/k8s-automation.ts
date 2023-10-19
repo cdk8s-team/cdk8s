@@ -128,7 +128,7 @@ export class K8sVersionUpgradeAutomation extends Component {
           id: 'set-auto-approve-label',
           // if: '!(${{ github.event_name }} == "push")',
           // run: 'echo labels="bug" >> $GITHUB_OUTPUT;',
-          run: 'if (${{ github.event_name }} == "push");then echo labels="auto-approve" >> $GITHUB_OUTPUT;fi',
+          run: 'if ("${{ github.event_name }}" == "push");then echo labels="auto-approve" >> $GITHUB_OUTPUT;fi',
           // if: 'github.event.inputs.testingMode == false',
           // run: 'echo labels="auto-approve" >> $GITHUB_OUTPUT',
           env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
