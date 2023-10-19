@@ -2,7 +2,11 @@
 export githubEvent="$1"
 export testingMode=$2
 
-if [ "$githubEvent" = "push" ]; then
+# if [ "$githubEvent" = "push" ]; then
+#   echo labels="auto-approve" >> $GITHUB_OUTPUT
+# fi
+
+if [ -z testingMode ]; then
   echo labels="auto-approve" >> $GITHUB_OUTPUT
 fi
 
