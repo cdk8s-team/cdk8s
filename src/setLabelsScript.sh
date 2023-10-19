@@ -1,4 +1,8 @@
 #!/bin/bash
 
 TESTING_MODE_INPUT="$1"
-echo testingMode=${TESTING_MODE_INPUT:-"true"} >> $GITHUB_OUTPUT
+if [ TESTING_MODE_INPUT = "true" ]
+  echo labels="auto-approve" >> $GITHUB_OUTPUT
+else
+  echo labels="" >> $GITHUB_OUTPUT
+fi
