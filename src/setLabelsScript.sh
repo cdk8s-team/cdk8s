@@ -6,6 +6,6 @@ then
   echo "ok, we got here"
   echo labels="auto-approve" >> $GITHUB_OUTPUT
 else
-  echo "hello?
+  echo "hello?"
   echo labels="" >> $GITHUB_OUTPUT
 fi
