@@ -2,7 +2,8 @@
 
 TESTING_MODE_INPUT="$1"
 # Use user input or fall back to "true"
-echo testingMode=${TESTING_MODE_INPUT:-"true"} >> $GITHUB_OUTPUT
+echo testingMode=${TESTING_MODE_INPUT:-"true"}
+# >> $GITHUB_OUTPUT
 # use $NAME in your action, value will be always provided
 
 
