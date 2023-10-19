@@ -129,7 +129,7 @@ export class K8sVersionUpgradeAutomation extends Component {
           // if: '!(${{ github.event_name }} == "push")',
           // run: 'echo labels="bug" >> $GITHUB_OUTPUT;',
           //${{ github.event.inputs.testingMode }}
-          run: 'if (("${{ github.event.inputs.testingMode }}" == ""));then echo labels="auto-approve" >> $GITHUB_OUTPUT;fi',
+          run: 'if (("${{ github.event.inputs.testingMode }}" = ""));then echo labels="auto-approve" >> $GITHUB_OUTPUT;fi',
           // run: 'if [${{ github.event_name }} = "push"];then echo labels="auto-approve" >> $GITHUB_OUTPUT;fi',
           // if: 'github.event.inputs.testingMode == false',
           // run: 'echo labels="auto-approve" >> $GITHUB_OUTPUT',
