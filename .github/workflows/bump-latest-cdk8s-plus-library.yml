@@ -42,20 +42,40 @@ jobs:
         run: |-
           echo httpStatus="$(curl -sL -w "%{http_code}
           " "https://www.npmjs.com/package/cdk8s-plus-${{steps.k8s-latest-version.outputs.latestVersion}}" -o /dev/null)" >> $GITHUB_OUTPUT
-  generate-new-k8s-spec:
+  configure-testing-mode:
     needs: check-latest-k8s-release
     runs-on: ubuntu-latest
     permissions:
       contents: read
       pull-requests: write
-    env:
-      testingMode: "true"
+    outputs:
+      testingMode: ${{ steps.set-testing-mode-var.outputs.testingMode }}
+      labels: ${{ steps.set-auto-approve-label.outputs.labels }}
     if: needs.check-latest-k8s-release.outputs.httpStatus != 200
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Set testingMode env variable
+      - name: Set testingMode environment variable
+        id: set-testing-mode-var
         run: bash src/testModeSet.sh ${{ github.event.inputs.testingMode }}
+      - name: Set auto-approve label for PR
+        id: set-auto-approve-label
+        env:
+          GITHUB_TOKEN: ${{ secrets.PROJEN_GITHUB_TOKEN }}
+        run: if [${{steps.set-testing-mode-var.outputs.testingMode}} = "true"];then echo labels="auto-approve" >> $GITHUB_OUTPUT;fi
+        continue-on-error: false
+  generate-new-k8s-spec:
+    needs:
+      - check-latest-k8s-release
+      - configure-testing-mode
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    if: needs.check-latest-k8s-release.outputs.httpStatus != 200
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
@@ -66,12 +86,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.PROJEN_GITHUB_TOKEN }}
         run: ${{ github.workspace }}/tools/import-spec.sh 1.${{ needs.check-latest-k8s-release.outputs.latestVersion }}.0
-        continue-on-error: false
-      - name: Set auto-approve label for PR if in testing mode
-        id: set-auto-approve-label
-        env:
-          GITHUB_TOKEN: ${{ secrets.PROJEN_GITHUB_TOKEN }}
-        run: if [$testingMode = "true"];then echo labels="auto-approve" >> $GITHUB_OUTPUT;fi
         continue-on-error: false
       - name: Create Pull Request
         id: create-pr
@@ -90,7 +104,7 @@ jobs:
             *Automatically created by projen via the "create-pull-request" workflow*
           branch: github-actions/generate-k8s-spec-${{ needs.check-latest-k8s-release.outputs.latestVersion }}${{ steps.set-auto-approve-label.outputs.labels }}
           title: "chore: v${{ needs.check-latest-k8s-release.outputs.latestVersion }}${{ steps.set-auto-approve-label.outputs.labels }} kubernetes-spec"
-          labels: ${{ steps.set-auto-approve-label.outputs.labels }}
+          labels: ${{ needs.configure-testing-mode.set-auto-approve-label.outputs.labels }}
           body: |-
             This PR adds the v${{ needs.check-latest-k8s-release.outputs.latestVersion }} Kubernetes spec. This is required in order for us to add a new version to cdk8s-plus. See details in [workflow run].
 
@@ -103,7 +117,9 @@ jobs:
           committer: github-actions <github-actions@github.com>
           signoff: true
   add-backport-label:
-    needs: check-latest-k8s-release
+    needs:
+      - check-latest-k8s-release
+      - configure-testing-mode
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -123,6 +139,7 @@ jobs:
     needs:
       - check-latest-k8s-release
       - generate-new-k8s-spec
+      - configure-testing-mode
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -151,7 +168,7 @@ jobs:
       - name: Import the new k8s spec from the prerequisite step
         run: yarn run import
       - name: Disable publishing
-        run: npx projen disable-publishing
+        run: if [${{ needs.configure-testing-mode.outputs.testingMode }}"true"];then npx projen disable-publishing;fi
       - name: Test package json output
         run: cat package.json
       - name: Let projen update the remaining files
@@ -177,6 +194,7 @@ jobs:
     needs:
       - check-latest-k8s-release
       - create-new-plus-branch
+      - configure-testing-mode
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -220,6 +238,7 @@ jobs:
             *Automatically created by projen via the "create-pull-request" workflow*
           branch: github-actions/website-update-${{ needs.check-latest-k8s-release.outputs.latestVersion }}
           title: "chore(website): cdk8s-plus-${{ needs.check-latest-k8s-release.outputs.latestVersion }}"
+          labels: ${{ needs.configure-testing-mode.set-auto-approve-label.outputs.labels }}
           body: |-
             This PR updates the website with the latest version of cdk8s-plus. See details in [workflow run].
 
@@ -235,6 +254,7 @@ jobs:
     needs:
       - check-latest-k8s-release
       - update-cdk8s-website
+      - configure-testing-mode
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -266,6 +286,7 @@ jobs:
             *Automatically created by projen via the "create-pull-request" workflow*
           branch: github-actions/cdk-ops-k8s-upgrade-${{ needs.check-latest-k8s-release.outputs.latestVersion }}
           title: "chore: updating latest cdk8s-plus version to v${{ needs.check-latest-k8s-release.outputs.latestVersion }}"
+          labels: ${{ needs.configure-testing-mode.set-auto-approve-label.outputs.labels }}
           body: |-
             This PR updates the reference to of the latest cdk8s-plus version. See details in [workflow run].
 

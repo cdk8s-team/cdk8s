@@ -40,7 +40,7 @@ export class K8sVersionUpgradeAutomation extends Component {
 
     const runsOn = ['ubuntu-latest'];
 
-    // PART 0: Check Latest Kubernetes Version Online
+    // PART 0: Check Latest Kubernetes Version Online and configure Testing Mode
 
     const checkLatestVersion: workflows.Job = {
       runsOn: runsOn,
@@ -93,6 +93,47 @@ export class K8sVersionUpgradeAutomation extends Component {
     };
 
     workflow.addJob('check-latest-k8s-release', checkLatestVersion);
+
+    const configureTestingMode: workflows.Job = {
+      runsOn: runsOn,
+      permissions: {
+        contents: workflows.JobPermission.READ,
+        pullRequests: workflows.JobPermission.WRITE,
+      },
+      needs: ['check-latest-k8s-release'],
+      if: 'needs.check-latest-k8s-release.outputs.httpStatus != 200',
+      outputs: {
+        testingMode: {
+          stepId: 'set-testing-mode-var',
+          outputName: 'testingMode',
+        },
+        labels: {
+          stepId: 'set-auto-approve-label',
+          outputName: 'labels',
+        },
+      },
+      steps: [
+        {
+          name: 'Checkout',
+          uses: 'actions/checkout@v2',
+        },
+        {
+          name: 'Set testingMode environment variable',
+          id: 'set-testing-mode-var',
+          run: 'bash src/testModeSet.sh ${{ github.event.inputs.testingMode }}',
+        },
+        {
+          name: 'Set auto-approve label for PR',
+          id: 'set-auto-approve-label',
+          run: 'if [${{steps.set-testing-mode-var.outputs.testingMode}} = "true"];then echo labels="auto-approve" >> $GITHUB_OUTPUT;fi',
+          env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
+          continueOnError: false,
+        },
+      ],
+    };
+
+    workflow.addJob('configure-testing-mode', configureTestingMode);
+
     // PART 1: Prerequisite
 
     const generateK8sSpecJob: workflows.Job = {
@@ -101,19 +142,12 @@ export class K8sVersionUpgradeAutomation extends Component {
         contents: workflows.JobPermission.READ,
         pullRequests: workflows.JobPermission.WRITE,
       },
-      needs: ['check-latest-k8s-release'],
+      needs: ['check-latest-k8s-release', 'configure-testing-mode'],
       if: 'needs.check-latest-k8s-release.outputs.httpStatus != 200',
-      env: {
-        testingMode: 'true',
-      },
       steps: [
         {
           name: 'Checkout',
           uses: 'actions/checkout@v2',
-        },
-        {
-          name: 'Set testingMode env variable',
-          run: 'bash src/testModeSet.sh ${{ github.event.inputs.testingMode }}',
         },
         {
           name: 'Setup Node.js',
@@ -130,26 +164,13 @@ export class K8sVersionUpgradeAutomation extends Component {
           env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
           continueOnError: false,
         },
-        {
-          name: 'Set auto-approve label for PR if in testing mode',
-          id: 'set-auto-approve-label',
-          // if: '!(${{ github.event_name }} == "push")',
-          // run: 'echo labels="bug" >> $GITHUB_OUTPUT;',
-          //${{ github.event.inputs.testingMode }}
-          // run: 'bash src/testingModeScript.sh ${{ github.event_name }} ${{ github.event.inputs.testingMode }}',
-          run: 'if [$testingMode = "true"];then echo labels="auto-approve" >> $GITHUB_OUTPUT;fi',
-          // if: 'github.event.inputs.testingMode == false',
-          // run: 'echo labels="auto-approve" >> $GITHUB_OUTPUT',
-          env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
-          continueOnError: false,
-        },
         ...WorkflowActions.createPullRequest({
           workflowName: 'create-pull-request',
           pullRequestTitle: 'chore: v${{ needs.check-latest-k8s-release.outputs.latestVersion }}${{ steps.set-auto-approve-label.outputs.labels }} kubernetes-spec',
           pullRequestDescription: 'This PR adds the v${{ needs.check-latest-k8s-release.outputs.latestVersion }} Kubernetes spec. This is required in order for us to add a new version to cdk8s-plus.',
           branchName: 'github-actions/generate-k8s-spec-${{ needs.check-latest-k8s-release.outputs.latestVersion }}${{ steps.set-auto-approve-label.outputs.labels }}',
           labels: [
-            '${{ steps.set-auto-approve-label.outputs.labels }}',
+            '${{ needs.configure-testing-mode.set-auto-approve-label.outputs.labels }}',
           ],
           credentials: GithubCredentials.fromPersonalAccessToken(),
         }),
@@ -164,7 +185,7 @@ export class K8sVersionUpgradeAutomation extends Component {
         contents: workflows.JobPermission.READ,
         pullRequests: workflows.JobPermission.WRITE,
       },
-      needs: ['check-latest-k8s-release'],
+      needs: ['check-latest-k8s-release', 'configure-testing-mode'],
       if: 'needs.check-latest-k8s-release.outputs.httpStatus != 200',
       steps: [
         {
@@ -195,7 +216,7 @@ export class K8sVersionUpgradeAutomation extends Component {
         contents: workflows.JobPermission.READ,
         pullRequests: workflows.JobPermission.WRITE,
       },
-      needs: ['check-latest-k8s-release', 'generate-new-k8s-spec'],
+      needs: ['check-latest-k8s-release', 'generate-new-k8s-spec', 'configure-testing-mode'],
       steps: [
         {
           name: 'Checkout',
@@ -230,11 +251,8 @@ export class K8sVersionUpgradeAutomation extends Component {
           run: 'yarn run import',
         },
         {
-          // TESTING MODE: Disable publishing. Delete / comment this out before running it for real.
-          // if: '${{ github.event.inputs.testingMode }} == true',
-          // name: 'Disable publishing if testingMode is true',
           name: 'Disable publishing',
-          run: 'npx projen disable-publishing',
+          run: 'if [${{ needs.configure-testing-mode.outputs.testingMode }}"true"];then npx projen disable-publishing;fi',
         },
         {
           name: 'Test package json output',
@@ -282,7 +300,7 @@ export class K8sVersionUpgradeAutomation extends Component {
         pullRequests: workflows.JobPermission.WRITE,
       },
       // add the cdk8s-plus update job to needs when it's done:
-      needs: ['check-latest-k8s-release', 'create-new-plus-branch'],
+      needs: ['check-latest-k8s-release', 'create-new-plus-branch', 'configure-testing-mode'],
       if: 'needs.check-latest-k8s-release.outputs.httpStatus != 200',
       steps: [
         {
@@ -315,14 +333,6 @@ export class K8sVersionUpgradeAutomation extends Component {
           env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
           continueOnError: false,
         },
-        // {
-        //   name: 'Set auto-approve label for PR if in testing mode',
-        //   id: 'set-auto-approve-label',
-        //   if: '${{ github.event.inputs.testingMode }} == false',
-        //   run: 'echo labels="auto-approve" >> $GITHUB_OUTPUT',
-        //   env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
-        //   continueOnError: false,
-        // },
         ...WorkflowActions.createPullRequest({
           workflowName: 'create-pull-request',
           pullRequestTitle: 'chore(website): cdk8s-plus-${{ needs.check-latest-k8s-release.outputs.latestVersion }}',
@@ -330,7 +340,7 @@ export class K8sVersionUpgradeAutomation extends Component {
           branchName: 'github-actions/website-update-${{ needs.check-latest-k8s-release.outputs.latestVersion }}',
           credentials: GithubCredentials.fromPersonalAccessToken(),
           labels: [
-            // '${{ steps.set-auto-approve-label.outputs.labels }}',
+            '${{ needs.configure-testing-mode.set-auto-approve-label.outputs.labels }}',
           ],
         }),
       ],
@@ -338,13 +348,15 @@ export class K8sVersionUpgradeAutomation extends Component {
 
     workflow.addJob('update-cdk8s-website', updateCdk8s);
 
+    // PART 4: Update CDK Ops
+
     const updateCdkOps: workflows.Job = {
       runsOn: runsOn,
       permissions: {
         contents: workflows.JobPermission.READ,
         pullRequests: workflows.JobPermission.WRITE,
       },
-      needs: ['check-latest-k8s-release', 'update-cdk8s-website'],
+      needs: ['check-latest-k8s-release', 'update-cdk8s-website', 'configure-testing-mode'],
       steps: [
         {
           name: 'Checkout',
@@ -360,21 +372,13 @@ export class K8sVersionUpgradeAutomation extends Component {
           env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
           continueOnError: false,
         },
-        // {
-        //   name: 'Set auto-approve label for PR if in testing mode',
-        //   id: 'set-auto-approve-label',
-        //   if: '${{ github.event.inputs.testingMode }} == false',
-        //   run: 'echo labels="auto-approve" >> $GITHUB_OUTPUT',
-        //   env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
-        //   continueOnError: false,
-        // },
         ...WorkflowActions.createPullRequest({
           workflowName: 'create-pull-request',
           pullRequestTitle: 'chore: updating latest cdk8s-plus version to v${{ needs.check-latest-k8s-release.outputs.latestVersion }}',
           pullRequestDescription: 'This PR updates the reference to of the latest cdk8s-plus version',
           branchName: 'github-actions/cdk-ops-k8s-upgrade-${{ needs.check-latest-k8s-release.outputs.latestVersion }}',
           labels: [
-          //   // '${{ steps.set-auto-approve-label.outputs.labels }}',
+            '${{ needs.configure-testing-mode.set-auto-approve-label.outputs.labels }}',
           ],
           credentials: GithubCredentials.fromPersonalAccessToken(),
         }),
