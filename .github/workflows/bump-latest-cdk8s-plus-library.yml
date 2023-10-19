@@ -67,7 +67,7 @@ jobs:
         id: set-auto-approve-label
         env:
           GITHUB_TOKEN: ${{ secrets.PROJEN_GITHUB_TOKEN }}
-        run: bash src/testingModeScript.sh ${{ github.event.inputs.testingMode }}
+        run: bash src/testingModeScript.sh ${{ github.event_name }} ${{ github.event.inputs.testingMode }}
         continue-on-error: false
       - name: Create Pull Request
         id: create-pr
