@@ -24,11 +24,7 @@ jobs:
       latestVersion: ${{ steps.k8s-latest-version.outputs.latestVersion }}
       currentVersion: ${{ steps.k8s-current-version.outputs.currentVersion }}
       httpStatus: ${{ steps.get-npm-status-code.outputs.httpStatus }}
-    env:
-      testingMode: "true"
     steps:
-      - name: Set testingMode env variable
-        run: bash src/testModeSet.sh ${{ github.event.inputs.testingMode }}
       - name: Get latest K8s Release
         id: get-k8s-latest-release
         uses: pozetroninc/github-action-get-latest-release@master
@@ -52,6 +48,8 @@ jobs:
     permissions:
       contents: read
       pull-requests: write
+    env:
+      testingMode: "true"
     if: needs.check-latest-k8s-release.outputs.httpStatus != 200
     steps:
       - name: Checkout
@@ -62,46 +60,10 @@ jobs:
           node-version: 18.12.0
       - name: Install dependencies
         run: yarn install --check-files
-      - name: Generate Kubernetes schema
-        env:
-          GITHUB_TOKEN: ${{ secrets.PROJEN_GITHUB_TOKEN }}
-        run: ${{ github.workspace }}/tools/import-spec.sh 1.${{ needs.check-latest-k8s-release.outputs.latestVersion }}.0
-        continue-on-error: false
-      - name: Set auto-approve label for PR if in testing mode
-        id: set-auto-approve-label
-        env:
-          GITHUB_TOKEN: ${{ secrets.PROJEN_GITHUB_TOKEN }}
-        run: bash src/testingModeScript.sh ${{ github.event_name }} ${{ github.event.inputs.testingMode }}
-        continue-on-error: false
-      - name: Create Pull Request
-        id: create-pr
-        uses: peter-evans/create-pull-request@v4
-        with:
-          token: ${{ secrets.PROJEN_GITHUB_TOKEN }}
-          commit-message: |-
-            chore: v${{ needs.check-latest-k8s-release.outputs.latestVersion }}${{ steps.set-auto-approve-label.outputs.labels }} kubernetes-spec
-
-            This PR adds the v${{ needs.check-latest-k8s-release.outputs.latestVersion }} Kubernetes spec. This is required in order for us to add a new version to cdk8s-plus. See details in [workflow run].
-
-            [Workflow Run]: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-
-            ------
-
-            *Automatically created by projen via the "create-pull-request" workflow*
-          branch: github-actions/generate-k8s-spec-${{ needs.check-latest-k8s-release.outputs.latestVersion }}${{ steps.set-auto-approve-label.outputs.labels }}
-          title: "chore: v${{ needs.check-latest-k8s-release.outputs.latestVersion }}${{ steps.set-auto-approve-label.outputs.labels }} kubernetes-spec"
-          labels: ${{ steps.set-auto-approve-label.outputs.labels }}
-          body: |-
-            This PR adds the v${{ needs.check-latest-k8s-release.outputs.latestVersion }} Kubernetes spec. This is required in order for us to add a new version to cdk8s-plus. See details in [workflow run].
-
-            [Workflow Run]: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-
-            ------
-
-            *Automatically created by projen via the "create-pull-request" workflow*
-          author: github-actions <github-actions@github.com>
-          committer: github-actions <github-actions@github.com>
-          signoff: true
+      - name: Set testingMode env variable
+        run: bash src/testModeSet.sh ${{ github.event.inputs.testingMode }}
+      - name: PRINT testing mode var
+        run: echo env.testingMode
   add-backport-label:
     needs: check-latest-k8s-release
     runs-on: ubuntu-latest
