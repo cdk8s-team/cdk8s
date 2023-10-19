@@ -1,14 +1,10 @@
 #!/bin/bash
 
 TESTING_MODE_INPUT="$1"
-# Use user input or fall back to "true"
 echo testingMode=${TESTING_MODE_INPUT:-"true"}
+# Use user input or fall back to "true"
 # >> $GITHUB_OUTPUT
 # use $NAME in your action, value will be always provided
-
-
-
-
 
 
 # export githubEvent="$1"

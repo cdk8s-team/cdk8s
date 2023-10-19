@@ -28,9 +28,7 @@ jobs:
       testingMode: "true"
     steps:
       - name: Set testingMode env variable
-        run: bash src/testingModeScript.sh ${{ github.event.inputs.testingMode }}
-      - name: PRINT testing mode var
-        run: echo env.testingMode
+        run: bash src/testModeSet.sh ${{ github.event.inputs.testingMode }}
       - name: Get latest K8s Release
         id: get-k8s-latest-release
         uses: pozetroninc/github-action-get-latest-release@master

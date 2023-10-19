@@ -68,13 +68,12 @@ export class K8sVersionUpgradeAutomation extends Component {
       steps: [
         {
           name: 'Set testingMode env variable',
-          run: 'bash src/testingModeScript.sh ${{ github.event.inputs.testingMode }}',
+          run: 'bash src/testModeSet.sh ${{ github.event.inputs.testingMode }}',
         },
-        {
-          name: 'PRINT testing mode var',
-          run: 'echo env.testingMode',
-        },
-
+        // {
+        //   name: 'PRINT testing mode var',
+        //   run: 'echo env.testingMode',
+        // },
         {
           id: 'get-k8s-latest-release',
           name: 'Get latest K8s Release',
