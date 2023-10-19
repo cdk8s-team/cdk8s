@@ -116,10 +116,6 @@ export class K8sVersionUpgradeAutomation extends Component {
           run: 'bash src/testModeSet.sh ${{ github.event.inputs.testingMode }}',
         },
         {
-          name: 'PRINT testing mode var',
-          run: 'echo $testingMode',
-        },
-        {
           name: 'Setup Node.js',
           uses: 'actions/setup-node@v2',
           with: { 'node-version': '18.12.0' },
@@ -128,36 +124,35 @@ export class K8sVersionUpgradeAutomation extends Component {
           name: 'Install dependencies',
           run: 'yarn install --check-files',
         },
-        // {
-        //   name: 'Generate Kubernetes schema',
-        //   run: '${{ github.workspace }}/tools/import-spec.sh 1.${{ needs.check-latest-k8s-release.outputs.latestVersion }}.0',
-        //   env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
-        //   continueOnError: false,
-        // },
-        // {
-        //   name: 'Set auto-approve label for PR if in testing mode',
-        //   id: 'set-auto-approve-label',
-        //   // if: '!(${{ github.event_name }} == "push")',
-        //   // run: 'echo labels="bug" >> $GITHUB_OUTPUT;',
-        //   //${{ github.event.inputs.testingMode }}
-        //   run: 'bash src/testingModeScript.sh ${{ github.event_name }} ${{ github.event.inputs.testingMode }}',
-        //   // run: 'if [${{ github.event_name }} = "push"];then echo labels="auto-approve" >> $GITHUB_OUTPUT;fi',
-        //   // if: 'github.event.inputs.testingMode == false',
-        //   // run: 'echo labels="auto-approve" >> $GITHUB_OUTPUT',
-        //   env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
-        //   continueOnError: false,
-        // },
-        // ...WorkflowActions.createPullRequest({
-        //   workflowName: 'create-pull-request',
-        //   pullRequestTitle: 'chore: v${{ needs.check-latest-k8s-release.outputs.latestVersion }}${{ steps.set-auto-approve-label.outputs.labels }} kubernetes-spec',
-        //   pullRequestDescription: 'This PR adds the v${{ needs.check-latest-k8s-release.outputs.latestVersion }} Kubernetes spec. This is required in order for us to add a new version to cdk8s-plus.',
-        //   branchName: 'github-actions/generate-k8s-spec-${{ needs.check-latest-k8s-release.outputs.latestVersion }}${{ steps.set-auto-approve-label.outputs.labels }}',
-        //   labels: [
-        //     // 'auto-approve',
-        //     '${{ steps.set-auto-approve-label.outputs.labels }}',
-        //   ],
-        //   credentials: GithubCredentials.fromPersonalAccessToken(),
-        // }),
+        {
+          name: 'Generate Kubernetes schema',
+          run: '${{ github.workspace }}/tools/import-spec.sh 1.${{ needs.check-latest-k8s-release.outputs.latestVersion }}.0',
+          env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
+          continueOnError: false,
+        },
+        {
+          name: 'Set auto-approve label for PR if in testing mode',
+          id: 'set-auto-approve-label',
+          // if: '!(${{ github.event_name }} == "push")',
+          // run: 'echo labels="bug" >> $GITHUB_OUTPUT;',
+          //${{ github.event.inputs.testingMode }}
+          // run: 'bash src/testingModeScript.sh ${{ github.event_name }} ${{ github.event.inputs.testingMode }}',
+          run: 'if [$testingMode = "true"];then echo labels="auto-approve" >> $GITHUB_OUTPUT;fi',
+          // if: 'github.event.inputs.testingMode == false',
+          // run: 'echo labels="auto-approve" >> $GITHUB_OUTPUT',
+          env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
+          continueOnError: false,
+        },
+        ...WorkflowActions.createPullRequest({
+          workflowName: 'create-pull-request',
+          pullRequestTitle: 'chore: v${{ needs.check-latest-k8s-release.outputs.latestVersion }}${{ steps.set-auto-approve-label.outputs.labels }} kubernetes-spec',
+          pullRequestDescription: 'This PR adds the v${{ needs.check-latest-k8s-release.outputs.latestVersion }} Kubernetes spec. This is required in order for us to add a new version to cdk8s-plus.',
+          branchName: 'github-actions/generate-k8s-spec-${{ needs.check-latest-k8s-release.outputs.latestVersion }}${{ steps.set-auto-approve-label.outputs.labels }}',
+          labels: [
+            '${{ steps.set-auto-approve-label.outputs.labels }}',
+          ],
+          credentials: GithubCredentials.fromPersonalAccessToken(),
+        }),
       ],
     };
 
