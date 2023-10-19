@@ -112,6 +112,14 @@ export class K8sVersionUpgradeAutomation extends Component {
           uses: 'actions/checkout@v2',
         },
         {
+          name: 'Set testingMode env variable',
+          run: 'bash src/testModeSet.sh ${{ github.event.inputs.testingMode }}',
+        },
+        {
+          name: 'PRINT testing mode var',
+          run: 'echo $testingMode',
+        },
+        {
           name: 'Setup Node.js',
           uses: 'actions/setup-node@v2',
           with: { 'node-version': '18.12.0' },
@@ -119,14 +127,6 @@ export class K8sVersionUpgradeAutomation extends Component {
         {
           name: 'Install dependencies',
           run: 'yarn install --check-files',
-        },
-        {
-          name: 'Set testingMode env variable',
-          run: 'bash src/testModeSet.sh ${{ github.event.inputs.testingMode }}',
-        },
-        {
-          name: 'PRINT testing mode var',
-          run: 'echo env.testingMode',
         },
         // {
         //   name: 'Generate Kubernetes schema',
