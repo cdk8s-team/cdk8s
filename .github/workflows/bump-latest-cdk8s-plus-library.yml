@@ -57,7 +57,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Set testingMode environment variable
         id: set-testing-mode-var
-        run: bash src/testModeSet.sh ${{ github.event.inputs.testingMode }}
+        run: bash src/testModeScript.sh ${{ github.event.inputs.testingMode }}
       - name: Set auto-approve label for PR
         id: set-auto-approve-label
         env:

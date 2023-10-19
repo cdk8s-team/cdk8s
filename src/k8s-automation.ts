@@ -120,7 +120,7 @@ export class K8sVersionUpgradeAutomation extends Component {
         {
           name: 'Set testingMode environment variable',
           id: 'set-testing-mode-var',
-          run: 'bash src/testModeSet.sh ${{ github.event.inputs.testingMode }}',
+          run: 'bash src/testModeScript.sh ${{ github.event.inputs.testingMode }}',
         },
         {
           name: 'Set auto-approve label for PR',
