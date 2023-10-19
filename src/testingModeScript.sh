@@ -1,5 +1,5 @@
 #!/bin/bash
-export testingMode="$(${{github.event.inputs.testingMode}})"
+export testingMode="$1"
 
 if ["$testingMode" = "false"]; then
   echo labels="auto-approve" >> $GITHUB_OUTPUT
