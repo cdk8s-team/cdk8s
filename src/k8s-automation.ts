@@ -234,7 +234,8 @@ export class K8sVersionUpgradeAutomation extends Component {
         },
         {
           name: 'Let projen update the remaining files',
-          run: 'npx projen build',
+          run: 'yarn build',
+          // run: 'npx projen build',
         },
         {
           name: 'Update references of old kubernetes versions with projen task',

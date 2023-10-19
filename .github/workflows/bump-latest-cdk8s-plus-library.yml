@@ -144,7 +144,7 @@ jobs:
       - name: Test package json output
         run: cat package.json
       - name: Let projen update the remaining files
-        run: npx projen build
+        run: yarn build
       - name: Update references of old kubernetes versions with projen task
         env:
           GITHUB_TOKEN: ${{ secrets.PROJEN_GITHUB_TOKEN }}
