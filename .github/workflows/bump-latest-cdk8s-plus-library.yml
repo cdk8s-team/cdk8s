@@ -62,7 +62,7 @@ jobs:
         id: set-auto-approve-label
         env:
           GITHUB_TOKEN: ${{ secrets.PROJEN_GITHUB_TOKEN }}
-        run: bash src/setLabelsScript.sh $outputs.testingMode
+        run: bash src/setLabelsScript.sh ${{ steps.set-testing-mode-var.outputs.testingMode }}
         continue-on-error: false
   generate-new-k8s-spec:
     needs:
