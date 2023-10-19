@@ -63,6 +63,12 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.PROJEN_GITHUB_TOKEN }}
         run: ${{ github.workspace }}/tools/import-spec.sh 1.${{ needs.check-latest-k8s-release.outputs.latestVersion }}.0
         continue-on-error: false
+      - name: Set auto-approve label for PR if in testing mode
+        id: set-auto-approve-label
+        env:
+          GITHUB_TOKEN: ${{ secrets.PROJEN_GITHUB_TOKEN }}
+        run: if (${{ github.event.inputs.testingMode }} == false);then echo labels="auto-approve" >> $GITHUB_OUTPUT;fi
+        continue-on-error: false
       - name: Create Pull Request
         id: create-pr
         uses: peter-evans/create-pull-request@v4
@@ -80,6 +86,7 @@ jobs:
             *Automatically created by projen via the "create-pull-request" workflow*
           branch: github-actions/generate-k8s-spec-${{ needs.check-latest-k8s-release.outputs.latestVersion }}${{ steps.set-auto-approve-label.outputs.labels }}
           title: "chore: v${{ needs.check-latest-k8s-release.outputs.latestVersion }}${{ steps.set-auto-approve-label.outputs.labels }} kubernetes-spec"
+          labels: ${{ steps.set-auto-approve-label.outputs.labels }}
           body: |-
             This PR adds the v${{ needs.check-latest-k8s-release.outputs.latestVersion }} Kubernetes spec. This is required in order for us to add a new version to cdk8s-plus. See details in [workflow run].
 
