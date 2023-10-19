@@ -1,9 +1,13 @@
 #!/bin/bash
-export testingMode="$1"
+export testingMode=$1
 
-if [["$testingMode" = "false"]]; then
+if [-z $testingMode]; then
   echo labels="auto-approve" >> $GITHUB_OUTPUT
 fi
+
+# if [[$testingMode]]; then
+#   echo labels="auto-approve" >> $GITHUB_OUTPUT
+# fi
 
 # if [-z "$testingMode"]; then
 #   echo labels="auto-approve" >> $GITHUB_OUTPUT
