@@ -62,7 +62,19 @@ export class K8sVersionUpgradeAutomation extends Component {
           outputName: 'httpStatus',
         },
       },
+      env: {
+        testingMode: 'true',
+      },
       steps: [
+        {
+          name: 'Set testingMode env variable',
+          run: 'bash src/setTestingModeVar.sh ${{ github.event.inputs.testingMode }}',
+        },
+        {
+          name: 'PRINT testing mode var',
+          run: 'echo env.testingMode',
+        },
+
         {
           id: 'get-k8s-latest-release',
           name: 'Get latest K8s Release',
