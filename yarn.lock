@@ -2214,21 +2214,21 @@ case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s-cli@^2.167.0:
-  version "2.167.0"
-  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.167.0.tgz#acc3bae9154416a8da7ef32eaca36f403c3e0349"
-  integrity sha512-CFEsqQelVe4P1qH2t36kMvG0UDWiyt8rWoCee6wPVptkUI0ayrwzFR689j188qnjIJPQTxZb++yO6roB9T077A==
+cdk8s-cli@^2.169.0:
+  version "2.169.0"
+  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.169.0.tgz#4c6ebe072fe3000d54b78a1127ecf2b658a8504b"
+  integrity sha512-+sYhAID+z3dxdlTIKdTkUDZeHSVlBrZjxmAJ87Bm1rRJnmFFNtHnC5YLkVhT5TQEAGkMoyUIFdbXYaCIuil2Ag==
   dependencies:
     "@types/node" "^16"
     ajv "^8.12.0"
     cdk8s "^2.68.0"
-    cdk8s-plus-25 "^2.22.50"
+    cdk8s-plus-25 "^2.22.51"
     codemaker "^1.91.0"
     colors "1.4.0"
     constructs "^10.3.0"
     fs-extra "^8"
     jsii-pacmak "^1.91.0"
-    jsii-srcmak "^0.1.956"
+    jsii-srcmak "^0.1.957"
     json2jsii "^0.3.389"
     semver "^7.5.4"
     sscaff "^1.2.274"
@@ -2238,28 +2238,28 @@ cdk8s-cli@^2.167.0:
   optionalDependencies:
     backport "8.5.0"
 
-cdk8s-plus-25@^2.22.50, cdk8s-plus-25@^2.22.51:
-  version "2.22.51"
-  resolved "https://registry.yarnpkg.com/cdk8s-plus-25/-/cdk8s-plus-25-2.22.51.tgz#a00fec70595fc60f61fc5ed86e3899ffa969f998"
-  integrity sha512-E+FkEhVoMX0Tl41VoCSAMQjcxj1GclV87uJ+MLdfpB2Qwv0LhB41t0szHFdx2Lttd1ahgun4RdM2bNmt65oiWw==
+cdk8s-plus-25@^2.22.51, cdk8s-plus-25@^2.22.52:
+  version "2.22.52"
+  resolved "https://registry.yarnpkg.com/cdk8s-plus-25/-/cdk8s-plus-25-2.22.52.tgz#9c564f4c7034eb49bd727ebee75cd962e4a5f3c6"
+  integrity sha512-G/5v/inDJdAGn0I1WQRZ+WioAFz2Vq2P6Pv4MhgnaJumGs1BY3iRbQ5vFf1ptk/S6Vaf5HkTyZtP7ImYMnYA2w==
   dependencies:
     minimatch "^3.1.2"
   optionalDependencies:
     backport "8.5.0"
 
-cdk8s-plus-26@^2.18.54:
-  version "2.18.54"
-  resolved "https://registry.yarnpkg.com/cdk8s-plus-26/-/cdk8s-plus-26-2.18.54.tgz#80af95e27ccc0803e7f03bcddd03c6d28774eb34"
-  integrity sha512-2gcR5gvFFORRkowQ1ZnEzi5V3gU9e/ERjCkL/pnIrb2mRZU1wE5KC1u2E2+K4PWXsowvTvJ3hjWDXNXsPzo7yw==
+cdk8s-plus-26@^2.18.55:
+  version "2.18.55"
+  resolved "https://registry.yarnpkg.com/cdk8s-plus-26/-/cdk8s-plus-26-2.18.55.tgz#453f0ea66bb6e6fc0504aa891d8746781a5087fd"
+  integrity sha512-mlcLnBtmChobg4Y4c7wsYrpWCWMfC87xFyocdt0pAFY5fPLDlb/IWDsRbaoZGnhFhFINI0bKsgkdx3qLMNYUKg==
   dependencies:
     minimatch "^3.1.2"
   optionalDependencies:
     backport "8.5.0"
 
-cdk8s-plus-27@^2.7.53:
-  version "2.7.53"
-  resolved "https://registry.yarnpkg.com/cdk8s-plus-27/-/cdk8s-plus-27-2.7.53.tgz#2d45e6b30fdfd1549ef7fa3170a690c16abbd00c"
-  integrity sha512-vWWY/PvVhuQ9W4kssvg+Y2b+x7WhABFFyVhwrLJmIgHjpdBbhdV+mwPPsOK+DbkstbDrQTpx+Klus9mscCcBVQ==
+cdk8s-plus-27@^2.7.54:
+  version "2.7.54"
+  resolved "https://registry.yarnpkg.com/cdk8s-plus-27/-/cdk8s-plus-27-2.7.54.tgz#41bec0bb3400d2afb350bbbfae8247dd3e12e8ff"
+  integrity sha512-zxiyEm4v9EahLhWJoMFbSDMiXaxKizDG9NG1SNkSWzMLQ0aG+fXtPHESNYGO75ViAuUSKfwsZj/FrxsLBFrhtg==
   dependencies:
     minimatch "^3.1.2"
   optionalDependencies:
@@ -5195,10 +5195,10 @@ jsii-rosetta@^1.91.0:
     workerpool "^6.5.1"
     yargs "^16.2.0"
 
-jsii-srcmak@^0.1.956:
-  version "0.1.956"
-  resolved "https://registry.yarnpkg.com/jsii-srcmak/-/jsii-srcmak-0.1.956.tgz#074bbfccf39666b697a91e86ed784a8ba753925e"
-  integrity sha512-9V5OOxORDa8vcRZv7avURUUrUDAsOv99LKuXo+SIhP7LG4YMu0jtNdq91oJe0h8qp30luTVBS5h7G1uSXMR7VQ==
+jsii-srcmak@^0.1.957:
+  version "0.1.957"
+  resolved "https://registry.yarnpkg.com/jsii-srcmak/-/jsii-srcmak-0.1.957.tgz#4ce2298b81adb7178c8e158e19cc4fcdeb52e79e"
+  integrity sha512-7z97oWy4NWfTu9B7Uo7jh0xIS7EJgnfD5mQGR2pg//SJh02jrhGJ1sGcicEttd46Nrt4I36WLztqfa1W3UDPYg==
   dependencies:
     fs-extra "^9.1.0"
     jsii "~5.2.23"
@@ -5226,9 +5226,9 @@ jsii@1.91.0:
     yargs "^16.2.0"
 
 jsii@~5.2.23:
-  version "5.2.23"
-  resolved "https://registry.yarnpkg.com/jsii/-/jsii-5.2.23.tgz#29e9e08cc38c642e1f915b094c1552b93e9db5e2"
-  integrity sha512-OrQU4r4187z93ORCgjtMYKTomygNmIE8zMFqGohBjD4sCLqgzSB70O2KBTas8Hplz5iZULdxP3+6a8P3kr1MnQ==
+  version "5.2.25"
+  resolved "https://registry.yarnpkg.com/jsii/-/jsii-5.2.25.tgz#ba43c80c53abfa9019759fdcc2dfa4ba283d931c"
+  integrity sha512-PvvWvtEuy0Fg4Y5xUJtlNk8CJ+si3DyaxXuzFv6M6C0VMIWUsFfhwB4Gd7YhsB5/PxoOyX9c9Q0kf1R6sULqHQ==
   dependencies:
     "@jsii/check-node" "1.91.0"
     "@jsii/spec" "^1.91.0"
@@ -5240,7 +5240,7 @@ jsii@~5.2.23:
     semver "^7.5.4"
     semver-intersect "^1.4.0"
     sort-json "^2.0.1"
-    spdx-license-list "^6.7.0"
+    spdx-license-list "^6.8.0"
     typescript "~5.2"
     yargs "^17.7.2"
 
@@ -7476,7 +7476,7 @@ spdx-license-ids@^3.0.0:
   resolved "https://registry.yarnpkg.com/spdx-license-ids/-/spdx-license-ids-3.0.16.tgz#a14f64e0954f6e25cc6587bd4f392522db0d998f"
   integrity sha512-eWN+LnM3GR6gPu35WxNgbGl8rmY1AEmoMDvL/QD6zYmPWgywxWqJWNdLGT+ke8dKNWrcYgYjPpG5gbTfghP8rw==
 
-spdx-license-list@^6.7.0:
+spdx-license-list@^6.7.0, spdx-license-list@^6.8.0:
   version "6.8.0"
   resolved "https://registry.yarnpkg.com/spdx-license-list/-/spdx-license-list-6.8.0.tgz#92a99cd6c8b97fe98ae83c54deaffd4d9d503f74"
   integrity sha512-5UdM7r9yJ1EvsPQZWfa41AZjLQngl9iMMysm9XBW7Lqhq7aF8cllfqjS+rFCHB8FFMGSM0yFWue2LUV9mR0QzQ==
@@ -8077,9 +8077,9 @@ typescript@^4.9.5:
   integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
 
 typescript@next:
-  version "5.4.0-dev.20231105"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.4.0-dev.20231105.tgz#a416d439f7f8d488f141a311759ba8e92915b54f"
-  integrity sha512-TN7QRSjarOvoxvHuZdVmofCnXJYklxsiZ1tyJKiKkghPWXwrkQ68R3NN3vhtS8B+jIeZoETKssmfbmhCl8rwxQ==
+  version "5.4.0-dev.20231106"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.4.0-dev.20231106.tgz#2f18d69554ee22325fce7309f45c1e6b37f68ea1"
+  integrity sha512-Uxjjt7meOHOSXpQJkiObTPUXfQKqSkdcMQOV+ZAjo3U1w/D/1Qah5Pdg0x/jt/fIA6laCNWLogS+QiaT5HOohw==
 
 typescript@~3.9.10:
   version "3.9.10"
