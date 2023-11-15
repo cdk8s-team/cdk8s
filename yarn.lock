@@ -295,10 +295,10 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@cdk8s/projen-common@^0.0.464":
-  version "0.0.464"
-  resolved "https://registry.yarnpkg.com/@cdk8s/projen-common/-/projen-common-0.0.464.tgz#d397f0a4e6cc88700408e4bf04afd6d528119e67"
-  integrity sha512-rmsEX2GZMraUYHoEFDBep9pMYbrQZT2W03KNUTnXoywgoaBNXMK8Rj1yHTJkAr/nmNpxX737ZLQ2rrQuhT89NQ==
+"@cdk8s/projen-common@^0.0.466":
+  version "0.0.466"
+  resolved "https://registry.yarnpkg.com/@cdk8s/projen-common/-/projen-common-0.0.466.tgz#ef7cfdf702f5e828b2067f0be165799d43352dca"
+  integrity sha512-x2jfAAVJjBwvyTFJj99SUlO9DSvcBJrtcBrl/2+HU00+51+I/qHHL5wq0j6BoXmsTh4/uiopmrIOwJUuBHPDLQ==
   dependencies:
     codemaker "^1.91.0"
     deepmerge "^4.3.1"
@@ -8441,7 +8441,6 @@ workerpool@^6.5.1:
   integrity sha512-Fs4dNYcsdpYSAfVxhnl1L5zTksjvOJxtC5hzMNl+1t9B8hTJTdKDyZ5ju7ztgPy+ft9tBFXoOlDNiOT9WUXZlA==
 
 "wrap-ansi-cjs@npm:wrap-ansi@^7.0.0", wrap-ansi@^7.0.0:
-  name wrap-ansi-cjs
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/wrap-ansi/-/wrap-ansi-7.0.0.tgz#67e145cff510a6a6984bdf1152911d69d2eb9e43"
   integrity sha512-YVGIj2kamLSTxw6NsZjoBxfSwsn0ycdesmc4p+Q21c5zPuZ1pl+NfxVdxPtdHvmNVOQ6XSYG4AUtyt/Fi7D16Q==
