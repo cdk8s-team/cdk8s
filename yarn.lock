@@ -2238,28 +2238,28 @@ cdk8s-cli@^2.177.0:
   optionalDependencies:
     backport "8.5.0"
 
-cdk8s-plus-25@^2.22.58, cdk8s-plus-25@^2.22.59:
-  version "2.22.59"
-  resolved "https://registry.yarnpkg.com/cdk8s-plus-25/-/cdk8s-plus-25-2.22.59.tgz#3a8fe2e675c8edbdd1538628f1b0ac40ca671db1"
-  integrity sha512-2QCLjtmBtkFgw+X7V00wtya/T8o4K0vSRbC+1zy6ZQ230y3KG37GCy7tKj/Hvmx3VfhHVFolhw2vFkFT7sKWwQ==
+cdk8s-plus-25@^2.22.58, cdk8s-plus-25@^2.22.60:
+  version "2.22.60"
+  resolved "https://registry.yarnpkg.com/cdk8s-plus-25/-/cdk8s-plus-25-2.22.60.tgz#15d08fea71de946231e6c954aa28da7dcbd4c771"
+  integrity sha512-XthfG4g/plyJdw8mqMwoiJer3SQNKAaVI52kiReuTb9XDKand0y/LAgT85bRmnCtnW5jpegUxan5k3bIsCwlrw==
   dependencies:
     minimatch "^3.1.2"
   optionalDependencies:
     backport "8.5.0"
 
-cdk8s-plus-26@^2.18.62:
-  version "2.18.62"
-  resolved "https://registry.yarnpkg.com/cdk8s-plus-26/-/cdk8s-plus-26-2.18.62.tgz#dfa71876465293551e40c9adaa917c7fa0688bec"
-  integrity sha512-rXom+D/AXwlc9LeHIKX0qAj8a1thpcPC2yA//BM4PcHMyDRvsLb0ujyjaVwFgSjsvkNpgA5RmsrmQNDDzL0Ylg==
+cdk8s-plus-26@^2.18.63:
+  version "2.18.63"
+  resolved "https://registry.yarnpkg.com/cdk8s-plus-26/-/cdk8s-plus-26-2.18.63.tgz#5dc7524a1a4a4bfe06dd35a4c9ce4b3ceb7fb79b"
+  integrity sha512-6z56k5JQexuHl3+HkO//ZQdc10W8kut+dkQRe8F6m7LabRk76C+fTUwXMvntRW0gA5j7F5MAytEDMMMcYCX1UA==
   dependencies:
     minimatch "^3.1.2"
   optionalDependencies:
     backport "8.5.0"
 
-cdk8s-plus-27@^2.7.61:
-  version "2.7.61"
-  resolved "https://registry.yarnpkg.com/cdk8s-plus-27/-/cdk8s-plus-27-2.7.61.tgz#ef3e2ceb6b4910b5b552221f849de43a3a5f8728"
-  integrity sha512-Oa1kCN3l1qP6MyJYeVKmvzmQ2VkpmXpZ0sSX8n4N6ZLX2+oQazFeMJ9mRjqaXJRAzm2fZ2e9VF00zuaqdrG+GQ==
+cdk8s-plus-27@^2.7.62:
+  version "2.7.62"
+  resolved "https://registry.yarnpkg.com/cdk8s-plus-27/-/cdk8s-plus-27-2.7.62.tgz#8fd6f1b7e9936d85e1f249ee8cde6433259cfc5d"
+  integrity sha512-e2mX+PsAzkRubFUXR1fBKraXxWRcnaOurJEGzBC8+sNhiIrcMVwG7uWSYs6kiPLetM9AP5bCpHEYk8ZErKc0OA==
   dependencies:
     minimatch "^3.1.2"
   optionalDependencies:
@@ -3015,9 +3015,9 @@ ejs@^3.1.7:
     jake "^10.8.5"
 
 electron-to-chromium@^1.4.535:
-  version "1.4.583"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.583.tgz#7b0ac4f36388da4b5485788adb92cd7dd0abffc4"
-  integrity sha512-93y1gcONABZ7uqYe/JWDVQP/Pj/sQSunF0HVAPdlg/pfBnOyBMLlQUxWvkqcljJg1+W6cjvPuYD+r1Th9Tn8mA==
+  version "1.4.585"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.585.tgz#7b3cb6846bb5cc10a8d5904c351a9b8aaa76ea90"
+  integrity sha512-B4yBlX0azdA3rVMxpYwLQfDpdwOgcnLCkpvSOd68iFmeedo+WYjaBJS3/W58LVD8CB2nf+o7C4K9xz1l09RkWg==
 
 emittery@^0.8.1:
   version "0.8.1"
@@ -5196,9 +5196,9 @@ jsii-rosetta@^1.91.0:
     yargs "^16.2.0"
 
 jsii-srcmak@^0.1.965:
-  version "0.1.966"
-  resolved "https://registry.yarnpkg.com/jsii-srcmak/-/jsii-srcmak-0.1.966.tgz#0f87e24fbec874394feea426e8c37fbb24a32e0c"
-  integrity sha512-kPG4aHYkWrwgJHyJt0mopHLKDVRh8Mc2oPOmV7R44uBqe3Vc/u3JUfK8bHI/581O0lSsY6SuO6RSCMog7vR2KA==
+  version "0.1.967"
+  resolved "https://registry.yarnpkg.com/jsii-srcmak/-/jsii-srcmak-0.1.967.tgz#90c800644b6e4bc94c8fe0674c4e117214024ef2"
+  integrity sha512-HP7AF5s/gFaWDzSEwAj0hc3b0LwV7SG9+24jLp5ubQQtcip9nQsFVs6yZ452upxei2S8ONsIIwZsWMIXm22J2Q==
   dependencies:
     fs-extra "^9.1.0"
     jsii "~5.2.29"
@@ -8079,9 +8079,9 @@ typescript@^4.9.5:
   integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
 
 typescript@next:
-  version "5.4.0-dev.20231115"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.4.0-dev.20231115.tgz#0ab7c5cfc6380c6507ba44096bf4dfd1c66930a8"
-  integrity sha512-a+TtR81g52/m9nDePLWP1sa8gXhU+6Zgad4vMfUrMWX+dHdDmrfHx/vqEbLQotyUSNGRYcZWu97o8XxSRci/aQ==
+  version "5.4.0-dev.20231116"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.4.0-dev.20231116.tgz#540e12c5cd5bea457adf2c19edb0fa396fb757c5"
+  integrity sha512-arT/MwHnosyqo1MQ2xN9VzwvWo1jxrhUpa1iQX1yZACfBRJb1dQ1D2MU/Ijotjr6eXw8BZ3RFdj9X/9O56iOgw==
 
 typescript@~3.9.10:
   version "3.9.10"
