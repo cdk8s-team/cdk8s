@@ -295,12 +295,12 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@cdk8s/projen-common@^0.0.467":
-  version "0.0.467"
-  resolved "https://registry.yarnpkg.com/@cdk8s/projen-common/-/projen-common-0.0.467.tgz#bb238f8eedc5038e705e1d9a888fc370d55f4d09"
-  integrity sha512-GlxM2r3BNg61+4d7HRIMVEIQ9W73yTIcQ4Sv8PlKiN/YIZPtawa1GueVTelVjWnRj3bvUG/KpMl4UHuG0jfcFw==
+"@cdk8s/projen-common@^0.0.469":
+  version "0.0.469"
+  resolved "https://registry.yarnpkg.com/@cdk8s/projen-common/-/projen-common-0.0.469.tgz#5b9e74efdd670814f27063145f0fb725e26778a2"
+  integrity sha512-lFD0lAEli3aAk5DURyt58iELTHh3Et8GzqWvKtFV9yaORiqUg9CWWiF87bkCQWG6ZPNHnu1OFh7zjKUnxMZh/A==
   dependencies:
-    codemaker "^1.91.0"
+    codemaker "^1.92.0"
     deepmerge "^4.3.1"
 
 "@colors/colors@1.5.0":
@@ -2442,15 +2442,6 @@ co@^4.6.0:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/co/-/co-4.6.0.tgz#6ea6bdf3d853ae54ccb8e47bfa0bf3f9031fb184"
   integrity sha512-QVb0dM5HvG+uaxitm8wONl7jltx8dqhfU33DcqtOZcLSVIKSDDLDi7+0LbAKiyI8hD9u42m2YxXSkMGWThaecQ==
-
-codemaker@^1.91.0:
-  version "1.91.0"
-  resolved "https://registry.yarnpkg.com/codemaker/-/codemaker-1.91.0.tgz#edb5403510e9ed42400b79c73394234f341dab1d"
-  integrity sha512-yI9ibYUBdJDI8n5Vffd4kfg7mSy6Fes2FHq3/TrZtqhL5CJcXvI8Lltl6iTWM5f1JkeIeAMQOC45PjscBhWyZg==
-  dependencies:
-    camelcase "^6.3.0"
-    decamelize "^5.0.1"
-    fs-extra "^10.1.0"
 
 codemaker@^1.92.0:
   version "1.92.0"
@@ -6776,10 +6767,10 @@ progress@^2.0.3:
   resolved "https://registry.yarnpkg.com/progress/-/progress-2.0.3.tgz#7e8cf8d8f5b8f239c1bc68beb4eb78567d572ef8"
   integrity sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA==
 
-projen@^0.76.28:
-  version "0.76.28"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.76.28.tgz#8dbdb0dbf92a2507ee13604701fe0d898a8c7cec"
-  integrity sha512-7CeCRXhBT9mDe1h2lse9RJDH1ZBdQ27pqkVSrTTor4JdiKYumn4NqRF8/ANw0xyKUrXzvFvpXkuRTyBHrGKbCg==
+projen@^0.76.29:
+  version "0.76.29"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.76.29.tgz#13810ceb6d63f26b6ded63d4a49c4a21c523f727"
+  integrity sha512-m0bKElBV/aRtXqRD0KMVjTRXnFabNXfEDUeAefrXQWtlmHcdPCzVEJKGgpH334B2eceT9rzJlV+iI/PXUxmTWg==
   dependencies:
     "@iarna/toml" "^2.2.5"
     case "^1.6.3"
@@ -8459,7 +8450,6 @@ workerpool@^6.5.1:
   integrity sha512-Fs4dNYcsdpYSAfVxhnl1L5zTksjvOJxtC5hzMNl+1t9B8hTJTdKDyZ5ju7ztgPy+ft9tBFXoOlDNiOT9WUXZlA==
 
 "wrap-ansi-cjs@npm:wrap-ansi@^7.0.0", wrap-ansi@^7.0.0:
-  name wrap-ansi-cjs
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/wrap-ansi/-/wrap-ansi-7.0.0.tgz#67e145cff510a6a6984bdf1152911d69d2eb9e43"
   integrity sha512-YVGIj2kamLSTxw6NsZjoBxfSwsn0ycdesmc4p+Q21c5zPuZ1pl+NfxVdxPtdHvmNVOQ6XSYG4AUtyt/Fi7D16Q==
