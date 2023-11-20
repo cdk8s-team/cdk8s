@@ -295,10 +295,10 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@cdk8s/projen-common@^0.0.470":
-  version "0.0.470"
-  resolved "https://registry.yarnpkg.com/@cdk8s/projen-common/-/projen-common-0.0.470.tgz#604ed3df385d8ee9f0a409194cee48a0f7552d92"
-  integrity sha512-ZGZXzDqqsaEsXYjibXABbP7b9VxakL7dlnSSXcJ1V50rUcULwW9EFh/xntAJ4mIG0zzmTAZiRKQlcj1kBjyeEw==
+"@cdk8s/projen-common@^0.0.471":
+  version "0.0.471"
+  resolved "https://registry.yarnpkg.com/@cdk8s/projen-common/-/projen-common-0.0.471.tgz#c47c68cf75398afe75a0f47c82c7bf0a8d9bef59"
+  integrity sha512-euM4hQTZh+tbBvpVYjnnn/8DFLYuSVtphPawCSN2JrfaVw38LWf0FkgW1CiO6S81INEujG/BgxQkvdToOuJwOw==
   dependencies:
     codemaker "^1.92.0"
     deepmerge "^4.3.1"
@@ -6757,10 +6757,10 @@ progress@^2.0.3:
   resolved "https://registry.yarnpkg.com/progress/-/progress-2.0.3.tgz#7e8cf8d8f5b8f239c1bc68beb4eb78567d572ef8"
   integrity sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA==
 
-projen@^0.76.29:
-  version "0.76.29"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.76.29.tgz#13810ceb6d63f26b6ded63d4a49c4a21c523f727"
-  integrity sha512-m0bKElBV/aRtXqRD0KMVjTRXnFabNXfEDUeAefrXQWtlmHcdPCzVEJKGgpH334B2eceT9rzJlV+iI/PXUxmTWg==
+projen@^0.77.1:
+  version "0.77.1"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.77.1.tgz#df1279408df2536a8e8b33ba5745523dff2e61f9"
+  integrity sha512-av8JCn/UfBMV+DqOG3P9wGuAH75Yd0jdYVMlXyzfL7RRA1vJzzRJo4QvS/b7+1EG4OsyTKOGxHmkjqvHfV/Wkw==
   dependencies:
     "@iarna/toml" "^2.2.5"
     case "^1.6.3"
@@ -8440,7 +8440,6 @@ workerpool@^6.5.1:
   integrity sha512-Fs4dNYcsdpYSAfVxhnl1L5zTksjvOJxtC5hzMNl+1t9B8hTJTdKDyZ5ju7ztgPy+ft9tBFXoOlDNiOT9WUXZlA==
 
 "wrap-ansi-cjs@npm:wrap-ansi@^7.0.0", wrap-ansi@^7.0.0:
-  name wrap-ansi-cjs
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/wrap-ansi/-/wrap-ansi-7.0.0.tgz#67e145cff510a6a6984bdf1152911d69d2eb9e43"
   integrity sha512-YVGIj2kamLSTxw6NsZjoBxfSwsn0ycdesmc4p+Q21c5zPuZ1pl+NfxVdxPtdHvmNVOQ6XSYG4AUtyt/Fi7D16Q==
