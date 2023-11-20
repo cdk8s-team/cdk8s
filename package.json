@@ -29,7 +29,7 @@
     "organization": false
   },
   "devDependencies": {
-    "@cdk8s/projen-common": "^0.0.470",
+    "@cdk8s/projen-common": "^0.0.471",
     "@types/jest": "^26.0.24",
     "@types/node": "^16",
     "@typescript-eslint/eslint-plugin": "^6",
@@ -47,7 +47,7 @@
     "jest-junit": "^15",
     "lerna": "^7.4.2",
     "npm-check-updates": "^16",
-    "projen": "^0.76.29",
+    "projen": "^0.77.1",
     "semver": "^7.5.4",
     "ts-jest": "^27.1.5",
     "ts-node": "^10.9.1",
