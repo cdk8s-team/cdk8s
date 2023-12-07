@@ -45,10 +45,7 @@
     },
     {
       "name": "constructs",
-      "type": "build"
-    },
-    {
-      "name": "eslint-import-resolver-node",
+      "version": "^10.0.0",
       "type": "build"
     },
     {
@@ -75,11 +72,6 @@
     },
     {
       "name": "lerna",
-      "type": "build"
-    },
-    {
-      "name": "npm-check-updates",
-      "version": "^16",
       "type": "build"
     },
     {

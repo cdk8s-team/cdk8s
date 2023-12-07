@@ -38,7 +38,6 @@ junit.xml
 !/.github/workflows/build.yml
 !/.mergify.yml
 !/.github/workflows/upgrade-runtime-dependencies.yml
-!/.npmrc
 !/test/
 !/tsconfig.json
 !/tsconfig.dev.json
