@@ -63,7 +63,7 @@ Read [our blog](https://aws.amazon.com/blogs/containers/introducing-cdk-for-kube
 
 ## Getting Started
 
-See the [Getting Started](https://cdk8s.io/docs/latest/getting-started) guide in
+See the [Getting Started](https://cdk8s.io/docs/latest/get-started) guide in
 [cdk8s Documentation](https://cdk8s.io/docs/).
 
 ## Help & Feedback
