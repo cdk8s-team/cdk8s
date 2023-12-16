@@ -351,10 +351,10 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
-"@eslint/js@8.55.0":
-  version "8.55.0"
-  resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.55.0.tgz#b721d52060f369aa259cf97392403cb9ce892ec6"
-  integrity sha512-qQfo2mxH5yVom1kacMtZZJFVdW+E70mqHMJvVg6WTLo+VBuQJ4TojZlfWBjK0ve5BdEeNAVxOsl/nvNMpJOaJA==
+"@eslint/js@8.56.0":
+  version "8.56.0"
+  resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.56.0.tgz#ef20350fec605a7f7035a01764731b2de0f3782b"
+  integrity sha512-gMsVel9D7f2HLkBma9VbtzZRehRogVRfbr++f06nL2vnCGCNlzOD+/MUov/F4p8myyAHspEhVobgjpX64q5m6A==
 
 "@gar/promisify@^1.1.3":
   version "1.1.3"
@@ -2162,10 +2162,10 @@ case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s-cli@^2.198.10:
-  version "2.198.10"
-  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.198.10.tgz#bd5827e7b98fdaf9686c3da1a38ca1bf782a4b41"
-  integrity sha512-TTHy3AFD/+Wg5FQiDwtW112/8rpZlBdfCCU78zGhNtOVhQip1QgKQapGI3Lj7hTAlmQx63jQAPeYI5rf229ubQ==
+cdk8s-cli@^2.198.11:
+  version "2.198.11"
+  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.198.11.tgz#f8d21d1f4d1a66f0db6c558c6665f7e4768ea9ab"
+  integrity sha512-1OD+ui0Ru9A73jJElINzBuKscT9fpAr7GzownV/kDhI3c5JJu8JEBmrRfSK/k4/nBZbyPcD6DO/Mq4AhPrSlkA==
   dependencies:
     "@types/node" "^16"
     ajv "^8.12.0"
@@ -2176,7 +2176,7 @@ cdk8s-cli@^2.198.10:
     constructs "^10.3.0"
     fs-extra "^8"
     jsii-pacmak "^1.93.0"
-    jsii-srcmak "^0.1.996"
+    jsii-srcmak "^0.1.997"
     json2jsii "^0.4.3"
     semver "^7.5.4"
     sscaff "^1.2.274"
@@ -2901,9 +2901,9 @@ ejs@^3.1.7:
     jake "^10.8.5"
 
 electron-to-chromium@^1.4.601:
-  version "1.4.613"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.613.tgz#529e4fc65576ecfd055d7d4619fade4fac446af2"
-  integrity sha512-r4x5+FowKG6q+/Wj0W9nidx7QO31BJwmR2uEo+Qh3YLGQ8SbBAFuDFpTxzly/I2gsbrFwBuIjrMp423L3O5U3w==
+  version "1.4.614"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.614.tgz#2fe789d61fa09cb875569f37c309d0c2701f91c0"
+  integrity sha512-X4ze/9Sc3QWs6h92yerwqv7aB/uU8vCjZcrMjA8N9R1pjMFRe44dLsck5FzLilOYvcXuDn93B+bpGYyufc70gQ==
 
 emittery@^0.8.1:
   version "0.8.1"
@@ -3148,14 +3148,14 @@ eslint-visitor-keys@^3.3.0, eslint-visitor-keys@^3.4.1, eslint-visitor-keys@^3.4
   integrity sha512-wpc+LXeiyiisxPlEkUzU6svyS1frIO3Mgxj1fdy7Pm8Ygzguax2N3Fa/D/ag1WqbOprdI+uY6wMUl8/a2G+iag==
 
 eslint@^8:
-  version "8.55.0"
-  resolved "https://registry.yarnpkg.com/eslint/-/eslint-8.55.0.tgz#078cb7b847d66f2c254ea1794fa395bf8e7e03f8"
-  integrity sha512-iyUUAM0PCKj5QpwGfmCAG9XXbZCWsqP/eWAWrG/W0umvjuLRBECwSFdt+rCntju0xEH7teIABPwXpahftIaTdA==
+  version "8.56.0"
+  resolved "https://registry.yarnpkg.com/eslint/-/eslint-8.56.0.tgz#4957ce8da409dc0809f99ab07a1b94832ab74b15"
+  integrity sha512-Go19xM6T9puCOWntie1/P997aXxFsOi37JIHRWI514Hc6ZnaHGKY9xFhrU65RT6CcBEzZoGG1e6Nq+DT04ZtZQ==
   dependencies:
     "@eslint-community/eslint-utils" "^4.2.0"
     "@eslint-community/regexpp" "^4.6.1"
     "@eslint/eslintrc" "^2.1.4"
-    "@eslint/js" "8.55.0"
+    "@eslint/js" "8.56.0"
     "@humanwhocodes/config-array" "^0.11.13"
     "@humanwhocodes/module-importer" "^1.0.1"
     "@nodelib/fs.walk" "^1.2.8"
@@ -5004,10 +5004,10 @@ jsii-rosetta@^1.93.0:
     workerpool "^6.5.1"
     yargs "^16.2.0"
 
-jsii-srcmak@^0.1.996:
-  version "0.1.996"
-  resolved "https://registry.yarnpkg.com/jsii-srcmak/-/jsii-srcmak-0.1.996.tgz#f26531752c3846fdd8ede745a4ba9c3fd6d8aeff"
-  integrity sha512-siyotjLFbuM0IFHbIsk11FM/+J7RQ83sTq6wwPzMD/StfGqWCc9oRM3jhOMTw8ykQ79hpJ2LFAKzY7arIhR+kg==
+jsii-srcmak@^0.1.997:
+  version "0.1.997"
+  resolved "https://registry.yarnpkg.com/jsii-srcmak/-/jsii-srcmak-0.1.997.tgz#32d668cef5678175e55b623b0594b36a5f320f0f"
+  integrity sha512-I4f7pNGCFnZX7gvf3fFiQNy7s3QuONiDQj1vJiVA+oXiaMgXwtbRXhqEgpiC2DbDdKbeVLJ4KK6tSy1jQtFsvw==
   dependencies:
     fs-extra "^9.1.0"
     jsii "~5.2.41"
@@ -7700,9 +7700,9 @@ typescript@^4.9.5:
   integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
 
 typescript@next:
-  version "5.4.0-dev.20231215"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.4.0-dev.20231215.tgz#72a6471f80522cf48c6cad094b678a16447de5a5"
-  integrity sha512-kY+7B63ic8x7DXxCFIunxjLI3KRDa8siiKi5Qw0aFDTm2ahjNG59eRIWBH1S69bcaqs09qWtq03ddJfcm1t5Nw==
+  version "5.4.0-dev.20231216"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.4.0-dev.20231216.tgz#5dbbc18000b8b868605299fa69507b9a7873db42"
+  integrity sha512-N38i9y3t+zXZuhzVuU7Czkfb1gGhsp4qCrOFxjJrTywFYFx8BlE2ugpYCbS59Sb7e42RpHxKjTGrPOBpOnouXQ==
 
 typescript@~3.9.10:
   version "3.9.10"
