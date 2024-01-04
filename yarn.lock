@@ -1861,11 +1861,11 @@ axios@^0.27.2:
     form-data "^4.0.0"
 
 axios@^1.0.0:
-  version "1.6.3"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-1.6.3.tgz#7f50f23b3aa246eff43c54834272346c396613f4"
-  integrity sha512-fWyNdeawGam70jXSVlKl+SUNVcL6j6W79CuSIPfi6HnDUmSCH6gyUys/HrqHeA/wU0Az41rRgean494d0Jb+ww==
+  version "1.6.4"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-1.6.4.tgz#184ee1f63d412caffcf30d2c50982253c3ee86e0"
+  integrity sha512-heJnIs6N4aa1eSthhN9M5ioILu8Wi8vmQW9iHQ9NUvfkJb0lEEDUiIdQNAuBtfUt3FxReaKdpQA5DbmMOqzF/A==
   dependencies:
-    follow-redirects "^1.15.0"
+    follow-redirects "^1.15.4"
     form-data "^4.0.0"
     proxy-from-env "^1.1.0"
 
@@ -2154,19 +2154,19 @@ camelcase@^6.2.0, camelcase@^6.3.0:
   integrity sha512-Gmy6FhYlCY7uOElZUSbxo2UCDH8owEk996gkbrpsgGtrJLM3J7jGxl9Ic7Qwwj4ivOE5AWZWRMecDdF7hqGjFA==
 
 caniuse-lite@^1.0.30001565:
-  version "1.0.30001572"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001572.tgz#1ccf7dc92d2ee2f92ed3a54e11b7b4a3041acfa0"
-  integrity sha512-1Pbh5FLmn5y4+QhNyJE9j3/7dK44dGB83/ZMjv/qJk86TvDbjk0LosiZo0i0WB0Vx607qMX9jYrn1VLHCkN4rw==
+  version "1.0.30001574"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001574.tgz#fb4f1359c77f6af942510493672e1ec7ec80230c"
+  integrity sha512-BtYEK4r/iHt/txm81KBudCUcTy7t+s9emrIaHqjYurQ10x71zJ5VQ9x1dYPcz/b+pKSp4y/v1xSI67A+LzpNyg==
 
 case@^1.6.3:
   version "1.6.3"
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s-cli@^2.198.25:
-  version "2.198.25"
-  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.198.25.tgz#fe4f81c10dacdc7c285ba297f8e8f2f8782a1e76"
-  integrity sha512-S1in5cR0ALdXKjteBVghaP8Yy3xempcvrUdw7jvrEhYEu0I2VQUvAGYeW4T7HigCVPLgjKUymdKMZdCtgoTSwA==
+cdk8s-cli@^2.198.26:
+  version "2.198.26"
+  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.198.26.tgz#76ec41d54219e358edce76586cd8695320fbb72e"
+  integrity sha512-ROnN80EuKiDCvHRWAy0o4UMD6afNVIK4mphs119Ef2nzE8YsWG7xbvAVE5WRXjZdESZfrkY7fB99nye3wxeaUw==
   dependencies:
     "@types/node" "^16"
     ajv "^8.12.0"
@@ -2902,9 +2902,9 @@ ejs@^3.1.7:
     jake "^10.8.5"
 
 electron-to-chromium@^1.4.601:
-  version "1.4.617"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.617.tgz#3b0dde6c54e5f0f26db75ce6c6ae751e5df4bf75"
-  integrity sha512-sYNE3QxcDS4ANW1k4S/wWYMXjCVcFSOX3Bg8jpuMFaXt/x8JCmp0R1Xe1ZXDX4WXnSRBf+GJ/3eGWicUuQq5cg==
+  version "1.4.620"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.620.tgz#a6481e0703f8df1e6821063fb43c9b818a7a2ef4"
+  integrity sha512-a2fcSHOHrqBJsPNXtf6ZCEZpXrFCcbK1FBxfX3txoqWzNgtEDG1f3M59M98iwxhRW4iMKESnSjbJ310/rkrp0g==
 
 emittery@^0.8.1:
   version "0.8.1"
@@ -3419,7 +3419,7 @@ fn.name@1.x.x:
   resolved "https://registry.yarnpkg.com/fn.name/-/fn.name-1.1.0.tgz#26cad8017967aea8731bc42961d04a3d5988accc"
   integrity sha512-GRnmB5gPyJpAhTQdSZTSp9uaPSvl09KoYcMQtsB9rQoOmzs9dH6ffeccH+Z+cv6P68Hu5bC6JjRh4Ah/mHSNRw==
 
-follow-redirects@^1.14.9, follow-redirects@^1.15.0, follow-redirects@^1.15.2:
+follow-redirects@^1.14.9, follow-redirects@^1.15.2, follow-redirects@^1.15.4:
   version "1.15.4"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.15.4.tgz#cdc7d308bf6493126b17ea2191ea0ccf3e535adf"
   integrity sha512-Cr4D/5wlrb0z9dgERpUL3LrmPKVDsETIJhaCMeDfuFYcqa5bldGV6wBsAN6X/vxlXQtFBMrXdXxdL8CbDTGniw==
@@ -7701,9 +7701,9 @@ typescript@^4.9.5:
   integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
 
 typescript@next:
-  version "5.4.0-dev.20240103"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.4.0-dev.20240103.tgz#ef837d78874beb941b1b013e47d8aec4715d33a2"
-  integrity sha512-IFvuh/xXux/lVcb1wkEmQJ9jgP0R4VBsZwAt0pA/uPJ6ZRiD96vrHR2CBJuG/SbBFX6kFmqq+639KEyptik95g==
+  version "5.4.0-dev.20240104"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.4.0-dev.20240104.tgz#ee76b4e4b6ac7078682dd6c577f2c180cf86ca06"
+  integrity sha512-LzRhnPKgq/AfRqBiHjP9n5Ntd0nOs/Uxr2TMvF6Lx9NgdHUDi7oUWoMoV7s3M6o628OsC2AqNC3Y1Q9i6GX3lA==
 
 typescript@~3.9.10:
   version "3.9.10"
