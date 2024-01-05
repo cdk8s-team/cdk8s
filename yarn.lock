@@ -2163,10 +2163,10 @@ case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s-cli@^2.198.26:
-  version "2.198.26"
-  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.198.26.tgz#76ec41d54219e358edce76586cd8695320fbb72e"
-  integrity sha512-ROnN80EuKiDCvHRWAy0o4UMD6afNVIK4mphs119Ef2nzE8YsWG7xbvAVE5WRXjZdESZfrkY7fB99nye3wxeaUw==
+cdk8s-cli@^2.198.27:
+  version "2.198.27"
+  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.198.27.tgz#f72d36729f3a24bd91dac23e1c3ece8b86131d38"
+  integrity sha512-V6bV/NHTRNIjO++IR+Q3TdvvAgBKiA+f8JUBDTG19hLdjbvqwXbcXrIev36hxZmTEs+CeaHW16sPqOYQGsYUMw==
   dependencies:
     "@types/node" "^16"
     ajv "^8.12.0"
@@ -2902,9 +2902,9 @@ ejs@^3.1.7:
     jake "^10.8.5"
 
 electron-to-chromium@^1.4.601:
-  version "1.4.620"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.620.tgz#a6481e0703f8df1e6821063fb43c9b818a7a2ef4"
-  integrity sha512-a2fcSHOHrqBJsPNXtf6ZCEZpXrFCcbK1FBxfX3txoqWzNgtEDG1f3M59M98iwxhRW4iMKESnSjbJ310/rkrp0g==
+  version "1.4.622"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.622.tgz#925d8b2264abbcbe264a9a6290d97b9e5a1af205"
+  integrity sha512-GZ47DEy0Gm2Z8RVG092CkFvX7SdotG57c4YZOe8W8qD4rOmk3plgeNmiLVRHP/Liqj1wRiY3uUUod9vb9hnxZA==
 
 emittery@^0.8.1:
   version "0.8.1"
@@ -7701,9 +7701,9 @@ typescript@^4.9.5:
   integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
 
 typescript@next:
-  version "5.4.0-dev.20240104"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.4.0-dev.20240104.tgz#ee76b4e4b6ac7078682dd6c577f2c180cf86ca06"
-  integrity sha512-LzRhnPKgq/AfRqBiHjP9n5Ntd0nOs/Uxr2TMvF6Lx9NgdHUDi7oUWoMoV7s3M6o628OsC2AqNC3Y1Q9i6GX3lA==
+  version "5.4.0-dev.20240105"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.4.0-dev.20240105.tgz#22f3d867766189c893f98653cca3fb5aa06e6c07"
+  integrity sha512-EShumrhMWO0vjg0BpYtIOOWicTRcWnku+fJfLxnjo4P4h3/Zkz9jkmAbtWqb1c6SPNNrL1zGgVNX38dYZlMinQ==
 
 typescript@~3.9.10:
   version "3.9.10"
