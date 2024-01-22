@@ -35,7 +35,7 @@
     "@typescript-eslint/eslint-plugin": "^6",
     "@typescript-eslint/parser": "^6",
     "cdk8s": "^2.68.28",
-    "cdk8s-cli": "^2.198.33",
+    "cdk8s-cli": "^2.198.34",
     "cdk8s-plus-25": "^2.22.71",
     "cdk8s-plus-26": "^2.18.74",
     "cdk8s-plus-27": "^2.7.73",
