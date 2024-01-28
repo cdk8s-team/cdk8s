@@ -1374,9 +1374,9 @@
   integrity sha512-hov8bUuiLiyFPGyFPE1lwWhmzYbirOXQNNo40+y3zow8aFVTeyn3VWL0VFFfdNddA8S4Vf0Tc062rzyNr7Paag==
 
 "@types/node@*":
-  version "20.11.7"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.11.7.tgz#cb49aedd758c978c30806d0c38b520ed2a3df6e0"
-  integrity sha512-GPmeN1C3XAyV5uybAf4cMLWT9fDWcmQhZVtMFu7OR32WjrqGG+Wnk2V1d0bmtUyE/Zy1QJ9BxyiTih9z8Oks8A==
+  version "20.11.8"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.11.8.tgz#bdb6de1048613c3c6ab6c341c37e8fd1a7860308"
+  integrity sha512-i7omyekpPTNdv4Jb/Rgqg0RU8YqLcNsI12quKSDkRXNfx7Wxdm6HhK1awT3xTgEkgxPn3bvnSpiEAc7a7Lpyow==
   dependencies:
     undici-types "~5.26.4"
 
@@ -2154,9 +2154,9 @@ camelcase@^6.2.0, camelcase@^6.3.0:
   integrity sha512-Gmy6FhYlCY7uOElZUSbxo2UCDH8owEk996gkbrpsgGtrJLM3J7jGxl9Ic7Qwwj4ivOE5AWZWRMecDdF7hqGjFA==
 
 caniuse-lite@^1.0.30001580:
-  version "1.0.30001580"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001580.tgz#e3c76bc6fe020d9007647044278954ff8cd17d1e"
-  integrity sha512-mtj5ur2FFPZcCEpXFy8ADXbDACuNFXg6mxVDqp7tqooX6l3zwm+d8EPoeOSIFRDvHs8qu7/SLFOGniULkcH2iA==
+  version "1.0.30001581"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001581.tgz#0dfd4db9e94edbdca67d57348ebc070dece279f4"
+  integrity sha512-whlTkwhqV2tUmP3oYhtNfaWGYHDdS3JYFQBKXxcUR9qqPWsRhFHhoISO2Xnl/g0xyKzht9mI1LZpiNWfMzHixQ==
 
 case@^1.6.3:
   version "1.6.3"
@@ -5011,9 +5011,9 @@ jsii-rosetta@^1.94.0:
     yargs "^16.2.0"
 
 jsii-srcmak@^0.1.1013:
-  version "0.1.1017"
-  resolved "https://registry.yarnpkg.com/jsii-srcmak/-/jsii-srcmak-0.1.1017.tgz#861413047373e60c2690178c38cdfad3f1d3f45c"
-  integrity sha512-DiBUmQd1jD2dLdHZwFhXLfb2XJck+UXKpKImr1jwKhqNRKB8RuI3Lg3iQXJWFKLI+mO7VpODmqT/VsD89rRbsQ==
+  version "0.1.1018"
+  resolved "https://registry.yarnpkg.com/jsii-srcmak/-/jsii-srcmak-0.1.1018.tgz#f4380e8b7c3128df289a7c8881e4535b60590137"
+  integrity sha512-4ZZZ0BsnVJHMg79+rEZuSY0rIpIC3esG0zTDSsTqa/fSUsU+4lF0CD6owl9FAxQcvuEfoyhltGKXYSdAIQvKSA==
   dependencies:
     fs-extra "^9.1.0"
     jsii "~5.3.11"
@@ -7707,9 +7707,9 @@ typescript@^4.9.5:
   integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
 
 typescript@next:
-  version "5.4.0-dev.20240127"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.4.0-dev.20240127.tgz#6837dd2491f21d29443e5b71a4cbb23123afdc63"
-  integrity sha512-coslE2k7bNdtY/r3dJ8vYqoUzoGrmM6G3F8mSSgmPbNyFot1xivp+PggWlUL3dVZwToF9VNgfqh1aU9O2hGUEQ==
+  version "5.4.0-dev.20240128"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.4.0-dev.20240128.tgz#d3b4204a4f2ec66eae72d4d969307858c014b24d"
+  integrity sha512-SfSvvhZKrpjP/LSfkjpg/VUFMXElCXEtU7SzfHoPph8e3PBlbjZlQdLczkEr95M7wj8V/iiXWyqAoPuQ6nuI4A==
 
 typescript@~3.9.10:
   version "3.9.10"
