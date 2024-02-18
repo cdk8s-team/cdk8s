@@ -1859,7 +1859,7 @@ at-least-node@^1.0.0:
   resolved "https://registry.yarnpkg.com/at-least-node/-/at-least-node-1.0.0.tgz#602cd4b46e844ad4effc92a8011a3c46e0238dc2"
   integrity sha512-+q/t7Ekv1EDY2l6Gda6LLiX14rU9TV20Wa3ofeQmwPFZbOMo9DXrLbOjFaaclkXKWidIaopwAObQDqwWtGUjqg==
 
-available-typed-arrays@^1.0.5, available-typed-arrays@^1.0.6:
+available-typed-arrays@^1.0.6:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/available-typed-arrays/-/available-typed-arrays-1.0.6.tgz#ac812d8ce5a6b976d738e1c45f08d0b00bc7d725"
   integrity sha512-j1QzY8iPNPG4o4xmO3ptzpRxTciqD3MgEHtifP/YnJpIo58Xu+ne4BejlbkuaLfXn/nz6HFiw29bLpj2PNMdGg==
@@ -2168,19 +2168,19 @@ camelcase@^6.2.0, camelcase@^6.3.0:
   integrity sha512-Gmy6FhYlCY7uOElZUSbxo2UCDH8owEk996gkbrpsgGtrJLM3J7jGxl9Ic7Qwwj4ivOE5AWZWRMecDdF7hqGjFA==
 
 caniuse-lite@^1.0.30001587:
-  version "1.0.30001587"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001587.tgz#a0bce920155fa56a1885a69c74e1163fc34b4881"
-  integrity sha512-HMFNotUmLXn71BQxg8cijvqxnIAofforZOwGsxyXJ0qugTdspUF4sPSJ2vhgprHCB996tIDzEq1ubumPDV8ULA==
+  version "1.0.30001588"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001588.tgz#07f16b65a7f95dba82377096923947fb25bce6e3"
+  integrity sha512-+hVY9jE44uKLkH0SrUTqxjxqNTOWHsbnQDIKjwkZ3lNTzUUVdBLBGXtj/q5Mp5u98r3droaZAewQuEDzjQdZlQ==
 
 case@^1.6.3:
   version "1.6.3"
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s-cli@^2.198.51:
-  version "2.198.51"
-  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.198.51.tgz#b06c1d8e937cad08c602a276446c9f5de62dd7cb"
-  integrity sha512-llOd2XWKzjp/z/abLO1cwyNJI0KfLQfH3vPHr9t5Y++FZw/+km/51Q0fEI4NaZvh3hVai1rxgix2alBBEitITw==
+cdk8s-cli@^2.198.52:
+  version "2.198.52"
+  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.198.52.tgz#ce1075349c513bb64a8b5979cd0be343474c1853"
+  integrity sha512-OKiEm2hs85y36Vwzi3HV99TQhWINX/8wpvg5dsbZEeSoUvr0n5slR9BPDkh1UjgZEKZ8JdrR3VIhlw6uOeTpNA==
   dependencies:
     "@types/node" "^16"
     ajv "^8.12.0"
@@ -2191,7 +2191,7 @@ cdk8s-cli@^2.198.51:
     constructs "^10.3.0"
     fs-extra "^8"
     jsii-pacmak "^1.94.0"
-    jsii-srcmak "^0.1.1038"
+    jsii-srcmak "^0.1.1039"
     json2jsii "^0.4.3"
     semver "^7.6.0"
     sscaff "^1.2.274"
@@ -5052,10 +5052,10 @@ jsii-rosetta@^1.94.0:
     workerpool "^6.5.1"
     yargs "^16.2.0"
 
-jsii-srcmak@^0.1.1038:
-  version "0.1.1038"
-  resolved "https://registry.yarnpkg.com/jsii-srcmak/-/jsii-srcmak-0.1.1038.tgz#15e667b963fef4d1d7902e009b67430c8f3f3f6f"
-  integrity sha512-aJ2tZcc81z4iDJLIKDfT5icLwZTgz4OC+iPn6REeWRqgV9eH+cCjV/rhazSYdgnk+ZKjT5IRfF7D6/3Usq4BJw==
+jsii-srcmak@^0.1.1039:
+  version "0.1.1039"
+  resolved "https://registry.yarnpkg.com/jsii-srcmak/-/jsii-srcmak-0.1.1039.tgz#c85141bb770a248f1dc0f8f8b0b8259aa0b1e2be"
+  integrity sha512-3lBjyxBy5UpPGK8bXFmVRzaoK6caDQ5DO40Qbyv3LOWtrsuUQmuVI2/5wRwNtfg6sFzOFD3+kE3LZuNXo7QE/Q==
   dependencies:
     fs-extra "^9.1.0"
     jsii "~5.3.18"
@@ -7716,15 +7716,16 @@ typed-array-byte-length@^1.0.0:
     is-typed-array "^1.1.10"
 
 typed-array-byte-offset@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/typed-array-byte-offset/-/typed-array-byte-offset-1.0.0.tgz#cbbe89b51fdef9cd6aaf07ad4707340abbc4ea0b"
-  integrity sha512-RD97prjEt9EL8YgAgpOkf3O4IF9lhJFr9g0htQkm0rchFp/Vx7LW5Q8fSXXub7BXAODyUQohRMyOc3faCPd0hg==
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/typed-array-byte-offset/-/typed-array-byte-offset-1.0.1.tgz#5e2bcc1d93e1a332d50e8b363a48604a134692f8"
+  integrity sha512-tcqKMrTRXjqvHN9S3553NPCaGL0VPgFI92lXszmrE8DMhiDPLBYLlvo8Uu4WZAAX/aGqp/T1sbA4ph8EWjDF9Q==
   dependencies:
-    available-typed-arrays "^1.0.5"
-    call-bind "^1.0.2"
+    available-typed-arrays "^1.0.6"
+    call-bind "^1.0.7"
     for-each "^0.3.3"
+    gopd "^1.0.1"
     has-proto "^1.0.1"
-    is-typed-array "^1.1.10"
+    is-typed-array "^1.1.13"
 
 typed-array-length@^1.0.4:
   version "1.0.4"
@@ -7758,9 +7759,9 @@ typescript@^4.9.5:
   integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
 
 typescript@next:
-  version "5.4.0-dev.20240217"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.4.0-dev.20240217.tgz#b6275a3a14946399a7f0e020a1d849c1f6553e75"
-  integrity sha512-GRzxhALjSGwP7M8C4HBUos+SdVdOK+mh5ZrFLZqHpIik/qWqXwkLQzUpxGIUlXZEUcuRb2vVYwSbKppNmHQmbw==
+  version "5.4.0-dev.20240218"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.4.0-dev.20240218.tgz#a08475210a720b3a9e816f44f1b968c7a9ef943f"
+  integrity sha512-8/ZdxUXugwsy/C1JBJBbYY/JJbt0ug4kkJQLmUfzwr4h39bRYXP/K9naP6u9nAPFWUPPEj7YWk+gDz8qg8HcsQ==
 
 typescript@~3.9.10:
   version "3.9.10"
