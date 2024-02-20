@@ -208,6 +208,7 @@ export class K8sVersionUpgradeAutomation extends Component {
             body: 'This issue will be closed after the new backport label is added.',
           },
         },
+        // apparently the above step is currently not working, no issue is being created ...
         {
           name: 'Close issue backport label issue',
           uses: 'actions-ecosystem/action-add-labels@v1',
