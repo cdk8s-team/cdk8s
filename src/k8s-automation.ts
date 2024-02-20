@@ -122,6 +122,7 @@ export class K8sVersionUpgradeAutomation extends Component {
           id: 'set-testing-mode-var',
           run: 'bash src/testModeScript.sh ${{ github.event.inputs.testingMode }}',
         },
+        // **TODO: For some reason, this is not setting the label even if it
         {
           name: 'Set auto-approve label for PR',
           id: 'set-auto-approve-label',
