@@ -135,8 +135,7 @@ jobs:
         uses: dacbd/create-issue-action@main
         with:
           token: ${{ secrets.PROJEN_GITHUB_TOKEN }}
-          labels:
-            - backport-to-k8s-${{ needs.check-latest-k8s-release.outputs.currentVersion }}/main
+          labels: backport-to-k8s-${{ needs.check-latest-k8s-release.outputs.currentVersion }}/main
           title: Create backport label for v${{ needs.check-latest-k8s-release.outputs.currentVersion }}
           body: This issue will be closed after the new backport label is added.
       - name: Close issue backport label issue
