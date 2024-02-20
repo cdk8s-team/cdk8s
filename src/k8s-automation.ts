@@ -24,7 +24,7 @@ export class K8sVersionUpgradeAutomation extends Component {
             description: 'Testing Mode',
             required: true,
             // set default to true for testing purposes until this PR is merged ...
-            default: false,
+            default: true,
           },
         },
       },
@@ -197,6 +197,12 @@ export class K8sVersionUpgradeAutomation extends Component {
           },
         },
         {
+          name: 'Create new branch',
+          run: '',
+          env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
+          continueOnError: false,
+        },
+        {
           name: 'Create new backport label for old version',
           uses: 'actions-ecosystem/action-add-labels@v1',
           with: {
@@ -247,6 +253,14 @@ export class K8sVersionUpgradeAutomation extends Component {
           name: 'Install dependencies',
           run: 'yarn install --check-files',
         },
+        // KEY:
+        {
+          name: 'Update references of old kubernetes versions with projen task',
+          // this will throw an error until the PR for adding this projentask is merged:
+          run: 'npx projen update-k8s-version-references',
+          env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
+          continueOnError: false,
+        },
         {
           name: 'Import the new k8s spec from the prerequisite step',
           run: 'yarn run import',
@@ -263,13 +277,6 @@ export class K8sVersionUpgradeAutomation extends Component {
           name: 'Let projen update the remaining files',
           run: 'yarn build',
           // run: 'npx projen build',
-        },
-        {
-          name: 'Update references of old kubernetes versions with projen task',
-          // this will throw an error until the PR for adding this projentask is merged:
-          run: 'npx projen update-k8s-version-references',
-          env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
-          continueOnError: false,
         },
         {
           name: 'Push the branch and verify that automation builds/tags/releases the new version successfully.',
