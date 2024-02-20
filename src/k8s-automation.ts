@@ -197,19 +197,13 @@ export class K8sVersionUpgradeAutomation extends Component {
             repository: 'cdk8s-team/cdk8s-plus',
           },
         },
-        // {
-        //   name: 'Create new branch',
-        //   run: '',
-        //   env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
-        //   continueOnError: false,
-        // },
         {
           name: 'Create Issue with new backport label',
           id: 'create-backport-label',
           uses: 'dacbd/create-issue-action@main',
           with: {
             token: '${{ secrets.PROJEN_GITHUB_TOKEN }}',
-            labels: ['backport-to-k8s-${{ needs.check-latest-k8s-release.outputs.currentVersion }}/main'],
+            labels: 'backport-to-k8s-${{ needs.check-latest-k8s-release.outputs.currentVersion }}/main',
             title: 'Create backport label for v${{ needs.check-latest-k8s-release.outputs.currentVersion }}',
             body: 'This issue will be closed after the new backport label is added.',
           },
