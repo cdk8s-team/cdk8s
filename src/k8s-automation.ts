@@ -197,18 +197,30 @@ export class K8sVersionUpgradeAutomation extends Component {
             repository: 'cdk8s-team/cdk8s-plus',
           },
         },
+        // {
+        //   name: 'Create new branch',
+        //   run: '',
+        //   env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
+        //   continueOnError: false,
+        // },
         {
-          name: 'Create new branch',
-          run: '',
-          env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
-          continueOnError: false,
+          name: 'Create Issue with new backport label',
+          id: 'create-backport-label',
+          uses: 'dacbd/create-issue-action@main',
+          with: {
+            token: '${{ secrets.PROJEN_GITHUB_TOKEN }}',
+            labels: ['backport-to-k8s-${{ needs.check-latest-k8s-release.outputs.currentVersion }}/main'],
+            title: 'Create backport label for v${{ needs.check-latest-k8s-release.outputs.currentVersion }}',
+            body: 'This issue will be closed after the new backport label is added.',
+          },
         },
         {
-          name: 'Create new backport label for old version',
+          name: 'Close issue backport label issue',
           uses: 'actions-ecosystem/action-add-labels@v1',
           with: {
             labels: 'backport-to-k8s-${{ needs.check-latest-k8s-release.outputs.currentVersion }}/main',
             repo: 'cdk8s-team/cdk8s-plus',
+            number: 'steps.create-backport-label.number',
           },
         },
       ],
@@ -254,10 +266,8 @@ export class K8sVersionUpgradeAutomation extends Component {
           name: 'Install dependencies',
           run: 'yarn install --check-files',
         },
-        // KEY:
         {
           name: 'Update references of old kubernetes versions with projen task',
-          // this will throw an error until the PR for adding this projentask is merged:
           run: 'npx projen update-k8s-version-references',
           env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
           continueOnError: false,
