@@ -8,7 +8,7 @@ on:
         type: boolean
         description: Testing Mode
         required: true
-        default: false
+        default: true
   schedule:
     - cron: 0 18 * * 0
   push:
@@ -130,6 +130,11 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: cdk8s-team/cdk8s-plus
+      - name: Create new branch
+        env:
+          GITHUB_TOKEN: ${{ secrets.PROJEN_GITHUB_TOKEN }}
+        run: ""
+        continue-on-error: false
       - name: Create new backport label for old version
         uses: actions-ecosystem/action-add-labels@v1
         with:
@@ -165,6 +170,11 @@ jobs:
           node-version: 18.12.0
       - name: Install dependencies
         run: yarn install --check-files
+      - name: Update references of old kubernetes versions with projen task
+        env:
+          GITHUB_TOKEN: ${{ secrets.PROJEN_GITHUB_TOKEN }}
+        run: npx projen update-k8s-version-references
+        continue-on-error: false
       - name: Import the new k8s spec from the prerequisite step
         run: yarn run import
       - name: Disable publishing
@@ -173,11 +183,6 @@ jobs:
         run: cat package.json
       - name: Let projen update the remaining files
         run: yarn build
-      - name: Update references of old kubernetes versions with projen task
-        env:
-          GITHUB_TOKEN: ${{ secrets.PROJEN_GITHUB_TOKEN }}
-        run: npx projen update-k8s-version-references
-        continue-on-error: false
       - name: Push the branch and verify that automation builds/tags/releases the new version successfully.
         env:
           GITHUB_TOKEN: ${{ secrets.PROJEN_GITHUB_TOKEN }}
