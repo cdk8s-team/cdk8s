@@ -130,16 +130,21 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: cdk8s-team/cdk8s-plus
-      - name: Create new branch
-        env:
-          GITHUB_TOKEN: ${{ secrets.PROJEN_GITHUB_TOKEN }}
-        run: ""
-        continue-on-error: false
-      - name: Create new backport label for old version
+      - name: Create Issue with new backport label
+        id: create-backport-label
+        uses: dacbd/create-issue-action@main
+        with:
+          token: ${{ secrets.PROJEN_GITHUB_TOKEN }}
+          labels:
+            - backport-to-k8s-${{ needs.check-latest-k8s-release.outputs.currentVersion }}/main
+          title: Create backport label for v${{ needs.check-latest-k8s-release.outputs.currentVersion }}
+          body: This issue will be closed after the new backport label is added.
+      - name: Close issue backport label issue
         uses: actions-ecosystem/action-add-labels@v1
         with:
           labels: backport-to-k8s-${{ needs.check-latest-k8s-release.outputs.currentVersion }}/main
           repo: cdk8s-team/cdk8s-plus
+          number: steps.create-backport-label.number
   create-new-plus-branch:
     needs:
       - check-latest-k8s-release
