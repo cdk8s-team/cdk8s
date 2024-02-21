@@ -197,29 +197,16 @@ export class K8sVersionUpgradeAutomation extends Component {
             repository: 'cdk8s-team/cdk8s-plus',
           },
         },
-        // {
-        //   name: 'Create Issue with new backport label',
-        //   id: 'create-backport-label',
-        //   uses: 'dacbd/create-issue-action@main',
-        //   with: {
-        //     repo: 'cdk8s-team/cdk8s-plus',
-        //     token: '${{ secrets.PROJEN_GITHUB_TOKEN }}',
-        //     labels: 'backport-to-k8s-${{ needs.check-latest-k8s-release.outputs.currentVersion }}/main',
-        //     title: 'Create backport label for v${{ needs.check-latest-k8s-release.outputs.currentVersion }}',
-        //     body: 'This issue will be closed after the new backport label is added.',
-        //   },
-        // },
-        // try a different action from the marketplace:
         {
           name: 'Create Issue with new backport label',
           id: 'create-backport-label',
-          uses: 'nashmaniac/create-issue-action@v1.2',
+          uses: 'dacbd/create-issue-action@main',
           with: {
-            // repo: 'cdk8s-team/cdk8s-plus',
+            repo: 'cdk8s-team/cdk8s-plus',
             token: '${{ secrets.PROJEN_GITHUB_TOKEN }}',
             labels: 'backport-to-k8s-${{ needs.check-latest-k8s-release.outputs.currentVersion }}/main',
             title: 'Create backport label for v${{ needs.check-latest-k8s-release.outputs.currentVersion }}',
-            body: '<second action> This issue will be closed after the new backport label is added.',
+            body: 'This issue will be closed after the new backport label is added.',
           },
         },
         {
