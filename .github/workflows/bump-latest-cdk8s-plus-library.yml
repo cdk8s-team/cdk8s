@@ -134,6 +134,7 @@ jobs:
         id: create-backport-label
         uses: dacbd/create-issue-action@main
         with:
+          repo: cdk8s-team/cdk8s-plus
           token: ${{ secrets.PROJEN_GITHUB_TOKEN }}
           labels: backport-to-k8s-${{ needs.check-latest-k8s-release.outputs.currentVersion }}/main
           title: Create backport label for v${{ needs.check-latest-k8s-release.outputs.currentVersion }}

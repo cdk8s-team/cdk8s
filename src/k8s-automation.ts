@@ -202,13 +202,13 @@ export class K8sVersionUpgradeAutomation extends Component {
           id: 'create-backport-label',
           uses: 'dacbd/create-issue-action@main',
           with: {
+            repo: 'cdk8s-team/cdk8s-plus',
             token: '${{ secrets.PROJEN_GITHUB_TOKEN }}',
             labels: 'backport-to-k8s-${{ needs.check-latest-k8s-release.outputs.currentVersion }}/main',
             title: 'Create backport label for v${{ needs.check-latest-k8s-release.outputs.currentVersion }}',
             body: 'This issue will be closed after the new backport label is added.',
           },
         },
-        // apparently the above step is currently not working, no issue is being created ...
         {
           name: 'Close issue backport label issue',
           uses: 'actions-ecosystem/action-add-labels@v1',
