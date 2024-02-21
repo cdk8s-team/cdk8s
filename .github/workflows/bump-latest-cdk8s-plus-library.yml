@@ -89,7 +89,7 @@ jobs:
         continue-on-error: false
       - name: Create Pull Request
         id: create-pr
-        uses: peter-evans/create-pull-request@v6
+        uses: peter-evans/create-pull-request@v4
         with:
           token: ${{ secrets.PROJEN_GITHUB_TOKEN }}
           commit-message: |-
@@ -132,13 +132,12 @@ jobs:
           repository: cdk8s-team/cdk8s-plus
       - name: Create Issue with new backport label
         id: create-backport-label
-        uses: dacbd/create-issue-action@main
+        uses: nashmaniac/create-issue-action@v1.2
         with:
-          repo: cdk8s-team/cdk8s-plus
           token: ${{ secrets.PROJEN_GITHUB_TOKEN }}
           labels: backport-to-k8s-${{ needs.check-latest-k8s-release.outputs.currentVersion }}/main
           title: Create backport label for v${{ needs.check-latest-k8s-release.outputs.currentVersion }}
-          body: This issue will be closed after the new backport label is added.
+          body: <second action> This issue will be closed after the new backport label is added.
       - name: Close issue backport label issue
         uses: actions-ecosystem/action-add-labels@v1
         with:
@@ -233,7 +232,7 @@ jobs:
         continue-on-error: false
       - name: Create Pull Request
         id: create-pr
-        uses: peter-evans/create-pull-request@v6
+        uses: peter-evans/create-pull-request@v4
         with:
           token: ${{ secrets.PROJEN_GITHUB_TOKEN }}
           commit-message: |-
@@ -281,7 +280,7 @@ jobs:
         continue-on-error: false
       - name: Create Pull Request
         id: create-pr
-        uses: peter-evans/create-pull-request@v6
+        uses: peter-evans/create-pull-request@v4
         with:
           token: ${{ secrets.PROJEN_GITHUB_TOKEN }}
           commit-message: |-

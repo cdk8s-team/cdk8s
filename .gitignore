@@ -31,6 +31,7 @@ jspm_packages/
 *.tgz
 .yarn-integrity
 .cache
+!/.projenrc.js
 /test-reports/
 junit.xml
 /coverage/
@@ -77,4 +78,3 @@ dist/
 /docs/reference/cdk8s-plus-25/typescript.md
 /docs/reference/cdk8s-plus-25/python.md
 !/.github/workflows/bump-latest-cdk8s-plus-library.yml
-!/.projenrc.ts
