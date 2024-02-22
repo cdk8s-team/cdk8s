@@ -89,7 +89,7 @@ jobs:
         continue-on-error: false
       - name: Create Pull Request
         id: create-pr
-        uses: peter-evans/create-pull-request@v6
+        uses: peter-evans/create-pull-request@v4
         with:
           token: ${{ secrets.PROJEN_GITHUB_TOKEN }}
           commit-message: |-
@@ -132,12 +132,13 @@ jobs:
           repository: cdk8s-team/cdk8s-plus
       - name: Create Issue with new backport label
         id: create-backport-label
-        uses: nashmaniac/create-issue-action@v1.2
+        uses: dacbd/create-issue-action@main
         with:
+          repo: cdk8s-team/cdk8s-plus
           token: ${{ secrets.PROJEN_GITHUB_TOKEN }}
           labels: backport-to-k8s-${{ needs.check-latest-k8s-release.outputs.currentVersion }}/main
           title: Create backport label for v${{ needs.check-latest-k8s-release.outputs.currentVersion }}
-          body: <second action> This issue will be closed after the new backport label is added.
+          body: This issue will be closed after the new backport label is added.
       - name: Close issue backport label issue
         uses: actions-ecosystem/action-add-labels@v1
         with:
@@ -225,6 +226,11 @@ jobs:
           node-version: 18.12.0
       - name: Install dependencies
         run: yarn install --check-files
+      - name: Update reference of latest cdk8s version in txt file
+        env:
+          GITHUB_TOKEN: ${{ secrets.PROJEN_GITHUB_TOKEN }}
+        run: echo "${{ needs.check-latest-k8s-release.outputs.latestVersion }}" >> ${{ github.workspace }}/src/latest-k8s-version.txt
+        continue-on-error: false
       - name: Update references to newest k8s version in cdk8s repo
         env:
           GITHUB_TOKEN: ${{ secrets.PROJEN_GITHUB_TOKEN }}
@@ -232,7 +238,7 @@ jobs:
         continue-on-error: false
       - name: Create Pull Request
         id: create-pr
-        uses: peter-evans/create-pull-request@v6
+        uses: peter-evans/create-pull-request@v4
         with:
           token: ${{ secrets.PROJEN_GITHUB_TOKEN }}
           commit-message: |-
@@ -280,7 +286,7 @@ jobs:
         continue-on-error: false
       - name: Create Pull Request
         id: create-pr
-        uses: peter-evans/create-pull-request@v6
+        uses: peter-evans/create-pull-request@v4
         with:
           token: ${{ secrets.PROJEN_GITHUB_TOKEN }}
           commit-message: |-

@@ -342,6 +342,12 @@ export class K8sVersionUpgradeAutomation extends Component {
           run: 'yarn install --check-files',
         },
         {
+          name: 'Update reference of latest cdk8s version in txt file',
+          run: 'echo "${{ needs.check-latest-k8s-release.outputs.latestVersion }}" >> ${{ github.workspace }}/src/latest-k8s-version.txt',
+          env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
+          continueOnError: false,
+        },
+        {
           name: 'Update references to newest k8s version in cdk8s repo',
           run: 'npx projen replace-old-version-references',
           env: { GITHUB_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}' },
