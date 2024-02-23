@@ -10043,6 +10043,7 @@ based virtual hosting etc.</p>
 
 <span class="n">Ingress</span><span class="p">.</span><span class="na">Builder</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="n">Construct</span><span class="w"> </span><span class="n">scope</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="n">id</span><span class="p">)</span>
 <span class="c1">//  .metadata(ApiObjectMetadata)</span>
+<span class="c1">//  .className(java.lang.String)</span>
 <span class="c1">//  .defaultBackend(IngressBackend)</span>
 <span class="c1">//  .rules(java.util.List&lt;IngressRule&gt;)</span>
 <span class="c1">//  .tls(java.util.List&lt;IngressTls&gt;)</span>
@@ -10063,6 +10064,14 @@ based virtual hosting etc.</p>
 <li><em>Type:</em> <a href="#org.cdk8s.ApiObjectMetadata"><code>org.cdk8s.ApiObjectMetadata</code></a></li>
 </ul>
 <p>Metadata that all persisted resources must have, which includes all objects users must create.</p>
+<hr />
+<h5 id="classnameoptional"><code>className</code><sup>Optional</sup> <a name="org.cdk8s.plus26.IngressProps.parameter.className"></a><a class="headerlink" href="#classnameoptional" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+</ul>
+<p>Class Name for this ingress.</p>
+<p>This field is a reference to an IngressClass resource that contains
+additional Ingress configuration, including the name of the Ingress controller.</p>
 <hr />
 <h5 id="defaultbackendoptional"><code>defaultBackend</code><sup>Optional</sup> <a name="org.cdk8s.plus26.IngressProps.parameter.defaultBackend"></a><a class="headerlink" href="#defaultbackendoptional" title="Permanent link">&para;</a></h5>
 <ul>
@@ -14501,7 +14510,7 @@ file mode, like fsGroup, and the result can be other mode bits set.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">PathMapping</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getItems</span><span class="p">();</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus26.PathMapping">klzzwxh:12437</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus26.PathMapping">klzzwxh:12449</a>></li>
 <li><em>Default:</em> no mapping</li>
 </ul>
 <p>If unspecified, each key-value pair in the Data field of the referenced ConfigMap will be projected into the volume as a file whose name is the key and content is the value.</p>
@@ -14639,7 +14648,7 @@ with a duplicate key will take precedence.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">EnvValue</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getEnvVariables</span><span class="p">();</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus26.EnvValue">klzzwxh:12408</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus26.EnvValue">klzzwxh:12420</a>></li>
 <li><em>Default:</em> No environment variables.</li>
 </ul>
 <p>Environment variables to set in the container.</p>
@@ -14925,7 +14934,7 @@ with a duplicate key will take precedence.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">EnvValue</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getEnvVariables</span><span class="p">();</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus26.EnvValue">klzzwxh:12329</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus26.EnvValue">klzzwxh:12341</a>></li>
 <li><em>Default:</em> No environment variables.</li>
 </ul>
 <p>Environment variables to set in the container.</p>
@@ -17029,6 +17038,7 @@ at least one Object or External metric is configured.</p>
 
 <span class="n">IngressProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
 <span class="c1">//  .metadata(ApiObjectMetadata)</span>
+<span class="c1">//  .className(java.lang.String)</span>
 <span class="c1">//  .defaultBackend(IngressBackend)</span>
 <span class="c1">//  .rules(java.util.List&lt;IngressRule&gt;)</span>
 <span class="c1">//  .tls(java.util.List&lt;IngressTls&gt;)</span>
@@ -17041,6 +17051,16 @@ at least one Object or External metric is configured.</p>
 <li><em>Type:</em> <a href="#org.cdk8s.ApiObjectMetadata"><code>org.cdk8s.ApiObjectMetadata</code></a></li>
 </ul>
 <p>Metadata that all persisted resources must have, which includes all objects users must create.</p>
+<hr />
+<h5 id="classnameoptional_1"><code>className</code><sup>Optional</sup> <a name="org.cdk8s.plus26.IngressProps.property.className"></a><a class="headerlink" href="#classnameoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getClassName</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+</ul>
+<p>Class Name for this ingress.</p>
+<p>This field is a reference to an IngressClass resource that contains
+additional Ingress configuration, including the name of the Ingress controller.</p>
 <hr />
 <h5 id="defaultbackendoptional_1"><code>defaultBackend</code><sup>Optional</sup> <a name="org.cdk8s.plus26.IngressProps.property.defaultBackend"></a><a class="headerlink" href="#defaultbackendoptional_1" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">IngressBackend</span><span class="w"> </span><span class="nf">getDefaultBackend</span><span class="p">();</span>
@@ -19250,7 +19270,7 @@ file mode, like fsGroup, and the result can be other mode bits set.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">PathMapping</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getItems</span><span class="p">();</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus26.PathMapping">klzzwxh:11236</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus26.PathMapping">klzzwxh:11246</a>></li>
 <li><em>Default:</em> no mapping</li>
 </ul>
 <p>If unspecified, each key-value pair in the Data field of the referenced secret will be projected into the volume as a file whose name is the key and content is the value.</p>
@@ -20928,7 +20948,7 @@ with a duplicate key will take precedence.</p>
 <hr />
 <h5 id="envvariablesoptional_2"><code>envVariables</code><sup>Optional</sup> <a name="org.cdk8s.plus26.ContainerProps.parameter.envVariables"></a><a class="headerlink" href="#envvariablesoptional_2" title="Permanent link">&para;</a></h5>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus26.EnvValue">klzzwxh:10740</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus26.EnvValue">klzzwxh:10750</a>></li>
 <li><em>Default:</em> No environment variables.</li>
 </ul>
 <p>Environment variables to set in the container.</p>
@@ -21374,7 +21394,7 @@ somehow it manages to get access to host file system.</li>
 <hr />
 <h5 id="variablesrequired"><code>variables</code><sup>Required</sup> <a name="org.cdk8s.plus26.Env.parameter.variables"></a><a class="headerlink" href="#variablesrequired" title="Permanent link">&para;</a></h5>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus26.EnvValue">klzzwxh:10598</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus26.EnvValue">klzzwxh:10608</a>></li>
 </ul>
 <hr />
 <h4 id="methods_26">Methods <a name="Methods"></a><a class="headerlink" href="#methods_26" title="Permanent link">&para;</a></h4>
@@ -21440,7 +21460,7 @@ somehow it manages to get access to host file system.</li>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">EnvValue</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getVariables</span><span class="p">();</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus26.EnvValue">klzzwxh:10575</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus26.EnvValue">klzzwxh:10585</a>></li>
 </ul>
 <p>The environment variables for this container.</p>
 <p>Returns a copy. To add environment variables use <code>container.env.addVariable()</code>.</p>

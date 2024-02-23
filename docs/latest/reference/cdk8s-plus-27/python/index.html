@@ -10578,6 +10578,7 @@ based virtual hosting etc.</p>
   <span class="n">scope</span><span class="p">:</span> <span class="n">Construct</span><span class="p">,</span>
   <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
   <span class="n">metadata</span><span class="p">:</span> <span class="n">ApiObjectMetadata</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">class_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">default_backend</span><span class="p">:</span> <span class="n">IngressBackend</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">rules</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">IngressRule</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">tls</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">IngressTls</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
@@ -10598,6 +10599,14 @@ based virtual hosting etc.</p>
 <li><em>Type:</em> <a href="#cdk8s.ApiObjectMetadata"><code>cdk8s.ApiObjectMetadata</code></a></li>
 </ul>
 <p>Metadata that all persisted resources must have, which includes all objects users must create.</p>
+<hr />
+<h5 id="class_nameoptional"><code>class_name</code><sup>Optional</sup> <a name="cdk8s_plus_27.IngressProps.parameter.class_name"></a><a class="headerlink" href="#class_nameoptional" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>str</code></li>
+</ul>
+<p>Class Name for this ingress.</p>
+<p>This field is a reference to an IngressClass resource that contains
+additional Ingress configuration, including the name of the Ingress controller.</p>
 <hr />
 <h5 id="default_backendoptional"><code>default_backend</code><sup>Optional</sup> <a name="cdk8s_plus_27.IngressProps.parameter.default_backend"></a><a class="headerlink" href="#default_backendoptional" title="Permanent link">&para;</a></h5>
 <ul>
@@ -18160,6 +18169,7 @@ at least one Object or External metric is configured.</p>
 
 <span class="n">cdk8s_plus_27</span><span class="o">.</span><span class="n">IngressProps</span><span class="p">(</span>
   <span class="n">metadata</span><span class="p">:</span> <span class="n">ApiObjectMetadata</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">class_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">default_backend</span><span class="p">:</span> <span class="n">IngressBackend</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">rules</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">IngressRule</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">tls</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">IngressTls</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
@@ -18172,6 +18182,16 @@ at least one Object or External metric is configured.</p>
 <li><em>Type:</em> <a href="#cdk8s.ApiObjectMetadata"><code>cdk8s.ApiObjectMetadata</code></a></li>
 </ul>
 <p>Metadata that all persisted resources must have, which includes all objects users must create.</p>
+<hr />
+<h5 id="class_nameoptional_1"><code>class_name</code><sup>Optional</sup> <a name="cdk8s_plus_27.IngressProps.property.class_name"></a><a class="headerlink" href="#class_nameoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">class_name</span><span class="p">:</span> <span class="nb">str</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>str</code></li>
+</ul>
+<p>Class Name for this ingress.</p>
+<p>This field is a reference to an IngressClass resource that contains
+additional Ingress configuration, including the name of the Ingress controller.</p>
 <hr />
 <h5 id="default_backendoptional_1"><code>default_backend</code><sup>Optional</sup> <a name="cdk8s_plus_27.IngressProps.property.default_backend"></a><a class="headerlink" href="#default_backendoptional_1" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="n">default_backend</span><span class="p">:</span> <span class="n">IngressBackend</span>
