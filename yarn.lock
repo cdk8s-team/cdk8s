@@ -6540,10 +6540,10 @@ process-nextick-args@~2.0.0:
   resolved "https://registry.yarnpkg.com/process-nextick-args/-/process-nextick-args-2.0.1.tgz#7820d9b16120cc55ca9ae7792680ae7dba6d7fe2"
   integrity sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==
 
-projen@^0.80.1:
-  version "0.80.1"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.80.1.tgz#188f911bd441456ae7d478467a2689e92bb00e70"
-  integrity sha512-VB0Y2cQ+nE3e3Qe3V656NNkqMLN1AzULb9vIHVFFIkaO4htqi2N1Xqc1SkpvRuAgYznfzW18/eHii3q3WkJUQg==
+projen@^0.80.2:
+  version "0.80.2"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.80.2.tgz#73afed04f9f68fd5de458d68eb9d1dc2ff6c5222"
+  integrity sha512-8gNQo6o/iGrNPw7IOH08S2H/dl4gHhLpi15EqArcR3c3YVEMn5R+do+5jiVnE2g1J7V9rjegyTH57Fe6a7Qxew==
   dependencies:
     "@iarna/toml" "^2.2.5"
     case "^1.6.3"
@@ -8238,15 +8238,10 @@ yaml@2.3.2:
   resolved "https://registry.yarnpkg.com/yaml/-/yaml-2.3.2.tgz#f522db4313c671a0ca963a75670f1c12ea909144"
   integrity sha512-N/lyzTPaJasoDmfV7YTrYCI0G/3ivm/9wdG0aHuheKowWQwGTsK0Eoiw6utmzAnI6pkJa0DUVygvp3spqqEKXg==
 
-yaml@2.4.0:
+yaml@2.4.0, yaml@^2.2.2:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/yaml/-/yaml-2.4.0.tgz#2376db1083d157f4b3a452995803dbcf43b08140"
   integrity sha512-j9iR8g+/t0lArF4V6NE/QCfT+CO7iLqrXAHZbJdo+LfjqP1vR8Fg5bSiaq6Q2lOD1AUEVrEVIgABvBFYojJVYQ==
-
-yaml@^2.2.2:
-  version "2.3.4"
-  resolved "https://registry.yarnpkg.com/yaml/-/yaml-2.3.4.tgz#53fc1d514be80aabf386dc6001eb29bf3b7523b2"
-  integrity sha512-8aAvwVUSHpfEqTQ4w/KMlf3HcRdt50E5ODIQJBw1fQ5RL34xabzxtUlzTXVqc4rkZsPbvrXKWnABCD7kWSmocA==
 
 yargs-parser@20.2.4:
   version "20.2.4"
