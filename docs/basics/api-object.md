@@ -20,7 +20,7 @@ For example, the following code:
 
 ```ts
 import { App, Chart } from 'cdk8s';
-import * as kplus from 'cdk8s-plus-27';
+import * as kplus from 'cdk8s-plus-28';
 
 const app = new App();
 const chart = new MyChart(app, 'my-chart');
