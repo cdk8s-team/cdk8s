@@ -2,6 +2,9 @@
 {{- $cdk8s_plusXX_MINUS_2_version := getenv "CDK8S_PLUSXX_MINUS_2_VERSION" }}
 {{- $cdk8s_plusXX_MINUS_1_version := getenv "CDK8S_PLUSXX_MINUS_1_VERSION" }}
 {{- $cdk8s_plusXX_version := getenv "CDK8S_PLUSXX_VERSION" }}
+{{- $cdk8s_plusXX_MINUS_2 := getenv "CDK8S_PLUSXX_MINUS_2" }}
+{{- $cdk8s_plusXX_MINUS_1 := getenv "CDK8S_PLUSXX_MINUS_1" }}
+{{- $cdk8s_plusXX := getenv "CDK8S_PLUSXX" }}
 {{- $cdk8s_cli_version := getenv "CDK8S_CLI_VERSION" }}
 
 {{- $summary := .Site.Params.summary }}
@@ -26,9 +29,9 @@
 {{- $link_terms := "https://aws.amazon.com/terms/?nc1=f_pr" }}
 
 {{- $link_cdk8s_ref := (print $docs_root "/reference/cdk8s/typescript") }}
-{{- $link_plusXX_minus2_ref := (print $docs_root "/reference/cdk8s-plus-" $cdk8s_plusXX_MINUS_2_version "/typescript") }}
-{{- $link_plusXX_minus1_ref := (print $docs_root "/reference/cdk8s-plus-" $cdk8s_plusXX_MINUS_1_version "/typescript") }}
-{{- $link_plusXX_ref := (print $docs_root "/reference/cdk8s-plus-" $cdk8s_plusXX_version "/typescript") }}
+{{- $link_plusXX_minus2_ref := (print $docs_root "/reference/cdk8s-plus-" $cdk8s_plusXX_MINUS_2 "/typescript") }}
+{{- $link_plusXX_minus1_ref := (print $docs_root "/reference/cdk8s-plus-" $cdk8s_plusXX_MINUS_1 "/typescript") }}
+{{- $link_plusXX_ref := (print $docs_root "/reference/cdk8s-plus-" $cdk8s_plusXX "/typescript") }}
 {{- $link_cli := (print $docs_root "/cli") }}
 
 {{- $everywhere := .Site.Params.features.everywhere }}
