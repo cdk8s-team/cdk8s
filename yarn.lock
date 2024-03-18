@@ -2170,9 +2170,9 @@ camelcase@^6.2.0, camelcase@^6.3.0:
   integrity sha512-Gmy6FhYlCY7uOElZUSbxo2UCDH8owEk996gkbrpsgGtrJLM3J7jGxl9Ic7Qwwj4ivOE5AWZWRMecDdF7hqGjFA==
 
 caniuse-lite@^1.0.30001587:
-  version "1.0.30001598"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001598.tgz#88e20ae1a1969d904dae97d538154a275893afef"
-  integrity sha512-j8mQRDziG94uoBfeFuqsJUNECW37DXpnvhcMJMdlH2u3MRkq1sAI0LJcXP1i/Py0KbSIC4UDj8YHPrTn5YsL+Q==
+  version "1.0.30001599"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001599.tgz#571cf4f3f1506df9bf41fcbb6d10d5d017817bce"
+  integrity sha512-LRAQHZ4yT1+f9LemSMeqdMpMxZcc4RMWdj4tiFe3G8tNkWK+E58g+/tzotb5cU6TbcVJLr4fySiAW7XmxQvZQA==
 
 case@^1.6.3:
   version "1.6.3"
@@ -3087,9 +3087,9 @@ es-abstract@^1.22.1, es-abstract@^1.22.3:
     which-typed-array "^1.1.14"
 
 es-abstract@^1.23.0:
-  version "1.23.1"
-  resolved "https://registry.yarnpkg.com/es-abstract/-/es-abstract-1.23.1.tgz#85edfef168cd1bf9d45be3c83192a3a4b24db2d0"
-  integrity sha512-r+YVn6hTqQb+P5kK0u3KeDqrmhHKm+OhU/Mw4jSL4eQtOxXmp75fXIUUb3sUqFZOlb/YtW5JRaIfEC3UyjYUZQ==
+  version "1.23.2"
+  resolved "https://registry.yarnpkg.com/es-abstract/-/es-abstract-1.23.2.tgz#693312f3940f967b8dd3eebacb590b01712622e0"
+  integrity sha512-60s3Xv2T2p1ICykc7c+DNDPLDMm9t4QxCOUU0K9JxiLjM3C1zB9YVdN7tjxrFd4+AkZ8CdX1ovUga4P2+1e+/w==
   dependencies:
     array-buffer-byte-length "^1.0.1"
     arraybuffer.prototype.slice "^1.0.3"
@@ -3128,8 +3128,8 @@ es-abstract@^1.23.0:
     regexp.prototype.flags "^1.5.2"
     safe-array-concat "^1.1.2"
     safe-regex-test "^1.0.3"
-    string.prototype.trim "^1.2.8"
-    string.prototype.trimend "^1.0.7"
+    string.prototype.trim "^1.2.9"
+    string.prototype.trimend "^1.0.8"
     string.prototype.trimstart "^1.0.7"
     typed-array-buffer "^1.0.2"
     typed-array-byte-length "^1.0.1"
@@ -5187,9 +5187,9 @@ jsii@1.95.0:
     yargs "^16.2.0"
 
 jsii@~5.3.18:
-  version "5.3.27"
-  resolved "https://registry.yarnpkg.com/jsii/-/jsii-5.3.27.tgz#d08d84a1184278598870de98440b82e54a6502e9"
-  integrity sha512-YiwepoNKEaxVCJK6eZyc4jp2f3vVub4LpjA4JpqWjPtqt+7w7a7++HYbdS67WepCJjhfO698EHSaW/lRL8yf4g==
+  version "5.3.29"
+  resolved "https://registry.yarnpkg.com/jsii/-/jsii-5.3.29.tgz#1af1777b48f90f1188f375b5d9677fd75e8b0781"
+  integrity sha512-vEEOtjD8s/C8ORHvN87Bt9jHcY1diJoC1sS+TVnCkeb4V9q5fOEVr4gl/FsU5ea8dSWZHdd7VqCtr0jYAwKleg==
   dependencies:
     "@jsii/check-node" "1.95.0"
     "@jsii/spec" "^1.95.0"
@@ -7403,7 +7403,7 @@ string.prototype.repeat@^0.2.0:
   resolved "https://registry.yarnpkg.com/string.prototype.repeat/-/string.prototype.repeat-0.2.0.tgz#aba36de08dcee6a5a337d49b2ea1da1b28fc0ecf"
   integrity sha512-1BH+X+1hSthZFW+X+JaUkjkkUPwIlLEMJBLANN3hOob3RhEk5snLWNECDnYbgn/m5c5JV7Ersu1Yubaf+05cIA==
 
-string.prototype.trim@^1.2.8:
+string.prototype.trim@^1.2.8, string.prototype.trim@^1.2.9:
   version "1.2.9"
   resolved "https://registry.yarnpkg.com/string.prototype.trim/-/string.prototype.trim-1.2.9.tgz#b6fa326d72d2c78b6df02f7759c73f8f6274faa4"
   integrity sha512-klHuCNxiMZ8MlsOihJhJEBJAiMVqU3Z2nEXWfWnIqjN0gEFS9J9+IxKozWWtQGcgoa1WUZzLjKPTr4ZHNFTFxw==
@@ -7413,7 +7413,7 @@ string.prototype.trim@^1.2.8:
     es-abstract "^1.23.0"
     es-object-atoms "^1.0.0"
 
-string.prototype.trimend@^1.0.7:
+string.prototype.trimend@^1.0.7, string.prototype.trimend@^1.0.8:
   version "1.0.8"
   resolved "https://registry.yarnpkg.com/string.prototype.trimend/-/string.prototype.trimend-1.0.8.tgz#3651b8513719e8a9f48de7f2f77640b26652b229"
   integrity sha512-p73uL5VCHCO2BZZ6krwwQE3kCzM7NKmis8S//xEC6fQonchbum4eP6kR4DLEjQFO3Wnj3Fuo8NM0kOSjVdHjZQ==
@@ -7888,9 +7888,9 @@ typescript@^4.9.5:
   integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
 
 typescript@next:
-  version "5.5.0-dev.20240317"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.5.0-dev.20240317.tgz#04e3d6c2621c2959892f8419f0c0804609167f06"
-  integrity sha512-Wb4imX86z4WRFl49ZD1e4wxCXnyhwGpk5rIeoUpPrgPnzkrxmsaS6ZaoMNujsIdD50bayg+GKJzh7xYmiMnfcw==
+  version "5.5.0-dev.20240318"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.5.0-dev.20240318.tgz#b2fc9454fed98e8952ba524dee0cde991a752afe"
+  integrity sha512-NLUk3mN8h9UWmeFns5dhiRIIZffmDePNOMPwwr36tYoJikteOGLNCOOcCP2Yvc+cOzl/mkBOUaEngUBGYRJBGw==
 
 typescript@~3.9.10:
   version "3.9.10"
