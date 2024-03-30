@@ -296,12 +296,12 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@cdk8s/projen-common@^0.0.499":
-  version "0.0.499"
-  resolved "https://registry.yarnpkg.com/@cdk8s/projen-common/-/projen-common-0.0.499.tgz#4cc92c1c60f21ecacfd4c1801d40a7dae7471c84"
-  integrity sha512-BDzSdLH4rcOJUEX/2MJoeeCgNMZPIYRFLcGni3ijqtfSKnyOZ+0nIdy0ooSyuzrFmEuPlhygjv1xTGz2kfNKcA==
+"@cdk8s/projen-common@^0.0.508":
+  version "0.0.508"
+  resolved "https://registry.yarnpkg.com/@cdk8s/projen-common/-/projen-common-0.0.508.tgz#a8380097b8c92cb2083b24060f0e837a04d36d35"
+  integrity sha512-jLXcY8j5TT1CMsvPe5G6G0V13ahtAP+UhNtM6Pp2Lk9smCEaVDGVM4h2fo9NUOvtBo732Jaw2YltdZseo9OFRg==
   dependencies:
-    codemaker "^1.95.0"
+    codemaker "^1.96.0"
     deepmerge "^4.3.1"
 
 "@colors/colors@1.6.0", "@colors/colors@^1.6.0":
@@ -2382,7 +2382,7 @@ co@^4.6.0:
   resolved "https://registry.yarnpkg.com/co/-/co-4.6.0.tgz#6ea6bdf3d853ae54ccb8e47bfa0bf3f9031fb184"
   integrity sha512-QVb0dM5HvG+uaxitm8wONl7jltx8dqhfU33DcqtOZcLSVIKSDDLDi7+0LbAKiyI8hD9u42m2YxXSkMGWThaecQ==
 
-codemaker@^1.95.0, codemaker@^1.96.0:
+codemaker@^1.96.0:
   version "1.96.0"
   resolved "https://registry.yarnpkg.com/codemaker/-/codemaker-1.96.0.tgz#83b3b2b8fe390fcd48b037b176d2761f354f776a"
   integrity sha512-l85K+kh6IRxUIaCug2+dcxAOj7C8PvRggFMd7Xwn1OjdMe/nVBvpm8zFjXL3Cb4Qlhx9CV5RFfKEmjbesd7woA==
