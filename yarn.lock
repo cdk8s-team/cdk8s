@@ -2204,10 +2204,10 @@ cdk8s-plus-25@^2.22.79:
   optionalDependencies:
     backport "8.5.0"
 
-cdk8s-plus-26@^2.18.85:
-  version "2.18.85"
-  resolved "https://registry.yarnpkg.com/cdk8s-plus-26/-/cdk8s-plus-26-2.18.85.tgz#b4c36b8321e82ce0e52f6724f8bb15d3e2579982"
-  integrity sha512-Ueauu1sjoRTNxo9LBILw9Y7wTYnrzPtsTvVy/b9ZivmAFDf/+B4ats0t3V+Ph0ewUSWLdwUjqAGonltZoVZJrQ==
+cdk8s-plus-26@^2.18.87:
+  version "2.18.87"
+  resolved "https://registry.yarnpkg.com/cdk8s-plus-26/-/cdk8s-plus-26-2.18.87.tgz#37c98d6270610b569b8e4ad6ad0a4d2f1e7f3a2a"
+  integrity sha512-Yf1pHtiMmDqCxWXIdOXTyZdvnnPjeQa70ljm9QZvV023swPYMQ7LGEitSIX+S2SqMwrdd9u8lWuRVF1fsh89Sg==
   dependencies:
     minimatch "^3.1.2"
   optionalDependencies:
