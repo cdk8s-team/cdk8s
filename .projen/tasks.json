@@ -133,11 +133,11 @@
       "name": "pre-compile",
       "description": "Prepare the project for compilation"
     },
-    "replace-version-references": {
-      "name": "replace-version-references",
+    "rotate-cdk8s-plus": {
+      "name": "rotate-cdk8s-plus",
       "steps": [
         {
-          "exec": "ts-node src/replace-version-references.ts 28"
+          "exec": "ts-node src/rotate-cdk8s-plus.ts 29"
         }
       ]
     },
@@ -206,13 +206,13 @@
       },
       "steps": [
         {
-          "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev --filter=@types/jest,cdk8s,cdk8s-cli,cdk8s-plus-26,cdk8s-plus-27,cdk8s-plus-28,eslint-import-resolver-typescript,eslint-plugin-import,jest,lerna,semver,ts-jest,ts-node"
+          "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev --filter=@types/jest,cdk8s,cdk8s-cli,cdk8s-plus-27,cdk8s-plus-28,cdk8s-plus-29,eslint-import-resolver-typescript,eslint-plugin-import,jest,lerna,semver,ts-jest,ts-node"
         },
         {
           "exec": "yarn install --check-files"
         },
         {
-          "exec": "yarn upgrade @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser cdk8s cdk8s-cli cdk8s-plus-26 cdk8s-plus-27 cdk8s-plus-28 constructs eslint-import-resolver-typescript eslint-plugin-import eslint jest jest-junit lerna semver ts-jest ts-node"
+          "exec": "yarn upgrade @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser cdk8s cdk8s-cli cdk8s-plus-27 cdk8s-plus-28 cdk8s-plus-29 constructs eslint-import-resolver-typescript eslint-plugin-import eslint jest jest-junit lerna semver ts-jest ts-node"
         },
         {
           "exec": "npx projen"
