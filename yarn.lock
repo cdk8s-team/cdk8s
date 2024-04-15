@@ -296,10 +296,10 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@cdk8s/projen-common@^0.0.515":
-  version "0.0.515"
-  resolved "https://registry.yarnpkg.com/@cdk8s/projen-common/-/projen-common-0.0.515.tgz#b0ff313065939f1f6283bb808b8f9f7be67e2890"
-  integrity sha512-TrWwjBEy8DyCNN8gdQ/d703I7I71nk0UXAcGr2AS49zCP8pe/DTatFD0L9PQuc5A9706X1LfUWnbe7imamJKDQ==
+"@cdk8s/projen-common@^0.0.516":
+  version "0.0.516"
+  resolved "https://registry.yarnpkg.com/@cdk8s/projen-common/-/projen-common-0.0.516.tgz#a2f556c6f50bfea3471b8f8ef942faec253a6f57"
+  integrity sha512-deAs4BlYTPySJ37KqsnThhlTv5ptOm9PQHZy4XdLAn1VBiRu4PPZ9i0++YQhOaHiV7lrrLxVXqlgqku2/qDipg==
   dependencies:
     codemaker "^1.97.0"
     deepmerge "^4.3.1"
@@ -1388,6 +1388,11 @@
   integrity sha512-wq0cICSkRLVaf3UGLMGItu/PtdY7oaXaI/RVU+xliKVOtRna3PRY57ZDfztpDL0n11vfymMUnXv8QwYCO7L1wg==
   dependencies:
     undici-types "~5.26.4"
+
+"@types/node@16.18.78":
+  version "16.18.78"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.18.78.tgz#3d97264128712f2eb59f1f8456bcfc5d56d8105c"
+  integrity sha512-2poPMDdsGfvhcLmgJZ85QrIfN6z3PijYRMiV0FWIEUiQW/t/lzH7BEm4vN+HMhjZXbtIKssMcAxTcgu4Rm83YA==
 
 "@types/node@^16":
   version "16.18.96"
