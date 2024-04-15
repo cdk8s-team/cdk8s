@@ -67,14 +67,13 @@ dist/
 /docs/reference/cdk8s/java.md
 /docs/reference/cdk8s/typescript.md
 /docs/reference/cdk8s/python.md
+/docs/reference/cdk8s-plus-29/java.md
+/docs/reference/cdk8s-plus-29/typescript.md
+/docs/reference/cdk8s-plus-29/python.md
 /docs/reference/cdk8s-plus-28/java.md
 /docs/reference/cdk8s-plus-28/typescript.md
 /docs/reference/cdk8s-plus-28/python.md
 /docs/reference/cdk8s-plus-27/java.md
 /docs/reference/cdk8s-plus-27/typescript.md
 /docs/reference/cdk8s-plus-27/python.md
-/docs/reference/cdk8s-plus-26/java.md
-/docs/reference/cdk8s-plus-26/typescript.md
-/docs/reference/cdk8s-plus-26/python.md
-!/.github/workflows/bump-latest-cdk8s-plus-library.yml
 !/.projenrc.ts

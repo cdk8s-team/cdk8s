@@ -49,7 +49,7 @@ function recursiveReplaceRefsInDir(dir: string, toReplace: string, substitution:
     if (fs.lstatSync(fullPath).isDirectory()) {
       recursiveReplaceRefsInDir(fullPath, toReplace, substitution);
     } else {
-      replaceRefsInFile(fullPath, toReplace, substitution)
+      replaceRefsInFile(fullPath, toReplace, substitution);
     }
   });
 }

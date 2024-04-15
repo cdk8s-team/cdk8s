@@ -1,7 +1,6 @@
 import * as fs from 'fs';
 import { Cdk8sTeamTypeScriptProject } from '@cdk8s/projen-common';
 import { JobPermission } from 'projen/lib/github/workflows-model';
-import { K8sVersionUpgradeAutomation } from './src/k8s-automation';
 
 const SPEC_VERSION = fs.readFileSync('src/latest-k8s-version.txt', 'utf-8');
 
@@ -142,10 +141,7 @@ for (const pkg of packages) {
 }
 
 // Projen task to update references to old versions of cdk8s-plus
-const versionTaskObject = project.addTask('replace-version-references');
-versionTaskObject.exec('ts-node src/replace-version-references.ts ' + SPEC_VERSION);
-
-// Add Kubernetes upgrade automation workflow
-new K8sVersionUpgradeAutomation(project);
+const versionTaskObject = project.addTask('rotate-cdk8s-plus');
+versionTaskObject.exec('ts-node src/rotate-cdk8s-plus.ts ' + SPEC_VERSION);
 
 project.synth();
