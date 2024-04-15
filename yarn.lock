@@ -2231,9 +2231,9 @@ cdk8s-plus-28@^2.0.8:
     backport "8.5.0"
 
 cdk8s-plus-29@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/cdk8s-plus-29/-/cdk8s-plus-29-2.0.0.tgz#74c7fe08c4514285fae4d3a3afe86c02014c1994"
-  integrity sha512-C5jSY5gEi0djB2IVF/z8wda4HHDwUyH+vCUPnLd1bNsfnrlXJBsRpOwmzkSyPnMDIC7APgELZaMUCKUuObS1ww==
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/cdk8s-plus-29/-/cdk8s-plus-29-2.0.1.tgz#9325d2edb645b4e325da70e1058fd96ab6ea0147"
+  integrity sha512-bVJ0SoJOHuEo/82KA0RgXtYIIkegy480T9sdTbuAdqUd0uAqiX1S1HsTrkEy1uZ7K9UfJHfaS2zxz6jvrjA0Dw==
   dependencies:
     minimatch "^3.1.2"
   optionalDependencies:
