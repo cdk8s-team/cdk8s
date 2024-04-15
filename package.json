@@ -29,9 +29,9 @@
     "organization": false
   },
   "devDependencies": {
-    "@cdk8s/projen-common": "^0.0.515",
+    "@cdk8s/projen-common": "^0.0.516",
     "@types/jest": "^26.0.24",
-    "@types/node": "^16",
+    "@types/node": "16.18.78",
     "@typescript-eslint/eslint-plugin": "^6",
     "@typescript-eslint/parser": "^6",
     "cdk8s": "^2.68.59",
