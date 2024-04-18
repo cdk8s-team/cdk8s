@@ -14510,7 +14510,7 @@ file mode, like fsGroup, and the result can be other mode bits set.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">PathMapping</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getItems</span><span class="p">();</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus27.PathMapping">klzzwxh:12449</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus27.PathMapping">klzzwxh:12457</a>></li>
 <li><em>Default:</em> no mapping</li>
 </ul>
 <p>If unspecified, each key-value pair in the Data field of the referenced ConfigMap will be projected into the volume as a file whose name is the key and content is the value.</p>
@@ -14648,7 +14648,7 @@ with a duplicate key will take precedence.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">EnvValue</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getEnvVariables</span><span class="p">();</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus27.EnvValue">klzzwxh:12420</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus27.EnvValue">klzzwxh:12428</a>></li>
 <li><em>Default:</em> No environment variables.</li>
 </ul>
 <p>Environment variables to set in the container.</p>
@@ -14934,7 +14934,7 @@ with a duplicate key will take precedence.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">EnvValue</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getEnvVariables</span><span class="p">();</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus27.EnvValue">klzzwxh:12341</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus27.EnvValue">klzzwxh:12349</a>></li>
 <li><em>Default:</em> No environment variables.</li>
 </ul>
 <p>Environment variables to set in the container.</p>
@@ -16954,6 +16954,7 @@ at least one Object or External metric is configured.</p>
 <span class="c1">//  .periodSeconds(Duration)</span>
 <span class="c1">//  .successThreshold(java.lang.Number)</span>
 <span class="c1">//  .timeoutSeconds(Duration)</span>
+<span class="c1">//  .host(java.lang.String)</span>
 <span class="c1">//  .port(java.lang.Number)</span>
 <span class="c1">//  .scheme(ConnectionScheme)</span>
 <span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
@@ -17012,6 +17013,15 @@ at least one Object or External metric is configured.</p>
 <blockquote>
 <p>https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes</p>
 </blockquote>
+<hr />
+<h5 id="hostoptional_1"><code>host</code><sup>Optional</sup> <a name="org.cdk8s.plus27.HttpGetProbeOptions.property.host"></a><a class="headerlink" href="#hostoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getHost</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.String</code></li>
+<li><em>Default:</em> defaults to the pod IP</li>
+</ul>
+<p>The host name to connect to on the container.</p>
 <hr />
 <h5 id="portoptional_5"><code>port</code><sup>Optional</sup> <a name="org.cdk8s.plus27.HttpGetProbeOptions.property.port"></a><a class="headerlink" href="#portoptional_5" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span><span class="w"> </span><span class="nf">getPort</span><span class="p">();</span>
@@ -17120,7 +17130,7 @@ then routed to the backend associated with the matching path.</p>
 </ul>
 <p>Backend defines the referenced service endpoint to which the traffic will be forwarded to.</p>
 <hr />
-<h5 id="hostoptional_1"><code>host</code><sup>Optional</sup> <a name="org.cdk8s.plus27.IngressRule.property.host"></a><a class="headerlink" href="#hostoptional_1" title="Permanent link">&para;</a></h5>
+<h5 id="hostoptional_2"><code>host</code><sup>Optional</sup> <a name="org.cdk8s.plus27.IngressRule.property.host"></a><a class="headerlink" href="#hostoptional_2" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getHost</span><span class="p">();</span>
 </code></pre></div>
 <ul>
@@ -19270,7 +19280,7 @@ file mode, like fsGroup, and the result can be other mode bits set.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">PathMapping</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getItems</span><span class="p">();</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus27.PathMapping">klzzwxh:11246</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus27.PathMapping">klzzwxh:11251</a>></li>
 <li><em>Default:</em> no mapping</li>
 </ul>
 <p>If unspecified, each key-value pair in the Data field of the referenced secret will be projected into the volume as a file whose name is the key and content is the value.</p>
@@ -20126,7 +20136,7 @@ should report an error.</p>
 <p>https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes</p>
 </blockquote>
 <hr />
-<h5 id="hostoptional_2"><code>host</code><sup>Optional</sup> <a name="org.cdk8s.plus27.TcpSocketProbeOptions.property.host"></a><a class="headerlink" href="#hostoptional_2" title="Permanent link">&para;</a></h5>
+<h5 id="hostoptional_3"><code>host</code><sup>Optional</sup> <a name="org.cdk8s.plus27.TcpSocketProbeOptions.property.host"></a><a class="headerlink" href="#hostoptional_3" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getHost</span><span class="p">();</span>
 </code></pre></div>
 <ul>
@@ -20948,7 +20958,7 @@ with a duplicate key will take precedence.</p>
 <hr />
 <h5 id="envvariablesoptional_2"><code>envVariables</code><sup>Optional</sup> <a name="org.cdk8s.plus27.ContainerProps.parameter.envVariables"></a><a class="headerlink" href="#envvariablesoptional_2" title="Permanent link">&para;</a></h5>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus27.EnvValue">klzzwxh:10750</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus27.EnvValue">klzzwxh:10755</a>></li>
 <li><em>Default:</em> No environment variables.</li>
 </ul>
 <p>Environment variables to set in the container.</p>
@@ -21394,7 +21404,7 @@ somehow it manages to get access to host file system.</li>
 <hr />
 <h5 id="variablesrequired"><code>variables</code><sup>Required</sup> <a name="org.cdk8s.plus27.Env.parameter.variables"></a><a class="headerlink" href="#variablesrequired" title="Permanent link">&para;</a></h5>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus27.EnvValue">klzzwxh:10608</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus27.EnvValue">klzzwxh:10613</a>></li>
 </ul>
 <hr />
 <h4 id="methods_26">Methods <a name="Methods"></a><a class="headerlink" href="#methods_26" title="Permanent link">&para;</a></h4>
@@ -21460,7 +21470,7 @@ somehow it manages to get access to host file system.</li>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">EnvValue</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getVariables</span><span class="p">();</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus27.EnvValue">klzzwxh:10585</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus27.EnvValue">klzzwxh:10590</a>></li>
 </ul>
 <p>The environment variables for this container.</p>
 <p>Returns a copy. To add environment variables use <code>container.env.addVariable()</code>.</p>

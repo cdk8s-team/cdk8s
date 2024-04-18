@@ -18085,6 +18085,7 @@ at least one Object or External metric is configured.</p>
   <span class="n">period_seconds</span><span class="p">:</span> <span class="n">Duration</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">success_threshold</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">timeout_seconds</span><span class="p">:</span> <span class="n">Duration</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">host</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">port</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">scheme</span><span class="p">:</span> <span class="n">ConnectionScheme</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="p">)</span>
@@ -18143,6 +18144,15 @@ at least one Object or External metric is configured.</p>
 <blockquote>
 <p>https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes</p>
 </blockquote>
+<hr />
+<h5 id="hostoptional_2"><code>host</code><sup>Optional</sup> <a name="cdk8s_plus_27.HttpGetProbeOptions.property.host"></a><a class="headerlink" href="#hostoptional_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">host</span><span class="p">:</span> <span class="nb">str</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>str</code></li>
+<li><em>Default:</em> defaults to the pod IP</li>
+</ul>
+<p>The host name to connect to on the container.</p>
 <hr />
 <h5 id="portoptional_7"><code>port</code><sup>Optional</sup> <a name="cdk8s_plus_27.HttpGetProbeOptions.property.port"></a><a class="headerlink" href="#portoptional_7" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="n">port</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span>
@@ -18251,7 +18261,7 @@ then routed to the backend associated with the matching path.</p>
 </ul>
 <p>Backend defines the referenced service endpoint to which the traffic will be forwarded to.</p>
 <hr />
-<h5 id="hostoptional_2"><code>host</code><sup>Optional</sup> <a name="cdk8s_plus_27.IngressRule.property.host"></a><a class="headerlink" href="#hostoptional_2" title="Permanent link">&para;</a></h5>
+<h5 id="hostoptional_3"><code>host</code><sup>Optional</sup> <a name="cdk8s_plus_27.IngressRule.property.host"></a><a class="headerlink" href="#hostoptional_3" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="n">host</span><span class="p">:</span> <span class="nb">str</span>
 </code></pre></div>
 <ul>
@@ -21257,7 +21267,7 @@ should report an error.</p>
 <p>https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes</p>
 </blockquote>
 <hr />
-<h5 id="hostoptional_3"><code>host</code><sup>Optional</sup> <a name="cdk8s_plus_27.TcpSocketProbeOptions.property.host"></a><a class="headerlink" href="#hostoptional_3" title="Permanent link">&para;</a></h5>
+<h5 id="hostoptional_4"><code>host</code><sup>Optional</sup> <a name="cdk8s_plus_27.TcpSocketProbeOptions.property.host"></a><a class="headerlink" href="#hostoptional_4" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="n">host</span><span class="p">:</span> <span class="nb">str</span>
 </code></pre></div>
 <ul>
@@ -22962,7 +22972,7 @@ number of pods available at all times during the update is at least 70% of desir
   <span class="n">port</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="p">)</span>
 </code></pre></div>
-<h6 id="hostoptional_4"><code>host</code><sup>Optional</sup> <a name="cdk8s_plus_27.HandlerFromTcpSocketOptions.parameter.host"></a><a class="headerlink" href="#hostoptional_4" title="Permanent link">&para;</a></h6>
+<h6 id="hostoptional_5"><code>host</code><sup>Optional</sup> <a name="cdk8s_plus_27.HandlerFromTcpSocketOptions.parameter.host"></a><a class="headerlink" href="#hostoptional_5" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <code>str</code></li>
 <li><em>Default:</em> defaults to the pod IP</li>
@@ -24386,6 +24396,7 @@ It will have no effect on ephemeral volume types such as: secret, configmaps and
   <span class="n">period_seconds</span><span class="p">:</span> <span class="n">Duration</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">success_threshold</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">timeout_seconds</span><span class="p">:</span> <span class="n">Duration</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">host</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">port</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">scheme</span><span class="p">:</span> <span class="n">ConnectionScheme</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="p">)</span>
@@ -24440,6 +24451,13 @@ It will have no effect on ephemeral volume types such as: secret, configmaps and
 <blockquote>
 <p>https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes</p>
 </blockquote>
+<hr />
+<h6 id="hostoptional_6"><code>host</code><sup>Optional</sup> <a name="cdk8s_plus_27.HttpGetProbeOptions.parameter.host"></a><a class="headerlink" href="#hostoptional_6" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> <code>str</code></li>
+<li><em>Default:</em> defaults to the pod IP</li>
+</ul>
+<p>The host name to connect to on the container.</p>
 <hr />
 <h6 id="portoptional_17"><code>port</code><sup>Optional</sup> <a name="cdk8s_plus_27.HttpGetProbeOptions.parameter.port"></a><a class="headerlink" href="#portoptional_17" title="Permanent link">&para;</a></h6>
 <ul>
@@ -24513,7 +24531,7 @@ It will have no effect on ephemeral volume types such as: secret, configmaps and
 <p>https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes</p>
 </blockquote>
 <hr />
-<h6 id="hostoptional_5"><code>host</code><sup>Optional</sup> <a name="cdk8s_plus_27.TcpSocketProbeOptions.parameter.host"></a><a class="headerlink" href="#hostoptional_5" title="Permanent link">&para;</a></h6>
+<h6 id="hostoptional_7"><code>host</code><sup>Optional</sup> <a name="cdk8s_plus_27.TcpSocketProbeOptions.parameter.host"></a><a class="headerlink" href="#hostoptional_7" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> <code>str</code></li>
 <li><em>Default:</em> defaults to the pod IP</li>
