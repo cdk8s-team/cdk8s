@@ -2184,10 +2184,10 @@ case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s-cli@^2.198.104:
-  version "2.198.104"
-  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.198.104.tgz#282f79a51e0f19dec2926f6b3304ad57352ecf06"
-  integrity sha512-7GLfoQJtcrLjOcxAj1MU1salPwQbL4AhkSYdG8BFf5J1ClGf8HzoN1g/Ipq1XYh6ZWwJgasIZ+/ItLK+Fl5NLA==
+cdk8s-cli@^2.198.105:
+  version "2.198.105"
+  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.198.105.tgz#c7c708b9046af02be37c7019ac582e78bbd52313"
+  integrity sha512-8AAvZUaovIFbkf4aOg7QlO0/Oj9jV8TKpuvQZr8AycCCQWSlkNv8QO1P2jKa7m4Bm+Atf8LaTcSPfdka/m9JwA==
   dependencies:
     "@types/node" "^16"
     ajv "^8.12.0"
@@ -2964,9 +2964,9 @@ ejs@^3.1.7:
     jake "^10.8.5"
 
 electron-to-chromium@^1.4.668:
-  version "1.4.748"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.748.tgz#aa7d4f2f3eac3a6a863cd1779bd4682b4bb68ed5"
-  integrity sha512-VWqjOlPZn70UZ8FTKUOkUvBLeTQ0xpty66qV0yJcAGY2/CthI4xyW9aEozRVtuwv3Kpf5xTesmJUcPwuJmgP4A==
+  version "1.4.749"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.749.tgz#9869e2e258141da26a2272b58264584c3461279d"
+  integrity sha512-LRMMrM9ITOvue0PoBrvNIraVmuDbJV5QC9ierz/z5VilMdPOVMjOtpICNld3PuXuTZ3CHH/UPxX9gHhAPwi+0Q==
 
 emittery@^0.8.1:
   version "0.8.1"
@@ -5514,9 +5514,9 @@ lowercase-keys@^3.0.0:
   integrity sha512-ozCC6gdQ+glXOQsveKD0YsDy8DSQFjDTz4zyzEHNV5+JP5D62LmfDZ6o1cycFx9ouG940M5dE8C8CTewdj2YWQ==
 
 lru-cache@^10.2.0:
-  version "10.2.0"
-  resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-10.2.0.tgz#0bd445ca57363465900f4d1f9bd8db343a4d95c3"
-  integrity sha512-2bIM8x+VAf6JT4bKAljS1qUWgMsqZRPGJS6FSahIMPVvctcNhyVp7AJu7quxOW9jwkryBReKZY5tY5JYv2n/7Q==
+  version "10.2.1"
+  resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-10.2.1.tgz#e8d901141f22937968e45a6533d52824070151e4"
+  integrity sha512-tS24spDe/zXhWbNPErCHs/AGOzbKGHT+ybSBqmdLm8WZ1xXLWvH8Qn71QPAlqVhd0qUTWjy+Kl9JmISgDdEjsA==
 
 lru-cache@^5.1.1:
   version "5.1.1"
@@ -6703,9 +6703,9 @@ react-is@^17.0.1:
   integrity sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==
 
 react-is@^18.0.0:
-  version "18.2.0"
-  resolved "https://registry.yarnpkg.com/react-is/-/react-is-18.2.0.tgz#199431eeaaa2e09f86427efbb4f1473edb47609b"
-  integrity sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==
+  version "18.3.0"
+  resolved "https://registry.yarnpkg.com/react-is/-/react-is-18.3.0.tgz#6c2d9b6cdd4c2cffb7c89b1bcb57bc44d12f1993"
+  integrity sha512-wRiUsea88TjKDc4FBEn+sLvIDesp6brMbGWnJGjew2waAc9evdhja/2LvePc898HJbHw0L+MTWy7NhpnELAvLQ==
 
 read-cmd-shim@4.0.0:
   version "4.0.0"
@@ -7854,9 +7854,9 @@ typescript@^4.9.5:
   integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
 
 typescript@next:
-  version "5.5.0-dev.20240425"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.5.0-dev.20240425.tgz#b1957b2b2ed1f7078256a0eb973996041dc7c310"
-  integrity sha512-7Ori11gLEXAm1+iEaoATNgb/VOA5AAL3Q+kUaSColBS12aMGZRMjBcN1K/dJlmOjeViCkvAf+nlyG5ChaCWt5Q==
+  version "5.5.0-dev.20240426"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.5.0-dev.20240426.tgz#e9ba7d0b3cdaa54021faca61d1bc399e4766c93b"
+  integrity sha512-96cu+y3DrjSNhNSgB3t3nRiesCwBVjZpbjJ6DcQoCgt0crXXPrOMmJQH/E8TZ41U4JzaULD+cB1Z2owh5HANew==
 
 typescript@~3.9.10:
   version "3.9.10"
