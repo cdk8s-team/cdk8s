@@ -6596,10 +6596,10 @@ process-nextick-args@~2.0.0:
   resolved "https://registry.yarnpkg.com/process-nextick-args/-/process-nextick-args-2.0.1.tgz#7820d9b16120cc55ca9ae7792680ae7dba6d7fe2"
   integrity sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==
 
-projen@^0.81.3:
-  version "0.81.3"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.81.3.tgz#9c7fa6cbda6e5e9f2a6c98afc5df5dbcdcddde92"
-  integrity sha512-IuorTvuqJqTecEJ2auZjpaRkFmo9sp8fUj/t5diw/S0hdiyuhlkg2pAkmmbLehW7ib7B8wjqlYUH5pcaAtFU3g==
+projen@^0.81.4:
+  version "0.81.4"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.81.4.tgz#f105c17f0dfe5485fb422b2cf1eadd4b8ae7b7a3"
+  integrity sha512-6iw5OA46wBfwUu05BKdtxFGT1lkgt0PJ3pXRw40VQLi8suFKEqcguRxM8hOFKycvspKxjtR0jmmIrzv9SfSwgg==
   dependencies:
     "@iarna/toml" "^2.2.5"
     case "^1.6.3"
@@ -8330,10 +8330,15 @@ yallist@^4.0.0:
   resolved "https://registry.yarnpkg.com/yallist/-/yallist-4.0.0.tgz#9bb92790d9c0effec63be73519e11a35019a3a72"
   integrity sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==
 
-yaml@2.4.1, yaml@^2.2.2:
+yaml@2.4.1:
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/yaml/-/yaml-2.4.1.tgz#2e57e0b5e995292c25c75d2658f0664765210eed"
   integrity sha512-pIXzoImaqmfOrL7teGUBt/T7ZDnyeGBWyXQBvOVhLkWLN37GXv8NMLK406UY6dS51JfcQHsmcW5cJ441bHg6Lg==
+
+yaml@^2.2.2:
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/yaml/-/yaml-2.4.2.tgz#7a2b30f2243a5fc299e1f14ca58d475ed4bc5362"
+  integrity sha512-B3VqDZ+JAg1nZpaEmWtTXUlBneoGx6CPM9b0TENK6aoSu5t73dItudwdgmi6tHlIZZId4dZ9skcAQ2UbcyAeVA==
 
 yargs-parser@20.2.4:
   version "20.2.4"
