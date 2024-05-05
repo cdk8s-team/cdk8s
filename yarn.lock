@@ -2170,9 +2170,9 @@ camelcase@^6.2.0, camelcase@^6.3.0:
   integrity sha512-Gmy6FhYlCY7uOElZUSbxo2UCDH8owEk996gkbrpsgGtrJLM3J7jGxl9Ic7Qwwj4ivOE5AWZWRMecDdF7hqGjFA==
 
 caniuse-lite@^1.0.30001587:
-  version "1.0.30001615"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001615.tgz#7c2c8772db681b6dee74d81d6550db68f2d28842"
-  integrity sha512-1IpazM5G3r38meiae0bHRnPhz+CBQ3ZLqbQMtrg+AsTPKAXgW38JNsXkyZ+v8waCsDmPq87lmfun5Q2AGysNEQ==
+  version "1.0.30001616"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001616.tgz#4342712750d35f71ebba9fcac65e2cf8870013c3"
+  integrity sha512-RHVYKov7IcdNjVHJFNY/78RdG4oGVjbayxv8u5IO74Wv7Hlq4PnJE6mo/OjFijjVFNy5ijnCt6H3IIo4t+wfEw==
 
 case@^1.6.3:
   version "1.6.3"
@@ -5121,9 +5121,9 @@ jsii-rosetta@^5.4.10:
     yargs "^17.7.2"
 
 jsii-srcmak@^0.1.1108:
-  version "0.1.1112"
-  resolved "https://registry.yarnpkg.com/jsii-srcmak/-/jsii-srcmak-0.1.1112.tgz#eb48f0d83894a21a55eb43b77b404a0a6303d6d4"
-  integrity sha512-vxFBrc+Ok6elIrTIGU0+h4tK4A/dxXmqzh/Mx8ZHcDQS64wgZgdR3lQ4uFel4Qb+NKJ2B3C5OqfstRz2k7EYOA==
+  version "0.1.1113"
+  resolved "https://registry.yarnpkg.com/jsii-srcmak/-/jsii-srcmak-0.1.1113.tgz#0c7567f780a2c6efce13baa91114d1368a3000fb"
+  integrity sha512-8bYaZJPuQKNkAfIdQqb8KH11hurulskR+2/BcnbQxMf3wI3/6+qD18hs5glgfwgFbX78PufiE+ID7fzmiWSn7A==
   dependencies:
     fs-extra "^9.1.0"
     jsii "~5.4.9"
@@ -7855,9 +7855,9 @@ typescript@^4.9.5:
   integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
 
 typescript@next:
-  version "5.5.0-dev.20240504"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.5.0-dev.20240504.tgz#5eaf4fd6910c980595957b6678e4c08c8dcd4a66"
-  integrity sha512-DCn87xYYzHMmF56NZpjUNpZO5GujB3Xr2JdJh1AP8U2FcUM40h0ZWqFXbqF+qukJ7B8LG5HIRIaNfl8+z/c8vw==
+  version "5.5.0-dev.20240505"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.5.0-dev.20240505.tgz#b260abb922031d45be2e14d6178c7350626a1397"
+  integrity sha512-pS7FxfKdWwZcCywfyjwwVAIV/Tb6YBAcVv63WJFhSf7RclqKUTwkGbvtii/VvHtfaW50/1LdYvHU0z+Xs3xTiQ==
 
 uglify-js@^3.1.4:
   version "3.17.4"
