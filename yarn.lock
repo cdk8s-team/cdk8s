@@ -291,10 +291,10 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@cdk8s/projen-common@^0.0.518":
-  version "0.0.518"
-  resolved "https://registry.yarnpkg.com/@cdk8s/projen-common/-/projen-common-0.0.518.tgz#5936d56381755706d384e17c725ab752fe22d39a"
-  integrity sha512-oaIexemhGy+0oUBC3up+C+fD+GxBFgI7rOuMmQUapP9petr/F6R8pvQj+/fl5lI8qyS1MAdOvhhtzfYHJPh9cA==
+"@cdk8s/projen-common@^0.0.519":
+  version "0.0.519"
+  resolved "https://registry.yarnpkg.com/@cdk8s/projen-common/-/projen-common-0.0.519.tgz#3ea5f559a7d25b7fa0b8f890a74082adfa71d179"
+  integrity sha512-miIa41Zb3kXAylqiigcaGK0NrEpbvCtJl1xHbDeyo011IIP821fUiJNrVkmHAYtsaV5Bbhl2j99XAhITauEizQ==
   dependencies:
     codemaker "^1.98.0"
     deepmerge "^4.3.1"
@@ -6587,10 +6587,10 @@ process-nextick-args@~2.0.0:
   resolved "https://registry.yarnpkg.com/process-nextick-args/-/process-nextick-args-2.0.1.tgz#7820d9b16120cc55ca9ae7792680ae7dba6d7fe2"
   integrity sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==
 
-projen@^0.81.7:
-  version "0.81.7"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.81.7.tgz#228b8dc055381974658f6e09eab30af7b83f5634"
-  integrity sha512-2l0SdAWSwgAUJURRKg7jPjR8CCVYH1l3wWbdeun2T1Svhk34uiRKiIRV0nseyp9wZrS2egT5lW8eaEB/b7l60g==
+projen@^0.81.8:
+  version "0.81.8"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.81.8.tgz#eb8e289977267fa5fc73c46d38d387ad4479f558"
+  integrity sha512-Y3CtD+09qPhI+Res0r229CFWaXS0HlrWs8BbxG/NgoJJniRLLkfQG7W5hLOqMa3plBpwPJOyldTKbPOhHo5JrA==
   dependencies:
     "@iarna/toml" "^2.2.5"
     case "^1.6.3"
@@ -6601,7 +6601,7 @@ projen@^0.81.7:
     fast-json-patch "^3.1.1"
     glob "^8"
     ini "^2.0.0"
-    semver "^7.6.0"
+    semver "^7.6.1"
     shx "^0.3.4"
     xmlbuilder2 "^3.1.1"
     yaml "^2.2.2"
