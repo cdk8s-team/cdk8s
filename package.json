@@ -46,7 +46,7 @@
     "jest": "^27",
     "jest-junit": "^15",
     "lerna": "^7.4.2",
-    "projen": "^0.81.11",
+    "projen": "^0.81.12",
     "semver": "^7.6.2",
     "ts-jest": "^27.1.5",
     "ts-node": "^10.9.2",
@@ -65,7 +65,7 @@
   "jest": {
     "testMatch": [
       "<rootDir>/src/**/__tests__/**/*.ts?(x)",
-      "<rootDir>/(test|src)/**/*(*.)@(spec|test).ts?(x)"
+      "<rootDir>/@(test|src)/**/*(*.)@(spec|test).ts?(x)"
     ],
     "clearMocks": true,
     "collectCoverage": true,
