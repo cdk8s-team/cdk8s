@@ -2171,10 +2171,10 @@ case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s-cli@^2.198.125:
-  version "2.198.125"
-  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.198.125.tgz#7aa289805dc9b3826054cdfc66a7048741840b14"
-  integrity sha512-s3jtTMU1vtDz3omoV5sigBhnayshBDht3UAqGKd+gthtp1oxMX1m7vMQbUydK3/J7hR58++1JKV2BsEUX8qOeA==
+cdk8s-cli@^2.198.126:
+  version "2.198.126"
+  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.198.126.tgz#60695ee46d06fb804e78e8f0239795ba743c2b47"
+  integrity sha512-4F4y0AxQJtPJX49nkFU68ZAW03uCb0i5bLb5Z/U/TzdawLVhSw7zSNThqORXMeWFQjepLQGdcdixQcoJMob1cA==
   dependencies:
     "@types/node" "^16"
     ajv "^8.13.0"
@@ -2186,7 +2186,7 @@ cdk8s-cli@^2.198.125:
     fs-extra "^8"
     jsii-pacmak "^1.98.0"
     jsii-rosetta "^5.4.19"
-    jsii-srcmak "^0.1.1130"
+    jsii-srcmak "^0.1.1131"
     json2jsii "^0.4.3"
     semver "^7.6.2"
     sscaff "^1.2.274"
@@ -2962,9 +2962,9 @@ ejs@^3.1.7:
     jake "^10.8.5"
 
 electron-to-chromium@^1.4.668:
-  version "1.4.777"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.777.tgz#f846fbba23fd11b3c6f97848cdda94896fdb8baf"
-  integrity sha512-n02NCwLJ3wexLfK/yQeqfywCblZqLcXphzmid5e8yVPdtEcida7li0A5WQKghHNG0FeOMCzeFOzEbtAh5riXFw==
+  version "1.4.779"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.779.tgz#bb6f08b93092a564421adcadcc4b92c5055c7a77"
+  integrity sha512-oaTiIcszNfySXVJzKcjxd2YjPxziAd+GmXyb2HbidCeFo6Z88ygOT7EimlrEQhM2U08VhSrbKhLOXP0kKUCZ6g==
 
 emittery@^0.8.1:
   version "0.8.1"
@@ -5113,10 +5113,10 @@ jsii-rosetta@^5.4.19:
     workerpool "^6.5.1"
     yargs "^17.7.2"
 
-jsii-srcmak@^0.1.1130:
-  version "0.1.1130"
-  resolved "https://registry.yarnpkg.com/jsii-srcmak/-/jsii-srcmak-0.1.1130.tgz#9da2a7ef7cbde61bf116d75ab150b940a16c4344"
-  integrity sha512-mC7lmHieXJHnq+p03Ck3EwHRWQSWdtJhhaSy0/wYk/+KaVidCBxQa2m5CQ+twMxbXcBucC72J7jJgSnqynKjIQ==
+jsii-srcmak@^0.1.1131:
+  version "0.1.1131"
+  resolved "https://registry.yarnpkg.com/jsii-srcmak/-/jsii-srcmak-0.1.1131.tgz#90c17d2ac42ba33dd1c79666741a84d35bf5a161"
+  integrity sha512-N5NvEswAOEF2HFrFcasRMQxszc3bjmbJ7yCaui3P2pUUnHHsd8eK0MQhyYSrjZxKggH5H+JrtuRl3XEAp18qOA==
   dependencies:
     fs-extra "^9.1.0"
     jsii "~5.4.18"
@@ -7846,9 +7846,9 @@ typescript@^4.9.5:
   integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
 
 typescript@next:
-  version "5.5.0-dev.20240522"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.5.0-dev.20240522.tgz#5c6166165ee081d8ab81ba08494a09ace7be1a17"
-  integrity sha512-Lckk1709+mAFXxFVbO+QnpXo5TRSZsYcq0a96OTfcgP7eLOa0ZjX6/4lnS/8DODWBlQCPa0EvkegzWIwLZqC3w==
+  version "5.5.0-dev.20240523"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.5.0-dev.20240523.tgz#1ad5c838946cfb885d584780ed4f4fd36b4b29e3"
+  integrity sha512-YOB70i/IXEmSACEQ87NIPif84AGq4mjufwmoAp4HCOpgTjq6KFZe51OtNGvZbi+kMwlmQiKSrKlkfRGMndmsRA==
 
 uglify-js@^3.1.4:
   version "3.17.4"
