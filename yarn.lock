@@ -2161,19 +2161,19 @@ camelcase@^6.2.0, camelcase@^6.3.0:
   integrity sha512-Gmy6FhYlCY7uOElZUSbxo2UCDH8owEk996gkbrpsgGtrJLM3J7jGxl9Ic7Qwwj4ivOE5AWZWRMecDdF7hqGjFA==
 
 caniuse-lite@^1.0.30001587:
-  version "1.0.30001621"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001621.tgz#4adcb443c8b9c8303e04498318f987616b8fea2e"
-  integrity sha512-+NLXZiviFFKX0fk8Piwv3PfLPGtRqJeq2TiNoUff/qB5KJgwecJTvCXDpmlyP/eCI/GUEmp/h/y5j0yckiiZrA==
+  version "1.0.30001623"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001623.tgz#e982099dcb229bb6ab35f5aebe2f8d79ccf6e8a8"
+  integrity sha512-X/XhAVKlpIxWPpgRTnlgZssJrF0m6YtRA0QDWgsBNT12uZM6LPRydR7ip405Y3t1LamD8cP2TZFEDZFBf5ApcA==
 
 case@^1.6.3:
   version "1.6.3"
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s-cli@^2.198.129:
-  version "2.198.129"
-  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.198.129.tgz#2bb1e1b24464820a5a6ae9176d9049ac9dd5cc53"
-  integrity sha512-TbKNSapu8sjeme7KKd2Rb395yUE8rOI1YunzioEXKPb6BA19TGbiOyesv16iwgTPOhq+G404XvrwzyP3SWe3UQ==
+cdk8s-cli@^2.198.130:
+  version "2.198.130"
+  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.198.130.tgz#07e99eab2cba0c339811add8e1aeeae7cfb3e094"
+  integrity sha512-ZSlyjoPTQakgiMGfgbXPhdBSHQSfw3sM2wx7ZN/+cRWRAUB+4Lft3I5thtbuH48rKqxc6PiUhJrNcAodG1AtNA==
   dependencies:
     "@types/node" "^16"
     ajv "^8.14.0"
@@ -2184,8 +2184,8 @@ cdk8s-cli@^2.198.129:
     constructs "^10.3.0"
     fs-extra "^8"
     jsii-pacmak "^1.98.0"
-    jsii-rosetta "^5.4.19"
-    jsii-srcmak "^0.1.1134"
+    jsii-rosetta "^5.4.20"
+    jsii-srcmak "^0.1.1135"
     json2jsii "^0.4.3"
     semver "^7.6.2"
     sscaff "^1.2.274"
@@ -5093,10 +5093,10 @@ jsii-reflect@^1.98.0:
     oo-ascii-tree "^1.98.0"
     yargs "^16.2.0"
 
-jsii-rosetta@^5.4.19:
-  version "5.4.19"
-  resolved "https://registry.yarnpkg.com/jsii-rosetta/-/jsii-rosetta-5.4.19.tgz#be5a73e873786ae30197333ba92408fadd556fc2"
-  integrity sha512-LEH/weiioP9vf4mWhqwfVSU1kRdWlC6d7In0D2HR9vNwENmzG9kx+Jy6WonUT9HsEos/RmqTxI35CRGHQ+R7Ag==
+jsii-rosetta@^5.4.19, jsii-rosetta@^5.4.20:
+  version "5.4.20"
+  resolved "https://registry.yarnpkg.com/jsii-rosetta/-/jsii-rosetta-5.4.20.tgz#ed2df46aa3d48c6bac14db1d187eb618abc16ea1"
+  integrity sha512-OfZMOMobZB8MwTaiYYn/Iqw2SSWBPut9lJ/IfXK8lbP8JOBk4xJp/p2V5G44qShQQJqp6NS5Nv438DZ/0/wsvA==
   dependencies:
     "@jsii/check-node" "1.98.0"
     "@jsii/spec" "^1.98.0"
@@ -5112,10 +5112,10 @@ jsii-rosetta@^5.4.19:
     workerpool "^6.5.1"
     yargs "^17.7.2"
 
-jsii-srcmak@^0.1.1134:
-  version "0.1.1134"
-  resolved "https://registry.yarnpkg.com/jsii-srcmak/-/jsii-srcmak-0.1.1134.tgz#f8d91ec8d98b2099a4578ef108adba69b8b80e5f"
-  integrity sha512-TDJLS4PghU/ST3HpiHf8iBoWmiVqoqLjOlZTSqzd/aOa7+A9z92F04/kQwhMhWHdZ60sif5lbQiBqDFYNvZmjQ==
+jsii-srcmak@^0.1.1135:
+  version "0.1.1135"
+  resolved "https://registry.yarnpkg.com/jsii-srcmak/-/jsii-srcmak-0.1.1135.tgz#7794bb4a75108050dee5c6a453f424446d577320"
+  integrity sha512-wCs4VbOlLhsWoKC7LPkh0G6aN508k6nJnBgOcYh+AVGGRdmZYDN3/2cphttDpcmGM0aG5eUzoSwLP9IkYm+y/g==
   dependencies:
     fs-extra "^9.1.0"
     jsii "~5.4.18"
@@ -7845,9 +7845,9 @@ typescript@^4.9.5:
   integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
 
 typescript@next:
-  version "5.5.0-dev.20240526"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.5.0-dev.20240526.tgz#b77648a40f29bf258d63dde40d72a34c170e9644"
-  integrity sha512-hOt42ztvt2eLUXk4XY0aoF8xh8Yc0zR7zjDquRy3HFVFI2b5ItRTPbfmg4gYqqITwHzjSoiDA1JG8zTZnyYNUQ==
+  version "5.5.0-dev.20240527"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.5.0-dev.20240527.tgz#c565ce415e764daef10eb955e9247638bc197011"
+  integrity sha512-v/CrVgSolgsHvUo7FgaaqYlxX9ZGr0ma12mUnjPYZ6Wimhj95iYrhdEbN2mVPBODRDyvF10/o22eTVBXZPMiqg==
 
 uglify-js@^3.1.4:
   version "3.17.4"
