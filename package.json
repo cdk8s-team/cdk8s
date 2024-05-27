@@ -46,7 +46,7 @@
     "jest": "^27",
     "jest-junit": "^15",
     "lerna": "^7.4.2",
-    "projen": "^0.81.15",
+    "projen": "^0.81.16",
     "semver": "^7.6.2",
     "ts-jest": "^27.1.5",
     "ts-node": "^10.9.2",
@@ -61,8 +61,12 @@
   },
   "main": "lib/index.js",
   "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "version": "0.0.0",
   "jest": {
+    "coverageProvider": "v8",
     "testMatch": [
       "<rootDir>/src/**/__tests__/**/*.ts?(x)",
       "<rootDir>/@(test|src)/**/*(*.)@(spec|test).ts?(x)"
