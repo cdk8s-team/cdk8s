@@ -25,7 +25,7 @@ This section includes API reference for the various components of cdk8s.
 
 === "Go"
 
-    * [**cdk8s**](/cdk8s/go.md)
+    * [**cdk8s**](./cdk8s/go.md)
     * [**cdk8s-plus-27**](./cdk8s-plus-27/go.md) · Kubernetes v1.27.0
     * [**cdk8s-plus-28**](./cdk8s-plus-28/go.md) · Kubernetes v1.28.0
     * [**cdk8s-plus-29**](./cdk8s-plus-29/go.md) · Kubernetes v1.29.0
