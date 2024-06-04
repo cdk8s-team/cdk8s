@@ -146,91 +146,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-27/config-map/</loc>
-         <lastmod>2024-06-04</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-27/container/</loc>
-         <lastmod>2024-06-04</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-27/cronjob/</loc>
-         <lastmod>2024-06-04</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-27/deployment/</loc>
-         <lastmod>2024-06-04</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-27/horizontal-pod-autoscaler/</loc>
-         <lastmod>2024-06-04</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-27/ingress/</loc>
-         <lastmod>2024-06-04</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-27/job/</loc>
-         <lastmod>2024-06-04</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-27/namespace/</loc>
-         <lastmod>2024-06-04</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-27/network-policy/</loc>
-         <lastmod>2024-06-04</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-27/pod/</loc>
-         <lastmod>2024-06-04</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-27/pv/</loc>
-         <lastmod>2024-06-04</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-27/pvc/</loc>
-         <lastmod>2024-06-04</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-27/rbac/</loc>
-         <lastmod>2024-06-04</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-27/secret/</loc>
-         <lastmod>2024-06-04</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-27/service-account/</loc>
-         <lastmod>2024-06-04</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-27/service/</loc>
-         <lastmod>2024-06-04</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-27/volume/</loc>
-         <lastmod>2024-06-04</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-28/config-map/</loc>
          <lastmod>2024-06-04</lastmod>
          <changefreq>daily</changefreq>
@@ -401,6 +316,91 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-30/config-map/</loc>
+         <lastmod>2024-06-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-30/container/</loc>
+         <lastmod>2024-06-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-30/cronjob/</loc>
+         <lastmod>2024-06-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-30/deployment/</loc>
+         <lastmod>2024-06-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-30/horizontal-pod-autoscaler/</loc>
+         <lastmod>2024-06-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-30/ingress/</loc>
+         <lastmod>2024-06-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-30/job/</loc>
+         <lastmod>2024-06-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-30/namespace/</loc>
+         <lastmod>2024-06-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-30/network-policy/</loc>
+         <lastmod>2024-06-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-30/pod/</loc>
+         <lastmod>2024-06-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-30/pv/</loc>
+         <lastmod>2024-06-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-30/pvc/</loc>
+         <lastmod>2024-06-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-30/rbac/</loc>
+         <lastmod>2024-06-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-30/secret/</loc>
+         <lastmod>2024-06-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-30/service-account/</loc>
+         <lastmod>2024-06-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-30/service/</loc>
+         <lastmod>2024-06-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-30/volume/</loc>
+         <lastmod>2024-06-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://cdk8s.io/docs/latest/reference/</loc>
          <lastmod>2024-06-04</lastmod>
          <changefreq>daily</changefreq>
@@ -482,6 +482,26 @@
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/reference/cdk8s-plus-29/typescript/</loc>
+         <lastmod>2024-06-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cdk8s.io/docs/latest/reference/cdk8s-plus-30/go/</loc>
+         <lastmod>2024-06-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cdk8s.io/docs/latest/reference/cdk8s-plus-30/java/</loc>
+         <lastmod>2024-06-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cdk8s.io/docs/latest/reference/cdk8s-plus-30/python/</loc>
+         <lastmod>2024-06-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cdk8s.io/docs/latest/reference/cdk8s-plus-30/typescript/</loc>
          <lastmod>2024-06-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
