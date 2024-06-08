@@ -2167,10 +2167,10 @@ case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s-cli@^2.198.139:
-  version "2.198.139"
-  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.198.139.tgz#bdf0df512bd8ef02fe79df0af9b29abc94f9958c"
-  integrity sha512-nb+hz4HJLg4AULu12uoYy3XIVjts+128PfU6Mm+qghu/ovkiK4qhZA632UU3d6hXNc87FtlINngPGXbbedtZTQ==
+cdk8s-cli@^2.198.140:
+  version "2.198.140"
+  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.198.140.tgz#b20084b2063e676e9793cbf120de2e57bed62f88"
+  integrity sha512-QgRJhFfBiz5HYlqriIM8Xz5vdJFNMFQYRmPGjJOCvIeRMOqlRRFpgHvtwZKbJFY1kYaSVom64IQhvCd/IZagtQ==
   dependencies:
     "@types/node" "^16"
     ajv "^8.16.0"
@@ -2182,8 +2182,8 @@ cdk8s-cli@^2.198.139:
     fs-extra "^8"
     jsii-pacmak "^1.99.0"
     jsii-rosetta "^5.4.21"
-    jsii-srcmak "^0.1.1146"
-    json2jsii "^0.4.3"
+    jsii-srcmak "^0.1.1147"
+    json2jsii "^0.4.4"
     semver "^7.6.2"
     sscaff "^1.2.274"
     table "^6.8.2"
@@ -2938,9 +2938,9 @@ ejs@^3.1.7:
     jake "^10.8.5"
 
 electron-to-chromium@^1.4.668:
-  version "1.4.794"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.794.tgz#cca7762998f6c42517770666e272f52a53c08605"
-  integrity sha512-6FApLtsYhDCY0Vglq3AptsdxQ+PJLc6AxlAM0HjEihUAiOPPbkASEsq9gtxUeZY9o0sJIEa3WnF0vVH4VT4iug==
+  version "1.4.796"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.796.tgz#48dd6ff634b7f7df6313bd27aaa713f3af4a2b29"
+  integrity sha512-NglN/xprcM+SHD2XCli4oC6bWe6kHoytcyLKCWXmRL854F0qhPhaYgUswUsglnPxYaNQIg2uMY4BvaomIf3kLA==
 
 emittery@^0.8.1:
   version "0.8.1"
@@ -5084,10 +5084,10 @@ jsii-rosetta@^5.4.21:
     workerpool "^6.5.1"
     yargs "^17.7.2"
 
-jsii-srcmak@^0.1.1146:
-  version "0.1.1146"
-  resolved "https://registry.yarnpkg.com/jsii-srcmak/-/jsii-srcmak-0.1.1146.tgz#be19b0912fca96d11d891f0cde6f1852ca7c3ea8"
-  integrity sha512-lzeS9OvkMVHF1PbJ68cUCzgin08POuV4MTTEE8ie5kMrE1ZBXy5Q0pce40cPVCg0CR89iRkmygQbWSApj1+/rA==
+jsii-srcmak@^0.1.1147:
+  version "0.1.1147"
+  resolved "https://registry.yarnpkg.com/jsii-srcmak/-/jsii-srcmak-0.1.1147.tgz#8f320213fd2531af51158b6be537722b71b5533a"
+  integrity sha512-865nKQZwJdTvNgW3XSQSnmkkqAPq9zxyXdoJ2ugiNEePgJAijLW7s/1PBJp7AKZnP7674HTlbS+mNnoORpntVw==
   dependencies:
     fs-extra "^9.1.0"
     jsii "~5.4.20"
@@ -5160,10 +5160,10 @@ json-stringify-safe@^5.0.1:
   resolved "https://registry.yarnpkg.com/json-stringify-safe/-/json-stringify-safe-5.0.1.tgz#1296a2d58fd45f19a0f6ce01d65701e2c735b6eb"
   integrity sha512-ZClg6AaYvamvYEE82d3Iyd3vSSIjQ+odgjaTzRuO3s7toCdFKczob2i0zCh7JE8kWn17yvAWhUVxvqGwUalsRA==
 
-json2jsii@^0.4.3:
-  version "0.4.3"
-  resolved "https://registry.yarnpkg.com/json2jsii/-/json2jsii-0.4.3.tgz#70ba13fb3a88cc12fbee83555d305315c892f3ae"
-  integrity sha512-9PNmX7v94XVR5RiblCvtoCbFy3HALnRqZWLT8LSXEE7wujudmMXzdSFyyK0YwYd7dxpzNXirPf6eoQG5xL9N5A==
+json2jsii@^0.4.4:
+  version "0.4.4"
+  resolved "https://registry.yarnpkg.com/json2jsii/-/json2jsii-0.4.4.tgz#8f0191478ae9630e0e5b6ad1b2995389d0497fe5"
+  integrity sha512-jTbmFuxivo20zb/JOKc2U5/qSFWsobJmglvmWVdQoWdR2Ip9KtY9t679QLs7TV/oYSY3VnJU83IWL1QH0eI/4w==
   dependencies:
     camelcase "^6.3.0"
     json-schema "^0.4.0"
@@ -7805,9 +7805,9 @@ typescript@^4.9.5:
   integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
 
 typescript@next:
-  version "5.6.0-dev.20240607"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.6.0-dev.20240607.tgz#c2c8d51ca89eeca524cb4914d6540ea76da753fc"
-  integrity sha512-yy+XEQJEu/S3zEkTYTPv/sq3WIh2IIa19WD6+JAZxV+ndNZaalF84Tw742YJXnZEU37SYpgfFVhWCKi0E9Kmtw==
+  version "5.6.0-dev.20240608"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.6.0-dev.20240608.tgz#8b10aed96e08688f694d1206b1d24cb940e11466"
+  integrity sha512-6/A+e5am8S9wXo877O6OGZo+IbLWKfx/g/qlDNs+3QD3JPjHTM4eDXWue1uTPYuhAgXs7GoFagsSPRaRC3NWtw==
 
 uglify-js@^3.1.4:
   version "3.17.4"
