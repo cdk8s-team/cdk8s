@@ -2158,23 +2158,23 @@ camelcase@^6.2.0, camelcase@^6.3.0:
   integrity sha512-Gmy6FhYlCY7uOElZUSbxo2UCDH8owEk996gkbrpsgGtrJLM3J7jGxl9Ic7Qwwj4ivOE5AWZWRMecDdF7hqGjFA==
 
 caniuse-lite@^1.0.30001629:
-  version "1.0.30001629"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001629.tgz#907a36f4669031bd8a1a8dbc2fa08b29e0db297e"
-  integrity sha512-c3dl911slnQhmxUIT4HhYzT7wnBK/XYpGnYLOj4nJBaRiw52Ibe7YxlDaAeRECvA786zCuExhxIUJ2K7nHMrBw==
+  version "1.0.30001632"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001632.tgz#964207b7cba5851701afb4c8afaf1448db3884b6"
+  integrity sha512-udx3o7yHJfUxMLkGohMlVHCvFvWmirKh9JAH/d7WOLPetlH+LTL5cocMZ0t7oZx/mdlOWXti97xLZWc8uURRHg==
 
 case@^1.6.3:
   version "1.6.3"
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s-cli@^2.198.141:
-  version "2.198.141"
-  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.198.141.tgz#acd60c62b70f35c8850ba30d53d36875c4e56a32"
-  integrity sha512-s2LW6wvRP42U6zR0Vt/b1Uo+lodo4a2/vMFiifBF7yVQsf6+3fSh3heow7Ire1gZBGuZCYlhIatZ3XlK8k94oQ==
+cdk8s-cli@^2.198.142:
+  version "2.198.142"
+  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.198.142.tgz#8622ac55d3be8b175e5a4af68721ce81476d125e"
+  integrity sha512-wsxYgfcroJb8xP3WG5+r5lK7vmBV+c2krZEd0MUv2Wap/QzNr9komPDHUCghwkTU+ds0MNhiTluLcELA63PDyw==
   dependencies:
     "@types/node" "^16"
     ajv "^8.16.0"
-    cdk8s "^2.68.76"
+    cdk8s "^2.68.77"
     cdk8s-plus-25 "^2.22.79"
     codemaker "^1.99.0"
     colors "1.4.0"
@@ -2182,7 +2182,7 @@ cdk8s-cli@^2.198.141:
     fs-extra "^8"
     jsii-pacmak "^1.99.0"
     jsii-rosetta "^5.4.21"
-    jsii-srcmak "^0.1.1148"
+    jsii-srcmak "^0.1.1149"
     json2jsii "^0.4.4"
     semver "^7.6.2"
     sscaff "^1.2.274"
@@ -2220,7 +2220,7 @@ cdk8s-plus-30@^2.0.2:
   dependencies:
     minimatch "^3.1.2"
 
-cdk8s@^2.68.76, cdk8s@^2.68.77:
+cdk8s@^2.68.77:
   version "2.68.77"
   resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-2.68.77.tgz#9eda18c8f2569737ef779463c63612fe5f084263"
   integrity sha512-AuIXl/zLz3NpPcfMLTZzDc49C0MRXVmA1+wpYDdpbXI45+kq+C3Fx6Fxy9pY5lFQE9Oq88kecoTgHEdKJmpFHw==
@@ -5084,10 +5084,10 @@ jsii-rosetta@^5.4.21:
     workerpool "^6.5.1"
     yargs "^17.7.2"
 
-jsii-srcmak@^0.1.1148:
-  version "0.1.1148"
-  resolved "https://registry.yarnpkg.com/jsii-srcmak/-/jsii-srcmak-0.1.1148.tgz#aa3147da22194095e233b7e211dfe72f713acf13"
-  integrity sha512-d7w8ZBRi/5eNU/rPQCq93QMU3VfrNQXbwgJlRnl5NW607V9fUFQIEb3KCM2L2oYgCQ93Eyk86I27RcPtxd2G4w==
+jsii-srcmak@^0.1.1149:
+  version "0.1.1149"
+  resolved "https://registry.yarnpkg.com/jsii-srcmak/-/jsii-srcmak-0.1.1149.tgz#eb4d1914b58a735ed65102adb32e25b70b6e7e3b"
+  integrity sha512-k8qOh4WSrYoUDgYZsYlB0mCMagX0Ut9+dw6pNZwdmLpsWlf6rP11U2pNLhEu1OW69VTma7d9Et/rqTwd97PFiQ==
   dependencies:
     fs-extra "^9.1.0"
     jsii "~5.4.20"
@@ -7805,14 +7805,14 @@ typescript@^4.9.5:
   integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
 
 typescript@next:
-  version "5.6.0-dev.20240609"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.6.0-dev.20240609.tgz#778e9c1c1247850ed29c8b05d30f2bf441b8ae02"
-  integrity sha512-VCYrsV2e6rmJM/eNpesiO22l0o4SlBLN2ohLTJC8octWq8uX1tsQlyg3OVn9U7X+Sdgnizwj4xhctVzOPkO0Lg==
+  version "5.6.0-dev.20240610"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.6.0-dev.20240610.tgz#3ac92ddf0d3a84b410a76284e8241b2cf63dd64e"
+  integrity sha512-YlcBmkI7yH/aQuG6QecaKSxJkRkWNNSMsveWtsZhR0BhoI5YwrVZrjp0gj2zi0e+BUZ8q2j3T0n7OgWBZuRwJQ==
 
 uglify-js@^3.1.4:
-  version "3.17.4"
-  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.17.4.tgz#61678cf5fa3f5b7eb789bb345df29afb8257c22c"
-  integrity sha512-T9q82TJI9e/C1TAxYvfb16xO120tMVFZrGA3f9/P4424DNu6ypK103y0GPFVa17yotwSyZW5iYXgjYHkGrJW/g==
+  version "3.18.0"
+  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.18.0.tgz#73b576a7e8fda63d2831e293aeead73e0a270deb"
+  integrity sha512-SyVVbcNBCk0dzr9XL/R/ySrmYf0s372K6/hFklzgcp2lBFyXtw4I7BOdDjlLhE1aVqaI/SHWXWmYdlZxuyF38A==
 
 unbox-primitive@^1.0.2:
   version "1.0.2"
