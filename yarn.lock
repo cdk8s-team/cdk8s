@@ -2932,9 +2932,9 @@ ejs@^3.1.7:
     jake "^10.8.5"
 
 electron-to-chromium@^1.4.796:
-  version "1.4.809"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.809.tgz#93057c51ae91f1f42799838fdf41f9734e89bedc"
-  integrity sha512-Xg2vEbpMfkVivK8l9QwbjkLoHSUQouZLC0InWHqKJhNvB1VGoOfdlzbdnl4f1jVGTnxmWV1dP/IwoJRqJP78ug==
+  version "1.4.810"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.810.tgz#7dee01b090b9e048e6db752f7b30921790230654"
+  integrity sha512-Kaxhu4T7SJGpRQx99tq216gCq2nMxJo+uuT6uzz9l8TVN2stL7M06MIIXAtr9jsrLs2Glflgf2vMQRepxawOdQ==
 
 emittery@^0.8.1:
   version "0.8.1"
@@ -5080,9 +5080,9 @@ jsii-rosetta@^5.4.22:
     yargs "^17.7.2"
 
 jsii-srcmak@^0.1.1161:
-  version "0.1.1161"
-  resolved "https://registry.yarnpkg.com/jsii-srcmak/-/jsii-srcmak-0.1.1161.tgz#0647eefd4f6d05a4722b54fc3014a8d0280b2b39"
-  integrity sha512-5/MdNb7MeJ0B13psD/77IHOXx0Iqbwj2GoOAjMDrEM/UmC407a/nYTvZSlEEh7mw++Ngg8dyhNnW/DugF/OWFA==
+  version "0.1.1162"
+  resolved "https://registry.yarnpkg.com/jsii-srcmak/-/jsii-srcmak-0.1.1162.tgz#dde3b1f4a054db06cef378a9da7bbfe286a84eca"
+  integrity sha512-RDwWF4kb6jcaCGKWZtG/X8YkzJxCGJjTcLQapCuW8L3vSRoLfPD/XlJvYP93Ycjb8IZN60TumZQxO0jvIOvaSA==
   dependencies:
     fs-extra "^9.1.0"
     jsii "~5.4.22"
@@ -7805,9 +7805,9 @@ typescript@^4.9.5:
   integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
 
 typescript@next:
-  version "5.6.0-dev.20240622"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.6.0-dev.20240622.tgz#b5f941fb35f61459a9e729c9ca12a3c3cc375f14"
-  integrity sha512-neHnfoZcTorI72VCYHqjwwFRdtpWiUswWxONvtNW/r0vye7VZujzi20SG+1tJz7HyjPPtir5tSt3RN6nQ16osg==
+  version "5.6.0-dev.20240623"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.6.0-dev.20240623.tgz#841360b866c35c0bf10476527d7c358d882b7465"
+  integrity sha512-g9nRTnzICZMqhhULQsQC/Teb2Kbrd9Ad/sklK65F7Q1MNAF57X2t5y9u7GI1nCyiQLhGrmJqnxXETwDOBtjADQ==
 
 typescript@~5.4:
   version "5.4.5"
