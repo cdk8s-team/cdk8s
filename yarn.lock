@@ -1631,15 +1631,15 @@ ajv@^6.12.4:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
-ajv@^8.0.1, ajv@^8.13.0, ajv@^8.16.0:
-  version "8.16.0"
-  resolved "https://registry.yarnpkg.com/ajv/-/ajv-8.16.0.tgz#22e2a92b94f005f7e0f9c9d39652ef0b8f6f0cb4"
-  integrity sha512-F0twR8U1ZU67JIEtekUcLkXkoO5mMMmgGD8sK/xUFzJ805jxHQl92hImFAqqXMyMYjSPOyUPAwHYhB72g5sTXw==
+ajv@^8.0.1, ajv@^8.13.0, ajv@^8.17.1:
+  version "8.17.1"
+  resolved "https://registry.yarnpkg.com/ajv/-/ajv-8.17.1.tgz#37d9a5c776af6bc92d7f4f9510eba4c0a60d11a6"
+  integrity sha512-B/gBuNg5SiMTrPkC+A2+cW0RszwxYmn6VYxB/inlBStS5nx6xHIt/ehKRhIMhqusl7a8LjQoZnjCs5vhwxOQ1g==
   dependencies:
     fast-deep-equal "^3.1.3"
+    fast-uri "^3.0.1"
     json-schema-traverse "^1.0.0"
     require-from-string "^2.0.2"
-    uri-js "^4.4.1"
 
 ansi-colors@^4.1.1:
   version "4.1.3"
@@ -2161,13 +2161,13 @@ case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s-cli@^2.198.170:
-  version "2.198.170"
-  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.198.170.tgz#c11ca38de82a7371b9c062c4277a906e750b7a6f"
-  integrity sha512-xmjsci18nWywwM/SCBhbreXa3aZd45gIGhKWlDNjHu40kcZyREOoSv4dFQ7+D0RuHL9kSRRqNNzka1QBlVZNLQ==
+cdk8s-cli@^2.198.171:
+  version "2.198.171"
+  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.198.171.tgz#8396b949174e5d6cda2c3731cc738ba31af4dcb1"
+  integrity sha512-LYB/7CLY/9xNaA0BayWh5hyZBBnVnHXRYBRjnjQQX88t2dQBtt1NoE3ydJ5DARkGyv5uD80xH6SdvAvTDrDDHw==
   dependencies:
     "@types/node" "^16"
-    ajv "^8.16.0"
+    ajv "^8.17.1"
     cdk8s "^2.68.86"
     cdk8s-plus-25 "^2.22.79"
     codemaker "^1.101.0"
@@ -2176,7 +2176,7 @@ cdk8s-cli@^2.198.170:
     fs-extra "^8"
     jsii-pacmak "^1.101.0"
     jsii-rosetta "^5.4.25"
-    jsii-srcmak "^0.1.1180"
+    jsii-srcmak "^0.1.1181"
     json2jsii "^0.4.4"
     semver "^7.6.2"
     sscaff "^1.2.274"
@@ -3380,6 +3380,11 @@ fast-levenshtein@^2.0.6:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/fast-levenshtein/-/fast-levenshtein-2.0.6.tgz#3d8a5c66883a16a30ca8643e851f19baa7797917"
   integrity sha512-DCXu6Ifhqcks7TZKY3Hxp3y6qphY5SJZmrWMDrKcERSOXWQdMhU9Ig/PYrzyw/ul9jOIyh0N4M0tbC5hodg8dw==
+
+fast-uri@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/fast-uri/-/fast-uri-3.0.1.tgz#cddd2eecfc83a71c1be2cc2ef2061331be8a7134"
+  integrity sha512-MWipKbbYiYI0UC7cl8m/i/IWTqfC8YXsqjzybjddLsFjStroQzsHXkc73JutMvBiXmOvapk+axIl79ig5t55Bw==
 
 fastq@^1.6.0:
   version "1.17.1"
@@ -5079,10 +5084,10 @@ jsii-rosetta@^5.4.25:
     workerpool "^6.5.1"
     yargs "^17.7.2"
 
-jsii-srcmak@^0.1.1180:
-  version "0.1.1180"
-  resolved "https://registry.yarnpkg.com/jsii-srcmak/-/jsii-srcmak-0.1.1180.tgz#5248bed64647ff2cca39409eb6cb3f99d44708a8"
-  integrity sha512-MMBpo4AUb1jge4Xpb/X3VoQKi+AAjrNXBdtJ+6kLgTtw0cspCwUI/zdXRhcvDDzz8AE61QvAdsc6KyrHojfKoQ==
+jsii-srcmak@^0.1.1181:
+  version "0.1.1181"
+  resolved "https://registry.yarnpkg.com/jsii-srcmak/-/jsii-srcmak-0.1.1181.tgz#6ed4beccd1aa9967469f654012882bce384744e0"
+  integrity sha512-EWRsOmvyE1Qh0whDW/b4cglgf4Xg6bJPmq25iyH8XnZ+UHHDIV/JtYMCuZ0iDFdxDWVU4i++Wb2CiaVovlJAow==
   dependencies:
     fs-extra "^9.1.0"
     jsii "~5.4.26"
@@ -7805,9 +7810,9 @@ typescript@^4.9.5:
   integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
 
 typescript@next:
-  version "5.6.0-dev.20240712"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.6.0-dev.20240712.tgz#85ccc65418bc2f0e31a4eec4ac6f1aa013e4e649"
-  integrity sha512-8Iu/vFdWrjtqSm31Dcp4rFgybCNdjMJVZFoWF6PlzEYE6M6eiA+TeKGgygspCbnErrBRjHgWrEMdP3LavHtQ+w==
+  version "5.6.0-dev.20240713"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.6.0-dev.20240713.tgz#d1380cb032f3cea2bbd0caa58f77016bbc0bcad8"
+  integrity sha512-J+4LjdEKAKO95oQ2Ff870vHVxa57ZMVSbfpyL0L5daYrnu48lQiMsXNDiG9IPT2RWF221Qt+LGxjug74XbeseQ==
 
 typescript@~5.4:
   version "5.4.5"
@@ -7895,7 +7900,7 @@ update-browserslist-db@^1.1.0:
     escalade "^3.1.2"
     picocolors "^1.0.1"
 
-uri-js@^4.2.2, uri-js@^4.4.1:
+uri-js@^4.2.2:
   version "4.4.1"
   resolved "https://registry.yarnpkg.com/uri-js/-/uri-js-4.4.1.tgz#9b1a52595225859e55f669d928f88c6c57f2a77e"
   integrity sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==
