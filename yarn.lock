@@ -261,10 +261,10 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@cdk8s/projen-common@^0.0.534":
-  version "0.0.534"
-  resolved "https://registry.yarnpkg.com/@cdk8s/projen-common/-/projen-common-0.0.534.tgz#f1758078efb1eb0fc98c6106a0473b19853f677e"
-  integrity sha512-W8UuQ91Knd4bO6ixcRCwNfDbnNBq2rOS8jtz3vSHb4X1XVfyyj9LMKUyAzN1Hk68jXvJwdVuejGhu0rYGdLlrQ==
+"@cdk8s/projen-common@^0.0.535":
+  version "0.0.535"
+  resolved "https://registry.yarnpkg.com/@cdk8s/projen-common/-/projen-common-0.0.535.tgz#cf09b40267a083606bcbc23e5a4d2780a59dd262"
+  integrity sha512-isPsqroXJrbicrUt1d6ahFWQUsgiAoHo2dlRPfOKrJ6dJkc9wOa8u7bdJfotkkxrwI2HHBTWAmvBTz//xZb2tQ==
   dependencies:
     codemaker "^1.101.0"
     deepmerge "^4.3.1"
@@ -6530,10 +6530,10 @@ process-nextick-args@~2.0.0:
   resolved "https://registry.yarnpkg.com/process-nextick-args/-/process-nextick-args-2.0.1.tgz#7820d9b16120cc55ca9ae7792680ae7dba6d7fe2"
   integrity sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==
 
-projen@^0.84.5:
-  version "0.84.5"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.84.5.tgz#ea9fdb678cf0d0e4cb73502c49d94b33bbe3cf58"
-  integrity sha512-rilBH5CPn/+NUjgQY099doLEvmVSS8KURtY07nhdjF5l72gjgIrazMIgcvXuy8+4nk5yhFviXvPL/Sy7DVoIyw==
+projen@^0.84.13:
+  version "0.84.13"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.84.13.tgz#f9b4b16d0efdcbec62b4429e06fa5344ce7bf0a2"
+  integrity sha512-N9XocN5wcYg5ZeyQwr76sxRPncdXdkIrlOJhISFtI9jMZxEU6D+ms/oKLCc85+KwJH9qbhrR/+5h6Nys54n0kA==
   dependencies:
     "@iarna/toml" "^2.2.5"
     case "^1.6.3"
@@ -8257,10 +8257,15 @@ yallist@^4.0.0:
   resolved "https://registry.yarnpkg.com/yallist/-/yallist-4.0.0.tgz#9bb92790d9c0effec63be73519e11a35019a3a72"
   integrity sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==
 
-yaml@2.4.5, yaml@^2.2.2:
+yaml@2.4.5:
   version "2.4.5"
   resolved "https://registry.yarnpkg.com/yaml/-/yaml-2.4.5.tgz#60630b206dd6d84df97003d33fc1ddf6296cca5e"
   integrity sha512-aBx2bnqDzVOyNKfsysjA2ms5ZlnjSAW2eG3/L5G/CSujfjLJTJsEw1bGw8kCf04KodQWk1pxlGnZ56CRxiawmg==
+
+yaml@^2.2.2:
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/yaml/-/yaml-2.5.0.tgz#c6165a721cf8000e91c36490a41d7be25176cf5d"
+  integrity sha512-2wWLbGbYDiSqqIKoPjar3MPgB94ErzCtrNE1FdqGuaO0pi2JGjmE8aW8TDZwzU7vuxcGRdL/4gPQwQ7hD5AMSw==
 
 yargs-parser@20.2.4:
   version "20.2.4"
