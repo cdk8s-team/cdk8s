@@ -45,7 +45,7 @@
     "eslint-plugin-import": "^2.29.1",
     "jest": "^27",
     "jest-junit": "^15",
-    "lerna": "^7.4.2",
+    "lerna": "^8.0.0",
     "projen": "^0.84.13",
     "semver": "^7.6.3",
     "ts-jest": "^27.1.5",
