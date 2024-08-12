@@ -12862,6 +12862,7 @@ or load balancer in between your application and the backend Pods.</p>
   <span class="n">external_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">load_balancer_source_ranges</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">ports</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ServicePort</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">publish_not_ready_addresses</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">selector</span><span class="p">:</span> <span class="n">IPodSelector</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="nb">type</span><span class="p">:</span> <span class="n">ServiceType</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="p">)</span>
@@ -12932,6 +12933,14 @@ Kubernetes system.</p>
 <p>If the selector of the service is a managed pod / workload,
 its ports will are automatically extracted and used as the default value.
 Otherwise, no ports are bound.</p>
+<hr />
+<h5 id="publish_not_ready_addressesoptional"><code>publish_not_ready_addresses</code><sup>Optional</sup> <a name="cdk8s_plus_28.ServiceProps.parameter.publish_not_ready_addresses"></a><a class="headerlink" href="#publish_not_ready_addressesoptional" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>bool</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>The publishNotReadyAddresses indicates that any agent which deals with endpoints for this Service should disregard any indications of ready/not-ready.</p>
+<p>More info: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#servicespec-v1-core</p>
 <hr />
 <h5 id="selectoroptional_1"><code>selector</code><sup>Optional</sup> <a name="cdk8s_plus_28.ServiceProps.parameter.selector"></a><a class="headerlink" href="#selectoroptional_1" title="Permanent link">&para;</a></h5>
 <ul>
@@ -20819,6 +20828,7 @@ requires one.</p>
   <span class="n">external_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">load_balancer_source_ranges</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">ports</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ServicePort</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">publish_not_ready_addresses</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">selector</span><span class="p">:</span> <span class="n">IPodSelector</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="nb">type</span><span class="p">:</span> <span class="n">ServiceType</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="p">)</span>
@@ -20891,6 +20901,16 @@ Kubernetes system.</p>
 <p>If the selector of the service is a managed pod / workload,
 its ports will are automatically extracted and used as the default value.
 Otherwise, no ports are bound.</p>
+<hr />
+<h5 id="publish_not_ready_addressesoptional_1"><code>publish_not_ready_addresses</code><sup>Optional</sup> <a name="cdk8s_plus_28.ServiceProps.property.publish_not_ready_addresses"></a><a class="headerlink" href="#publish_not_ready_addressesoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">publish_not_ready_addresses</span><span class="p">:</span> <span class="nb">bool</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>bool</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>The publishNotReadyAddresses indicates that any agent which deals with endpoints for this Service should disregard any indications of ready/not-ready.</p>
+<p>More info: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#servicespec-v1-core</p>
 <hr />
 <h5 id="selectoroptional_3"><code>selector</code><sup>Optional</sup> <a name="cdk8s_plus_28.ServiceProps.property.selector"></a><a class="headerlink" href="#selectoroptional_3" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="n">selector</span><span class="p">:</span> <span class="n">IPodSelector</span>

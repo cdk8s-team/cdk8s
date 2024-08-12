@@ -16571,6 +16571,16 @@ Kubernetes system.</p>
 its ports will are automatically extracted and used as the default value.
 Otherwise, no ports are bound.</p>
 <hr />
+<h5 id="publishnotreadyaddressesoptional"><code>publishNotReadyAddresses</code><sup>Optional</sup> <a name="cdk8s-plus-28.ServiceProps.property.publishNotReadyAddresses"></a><a class="headerlink" href="#publishnotreadyaddressesoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">publishNotReadyAddresses</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>The publishNotReadyAddresses indicates that any agent which deals with endpoints for this Service should disregard any indications of ready/not-ready.</p>
+<p>More info: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#servicespec-v1-core</p>
+<hr />
 <h5 id="selectoroptional_1"><code>selector</code><sup>Optional</sup> <a name="cdk8s-plus-28.ServiceProps.property.selector"></a><a class="headerlink" href="#selectoroptional_1" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">selector</span><span class="o">:</span><span class="w"> </span><span class="kt">IPodSelector</span><span class="p">;</span>
 </code></pre></div>
