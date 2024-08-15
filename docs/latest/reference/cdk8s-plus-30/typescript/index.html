@@ -3977,6 +3977,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#seccompprofile" class="md-nav__link">
+    <span class="md-ellipsis">
+      SeccompProfile
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#secretprops" class="md-nav__link">
     <span class="md-ellipsis">
       SecretProps
@@ -4853,6 +4862,15 @@
   <a href="#scalingstrategy" class="md-nav__link">
     <span class="md-ellipsis">
       ScalingStrategy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seccompprofiletype" class="md-nav__link">
+    <span class="md-ellipsis">
+      SeccompProfileType
     </span>
   </a>
   
@@ -6557,6 +6575,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#seccompprofile" class="md-nav__link">
+    <span class="md-ellipsis">
+      SeccompProfile
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#secretprops" class="md-nav__link">
     <span class="md-ellipsis">
       SecretProps
@@ -7433,6 +7460,15 @@
   <a href="#scalingstrategy" class="md-nav__link">
     <span class="md-ellipsis">
       ScalingStrategy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seccompprofiletype" class="md-nav__link">
+    <span class="md-ellipsis">
+      SeccompProfileType
     </span>
   </a>
   
@@ -12531,6 +12567,16 @@ somehow it manages to get access to host file system.</li>
 </ul>
 <p>Whether this container has a read-only root filesystem.</p>
 <hr />
+<h5 id="seccompprofileoptional"><code>seccompProfile</code><sup>Optional</sup> <a name="cdk8s-plus-30.ContainerSecurityContextProps.property.seccompProfile"></a><a class="headerlink" href="#seccompprofileoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">seccompProfile</span><span class="o">:</span><span class="w"> </span><span class="kt">SeccompProfile</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <a href="#cdk8s-plus-30.SeccompProfile"><code>cdk8s-plus-30.SeccompProfile</code></a></li>
+<li><em>Default:</em> none</li>
+</ul>
+<p>Container&rsquo;s seccomp profile settings.</p>
+<p>Only one profile source may be set</p>
+<hr />
 <h5 id="useroptional"><code>user</code><sup>Optional</sup> <a name="cdk8s-plus-30.ContainerSecurityContextProps.property.user"></a><a class="headerlink" href="#useroptional" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">user</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span>
 </code></pre></div>
@@ -16162,9 +16208,35 @@ It will have no effect on ephemeral volume types such as: secret, configmaps and
 for validation purposes as Scalable targets should not have a
 fixed number of replicas.</p>
 <hr />
+<h3 id="seccompprofile">SeccompProfile <a name="cdk8s-plus-30.SeccompProfile"></a><a class="headerlink" href="#seccompprofile" title="Permanent link">&para;</a></h3>
+<h4 id="initializer_95">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_95" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">SeccompProfile</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-30&#39;</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">seccompProfile</span><span class="o">:</span><span class="w"> </span><span class="kt">SeccompProfile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+<h5 id="typerequired_1"><code>type</code><sup>Required</sup> <a name="cdk8s-plus-30.SeccompProfile.property.type"></a><a class="headerlink" href="#typerequired_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="kr">type</span><span class="o">:</span><span class="w"> </span><span class="nx">SeccompProfileType</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <a href="#cdk8s-plus-30.SeccompProfileType"><code>cdk8s-plus-30.SeccompProfileType</code></a></li>
+</ul>
+<p>Indicates which kind of seccomp profile will be applied.</p>
+<hr />
+<h5 id="localhostprofileoptional"><code>localhostProfile</code><sup>Optional</sup> <a name="cdk8s-plus-30.SeccompProfile.property.localhostProfile"></a><a class="headerlink" href="#localhostprofileoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">localhostProfile</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>string</code></li>
+<li><em>Default:</em> empty string</li>
+</ul>
+<p>localhostProfile indicates a profile defined in a file on the node should be used.</p>
+<p>The profile must be preconfigured on the node to work. Must be a descending path,
+relative to the kubelet&rsquo;s configured seccomp profile location.
+Must only be set if type is &ldquo;Localhost&rdquo;.</p>
+<hr />
 <h3 id="secretprops">SecretProps <a name="cdk8s-plus-30.SecretProps"></a><a class="headerlink" href="#secretprops" title="Permanent link">&para;</a></h3>
 <p>Options for <code>Secret</code>.</p>
-<h4 id="initializer_95">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_95" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_96">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_96" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">SecretProps</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-30&#39;</span>
 
 <span class="kd">const</span><span class="w"> </span><span class="nx">secretProps</span><span class="o">:</span><span class="w"> </span><span class="kt">SecretProps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
@@ -16212,7 +16284,7 @@ handling of secret data by various controllers.</p>
 <hr />
 <h3 id="secretvalue">SecretValue <a name="cdk8s-plus-30.SecretValue"></a><a class="headerlink" href="#secretvalue" title="Permanent link">&para;</a></h3>
 <p>Represents a specific value in JSON secret.</p>
-<h4 id="initializer_96">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_96" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_97">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_97" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">SecretValue</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-30&#39;</span>
 
 <span class="kd">const</span><span class="w"> </span><span class="nx">secretValue</span><span class="o">:</span><span class="w"> </span><span class="kt">SecretValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
@@ -16235,7 +16307,7 @@ handling of secret data by various controllers.</p>
 <hr />
 <h3 id="secretvolumeoptions">SecretVolumeOptions <a name="cdk8s-plus-30.SecretVolumeOptions"></a><a class="headerlink" href="#secretvolumeoptions" title="Permanent link">&para;</a></h3>
 <p>Options for the Secret-based volume.</p>
-<h4 id="initializer_97">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_97" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_98">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_98" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">SecretVolumeOptions</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-30&#39;</span>
 
 <span class="kd">const</span><span class="w"> </span><span class="nx">secretVolumeOptions</span><span class="o">:</span><span class="w"> </span><span class="kt">SecretVolumeOptions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
@@ -16289,7 +16361,7 @@ contain the &lsquo;..&rsquo; path or start with &lsquo;..&rsquo;.</p>
 <hr />
 <h3 id="serviceaccountprops">ServiceAccountProps <a name="cdk8s-plus-30.ServiceAccountProps"></a><a class="headerlink" href="#serviceaccountprops" title="Permanent link">&para;</a></h3>
 <p>Properties for initialization of <code>ServiceAccount</code>.</p>
-<h4 id="initializer_98">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_98" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_99">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_99" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ServiceAccountProps</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-30&#39;</span>
 
 <span class="kd">const</span><span class="w"> </span><span class="nx">serviceAccountProps</span><span class="o">:</span><span class="w"> </span><span class="kt">ServiceAccountProps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
@@ -16328,7 +16400,7 @@ contain the &lsquo;..&rsquo; path or start with &lsquo;..&rsquo;.</p>
 <hr />
 <h3 id="serviceaccounttokensecretprops">ServiceAccountTokenSecretProps <a name="cdk8s-plus-30.ServiceAccountTokenSecretProps"></a><a class="headerlink" href="#serviceaccounttokensecretprops" title="Permanent link">&para;</a></h3>
 <p>Options for <code>ServiceAccountTokenSecret</code>.</p>
-<h4 id="initializer_99">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_99" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_100">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_100" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ServiceAccountTokenSecretProps</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-30&#39;</span>
 
 <span class="kd">const</span><span class="w"> </span><span class="nx">serviceAccountTokenSecretProps</span><span class="o">:</span><span class="w"> </span><span class="kt">ServiceAccountTokenSecretProps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
@@ -16361,7 +16433,7 @@ contain the &lsquo;..&rsquo; path or start with &lsquo;..&rsquo;.</p>
 <hr />
 <h3 id="servicebindoptions">ServiceBindOptions <a name="cdk8s-plus-30.ServiceBindOptions"></a><a class="headerlink" href="#servicebindoptions" title="Permanent link">&para;</a></h3>
 <p>Options for <code>Service.bind</code>.</p>
-<h4 id="initializer_100">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_100" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_101">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_101" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ServiceBindOptions</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-30&#39;</span>
 
 <span class="kd">const</span><span class="w"> </span><span class="nx">serviceBindOptions</span><span class="o">:</span><span class="w"> </span><span class="kt">ServiceBindOptions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
@@ -16415,7 +16487,7 @@ requires one.</p>
 <hr />
 <h3 id="serviceingressbackendoptions">ServiceIngressBackendOptions <a name="cdk8s-plus-30.ServiceIngressBackendOptions"></a><a class="headerlink" href="#serviceingressbackendoptions" title="Permanent link">&para;</a></h3>
 <p>Options for setting up backends for ingress rules.</p>
-<h4 id="initializer_101">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_101" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_102">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_102" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ServiceIngressBackendOptions</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-30&#39;</span>
 
 <span class="kd">const</span><span class="w"> </span><span class="nx">serviceIngressBackendOptions</span><span class="o">:</span><span class="w"> </span><span class="kt">ServiceIngressBackendOptions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
@@ -16435,7 +16507,7 @@ requires one.</p>
 <hr />
 <h3 id="serviceport">ServicePort <a name="cdk8s-plus-30.ServicePort"></a><a class="headerlink" href="#serviceport" title="Permanent link">&para;</a></h3>
 <p>Definition of a service port.</p>
-<h4 id="initializer_102">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_102" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_103">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_103" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ServicePort</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-30&#39;</span>
 
 <span class="kd">const</span><span class="w"> </span><span class="nx">servicePort</span><span class="o">:</span><span class="w"> </span><span class="kt">ServicePort</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
@@ -16497,7 +16569,7 @@ requires one.</p>
 <hr />
 <h3 id="serviceprops">ServiceProps <a name="cdk8s-plus-30.ServiceProps"></a><a class="headerlink" href="#serviceprops" title="Permanent link">&para;</a></h3>
 <p>Properties for <code>Service</code>.</p>
-<h4 id="initializer_103">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_103" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_104">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_104" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ServiceProps</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-30&#39;</span>
 
 <span class="kd">const</span><span class="w"> </span><span class="nx">serviceProps</span><span class="o">:</span><span class="w"> </span><span class="kt">ServiceProps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
@@ -16608,7 +16680,7 @@ its endpoints, which Kubernetes will not modify.</li>
 <hr />
 <h3 id="sshauthsecretprops">SshAuthSecretProps <a name="cdk8s-plus-30.SshAuthSecretProps"></a><a class="headerlink" href="#sshauthsecretprops" title="Permanent link">&para;</a></h3>
 <p>Options for <code>SshAuthSecret</code>.</p>
-<h4 id="initializer_104">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_104" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_105">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_105" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">SshAuthSecretProps</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-30&#39;</span>
 
 <span class="kd">const</span><span class="w"> </span><span class="nx">sshAuthSecretProps</span><span class="o">:</span><span class="w"> </span><span class="kt">SshAuthSecretProps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
@@ -16641,7 +16713,7 @@ its endpoints, which Kubernetes will not modify.</li>
 <hr />
 <h3 id="statefulsetprops">StatefulSetProps <a name="cdk8s-plus-30.StatefulSetProps"></a><a class="headerlink" href="#statefulsetprops" title="Permanent link">&para;</a></h3>
 <p>Properties for initialization of <code>StatefulSet</code>.</p>
-<h4 id="initializer_105">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_105" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_106">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_106" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">StatefulSetProps</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-30&#39;</span>
 
 <span class="kd">const</span><span class="w"> </span><span class="nx">statefulSetProps</span><span class="o">:</span><span class="w"> </span><span class="kt">StatefulSetProps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
@@ -16893,7 +16965,7 @@ its pod template.</p>
 <hr />
 <h3 id="statefulsetupdatestrategyrollingupdateoptions">StatefulSetUpdateStrategyRollingUpdateOptions <a name="cdk8s-plus-30.StatefulSetUpdateStrategyRollingUpdateOptions"></a><a class="headerlink" href="#statefulsetupdatestrategyrollingupdateoptions" title="Permanent link">&para;</a></h3>
 <p>Options for <code>StatefulSetUpdateStrategy.rollingUpdate</code>.</p>
-<h4 id="initializer_106">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_106" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_107">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_107" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">StatefulSetUpdateStrategyRollingUpdateOptions</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-30&#39;</span>
 
 <span class="kd">const</span><span class="w"> </span><span class="nx">statefulSetUpdateStrategyRollingUpdateOptions</span><span class="o">:</span><span class="w"> </span><span class="kt">StatefulSetUpdateStrategyRollingUpdateOptions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
@@ -16917,7 +16989,7 @@ update, roll out a canary, or perform a phased roll out.</p>
 <p>Subject contains a reference to the object or user identities a role binding applies to.</p>
 <p>This can either hold a direct API object reference, or a value
 for non-objects such as user and group names.</p>
-<h4 id="initializer_107">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_107" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_108">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_108" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">SubjectConfiguration</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-30&#39;</span>
 
 <span class="kd">const</span><span class="w"> </span><span class="nx">subjectConfiguration</span><span class="o">:</span><span class="w"> </span><span class="kt">SubjectConfiguration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
@@ -16965,7 +17037,7 @@ should report an error.</p>
 <hr />
 <h3 id="sysctl">Sysctl <a name="cdk8s-plus-30.Sysctl"></a><a class="headerlink" href="#sysctl" title="Permanent link">&para;</a></h3>
 <p>Sysctl defines a kernel parameter to be set.</p>
-<h4 id="initializer_108">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_108" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_109">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_109" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Sysctl</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-30&#39;</span>
 
 <span class="kd">const</span><span class="w"> </span><span class="nx">sysctl</span><span class="o">:</span><span class="w"> </span><span class="kt">Sysctl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
@@ -16988,7 +17060,7 @@ should report an error.</p>
 <hr />
 <h3 id="tcpsocketprobeoptions">TcpSocketProbeOptions <a name="cdk8s-plus-30.TcpSocketProbeOptions"></a><a class="headerlink" href="#tcpsocketprobeoptions" title="Permanent link">&para;</a></h3>
 <p>Options for <code>Probe.fromTcpSocket()</code>.</p>
-<h4 id="initializer_109">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_109" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_110">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_110" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">TcpSocketProbeOptions</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-30&#39;</span>
 
 <span class="kd">const</span><span class="w"> </span><span class="nx">tcpSocketProbeOptions</span><span class="o">:</span><span class="w"> </span><span class="kt">TcpSocketProbeOptions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
@@ -17068,7 +17140,7 @@ should report an error.</p>
 <hr />
 <h3 id="tlssecretprops">TlsSecretProps <a name="cdk8s-plus-30.TlsSecretProps"></a><a class="headerlink" href="#tlssecretprops" title="Permanent link">&para;</a></h3>
 <p>Options for <code>TlsSecret</code>.</p>
-<h4 id="initializer_110">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_110" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_111">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_111" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">TlsSecretProps</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-30&#39;</span>
 
 <span class="kd">const</span><span class="w"> </span><span class="nx">tlsSecretProps</span><span class="o">:</span><span class="w"> </span><span class="kt">TlsSecretProps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
@@ -17109,7 +17181,7 @@ should report an error.</p>
 <hr />
 <h3 id="volumemount">VolumeMount <a name="cdk8s-plus-30.VolumeMount"></a><a class="headerlink" href="#volumemount" title="Permanent link">&para;</a></h3>
 <p>Mount a volume from the pod to the container.</p>
-<h4 id="initializer_111">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_111" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_112">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_112" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">VolumeMount</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-30&#39;</span>
 
 <span class="kd">const</span><span class="w"> </span><span class="nx">volumeMount</span><span class="o">:</span><span class="w"> </span><span class="kt">VolumeMount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
@@ -17178,7 +17250,7 @@ contain &lsquo;:&rsquo;.</p>
 <hr />
 <h3 id="workloadprops">WorkloadProps <a name="cdk8s-plus-30.WorkloadProps"></a><a class="headerlink" href="#workloadprops" title="Permanent link">&para;</a></h3>
 <p>Properties for <code>Workload</code>.</p>
-<h4 id="initializer_112">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_112" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_113">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_113" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">WorkloadProps</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-30&#39;</span>
 
 <span class="kd">const</span><span class="w"> </span><span class="nx">workloadProps</span><span class="o">:</span><span class="w"> </span><span class="kt">WorkloadProps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
@@ -17380,7 +17452,7 @@ its pod template.</p>
 <hr />
 <h3 id="workloadschedulingspreadoptions">WorkloadSchedulingSpreadOptions <a name="cdk8s-plus-30.WorkloadSchedulingSpreadOptions"></a><a class="headerlink" href="#workloadschedulingspreadoptions" title="Permanent link">&para;</a></h3>
 <p>Options for <code>WorkloadScheduling.spread</code>.</p>
-<h4 id="initializer_113">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_113" title="Permanent link">&para;</a></h4>
+<h4 id="initializer_114">Initializer <a name="[object Object].Initializer"></a><a class="headerlink" href="#initializer_114" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">WorkloadSchedulingSpreadOptions</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-30&#39;</span>
 
 <span class="kd">const</span><span class="w"> </span><span class="nx">workloadSchedulingSpreadOptions</span><span class="o">:</span><span class="w"> </span><span class="kt">WorkloadSchedulingSpreadOptions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
@@ -17989,6 +18061,13 @@ port configuration is stored in the <code>ports</code> field.</p>
 <li><em>Type:</em> <code>number</code></li>
 </ul>
 <hr />
+<h5 id="seccompprofileoptional_1"><code>seccompProfile</code><sup>Optional</sup> <a name="cdk8s-plus-30.ContainerSecurityContext.property.seccompProfile"></a><a class="headerlink" href="#seccompprofileoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">seccompProfile</span><span class="o">:</span><span class="w"> </span><span class="kt">SeccompProfile</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <a href="#cdk8s-plus-30.SeccompProfile"><code>cdk8s-plus-30.SeccompProfile</code></a></li>
+</ul>
+<hr />
 <h5 id="useroptional_2"><code>user</code><sup>Optional</sup> <a name="cdk8s-plus-30.ContainerSecurityContext.property.user"></a><a class="headerlink" href="#useroptional_2" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">user</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span>
 </code></pre></div>
@@ -18569,7 +18648,7 @@ port configuration is stored in the <code>ports</code> field.</p>
 </ul>
 <hr />
 <h4 id="properties_38">Properties <a name="Properties"></a><a class="headerlink" href="#properties_38" title="Permanent link">&para;</a></h4>
-<h5 id="typerequired_1"><code>type</code><sup>Required</sup> <a name="cdk8s-plus-30.Metric.property.type"></a><a class="headerlink" href="#typerequired_1" title="Permanent link">&para;</a></h5>
+<h5 id="typerequired_2"><code>type</code><sup>Required</sup> <a name="cdk8s-plus-30.Metric.property.type"></a><a class="headerlink" href="#typerequired_2" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="kr">type</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
 </code></pre></div>
 <ul>
@@ -20694,6 +20773,16 @@ desired scale without waiting, and on scale down will delete all pods at once.</
 <li><em>Deprecated:</em> - Omit the ScalingRule instead</li>
 </ul>
 <p>Disables scaling in this direction.</p>
+<hr />
+<h3 id="seccompprofiletype">SeccompProfileType <a name="SeccompProfileType"></a><a class="headerlink" href="#seccompprofiletype" title="Permanent link">&para;</a></h3>
+<h4 id="localhost"><code>LOCALHOST</code> <a name="cdk8s-plus-30.SeccompProfileType.LOCALHOST"></a><a class="headerlink" href="#localhost" title="Permanent link">&para;</a></h4>
+<p>A profile defined in a file on the node should be used.</p>
+<hr />
+<h4 id="runtime_default"><code>RUNTIME_DEFAULT</code> <a name="cdk8s-plus-30.SeccompProfileType.RUNTIME_DEFAULT"></a><a class="headerlink" href="#runtime_default" title="Permanent link">&para;</a></h4>
+<p>The container runtime default profile should be used.</p>
+<hr />
+<h4 id="unconfined"><code>UNCONFINED</code> <a name="cdk8s-plus-30.SeccompProfileType.UNCONFINED"></a><a class="headerlink" href="#unconfined" title="Permanent link">&para;</a></h4>
+<p>No profile should be applied.</p>
 <hr />
 <h3 id="servicetype">ServiceType <a name="ServiceType"></a><a class="headerlink" href="#servicetype" title="Permanent link">&para;</a></h3>
 <p>For some parts of your application (for example, frontends) you may want to expose a Service onto an external IP address, that&rsquo;s outside of your cluster.</p>
