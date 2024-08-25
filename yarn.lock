@@ -2093,19 +2093,19 @@ camelcase@^6.2.0, camelcase@^6.3.0:
   integrity sha512-Gmy6FhYlCY7uOElZUSbxo2UCDH8owEk996gkbrpsgGtrJLM3J7jGxl9Ic7Qwwj4ivOE5AWZWRMecDdF7hqGjFA==
 
 caniuse-lite@^1.0.30001646:
-  version "1.0.30001651"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001651.tgz#52de59529e8b02b1aedcaaf5c05d9e23c0c28138"
-  integrity sha512-9Cf+Xv1jJNe1xPZLGuUXLNkE1BoDkqRqYyFJ9TDYSqhduqA4hu4oR9HluGoWYQC/aj8WHjsGVV+bwkh0+tegRg==
+  version "1.0.30001653"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001653.tgz#b8af452f8f33b1c77f122780a4aecebea0caca56"
+  integrity sha512-XGWQVB8wFQ2+9NZwZ10GxTYC5hk0Fa+q8cSkr0tgvMhYhMHP/QC+WTgrePMDBWiWc/pV+1ik82Al20XOK25Gcw==
 
 case@^1.6.3:
   version "1.6.3"
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s-cli@^2.198.198:
-  version "2.198.198"
-  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.198.198.tgz#b32142058d4a8fa341162cac16d2404068d8dd2a"
-  integrity sha512-XVUoWwxe0ZRZmebSdI1xdzl/C058Ap2SDct2Kuv/mEYtEh+tIxI2mPZXmgQxfZQCg1Co2iHvaOpnBMQSXtCnKA==
+cdk8s-cli@^2.198.199:
+  version "2.198.199"
+  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.198.199.tgz#c6928d296c7c60f5cc396e6f87a20e5044699388"
+  integrity sha512-Lgh1ffNNdiuWa+kR0l0UQQdENcPbjh109UKVuMfytc7W/dODEt7dcOINQWctqnCOSCR7WmFHvPDLWkLUysyb5Q==
   dependencies:
     "@types/node" "^16"
     ajv "^8.17.1"
@@ -2117,8 +2117,8 @@ cdk8s-cli@^2.198.198:
     fs-extra "^8"
     jsii-pacmak "^1.102.0"
     jsii-rosetta "^5.4.31"
-    jsii-srcmak "^0.1.1223"
-    json2jsii "^0.4.4"
+    jsii-srcmak "^0.1.1224"
+    json2jsii "^0.4.5"
     semver "^7.6.3"
     sscaff "^1.2.274"
     table "^6.8.2"
@@ -4932,10 +4932,10 @@ jsii-rosetta@^5.4.31:
     workerpool "^6.5.1"
     yargs "^17.7.2"
 
-jsii-srcmak@^0.1.1223:
-  version "0.1.1223"
-  resolved "https://registry.yarnpkg.com/jsii-srcmak/-/jsii-srcmak-0.1.1223.tgz#0383f35434a337c18e99c8d282389a42777d88cc"
-  integrity sha512-mo5kKOpLL01AuZKe39sgz09XU0vdN/NxaFv78BPTL5aMosD7FUPY1U5wd6HG2mCYR4OVFiAJ4DTd25qS/ydhrw==
+jsii-srcmak@^0.1.1224:
+  version "0.1.1224"
+  resolved "https://registry.yarnpkg.com/jsii-srcmak/-/jsii-srcmak-0.1.1224.tgz#0de538be4d7d111aabdffd2aefb1ea501ccc848b"
+  integrity sha512-h1ZgvkIjbFovibcLTP65WX92hn6aU9Y10pwG4wsoicRDLkQzVZQLGHhbLF2uKYNjtdmZF9YWAYVmSTXY0pusGw==
   dependencies:
     fs-extra "^9.1.0"
     jsii "~5.5.0"
@@ -5013,10 +5013,10 @@ json-stringify-safe@^5.0.1:
   resolved "https://registry.yarnpkg.com/json-stringify-safe/-/json-stringify-safe-5.0.1.tgz#1296a2d58fd45f19a0f6ce01d65701e2c735b6eb"
   integrity sha512-ZClg6AaYvamvYEE82d3Iyd3vSSIjQ+odgjaTzRuO3s7toCdFKczob2i0zCh7JE8kWn17yvAWhUVxvqGwUalsRA==
 
-json2jsii@^0.4.4:
-  version "0.4.4"
-  resolved "https://registry.yarnpkg.com/json2jsii/-/json2jsii-0.4.4.tgz#8f0191478ae9630e0e5b6ad1b2995389d0497fe5"
-  integrity sha512-jTbmFuxivo20zb/JOKc2U5/qSFWsobJmglvmWVdQoWdR2Ip9KtY9t679QLs7TV/oYSY3VnJU83IWL1QH0eI/4w==
+json2jsii@^0.4.5:
+  version "0.4.5"
+  resolved "https://registry.yarnpkg.com/json2jsii/-/json2jsii-0.4.5.tgz#b91414a2a9a89e2308a7132ce63eb07ae7a79d2a"
+  integrity sha512-dliaHMKhY5UW9AvzyE+Rd6sdMM0a6aF0bl/4zYFGajhXrCV0WOnnx298gyIVhwbcvGcqkTXs99cfB7iV6xnG5w==
   dependencies:
     camelcase "^6.3.0"
     json-schema "^0.4.0"
@@ -7531,9 +7531,9 @@ typescript@^4.9.5:
   integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
 
 typescript@next:
-  version "5.7.0-dev.20240824"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.7.0-dev.20240824.tgz#a5066e2add35fe5e77822d62eddcd1418e0a2175"
-  integrity sha512-aLD0C4cCh+o+FpXa74BnC95w0oFvBL/D7tHz03X6MzYtLCmfeI2zu2NMhqPxjPADcm/UUYSO+rTXXyjQVvbVwA==
+  version "5.7.0-dev.20240825"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.7.0-dev.20240825.tgz#a5d743a486b75778f595d85f7d02fc338d2cac14"
+  integrity sha512-Jvp8aTJ4RVnO3WFg89Cc1TN6MHGGWifrVoOyQD3OwKfIYqXqvhD+8iUNHJAOJCgp3FtVY+qtxwuLiH6MQ3XpqQ==
 
 uglify-js@^3.1.4:
   version "3.19.2"
