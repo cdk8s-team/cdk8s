@@ -21,7 +21,8 @@ cp CHANGELOG.md docs/
 cp CONTRIBUTING.md docs/
 cp ROADMAP.md docs/
 
-CDK8S_PLUS_VERSIONS=("cdk8s-plus-25" "cdk8s-plus-26" "cdk8s-plus-27")
+LATEST_K8S_VERSION=$(< src/latest-k8s-version.txt)
+CDK8S_PLUS_VERSIONS=("cdk8s-plus-$((${LATEST_K8S_VERSION}-2))" "cdk8s-plus-$((${LATEST_K8S_VERSION}-1))" "cdk8s-plus-${LATEST_K8S_VERSION}")
 
 # copy API reference docs from cdk8s and each cdk8s+ package version
 for module in cdk8s ${CDK8S_PLUS_VERSIONS[@]}; do

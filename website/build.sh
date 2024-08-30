@@ -6,10 +6,15 @@ get_version() {
   node -p "require('$1/package.json').version"
 }
 
+LATEST_K8S_VERSION=$(< ${scriptdir}/../src/latest-k8s-version.txt)
+
 export CDK8S_CORE_VERSION="$(get_version cdk8s)"
-export CDK8S_PLUS25_VERSION="$(get_version cdk8s-plus-25)"
-export CDK8S_PLUS26_VERSION="$(get_version cdk8s-plus-26)"
-export CDK8S_PLUS27_VERSION="$(get_version cdk8s-plus-27)"
+export CDK8S_PLUSXX_MINUS_2_VERSION="$(get_version cdk8s-plus-$((${LATEST_K8S_VERSION}-2)))"
+export CDK8S_PLUSXX_MINUS_1_VERSION="$(get_version cdk8s-plus-$((${LATEST_K8S_VERSION}-1)))"
+export CDK8S_PLUSXX_VERSION="$(get_version cdk8s-plus-${LATEST_K8S_VERSION})"
+export CDK8S_PLUSXX_MINUS_2="$((${LATEST_K8S_VERSION}-2))"
+export CDK8S_PLUSXX_MINUS_1="$((${LATEST_K8S_VERSION}-1))"
+export CDK8S_PLUSXX="${LATEST_K8S_VERSION}"
 export CDK8S_CLI_VERSION="$(get_version cdk8s-cli)"
 
 hugo --minify $@

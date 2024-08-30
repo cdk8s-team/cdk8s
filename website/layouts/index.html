@@ -1,7 +1,10 @@
 {{- $cdk8s_core_version := getenv "CDK8S_CORE_VERSION" }}
-{{- $cdk8s_plus25_version := getenv "CDK8S_PLUS25_VERSION" }}
-{{- $cdk8s_plus26_version := getenv "CDK8S_PLUS26_VERSION" }}
-{{- $cdk8s_plus27_version := getenv "CDK8S_PLUS27_VERSION" }}
+{{- $cdk8s_plusXX_MINUS_2_version := getenv "CDK8S_PLUSXX_MINUS_2_VERSION" }}
+{{- $cdk8s_plusXX_MINUS_1_version := getenv "CDK8S_PLUSXX_MINUS_1_VERSION" }}
+{{- $cdk8s_plusXX_version := getenv "CDK8S_PLUSXX_VERSION" }}
+{{- $cdk8s_plusXX_MINUS_2 := getenv "CDK8S_PLUSXX_MINUS_2" }}
+{{- $cdk8s_plusXX_MINUS_1 := getenv "CDK8S_PLUSXX_MINUS_1" }}
+{{- $cdk8s_plusXX := getenv "CDK8S_PLUSXX" }}
 {{- $cdk8s_cli_version := getenv "CDK8S_CLI_VERSION" }}
 
 {{- $summary := .Site.Params.summary }}
@@ -10,7 +13,7 @@
 
 {{- $docs_root := "docs/latest" }}
 
-{{- $link_getting_started := (print $docs_root "/getting-started") }}
+{{- $link_getting_started := (print $docs_root "/get-started") }}
 {{- $link_plus_docs := (print $docs_root "/plus") }}
 {{- $link_concepts := (print $docs_root "/basics") }}
 {{- $link_examples := (print $docs_root "/examples") }}
@@ -26,9 +29,9 @@
 {{- $link_terms := "https://aws.amazon.com/terms/?nc1=f_pr" }}
 
 {{- $link_cdk8s_ref := (print $docs_root "/reference/cdk8s/typescript") }}
-{{- $link_plus25_ref := (print $docs_root "/reference/cdk8s-plus-25/typescript") }}
-{{- $link_plus26_ref := (print $docs_root "/reference/cdk8s-plus-26/typescript") }}
-{{- $link_plus27_ref := (print $docs_root "/reference/cdk8s-plus-27/typescript") }}
+{{- $link_plusXX_minus2_ref := (print $docs_root "/reference/cdk8s-plus-" $cdk8s_plusXX_MINUS_2 "/typescript") }}
+{{- $link_plusXX_minus1_ref := (print $docs_root "/reference/cdk8s-plus-" $cdk8s_plusXX_MINUS_1 "/typescript") }}
+{{- $link_plusXX_ref := (print $docs_root "/reference/cdk8s-plus-" $cdk8s_plusXX "/typescript") }}
 {{- $link_cli := (print $docs_root "/cli") }}
 
 {{- $everywhere := .Site.Params.features.everywhere }}
@@ -121,9 +124,9 @@
                         </div>
                         <nav class="dropdown-list w-dropdown-list">
                             <a href="{{ $link_cdk8s_ref }}" class="dropdown-link w-dropdown-link">cdk8s  ({{ $cdk8s_core_version }})</a>
-                            <a href="{{ $link_plus25_ref }}" class="dropdown-link w-dropdown-link">cdk8s-plus-25  ({{ $cdk8s_plus25_version }})</a>
-                            <a href="{{ $link_plus26_ref }}" class="dropdown-link w-dropdown-link">cdk8s-plus-26  ({{ $cdk8s_plus26_version }})</a>
-                            <a href="{{ $link_plus27_ref }}" class="dropdown-link w-dropdown-link">cdk8s-plus-27  ({{ $cdk8s_plus27_version }})</a>
+                            <a href="{{ $link_plusXX_minus2_ref }}" class="dropdown-link w-dropdown-link">cdk8s-plus-{{ $cdk8s_plusXX_MINUS_2 }}  ({{ $cdk8s_plusXX_MINUS_2_version }})</a>
+                            <a href="{{ $link_plusXX_minus1_ref }}" class="dropdown-link w-dropdown-link">cdk8s-plus-{{ $cdk8s_plusXX_MINUS_1 }}  ({{ $cdk8s_plusXX_MINUS_1_version }})</a>
+                            <a href="{{ $link_plusXX_ref }}" class="dropdown-link w-dropdown-link">cdk8s-plus-{{ $cdk8s_plusXX }} ({{ $cdk8s_plusXX_version }})</a>
                             <a href="{{ $link_cli }}" target="_blank" class="dropdown-link w-dropdown-link">cdk8s-cli ({{ $cdk8s_cli_version }})<a>
                         </nav>
                     </div>

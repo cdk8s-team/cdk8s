@@ -63,7 +63,7 @@ Read [our blog](https://aws.amazon.com/blogs/containers/introducing-cdk-for-kube
 
 ## Getting Started
 
-See the [Getting Started](https://cdk8s.io/docs/latest/getting-started) guide in
+See the [Getting Started](https://cdk8s.io/docs/latest/get-started) guide in
 [cdk8s Documentation](https://cdk8s.io/docs/).
 
 ## Help & Feedback
@@ -74,7 +74,6 @@ contribute to the project. Please consider the following venues (in order):
 - Search [open issues](https://github.com/cdk8s-team/cdk8s/issues)
 - Stack Overflow: [cdk8s](https://stackoverflow.com/questions/tagged/cdk8s)
 - File a [new issue](https://github.com/cdk8s-team/cdk8s/issues/new/choose)
-- Mailing list: [cdk8s](https://groups.google.com/forum/#!forum/cdk8s)
 - Slack: #cdk8s channel in [cdk.dev](https://cdk.dev)
 
 ## Documentation
@@ -104,11 +103,6 @@ We welcome community contributions and pull requests. See our [contribution
 guide](./CONTRIBUTING.md) for more information on how to report issues, set up a
 development environment and submit code.
 
-Join us for the cdk8s community meeting which takes place the [2nd Tuesday of the month at 9:00am Pacific Time](https://www.thetimezoneconverter.com/?t=9:00&tz=PT%20%28Pacific%20Time%29).
-
-* Meeting link: [https://chime.aws/7929414778](https://chime.aws/7929414778)
-* [Agenda](https://docs.google.com/document/d/1QmZS2_cphxbs2VPfDCkrUVcoDwiawryh704hEfAyrBk/edit?usp=sharing)
-
 ## CDK8s.io website
 
 See [Docs Directory](./docs/README.md).
@@ -116,3 +110,4 @@ See [Docs Directory](./docs/README.md).
 ## License
 
 This project is distributed under the [Apache License, Version 2.0](./LICENSE).
+
