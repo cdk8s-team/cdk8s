@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.33">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.33">
     
     
       
@@ -3184,6 +3184,8 @@ For accessing private helm repositories, you must be authenticated to the reposi
 Helm chart with sentinel containers enabled:</p>
 <blockquote>
 <p>The Bitnami helm repo needs to be added through: <code>helm repo add bitnami https://charts.bitnami.com/bitnami</code></p>
+<p>For accessing private helm repositories, you must be authenticated to the repository in a way that the <code>helm template</code> 
+command recognizes.</p>
 </blockquote>
 <div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nx">MyChart</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">cdk8s</span><span class="p">.</span><span class="nx">Chart</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">scope</span><span class="o">:</span><span class="w"> </span><span class="kt">Construct</span><span class="p">,</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
