@@ -934,27 +934,27 @@
     proc-log "^4.0.0"
     which "^4.0.0"
 
-"@nrwl/devkit@19.6.4":
-  version "19.6.4"
-  resolved "https://registry.yarnpkg.com/@nrwl/devkit/-/devkit-19.6.4.tgz#9ba85247e460a1130bf3df66c4ec31d3377353fd"
-  integrity sha512-jpr+T5/+21W/fwAMB6zDLZKO+ReYAfOOMIeM8CpeBi/r9nWmjGXaXN9YKwEOYS1fath62Y5ldGK4yZUttv1tkw==
+"@nrwl/devkit@19.6.5":
+  version "19.6.5"
+  resolved "https://registry.yarnpkg.com/@nrwl/devkit/-/devkit-19.6.5.tgz#d2255eddcf36cc0bb04d1d99257a015e7eee96ca"
+  integrity sha512-KaQeVyYaWBQwQSITtumPvx+P7IpKFReETx4gLTcOpQ/a3QD/AZFGbNjiG+xDLbgo1FDh9dRt9k7eWhGk6oPWKQ==
   dependencies:
-    "@nx/devkit" "19.6.4"
+    "@nx/devkit" "19.6.5"
 
-"@nrwl/tao@19.6.4":
-  version "19.6.4"
-  resolved "https://registry.yarnpkg.com/@nrwl/tao/-/tao-19.6.4.tgz#b5cb09642b4efa88a382b2bde04e0d8a477dee82"
-  integrity sha512-1J8cD+MFzsmboiGe03VlQZ8gt64k/TaYYPZivnnhOJolPPs75nz1JyJX55uWcKKRy/b7FZNKWIu/6Wp9JDhJrQ==
+"@nrwl/tao@19.6.5":
+  version "19.6.5"
+  resolved "https://registry.yarnpkg.com/@nrwl/tao/-/tao-19.6.5.tgz#99cd9a42d789c3942ee20ad8534bc5e29b9619e1"
+  integrity sha512-EoUN/kE6CMWJ4ZZgcXAyiOzn8BSshG2DhC5PNwzLTAxRBus8FgXR/9c0XOzchaP46Kq3hoBGFgeyW434tfuv5w==
   dependencies:
-    nx "19.6.4"
+    nx "19.6.5"
     tslib "^2.3.0"
 
-"@nx/devkit@19.6.4", "@nx/devkit@>=17.1.2 < 20":
-  version "19.6.4"
-  resolved "https://registry.yarnpkg.com/@nx/devkit/-/devkit-19.6.4.tgz#12299ab34cfa1edabb8d94cecac5bea89cc9a8c7"
-  integrity sha512-mBitFwb/gcz8MR7STt7KQG0vf+QcsasDXiSYcf3OWpc6lGE5wn1q5jg6Iabp49Bd/mdHXVLQnP1aV5A+QqFIOQ==
+"@nx/devkit@19.6.5", "@nx/devkit@>=17.1.2 < 20":
+  version "19.6.5"
+  resolved "https://registry.yarnpkg.com/@nx/devkit/-/devkit-19.6.5.tgz#c6a138d9ba785c2a9028522b1fb6ba3ec20016c1"
+  integrity sha512-AEaMSr55Ar48QHU8TBi/gzLtjeT100zdyfLmk0RoiLzjjC8pWmm3Xfvqxyt1WsUUf4oQhlHlolJuoM41qKsdZw==
   dependencies:
-    "@nrwl/devkit" "19.6.4"
+    "@nrwl/devkit" "19.6.5"
     ejs "^3.1.7"
     enquirer "~2.3.6"
     ignore "^5.0.4"
@@ -964,55 +964,55 @@
     tslib "^2.3.0"
     yargs-parser "21.1.1"
 
-"@nx/nx-darwin-arm64@19.6.4":
-  version "19.6.4"
-  resolved "https://registry.yarnpkg.com/@nx/nx-darwin-arm64/-/nx-darwin-arm64-19.6.4.tgz#5f77f88654f68569e47072943dee7d9087ef6399"
-  integrity sha512-kRn2FLvhwJA/TJrNlsCSqqQTrguNZLmiRsiXhvjkfUMbUKwyQfVMgJlvkZ+KoqraUSG+Qyb0FmrGur1I/Mld0Q==
+"@nx/nx-darwin-arm64@19.6.5":
+  version "19.6.5"
+  resolved "https://registry.yarnpkg.com/@nx/nx-darwin-arm64/-/nx-darwin-arm64-19.6.5.tgz#90e767d88b9f85adba6f101a788b12ba05517995"
+  integrity sha512-sFU2k0BaklM17206F2E5C3866y0SICb0xyuPeD6D07a6hB4IstjIUkldUJJN70wEsJ5I3VP4yZ2oJcwnb1TTRQ==
 
-"@nx/nx-darwin-x64@19.6.4":
-  version "19.6.4"
-  resolved "https://registry.yarnpkg.com/@nx/nx-darwin-x64/-/nx-darwin-x64-19.6.4.tgz#387ebdf5ecb28b2c59058136a4ee70eca15e6d45"
-  integrity sha512-3uABBUhxVk+SdRwpUu30iuBlgRWm3tA/G9seG+wt7oN2R+fOu8zzRCYa+Blvoh1Ef+D9743Ir4rDc9Mhzl2B2g==
+"@nx/nx-darwin-x64@19.6.5":
+  version "19.6.5"
+  resolved "https://registry.yarnpkg.com/@nx/nx-darwin-x64/-/nx-darwin-x64-19.6.5.tgz#ddda69ea06e59448a61e78a9963d96e9c52b3fac"
+  integrity sha512-EJmTbUPmlksgOap6xkQl89+zXwHpaAnZLsyLHUd7i00eVRa21FRhdKFnVsRxtwPDZp/YCG84IzMUye/IrwDFTQ==
 
-"@nx/nx-freebsd-x64@19.6.4":
-  version "19.6.4"
-  resolved "https://registry.yarnpkg.com/@nx/nx-freebsd-x64/-/nx-freebsd-x64-19.6.4.tgz#ce4b070b0f8394640b98453591a970c189562e76"
-  integrity sha512-OG83MiEk5L54/vAldmwZJBKEvZaM+DEIDqn2yZLTToBRj5Z9jwKJX3jKP60xbHiaT/hzsb1xPlwhOHJnYd80EQ==
+"@nx/nx-freebsd-x64@19.6.5":
+  version "19.6.5"
+  resolved "https://registry.yarnpkg.com/@nx/nx-freebsd-x64/-/nx-freebsd-x64-19.6.5.tgz#c88a14582c3538c7388c75d85c1da0cf2b8f198a"
+  integrity sha512-rR8NJCskoEmIbK96uxaevHm146WDTA0V3jId+X1joITqjj3E2DMm0U4r5v/OgI5+iqbhFV4S83LrMxP6gBLTsQ==
 
-"@nx/nx-linux-arm-gnueabihf@19.6.4":
-  version "19.6.4"
-  resolved "https://registry.yarnpkg.com/@nx/nx-linux-arm-gnueabihf/-/nx-linux-arm-gnueabihf-19.6.4.tgz#e8f4e3b86ffaec7a47bf75de38843e831887f492"
-  integrity sha512-hQ9x4qSKUh9mIVDuD270ULrBnmYfDTjXq7LnIwECw1AuP4LkKzKxULhsbqVnFQ/k3xxyFkwyGTIu2mfDcw16Gw==
+"@nx/nx-linux-arm-gnueabihf@19.6.5":
+  version "19.6.5"
+  resolved "https://registry.yarnpkg.com/@nx/nx-linux-arm-gnueabihf/-/nx-linux-arm-gnueabihf-19.6.5.tgz#3fe2f86407606682f4732653fdf34f769b26a907"
+  integrity sha512-OUHFV6iLlJN7b7qFnqLfa0Yj/aoylEiRXcEhV1bhPm0Ryt1bOeGDmLYScVN8n5t+AVmrwwYHk+ajXMzCOLLeZw==
 
-"@nx/nx-linux-arm64-gnu@19.6.4":
-  version "19.6.4"
-  resolved "https://registry.yarnpkg.com/@nx/nx-linux-arm64-gnu/-/nx-linux-arm64-gnu-19.6.4.tgz#06d0a1c64857ef4f047897ed8c51003883fa7282"
-  integrity sha512-OFKpAHiaVg3YGFIMBmi/JshciP9buwtOPiHDXcQdzQgE22jyYzKEiFxfcpG0nCT8PlMYAbHPAda15WfWkfVGVQ==
+"@nx/nx-linux-arm64-gnu@19.6.5":
+  version "19.6.5"
+  resolved "https://registry.yarnpkg.com/@nx/nx-linux-arm64-gnu/-/nx-linux-arm64-gnu-19.6.5.tgz#775ef7f246369b524714b7fb7a2cf10fb27fcec6"
+  integrity sha512-CzbJfb24poaJgBHt4aKLaL8a7bO9KXCLls+TX0SZfmzA9AWX6YuiX9lhxwBv6cqsViXTDB4KnXndMDB/H0Gk4g==
 
-"@nx/nx-linux-arm64-musl@19.6.4":
-  version "19.6.4"
-  resolved "https://registry.yarnpkg.com/@nx/nx-linux-arm64-musl/-/nx-linux-arm64-musl-19.6.4.tgz#f44c5cdd08de7fa46e11db49dcea8da738bb41fb"
-  integrity sha512-ZIR9u+mN0A7SmNd6vDxmPV1QVTgYPTdfBSM5TEnKl3q2fHw2Nkui81QBxA4d7VopJoJUz/pRHiUV+dlgEEZ6nA==
+"@nx/nx-linux-arm64-musl@19.6.5":
+  version "19.6.5"
+  resolved "https://registry.yarnpkg.com/@nx/nx-linux-arm64-musl/-/nx-linux-arm64-musl-19.6.5.tgz#0bb91ac05cf624ceb2af88958161e3b5a70086c5"
+  integrity sha512-MgidKilQ0KWxQbTnaqXGjASu7wtAC9q6zAwFNKFENkwJq3nThaQH6jQVlnINE4lL9NSgyyg0AS/ix31hiqAgvA==
 
-"@nx/nx-linux-x64-gnu@19.6.4":
-  version "19.6.4"
-  resolved "https://registry.yarnpkg.com/@nx/nx-linux-x64-gnu/-/nx-linux-x64-gnu-19.6.4.tgz#d8b56ce33ea35066ee2218e2a9839ec8269e7430"
-  integrity sha512-AUMPvLs9KeCUuWD5DdlpbP3VfVsiD0IlptS2b3ul336rsQ7LwwdvE7jTVO5CixFOsiRZxP72fKJhaEargMn5Aw==
+"@nx/nx-linux-x64-gnu@19.6.5":
+  version "19.6.5"
+  resolved "https://registry.yarnpkg.com/@nx/nx-linux-x64-gnu/-/nx-linux-x64-gnu-19.6.5.tgz#d9cc200ab21ef096c4b343838ed260cee3ebe9a2"
+  integrity sha512-rGDylAoslIlk5TDbEJ6YoQOYxxYP9gCpi6FLke2mFgXVzOmVlLKHfVsegIHYVMYYF26h3NJh0NLGGzGdoBjWgQ==
 
-"@nx/nx-linux-x64-musl@19.6.4":
-  version "19.6.4"
-  resolved "https://registry.yarnpkg.com/@nx/nx-linux-x64-musl/-/nx-linux-x64-musl-19.6.4.tgz#6e510a4bd814bc4bcf5af868956689c409999985"
-  integrity sha512-PU7AaBlrgnJnDxTiV/PNCu0pHUCzaogm6uNcbzCyFJLGn7DoQK9rkqUMPJjb3CnJkAj9XrrhuZwmOdbrhvHAvA==
+"@nx/nx-linux-x64-musl@19.6.5":
+  version "19.6.5"
+  resolved "https://registry.yarnpkg.com/@nx/nx-linux-x64-musl/-/nx-linux-x64-musl-19.6.5.tgz#8de265e7a6e91064e32c0bae29331ff59292fdb0"
+  integrity sha512-C/pNjDL/bDEcrDypgBo4r1AOiPTk8gWJwBsFE1QHIvg7//5WFSreqRj34rJu/GZ95eLYJH5tje1VW6z+atEGkQ==
 
-"@nx/nx-win32-arm64-msvc@19.6.4":
-  version "19.6.4"
-  resolved "https://registry.yarnpkg.com/@nx/nx-win32-arm64-msvc/-/nx-win32-arm64-msvc-19.6.4.tgz#ced4765f2dc0653208d31582c218334b79a29a04"
-  integrity sha512-6CCmGWwH/J2k+Uxeci48w4QVhtcQ3hRZ5Z2jh26HI8YzH4wqZyA7QPgLBE6sNCPVLoGW5cBgTsfnyEdr+xarQA==
+"@nx/nx-win32-arm64-msvc@19.6.5":
+  version "19.6.5"
+  resolved "https://registry.yarnpkg.com/@nx/nx-win32-arm64-msvc/-/nx-win32-arm64-msvc-19.6.5.tgz#98fbb353214b0e87b865640fb8fb5847df8b1ce6"
+  integrity sha512-mMi8i16OFux17xed2iLPWwUdCbS1mYA9Ny/gnoNUCosmihmXX9wrzaGBkNAMsHA28huYQtPhGormsEs+zuiVFg==
 
-"@nx/nx-win32-x64-msvc@19.6.4":
-  version "19.6.4"
-  resolved "https://registry.yarnpkg.com/@nx/nx-win32-x64-msvc/-/nx-win32-x64-msvc-19.6.4.tgz#2b67d9db5c25a48e35fb519be27136df7a6cc07a"
-  integrity sha512-jTNrlaFaKtbL2mYOcfPAiljtpF5CI7vbHIqYqBFYLUQXOwW9lOHlO+SeQnft6JYZs0FIr1IdHaCfdOw/hpnCiQ==
+"@nx/nx-win32-x64-msvc@19.6.5":
+  version "19.6.5"
+  resolved "https://registry.yarnpkg.com/@nx/nx-win32-x64-msvc/-/nx-win32-x64-msvc-19.6.5.tgz#5dccc3e6cf1d9df5fe9cfea4762530d13bd098dd"
+  integrity sha512-jjhbDYNBkyz9Fg1jf0KZTrgdf/yx4v+k0ifukDIHZjva+jko0Ve5WzdkQ2K07M9ZxxYibDtTDqX9uX6+eFZtoA==
 
 "@octokit/auth-token@^3.0.0":
   version "3.0.4"
@@ -1396,9 +1396,9 @@
   integrity sha512-hov8bUuiLiyFPGyFPE1lwWhmzYbirOXQNNo40+y3zow8aFVTeyn3VWL0VFFfdNddA8S4Vf0Tc062rzyNr7Paag==
 
 "@types/node@*":
-  version "22.5.2"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-22.5.2.tgz#e42344429702e69e28c839a7e16a8262a8086793"
-  integrity sha512-acJsPTEqYqulZS/Yp/S3GgeE6GZ0qYODUR8aVr/DkhHQ8l9nd4j5x1/ZJy9/gHrRlFMqkO6i0I3E27Alu4jjPg==
+  version "22.5.3"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-22.5.3.tgz#91a374e42c6e7ccb5893a87f1775f36ce1671d65"
+  integrity sha512-njripolh85IA9SQGTAqbmnNZTdxv7X/4OYGPz8tgy5JDr8MP+uDBa921GpYEoDDnwm0Hmn5ZPeJgiiSTPoOzkQ==
   dependencies:
     undici-types "~6.19.2"
 
@@ -1408,9 +1408,9 @@
   integrity sha512-2poPMDdsGfvhcLmgJZ85QrIfN6z3PijYRMiV0FWIEUiQW/t/lzH7BEm4vN+HMhjZXbtIKssMcAxTcgu4Rm83YA==
 
 "@types/node@^16":
-  version "16.18.106"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.18.106.tgz#62228200da6d98365d2de5601f7230cdf041f0e2"
-  integrity sha512-YTgQUcpdXRc7iiEMutkkXl9WUx5lGUCVYvnfRg9CV+IA4l9epctEhCTbaw4KgzXaKYv8emvFJkEM65+MkNUhsQ==
+  version "16.18.107"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.18.107.tgz#9185eaebaf7d002a67976d61ae8a9a808fc84829"
+  integrity sha512-VSha8UIBpCpETub8FZ1nXkODXm+k+YRwpuVQsF3zOuD6QyPQeuIdPRm6IBVa2E5en58CUFJfaw6GmYHP2q/vkQ==
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.4"
@@ -2120,14 +2120,14 @@ case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s-cli@^2.198.206:
-  version "2.198.206"
-  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.198.206.tgz#57ca1db8f6914c16876702bf04ce52e1ae135294"
-  integrity sha512-6k1xVHkfepaOxJbO/kgER0KFgnmh7jkriXulZtTdtDhiVYmSK1rt4VX+oa3AuOUZPiZ5VLB9fGHRPf5j/fbegA==
+cdk8s-cli@^2.198.207:
+  version "2.198.207"
+  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.198.207.tgz#6001e557b63d82f07cd372748776c958aaa05543"
+  integrity sha512-T+YxD5OuXKom3TZvHFJHyLA7DYsu9KwSah+TT/DleU7qvOeT0wJThqCVx20uPwaQd73nOs9rKugZpdB4uHu8WQ==
   dependencies:
     "@types/node" "^16"
     ajv "^8.17.1"
-    cdk8s "^2.68.103"
+    cdk8s "^2.68.104"
     cdk8s-plus-28 "^2.5.4"
     codemaker "^1.103.1"
     colors "1.4.0"
@@ -2164,7 +2164,7 @@ cdk8s-plus-30@^2.2.4:
   dependencies:
     minimatch "^3.1.2"
 
-cdk8s@^2.68.103, cdk8s@^2.68.104:
+cdk8s@^2.68.104:
   version "2.68.104"
   resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-2.68.104.tgz#0843c21f3734fa23a534ba489f62b679e829750f"
   integrity sha512-TriMYNvuj+afvDcKA2fhB94x/CigiFV7E6I/VDfgHYJVQkTGzB2oXDY1JMNpVXOeQFUAIONMc0xC7FcslxzAsQ==
@@ -3391,9 +3391,9 @@ flatted@^3.2.7, flatted@^3.2.9:
   integrity sha512-X8cqMLLie7KsNUDSdzeN8FYK9rEt4Dt67OsG/DNGnYTSDBG4uFAJFBnUeiV+zCVAvwFy56IjM9sH51jVaEhNxw==
 
 follow-redirects@^1.15.6:
-  version "1.15.6"
-  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.15.6.tgz#7f815c0cda4249c74ff09e95ef97c23b5fd0399b"
-  integrity sha512-wWN62YITEaOpSK584EZXJafH1AGpO8RVgElfkuXbTOrPX4fIfOyEpW/CsiNd8JdYrAoOvafRTOEnvsO++qCqFA==
+  version "1.15.8"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.15.8.tgz#ae67b97ae32e0a7b36066a5448938374ec18d13d"
+  integrity sha512-xgrmBhBToVKay1q2Tao5LI26B83UhrB/vM1avwVSDzt8rx3rO6AizBAaF46EgksTVr+rFTQaqZZ9MVBfUe4nig==
 
 for-each@^0.3.3:
   version "0.3.3"
@@ -4940,7 +4940,7 @@ jsii-reflect@^1.103.1:
     oo-ascii-tree "^1.103.1"
     yargs "^16.2.0"
 
-jsii-rosetta@^5.5.3, jsii-rosetta@^5.5.4:
+jsii-rosetta@^5.5.4:
   version "5.5.4"
   resolved "https://registry.yarnpkg.com/jsii-rosetta/-/jsii-rosetta-5.5.4.tgz#8825f62fb3a38860d7834740fe2d4d9cc5251268"
   integrity sha512-hTIjmP9KmOptBm881r1aFq7CLi4agNvy4GOgbupF/K4pAFBH1hTJ4xL9NBxQxhEuWi3rRFQA72Z6aYz1AHcuIg==
@@ -4960,18 +4960,18 @@ jsii-rosetta@^5.5.3, jsii-rosetta@^5.5.4:
     yargs "^17.7.2"
 
 jsii-srcmak@^0.1.1232:
-  version "0.1.1232"
-  resolved "https://registry.yarnpkg.com/jsii-srcmak/-/jsii-srcmak-0.1.1232.tgz#60f6d55fde9499f9bc0c2362c16614a8f5bd200a"
-  integrity sha512-OqcaWxTAQPzWaLOAp4AxXJbTpUMiX1uSRPyXofiOg23+T0G6Igc9keoQlhx/8jMa5gy5Xv7fR8SG9/5Cg/2Uzw==
+  version "0.1.1233"
+  resolved "https://registry.yarnpkg.com/jsii-srcmak/-/jsii-srcmak-0.1.1233.tgz#c92f4688f93b7da82eeb409b0387babb92923699"
+  integrity sha512-KVJ1b7fc3oJLFjwsWqyP4/nzoJ+bl5IKs5LcjoMTEHm2hPUH8TZxWBVLWvZIKNtLeBQO24O4TvZZ6jwJtHwliQ==
   dependencies:
     fs-extra "^9.1.0"
-    jsii "~5.5.1"
+    jsii "~5.5.2"
     jsii-pacmak "^1.103.1"
-    jsii-rosetta "^5.5.3"
+    jsii-rosetta "^5.5.4"
     ncp "^2.0.0"
     yargs "^17.7.2"
 
-jsii@~5.5.0, jsii@~5.5.1:
+jsii@~5.5.0, jsii@~5.5.2:
   version "5.5.2"
   resolved "https://registry.yarnpkg.com/jsii/-/jsii-5.5.2.tgz#b6411b742ace39b7d028153bdbdd3c64c02c88b2"
   integrity sha512-pXvOPzn0pK4pvNF+vl9OjeI+49YDsKnx/CRgu5SoTYNh3HFsWhNg8OukEgW+vyKw6l1ohZQLZfikKnIehe4WZQ==
@@ -5862,13 +5862,13 @@ nwsapi@^2.2.0:
   resolved "https://registry.yarnpkg.com/nwsapi/-/nwsapi-2.2.12.tgz#fb6af5c0ec35b27b4581eb3bbad34ec9e5c696f8"
   integrity sha512-qXDmcVlZV4XRtKFzddidpfVP4oMSGhga+xdMc25mv8kaLUHtgzCDhUxkrN8exkGdTlLNaXj7CV3GtON7zuGZ+w==
 
-nx@19.6.4, "nx@>=17.1.2 < 20":
-  version "19.6.4"
-  resolved "https://registry.yarnpkg.com/nx/-/nx-19.6.4.tgz#ac6238eddb2e9f85dcc6125fc20630c015cf0134"
-  integrity sha512-yudYlBd3cMchRd8c0ZNan1SfT19AYK2zYOp77XVqVVwgqb6rJVxz6StFGFluUQ7Q7uSpkeT/8PsjwPVLt85EoQ==
+nx@19.6.5, "nx@>=17.1.2 < 20":
+  version "19.6.5"
+  resolved "https://registry.yarnpkg.com/nx/-/nx-19.6.5.tgz#1d992364da5fc1634cd2474902465dc335fb99e4"
+  integrity sha512-igPYPsBF1BM1YxEiGDvaLOz0CWWoEvxzR7yQg3iULjGG9zKgDFNHHIHJwkyHsCBTtMhhkgeUl16PsTVgDuil3A==
   dependencies:
     "@napi-rs/wasm-runtime" "0.2.4"
-    "@nrwl/tao" "19.6.4"
+    "@nrwl/tao" "19.6.5"
     "@yarnpkg/lockfile" "^1.1.0"
     "@yarnpkg/parsers" "3.0.0-rc.46"
     "@zkochan/js-yaml" "0.0.7"
@@ -5903,16 +5903,16 @@ nx@19.6.4, "nx@>=17.1.2 < 20":
     yargs "^17.6.2"
     yargs-parser "21.1.1"
   optionalDependencies:
-    "@nx/nx-darwin-arm64" "19.6.4"
-    "@nx/nx-darwin-x64" "19.6.4"
-    "@nx/nx-freebsd-x64" "19.6.4"
-    "@nx/nx-linux-arm-gnueabihf" "19.6.4"
-    "@nx/nx-linux-arm64-gnu" "19.6.4"
-    "@nx/nx-linux-arm64-musl" "19.6.4"
-    "@nx/nx-linux-x64-gnu" "19.6.4"
-    "@nx/nx-linux-x64-musl" "19.6.4"
-    "@nx/nx-win32-arm64-msvc" "19.6.4"
-    "@nx/nx-win32-x64-msvc" "19.6.4"
+    "@nx/nx-darwin-arm64" "19.6.5"
+    "@nx/nx-darwin-x64" "19.6.5"
+    "@nx/nx-freebsd-x64" "19.6.5"
+    "@nx/nx-linux-arm-gnueabihf" "19.6.5"
+    "@nx/nx-linux-arm64-gnu" "19.6.5"
+    "@nx/nx-linux-arm64-musl" "19.6.5"
+    "@nx/nx-linux-x64-gnu" "19.6.5"
+    "@nx/nx-linux-x64-musl" "19.6.5"
+    "@nx/nx-win32-arm64-msvc" "19.6.5"
+    "@nx/nx-win32-x64-msvc" "19.6.5"
 
 object-inspect@^1.13.1:
   version "1.13.2"
@@ -7558,9 +7558,9 @@ typescript@^4.9.5:
   integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
 
 typescript@next:
-  version "5.7.0-dev.20240903"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.7.0-dev.20240903.tgz#864c2460c823ab33328378124462be8b166d5437"
-  integrity sha512-XTUc5uVwBbLlT0v3FqTx9sDN1MLQnT5mwSC3JefCrcKT6Zv+rPcQE7HLKM9IsrNiM1tiaQvamJTgVH0S+UMH2A==
+  version "5.7.0-dev.20240904"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.7.0-dev.20240904.tgz#20e43f65f4ca7d1135d3d2636ab057f815ce317f"
+  integrity sha512-iGi6VWFGOuxPvDfwfK1/8C172NWzC5gtC4G2dxqCQehrr86WTfFkc9aWucynaxZdwQNMqG1Iu83bmXD7CNHCmg==
 
 uglify-js@^3.1.4:
   version "3.19.3"
