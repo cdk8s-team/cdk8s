@@ -2120,14 +2120,14 @@ case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s-cli@^2.198.210:
-  version "2.198.210"
-  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.198.210.tgz#7e175443bc974c41d87ef106acca39d069f274b4"
-  integrity sha512-Gm5QOJz/yc4+wdFqNyZftSoVbzE/AKpSKWFZ3CCzYw48tW0lZC5QRaSv7pAQqw4mqQJTUDMbN7nt+ICPD1Occg==
+cdk8s-cli@^2.198.211:
+  version "2.198.211"
+  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.198.211.tgz#7dd5cf42cc6f2a893055d1274611e07ec56b9a69"
+  integrity sha512-VqypBcHe0b2jO5yFqJtkJuRfPa1LODFLWq6+GdfeG3vaA6ggytHCxjt4KUPBtFCH5qMmSrBN/qLse/1n8q0ssw==
   dependencies:
     "@types/node" "^16"
     ajv "^8.17.1"
-    cdk8s "^2.68.105"
+    cdk8s "^2.68.106"
     cdk8s-plus-28 "^2.5.5"
     codemaker "^1.103.1"
     colors "1.4.0"
@@ -2164,7 +2164,7 @@ cdk8s-plus-30@^2.2.4:
   dependencies:
     minimatch "^3.1.2"
 
-cdk8s@^2.68.105, cdk8s@^2.68.106:
+cdk8s@^2.68.106:
   version "2.68.106"
   resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-2.68.106.tgz#423de8e9a0e93f4cfb3d92286975812b98dbcb60"
   integrity sha512-Uk5dGWkN2uFAkZAtvcrc+koWTs8+kZrlhe8H1elfMjoLZ/VDBD/R9BYBL4rtvDnysn8afktGzcGtAUkxiVoSzQ==
@@ -2224,9 +2224,9 @@ ci-info@^4.0.0:
   integrity sha512-TdHqgGf9odd8SXNuxtUBVx8Nv+qZOejE6qyqiy5NtbYYQOeFa6zmHkxlPzmaLxWWHsU6nJmB7AETdVPi+2NBUg==
 
 cjs-module-lexer@^1.0.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/cjs-module-lexer/-/cjs-module-lexer-1.4.0.tgz#677de7ed7efff67cc40c9bf1897fea79d41b5215"
-  integrity sha512-N1NGmowPlGBLsOZLPvm48StN04V4YvQRL0i6b7ctrVY3epjP/ct7hFLOItz6pDIvRjwpfPxi52a2UWV2ziir8g==
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/cjs-module-lexer/-/cjs-module-lexer-1.4.1.tgz#707413784dbb3a72aa11c2f2b042a0bef4004170"
+  integrity sha512-cuSVIHi9/9E/+821Qjdvngor+xpnlwnuwIyZOaLmHBVdXL+gP+I6QQB9VkO7RI77YIcTV+S1W9AreJ5eN63JBA==
 
 clean-stack@^2.0.0:
   version "2.2.0"
