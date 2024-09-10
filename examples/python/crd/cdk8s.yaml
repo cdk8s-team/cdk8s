@@ -1,8 +1,0 @@
-language: python
-app: pipenv run ./main.py
-imports:
-  - k8s@1.17.0
-  - https://raw.githubusercontent.com/jenkinsci/kubernetes-operator/master/deploy/crds/jenkins.io_jenkins_crd.yaml
-  - mattermost_crd.yaml
-  - version.yaml
-  - https://github.com/knative/serving/releases/download/knative-v1.9.2/serving-crds.yaml

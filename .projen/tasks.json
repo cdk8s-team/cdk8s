@@ -61,6 +61,9 @@
       "description": "Only compile",
       "steps": [
         {
+          "exec": "tsc --build"
+        },
+        {
           "exec": "lerna run build"
         }
       ]
@@ -70,7 +73,7 @@
       "description": "Synthesize project files",
       "steps": [
         {
-          "exec": "node .projenrc.js"
+          "exec": "ts-node --project tsconfig.dev.json .projenrc.ts"
         }
       ]
     },
@@ -83,6 +86,16 @@
       "steps": [
         {
           "spawn": "default"
+        }
+      ]
+    },
+    "eslint": {
+      "name": "eslint",
+      "description": "Runs eslint against the codebase",
+      "steps": [
+        {
+          "exec": "eslint --ext .ts,.tsx --fix --no-error-on-unmatched-pattern $@ src test build-tools projenrc .projenrc.ts",
+          "receiveArgs": true
         }
       ]
     },
@@ -104,25 +117,6 @@
         }
       ]
     },
-    "integ": {
-      "name": "integ",
-      "steps": [
-        {
-          "exec": "bash test/test-all.sh"
-        }
-      ]
-    },
-    "integ:update": {
-      "name": "integ:update",
-      "env": {
-        "UPDATE_SNAPSHOTS": "1"
-      },
-      "steps": [
-        {
-          "exec": "bash test/test-all.sh"
-        }
-      ]
-    },
     "package": {
       "name": "package",
       "description": "Creates the distribution package"
@@ -139,48 +133,38 @@
       "name": "pre-compile",
       "description": "Prepare the project for compilation"
     },
+    "rotate-cdk8s-plus": {
+      "name": "rotate-cdk8s-plus",
+      "steps": [
+        {
+          "exec": "ts-node src/rotate-cdk8s-plus.ts 30"
+        }
+      ]
+    },
     "test": {
       "name": "test",
       "description": "Run tests",
       "steps": [
         {
           "exec": "lerna run test -- -u"
-        },
-        {
-          "spawn": "integ:update"
         }
       ]
     },
-    "upgrade": {
-      "name": "upgrade",
-      "description": "upgrade dependencies",
+    "upgrade-compiler-dependencies": {
+      "name": "upgrade-compiler-dependencies",
+      "description": "upgrade compiler dependencies",
       "env": {
         "CI": "0"
       },
       "steps": [
         {
-          "exec": "yarn upgrade npm-check-updates"
-        },
-        {
-          "exec": "npm-check-updates --dep dev --upgrade --target=minor"
-        },
-        {
-          "exec": "npm-check-updates --dep optional --upgrade --target=minor"
-        },
-        {
-          "exec": "npm-check-updates --dep peer --upgrade --target=minor"
-        },
-        {
-          "exec": "npm-check-updates --dep prod --upgrade --target=minor"
-        },
-        {
-          "exec": "npm-check-updates --dep bundle --upgrade --target=minor"
+          "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev --filter=typescript"
         },
         {
           "exec": "yarn install --check-files"
         },
         {
-          "exec": "yarn upgrade"
+          "exec": "yarn upgrade typescript"
         },
         {
           "exec": "npx projen"
@@ -189,10 +173,79 @@
           "spawn": "post-upgrade"
         }
       ]
+    },
+    "upgrade-configuration": {
+      "name": "upgrade-configuration",
+      "description": "upgrade configuration",
+      "env": {
+        "CI": "0"
+      },
+      "steps": [
+        {
+          "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev --filter=projen,@cdk8s/projen-common"
+        },
+        {
+          "exec": "yarn install --check-files"
+        },
+        {
+          "exec": "yarn upgrade projen @cdk8s/projen-common"
+        },
+        {
+          "exec": "npx projen"
+        },
+        {
+          "spawn": "post-upgrade"
+        }
+      ]
+    },
+    "upgrade-dev-dependencies": {
+      "name": "upgrade-dev-dependencies",
+      "description": "upgrade dev dependencies",
+      "env": {
+        "CI": "0"
+      },
+      "steps": [
+        {
+          "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev --filter=@types/jest,cdk8s,cdk8s-cli,cdk8s-plus-28,cdk8s-plus-29,cdk8s-plus-30,eslint-import-resolver-typescript,eslint-plugin-import,jest,lerna,semver,ts-jest,ts-node"
+        },
+        {
+          "exec": "yarn install --check-files"
+        },
+        {
+          "exec": "yarn upgrade @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser cdk8s cdk8s-cli cdk8s-plus-28 cdk8s-plus-29 cdk8s-plus-30 constructs eslint-import-resolver-typescript eslint-plugin-import eslint jest jest-junit lerna semver ts-jest ts-node"
+        },
+        {
+          "exec": "npx projen"
+        },
+        {
+          "spawn": "post-upgrade"
+        }
+      ]
+    },
+    "upgrade-runtime-dependencies": {
+      "name": "upgrade-runtime-dependencies",
+      "description": "upgrade runtime dependencies",
+      "env": {
+        "CI": "0"
+      },
+      "steps": [
+        {
+          "exec": "echo No dependencies to upgrade."
+        }
+      ]
+    },
+    "watch": {
+      "name": "watch",
+      "description": "Watch & compile in the background",
+      "steps": [
+        {
+          "exec": "tsc --build -w"
+        }
+      ]
     }
   },
   "env": {
-    "PATH": "$(npx -c \"node -e \\\"console.log(process.env.PATH)\\\"\")"
+    "PATH": "$(npx -c \"node --print process.env.PATH\")"
   },
-  "//": "~~ Generated by projen. To modify, edit .projenrc.js and run \"npx projen\"."
+  "//": "~~ Generated by projen. To modify, edit .projenrc.ts and run \"npx projen\"."
 }

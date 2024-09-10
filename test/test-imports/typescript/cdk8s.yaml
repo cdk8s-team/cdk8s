@@ -1,9 +1,0 @@
-app: node index.js
-language: typescript
-imports:
-  - k8s@1.17.0
-
-  # pin to a specific commit, otherwise we have a non-deterministic test
-  - https://raw.githubusercontent.com/jenkinsci/kubernetes-operator/6edd2e554f40d7ee03f1cf6e12feb278cb5097f0/deploy/crds/jenkins.io_jenkins_crd.yaml
-  - mattermost:=mattermost_crd.yaml
-  - example_multiple_crd.yaml

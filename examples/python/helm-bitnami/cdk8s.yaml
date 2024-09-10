@@ -1,4 +1,0 @@
-language: python
-app: pipenv run ./main.py
-imports:
-  - k8s

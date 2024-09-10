@@ -3,15 +3,18 @@
 You can use the `Helm` construct in order to include [Helm](https://helm.sh)
 charts.
 
-In order to use this construct, you must have `helm` installed on your system.
-See [Installing Helm](https://helm.sh/docs/intro/install/) in the Helm
-documentation for details.
+!!! note
+    You will need helm to be [installed](https://helm.sh/docs/intro/install/) locally for this feature.
+    For accessing private helm repositories, you must be authenticated to the repository in a way that the `helm pull` command recognizes.
 
 The following example adds the
 [bitnami/redis](https://github.com/bitnami/charts/tree/master/bitnami/redis)
 Helm chart with sentinel containers enabled:
 
 > The Bitnami helm repo needs to be added through: `helm repo add bitnami https://charts.bitnami.com/bitnami`
+
+> For accessing private helm repositories, you must be authenticated to the repository in a way that the `helm template` 
+> command recognizes.
 
 ```ts
 class MyChart extends cdk8s.Chart {

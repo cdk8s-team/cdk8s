@@ -1,7 +1,1 @@
-# Hello helm (python!)
-
-This example application deploys [bitnami/redis](https://github.com/bitnami/charts/tree/master/bitnami/redis) Helm chart with sentinel containers enabled.
-
-Before running this, you will need to make sure you have `helm` downloaded and that you have added the Bitnami helm repo using: `helm repo add bitnami https://charts.bitnami.com/bitnami`
-
-Also, don't forget to `pipenv install` before running `cdk8s synth`!
+Moved to https://github.com/cdk8s-team/cdk8s-examples/tree/main/python/cdk8s-helm
