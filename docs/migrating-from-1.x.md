@@ -8,6 +8,12 @@ Version `1.x` of the cdk8s toolchain will be deprecated on 01/01/2023. After whi
 
 We strongly recommend migrating to `2.x` using the instructions stated below.
 
+## End Of Life Timeline
+
+Version `1.x` of the cdk8s toolchain will enter end-of-life on 01/01/25. After which, it will no longer receive any updates.
+
+We strongly recommend migrating to `2.x` using the instructions stated below.
+
 ## Core Library
 
 Version `2.x` of the core [cdk8s](https://www.npmjs.com/package/cdk8s) library is identical to version `1.x` from an API perspective. The only difference is in the dependency they declare on the `constructs` library. This also means that the documentation and code snippets presented throughout the site is compatible with `1.x` as well, in case you'd still like to use it.
