@@ -6406,7 +6406,7 @@ returned.</p>
 <p>If true, this reference points to the managing controller.</p>
 <hr />
 <h3 id="sizeconversionoptions">SizeConversionOptions <a name="SizeConversionOptions" id="cdk8s.SizeConversionOptions"></a><a class="headerlink" href="#sizeconversionoptions" title="Permanent link">&para;</a></h3>
-<p>Options for how to convert time to a different unit.</p>
+<p>Options for how to convert size to a different unit.</p>
 <h4 id="initializer_11">Initializer <a name="Initializer" id="cdk8s.SizeConversionOptions.Initializer"></a><a class="headerlink" href="#initializer_11" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.cdk8s.SizeConversionOptions</span><span class="p">;</span>
 
@@ -8087,6 +8087,10 @@ cannot be negative.</p>
 </thead>
 <tbody>
 <tr>
+<td><code><a href="#cdk8s.Size.asString">asString</a></code></td>
+<td>Returns amount with abbreviated storage unit.</td>
+</tr>
+<tr>
 <td><code><a href="#cdk8s.Size.toGibibytes">toGibibytes</a></code></td>
 <td>Return this storage as a total number of gibibytes.</td>
 </tr>
@@ -8109,6 +8113,10 @@ cannot be negative.</p>
 </tbody>
 </table>
 <hr />
+<h5 id="asstring"><code>asString</code> <a name="asString" id="cdk8s.Size.asString"></a><a class="headerlink" href="#asstring" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">asString</span><span class="p">()</span>
+</code></pre></div>
+<p>Returns amount with abbreviated storage unit.</p>
 <h5 id="togibibytes"><code>toGibibytes</code> <a name="toGibibytes" id="cdk8s.Size.toGibibytes"></a><a class="headerlink" href="#togibibytes" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span><span class="w"> </span><span class="nf">toGibibytes</span><span class="p">()</span>
 <span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Number</span><span class="w"> </span><span class="nf">toGibibytes</span><span class="p">(</span><span class="n">SizeConversionOptions</span><span class="w"> </span><span class="n">opts</span><span class="p">)</span>
