@@ -5,30 +5,30 @@ This section includes API reference for the various components of cdk8s.
 === "TypeScript"
 
     * [**cdk8s**](./cdk8s/typescript.md)
-    * [**cdk8s-plus-28**](./cdk8s-plus-28/typescript.md) · Kubernetes v1.28.0
     * [**cdk8s-plus-29**](./cdk8s-plus-29/typescript.md) · Kubernetes v1.29.0
     * [**cdk8s-plus-30**](./cdk8s-plus-30/typescript.md) · Kubernetes v1.30.0
+    * [**cdk8s-plus-31**](./cdk8s-plus-31/typescript.md) · Kubernetes v1.31.0
 
 === "Python"
 
     * [**cdk8s**](./cdk8s/python.md)
-    * [**cdk8s-plus-28**](./cdk8s-plus-28/python.md) · Kubernetes v1.28.0
     * [**cdk8s-plus-29**](./cdk8s-plus-29/python.md) · Kubernetes v1.29.0
     * [**cdk8s-plus-30**](./cdk8s-plus-30/python.md) · Kubernetes v1.30.0
+    * [**cdk8s-plus-31**](./cdk8s-plus-31/python.md) · Kubernetes v1.31.0
 
 === "Java"
 
     * [**cdk8s**](./cdk8s/java.md)
-    * [**cdk8s-plus-28**](./cdk8s-plus-28/java.md) · Kubernetes v1.28.0
     * [**cdk8s-plus-29**](./cdk8s-plus-29/java.md) · Kubernetes v1.29.0
     * [**cdk8s-plus-30**](./cdk8s-plus-30/java.md) · Kubernetes v1.30.0
+    * [**cdk8s-plus-31**](./cdk8s-plus-31/java.md) · Kubernetes v1.31.0
 
 === "Go"
 
     * [**cdk8s**](./cdk8s/go.md)
-    * [**cdk8s-plus-28**](./cdk8s-plus-28/go.md) · Kubernetes v1.28.0
     * [**cdk8s-plus-29**](./cdk8s-plus-29/go.md) · Kubernetes v1.29.0
     * [**cdk8s-plus-30**](./cdk8s-plus-30/go.md) · Kubernetes v1.30.0
+    * [**cdk8s-plus-31**](./cdk8s-plus-31/go.md) · Kubernetes v1.31.0
 
 !!! info
 
