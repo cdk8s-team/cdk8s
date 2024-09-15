@@ -329,9 +329,9 @@
     eslint-visitor-keys "^3.3.0"
 
 "@eslint-community/regexpp@^4.10.0", "@eslint-community/regexpp@^4.6.1":
-  version "4.11.0"
-  resolved "https://registry.yarnpkg.com/@eslint-community/regexpp/-/regexpp-4.11.0.tgz#b0ffd0312b4a3fd2d6f77237e7248a5ad3a680ae"
-  integrity sha512-G/M/tIiMrTAxEWRfLfQJMmGNX28IxBg4PBz8XqQhqUHLFI6TL2htpIB1iQCj144V5ee/JaKyT9/WZ0MGZWfA7A==
+  version "4.11.1"
+  resolved "https://registry.yarnpkg.com/@eslint-community/regexpp/-/regexpp-4.11.1.tgz#a547badfc719eb3e5f4b556325e542fbe9d7a18f"
+  integrity sha512-m4DVN9ZqskZoLU5GlWZadwDnYo3vAEydiUayB9widCl9ffWx2IvPnp6n3on5rJmziJSw9Bv+Z3ChDVdMwXCY8Q==
 
 "@eslint/eslintrc@^2.1.4":
   version "2.1.4"
@@ -2120,10 +2120,10 @@ case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s-cli@^2.198.217:
-  version "2.198.217"
-  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.198.217.tgz#e606fd75e08cc339fb10689cc41437bd143fe8a1"
-  integrity sha512-rHnJ9rBpBHq2XstV8Js4Hy5ZBeYDPK4bQRq82L6c+Brye9FoZGg/Vogd6M0G2EkhulCUHr0miMwUqpCTWe1Y5w==
+cdk8s-cli@^2.198.218:
+  version "2.198.218"
+  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.198.218.tgz#8c23489abd4daf17e1b7972982547cca8e685713"
+  integrity sha512-0uw4W1pT2CO5uq06KK3bGjWTwGiTTmpqISx3WGEIn5QHS08F0W1CI5mYeiLAfT8y0nB9ysADju7t+fKR6N/IfQ==
   dependencies:
     "@types/node" "^16"
     ajv "^8.17.1"
@@ -7560,9 +7560,9 @@ typescript@^4.9.5:
   integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
 
 typescript@next:
-  version "5.7.0-dev.20240914"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.7.0-dev.20240914.tgz#509164972bac727f30d92c1af1ba5455f02b983b"
-  integrity sha512-FFOqgbzyxpBRq2YcKTQTAuurIKiU5A0VoWwDDnSjHPDHDbs3eriLiMIj8BExs2Soz7Wr+HxMJkbAZ0RCgvoIZg==
+  version "5.7.0-dev.20240915"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.7.0-dev.20240915.tgz#aff28833009d26116378bea0ea68d36ae32d6a57"
+  integrity sha512-DpaEZn4KstKaVrFUxGv+zOrJVIFJJaf/lTPedsVRrnhrs/yysIhXlr40nHDNH1TznDWPit6UKYoKp/6/YPvlpQ==
 
 typescript@~5.5:
   version "5.5.4"
