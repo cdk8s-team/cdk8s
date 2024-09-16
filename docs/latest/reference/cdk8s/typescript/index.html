@@ -4115,18 +4115,18 @@
 </code></pre></div>
 <p>Returns a string representation of this construct.</p>
 <h5 id="adddependency"><code>addDependency</code> <a name="addDependency" id="cdk8s.ApiObject.addDependency"></a><a class="headerlink" href="#adddependency" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">dependencies</span><span class="o">:</span><span class="w"> </span><span class="kt">IConstruct</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">dependencies</span><span class="o">:</span><span class="w"> </span><span class="kt">...IConstruct</span><span class="p">[])</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span>
 </code></pre></div>
 <p>Create a dependency between this ApiObject and other constructs.</p>
 <p>These can be other ApiObjects, Charts, or custom.</p>
 <h6 id="dependenciesrequired"><code>dependencies</code><sup>Required</sup> <a name="dependencies" id="cdk8s.ApiObject.addDependency.parameter.dependencies"></a><a class="headerlink" href="#dependenciesrequired" title="Permanent link">&para;</a></h6>
 <ul>
-<li><em>Type:</em> constructs.IConstruct</li>
+<li><em>Type:</em> &hellip;constructs.IConstruct[]</li>
 </ul>
 <p>the dependencies to add.</p>
 <hr />
 <h5 id="addjsonpatch"><code>addJsonPatch</code> <a name="addJsonPatch" id="cdk8s.ApiObject.addJsonPatch"></a><a class="headerlink" href="#addjsonpatch" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="nx">addJsonPatch</span><span class="p">(</span><span class="nx">ops</span><span class="o">:</span><span class="w"> </span><span class="kt">JsonPatch</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="nx">addJsonPatch</span><span class="p">(</span><span class="nx">ops</span><span class="o">:</span><span class="w"> </span><span class="kt">...JsonPatch</span><span class="p">[])</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span>
 </code></pre></div>
 <p>Applies a set of RFC-6902 JSON-Patch operations to the manifest synthesized for this API object.</p>
 <p><em>Example</em></p>
@@ -4134,7 +4134,7 @@
 </code></pre></div>
 <h6 id="opsrequired"><code>ops</code><sup>Required</sup> <a name="ops" id="cdk8s.ApiObject.addJsonPatch.parameter.ops"></a><a class="headerlink" href="#opsrequired" title="Permanent link">&para;</a></h6>
 <ul>
-<li><em>Type:</em> <a href="#cdk8s.JsonPatch">JsonPatch</a></li>
+<li><em>Type:</em> &hellip;<a href="#cdk8s.JsonPatch">JsonPatch</a>[]</li>
 </ul>
 <p>The JSON-Patch operations to apply.</p>
 <hr />
@@ -4600,13 +4600,13 @@ passed by the <code>resolvers</code> property, as well as built-in resolvers.</p
 </code></pre></div>
 <p>Returns a string representation of this construct.</p>
 <h5 id="adddependency_1"><code>addDependency</code> <a name="addDependency" id="cdk8s.Chart.addDependency"></a><a class="headerlink" href="#adddependency_1" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">dependencies</span><span class="o">:</span><span class="w"> </span><span class="kt">IConstruct</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">dependencies</span><span class="o">:</span><span class="w"> </span><span class="kt">...IConstruct</span><span class="p">[])</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span>
 </code></pre></div>
 <p>Create a dependency between this Chart and other constructs.</p>
 <p>These can be other ApiObjects, Charts, or custom.</p>
 <h6 id="dependenciesrequired_1"><code>dependencies</code><sup>Required</sup> <a name="dependencies" id="cdk8s.Chart.addDependency.parameter.dependencies"></a><a class="headerlink" href="#dependenciesrequired_1" title="Permanent link">&para;</a></h6>
 <ul>
-<li><em>Type:</em> constructs.IConstruct</li>
+<li><em>Type:</em> &hellip;constructs.IConstruct[]</li>
 </ul>
 <p>the dependencies to add.</p>
 <hr />
@@ -6273,12 +6273,12 @@ returned.</p>
 <p>The value.</p>
 <hr />
 <h5 id="addfinalizers"><code>addFinalizers</code> <a name="addFinalizers" id="cdk8s.ApiObjectMetadataDefinition.addFinalizers"></a><a class="headerlink" href="#addfinalizers" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="nx">addFinalizers</span><span class="p">(</span><span class="nx">finalizers</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="nx">addFinalizers</span><span class="p">(</span><span class="nx">finalizers</span><span class="o">:</span><span class="w"> </span><span class="kt">...string</span><span class="p">[])</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span>
 </code></pre></div>
 <p>Add one or more finalizers.</p>
 <h6 id="finalizersrequired"><code>finalizers</code><sup>Required</sup> <a name="finalizers" id="cdk8s.ApiObjectMetadataDefinition.addFinalizers.parameter.finalizers"></a><a class="headerlink" href="#finalizersrequired" title="Permanent link">&para;</a></h6>
 <ul>
-<li><em>Type:</em> string</li>
+<li><em>Type:</em> &hellip;string[]</li>
 </ul>
 <p>the finalizers.</p>
 <hr />
@@ -7059,7 +7059,7 @@ used instead of an index to insert at the end of an array.</p>
 <h5 id="apply"><code>apply</code> <a name="apply" id="cdk8s.JsonPatch.apply"></a><a class="headerlink" href="#apply" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">JsonPatch</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span>
 
-<span class="nx">JsonPatch</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">document</span><span class="o">:</span><span class="w"> </span><span class="kt">any</span><span class="p">,</span><span class="w"> </span><span class="nx">ops</span><span class="o">:</span><span class="w"> </span><span class="kt">JsonPatch</span><span class="p">)</span>
+<span class="nx">JsonPatch</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">document</span><span class="o">:</span><span class="w"> </span><span class="kt">any</span><span class="p">,</span><span class="w"> </span><span class="nx">ops</span><span class="o">:</span><span class="w"> </span><span class="kt">...JsonPatch</span><span class="p">[])</span>
 </code></pre></div>
 <p>Applies a set of JSON-Patch (RFC-6902) operations to <code>document</code> and returns the result.</p>
 <h6 id="documentrequired"><code>document</code><sup>Required</sup> <a name="document" id="cdk8s.JsonPatch.apply.parameter.document"></a><a class="headerlink" href="#documentrequired" title="Permanent link">&para;</a></h6>
@@ -7070,7 +7070,7 @@ used instead of an index to insert at the end of an array.</p>
 <hr />
 <h6 id="opsrequired_1"><code>ops</code><sup>Required</sup> <a name="ops" id="cdk8s.JsonPatch.apply.parameter.ops"></a><a class="headerlink" href="#opsrequired_1" title="Permanent link">&para;</a></h6>
 <ul>
-<li><em>Type:</em> <a href="#cdk8s.JsonPatch">JsonPatch</a></li>
+<li><em>Type:</em> &hellip;<a href="#cdk8s.JsonPatch">JsonPatch</a>[]</li>
 </ul>
 <p>The operations to apply.</p>
 <hr />
@@ -7879,14 +7879,14 @@ cannot be negative.</p>
 <h5 id="stringify"><code>stringify</code> <a name="stringify" id="cdk8s.Yaml.stringify"></a><a class="headerlink" href="#stringify" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Yaml</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span>
 
-<span class="nx">Yaml</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">docs</span><span class="o">:</span><span class="w"> </span><span class="kt">any</span><span class="p">)</span>
+<span class="nx">Yaml</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">docs</span><span class="o">:</span><span class="w"> </span><span class="kt">...any</span><span class="p">[])</span>
 </code></pre></div>
 <p>Stringify a document (or multiple documents) into YAML.</p>
 <p>We convert undefined values to null, but ignore any documents that are
 undefined.</p>
 <h6 id="docsrequired_2"><code>docs</code><sup>Required</sup> <a name="docs" id="cdk8s.Yaml.stringify.parameter.docs"></a><a class="headerlink" href="#docsrequired_2" title="Permanent link">&para;</a></h6>
 <ul>
-<li><em>Type:</em> any</li>
+<li><em>Type:</em> &hellip;any[]</li>
 </ul>
 <p>A set of objects to convert to YAML.</p>
 <hr />
