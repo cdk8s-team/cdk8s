@@ -49,9 +49,9 @@ junit.xml
 !/git-hooks/prepare-commit-msg
 !/git-hooks/README.md
 !/git-hooks/setup.sh
-!/.github/ISSUE_TEMPLATE/config.yml
 !/.github/ISSUE_TEMPLATE/bug.md
 !/.github/ISSUE_TEMPLATE/feature-request.md
+!/.github/ISSUE_TEMPLATE/config.yml
 !/SECURITY.md
 !/.github/workflows/security.yml
 !/.github/workflows/triage.yml
