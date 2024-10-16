@@ -19,7 +19,6 @@
 /.github/workflows/upgrade-runtime-dependencies.yml linguist-generated
 /.github/workflows/website.yml linguist-generated
 /.gitignore linguist-generated
-/.mergify.yml linguist-generated
 /.npmignore linguist-generated
 /.projen/** linguist-generated
 /.projen/deps.json linguist-generated

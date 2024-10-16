@@ -30,6 +30,9 @@ const project = new Cdk8sTeamTypeScriptProject({
     'projen',
   ],
   projenrcTs: true,
+  githubOptions: {
+    mergify: false,
+  },
 });
 
 for (let i = 0; i < 3; i++) {
