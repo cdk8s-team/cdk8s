@@ -75,6 +75,7 @@ contribute to the project. Please consider the following venues (in order):
 - Stack Overflow: [cdk8s](https://stackoverflow.com/questions/tagged/cdk8s)
 - File a [new issue](https://github.com/cdk8s-team/cdk8s/issues/new/choose)
 - Slack: #cdk8s channel in [cdk.dev](https://cdk.dev)
+- [Ask cdk8s Guru](https://gurubase.io/g/cdk8s)
 
 ## Documentation
 
