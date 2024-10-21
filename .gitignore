@@ -35,7 +35,6 @@ jspm_packages/
 junit.xml
 /coverage/
 !/.github/workflows/build.yml
-!/.mergify.yml
 !/.github/workflows/upgrade-runtime-dependencies.yml
 !/test/
 !/tsconfig.json
