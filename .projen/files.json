@@ -17,7 +17,6 @@
     ".github/workflows/upgrade-runtime-dependencies.yml",
     ".github/workflows/website.yml",
     ".gitignore",
-    ".mergify.yml",
     ".npmignore",
     ".projen/deps.json",
     ".projen/files.json",
