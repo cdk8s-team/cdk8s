@@ -6,6 +6,7 @@
     ".github/ISSUE_TEMPLATE/config.yml",
     ".github/ISSUE_TEMPLATE/feature-request.md",
     ".github/workflows/auto-approve.yml",
+    ".github/workflows/auto-queue.yml",
     ".github/workflows/build.yml",
     ".github/workflows/pull-request-lint.yml",
     ".github/workflows/security.yml",
