@@ -2135,10 +2135,10 @@ case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s-cli@^2.198.270:
-  version "2.198.270"
-  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.198.270.tgz#682e450dea50c8576fc003543c221e5206305197"
-  integrity sha512-9n0WDQPJqx72fH7naVkZ11oLdqM6lt7kOV5H+ah2OQlcTo6wVIlE2P+Hj+te3gHJP0jyYv/PdJPIAXs6fo2KJg==
+cdk8s-cli@^2.198.271:
+  version "2.198.271"
+  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.198.271.tgz#bec5ebca4a7850be5e07cce67e7d37a286d46728"
+  integrity sha512-nc06Fh+ff2Wo9z2DE7QGYz9Ah+PUX5v3lpmI+00jLGgKSGADGDICqj8fbbsfNrSSpXY5EdGF8Xw6RFyVYscTNQ==
   dependencies:
     "@types/node" "^16"
     ajv "^8.17.1"
@@ -3012,13 +3012,13 @@ es-shim-unscopables@^1.0.0, es-shim-unscopables@^1.0.2:
     hasown "^2.0.0"
 
 es-to-primitive@^1.2.1:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/es-to-primitive/-/es-to-primitive-1.2.1.tgz#e55cd4c9cdc188bcefb03b366c736323fc5c898a"
-  integrity sha512-QCOllgZJtaUo9miYBcLChTUaHNjJF3PYs1VidD7AwiEj1kYxKeQTctLAezAOH5ZKRH0g2IgPn6KwB4IT8iRpvA==
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/es-to-primitive/-/es-to-primitive-1.3.0.tgz#96c89c82cc49fd8794a24835ba3e1ff87f214e18"
+  integrity sha512-w+5mJ3GuFL+NjVtJlvydShqE1eN3h3PbI7/5LAsYJP/2qtuMXjfL2LpHSRqo4b4eSF5K/DH1JXKUAHSB2UW50g==
   dependencies:
-    is-callable "^1.1.4"
-    is-date-object "^1.0.1"
-    is-symbol "^1.0.2"
+    is-callable "^1.2.7"
+    is-date-object "^1.0.5"
+    is-symbol "^1.0.4"
 
 escalade@^3.1.1, escalade@^3.2.0:
   version "3.2.0"
@@ -4102,13 +4102,13 @@ is-boolean-object@^1.1.0:
     has-tostringtag "^1.0.0"
 
 is-bun-module@^1.0.2:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/is-bun-module/-/is-bun-module-1.2.1.tgz#495e706f42e29f086fd5fe1ac3c51f106062b9fc"
-  integrity sha512-AmidtEM6D6NmUiLOvvU7+IePxjEjOzra2h0pSrsfSAcXwl/83zLLXDByafUJy9k/rKK0pvXMLdwKwGHlX2Ke6Q==
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/is-bun-module/-/is-bun-module-1.3.0.tgz#ea4d24fdebfcecc98e81bcbcb506827fee288760"
+  integrity sha512-DgXeu5UWI0IsMQundYb5UAOzm6G2eVnarJ0byP6Tm55iZNKceD59LNPA2L4VvsScTtHcw0yEkVwSf7PC+QoLSA==
   dependencies:
     semver "^7.6.3"
 
-is-callable@^1.1.3, is-callable@^1.1.4, is-callable@^1.2.7:
+is-callable@^1.1.3, is-callable@^1.2.7:
   version "1.2.7"
   resolved "https://registry.yarnpkg.com/is-callable/-/is-callable-1.2.7.tgz#3bc2a85ea742d9e36205dcacdd72ca1fdc51b055"
   integrity sha512-1BC0BVFhS/p0qtw6enp8e+8OD0UrK0oFLztSjNzhcKA3WDuJxxAPXzPuPtKkjEY9UUoEWlX/8fgKeu2S8i9JTA==
@@ -4134,7 +4134,7 @@ is-data-view@^1.0.1:
   dependencies:
     is-typed-array "^1.1.13"
 
-is-date-object@^1.0.1, is-date-object@^1.0.5:
+is-date-object@^1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/is-date-object/-/is-date-object-1.0.5.tgz#0841d5536e724c25597bf6ea62e1bd38298df31f"
   integrity sha512-9YQaSxsAiSwcvS33MBk3wTCVnWK+HhF8VZR2jRxehM16QcVOdHqPn4VPHmRK4lSr38n9JriurInLcP90xsYNfQ==
@@ -4285,7 +4285,7 @@ is-string@^1.0.5, is-string@^1.0.7:
   dependencies:
     has-tostringtag "^1.0.0"
 
-is-symbol@^1.0.2, is-symbol@^1.0.3:
+is-symbol@^1.0.3, is-symbol@^1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/is-symbol/-/is-symbol-1.0.4.tgz#a6dac93b635b063ca6872236de88910a57af139c"
   integrity sha512-C/CPBqKWnvdcxqIARxyOh4v1UUEOCHpgDa0WYgpKDFMszcrPcffg5uhwSgPCLD2WWxmq6isisz87tzT01tuGhg==
@@ -7594,9 +7594,9 @@ typescript@^4.9.5:
   integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
 
 typescript@next:
-  version "5.8.0-dev.20241126"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.8.0-dev.20241126.tgz#ff143e23360a1ccf9da82b8692347dba7753a1e7"
-  integrity sha512-DdPYP/1aTjosrrC6/DW8ED50oXBknS93D7TihD1iMmRuheri/HpW0BubYtq7JpNjsS+4wA+n5IgF66wC+5C3Lw==
+  version "5.8.0-dev.20241127"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.8.0-dev.20241127.tgz#e0f2381855ac9cc6ccdd1444b84a6330c5b8e924"
+  integrity sha512-TGb4/mmMCY5GOBuEry4xaOcDonyPwnxPc2zaR/8jgA6twK+iGEPsB6EeT+lSSrpOP906WPlFAn3XVQfQm4d7TQ==
 
 typescript@~5.5:
   version "5.5.4"
