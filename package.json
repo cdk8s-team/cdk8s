@@ -29,7 +29,7 @@
     "organization": false
   },
   "devDependencies": {
-    "@cdk8s/projen-common": "^0.0.558",
+    "@cdk8s/projen-common": "^0.0.559",
     "@stylistic/eslint-plugin": "^2",
     "@types/jest": "^26.0.24",
     "@types/node": "16.18.78",
