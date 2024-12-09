@@ -1248,9 +1248,9 @@
     "@sinonjs/commons" "^1.7.0"
 
 "@stylistic/eslint-plugin@^2":
-  version "2.11.0"
-  resolved "https://registry.yarnpkg.com/@stylistic/eslint-plugin/-/eslint-plugin-2.11.0.tgz#50d0289f36f7201055b7fa1729fdc1d8c46e93fa"
-  integrity sha512-PNRHbydNG5EH8NK4c+izdJlxajIR6GxcUhzsYNRsn6Myep4dsZt0qFCz3rCPnkvgO5FYibDcMqgNHUT+zvjYZw==
+  version "2.12.0"
+  resolved "https://registry.yarnpkg.com/@stylistic/eslint-plugin/-/eslint-plugin-2.12.0.tgz#9819678f919d75241845c2e9379888ecde8e8ad2"
+  integrity sha512-IvD2WXbOoSp0zNpyYbjdSyEjZtut78RYfj2WIlbChE7HFuposTK5X1hc5+4AyqYcjLXYdD5oo/sJtqMGFNRb1w==
   dependencies:
     "@typescript-eslint/utils" "^8.13.0"
     eslint-visitor-keys "^4.2.0"
@@ -2091,9 +2091,9 @@ cacheable-request@^7.0.2:
     responselike "^2.0.0"
 
 call-bind-apply-helpers@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/call-bind-apply-helpers/-/call-bind-apply-helpers-1.0.0.tgz#33127b42608972f76812a501d69db5d8ce404979"
-  integrity sha512-CCKAP2tkPau7D3GE8+V8R6sQubA9R5foIzGp+85EXCVSCivuxBNAWqcpn72PKYiIcqoViv/kcUDpaEIMBVi1lQ==
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/call-bind-apply-helpers/-/call-bind-apply-helpers-1.0.1.tgz#32e5892e6361b29b0b545ba6f7763378daca2840"
+  integrity sha512-BhYE+WDaywFg2TBWYNXAE+8B1ATnThNBqXHP5nQu0jWJdVvY2hvkpyB3qOmtmDePiS5/BDQ8wASEWGMWRG148g==
   dependencies:
     es-errors "^1.3.0"
     function-bind "^1.1.2"
@@ -2142,10 +2142,10 @@ case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s-cli@^2.198.277:
-  version "2.198.277"
-  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.198.277.tgz#8c163fd56f3df5f47794ccc0f8b3f4c130156e52"
-  integrity sha512-FHBfL5GJ3ievMnLqDQDhoO9ocYnaITGbq+cRCqLfZX8nSb7LqaZfASf6FfBgfWdT8Dl4ee6lVltss6/kfpT/8w==
+cdk8s-cli@^2.198.278:
+  version "2.198.278"
+  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.198.278.tgz#ccbd951f91be2cb2c858ffac8e7a353877190900"
+  integrity sha512-RW2fFqncdvKZQS8rLq7vET9AHsF0zh4Jm1j1KIwZgUkJ3C7tsLghe6Dg5Pufy1RKhsi0U0aU+sz273TBBQ2Eww==
   dependencies:
     "@types/node" "^16"
     ajv "^8.17.1"
@@ -7624,9 +7624,9 @@ typescript@^4.9.5:
   integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
 
 typescript@next:
-  version "5.8.0-dev.20241208"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.8.0-dev.20241208.tgz#7f3597a29b06e9c3f40df219075aef52826e3fc3"
-  integrity sha512-+NXMMLx4CWTS0Bbt+Rnbl3pda/qMAMN5s1ooD5ntFfsgmUkjMSyKahEqV7r7EeKKYTTWyFN3jD6icjNdZdGMZw==
+  version "5.8.0-dev.20241209"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.8.0-dev.20241209.tgz#3610a6251b04eae3cd4ac92454922a3ffe2db9d4"
+  integrity sha512-LouJoEV8bwgTD1pmLck1aKNa2s9pE1uTQUHB14EubuRv/G5EY5v3O0+WmeX3c65VIpC8xUoSoc3bPjIsHrjNJQ==
 
 typescript@~5.5:
   version "5.5.4"
