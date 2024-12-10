@@ -3,6 +3,7 @@
 !/.projen/tasks.json
 !/.projen/deps.json
 !/.projen/files.json
+!/.github/workflows/auto-queue.yml
 !/.github/workflows/pull-request-lint.yml
 !/.github/workflows/auto-approve.yml
 !/package.json
@@ -35,7 +36,6 @@ jspm_packages/
 junit.xml
 /coverage/
 !/.github/workflows/build.yml
-!/.mergify.yml
 !/.github/workflows/upgrade-runtime-dependencies.yml
 !/test/
 !/tsconfig.json
@@ -49,9 +49,9 @@ junit.xml
 !/git-hooks/prepare-commit-msg
 !/git-hooks/README.md
 !/git-hooks/setup.sh
-!/.github/ISSUE_TEMPLATE/config.yml
 !/.github/ISSUE_TEMPLATE/bug.md
 !/.github/ISSUE_TEMPLATE/feature-request.md
+!/.github/ISSUE_TEMPLATE/config.yml
 !/SECURITY.md
 !/.github/workflows/security.yml
 !/.github/workflows/triage.yml
