@@ -8405,12 +8405,12 @@ existing Deployments and adopt all their resources with new Deployments.</p>
 <p>The following are typical use cases for Deployments:</p>
 <ul>
 <li>Create a Deployment to rollout a ReplicaSet. The ReplicaSet creates Pods in the background.
-   Check the status of the rollout to see if it succeeds or not.</li>
+  Check the status of the rollout to see if it succeeds or not.</li>
 <li>Declare the new state of the Pods by updating the PodTemplateSpec of the Deployment.
-   A new ReplicaSet is created and the Deployment manages moving the Pods from the old ReplicaSet to the new one at a controlled rate.
-   Each new ReplicaSet updates the revision of the Deployment.</li>
+  A new ReplicaSet is created and the Deployment manages moving the Pods from the old ReplicaSet to the new one at a controlled rate.
+  Each new ReplicaSet updates the revision of the Deployment.</li>
 <li>Rollback to an earlier Deployment revision if the current state of the Deployment is not stable.
-   Each rollback updates the revision of the Deployment.</li>
+  Each rollback updates the revision of the Deployment.</li>
 <li>Scale up the Deployment to facilitate more load.</li>
 <li>Pause the Deployment to apply multiple fixes to its PodTemplateSpec and then resume it to start a new rollout.</li>
 <li>Use the status of the Deployment as an indicator that a rollout has stuck.</li>
@@ -8660,8 +8660,8 @@ when they are no longer needed.</p>
 <li>When Memory usage is above 70%, scale up the number of replicas to meet the demand.</li>
 <li>When CPU usage is below 30%, scale down the number of replicas to save resources.</li>
 <li>When a service is experiencing a spike in traffic, scale up the number of replicas
-   to meet the demand. Then, when the traffic subsides, scale down the number of
-   replicas to save resources.</li>
+  to meet the demand. Then, when the traffic subsides, scale down the number of
+  replicas to save resources.</li>
 </ul>
 <p>The autoscaler uses the following algorithm to determine the number of replicas to scale:</p>
 <p><code>desiredReplicas = ceil[currentReplicas * ( currentMetricValue / desiredMetricValue )]</code></p>
@@ -9078,15 +9078,15 @@ not for cluster-wide objects (e.g. StorageClass, Nodes, PersistentVolumes, etc).
 <h3 id="networkpolicy">NetworkPolicy <a name="cdk8s-plus-30.NetworkPolicy"></a><a class="headerlink" href="#networkpolicy" title="Permanent link">&para;</a></h3>
 <p>Control traffic flow at the IP address or port level (OSI layer 3 or 4), network policies are an application-centric construct which allow you to specify how a pod is allowed to communicate with various network peers.</p>
 <p>Outgoing traffic is allowed if there are no network policies selecting
-   the pod (and cluster policy otherwise allows the traffic),
-   OR if the traffic matches at least one egress rule across all of the
-   network policies that select the pod.</p>
+  the pod (and cluster policy otherwise allows the traffic),
+  OR if the traffic matches at least one egress rule across all of the
+  network policies that select the pod.</p>
 <ul>
 <li>Incoming traffic is allowed to a pod if there are no network policies
-   selecting the pod (and cluster policy otherwise allows the traffic),
-   OR if the traffic source is the pod&rsquo;s local node,
-   OR if the traffic matches at least one ingress rule across all of
-   the network policies that select the pod.</li>
+  selecting the pod (and cluster policy otherwise allows the traffic),
+  OR if the traffic source is the pod&rsquo;s local node,
+  OR if the traffic matches at least one ingress rule across all of
+  the network policies that select the pod.</li>
 </ul>
 <p>Network policies do not conflict; they are additive.
 If any policy or policies apply to a given pod for a given
@@ -16503,7 +16503,7 @@ requires one.</p>
 <p>This option will fail if the service does not expose any ports.
 - If the service exposes multiple ports, this option must be specified.
 - If the service exposes a single port, this option is optional and if
-   specified, it must be the same port exposed by the service.</p>
+  specified, it must be the same port exposed by the service.</p>
 <hr />
 <h3 id="serviceport">ServicePort <a name="cdk8s-plus-30.ServicePort"></a><a class="headerlink" href="#serviceport" title="Permanent link">&para;</a></h3>
 <p>Definition of a service port.</p>
@@ -20688,7 +20688,7 @@ because the previous claimant&rsquo;s data remains on the volume.
 An administrator can manually reclaim the volume with the following steps:</p>
 <ol>
 <li>Delete the PersistentVolume. The associated storage asset in external
-    infrastructure (such as an AWS EBS, GCE PD, Azure Disk, or Cinder volume) still exists after the PV is deleted.</li>
+   infrastructure (such as an AWS EBS, GCE PD, Azure Disk, or Cinder volume) still exists after the PV is deleted.</li>
 <li>Manually clean up the data on the associated storage asset accordingly.</li>
 <li>Manually delete the associated storage asset.</li>
 </ol>
@@ -20823,7 +20823,7 @@ are automatically created.</p>
 <p>Pods that do not tolerate the taint are evicted immediately.
 - Pods that tolerate the taint without specifying <code>duration</code> remain bound forever.
 - Pods that tolerate the taint with a specified <code>duration</code> remain bound for
-   the specified amount of time.</p>
+  the specified amount of time.</p>
 <hr />
 
 
