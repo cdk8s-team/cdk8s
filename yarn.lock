@@ -4159,9 +4159,9 @@ is-ci@3.0.1:
     ci-info "^3.2.0"
 
 is-core-module@^2.13.0, is-core-module@^2.15.1, is-core-module@^2.16.0, is-core-module@^2.5.0:
-  version "2.16.0"
-  resolved "https://registry.yarnpkg.com/is-core-module/-/is-core-module-2.16.0.tgz#6c01ffdd5e33c49c1d2abfa93334a85cb56bd81c"
-  integrity sha512-urTSINYfAYgcbLb0yDQ6egFm6h3Mo1DcF9EkyXSRjjzdHbsulg01qhwWuXdOoUBuTkbQ80KDboXa0vFJ+BDH+g==
+  version "2.16.1"
+  resolved "https://registry.yarnpkg.com/is-core-module/-/is-core-module-2.16.1.tgz#2a98801a849f43e2add644fbb6bc6229b19a4ef4"
+  integrity sha512-UfoeMA6fIJ8wTYFEUjelnaGI67v6+N7qXJEvQuIGa99l4xsCruSYOVSQ0uPANn4dAzm8lkYPaKLrrijLq7x23w==
   dependencies:
     hasown "^2.0.2"
 
@@ -7692,9 +7692,9 @@ typescript@^4.9.5:
   integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
 
 typescript@next:
-  version "5.8.0-dev.20241221"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.8.0-dev.20241221.tgz#16edbf7631d48a5058843eb6844c0c4aaa104f24"
-  integrity sha512-K1z3tD4Ueb295sqFiI+uQcCpAzJabMJKHLugAh8X5IducThJ9u4ZJEfxfBx5CGoBPJIF89EAl61msuwSlS+MKQ==
+  version "5.8.0-dev.20241222"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.8.0-dev.20241222.tgz#a01f10d7cddb2cc3b7a46aaf92b5baa754bb1179"
+  integrity sha512-0LmynFBKqPM5ifRv3S5OlGJd9nAiDgQU1Tx3Kt1GbgCxATgeR2c4NiX5x1PqKlIKcB5R4inZcQm9YdUO1P6SXQ==
 
 typescript@~5.5:
   version "5.5.4"
