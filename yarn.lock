@@ -2149,10 +2149,10 @@ case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s-cli@^2.198.288:
-  version "2.198.288"
-  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.198.288.tgz#3e87d07a80e1ce7cb8511dd4cf6f2d7fa806dfa4"
-  integrity sha512-idkqAUlsz+FBmwJqI1lK3XGg4rEtj7W/uzlZpYcWisdOk+5pCtcU5V/lwp/dh8GL9o2SNgwVsni8FtnnBbv4WA==
+cdk8s-cli@^2.198.289:
+  version "2.198.289"
+  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.198.289.tgz#287f5bf14486406dcd1bb582bb2410600ca1148e"
+  integrity sha512-8tvwIxcdrHw2Rk1rGOjotKikbYlM2vLaprx9MPb+9hbimRutv2tlnfbRwBBKkhXz89NQJWoHpRi6UXeT2cQw8Q==
   dependencies:
     "@types/node" "^16"
     ajv "^8.17.1"
@@ -7684,9 +7684,9 @@ typescript@^4.9.5:
   integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
 
 typescript@next:
-  version "5.8.0-dev.20241226"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.8.0-dev.20241226.tgz#c8da564ae7a501ec2783f1ff44d961aba282a34a"
-  integrity sha512-iCURPPeEk/3s4iAKjDRXeu43qXtZy+EdsYSKkBIP2txhkLg78It2J9AOjJCfhiUNUIKuzgHC7P0tgtEI7p+xrw==
+  version "5.8.0-dev.20241227"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.8.0-dev.20241227.tgz#21e2292a9c58dde7976b401ef783cfccd0f68ff7"
+  integrity sha512-bE8kzViIOFzVMwx3NfOAiPgmiX1k7kYPNULBYZW+obKGr/Y+zU7FFOcqYloyipMAWmUOLpzP9z545DJWxOCX8Q==
 
 typescript@~5.5:
   version "5.5.4"
