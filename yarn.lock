@@ -3020,13 +3020,14 @@ es-object-atoms@^1.0.0:
     es-errors "^1.3.0"
 
 es-set-tostringtag@^2.0.3:
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/es-set-tostringtag/-/es-set-tostringtag-2.0.3.tgz#8bb60f0a440c2e4281962428438d58545af39777"
-  integrity sha512-3T8uNMC3OQTHkFUsFq8r/BwAXLHvU/9O9mE0fBc/MY5iq/8H7ncvO947LmYA6ldWw9Uh8Yhf25zu6n7nML5QWQ==
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/es-set-tostringtag/-/es-set-tostringtag-2.1.0.tgz#f31dbbe0c183b00a6d26eb6325c810c0fd18bd4d"
+  integrity sha512-j6vWzfrGVfyXxge+O0x5sh6cvxAog0a/4Rdd2K36zCMV5eJ+/+tOAngRO8cODMNWbVRdVlmGZQL2YS3yR8bIUA==
   dependencies:
-    get-intrinsic "^1.2.4"
+    es-errors "^1.3.0"
+    get-intrinsic "^1.2.6"
     has-tostringtag "^1.0.2"
-    hasown "^2.0.1"
+    hasown "^2.0.2"
 
 es-shim-unscopables@^1.0.2:
   version "1.0.2"
@@ -3859,7 +3860,7 @@ has-unicode@2.0.1:
   resolved "https://registry.yarnpkg.com/has-unicode/-/has-unicode-2.0.1.tgz#e0e6fe6a28cf51138855e086d1691e771de2a8b9"
   integrity sha512-8Rf9Y83NBReMnx0gFzA8JImQACstCYWUplepDa9xprwwtmgEZUF0h/i5xSA625zB/I37EtrswSST6OXxwaaIJQ==
 
-hasown@^2.0.0, hasown@^2.0.1, hasown@^2.0.2:
+hasown@^2.0.0, hasown@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/hasown/-/hasown-2.0.2.tgz#003eaf91be7adc372e84ec59dc37252cedb80003"
   integrity sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==
@@ -7703,9 +7704,9 @@ typescript@^4.9.5:
   integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
 
 typescript@next:
-  version "5.8.0-dev.20250101"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.8.0-dev.20250101.tgz#e6e62b41bf021f05dda8a64dcae7599e3688f3ce"
-  integrity sha512-a4tA7bccsnhaKh/I3GXm9GhQFgQ6q4HhmeyIW7FFXm2fPMEkwtf3OCSyM4dG/0Z02RW7nsQ4y+Oqfk6GEg9eBQ==
+  version "5.8.0-dev.20250102"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.8.0-dev.20250102.tgz#5294764733f9262e3019c9f13007f69178475f46"
+  integrity sha512-mAk1BsxOhBaX9d75V8rdScxbO+rfbNn9QoOAk+iehVVbKT1eKLqEQq1Jrk35UydwE53rz3Fl52mfELgQGJBvOg==
 
 typescript@~5.5:
   version "5.5.4"
