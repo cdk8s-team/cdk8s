@@ -3496,12 +3496,12 @@
 <li>
 <p>In your preferred code editor, open the <code>main.py</code> file. 
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
-<span class="kn">from</span> <span class="nn">constructs</span> <span class="kn">import</span> <span class="n">Construct</span>
-<span class="kn">from</span> <span class="nn">cdk8s</span> <span class="kn">import</span> <span class="n">App</span><span class="p">,</span> <span class="n">Chart</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">constructs</span><span class="w"> </span><span class="kn">import</span> <span class="n">Construct</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cdk8s</span><span class="w"> </span><span class="kn">import</span> <span class="n">App</span><span class="p">,</span> <span class="n">Chart</span>
 
 
-<span class="k">class</span> <span class="nc">MyChart</span><span class="p">(</span><span class="n">Chart</span><span class="p">):</span>
-   <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scope</span><span class="p">:</span> <span class="n">Construct</span><span class="p">,</span> <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MyChart</span><span class="p">(</span><span class="n">Chart</span><span class="p">):</span>
+   <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scope</span><span class="p">:</span> <span class="n">Construct</span><span class="p">,</span> <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span> <span class="nb">id</span><span class="p">)</span>
 
        <span class="c1"># define resources here</span>
@@ -3528,13 +3528,13 @@
 <ol>
 <li>Copy and paste the following code sample into the existing <code>main.py</code> file of your project.
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
-<span class="kn">from</span> <span class="nn">cdk8s</span> <span class="kn">import</span> <span class="n">App</span><span class="p">,</span> <span class="n">Chart</span>
-<span class="kn">from</span> <span class="nn">constructs</span> <span class="kn">import</span> <span class="n">Construct</span>
-<span class="kn">from</span> <span class="nn">imports</span> <span class="kn">import</span> <span class="n">k8s</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cdk8s</span><span class="w"> </span><span class="kn">import</span> <span class="n">App</span><span class="p">,</span> <span class="n">Chart</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">constructs</span><span class="w"> </span><span class="kn">import</span> <span class="n">Construct</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">imports</span><span class="w"> </span><span class="kn">import</span> <span class="n">k8s</span>
 
 
-<span class="k">class</span> <span class="nc">MyChart</span><span class="p">(</span><span class="n">Chart</span><span class="p">):</span>
-   <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scope</span><span class="p">:</span> <span class="n">Construct</span><span class="p">,</span> <span class="n">ns</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">app_label</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MyChart</span><span class="p">(</span><span class="n">Chart</span><span class="p">):</span>
+   <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scope</span><span class="p">:</span> <span class="n">Construct</span><span class="p">,</span> <span class="n">ns</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">app_label</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span> <span class="n">ns</span><span class="p">)</span>
 
        <span class="c1"># Define a Kubernetes Deployment</span>
