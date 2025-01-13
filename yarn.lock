@@ -1249,9 +1249,9 @@
     "@sinonjs/commons" "^1.7.0"
 
 "@stylistic/eslint-plugin@^2":
-  version "2.12.1"
-  resolved "https://registry.yarnpkg.com/@stylistic/eslint-plugin/-/eslint-plugin-2.12.1.tgz#e341beb4e4315084d8be20bceeeda7d8a46f079f"
-  integrity sha512-fubZKIHSPuo07FgRTn6S4Nl0uXPRPYVNpyZzIDGfp7Fny6JjNus6kReLD7NI380JXi4HtUTSOZ34LBuNPO1XLQ==
+  version "2.13.0"
+  resolved "https://registry.yarnpkg.com/@stylistic/eslint-plugin/-/eslint-plugin-2.13.0.tgz#53bf175dac8c1ec055b370a6ff77d491cae9a70d"
+  integrity sha512-RnO1SaiCFHn666wNz2QfZEFxvmiNRqhzaMXHXxXXKt+MEP7aajlPxUSMIQpKAaJfverpovEYqjBOXDq6dDcaOQ==
   dependencies:
     "@typescript-eslint/utils" "^8.13.0"
     eslint-visitor-keys "^4.2.0"
@@ -7732,9 +7732,9 @@ typescript@^4.9.5:
   integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
 
 typescript@next:
-  version "5.8.0-dev.20250112"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.8.0-dev.20250112.tgz#7cfbfdd272fc9c2e61951ccf2e56bee901d84e49"
-  integrity sha512-FnjhMHSSzZBHvmxnaX4ynpflLl6pKWDMCJmt9AgSr88DiM9VMXSpATL4E2S5ZDoTcCUXusTios8gNzpTkIL4Hg==
+  version "5.8.0-dev.20250113"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.8.0-dev.20250113.tgz#c85bdabe7739f8d09d5fa95edaefe7500daff8c0"
+  integrity sha512-P0/9dr0Rwfs+XMXz2OyX9rVUu84x0qKUlTMDytq5GentLY1ebkyOHQSxvVeU/7L3hzrLFvdM4tVnuQJme1Webw==
 
 typescript@~5.5:
   version "5.5.4"
