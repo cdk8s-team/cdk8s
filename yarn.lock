@@ -1565,9 +1565,9 @@
     eslint-visitor-keys "^4.2.0"
 
 "@xmldom/xmldom@^0.9.6":
-  version "0.9.6"
-  resolved "https://registry.yarnpkg.com/@xmldom/xmldom/-/xmldom-0.9.6.tgz#3eaefb585c1f920e06fb35e6dcb8d505445621c0"
-  integrity sha512-Su4xcxR0CPGwlDHNmVP09fqET9YxbyDXHaSob6JlBH7L6reTYaeim6zbk9o08UarO0L5GTRo3uzl0D+9lSxmvw==
+  version "0.9.7"
+  resolved "https://registry.yarnpkg.com/@xmldom/xmldom/-/xmldom-0.9.7.tgz#f21bebdcde4af682a810062b14585c89bb7fab07"
+  integrity sha512-syvR8iIJjpTZ/stv7l89UAViwGFh6lbheeOaqSxkYx9YNmIVvPTRH+CT/fpykFtUx5N+8eSMDRvggF9J8GEPzQ==
 
 "@yarnpkg/lockfile@^1.1.0":
   version "1.1.0"
@@ -3632,9 +3632,9 @@ get-symbol-description@^1.1.0:
     get-intrinsic "^1.2.6"
 
 get-tsconfig@^4.7.5:
-  version "4.8.1"
-  resolved "https://registry.yarnpkg.com/get-tsconfig/-/get-tsconfig-4.8.1.tgz#8995eb391ae6e1638d251118c7b56de7eb425471"
-  integrity sha512-k9PN+cFBmaLWtVz29SkUoqU5O0slLuHJXt/2P+tMVFT+phsSGXGkp9t3rQIqdz0e+06EHNGs3oM6ZX1s2zHxRg==
+  version "4.9.0"
+  resolved "https://registry.yarnpkg.com/get-tsconfig/-/get-tsconfig-4.9.0.tgz#704ae2ce2a94935921675dd19c05508b713a405d"
+  integrity sha512-52n24W52sIueosRe0XZ8Ex5Yle+WbhfCKnV/gWXpbVR8FXNTfqdKEKUSypKso66VRHTvvcQxL44UTZbJRlCTnw==
   dependencies:
     resolve-pkg-maps "^1.0.0"
 
@@ -7732,9 +7732,9 @@ typescript@^4.9.5:
   integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
 
 typescript@next:
-  version "5.8.0-dev.20250119"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.8.0-dev.20250119.tgz#6098bf6155a0bc3079bad5764396b65d783ced9a"
-  integrity sha512-ZEz73dloOQ74lJ22QhVcmjYsHvgz9JOrLO3XvXJDbVqcU7qAYSr0zxOxJSaB7FSCi2T4LnDS3IbfwIdyqXE6JA==
+  version "5.8.0-dev.20250120"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.8.0-dev.20250120.tgz#e30c0df79d6e22ced0682d48fa1b1dc420d285cb"
+  integrity sha512-hxQOiTq/ZM8CHmOCzmrvPOwRRkaI9Ua16MMOQAym2SVdPkBl5PYaGc3m9Bd27K0UIh9GmxP7dQMc1KpyHRk8FQ==
 
 typescript@~5.5:
   version "5.5.4"
