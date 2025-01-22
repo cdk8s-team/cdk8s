@@ -2150,10 +2150,10 @@ case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s-cli@^2.198.300:
-  version "2.198.300"
-  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.198.300.tgz#78bf73d7888f19d623674181495a910b64a3e0e7"
-  integrity sha512-msC3iT5XhtnaKrQ+pTYH/ZlXqRZdj73nvx+wd2v0/FLUXa2nwOlh1MvPQerZ3p9grr9174JrBO7vWHlOqZ//hA==
+cdk8s-cli@^2.198.301:
+  version "2.198.301"
+  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.198.301.tgz#f3c8a1622eb757ffd4815b660a06d5094544aac3"
+  integrity sha512-zobvLpzfZzdN5XZDevyaSqFsbOtHJIOIRVbwa7eaihRqGEIoxN+rPTasMPNF01EH2YG27fQh42s48ewrdpvsiA==
   dependencies:
     "@types/node" "^16"
     ajv "^8.17.1"
@@ -2180,24 +2180,24 @@ cdk8s-plus-28@^2.5.6:
   dependencies:
     minimatch "^3.1.2"
 
-cdk8s-plus-29@^2.5.17:
-  version "2.5.17"
-  resolved "https://registry.yarnpkg.com/cdk8s-plus-29/-/cdk8s-plus-29-2.5.17.tgz#bc0c444a9b30c8f378b3d7c0b57a74bafb7755ba"
-  integrity sha512-4c7+Oj89IrUJLYbEJnpE9wIWr8ryqd8sKEty7mwvZ0Rm9md/UkbD36G2GgMOsOdhEeSyCNd5wisKLW+K8UDNhA==
+cdk8s-plus-29@^2.5.18:
+  version "2.5.18"
+  resolved "https://registry.yarnpkg.com/cdk8s-plus-29/-/cdk8s-plus-29-2.5.18.tgz#b166dc639018e59deacdc298a3891c2a7272bdbd"
+  integrity sha512-IVzWIheDYB8K+x8rp5TVPrBhQYErYGPsrmR3xJUDaLAmy/P8EltHqkBo4MSV5NWE00i8RT8WkAhpIhqweIm1vA==
   dependencies:
     minimatch "^3.1.2"
 
-cdk8s-plus-30@^2.2.17:
-  version "2.2.17"
-  resolved "https://registry.yarnpkg.com/cdk8s-plus-30/-/cdk8s-plus-30-2.2.17.tgz#1c0cb749b927b1e60386748a8350e1cff6e808cc"
-  integrity sha512-cHxfXuFMHoZzrbLdiy1M1qHzmVDZQ01PHrqGtzqAs875s8simvK7XKW/k5YPV5rytHrwn4eu2ajhybOWpWWUUg==
+cdk8s-plus-30@^2.2.18:
+  version "2.2.18"
+  resolved "https://registry.yarnpkg.com/cdk8s-plus-30/-/cdk8s-plus-30-2.2.18.tgz#71e7ca0cb2d0767816e2c0704f2769e268d35780"
+  integrity sha512-FJLDoRk12Wcr0WusASi/lrprQ55pCsN9s+XxbtIDaChGsOVI6ZP88UI9PJ+H1Qa5HA3O/W3L3tkyiZB/D0lp9Q==
   dependencies:
     minimatch "^3.1.2"
 
-cdk8s-plus-31@^2.0.13:
-  version "2.0.13"
-  resolved "https://registry.yarnpkg.com/cdk8s-plus-31/-/cdk8s-plus-31-2.0.13.tgz#7b14072d5313952908480ea840920e13031598b4"
-  integrity sha512-13CUWZN+4u5Ozrp5RUn4dhkpaNhGwrZFkXHEp+lmKGQlsfCkF8zaMAolhEI2cdLAZObjTLBmOlY3lllci31zmQ==
+cdk8s-plus-31@^2.0.14:
+  version "2.0.14"
+  resolved "https://registry.yarnpkg.com/cdk8s-plus-31/-/cdk8s-plus-31-2.0.14.tgz#3284f141a7c8f09c9cd8953e4276965de0f9b1ba"
+  integrity sha512-+Px6swbEDTp+PTZSmsgttiXH40uwgbIN9xQ0HqexrswdBpqM3wpqkJwfggzN22nmkj/D6XcwFFAagtDN0O2oew==
   dependencies:
     minimatch "^3.1.2"
 
@@ -3632,9 +3632,9 @@ get-symbol-description@^1.1.0:
     get-intrinsic "^1.2.6"
 
 get-tsconfig@^4.7.5:
-  version "4.9.0"
-  resolved "https://registry.yarnpkg.com/get-tsconfig/-/get-tsconfig-4.9.0.tgz#704ae2ce2a94935921675dd19c05508b713a405d"
-  integrity sha512-52n24W52sIueosRe0XZ8Ex5Yle+WbhfCKnV/gWXpbVR8FXNTfqdKEKUSypKso66VRHTvvcQxL44UTZbJRlCTnw==
+  version "4.10.0"
+  resolved "https://registry.yarnpkg.com/get-tsconfig/-/get-tsconfig-4.10.0.tgz#403a682b373a823612475a4c2928c7326fc0f6bb"
+  integrity sha512-kGzZ3LWWQcGIAmg6iWvXn0ei6WDtV26wzHRMwDSzmAbcXrTEXxHy6IehI6/4eT6VRKyMP1eF1VqwrVUmE/LR7A==
   dependencies:
     resolve-pkg-maps "^1.0.0"
 
@@ -7732,9 +7732,9 @@ typescript@^4.9.5:
   integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
 
 typescript@next:
-  version "5.8.0-dev.20250121"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.8.0-dev.20250121.tgz#569b37c5e5b11cd85f6d79dfc32cfc2a126d3bcc"
-  integrity sha512-cRbtTDQVu4ZV28kEzT6EgGd1mT75C92i/5pFcQHVqa60S2HhbFbY+4Wpo0ebumER/YMoC63sfTzruaR2Z6kOJw==
+  version "5.8.0-dev.20250122"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.8.0-dev.20250122.tgz#020c945d2d3a4687873add3bcde182e08b812588"
+  integrity sha512-Wt+F8vxMslCurbAkQjXc8Fim5sp34W0QEPHaGp+WgfA9OI65F/8HKDg3Vlyj6JhybV7M1LNMtrA0UHLOSU4PKg==
 
 typescript@~5.5:
   version "5.5.4"
