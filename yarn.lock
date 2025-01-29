@@ -2146,19 +2146,19 @@ camelcase@^6.2.0, camelcase@^6.3.0:
   integrity sha512-Gmy6FhYlCY7uOElZUSbxo2UCDH8owEk996gkbrpsgGtrJLM3J7jGxl9Ic7Qwwj4ivOE5AWZWRMecDdF7hqGjFA==
 
 caniuse-lite@^1.0.30001688:
-  version "1.0.30001695"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001695.tgz#39dfedd8f94851132795fdf9b79d29659ad9c4d4"
-  integrity sha512-vHyLade6wTgI2u1ec3WQBxv+2BrTERV28UXQu9LO6lZ9pYeMk34vjXFLOxo1A4UBA8XTL4njRQZdno/yYaSmWw==
+  version "1.0.30001696"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001696.tgz#00c30a2fc11e3c98c25e5125418752af3ae2f49f"
+  integrity sha512-pDCPkvzfa39ehJtJ+OwGT/2yvT2SbjfHhiIW2LWOAcMQ7BzwxT/XuyUp4OTOd0XFWA6BKw0JalnBHgSi5DGJBQ==
 
 case@^1.6.3:
   version "1.6.3"
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s-cli@^2.198.307:
-  version "2.198.307"
-  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.198.307.tgz#61594614740232c4d8a834926ca5ee94d85b04e3"
-  integrity sha512-IBEKTYWaQ0cnn5ouACgmfmr/tX1VcIUJxJvkTzmz6k5lnjzezkPPYB1hRXmlGWYLC7Zrf755S0xQPBpau6j2mQ==
+cdk8s-cli@^2.198.308:
+  version "2.198.308"
+  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.198.308.tgz#ae92f224ecdfd825107d68d295a9caa3e481f7d6"
+  integrity sha512-kER+6dqwMmn3qkWr7/FKuGH/0r250QnXd+l9+zJiYanlrJdyrnXK9+5d58qNx85FmCet4i+s5Xbv4gcXc78Dcg==
   dependencies:
     "@types/node" "^16"
     ajv "^8.17.1"
@@ -2185,24 +2185,24 @@ cdk8s-plus-28@^2.5.6:
   dependencies:
     minimatch "^3.1.2"
 
-cdk8s-plus-29@^2.5.18:
-  version "2.5.18"
-  resolved "https://registry.yarnpkg.com/cdk8s-plus-29/-/cdk8s-plus-29-2.5.18.tgz#b166dc639018e59deacdc298a3891c2a7272bdbd"
-  integrity sha512-IVzWIheDYB8K+x8rp5TVPrBhQYErYGPsrmR3xJUDaLAmy/P8EltHqkBo4MSV5NWE00i8RT8WkAhpIhqweIm1vA==
+cdk8s-plus-29@^2.5.19:
+  version "2.5.19"
+  resolved "https://registry.yarnpkg.com/cdk8s-plus-29/-/cdk8s-plus-29-2.5.19.tgz#2e8bcc1492a7d6a9cae26447b1580935de761fc6"
+  integrity sha512-RR4rZ+41YLBfPeKqJt74Kk4UVagd4vMEMZd520t8t3CoryI72/+Lni3vkk/eGg7L4uqCk8DXmDYYWxuxgPG+XA==
   dependencies:
     minimatch "^3.1.2"
 
-cdk8s-plus-30@^2.2.18:
-  version "2.2.18"
-  resolved "https://registry.yarnpkg.com/cdk8s-plus-30/-/cdk8s-plus-30-2.2.18.tgz#71e7ca0cb2d0767816e2c0704f2769e268d35780"
-  integrity sha512-FJLDoRk12Wcr0WusASi/lrprQ55pCsN9s+XxbtIDaChGsOVI6ZP88UI9PJ+H1Qa5HA3O/W3L3tkyiZB/D0lp9Q==
+cdk8s-plus-30@^2.2.19:
+  version "2.2.19"
+  resolved "https://registry.yarnpkg.com/cdk8s-plus-30/-/cdk8s-plus-30-2.2.19.tgz#1ba628d59177942efccf07b013dce007f5ebc788"
+  integrity sha512-rtZytUzF5XLO0P/u9LXOBLEWzWR0esx0rrV+1x93w0B2SKTrh/ZyEZeoZVBmTTtKR5Mb/yUwRlhNLF0pExFGfQ==
   dependencies:
     minimatch "^3.1.2"
 
-cdk8s-plus-31@^2.0.14:
-  version "2.0.14"
-  resolved "https://registry.yarnpkg.com/cdk8s-plus-31/-/cdk8s-plus-31-2.0.14.tgz#3284f141a7c8f09c9cd8953e4276965de0f9b1ba"
-  integrity sha512-+Px6swbEDTp+PTZSmsgttiXH40uwgbIN9xQ0HqexrswdBpqM3wpqkJwfggzN22nmkj/D6XcwFFAagtDN0O2oew==
+cdk8s-plus-31@^2.0.15:
+  version "2.0.15"
+  resolved "https://registry.yarnpkg.com/cdk8s-plus-31/-/cdk8s-plus-31-2.0.15.tgz#7abf561f5c5922808ab90f31e97ceaf9b1816182"
+  integrity sha512-tIszSTWy+6kRZjOC7FvtEBksQf97FPIlHytgTTFXBR9kvqpQJp6b79EdpvRr2SNuAP0cCfRc1dfMyRzH6G8j3A==
   dependencies:
     minimatch "^3.1.2"
 
@@ -7738,9 +7738,9 @@ typescript@^4.9.5:
   integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
 
 typescript@next:
-  version "5.8.0-dev.20250128"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.8.0-dev.20250128.tgz#c59b177fa5dbc9a492268f44e857354c59c55c71"
-  integrity sha512-zxnu5BSmL1qbW+jJyVvkdvIHog6eBy84HKlTJQDV97fqrbPKlS5WJVGj/1xKlbBMA9lyqYsp/ijkuJbaq4mt2g==
+  version "5.8.0-dev.20250129"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.8.0-dev.20250129.tgz#73473644db6599f8e3caa4a2450e1430d0520230"
+  integrity sha512-02x0dvITiMrpFF7O55RqWGvOgeuv7HOUkUiObmiI0j+MuO7EJq++6wkRGRZW23FxZYB7vV6xlC+UC65nvYvmbQ==
 
 typescript@~5.5:
   version "5.5.4"
