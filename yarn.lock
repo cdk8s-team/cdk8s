@@ -266,10 +266,10 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@cdk8s/projen-common@^0.0.576":
-  version "0.0.576"
-  resolved "https://registry.yarnpkg.com/@cdk8s/projen-common/-/projen-common-0.0.576.tgz#c229e8286661959e7e855a6710d7acda30daa781"
-  integrity sha512-VgWjgjNQKHupCYSo/67J0PswwpLMYomHkoXB4uSGDfUfmBtfMb4/H9yOt/hPLv2m8IA9liw+TfC+51w6oqR5bQ==
+"@cdk8s/projen-common@^0.0.577":
+  version "0.0.577"
+  resolved "https://registry.yarnpkg.com/@cdk8s/projen-common/-/projen-common-0.0.577.tgz#decd3dad96eeb7f0660c4b055b731f95bb0c03d7"
+  integrity sha512-x8GEVtWONw81V/rmb0GwoZKflvq7MSp0MBT+zERhkIHhVggykJ99kxe/F18ph4mwyf8nUyYAa/QukNPWPHRiBA==
   dependencies:
     codemaker "^1.106.0"
     deepmerge "^4.3.1"
