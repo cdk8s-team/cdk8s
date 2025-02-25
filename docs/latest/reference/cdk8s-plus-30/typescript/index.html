@@ -7756,6 +7756,13 @@
 <li><em>Type:</em> <a href="#cdk8s-plus-30.PodSecurityContext"><code>cdk8s-plus-30.PodSecurityContext</code></a></li>
 </ul>
 <hr />
+<h5 id="shareprocessnamespacerequired"><code>shareProcessNamespace</code><sup>Required</sup> <a name="cdk8s-plus-30.AbstractPod.property.shareProcessNamespace"></a><a class="headerlink" href="#shareprocessnamespacerequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">shareProcessNamespace</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>boolean</code></li>
+</ul>
+<hr />
 <h5 id="volumesrequired"><code>volumes</code><sup>Required</sup> <a name="cdk8s-plus-30.AbstractPod.property.volumes"></a><a class="headerlink" href="#volumesrequired" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">volumes</span><span class="o">:</span><span class="w"> </span><span class="kt">Volume</span><span class="p">[];</span>
 </code></pre></div>
@@ -11203,6 +11210,18 @@ Account (for example, default).</p>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
 </blockquote>
 <hr />
+<h5 id="shareprocessnamespaceoptional"><code>shareProcessNamespace</code><sup>Optional</sup> <a name="cdk8s-plus-30.AbstractPodProps.property.shareProcessNamespace"></a><a class="headerlink" href="#shareprocessnamespaceoptional" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">shareProcessNamespace</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>When process namespace sharing is enabled, processes in a container are visible to all other containers in the same pod.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/tasks/configure-pod-container/share-process-namespace/</p>
+</blockquote>
+<hr />
 <h5 id="terminationgraceperiodoptional_1"><code>terminationGracePeriod</code><sup>Optional</sup> <a name="cdk8s-plus-30.AbstractPodProps.property.terminationGracePeriod"></a><a class="headerlink" href="#terminationgraceperiodoptional_1" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">terminationGracePeriod</span><span class="o">:</span><span class="w"> </span><span class="kt">Duration</span><span class="p">;</span>
 </code></pre></div>
@@ -12892,6 +12911,18 @@ Account (for example, default).</p>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
 </blockquote>
 <hr />
+<h5 id="shareprocessnamespaceoptional_1"><code>shareProcessNamespace</code><sup>Optional</sup> <a name="cdk8s-plus-30.CronJobProps.property.shareProcessNamespace"></a><a class="headerlink" href="#shareprocessnamespaceoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">shareProcessNamespace</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>When process namespace sharing is enabled, processes in a container are visible to all other containers in the same pod.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/tasks/configure-pod-container/share-process-namespace/</p>
+</blockquote>
+<hr />
 <h5 id="terminationgraceperiodoptional_2"><code>terminationGracePeriod</code><sup>Optional</sup> <a name="cdk8s-plus-30.CronJobProps.property.terminationGracePeriod"></a><a class="headerlink" href="#terminationgraceperiodoptional_2" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">terminationGracePeriod</span><span class="o">:</span><span class="w"> </span><span class="kt">Duration</span><span class="p">;</span>
 </code></pre></div>
@@ -13256,6 +13287,18 @@ Account (for example, default).</p>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
 </blockquote>
 <hr />
+<h5 id="shareprocessnamespaceoptional_2"><code>shareProcessNamespace</code><sup>Optional</sup> <a name="cdk8s-plus-30.DaemonSetProps.property.shareProcessNamespace"></a><a class="headerlink" href="#shareprocessnamespaceoptional_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">shareProcessNamespace</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>When process namespace sharing is enabled, processes in a container are visible to all other containers in the same pod.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/tasks/configure-pod-container/share-process-namespace/</p>
+</blockquote>
+<hr />
 <h5 id="terminationgraceperiodoptional_3"><code>terminationGracePeriod</code><sup>Optional</sup> <a name="cdk8s-plus-30.DaemonSetProps.property.terminationGracePeriod"></a><a class="headerlink" href="#terminationgraceperiodoptional_3" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">terminationGracePeriod</span><span class="o">:</span><span class="w"> </span><span class="kt">Duration</span><span class="p">;</span>
 </code></pre></div>
@@ -13501,6 +13544,18 @@ apiserver. When they do, they are authenticated as a particular Service
 Account (for example, default).</p>
 <blockquote>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
+</blockquote>
+<hr />
+<h5 id="shareprocessnamespaceoptional_3"><code>shareProcessNamespace</code><sup>Optional</sup> <a name="cdk8s-plus-30.DeploymentProps.property.shareProcessNamespace"></a><a class="headerlink" href="#shareprocessnamespaceoptional_3" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">shareProcessNamespace</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>When process namespace sharing is enabled, processes in a container are visible to all other containers in the same pod.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/tasks/configure-pod-container/share-process-namespace/</p>
 </blockquote>
 <hr />
 <h5 id="terminationgraceperiodoptional_4"><code>terminationGracePeriod</code><sup>Optional</sup> <a name="cdk8s-plus-30.DeploymentProps.property.terminationGracePeriod"></a><a class="headerlink" href="#terminationgraceperiodoptional_4" title="Permanent link">&para;</a></h5>
@@ -14694,6 +14749,18 @@ Account (for example, default).</p>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
 </blockquote>
 <hr />
+<h5 id="shareprocessnamespaceoptional_4"><code>shareProcessNamespace</code><sup>Optional</sup> <a name="cdk8s-plus-30.JobProps.property.shareProcessNamespace"></a><a class="headerlink" href="#shareprocessnamespaceoptional_4" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">shareProcessNamespace</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>When process namespace sharing is enabled, processes in a container are visible to all other containers in the same pod.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/tasks/configure-pod-container/share-process-namespace/</p>
+</blockquote>
+<hr />
 <h5 id="terminationgraceperiodoptional_5"><code>terminationGracePeriod</code><sup>Optional</sup> <a name="cdk8s-plus-30.JobProps.property.terminationGracePeriod"></a><a class="headerlink" href="#terminationgraceperiodoptional_5" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">terminationGracePeriod</span><span class="o">:</span><span class="w"> </span><span class="kt">Duration</span><span class="p">;</span>
 </code></pre></div>
@@ -15826,6 +15893,18 @@ apiserver. When they do, they are authenticated as a particular Service
 Account (for example, default).</p>
 <blockquote>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
+</blockquote>
+<hr />
+<h5 id="shareprocessnamespaceoptional_5"><code>shareProcessNamespace</code><sup>Optional</sup> <a name="cdk8s-plus-30.PodProps.property.shareProcessNamespace"></a><a class="headerlink" href="#shareprocessnamespaceoptional_5" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">shareProcessNamespace</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>When process namespace sharing is enabled, processes in a container are visible to all other containers in the same pod.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/tasks/configure-pod-container/share-process-namespace/</p>
 </blockquote>
 <hr />
 <h5 id="terminationgraceperiodoptional_6"><code>terminationGracePeriod</code><sup>Optional</sup> <a name="cdk8s-plus-30.PodProps.property.terminationGracePeriod"></a><a class="headerlink" href="#terminationgraceperiodoptional_6" title="Permanent link">&para;</a></h5>
@@ -16972,6 +17051,18 @@ Account (for example, default).</p>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
 </blockquote>
 <hr />
+<h5 id="shareprocessnamespaceoptional_6"><code>shareProcessNamespace</code><sup>Optional</sup> <a name="cdk8s-plus-30.StatefulSetProps.property.shareProcessNamespace"></a><a class="headerlink" href="#shareprocessnamespaceoptional_6" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">shareProcessNamespace</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>When process namespace sharing is enabled, processes in a container are visible to all other containers in the same pod.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/tasks/configure-pod-container/share-process-namespace/</p>
+</blockquote>
+<hr />
 <h5 id="terminationgraceperiodoptional_7"><code>terminationGracePeriod</code><sup>Optional</sup> <a name="cdk8s-plus-30.StatefulSetProps.property.terminationGracePeriod"></a><a class="headerlink" href="#terminationgraceperiodoptional_7" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">terminationGracePeriod</span><span class="o">:</span><span class="w"> </span><span class="kt">Duration</span><span class="p">;</span>
 </code></pre></div>
@@ -17507,6 +17598,18 @@ apiserver. When they do, they are authenticated as a particular Service
 Account (for example, default).</p>
 <blockquote>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
+</blockquote>
+<hr />
+<h5 id="shareprocessnamespaceoptional_7"><code>shareProcessNamespace</code><sup>Optional</sup> <a name="cdk8s-plus-30.WorkloadProps.property.shareProcessNamespace"></a><a class="headerlink" href="#shareprocessnamespaceoptional_7" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">shareProcessNamespace</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>When process namespace sharing is enabled, processes in a container are visible to all other containers in the same pod.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/tasks/configure-pod-container/share-process-namespace/</p>
 </blockquote>
 <hr />
 <h5 id="terminationgraceperiodoptional_8"><code>terminationGracePeriod</code><sup>Optional</sup> <a name="cdk8s-plus-30.WorkloadProps.property.terminationGracePeriod"></a><a class="headerlink" href="#terminationgraceperiodoptional_8" title="Permanent link">&para;</a></h5>

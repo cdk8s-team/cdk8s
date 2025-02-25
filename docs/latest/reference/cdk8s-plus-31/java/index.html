@@ -7649,6 +7649,7 @@
 <span class="c1">//  .restartPolicy(RestartPolicy)</span>
 <span class="c1">//  .securityContext(PodSecurityContextProps)</span>
 <span class="c1">//  .serviceAccount(IServiceAccount)</span>
+<span class="c1">//  .shareProcessNamespace(java.lang.Boolean)</span>
 <span class="c1">//  .terminationGracePeriod(Duration)</span>
 <span class="c1">//  .volumes(java.util.List&lt;Volume&gt;)</span>
 <span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
@@ -7781,6 +7782,16 @@ Account (for example, default).</p>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
 </blockquote>
 <hr />
+<h5 id="shareprocessnamespaceoptional"><code>shareProcessNamespace</code><sup>Optional</sup> <a name="org.cdk8s.plus31.AbstractPodProps.parameter.shareProcessNamespace"></a><a class="headerlink" href="#shareprocessnamespaceoptional" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>When process namespace sharing is enabled, processes in a container are visible to all other containers in the same pod.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/tasks/configure-pod-container/share-process-namespace/</p>
+</blockquote>
+<hr />
 <h5 id="terminationgraceperiodoptional"><code>terminationGracePeriod</code><sup>Optional</sup> <a name="org.cdk8s.plus31.AbstractPodProps.parameter.terminationGracePeriod"></a><a class="headerlink" href="#terminationgraceperiodoptional" title="Permanent link">&para;</a></h5>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.Duration"><code>org.cdk8s.Duration</code></a></li>
@@ -7900,6 +7911,13 @@ Account (for example, default).</p>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus31.PodSecurityContext"><code>org.cdk8s.plus31.PodSecurityContext</code></a></li>
+</ul>
+<hr />
+<h5 id="shareprocessnamespacerequired"><code>shareProcessNamespace</code><sup>Required</sup> <a name="org.cdk8s.plus31.AbstractPod.property.shareProcessNamespace"></a><a class="headerlink" href="#shareprocessnamespacerequired" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span><span class="w"> </span><span class="nf">getShareProcessNamespace</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
 </ul>
 <hr />
 <h5 id="volumesrequired"><code>volumes</code><sup>Required</sup> <a name="org.cdk8s.plus31.AbstractPod.property.volumes"></a><a class="headerlink" href="#volumesrequired" title="Permanent link">&para;</a></h5>
@@ -8866,6 +8884,7 @@ is enforced during validation process.</p>
 <span class="c1">//  .restartPolicy(RestartPolicy)</span>
 <span class="c1">//  .securityContext(PodSecurityContextProps)</span>
 <span class="c1">//  .serviceAccount(IServiceAccount)</span>
+<span class="c1">//  .shareProcessNamespace(java.lang.Boolean)</span>
 <span class="c1">//  .terminationGracePeriod(Duration)</span>
 <span class="c1">//  .volumes(java.util.List&lt;Volume&gt;)</span>
 <span class="c1">//  .podMetadata(ApiObjectMetadata)</span>
@@ -9009,6 +9028,16 @@ apiserver. When they do, they are authenticated as a particular Service
 Account (for example, default).</p>
 <blockquote>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
+</blockquote>
+<hr />
+<h5 id="shareprocessnamespaceoptional_1"><code>shareProcessNamespace</code><sup>Optional</sup> <a name="org.cdk8s.plus31.CronJobProps.parameter.shareProcessNamespace"></a><a class="headerlink" href="#shareprocessnamespaceoptional_1" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>When process namespace sharing is enabled, processes in a container are visible to all other containers in the same pod.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/tasks/configure-pod-container/share-process-namespace/</p>
 </blockquote>
 <hr />
 <h5 id="terminationgraceperiodoptional_2"><code>terminationGracePeriod</code><sup>Optional</sup> <a name="org.cdk8s.plus31.CronJobProps.parameter.terminationGracePeriod"></a><a class="headerlink" href="#terminationgraceperiodoptional_2" title="Permanent link">&para;</a></h5>
@@ -9246,6 +9275,7 @@ but with different flags and/or different memory and cpu requests for different 
 <span class="c1">//  .restartPolicy(RestartPolicy)</span>
 <span class="c1">//  .securityContext(PodSecurityContextProps)</span>
 <span class="c1">//  .serviceAccount(IServiceAccount)</span>
+<span class="c1">//  .shareProcessNamespace(java.lang.Boolean)</span>
 <span class="c1">//  .terminationGracePeriod(Duration)</span>
 <span class="c1">//  .volumes(java.util.List&lt;Volume&gt;)</span>
 <span class="c1">//  .podMetadata(ApiObjectMetadata)</span>
@@ -9382,6 +9412,16 @@ Account (for example, default).</p>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
 </blockquote>
 <hr />
+<h5 id="shareprocessnamespaceoptional_2"><code>shareProcessNamespace</code><sup>Optional</sup> <a name="org.cdk8s.plus31.DaemonSetProps.parameter.shareProcessNamespace"></a><a class="headerlink" href="#shareprocessnamespaceoptional_2" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>When process namespace sharing is enabled, processes in a container are visible to all other containers in the same pod.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/tasks/configure-pod-container/share-process-namespace/</p>
+</blockquote>
+<hr />
 <h5 id="terminationgraceperiodoptional_3"><code>terminationGracePeriod</code><sup>Optional</sup> <a name="org.cdk8s.plus31.DaemonSetProps.parameter.terminationGracePeriod"></a><a class="headerlink" href="#terminationgraceperiodoptional_3" title="Permanent link">&para;</a></h5>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.Duration"><code>org.cdk8s.Duration</code></a></li>
@@ -9490,6 +9530,7 @@ existing Deployments and adopt all their resources with new Deployments.</p>
 <span class="c1">//  .restartPolicy(RestartPolicy)</span>
 <span class="c1">//  .securityContext(PodSecurityContextProps)</span>
 <span class="c1">//  .serviceAccount(IServiceAccount)</span>
+<span class="c1">//  .shareProcessNamespace(java.lang.Boolean)</span>
 <span class="c1">//  .terminationGracePeriod(Duration)</span>
 <span class="c1">//  .volumes(java.util.List&lt;Volume&gt;)</span>
 <span class="c1">//  .podMetadata(ApiObjectMetadata)</span>
@@ -9627,6 +9668,16 @@ apiserver. When they do, they are authenticated as a particular Service
 Account (for example, default).</p>
 <blockquote>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
+</blockquote>
+<hr />
+<h5 id="shareprocessnamespaceoptional_3"><code>shareProcessNamespace</code><sup>Optional</sup> <a name="org.cdk8s.plus31.DeploymentProps.parameter.shareProcessNamespace"></a><a class="headerlink" href="#shareprocessnamespaceoptional_3" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>When process namespace sharing is enabled, processes in a container are visible to all other containers in the same pod.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/tasks/configure-pod-container/share-process-namespace/</p>
 </blockquote>
 <hr />
 <h5 id="terminationgraceperiodoptional_4"><code>terminationGracePeriod</code><sup>Optional</sup> <a name="org.cdk8s.plus31.DeploymentProps.parameter.terminationGracePeriod"></a><a class="headerlink" href="#terminationgraceperiodoptional_4" title="Permanent link">&para;</a></h5>
@@ -10429,6 +10480,7 @@ You can also use a Job to run multiple Pods in parallel.</p>
 <span class="c1">//  .restartPolicy(RestartPolicy)</span>
 <span class="c1">//  .securityContext(PodSecurityContextProps)</span>
 <span class="c1">//  .serviceAccount(IServiceAccount)</span>
+<span class="c1">//  .shareProcessNamespace(java.lang.Boolean)</span>
 <span class="c1">//  .terminationGracePeriod(Duration)</span>
 <span class="c1">//  .volumes(java.util.List&lt;Volume&gt;)</span>
 <span class="c1">//  .podMetadata(ApiObjectMetadata)</span>
@@ -10565,6 +10617,16 @@ apiserver. When they do, they are authenticated as a particular Service
 Account (for example, default).</p>
 <blockquote>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
+</blockquote>
+<hr />
+<h5 id="shareprocessnamespaceoptional_4"><code>shareProcessNamespace</code><sup>Optional</sup> <a name="org.cdk8s.plus31.JobProps.parameter.shareProcessNamespace"></a><a class="headerlink" href="#shareprocessnamespaceoptional_4" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>When process namespace sharing is enabled, processes in a container are visible to all other containers in the same pod.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/tasks/configure-pod-container/share-process-namespace/</p>
 </blockquote>
 <hr />
 <h5 id="terminationgraceperiodoptional_5"><code>terminationGracePeriod</code><sup>Optional</sup> <a name="org.cdk8s.plus31.JobProps.parameter.terminationGracePeriod"></a><a class="headerlink" href="#terminationgraceperiodoptional_5" title="Permanent link">&para;</a></h5>
@@ -11451,6 +11513,7 @@ created by clients and scheduled onto hosts.</p>
 <span class="c1">//  .restartPolicy(RestartPolicy)</span>
 <span class="c1">//  .securityContext(PodSecurityContextProps)</span>
 <span class="c1">//  .serviceAccount(IServiceAccount)</span>
+<span class="c1">//  .shareProcessNamespace(java.lang.Boolean)</span>
 <span class="c1">//  .terminationGracePeriod(Duration)</span>
 <span class="c1">//  .volumes(java.util.List&lt;Volume&gt;)</span>
 <span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
@@ -11581,6 +11644,16 @@ apiserver. When they do, they are authenticated as a particular Service
 Account (for example, default).</p>
 <blockquote>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
+</blockquote>
+<hr />
+<h5 id="shareprocessnamespaceoptional_5"><code>shareProcessNamespace</code><sup>Optional</sup> <a name="org.cdk8s.plus31.PodProps.parameter.shareProcessNamespace"></a><a class="headerlink" href="#shareprocessnamespaceoptional_5" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>When process namespace sharing is enabled, processes in a container are visible to all other containers in the same pod.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/tasks/configure-pod-container/share-process-namespace/</p>
 </blockquote>
 <hr />
 <h5 id="terminationgraceperiodoptional_6"><code>terminationGracePeriod</code><sup>Optional</sup> <a name="org.cdk8s.plus31.PodProps.parameter.terminationGracePeriod"></a><a class="headerlink" href="#terminationgraceperiodoptional_6" title="Permanent link">&para;</a></h5>
@@ -12699,6 +12772,7 @@ volumes to the new Pods that replace any that have failed.</p>
 <span class="c1">//  .restartPolicy(RestartPolicy)</span>
 <span class="c1">//  .securityContext(PodSecurityContextProps)</span>
 <span class="c1">//  .serviceAccount(IServiceAccount)</span>
+<span class="c1">//  .shareProcessNamespace(java.lang.Boolean)</span>
 <span class="c1">//  .terminationGracePeriod(Duration)</span>
 <span class="c1">//  .volumes(java.util.List&lt;Volume&gt;)</span>
 <span class="c1">//  .podMetadata(ApiObjectMetadata)</span>
@@ -12837,6 +12911,16 @@ apiserver. When they do, they are authenticated as a particular Service
 Account (for example, default).</p>
 <blockquote>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
+</blockquote>
+<hr />
+<h5 id="shareprocessnamespaceoptional_6"><code>shareProcessNamespace</code><sup>Optional</sup> <a name="org.cdk8s.plus31.StatefulSetProps.parameter.shareProcessNamespace"></a><a class="headerlink" href="#shareprocessnamespaceoptional_6" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>When process namespace sharing is enabled, processes in a container are visible to all other containers in the same pod.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/tasks/configure-pod-container/share-process-namespace/</p>
 </blockquote>
 <hr />
 <h5 id="terminationgraceperiodoptional_7"><code>terminationGracePeriod</code><sup>Optional</sup> <a name="org.cdk8s.plus31.StatefulSetProps.parameter.terminationGracePeriod"></a><a class="headerlink" href="#terminationgraceperiodoptional_7" title="Permanent link">&para;</a></h5>
@@ -13421,6 +13505,7 @@ In Kubernetes, a Pod represents a set of running containers on your cluster.</p>
 <span class="c1">//  .restartPolicy(RestartPolicy)</span>
 <span class="c1">//  .securityContext(PodSecurityContextProps)</span>
 <span class="c1">//  .serviceAccount(IServiceAccount)</span>
+<span class="c1">//  .shareProcessNamespace(java.lang.Boolean)</span>
 <span class="c1">//  .terminationGracePeriod(Duration)</span>
 <span class="c1">//  .volumes(java.util.List&lt;Volume&gt;)</span>
 <span class="c1">//  .podMetadata(ApiObjectMetadata)</span>
@@ -13556,6 +13641,16 @@ Account (for example, default).</p>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
 </blockquote>
 <hr />
+<h5 id="shareprocessnamespaceoptional_7"><code>shareProcessNamespace</code><sup>Optional</sup> <a name="org.cdk8s.plus31.WorkloadProps.parameter.shareProcessNamespace"></a><a class="headerlink" href="#shareprocessnamespaceoptional_7" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>When process namespace sharing is enabled, processes in a container are visible to all other containers in the same pod.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/tasks/configure-pod-container/share-process-namespace/</p>
+</blockquote>
+<hr />
 <h5 id="terminationgraceperiodoptional_8"><code>terminationGracePeriod</code><sup>Optional</sup> <a name="org.cdk8s.plus31.WorkloadProps.parameter.terminationGracePeriod"></a><a class="headerlink" href="#terminationgraceperiodoptional_8" title="Permanent link">&para;</a></h5>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.Duration"><code>org.cdk8s.Duration</code></a></li>
@@ -13668,6 +13763,7 @@ its pod template.</p>
 <span class="c1">//  .restartPolicy(RestartPolicy)</span>
 <span class="c1">//  .securityContext(PodSecurityContextProps)</span>
 <span class="c1">//  .serviceAccount(IServiceAccount)</span>
+<span class="c1">//  .shareProcessNamespace(java.lang.Boolean)</span>
 <span class="c1">//  .terminationGracePeriod(Duration)</span>
 <span class="c1">//  .volumes(java.util.List&lt;Volume&gt;)</span>
 <span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
@@ -13812,6 +13908,18 @@ apiserver. When they do, they are authenticated as a particular Service
 Account (for example, default).</p>
 <blockquote>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
+</blockquote>
+<hr />
+<h5 id="shareprocessnamespaceoptional_8"><code>shareProcessNamespace</code><sup>Optional</sup> <a name="org.cdk8s.plus31.AbstractPodProps.property.shareProcessNamespace"></a><a class="headerlink" href="#shareprocessnamespaceoptional_8" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span><span class="w"> </span><span class="nf">getShareProcessNamespace</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>When process namespace sharing is enabled, processes in a container are visible to all other containers in the same pod.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/tasks/configure-pod-container/share-process-namespace/</p>
 </blockquote>
 <hr />
 <h5 id="terminationgraceperiodoptional_9"><code>terminationGracePeriod</code><sup>Optional</sup> <a name="org.cdk8s.plus31.AbstractPodProps.property.terminationGracePeriod"></a><a class="headerlink" href="#terminationgraceperiodoptional_9" title="Permanent link">&para;</a></h5>
@@ -14721,7 +14829,7 @@ file mode, like fsGroup, and the result can be other mode bits set.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">PathMapping</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getItems</span><span class="p">();</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus31.PathMapping">klzzwxh:12741</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus31.PathMapping">klzzwxh:12847</a>></li>
 <li><em>Default:</em> no mapping</li>
 </ul>
 <p>If unspecified, each key-value pair in the Data field of the referenced ConfigMap will be projected into the volume as a file whose name is the key and content is the value.</p>
@@ -14860,7 +14968,7 @@ with a duplicate key will take precedence.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">EnvValue</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getEnvVariables</span><span class="p">();</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus31.EnvValue">klzzwxh:12712</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus31.EnvValue">klzzwxh:12818</a>></li>
 <li><em>Default:</em> No environment variables.</li>
 </ul>
 <p>Environment variables to set in the container.</p>
@@ -15159,7 +15267,7 @@ with a duplicate key will take precedence.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">EnvValue</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getEnvVariables</span><span class="p">();</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus31.EnvValue">klzzwxh:12629</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus31.EnvValue">klzzwxh:12735</a>></li>
 <li><em>Default:</em> No environment variables.</li>
 </ul>
 <p>Environment variables to set in the container.</p>
@@ -15524,6 +15632,7 @@ somehow it manages to get access to host file system.</li>
 <span class="c1">//  .restartPolicy(RestartPolicy)</span>
 <span class="c1">//  .securityContext(PodSecurityContextProps)</span>
 <span class="c1">//  .serviceAccount(IServiceAccount)</span>
+<span class="c1">//  .shareProcessNamespace(java.lang.Boolean)</span>
 <span class="c1">//  .terminationGracePeriod(Duration)</span>
 <span class="c1">//  .volumes(java.util.List&lt;Volume&gt;)</span>
 <span class="c1">//  .podMetadata(ApiObjectMetadata)</span>
@@ -15681,6 +15790,18 @@ apiserver. When they do, they are authenticated as a particular Service
 Account (for example, default).</p>
 <blockquote>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
+</blockquote>
+<hr />
+<h5 id="shareprocessnamespaceoptional_9"><code>shareProcessNamespace</code><sup>Optional</sup> <a name="org.cdk8s.plus31.CronJobProps.property.shareProcessNamespace"></a><a class="headerlink" href="#shareprocessnamespaceoptional_9" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span><span class="w"> </span><span class="nf">getShareProcessNamespace</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>When process namespace sharing is enabled, processes in a container are visible to all other containers in the same pod.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/tasks/configure-pod-container/share-process-namespace/</p>
 </blockquote>
 <hr />
 <h5 id="terminationgraceperiodoptional_10"><code>terminationGracePeriod</code><sup>Optional</sup> <a name="org.cdk8s.plus31.CronJobProps.property.terminationGracePeriod"></a><a class="headerlink" href="#terminationgraceperiodoptional_10" title="Permanent link">&para;</a></h5>
@@ -15921,6 +16042,7 @@ determine the default filesystem to apply.</p>
 <span class="c1">//  .restartPolicy(RestartPolicy)</span>
 <span class="c1">//  .securityContext(PodSecurityContextProps)</span>
 <span class="c1">//  .serviceAccount(IServiceAccount)</span>
+<span class="c1">//  .shareProcessNamespace(java.lang.Boolean)</span>
 <span class="c1">//  .terminationGracePeriod(Duration)</span>
 <span class="c1">//  .volumes(java.util.List&lt;Volume&gt;)</span>
 <span class="c1">//  .podMetadata(ApiObjectMetadata)</span>
@@ -16071,6 +16193,18 @@ Account (for example, default).</p>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
 </blockquote>
 <hr />
+<h5 id="shareprocessnamespaceoptional_10"><code>shareProcessNamespace</code><sup>Optional</sup> <a name="org.cdk8s.plus31.DaemonSetProps.property.shareProcessNamespace"></a><a class="headerlink" href="#shareprocessnamespaceoptional_10" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span><span class="w"> </span><span class="nf">getShareProcessNamespace</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>When process namespace sharing is enabled, processes in a container are visible to all other containers in the same pod.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/tasks/configure-pod-container/share-process-namespace/</p>
+</blockquote>
+<hr />
 <h5 id="terminationgraceperiodoptional_11"><code>terminationGracePeriod</code><sup>Optional</sup> <a name="org.cdk8s.plus31.DaemonSetProps.property.terminationGracePeriod"></a><a class="headerlink" href="#terminationgraceperiodoptional_11" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">Duration</span><span class="w"> </span><span class="nf">getTerminationGracePeriod</span><span class="p">();</span>
 </code></pre></div>
@@ -16191,6 +16325,7 @@ you must explicitly set a name starting from the second expose call.</p>
 <span class="c1">//  .restartPolicy(RestartPolicy)</span>
 <span class="c1">//  .securityContext(PodSecurityContextProps)</span>
 <span class="c1">//  .serviceAccount(IServiceAccount)</span>
+<span class="c1">//  .shareProcessNamespace(java.lang.Boolean)</span>
 <span class="c1">//  .terminationGracePeriod(Duration)</span>
 <span class="c1">//  .volumes(java.util.List&lt;Volume&gt;)</span>
 <span class="c1">//  .podMetadata(ApiObjectMetadata)</span>
@@ -16342,6 +16477,18 @@ apiserver. When they do, they are authenticated as a particular Service
 Account (for example, default).</p>
 <blockquote>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
+</blockquote>
+<hr />
+<h5 id="shareprocessnamespaceoptional_11"><code>shareProcessNamespace</code><sup>Optional</sup> <a name="org.cdk8s.plus31.DeploymentProps.property.shareProcessNamespace"></a><a class="headerlink" href="#shareprocessnamespaceoptional_11" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span><span class="w"> </span><span class="nf">getShareProcessNamespace</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>When process namespace sharing is enabled, processes in a container are visible to all other containers in the same pod.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/tasks/configure-pod-container/share-process-namespace/</p>
 </blockquote>
 <hr />
 <h5 id="terminationgraceperiodoptional_12"><code>terminationGracePeriod</code><sup>Optional</sup> <a name="org.cdk8s.plus31.DeploymentProps.property.terminationGracePeriod"></a><a class="headerlink" href="#terminationgraceperiodoptional_12" title="Permanent link">&para;</a></h5>
@@ -17505,6 +17652,7 @@ termination and value of the Host header is used for routing.</p>
 <span class="c1">//  .restartPolicy(RestartPolicy)</span>
 <span class="c1">//  .securityContext(PodSecurityContextProps)</span>
 <span class="c1">//  .serviceAccount(IServiceAccount)</span>
+<span class="c1">//  .shareProcessNamespace(java.lang.Boolean)</span>
 <span class="c1">//  .terminationGracePeriod(Duration)</span>
 <span class="c1">//  .volumes(java.util.List&lt;Volume&gt;)</span>
 <span class="c1">//  .podMetadata(ApiObjectMetadata)</span>
@@ -17655,6 +17803,18 @@ apiserver. When they do, they are authenticated as a particular Service
 Account (for example, default).</p>
 <blockquote>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
+</blockquote>
+<hr />
+<h5 id="shareprocessnamespaceoptional_12"><code>shareProcessNamespace</code><sup>Optional</sup> <a name="org.cdk8s.plus31.JobProps.property.shareProcessNamespace"></a><a class="headerlink" href="#shareprocessnamespaceoptional_12" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span><span class="w"> </span><span class="nf">getShareProcessNamespace</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>When process namespace sharing is enabled, processes in a container are visible to all other containers in the same pod.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/tasks/configure-pod-container/share-process-namespace/</p>
 </blockquote>
 <hr />
 <h5 id="terminationgraceperiodoptional_13"><code>terminationGracePeriod</code><sup>Optional</sup> <a name="org.cdk8s.plus31.JobProps.property.terminationGracePeriod"></a><a class="headerlink" href="#terminationgraceperiodoptional_13" title="Permanent link">&para;</a></h5>
@@ -18761,6 +18921,7 @@ Duplicate domain names are removed.</p>
 <span class="c1">//  .restartPolicy(RestartPolicy)</span>
 <span class="c1">//  .securityContext(PodSecurityContextProps)</span>
 <span class="c1">//  .serviceAccount(IServiceAccount)</span>
+<span class="c1">//  .shareProcessNamespace(java.lang.Boolean)</span>
 <span class="c1">//  .terminationGracePeriod(Duration)</span>
 <span class="c1">//  .volumes(java.util.List&lt;Volume&gt;)</span>
 <span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
@@ -18905,6 +19066,18 @@ apiserver. When they do, they are authenticated as a particular Service
 Account (for example, default).</p>
 <blockquote>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
+</blockquote>
+<hr />
+<h5 id="shareprocessnamespaceoptional_13"><code>shareProcessNamespace</code><sup>Optional</sup> <a name="org.cdk8s.plus31.PodProps.property.shareProcessNamespace"></a><a class="headerlink" href="#shareprocessnamespaceoptional_13" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span><span class="w"> </span><span class="nf">getShareProcessNamespace</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>When process namespace sharing is enabled, processes in a container are visible to all other containers in the same pod.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/tasks/configure-pod-container/share-process-namespace/</p>
 </blockquote>
 <hr />
 <h5 id="terminationgraceperiodoptional_14"><code>terminationGracePeriod</code><sup>Optional</sup> <a name="org.cdk8s.plus31.PodProps.property.terminationGracePeriod"></a><a class="headerlink" href="#terminationgraceperiodoptional_14" title="Permanent link">&para;</a></h5>
@@ -19592,7 +19765,7 @@ file mode, like fsGroup, and the result can be other mode bits set.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">PathMapping</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getItems</span><span class="p">();</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus31.PathMapping">klzzwxh:11507</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus31.PathMapping">klzzwxh:11598</a>></li>
 <li><em>Default:</em> no mapping</li>
 </ul>
 <p>If unspecified, each key-value pair in the Data field of the referenced secret will be projected into the volume as a file whose name is the key and content is the value.</p>
@@ -20027,6 +20200,7 @@ its endpoints, which Kubernetes will not modify.</li>
 <span class="c1">//  .restartPolicy(RestartPolicy)</span>
 <span class="c1">//  .securityContext(PodSecurityContextProps)</span>
 <span class="c1">//  .serviceAccount(IServiceAccount)</span>
+<span class="c1">//  .shareProcessNamespace(java.lang.Boolean)</span>
 <span class="c1">//  .terminationGracePeriod(Duration)</span>
 <span class="c1">//  .volumes(java.util.List&lt;Volume&gt;)</span>
 <span class="c1">//  .podMetadata(ApiObjectMetadata)</span>
@@ -20179,6 +20353,18 @@ apiserver. When they do, they are authenticated as a particular Service
 Account (for example, default).</p>
 <blockquote>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
+</blockquote>
+<hr />
+<h5 id="shareprocessnamespaceoptional_14"><code>shareProcessNamespace</code><sup>Optional</sup> <a name="org.cdk8s.plus31.StatefulSetProps.property.shareProcessNamespace"></a><a class="headerlink" href="#shareprocessnamespaceoptional_14" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span><span class="w"> </span><span class="nf">getShareProcessNamespace</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>When process namespace sharing is enabled, processes in a container are visible to all other containers in the same pod.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/tasks/configure-pod-container/share-process-namespace/</p>
 </blockquote>
 <hr />
 <h5 id="terminationgraceperiodoptional_15"><code>terminationGracePeriod</code><sup>Optional</sup> <a name="org.cdk8s.plus31.StatefulSetProps.property.terminationGracePeriod"></a><a class="headerlink" href="#terminationgraceperiodoptional_15" title="Permanent link">&para;</a></h5>
@@ -20617,6 +20803,7 @@ contain &lsquo;:&rsquo;.</p>
 <span class="c1">//  .restartPolicy(RestartPolicy)</span>
 <span class="c1">//  .securityContext(PodSecurityContextProps)</span>
 <span class="c1">//  .serviceAccount(IServiceAccount)</span>
+<span class="c1">//  .shareProcessNamespace(java.lang.Boolean)</span>
 <span class="c1">//  .terminationGracePeriod(Duration)</span>
 <span class="c1">//  .volumes(java.util.List&lt;Volume&gt;)</span>
 <span class="c1">//  .podMetadata(ApiObjectMetadata)</span>
@@ -20764,6 +20951,18 @@ apiserver. When they do, they are authenticated as a particular Service
 Account (for example, default).</p>
 <blockquote>
 <p>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</p>
+</blockquote>
+<hr />
+<h5 id="shareprocessnamespaceoptional_15"><code>shareProcessNamespace</code><sup>Optional</sup> <a name="org.cdk8s.plus31.WorkloadProps.property.shareProcessNamespace"></a><a class="headerlink" href="#shareprocessnamespaceoptional_15" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span><span class="w"> </span><span class="nf">getShareProcessNamespace</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> false</li>
+</ul>
+<p>When process namespace sharing is enabled, processes in a container are visible to all other containers in the same pod.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/tasks/configure-pod-container/share-process-namespace/</p>
 </blockquote>
 <hr />
 <h5 id="terminationgraceperiodoptional_16"><code>terminationGracePeriod</code><sup>Optional</sup> <a name="org.cdk8s.plus31.WorkloadProps.property.terminationGracePeriod"></a><a class="headerlink" href="#terminationgraceperiodoptional_16" title="Permanent link">&para;</a></h5>
@@ -21282,7 +21481,7 @@ with a duplicate key will take precedence.</p>
 <hr />
 <h5 id="envvariablesoptional_2"><code>envVariables</code><sup>Optional</sup> <a name="org.cdk8s.plus31.ContainerProps.parameter.envVariables"></a><a class="headerlink" href="#envvariablesoptional_2" title="Permanent link">&para;</a></h5>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus31.EnvValue">klzzwxh:11008</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus31.EnvValue">klzzwxh:11093</a>></li>
 <li><em>Default:</em> No environment variables.</li>
 </ul>
 <p>Environment variables to set in the container.</p>
@@ -21777,7 +21976,7 @@ somehow it manages to get access to host file system.</li>
 <hr />
 <h5 id="variablesrequired"><code>variables</code><sup>Required</sup> <a name="org.cdk8s.plus31.Env.parameter.variables"></a><a class="headerlink" href="#variablesrequired" title="Permanent link">&para;</a></h5>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus31.EnvValue">klzzwxh:10845</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus31.EnvValue">klzzwxh:10930</a>></li>
 </ul>
 <hr />
 <h4 id="methods_26">Methods <a name="Methods"></a><a class="headerlink" href="#methods_26" title="Permanent link">&para;</a></h4>
@@ -21843,7 +22042,7 @@ somehow it manages to get access to host file system.</li>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">EnvValue</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getVariables</span><span class="p">();</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus31.EnvValue">klzzwxh:10822</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus31.EnvValue">klzzwxh:10907</a>></li>
 </ul>
 <p>The environment variables for this container.</p>
 <p>Returns a copy. To add environment variables use <code>container.env.addVariable()</code>.</p>
