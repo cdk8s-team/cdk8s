@@ -2162,10 +2162,10 @@ case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s-cli@^2.200.2:
-  version "2.200.2"
-  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.200.2.tgz#eadefaade0234cb1e823c98f640296f3855121c4"
-  integrity sha512-Dius1h5y5XLx4km4YzSYYISYW6by/PfzCUDJW0xVk0dSUtXf8JAbZaYI321MsdkFoms7rwGZ7iSjQmdf04sO/Q==
+cdk8s-cli@^2.200.3:
+  version "2.200.3"
+  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.200.3.tgz#b24425802a070ecbfb4b788e8a74d8eaa4ebeae2"
+  integrity sha512-YqE8F4YNW5Dt7FcNuygXdxbwg5FjR5TcLlXG+8QlLR/lTB25HD+DPDocr3M67RhGYcf2+7g1L9BQdlJcfh0lsw==
   dependencies:
     "@types/node" "^16"
     ajv "^8.17.1"
@@ -2885,9 +2885,9 @@ ejs@^3.1.7:
     jake "^10.8.5"
 
 electron-to-chromium@^1.5.73:
-  version "1.5.107"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.107.tgz#0a12a0b50e6f925cde8bf9c16c13d514c54c694b"
-  integrity sha512-dJr1o6yCntRkXElnhsHh1bAV19bo/hKyFf7tCcWgpXbuFIF0Lakjgqv5LRfSDaNzAII8Fnxg2tqgHkgCvxdbxw==
+  version "1.5.109"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.109.tgz#905a573d2b4cbb31412a2de6267fb22cf45e097e"
+  integrity sha512-AidaH9JETVRr9DIPGfp1kAarm/W6hRJTPuCnkF+2MqhF4KaAgRIcBc8nvjk+YMXZhwfISof/7WG29eS4iGxQLQ==
 
 emittery@^0.8.1:
   version "0.8.1"
@@ -7758,9 +7758,9 @@ typescript@^4.9.5:
   integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
 
 typescript@next:
-  version "5.9.0-dev.20250227"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.9.0-dev.20250227.tgz#ffcd405a81c6608500be31a7032ff99076924034"
-  integrity sha512-lv9IWTed2sumK+b44crXjNlL/jgnTXTrxB5aqNj2igTjqR6MkLrBig0Zw+qMDcVNPUGUhgOHaRC5Eehf07km2Q==
+  version "5.9.0-dev.20250228"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.9.0-dev.20250228.tgz#94ca55bd60d6adaea5ab05181ccac38bcf6b7345"
+  integrity sha512-/paYJcBiXhWWyL0USAnX+/JyULz6Tc++rjhqRjfRRqrgRoJ4Epu19XTUT6XQMQDjvtXspFNe2cL2S3QCBsBFUg==
 
 typescript@~5.5:
   version "5.5.4"
