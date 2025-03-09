@@ -2109,7 +2109,7 @@ call-bind@^1.0.7, call-bind@^1.0.8:
     get-intrinsic "^1.2.4"
     set-function-length "^1.2.2"
 
-call-bound@^1.0.2, call-bound@^1.0.3:
+call-bound@^1.0.2, call-bound@^1.0.3, call-bound@^1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/call-bound/-/call-bound-1.0.4.tgz#238de935d2a2a692928c538c7ccfa91067fd062a"
   integrity sha512-+ys997U96po4Kx/ABpBCqhA9EuxJaQWDQg7295H4hBphv3IZg0boBKuwYpt4YXp6MZ5AmZQnU/tyMTlRpaSejg==
@@ -2151,10 +2151,10 @@ case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s-cli@^2.200.11:
-  version "2.200.11"
-  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.200.11.tgz#6281351724b6d0fd41b51a3292bb87e1851639d1"
-  integrity sha512-90Wa7AK7ohIFtXtPIaGIeG+bwgqv4tuM1r0GHpsozQMRtajLxx2O9nyKIdVY1aPbVlEU4jvu2/7UAt64DciMkw==
+cdk8s-cli@^2.200.12:
+  version "2.200.12"
+  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.200.12.tgz#d7212fa4114325bf3c45e2ba472b8b76b80b670e"
+  integrity sha512-h0iVMYBtDSSM7QTjm+tV+GortOhvBaoWh6GEb8aFL0DeeQEUpXXhBjJIjg+Z0lSMiQ9HP3hzrKyvEMtlx4MCqQ==
   dependencies:
     "@types/node" "^16"
     ajv "^8.17.1"
@@ -3424,7 +3424,7 @@ follow-redirects@^1.15.6, follow-redirects@^1.15.9:
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.15.9.tgz#a604fa10e443bf98ca94228d9eebcc2e8a2c8ee1"
   integrity sha512-gew4GsXizNgdoRyqmyfMHyAmXsZDk6mHkSxZFCzW9gwlbtOW44CDtYavM+y+72qD/Vq2l550kMF52DT8fOLJqQ==
 
-for-each@^0.3.3:
+for-each@^0.3.3, for-each@^0.3.5:
   version "0.3.5"
   resolved "https://registry.yarnpkg.com/for-each/-/for-each-0.3.5.tgz#d650688027826920feeb0af747ee7b9421a41d47"
   integrity sha512-dKx12eRCVIzqCxFGplyFKJMPvLEWgmNtUrpTiJIR5u97zEhRG8ySrtboPHZXx7daLxQVrl643cTzbab2tkQjxg==
@@ -7736,9 +7736,9 @@ typescript@^4.9.5:
   integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
 
 typescript@next:
-  version "5.9.0-dev.20250308"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.9.0-dev.20250308.tgz#c559650f0bfbc026c470bfee68cbfd7399342666"
-  integrity sha512-47Of3W9e6C98Cmq3aUJhQ4mBu2dbSCBOg5/xlhZU7YtVl3YFcu6cbL1hxXuqJtyrD+5QZ3gaMwk1w/c8ZDeveQ==
+  version "5.9.0-dev.20250309"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.9.0-dev.20250309.tgz#14e2c9c150e51e1cca1968190601f9979bf6eaae"
+  integrity sha512-kq5PZwuZj/tlb1eNn1ukgayXdLazYuMuBpgw6qb7efKkRu5Hn1sS5209BqLg42jFSORWPsS2O2VAGV+sgB/7QA==
 
 typescript@~5.5:
   version "5.5.4"
@@ -7997,14 +7997,15 @@ which-module@^2.0.0:
   integrity sha512-iBdZ57RDvnOR9AGBhML2vFZf7h8vmBjhoaZqODJBFWHVtKkDmKuHai3cx5PgVMrX5YDNp27AofYbAwctSS+vhQ==
 
 which-typed-array@^1.1.16, which-typed-array@^1.1.18:
-  version "1.1.18"
-  resolved "https://registry.yarnpkg.com/which-typed-array/-/which-typed-array-1.1.18.tgz#df2389ebf3fbb246a71390e90730a9edb6ce17ad"
-  integrity sha512-qEcY+KJYlWyLH9vNbsr6/5j59AXk5ni5aakf8ldzBvGde6Iz4sxZGkJyWSAueTG7QhOvNRYb1lDdFmL5Td0QKA==
+  version "1.1.19"
+  resolved "https://registry.yarnpkg.com/which-typed-array/-/which-typed-array-1.1.19.tgz#df03842e870b6b88e117524a4b364b6fc689f956"
+  integrity sha512-rEvr90Bck4WZt9HHFC4DJMsjvu7x+r6bImz0/BrbWb7A2djJ8hnZMrWnHo9F8ssv0OMErasDhftrfROTyqSDrw==
   dependencies:
     available-typed-arrays "^1.0.7"
     call-bind "^1.0.8"
-    call-bound "^1.0.3"
-    for-each "^0.3.3"
+    call-bound "^1.0.4"
+    for-each "^0.3.5"
+    get-proto "^1.0.1"
     gopd "^1.2.0"
     has-tostringtag "^1.0.2"
 
