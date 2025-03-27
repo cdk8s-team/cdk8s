@@ -2,414 +2,414 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://cdk8s.io/docs/latest/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/CHANGELOG/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/CONTRIBUTING/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/ROADMAP/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/ecosystem-interoperability/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/media/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/migrating-from-1.x/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/basics/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/basics/api-object/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/basics/app/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/basics/chart/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/basics/constructs/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/basics/deps/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/basics/escape-hatches/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/basics/helm/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/basics/include/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/basics/testing/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/cli/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/cli/import/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/cli/init/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/cli/installation/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/cli/synth/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/examples/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/get-started/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/get-started/go/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/get-started/java/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/get-started/python/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/get-started/typescript/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/plus/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-30/config-map/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-30/container/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-30/cronjob/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-30/deployment/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-30/horizontal-pod-autoscaler/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-30/ingress/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-30/job/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-30/namespace/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-30/network-policy/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-30/pod/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-30/pv/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-30/pvc/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-30/rbac/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-30/secret/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-30/service-account/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-30/service/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-30/volume/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-31/config-map/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-31/container/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-31/cronjob/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-31/deployment/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-31/horizontal-pod-autoscaler/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-31/ingress/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-31/job/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-31/namespace/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-31/network-policy/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-31/pod/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-31/pv/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-31/pvc/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-31/rbac/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-31/secret/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-31/service-account/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-31/service/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-31/volume/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-32/config-map/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-32/container/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-32/cronjob/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-32/deployment/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-32/horizontal-pod-autoscaler/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-32/ingress/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-32/job/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-32/namespace/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-32/network-policy/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-32/pod/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-32/pv/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-32/pvc/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-32/rbac/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-32/secret/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-32/service-account/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-32/service/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-32/volume/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/reference/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/reference/cdk8s/go/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/reference/cdk8s/java/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/reference/cdk8s/python/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/reference/cdk8s/typescript/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/reference/cdk8s-plus-27/go/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/reference/cdk8s-plus-27/java/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/reference/cdk8s-plus-27/python/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/reference/cdk8s-plus-27/typescript/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/reference/cdk8s-plus-28/go/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/reference/cdk8s-plus-29/go/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/reference/cdk8s-plus-30/go/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/reference/cdk8s-plus-30/java/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/reference/cdk8s-plus-30/python/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/reference/cdk8s-plus-30/typescript/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/reference/cdk8s-plus-31/go/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/reference/cdk8s-plus-31/java/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/reference/cdk8s-plus-31/python/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/reference/cdk8s-plus-31/typescript/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/reference/cdk8s-plus-32/go/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/reference/cdk8s-plus-32/java/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/reference/cdk8s-plus-32/python/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/reference/cdk8s-plus-32/typescript/</loc>
-         <lastmod>2025-03-26</lastmod>
+         <lastmod>2025-03-27</lastmod>
     </url>
 </urlset>
