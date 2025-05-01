@@ -5235,6 +5235,11 @@ json-parse-even-better-errors@^3.0.0, json-parse-even-better-errors@^3.0.2:
   resolved "https://registry.yarnpkg.com/json-parse-even-better-errors/-/json-parse-even-better-errors-3.0.2.tgz#b43d35e89c0f3be6b5fbbe9dc6c82467b30c28da"
   integrity sha512-fi0NG4bPjCHunUJffmLd0gxssIgkNmArMvis4iNah6Owg1MCJjWhEcDLmsK6iGkJq3tHwbDkTlce70/tmXN4cQ==
 
+json-parse-even-better-errors@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/json-parse-even-better-errors/-/json-parse-even-better-errors-4.0.0.tgz#d3f67bd5925e81d3e31aa466acc821c8375cec43"
+  integrity sha512-lR4MXjGNgkJc7tkQ97kb2nuEMnNCyU//XYVH0MKTGcXEiSudQ5MKGKen3C5QubYy0vmq+JGitUg92uuywGEwIA==
+
 json-schema-traverse@^0.4.1:
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/json-schema-traverse/-/json-schema-traverse-0.4.1.tgz#69f6a87d9513ab8bb8fe63bdb0979c448e684660"
@@ -6431,6 +6436,15 @@ parse-conflict-json@^3.0.0:
     just-diff "^6.0.0"
     just-diff-apply "^5.2.0"
 
+parse-conflict-json@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/parse-conflict-json/-/parse-conflict-json-4.0.0.tgz#996b1edfc0c727583b56c7644dbb3258fc9e9e4b"
+  integrity sha512-37CN2VtcuvKgHUs8+0b1uJeEsbGn61GRHz469C94P5xiOoqpDYJYwjg4RY9Vmz39WyZAVkR5++nbJwLMIgOCnQ==
+  dependencies:
+    json-parse-even-better-errors "^4.0.0"
+    just-diff "^6.0.0"
+    just-diff-apply "^5.2.0"
+
 parse-json@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/parse-json/-/parse-json-4.0.0.tgz#be35f5425be1f7f6c747184f98a788cb99477ee0"
@@ -6626,10 +6640,10 @@ proggy@^2.0.0:
   resolved "https://registry.yarnpkg.com/proggy/-/proggy-2.0.0.tgz#154bb0e41d3125b518ef6c79782455c2c47d94e1"
   integrity sha512-69agxLtnI8xBs9gUGqEnK26UfiexpHy+KUpBQWabiytQjnn5wFY8rklAi7GRfABIuPNnQ/ik48+LGLkYYJcy4A==
 
-projen@^0.91.28:
-  version "0.91.28"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.91.28.tgz#6d4c2bdc6391d5020de33090d8210bf343656742"
-  integrity sha512-HENAqV53qX83IrbRUm2FYX+BYBS6NqTrAbXLsy4MlNGLxJa6qQDXTXzwQtK7gE/n7w/E8b0PZjA0XyD32NBxlw==
+projen@^0.91.29:
+  version "0.91.29"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.91.29.tgz#b20da5bcf547ced432d0d669fb6f8490fec6780d"
+  integrity sha512-5lPKIZukWWinwPQwnQClGf1wSC9T2f8XlZF1pE+rtx5HCbZ+hDX53pFo8l+79x9dgaRgJmEqhG/PjoOM8HrFRQ==
   dependencies:
     "@iarna/toml" "^2.2.5"
     case "^1.6.3"
@@ -6640,6 +6654,7 @@ projen@^0.91.28:
     fast-json-patch "^3.1.1"
     glob "^8"
     ini "^2.0.0"
+    parse-conflict-json "^4.0.0"
     semver "^7.7.1"
     shx "^0.4.0"
     xmlbuilder2 "^3.1.1"
