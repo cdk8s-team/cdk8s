@@ -44,88 +44,80 @@
     "!projenrc/**/*.ts"
   ],
   "rules": {
-    "indent": [
-      "off"
-    ],
     "@stylistic/indent": [
       "error",
       2
     ],
-    "quotes": [
+    "@stylistic/quotes": [
       "error",
       "single",
       {
         "avoidEscape": true
       }
     ],
-    "comma-dangle": [
+    "@stylistic/comma-dangle": [
       "error",
       "always-multiline"
     ],
-    "comma-spacing": [
+    "@stylistic/comma-spacing": [
       "error",
       {
         "before": false,
         "after": true
       }
     ],
-    "no-multi-spaces": [
+    "@stylistic/no-multi-spaces": [
       "error",
       {
         "ignoreEOLComments": false
       }
     ],
-    "array-bracket-spacing": [
+    "@stylistic/array-bracket-spacing": [
       "error",
       "never"
     ],
-    "array-bracket-newline": [
+    "@stylistic/array-bracket-newline": [
       "error",
       "consistent"
     ],
-    "object-curly-spacing": [
+    "@stylistic/object-curly-spacing": [
       "error",
       "always"
     ],
-    "object-curly-newline": [
+    "@stylistic/object-curly-newline": [
       "error",
       {
         "multiline": true,
         "consistent": true
       }
     ],
-    "object-property-newline": [
+    "@stylistic/object-property-newline": [
       "error",
       {
         "allowAllPropertiesOnSameLine": true
       }
     ],
-    "keyword-spacing": [
+    "@stylistic/keyword-spacing": [
       "error"
     ],
-    "brace-style": [
+    "@stylistic/brace-style": [
       "error",
       "1tbs",
       {
         "allowSingleLine": true
       }
     ],
-    "space-before-blocks": [
+    "@stylistic/space-before-blocks": [
       "error"
-    ],
-    "curly": [
-      "error",
-      "multi-line",
-      "consistent"
     ],
     "@stylistic/member-delimiter-style": [
       "error"
     ],
-    "semi": [
+    "@stylistic/semi": [
       "error",
       "always"
     ],
-    "max-len": [
+    "@stylistic/max-len": [
       "error",
       {
         "code": 150,
@@ -136,13 +128,25 @@
         "ignoreRegExpLiterals": true
       }
     ],
-    "quote-props": [
+    "@stylistic/quote-props": [
       "error",
       "consistent-as-needed"
     ],
-    "@typescript-eslint/no-require-imports": [
+    "@stylistic/key-spacing": [
       "error"
     ],
+    "@stylistic/no-multiple-empty-lines": [
+      "error"
+    ],
+    "@stylistic/no-trailing-spaces": [
+      "error"
+    ],
+    "curly": [
+      "error",
+      "multi-line",
+      "consistent"
+    ],
+    "@typescript-eslint/no-require-imports": "error",
     "import/no-extraneous-dependencies": [
       "error",
       {
@@ -178,27 +182,12 @@
     "no-shadow": [
       "off"
     ],
-    "@typescript-eslint/no-shadow": [
-      "error"
-    ],
-    "key-spacing": [
-      "error"
-    ],
-    "no-multiple-empty-lines": [
-      "error"
-    ],
-    "@typescript-eslint/no-floating-promises": [
-      "error"
-    ],
+    "@typescript-eslint/no-shadow": "error",
+    "@typescript-eslint/no-floating-promises": "error",
     "no-return-await": [
       "off"
     ],
-    "@typescript-eslint/return-await": [
-      "error"
-    ],
-    "no-trailing-spaces": [
-      "error"
-    ],
+    "@typescript-eslint/return-await": "error",
     "dot-notation": [
       "error"
     ],
