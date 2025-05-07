@@ -2481,9 +2481,9 @@ co@^4.6.0:
   integrity sha512-QVb0dM5HvG+uaxitm8wONl7jltx8dqhfU33DcqtOZcLSVIKSDDLDi7+0LbAKiyI8hD9u42m2YxXSkMGWThaecQ==
 
 codemaker@^1.111.0:
-  version "1.111.0"
-  resolved "https://registry.yarnpkg.com/codemaker/-/codemaker-1.111.0.tgz#3f86ca6fba71c9a75ba47e704d9e3cc814b97237"
-  integrity sha512-roT0x2rjngWUTbyM/mFyLSkh/H8YMZlaj7kSLzzJAZUSLxRjU/4zPd0bvjaRERVONJZMlitrP8ndmqnEjxLoBw==
+  version "1.112.0"
+  resolved "https://registry.yarnpkg.com/codemaker/-/codemaker-1.112.0.tgz#09ee7a309bde98d9a90d27311459d7906895ef4f"
+  integrity sha512-9dOcSOPEDAB5y4oimdsjzi9Za6vHi7wsUeLdH2NQpP1q88D2Oo8fj6YXqM7c/97tUFqX4OaanNjQCI3K6uyn4A==
   dependencies:
     camelcase "^6.3.0"
     decamelize "^5.0.1"
@@ -6888,10 +6888,10 @@ proggy@^2.0.0:
   resolved "https://registry.yarnpkg.com/proggy/-/proggy-2.0.0.tgz#154bb0e41d3125b518ef6c79782455c2c47d94e1"
   integrity sha512-69agxLtnI8xBs9gUGqEnK26UfiexpHy+KUpBQWabiytQjnn5wFY8rklAi7GRfABIuPNnQ/ik48+LGLkYYJcy4A==
 
-projen@^0.91.29:
-  version "0.91.29"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.91.29.tgz#b20da5bcf547ced432d0d669fb6f8490fec6780d"
-  integrity sha512-5lPKIZukWWinwPQwnQClGf1wSC9T2f8XlZF1pE+rtx5HCbZ+hDX53pFo8l+79x9dgaRgJmEqhG/PjoOM8HrFRQ==
+projen@^0.92.0:
+  version "0.92.0"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.92.0.tgz#d63e456f0f0e04a1acb03329793019892de6c9f2"
+  integrity sha512-Oujr/Vv7VtN10N9Z5wTc6B0JML+fWsjnLNwH9T4cYR+0vzQXWSiQNg8piMWmlZ+z4ZewGUDRbF5f3B9EmXmxNw==
   dependencies:
     "@iarna/toml" "^2.2.5"
     case "^1.6.3"
