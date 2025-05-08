@@ -3513,7 +3513,7 @@ The most common selector method is using labels.</p>
 <span class="kd">const</span><span class="w"> </span><span class="nx">frontends</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Service</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;FrontEnds&#39;</span><span class="p">);</span>
 
 <span class="c1">// make the service bind to port 9000 and redirect to port 80 on the associated containers.</span>
-<span class="nx">frontends</span><span class="p">.</span><span class="nx">bind</span><span class="p">({</span><span class="nx">port</span><span class="o">:</span><span class="w"> </span><span class="kt">9000</span><span class="p">,</span><span class="w"> </span><span class="nx">targetPort</span><span class="o">:</span><span class="w"> </span><span class="kt">80</span><span class="p">)</span>
+<span class="nx">frontends</span><span class="p">.</span><span class="nx">bind</span><span class="p">({</span><span class="nx">port</span><span class="o">:</span><span class="w"> </span><span class="kt">9000</span><span class="p">,</span><span class="w"> </span><span class="nx">targetPort</span><span class="o">:</span><span class="w"> </span><span class="kt">80</span><span class="p">})</span>
 </code></pre></div>
 
 

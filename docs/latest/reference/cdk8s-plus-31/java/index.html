@@ -7764,6 +7764,7 @@
 <span class="c1">//  .containers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .dns(PodDnsProps)</span>
 <span class="c1">//  .dockerRegistryAuth(ISecret)</span>
+<span class="c1">//  .enableServiceLinks(java.lang.Boolean)</span>
 <span class="c1">//  .hostAliases(java.util.List&lt;HostAlias&gt;)</span>
 <span class="c1">//  .hostNetwork(java.lang.Boolean)</span>
 <span class="c1">//  .initContainers(java.util.List&lt;ContainerProps&gt;)</span>
@@ -7829,6 +7830,16 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
+<hr />
+<h5 id="enableservicelinksoptional"><code>enableServiceLinks</code><sup>Optional</sup> <a name="org.cdk8s.plus31.AbstractPodProps.parameter.enableServiceLinks"></a><a class="headerlink" href="#enableservicelinksoptional" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> true</li>
+</ul>
+<p>Indicates whether information about services should be injected into pod&rsquo;s environment variables, matching the syntax of Docker links.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/#accessing-the-service</p>
+</blockquote>
 <hr />
 <h5 id="hostaliasesoptional"><code>hostAliases</code><sup>Optional</sup> <a name="org.cdk8s.plus31.AbstractPodProps.parameter.hostAliases"></a><a class="headerlink" href="#hostaliasesoptional" title="Permanent link">&para;</a></h5>
 <ul>
@@ -8054,6 +8065,13 @@ Account (for example, default).</p>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#org.cdk8s.plus31.ISecret"><code>org.cdk8s.plus31.ISecret</code></a></li>
+</ul>
+<hr />
+<h5 id="enableservicelinksoptional_1"><code>enableServiceLinks</code><sup>Optional</sup> <a name="org.cdk8s.plus31.AbstractPod.property.enableServiceLinks"></a><a class="headerlink" href="#enableservicelinksoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span><span class="w"> </span><span class="nf">getEnableServiceLinks</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
 </ul>
 <hr />
 <h5 id="hostnetworkoptional_1"><code>hostNetwork</code><sup>Optional</sup> <a name="org.cdk8s.plus31.AbstractPod.property.hostNetwork"></a><a class="headerlink" href="#hostnetworkoptional_1" title="Permanent link">&para;</a></h5>
@@ -8999,6 +9017,7 @@ is enforced during validation process.</p>
 <span class="c1">//  .containers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .dns(PodDnsProps)</span>
 <span class="c1">//  .dockerRegistryAuth(ISecret)</span>
+<span class="c1">//  .enableServiceLinks(java.lang.Boolean)</span>
 <span class="c1">//  .hostAliases(java.util.List&lt;HostAlias&gt;)</span>
 <span class="c1">//  .hostNetwork(java.lang.Boolean)</span>
 <span class="c1">//  .initContainers(java.util.List&lt;ContainerProps&gt;)</span>
@@ -9077,6 +9096,16 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
+<hr />
+<h5 id="enableservicelinksoptional_2"><code>enableServiceLinks</code><sup>Optional</sup> <a name="org.cdk8s.plus31.CronJobProps.parameter.enableServiceLinks"></a><a class="headerlink" href="#enableservicelinksoptional_2" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> true</li>
+</ul>
+<p>Indicates whether information about services should be injected into pod&rsquo;s environment variables, matching the syntax of Docker links.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/#accessing-the-service</p>
+</blockquote>
 <hr />
 <h5 id="hostaliasesoptional_1"><code>hostAliases</code><sup>Optional</sup> <a name="org.cdk8s.plus31.CronJobProps.parameter.hostAliases"></a><a class="headerlink" href="#hostaliasesoptional_1" title="Permanent link">&para;</a></h5>
 <ul>
@@ -9390,6 +9419,7 @@ but with different flags and/or different memory and cpu requests for different 
 <span class="c1">//  .containers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .dns(PodDnsProps)</span>
 <span class="c1">//  .dockerRegistryAuth(ISecret)</span>
+<span class="c1">//  .enableServiceLinks(java.lang.Boolean)</span>
 <span class="c1">//  .hostAliases(java.util.List&lt;HostAlias&gt;)</span>
 <span class="c1">//  .hostNetwork(java.lang.Boolean)</span>
 <span class="c1">//  .initContainers(java.util.List&lt;ContainerProps&gt;)</span>
@@ -9459,6 +9489,16 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
+<hr />
+<h5 id="enableservicelinksoptional_3"><code>enableServiceLinks</code><sup>Optional</sup> <a name="org.cdk8s.plus31.DaemonSetProps.parameter.enableServiceLinks"></a><a class="headerlink" href="#enableservicelinksoptional_3" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> true</li>
+</ul>
+<p>Indicates whether information about services should be injected into pod&rsquo;s environment variables, matching the syntax of Docker links.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/#accessing-the-service</p>
+</blockquote>
 <hr />
 <h5 id="hostaliasesoptional_2"><code>hostAliases</code><sup>Optional</sup> <a name="org.cdk8s.plus31.DaemonSetProps.parameter.hostAliases"></a><a class="headerlink" href="#hostaliasesoptional_2" title="Permanent link">&para;</a></h5>
 <ul>
@@ -9645,6 +9685,7 @@ existing Deployments and adopt all their resources with new Deployments.</p>
 <span class="c1">//  .containers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .dns(PodDnsProps)</span>
 <span class="c1">//  .dockerRegistryAuth(ISecret)</span>
+<span class="c1">//  .enableServiceLinks(java.lang.Boolean)</span>
 <span class="c1">//  .hostAliases(java.util.List&lt;HostAlias&gt;)</span>
 <span class="c1">//  .hostNetwork(java.lang.Boolean)</span>
 <span class="c1">//  .initContainers(java.util.List&lt;ContainerProps&gt;)</span>
@@ -9717,6 +9758,16 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
+<hr />
+<h5 id="enableservicelinksoptional_4"><code>enableServiceLinks</code><sup>Optional</sup> <a name="org.cdk8s.plus31.DeploymentProps.parameter.enableServiceLinks"></a><a class="headerlink" href="#enableservicelinksoptional_4" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> true</li>
+</ul>
+<p>Indicates whether information about services should be injected into pod&rsquo;s environment variables, matching the syntax of Docker links.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/#accessing-the-service</p>
+</blockquote>
 <hr />
 <h5 id="hostaliasesoptional_3"><code>hostAliases</code><sup>Optional</sup> <a name="org.cdk8s.plus31.DeploymentProps.parameter.hostAliases"></a><a class="headerlink" href="#hostaliasesoptional_3" title="Permanent link">&para;</a></h5>
 <ul>
@@ -10595,6 +10646,7 @@ You can also use a Job to run multiple Pods in parallel.</p>
 <span class="c1">//  .containers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .dns(PodDnsProps)</span>
 <span class="c1">//  .dockerRegistryAuth(ISecret)</span>
+<span class="c1">//  .enableServiceLinks(java.lang.Boolean)</span>
 <span class="c1">//  .hostAliases(java.util.List&lt;HostAlias&gt;)</span>
 <span class="c1">//  .hostNetwork(java.lang.Boolean)</span>
 <span class="c1">//  .initContainers(java.util.List&lt;ContainerProps&gt;)</span>
@@ -10666,6 +10718,16 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
+<hr />
+<h5 id="enableservicelinksoptional_5"><code>enableServiceLinks</code><sup>Optional</sup> <a name="org.cdk8s.plus31.JobProps.parameter.enableServiceLinks"></a><a class="headerlink" href="#enableservicelinksoptional_5" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> true</li>
+</ul>
+<p>Indicates whether information about services should be injected into pod&rsquo;s environment variables, matching the syntax of Docker links.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/#accessing-the-service</p>
+</blockquote>
 <hr />
 <h5 id="hostaliasesoptional_4"><code>hostAliases</code><sup>Optional</sup> <a name="org.cdk8s.plus31.JobProps.parameter.hostAliases"></a><a class="headerlink" href="#hostaliasesoptional_4" title="Permanent link">&para;</a></h5>
 <ul>
@@ -11628,6 +11690,7 @@ created by clients and scheduled onto hosts.</p>
 <span class="c1">//  .containers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .dns(PodDnsProps)</span>
 <span class="c1">//  .dockerRegistryAuth(ISecret)</span>
+<span class="c1">//  .enableServiceLinks(java.lang.Boolean)</span>
 <span class="c1">//  .hostAliases(java.util.List&lt;HostAlias&gt;)</span>
 <span class="c1">//  .hostNetwork(java.lang.Boolean)</span>
 <span class="c1">//  .initContainers(java.util.List&lt;ContainerProps&gt;)</span>
@@ -11693,6 +11756,16 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
+<hr />
+<h5 id="enableservicelinksoptional_6"><code>enableServiceLinks</code><sup>Optional</sup> <a name="org.cdk8s.plus31.PodProps.parameter.enableServiceLinks"></a><a class="headerlink" href="#enableservicelinksoptional_6" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> true</li>
+</ul>
+<p>Indicates whether information about services should be injected into pod&rsquo;s environment variables, matching the syntax of Docker links.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/#accessing-the-service</p>
+</blockquote>
 <hr />
 <h5 id="hostaliasesoptional_5"><code>hostAliases</code><sup>Optional</sup> <a name="org.cdk8s.plus31.PodProps.parameter.hostAliases"></a><a class="headerlink" href="#hostaliasesoptional_5" title="Permanent link">&para;</a></h5>
 <ul>
@@ -12887,6 +12960,7 @@ volumes to the new Pods that replace any that have failed.</p>
 <span class="c1">//  .containers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .dns(PodDnsProps)</span>
 <span class="c1">//  .dockerRegistryAuth(ISecret)</span>
+<span class="c1">//  .enableServiceLinks(java.lang.Boolean)</span>
 <span class="c1">//  .hostAliases(java.util.List&lt;HostAlias&gt;)</span>
 <span class="c1">//  .hostNetwork(java.lang.Boolean)</span>
 <span class="c1">//  .initContainers(java.util.List&lt;ContainerProps&gt;)</span>
@@ -12960,6 +13034,16 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
+<hr />
+<h5 id="enableservicelinksoptional_7"><code>enableServiceLinks</code><sup>Optional</sup> <a name="org.cdk8s.plus31.StatefulSetProps.parameter.enableServiceLinks"></a><a class="headerlink" href="#enableservicelinksoptional_7" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> true</li>
+</ul>
+<p>Indicates whether information about services should be injected into pod&rsquo;s environment variables, matching the syntax of Docker links.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/#accessing-the-service</p>
+</blockquote>
 <hr />
 <h5 id="hostaliasesoptional_6"><code>hostAliases</code><sup>Optional</sup> <a name="org.cdk8s.plus31.StatefulSetProps.parameter.hostAliases"></a><a class="headerlink" href="#hostaliasesoptional_6" title="Permanent link">&para;</a></h5>
 <ul>
@@ -13620,6 +13704,7 @@ In Kubernetes, a Pod represents a set of running containers on your cluster.</p>
 <span class="c1">//  .containers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .dns(PodDnsProps)</span>
 <span class="c1">//  .dockerRegistryAuth(ISecret)</span>
+<span class="c1">//  .enableServiceLinks(java.lang.Boolean)</span>
 <span class="c1">//  .hostAliases(java.util.List&lt;HostAlias&gt;)</span>
 <span class="c1">//  .hostNetwork(java.lang.Boolean)</span>
 <span class="c1">//  .initContainers(java.util.List&lt;ContainerProps&gt;)</span>
@@ -13688,6 +13773,16 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
+<hr />
+<h5 id="enableservicelinksoptional_8"><code>enableServiceLinks</code><sup>Optional</sup> <a name="org.cdk8s.plus31.WorkloadProps.parameter.enableServiceLinks"></a><a class="headerlink" href="#enableservicelinksoptional_8" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> true</li>
+</ul>
+<p>Indicates whether information about services should be injected into pod&rsquo;s environment variables, matching the syntax of Docker links.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/#accessing-the-service</p>
+</blockquote>
 <hr />
 <h5 id="hostaliasesoptional_7"><code>hostAliases</code><sup>Optional</sup> <a name="org.cdk8s.plus31.WorkloadProps.parameter.hostAliases"></a><a class="headerlink" href="#hostaliasesoptional_7" title="Permanent link">&para;</a></h5>
 <ul>
@@ -13878,6 +13973,7 @@ its pod template.</p>
 <span class="c1">//  .containers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .dns(PodDnsProps)</span>
 <span class="c1">//  .dockerRegistryAuth(ISecret)</span>
+<span class="c1">//  .enableServiceLinks(java.lang.Boolean)</span>
 <span class="c1">//  .hostAliases(java.util.List&lt;HostAlias&gt;)</span>
 <span class="c1">//  .hostNetwork(java.lang.Boolean)</span>
 <span class="c1">//  .initContainers(java.util.List&lt;ContainerProps&gt;)</span>
@@ -13943,6 +14039,18 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
+<hr />
+<h5 id="enableservicelinksoptional_9"><code>enableServiceLinks</code><sup>Optional</sup> <a name="org.cdk8s.plus31.AbstractPodProps.property.enableServiceLinks"></a><a class="headerlink" href="#enableservicelinksoptional_9" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span><span class="w"> </span><span class="nf">getEnableServiceLinks</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> true</li>
+</ul>
+<p>Indicates whether information about services should be injected into pod&rsquo;s environment variables, matching the syntax of Docker links.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/#accessing-the-service</p>
+</blockquote>
 <hr />
 <h5 id="hostaliasesoptional_8"><code>hostAliases</code><sup>Optional</sup> <a name="org.cdk8s.plus31.AbstractPodProps.property.hostAliases"></a><a class="headerlink" href="#hostaliasesoptional_8" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">HostAlias</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getHostAliases</span><span class="p">();</span>
@@ -14951,7 +15059,7 @@ file mode, like fsGroup, and the result can be other mode bits set.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">PathMapping</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getItems</span><span class="p">();</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus31.PathMapping">klzzwxh:12847</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus31.PathMapping">klzzwxh:12953</a>></li>
 <li><em>Default:</em> no mapping</li>
 </ul>
 <p>If unspecified, each key-value pair in the Data field of the referenced ConfigMap will be projected into the volume as a file whose name is the key and content is the value.</p>
@@ -15090,7 +15198,7 @@ with a duplicate key will take precedence.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">EnvValue</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getEnvVariables</span><span class="p">();</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus31.EnvValue">klzzwxh:12818</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus31.EnvValue">klzzwxh:12924</a>></li>
 <li><em>Default:</em> No environment variables.</li>
 </ul>
 <p>Environment variables to set in the container.</p>
@@ -15389,7 +15497,7 @@ with a duplicate key will take precedence.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">EnvValue</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getEnvVariables</span><span class="p">();</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus31.EnvValue">klzzwxh:12735</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus31.EnvValue">klzzwxh:12841</a>></li>
 <li><em>Default:</em> No environment variables.</li>
 </ul>
 <p>Environment variables to set in the container.</p>
@@ -15747,6 +15855,7 @@ somehow it manages to get access to host file system.</li>
 <span class="c1">//  .containers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .dns(PodDnsProps)</span>
 <span class="c1">//  .dockerRegistryAuth(ISecret)</span>
+<span class="c1">//  .enableServiceLinks(java.lang.Boolean)</span>
 <span class="c1">//  .hostAliases(java.util.List&lt;HostAlias&gt;)</span>
 <span class="c1">//  .hostNetwork(java.lang.Boolean)</span>
 <span class="c1">//  .initContainers(java.util.List&lt;ContainerProps&gt;)</span>
@@ -15825,6 +15934,18 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
+<hr />
+<h5 id="enableservicelinksoptional_10"><code>enableServiceLinks</code><sup>Optional</sup> <a name="org.cdk8s.plus31.CronJobProps.property.enableServiceLinks"></a><a class="headerlink" href="#enableservicelinksoptional_10" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span><span class="w"> </span><span class="nf">getEnableServiceLinks</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> true</li>
+</ul>
+<p>Indicates whether information about services should be injected into pod&rsquo;s environment variables, matching the syntax of Docker links.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/#accessing-the-service</p>
+</blockquote>
 <hr />
 <h5 id="hostaliasesoptional_9"><code>hostAliases</code><sup>Optional</sup> <a name="org.cdk8s.plus31.CronJobProps.property.hostAliases"></a><a class="headerlink" href="#hostaliasesoptional_9" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">HostAlias</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getHostAliases</span><span class="p">();</span>
@@ -16157,6 +16278,7 @@ determine the default filesystem to apply.</p>
 <span class="c1">//  .containers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .dns(PodDnsProps)</span>
 <span class="c1">//  .dockerRegistryAuth(ISecret)</span>
+<span class="c1">//  .enableServiceLinks(java.lang.Boolean)</span>
 <span class="c1">//  .hostAliases(java.util.List&lt;HostAlias&gt;)</span>
 <span class="c1">//  .hostNetwork(java.lang.Boolean)</span>
 <span class="c1">//  .initContainers(java.util.List&lt;ContainerProps&gt;)</span>
@@ -16226,6 +16348,18 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
+<hr />
+<h5 id="enableservicelinksoptional_11"><code>enableServiceLinks</code><sup>Optional</sup> <a name="org.cdk8s.plus31.DaemonSetProps.property.enableServiceLinks"></a><a class="headerlink" href="#enableservicelinksoptional_11" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span><span class="w"> </span><span class="nf">getEnableServiceLinks</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> true</li>
+</ul>
+<p>Indicates whether information about services should be injected into pod&rsquo;s environment variables, matching the syntax of Docker links.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/#accessing-the-service</p>
+</blockquote>
 <hr />
 <h5 id="hostaliasesoptional_10"><code>hostAliases</code><sup>Optional</sup> <a name="org.cdk8s.plus31.DaemonSetProps.property.hostAliases"></a><a class="headerlink" href="#hostaliasesoptional_10" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">HostAlias</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getHostAliases</span><span class="p">();</span>
@@ -16440,6 +16574,7 @@ you must explicitly set a name starting from the second expose call.</p>
 <span class="c1">//  .containers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .dns(PodDnsProps)</span>
 <span class="c1">//  .dockerRegistryAuth(ISecret)</span>
+<span class="c1">//  .enableServiceLinks(java.lang.Boolean)</span>
 <span class="c1">//  .hostAliases(java.util.List&lt;HostAlias&gt;)</span>
 <span class="c1">//  .hostNetwork(java.lang.Boolean)</span>
 <span class="c1">//  .initContainers(java.util.List&lt;ContainerProps&gt;)</span>
@@ -16512,6 +16647,18 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
+<hr />
+<h5 id="enableservicelinksoptional_12"><code>enableServiceLinks</code><sup>Optional</sup> <a name="org.cdk8s.plus31.DeploymentProps.property.enableServiceLinks"></a><a class="headerlink" href="#enableservicelinksoptional_12" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span><span class="w"> </span><span class="nf">getEnableServiceLinks</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> true</li>
+</ul>
+<p>Indicates whether information about services should be injected into pod&rsquo;s environment variables, matching the syntax of Docker links.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/#accessing-the-service</p>
+</blockquote>
 <hr />
 <h5 id="hostaliasesoptional_11"><code>hostAliases</code><sup>Optional</sup> <a name="org.cdk8s.plus31.DeploymentProps.property.hostAliases"></a><a class="headerlink" href="#hostaliasesoptional_11" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">HostAlias</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getHostAliases</span><span class="p">();</span>
@@ -17767,6 +17914,7 @@ termination and value of the Host header is used for routing.</p>
 <span class="c1">//  .containers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .dns(PodDnsProps)</span>
 <span class="c1">//  .dockerRegistryAuth(ISecret)</span>
+<span class="c1">//  .enableServiceLinks(java.lang.Boolean)</span>
 <span class="c1">//  .hostAliases(java.util.List&lt;HostAlias&gt;)</span>
 <span class="c1">//  .hostNetwork(java.lang.Boolean)</span>
 <span class="c1">//  .initContainers(java.util.List&lt;ContainerProps&gt;)</span>
@@ -17838,6 +17986,18 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
+<hr />
+<h5 id="enableservicelinksoptional_13"><code>enableServiceLinks</code><sup>Optional</sup> <a name="org.cdk8s.plus31.JobProps.property.enableServiceLinks"></a><a class="headerlink" href="#enableservicelinksoptional_13" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span><span class="w"> </span><span class="nf">getEnableServiceLinks</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> true</li>
+</ul>
+<p>Indicates whether information about services should be injected into pod&rsquo;s environment variables, matching the syntax of Docker links.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/#accessing-the-service</p>
+</blockquote>
 <hr />
 <h5 id="hostaliasesoptional_12"><code>hostAliases</code><sup>Optional</sup> <a name="org.cdk8s.plus31.JobProps.property.hostAliases"></a><a class="headerlink" href="#hostaliasesoptional_12" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">HostAlias</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getHostAliases</span><span class="p">();</span>
@@ -19036,6 +19196,7 @@ Duplicate domain names are removed.</p>
 <span class="c1">//  .containers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .dns(PodDnsProps)</span>
 <span class="c1">//  .dockerRegistryAuth(ISecret)</span>
+<span class="c1">//  .enableServiceLinks(java.lang.Boolean)</span>
 <span class="c1">//  .hostAliases(java.util.List&lt;HostAlias&gt;)</span>
 <span class="c1">//  .hostNetwork(java.lang.Boolean)</span>
 <span class="c1">//  .initContainers(java.util.List&lt;ContainerProps&gt;)</span>
@@ -19101,6 +19262,18 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
+<hr />
+<h5 id="enableservicelinksoptional_14"><code>enableServiceLinks</code><sup>Optional</sup> <a name="org.cdk8s.plus31.PodProps.property.enableServiceLinks"></a><a class="headerlink" href="#enableservicelinksoptional_14" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span><span class="w"> </span><span class="nf">getEnableServiceLinks</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> true</li>
+</ul>
+<p>Indicates whether information about services should be injected into pod&rsquo;s environment variables, matching the syntax of Docker links.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/#accessing-the-service</p>
+</blockquote>
 <hr />
 <h5 id="hostaliasesoptional_13"><code>hostAliases</code><sup>Optional</sup> <a name="org.cdk8s.plus31.PodProps.property.hostAliases"></a><a class="headerlink" href="#hostaliasesoptional_13" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">HostAlias</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getHostAliases</span><span class="p">();</span>
@@ -19887,7 +20060,7 @@ file mode, like fsGroup, and the result can be other mode bits set.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">PathMapping</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getItems</span><span class="p">();</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus31.PathMapping">klzzwxh:11598</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus31.PathMapping">klzzwxh:11689</a>></li>
 <li><em>Default:</em> no mapping</li>
 </ul>
 <p>If unspecified, each key-value pair in the Data field of the referenced secret will be projected into the volume as a file whose name is the key and content is the value.</p>
@@ -20315,6 +20488,7 @@ its endpoints, which Kubernetes will not modify.</li>
 <span class="c1">//  .containers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .dns(PodDnsProps)</span>
 <span class="c1">//  .dockerRegistryAuth(ISecret)</span>
+<span class="c1">//  .enableServiceLinks(java.lang.Boolean)</span>
 <span class="c1">//  .hostAliases(java.util.List&lt;HostAlias&gt;)</span>
 <span class="c1">//  .hostNetwork(java.lang.Boolean)</span>
 <span class="c1">//  .initContainers(java.util.List&lt;ContainerProps&gt;)</span>
@@ -20388,6 +20562,18 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
+<hr />
+<h5 id="enableservicelinksoptional_15"><code>enableServiceLinks</code><sup>Optional</sup> <a name="org.cdk8s.plus31.StatefulSetProps.property.enableServiceLinks"></a><a class="headerlink" href="#enableservicelinksoptional_15" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span><span class="w"> </span><span class="nf">getEnableServiceLinks</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> true</li>
+</ul>
+<p>Indicates whether information about services should be injected into pod&rsquo;s environment variables, matching the syntax of Docker links.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/#accessing-the-service</p>
+</blockquote>
 <hr />
 <h5 id="hostaliasesoptional_14"><code>hostAliases</code><sup>Optional</sup> <a name="org.cdk8s.plus31.StatefulSetProps.property.hostAliases"></a><a class="headerlink" href="#hostaliasesoptional_14" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">HostAlias</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getHostAliases</span><span class="p">();</span>
@@ -20918,6 +21104,7 @@ contain &lsquo;:&rsquo;.</p>
 <span class="c1">//  .containers(java.util.List&lt;ContainerProps&gt;)</span>
 <span class="c1">//  .dns(PodDnsProps)</span>
 <span class="c1">//  .dockerRegistryAuth(ISecret)</span>
+<span class="c1">//  .enableServiceLinks(java.lang.Boolean)</span>
 <span class="c1">//  .hostAliases(java.util.List&lt;HostAlias&gt;)</span>
 <span class="c1">//  .hostNetwork(java.lang.Boolean)</span>
 <span class="c1">//  .initContainers(java.util.List&lt;ContainerProps&gt;)</span>
@@ -20986,6 +21173,18 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
+<hr />
+<h5 id="enableservicelinksoptional_16"><code>enableServiceLinks</code><sup>Optional</sup> <a name="org.cdk8s.plus31.WorkloadProps.property.enableServiceLinks"></a><a class="headerlink" href="#enableservicelinksoptional_16" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Boolean</span><span class="w"> </span><span class="nf">getEnableServiceLinks</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>java.lang.Boolean</code></li>
+<li><em>Default:</em> true</li>
+</ul>
+<p>Indicates whether information about services should be injected into pod&rsquo;s environment variables, matching the syntax of Docker links.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/#accessing-the-service</p>
+</blockquote>
 <hr />
 <h5 id="hostaliasesoptional_15"><code>hostAliases</code><sup>Optional</sup> <a name="org.cdk8s.plus31.WorkloadProps.property.hostAliases"></a><a class="headerlink" href="#hostaliasesoptional_15" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">HostAlias</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getHostAliases</span><span class="p">();</span>
@@ -21603,7 +21802,7 @@ with a duplicate key will take precedence.</p>
 <hr />
 <h5 id="envvariablesoptional_2"><code>envVariables</code><sup>Optional</sup> <a name="org.cdk8s.plus31.ContainerProps.parameter.envVariables"></a><a class="headerlink" href="#envvariablesoptional_2" title="Permanent link">&para;</a></h5>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus31.EnvValue">klzzwxh:11093</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus31.EnvValue">klzzwxh:11178</a>></li>
 <li><em>Default:</em> No environment variables.</li>
 </ul>
 <p>Environment variables to set in the container.</p>
@@ -22098,7 +22297,7 @@ somehow it manages to get access to host file system.</li>
 <hr />
 <h5 id="variablesrequired"><code>variables</code><sup>Required</sup> <a name="org.cdk8s.plus31.Env.parameter.variables"></a><a class="headerlink" href="#variablesrequired" title="Permanent link">&para;</a></h5>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus31.EnvValue">klzzwxh:10930</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus31.EnvValue">klzzwxh:11015</a>></li>
 </ul>
 <hr />
 <h4 id="methods_26">Methods <a name="Methods"></a><a class="headerlink" href="#methods_26" title="Permanent link">&para;</a></h4>
@@ -22164,7 +22363,7 @@ somehow it manages to get access to host file system.</li>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">EnvValue</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getVariables</span><span class="p">();</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus31.EnvValue">klzzwxh:10907</a>></li>
+<li><em>Type:</em> java.util.Map<java.lang.String, <a href="#org.cdk8s.plus31.EnvValue">klzzwxh:10992</a>></li>
 </ul>
 <p>The environment variables for this container.</p>
 <p>Returns a copy. To add environment variables use <code>container.env.addVariable()</code>.</p>

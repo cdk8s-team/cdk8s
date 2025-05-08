@@ -7766,6 +7766,7 @@
   <span class="n">containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">dns</span><span class="p">:</span> <span class="n">PodDnsProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">ISecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">enable_service_links</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_aliases</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">HostAlias</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_network</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">init_containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -7831,6 +7832,16 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
+<hr />
+<h5 id="enable_service_linksoptional"><code>enable_service_links</code><sup>Optional</sup> <a name="cdk8s_plus_32.AbstractPodProps.parameter.enable_service_links"></a><a class="headerlink" href="#enable_service_linksoptional" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>bool</code></li>
+<li><em>Default:</em> true</li>
+</ul>
+<p>Indicates whether information about services should be injected into pod&rsquo;s environment variables, matching the syntax of Docker links.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/#accessing-the-service</p>
+</blockquote>
 <hr />
 <h5 id="host_aliasesoptional"><code>host_aliases</code><sup>Optional</sup> <a name="cdk8s_plus_32.AbstractPodProps.parameter.host_aliases"></a><a class="headerlink" href="#host_aliasesoptional" title="Permanent link">&para;</a></h5>
 <ul>
@@ -8462,6 +8473,13 @@ Otherwise, no startup probe is defined.</li>
 </code></pre></div>
 <ul>
 <li><em>Type:</em> <a href="#cdk8s_plus_32.ISecret"><code>cdk8s_plus_32.ISecret</code></a></li>
+</ul>
+<hr />
+<h5 id="enable_service_linksoptional_1"><code>enable_service_links</code><sup>Optional</sup> <a name="cdk8s_plus_32.AbstractPod.property.enable_service_links"></a><a class="headerlink" href="#enable_service_linksoptional_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">enable_service_links</span><span class="p">:</span> <span class="nb">bool</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>bool</code></li>
 </ul>
 <hr />
 <h5 id="host_networkoptional_1"><code>host_network</code><sup>Optional</sup> <a name="cdk8s_plus_32.AbstractPod.property.host_network"></a><a class="headerlink" href="#host_networkoptional_1" title="Permanent link">&para;</a></h5>
@@ -9483,6 +9501,7 @@ is enforced during validation process.</p>
   <span class="n">containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">dns</span><span class="p">:</span> <span class="n">PodDnsProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">ISecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">enable_service_links</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_aliases</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">HostAlias</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_network</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">init_containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -9561,6 +9580,16 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
+<hr />
+<h5 id="enable_service_linksoptional_2"><code>enable_service_links</code><sup>Optional</sup> <a name="cdk8s_plus_32.CronJobProps.parameter.enable_service_links"></a><a class="headerlink" href="#enable_service_linksoptional_2" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>bool</code></li>
+<li><em>Default:</em> true</li>
+</ul>
+<p>Indicates whether information about services should be injected into pod&rsquo;s environment variables, matching the syntax of Docker links.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/#accessing-the-service</p>
+</blockquote>
 <hr />
 <h5 id="host_aliasesoptional_1"><code>host_aliases</code><sup>Optional</sup> <a name="cdk8s_plus_32.CronJobProps.parameter.host_aliases"></a><a class="headerlink" href="#host_aliasesoptional_1" title="Permanent link">&para;</a></h5>
 <ul>
@@ -9876,6 +9905,7 @@ but with different flags and/or different memory and cpu requests for different 
   <span class="n">containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">dns</span><span class="p">:</span> <span class="n">PodDnsProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">ISecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">enable_service_links</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_aliases</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">HostAlias</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_network</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">init_containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -9945,6 +9975,16 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
+<hr />
+<h5 id="enable_service_linksoptional_3"><code>enable_service_links</code><sup>Optional</sup> <a name="cdk8s_plus_32.DaemonSetProps.parameter.enable_service_links"></a><a class="headerlink" href="#enable_service_linksoptional_3" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>bool</code></li>
+<li><em>Default:</em> true</li>
+</ul>
+<p>Indicates whether information about services should be injected into pod&rsquo;s environment variables, matching the syntax of Docker links.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/#accessing-the-service</p>
+</blockquote>
 <hr />
 <h5 id="host_aliasesoptional_2"><code>host_aliases</code><sup>Optional</sup> <a name="cdk8s_plus_32.DaemonSetProps.parameter.host_aliases"></a><a class="headerlink" href="#host_aliasesoptional_2" title="Permanent link">&para;</a></h5>
 <ul>
@@ -10133,6 +10173,7 @@ existing Deployments and adopt all their resources with new Deployments.</p>
   <span class="n">containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">dns</span><span class="p">:</span> <span class="n">PodDnsProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">ISecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">enable_service_links</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_aliases</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">HostAlias</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_network</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">init_containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -10205,6 +10246,16 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
+<hr />
+<h5 id="enable_service_linksoptional_4"><code>enable_service_links</code><sup>Optional</sup> <a name="cdk8s_plus_32.DeploymentProps.parameter.enable_service_links"></a><a class="headerlink" href="#enable_service_linksoptional_4" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>bool</code></li>
+<li><em>Default:</em> true</li>
+</ul>
+<p>Indicates whether information about services should be injected into pod&rsquo;s environment variables, matching the syntax of Docker links.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/#accessing-the-service</p>
+</blockquote>
 <hr />
 <h5 id="host_aliasesoptional_3"><code>host_aliases</code><sup>Optional</sup> <a name="cdk8s_plus_32.DeploymentProps.parameter.host_aliases"></a><a class="headerlink" href="#host_aliasesoptional_3" title="Permanent link">&para;</a></h5>
 <ul>
@@ -11207,6 +11258,7 @@ You can also use a Job to run multiple Pods in parallel.</p>
   <span class="n">containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">dns</span><span class="p">:</span> <span class="n">PodDnsProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">ISecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">enable_service_links</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_aliases</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">HostAlias</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_network</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">init_containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -11278,6 +11330,16 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
+<hr />
+<h5 id="enable_service_linksoptional_5"><code>enable_service_links</code><sup>Optional</sup> <a name="cdk8s_plus_32.JobProps.parameter.enable_service_links"></a><a class="headerlink" href="#enable_service_linksoptional_5" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>bool</code></li>
+<li><em>Default:</em> true</li>
+</ul>
+<p>Indicates whether information about services should be injected into pod&rsquo;s environment variables, matching the syntax of Docker links.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/#accessing-the-service</p>
+</blockquote>
 <hr />
 <h5 id="host_aliasesoptional_4"><code>host_aliases</code><sup>Optional</sup> <a name="cdk8s_plus_32.JobProps.parameter.host_aliases"></a><a class="headerlink" href="#host_aliasesoptional_4" title="Permanent link">&para;</a></h5>
 <ul>
@@ -12311,6 +12373,7 @@ created by clients and scheduled onto hosts.</p>
   <span class="n">containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">dns</span><span class="p">:</span> <span class="n">PodDnsProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">ISecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">enable_service_links</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_aliases</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">HostAlias</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_network</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">init_containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -12376,6 +12439,16 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
+<hr />
+<h5 id="enable_service_linksoptional_6"><code>enable_service_links</code><sup>Optional</sup> <a name="cdk8s_plus_32.PodProps.parameter.enable_service_links"></a><a class="headerlink" href="#enable_service_linksoptional_6" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>bool</code></li>
+<li><em>Default:</em> true</li>
+</ul>
+<p>Indicates whether information about services should be injected into pod&rsquo;s environment variables, matching the syntax of Docker links.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/#accessing-the-service</p>
+</blockquote>
 <hr />
 <h5 id="host_aliasesoptional_5"><code>host_aliases</code><sup>Optional</sup> <a name="cdk8s_plus_32.PodProps.parameter.host_aliases"></a><a class="headerlink" href="#host_aliasesoptional_5" title="Permanent link">&para;</a></h5>
 <ul>
@@ -13727,6 +13800,7 @@ volumes to the new Pods that replace any that have failed.</p>
   <span class="n">containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">dns</span><span class="p">:</span> <span class="n">PodDnsProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">ISecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">enable_service_links</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_aliases</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">HostAlias</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_network</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">init_containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -13800,6 +13874,16 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
+<hr />
+<h5 id="enable_service_linksoptional_7"><code>enable_service_links</code><sup>Optional</sup> <a name="cdk8s_plus_32.StatefulSetProps.parameter.enable_service_links"></a><a class="headerlink" href="#enable_service_linksoptional_7" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>bool</code></li>
+<li><em>Default:</em> true</li>
+</ul>
+<p>Indicates whether information about services should be injected into pod&rsquo;s environment variables, matching the syntax of Docker links.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/#accessing-the-service</p>
+</blockquote>
 <hr />
 <h5 id="host_aliasesoptional_6"><code>host_aliases</code><sup>Optional</sup> <a name="cdk8s_plus_32.StatefulSetProps.parameter.host_aliases"></a><a class="headerlink" href="#host_aliasesoptional_6" title="Permanent link">&para;</a></h5>
 <ul>
@@ -14771,6 +14855,7 @@ In Kubernetes, a Pod represents a set of running containers on your cluster.</p>
   <span class="n">containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">dns</span><span class="p">:</span> <span class="n">PodDnsProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">ISecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">enable_service_links</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_aliases</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">HostAlias</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_network</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">init_containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -14839,6 +14924,16 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
+<hr />
+<h5 id="enable_service_linksoptional_8"><code>enable_service_links</code><sup>Optional</sup> <a name="cdk8s_plus_32.WorkloadProps.parameter.enable_service_links"></a><a class="headerlink" href="#enable_service_linksoptional_8" title="Permanent link">&para;</a></h5>
+<ul>
+<li><em>Type:</em> <code>bool</code></li>
+<li><em>Default:</em> true</li>
+</ul>
+<p>Indicates whether information about services should be injected into pod&rsquo;s environment variables, matching the syntax of Docker links.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/#accessing-the-service</p>
+</blockquote>
 <hr />
 <h5 id="host_aliasesoptional_7"><code>host_aliases</code><sup>Optional</sup> <a name="cdk8s_plus_32.WorkloadProps.parameter.host_aliases"></a><a class="headerlink" href="#host_aliasesoptional_7" title="Permanent link">&para;</a></h5>
 <ul>
@@ -15031,6 +15126,7 @@ its pod template.</p>
   <span class="n">containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">dns</span><span class="p">:</span> <span class="n">PodDnsProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">ISecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">enable_service_links</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_aliases</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">HostAlias</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_network</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">init_containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -15096,6 +15192,18 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
+<hr />
+<h5 id="enable_service_linksoptional_9"><code>enable_service_links</code><sup>Optional</sup> <a name="cdk8s_plus_32.AbstractPodProps.property.enable_service_links"></a><a class="headerlink" href="#enable_service_linksoptional_9" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">enable_service_links</span><span class="p">:</span> <span class="nb">bool</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>bool</code></li>
+<li><em>Default:</em> true</li>
+</ul>
+<p>Indicates whether information about services should be injected into pod&rsquo;s environment variables, matching the syntax of Docker links.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/#accessing-the-service</p>
+</blockquote>
 <hr />
 <h5 id="host_aliasesoptional_8"><code>host_aliases</code><sup>Optional</sup> <a name="cdk8s_plus_32.AbstractPodProps.property.host_aliases"></a><a class="headerlink" href="#host_aliasesoptional_8" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="n">host_aliases</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">HostAlias</span><span class="p">]</span>
@@ -16900,6 +17008,7 @@ somehow it manages to get access to host file system.</li>
   <span class="n">containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">dns</span><span class="p">:</span> <span class="n">PodDnsProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">ISecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">enable_service_links</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_aliases</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">HostAlias</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_network</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">init_containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -16978,6 +17087,18 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
+<hr />
+<h5 id="enable_service_linksoptional_10"><code>enable_service_links</code><sup>Optional</sup> <a name="cdk8s_plus_32.CronJobProps.property.enable_service_links"></a><a class="headerlink" href="#enable_service_linksoptional_10" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">enable_service_links</span><span class="p">:</span> <span class="nb">bool</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>bool</code></li>
+<li><em>Default:</em> true</li>
+</ul>
+<p>Indicates whether information about services should be injected into pod&rsquo;s environment variables, matching the syntax of Docker links.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/#accessing-the-service</p>
+</blockquote>
 <hr />
 <h5 id="host_aliasesoptional_9"><code>host_aliases</code><sup>Optional</sup> <a name="cdk8s_plus_32.CronJobProps.property.host_aliases"></a><a class="headerlink" href="#host_aliasesoptional_9" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="n">host_aliases</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">HostAlias</span><span class="p">]</span>
@@ -17310,6 +17431,7 @@ determine the default filesystem to apply.</p>
   <span class="n">containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">dns</span><span class="p">:</span> <span class="n">PodDnsProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">ISecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">enable_service_links</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_aliases</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">HostAlias</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_network</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">init_containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -17379,6 +17501,18 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
+<hr />
+<h5 id="enable_service_linksoptional_11"><code>enable_service_links</code><sup>Optional</sup> <a name="cdk8s_plus_32.DaemonSetProps.property.enable_service_links"></a><a class="headerlink" href="#enable_service_linksoptional_11" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">enable_service_links</span><span class="p">:</span> <span class="nb">bool</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>bool</code></li>
+<li><em>Default:</em> true</li>
+</ul>
+<p>Indicates whether information about services should be injected into pod&rsquo;s environment variables, matching the syntax of Docker links.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/#accessing-the-service</p>
+</blockquote>
 <hr />
 <h5 id="host_aliasesoptional_10"><code>host_aliases</code><sup>Optional</sup> <a name="cdk8s_plus_32.DaemonSetProps.property.host_aliases"></a><a class="headerlink" href="#host_aliasesoptional_10" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="n">host_aliases</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">HostAlias</span><span class="p">]</span>
@@ -17593,6 +17727,7 @@ you must explicitly set a name starting from the second expose call.</p>
   <span class="n">containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">dns</span><span class="p">:</span> <span class="n">PodDnsProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">ISecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">enable_service_links</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_aliases</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">HostAlias</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_network</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">init_containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -17665,6 +17800,18 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
+<hr />
+<h5 id="enable_service_linksoptional_12"><code>enable_service_links</code><sup>Optional</sup> <a name="cdk8s_plus_32.DeploymentProps.property.enable_service_links"></a><a class="headerlink" href="#enable_service_linksoptional_12" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">enable_service_links</span><span class="p">:</span> <span class="nb">bool</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>bool</code></li>
+<li><em>Default:</em> true</li>
+</ul>
+<p>Indicates whether information about services should be injected into pod&rsquo;s environment variables, matching the syntax of Docker links.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/#accessing-the-service</p>
+</blockquote>
 <hr />
 <h5 id="host_aliasesoptional_11"><code>host_aliases</code><sup>Optional</sup> <a name="cdk8s_plus_32.DeploymentProps.property.host_aliases"></a><a class="headerlink" href="#host_aliasesoptional_11" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="n">host_aliases</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">HostAlias</span><span class="p">]</span>
@@ -18920,6 +19067,7 @@ termination and value of the Host header is used for routing.</p>
   <span class="n">containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">dns</span><span class="p">:</span> <span class="n">PodDnsProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">ISecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">enable_service_links</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_aliases</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">HostAlias</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_network</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">init_containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -18991,6 +19139,18 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
+<hr />
+<h5 id="enable_service_linksoptional_13"><code>enable_service_links</code><sup>Optional</sup> <a name="cdk8s_plus_32.JobProps.property.enable_service_links"></a><a class="headerlink" href="#enable_service_linksoptional_13" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">enable_service_links</span><span class="p">:</span> <span class="nb">bool</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>bool</code></li>
+<li><em>Default:</em> true</li>
+</ul>
+<p>Indicates whether information about services should be injected into pod&rsquo;s environment variables, matching the syntax of Docker links.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/#accessing-the-service</p>
+</blockquote>
 <hr />
 <h5 id="host_aliasesoptional_12"><code>host_aliases</code><sup>Optional</sup> <a name="cdk8s_plus_32.JobProps.property.host_aliases"></a><a class="headerlink" href="#host_aliasesoptional_12" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="n">host_aliases</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">HostAlias</span><span class="p">]</span>
@@ -20189,6 +20349,7 @@ Duplicate domain names are removed.</p>
   <span class="n">containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">dns</span><span class="p">:</span> <span class="n">PodDnsProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">ISecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">enable_service_links</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_aliases</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">HostAlias</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_network</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">init_containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -20254,6 +20415,18 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
+<hr />
+<h5 id="enable_service_linksoptional_14"><code>enable_service_links</code><sup>Optional</sup> <a name="cdk8s_plus_32.PodProps.property.enable_service_links"></a><a class="headerlink" href="#enable_service_linksoptional_14" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">enable_service_links</span><span class="p">:</span> <span class="nb">bool</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>bool</code></li>
+<li><em>Default:</em> true</li>
+</ul>
+<p>Indicates whether information about services should be injected into pod&rsquo;s environment variables, matching the syntax of Docker links.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/#accessing-the-service</p>
+</blockquote>
 <hr />
 <h5 id="host_aliasesoptional_13"><code>host_aliases</code><sup>Optional</sup> <a name="cdk8s_plus_32.PodProps.property.host_aliases"></a><a class="headerlink" href="#host_aliasesoptional_13" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="n">host_aliases</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">HostAlias</span><span class="p">]</span>
@@ -21468,6 +21641,7 @@ its endpoints, which Kubernetes will not modify.</li>
   <span class="n">containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">dns</span><span class="p">:</span> <span class="n">PodDnsProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">ISecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">enable_service_links</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_aliases</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">HostAlias</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_network</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">init_containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -21541,6 +21715,18 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
+<hr />
+<h5 id="enable_service_linksoptional_15"><code>enable_service_links</code><sup>Optional</sup> <a name="cdk8s_plus_32.StatefulSetProps.property.enable_service_links"></a><a class="headerlink" href="#enable_service_linksoptional_15" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">enable_service_links</span><span class="p">:</span> <span class="nb">bool</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>bool</code></li>
+<li><em>Default:</em> true</li>
+</ul>
+<p>Indicates whether information about services should be injected into pod&rsquo;s environment variables, matching the syntax of Docker links.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/#accessing-the-service</p>
+</blockquote>
 <hr />
 <h5 id="host_aliasesoptional_14"><code>host_aliases</code><sup>Optional</sup> <a name="cdk8s_plus_32.StatefulSetProps.property.host_aliases"></a><a class="headerlink" href="#host_aliasesoptional_14" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="n">host_aliases</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">HostAlias</span><span class="p">]</span>
@@ -22071,6 +22257,7 @@ contain &lsquo;:&rsquo;.</p>
   <span class="n">containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">dns</span><span class="p">:</span> <span class="n">PodDnsProps</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">docker_registry_auth</span><span class="p">:</span> <span class="n">ISecret</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="n">enable_service_links</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_aliases</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">HostAlias</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">host_network</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
   <span class="n">init_containers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">ContainerProps</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -22139,6 +22326,18 @@ added or removed. There must be at least one container in a Pod.</p>
 <li><em>Default:</em> No auth. Images are assumed to be publicly available.</li>
 </ul>
 <p>A secret containing docker credentials for authenticating to a registry.</p>
+<hr />
+<h5 id="enable_service_linksoptional_16"><code>enable_service_links</code><sup>Optional</sup> <a name="cdk8s_plus_32.WorkloadProps.property.enable_service_links"></a><a class="headerlink" href="#enable_service_linksoptional_16" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="n">enable_service_links</span><span class="p">:</span> <span class="nb">bool</span>
+</code></pre></div>
+<ul>
+<li><em>Type:</em> <code>bool</code></li>
+<li><em>Default:</em> true</li>
+</ul>
+<p>Indicates whether information about services should be injected into pod&rsquo;s environment variables, matching the syntax of Docker links.</p>
+<blockquote>
+<p>https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/#accessing-the-service</p>
+</blockquote>
 <hr />
 <h5 id="host_aliasesoptional_15"><code>host_aliases</code><sup>Optional</sup> <a name="cdk8s_plus_32.WorkloadProps.property.host_aliases"></a><a class="headerlink" href="#host_aliasesoptional_15" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="n">host_aliases</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="n">HostAlias</span><span class="p">]</span>
