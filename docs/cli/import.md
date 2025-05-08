@@ -26,6 +26,18 @@ language: typescript
 The `--output` (or `-o`) option can be used to specify the output directory for
 your imports.
 
+CLI:
+
+```shell
+cdk8s import --output ./path/to/imports
+```
+
+`cdk8s.yaml`:
+
+```yaml
+importDirectory: ./path/to/imports
+```
+
 ### Class name prefix (`--class-prefix`)
 
 For `k8s` imports, all imported classes will have a `Kube` prefix to denote that
