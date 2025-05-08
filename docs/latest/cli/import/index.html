@@ -3646,6 +3646,12 @@ objects and Custom Resources (CRDs).</p>
 <h3 id="output-directory-output">Output directory (<code>--output</code>)<a class="headerlink" href="#output-directory-output" title="Permanent link">&para;</a></h3>
 <p>The <code>--output</code> (or <code>-o</code>) option can be used to specify the output directory for
 your imports.</p>
+<p>CLI:</p>
+<div class="highlight"><pre><span></span><code>cdk8s<span class="w"> </span>import<span class="w"> </span>--output<span class="w"> </span>./path/to/imports
+</code></pre></div>
+<p><code>cdk8s.yaml</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">importDirectory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./path/to/imports</span>
+</code></pre></div>
 <h3 id="class-name-prefix-class-prefix">Class name prefix (<code>--class-prefix</code>)<a class="headerlink" href="#class-name-prefix-class-prefix" title="Permanent link">&para;</a></h3>
 <p>For <code>k8s</code> imports, all imported classes will have a <code>Kube</code> prefix to denote that
 those are core Kubernetes APIs. For CRD imports, the class name will match the
