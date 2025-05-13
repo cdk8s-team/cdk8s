@@ -266,10 +266,10 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@cdk8s/projen-common@^0.0.603":
-  version "0.0.603"
-  resolved "https://registry.yarnpkg.com/@cdk8s/projen-common/-/projen-common-0.0.603.tgz#33d3912ce8be10f8dcf40cfdf61d9e02b589e134"
-  integrity sha512-RQ2loROjZgL04uJW7aMCNDZ+whjcRbA6ff8mILHGZyY9BjQnvztkVkdhSU0zU0zIwQeLouFCX+4Mwzg99JTAlg==
+"@cdk8s/projen-common@^0.0.604":
+  version "0.0.604"
+  resolved "https://registry.yarnpkg.com/@cdk8s/projen-common/-/projen-common-0.0.604.tgz#ec99b9a3e3afd6cb1efc527b2d4435efb41e28f3"
+  integrity sha512-d7Y89VHZxReNIzBNigDR07E0lOy1kd5TJvTL+WMPSw+M3xYmmXH5rUKqL5QqZw8XmihUvc036HzVcpW6x8z+Ag==
   dependencies:
     codemaker "^1.112.0"
     deepmerge "^4.3.1"
@@ -6906,10 +6906,10 @@ proggy@^2.0.0:
   resolved "https://registry.yarnpkg.com/proggy/-/proggy-2.0.0.tgz#154bb0e41d3125b518ef6c79782455c2c47d94e1"
   integrity sha512-69agxLtnI8xBs9gUGqEnK26UfiexpHy+KUpBQWabiytQjnn5wFY8rklAi7GRfABIuPNnQ/ik48+LGLkYYJcy4A==
 
-projen@^0.92.3:
-  version "0.92.3"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.92.3.tgz#78bb29b8e018a821a60be9ece5e8cf76a7b66ef6"
-  integrity sha512-zsc92bJZa3Q7x8uMD5je45LOFtWrRKz7FdQyMDl6tYTgH8HqkeUBCq/NbVbUXEmWJTmhmyCyyFPaPz0X+GHn+A==
+projen@^0.92.4:
+  version "0.92.4"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.92.4.tgz#b7ab6321c1ac0a7ed69b34df8ea2c2e1c34ae5ca"
+  integrity sha512-6Vm5jDkZnQ24P/YGi/OlsqxGVfPjxEJ10KXTu36vA9yhb5m9n+gt9j/zsGjpQYjNGt5wxfGatzqW0cIS0jTSUg==
   dependencies:
     "@iarna/toml" "^2.2.5"
     case "^1.6.3"
@@ -6921,7 +6921,7 @@ projen@^0.92.3:
     glob "^8"
     ini "^2.0.0"
     parse-conflict-json "^4.0.0"
-    semver "^7.7.1"
+    semver "^7.7.2"
     shx "^0.4.0"
     xmlbuilder2 "^3.1.1"
     yaml "^2.2.2"
