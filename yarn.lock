@@ -2240,21 +2240,21 @@ case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s-cli@^2.200.74:
-  version "2.200.74"
-  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.200.74.tgz#b31d571497331462cefd84fdcb31dec9c748943a"
-  integrity sha512-Sh8kJZQemyXT3bSkNavUJMWQHeg9lo7C2tlTRSBsSoPaHEEWR66Xu+19exKWuAobP7WU83bYAJIfoMqnbsGpRg==
+cdk8s-cli@^2.200.75:
+  version "2.200.75"
+  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.200.75.tgz#1c6b120411eeb2553e93f2588e990abda9df70a9"
+  integrity sha512-SSFmnPVE7735qL13OiuLlSNrVtYbaFHkZ9V4KSweIoZ91WlGKO43Eeicmg8DDCReQY8rouerYfpneEevWQemFw==
   dependencies:
     "@types/node" "^16"
     ajv "^8.17.1"
-    cdk8s "^2.69.69"
+    cdk8s "^2.69.70"
     cdk8s-plus-28 "^2.5.6"
     codemaker "^1.112.0"
     colors "1.4.0"
     constructs "^10.4.2"
     fs-extra "^8"
     jsii-pacmak "^1.112.0"
-    jsii-rosetta "^5.8.7"
+    jsii-rosetta "^5.8.8"
     jsii-srcmak "0.1.1236"
     json2jsii "0.5.3"
     semver "^7.7.2"
@@ -2291,10 +2291,10 @@ cdk8s-plus-32@^2.1.2:
   dependencies:
     minimatch "^3.1.2"
 
-cdk8s@^2.69.69:
-  version "2.69.69"
-  resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-2.69.69.tgz#ff799008d7d87c8a1ad8034201f84b5ec7b99751"
-  integrity sha512-inCOc9qGbQs48Ibsm4yrrkK3xVomB9mun/0Qwms08yBf5kWN/Yq1H+sKGwByA2e/S5XinCsPw3bQKegBWp2CzA==
+cdk8s@^2.69.70:
+  version "2.69.70"
+  resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-2.69.70.tgz#ebb4ddbd306dfe729b5ab1b5b968f42906096bc6"
+  integrity sha512-wJB6jCD0TEUfADWYRy+vHC2etG/SQqZLnGYKpHLYB+YT30pbHLXIVa/t3kPBVhnkqNyDN5p6ZLTpDXXrvylB1A==
   dependencies:
     fast-json-patch "^3.1.1"
     follow-redirects "^1.15.9"
@@ -5157,7 +5157,7 @@ jsii-reflect@^1.112.0:
     oo-ascii-tree "^1.112.0"
     yargs "^16.2.0"
 
-jsii-rosetta@^5.5.4, jsii-rosetta@^5.8.7:
+jsii-rosetta@^5.5.4, jsii-rosetta@^5.8.8:
   version "5.8.8"
   resolved "https://registry.yarnpkg.com/jsii-rosetta/-/jsii-rosetta-5.8.8.tgz#129d8499187b9039aba05a8df479641db067579f"
   integrity sha512-zhLu75CwQFAYDiOffMXKLmEiw8QAmgMjDHStgd9z5k91Wt4EGrSI5AG2UNV3N9QLkOWdQCCuYjdyaH4BPRvwEg==
@@ -7927,9 +7927,9 @@ typescript@^4.9.5:
   integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
 
 typescript@next:
-  version "5.9.0-dev.20250519"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.9.0-dev.20250519.tgz#546ff858894f720a647a61e5e354669df138cf71"
-  integrity sha512-cD9QL1mE9TWmUaC8hHGQUXS0oRsZI45Sovemi6S8ATHu2yKIxUtrlpXkMPQFD5g92QT7SSbNWuR8k6iMIHC/6A==
+  version "5.9.0-dev.20250520"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.9.0-dev.20250520.tgz#9dbb024887099f8539816d2e0900d1c9ffd76896"
+  integrity sha512-2xyK59gIyyjHf2/QKcjNXKhLt/Haj9N4D+YPUgDBlzFzuGMH0s8vLU4kkSAlYx4YHKW8pgKRaj3VJzr42XCF3g==
 
 typescript@~5.5:
   version "5.5.4"
