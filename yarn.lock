@@ -1423,9 +1423,9 @@
   integrity sha512-hov8bUuiLiyFPGyFPE1lwWhmzYbirOXQNNo40+y3zow8aFVTeyn3VWL0VFFfdNddA8S4Vf0Tc062rzyNr7Paag==
 
 "@types/node@*":
-  version "22.15.19"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-22.15.19.tgz#ba9f321675243af0456d607fa82a4865931e0cef"
-  integrity sha512-3vMNr4TzNQyjHcRZadojpRaD9Ofr6LsonZAoQ+HMUa/9ORTPoxVIw0e0mpqWpdjj8xybyCM+oKOUH2vwFu/oEw==
+  version "22.15.21"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-22.15.21.tgz#196ef14fe20d87f7caf1e7b39832767f9a995b77"
+  integrity sha512-EV/37Td6c+MgKAbkcLG6vqZ2zEYHD7bvSrzqqs2RIhbA6w3x+Dqz8MZM3sP6kGTeLrdoOgKZe+Xja7tUB2DNkQ==
   dependencies:
     undici-types "~6.21.0"
 
@@ -2240,10 +2240,10 @@ case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s-cli@^2.200.75:
-  version "2.200.75"
-  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.200.75.tgz#1c6b120411eeb2553e93f2588e990abda9df70a9"
-  integrity sha512-SSFmnPVE7735qL13OiuLlSNrVtYbaFHkZ9V4KSweIoZ91WlGKO43Eeicmg8DDCReQY8rouerYfpneEevWQemFw==
+cdk8s-cli@^2.200.76:
+  version "2.200.76"
+  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.200.76.tgz#be8b55412f002d4034ef29f96bd10be8bacd2c1f"
+  integrity sha512-wc4x9KRPedmPJ2hc0OR7OTXhAzTLGVVp5UAYRTN13H8CEHkslMdmaETUDc0iucacKhrNEtIawLIzIAlwKxh/bw==
   dependencies:
     "@types/node" "^16"
     ajv "^8.17.1"
@@ -3757,9 +3757,9 @@ get-symbol-description@^1.1.0:
     get-intrinsic "^1.2.6"
 
 get-tsconfig@^4.10.0:
-  version "4.10.0"
-  resolved "https://registry.yarnpkg.com/get-tsconfig/-/get-tsconfig-4.10.0.tgz#403a682b373a823612475a4c2928c7326fc0f6bb"
-  integrity sha512-kGzZ3LWWQcGIAmg6iWvXn0ei6WDtV26wzHRMwDSzmAbcXrTEXxHy6IehI6/4eT6VRKyMP1eF1VqwrVUmE/LR7A==
+  version "4.10.1"
+  resolved "https://registry.yarnpkg.com/get-tsconfig/-/get-tsconfig-4.10.1.tgz#d34c1c01f47d65a606c37aa7a177bc3e56ab4b2e"
+  integrity sha512-auHyJ4AgMz7vgS8Hp3N6HXSmlMdUyhSUrfBF16w153rxtLIEOE+HGqaBppczZvnHLqQJfiHotCYpNhl0lUROFQ==
   dependencies:
     resolve-pkg-maps "^1.0.0"
 
@@ -7927,9 +7927,9 @@ typescript@^4.9.5:
   integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
 
 typescript@next:
-  version "5.9.0-dev.20250520"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.9.0-dev.20250520.tgz#9dbb024887099f8539816d2e0900d1c9ffd76896"
-  integrity sha512-2xyK59gIyyjHf2/QKcjNXKhLt/Haj9N4D+YPUgDBlzFzuGMH0s8vLU4kkSAlYx4YHKW8pgKRaj3VJzr42XCF3g==
+  version "5.9.0-dev.20250521"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.9.0-dev.20250521.tgz#88cf9860200cbdf92462e0be003c997d4c9fb70a"
+  integrity sha512-wxrj9XlTy2D5iqAPWHWKgnXGkHVTgouDmMPhGrxqcX1z5STJKqDCXnebUFKM7xXahfEPtWFIyN7ouyg2G56e7g==
 
 typescript@~5.5:
   version "5.5.4"
