@@ -2240,10 +2240,10 @@ case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s-cli@^2.200.80:
-  version "2.200.80"
-  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.200.80.tgz#6d990840b9c29cdfdb1fa7c6df61fcb72b83918b"
-  integrity sha512-h3qymlb7Sas4Dn0FihRH7hnfvM4nTR3zKX7jz4jL/FxASPSukAoI8LpJqB6P0rz92rGnp3dilFEXBhki8w6n8Q==
+cdk8s-cli@^2.200.81:
+  version "2.200.81"
+  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.200.81.tgz#8f9c33a4cc208af0e2d942b39fa99247328e0604"
+  integrity sha512-fJwm5OZgo2c96WdPzo1pUhdBMosCdGSmthixFxstGzXLMyLS3qaFlAeVgJui4a2PXD5P/dY6CeHbxEY/iHYdRQ==
   dependencies:
     "@types/node" "^16"
     ajv "^8.17.1"
@@ -5208,9 +5208,9 @@ jsii@~5.5.3:
     yargs "^17.7.2"
 
 jsii@~5.8.0:
-  version "5.8.9"
-  resolved "https://registry.yarnpkg.com/jsii/-/jsii-5.8.9.tgz#be9d59d7e8193b60291d3cd8a0913668fd11b0e1"
-  integrity sha512-TxdbK33FUEatwVQh2Kls7i+v2QAlPZPopdePMZ89xePFLIwmUKhEPuPQSPHnFwdMe43cBOqa1Oh68yDQHvKNug==
+  version "5.8.10"
+  resolved "https://registry.yarnpkg.com/jsii/-/jsii-5.8.10.tgz#95d1d8574a2c542c7558b3ef649c2fe293e3b477"
+  integrity sha512-6rpXNvtUa+NUfI3efkPkJ1HXnNAlPzLu30jIckLdZLTXj91h4XZbXmGxnyCckhKYSuDHDUV932Ag/r16yQD51g==
   dependencies:
     "@jsii/check-node" "1.112.0"
     "@jsii/spec" "^1.112.0"
@@ -7688,9 +7688,9 @@ through@2, "through@>=2.2.7 <3", through@^2.3.4, through@^2.3.6:
   integrity sha512-w89qg7PI8wAdvX60bMDP+bFoD5Dvhm9oLheFp5O4a2QF0cSBGsBX4qZmadPMvVqlLJBBci+WqGGOAPvcDeNSVg==
 
 tinyglobby@^0.2.13:
-  version "0.2.13"
-  resolved "https://registry.yarnpkg.com/tinyglobby/-/tinyglobby-0.2.13.tgz#a0e46515ce6cbcd65331537e57484af5a7b2ff7e"
-  integrity sha512-mEwzpUgrLySlveBwEVDMKk5B57bhLPYovRfPAXD5gA/98Opn0rCDj3GtLwFvCvH5RK9uPCExUROW5NjDwvqkxw==
+  version "0.2.14"
+  resolved "https://registry.yarnpkg.com/tinyglobby/-/tinyglobby-0.2.14.tgz#5280b0cf3f972b050e74ae88406c0a6a58f4079d"
+  integrity sha512-tX5e7OM1HnYr2+a2C/4V0htOcSQcoSTH9KgJnVvNm5zm/cyEWKJ7j7YutsH9CxMdtOkkLFy2AHrMci9IM8IPZQ==
   dependencies:
     fdir "^6.4.4"
     picomatch "^4.0.2"
