@@ -768,9 +768,9 @@
     "@tybys/wasm-util" "^0.9.0"
 
 "@napi-rs/wasm-runtime@^0.2.10":
-  version "0.2.10"
-  resolved "https://registry.yarnpkg.com/@napi-rs/wasm-runtime/-/wasm-runtime-0.2.10.tgz#f3b7109419c6670000b2401e0c778b98afc25f84"
-  integrity sha512-bCsCyeZEwVErsGmyPNSzwfwFn4OdxBj0mmv6hOFucB/k81Ojdu68RbZdxYsRQUPc9l6SU5F/cG+bXgWs3oUgsQ==
+  version "0.2.11"
+  resolved "https://registry.yarnpkg.com/@napi-rs/wasm-runtime/-/wasm-runtime-0.2.11.tgz#192c1610e1625048089ab4e35bc0649ce478500e"
+  integrity sha512-9DPkXtvHydrcOsopiYpUgPHpmj0HWZKMUnL2dZqpvC42lsratuBG06V5ipyno0fUek5VlFsNQ+AcFATSrJXgMA==
   dependencies:
     "@emnapi/core" "^1.4.3"
     "@emnapi/runtime" "^1.4.3"
@@ -1738,9 +1738,9 @@ acorn@^7.1.1:
   integrity sha512-nQyp0o1/mNdbTO1PO6kHkwSrmgZ0MT/jCCpNiwbUjGoRN4dlBhqJtoQuCnEOKzgTVwg0ZWiCoQy6SxMebQVh8A==
 
 acorn@^8.11.0, acorn@^8.14.0, acorn@^8.2.4, acorn@^8.4.1:
-  version "8.14.1"
-  resolved "https://registry.yarnpkg.com/acorn/-/acorn-8.14.1.tgz#721d5dc10f7d5b5609a891773d47731796935dfb"
-  integrity sha512-OvQ/2pUDKmgfCg++xsTX1wGxfTaszcHVcTctW4UJB4hibJx2HXxxO5UmVgyjMa+ZDsiaf5wWLXYpRWMmBI0QHg==
+  version "8.15.0"
+  resolved "https://registry.yarnpkg.com/acorn/-/acorn-8.15.0.tgz#a360898bc415edaac46c8241f6383975b930b816"
+  integrity sha512-NZyJarBfL7nWwIq+FDL6Zp/yHEhePMNnnJ0y3qfieCrmNvYct8uvtiV41UvlSe6apAfk0fY1FbWx+NwfmpvtTg==
 
 add-stream@^1.0.0:
   version "1.0.0"
@@ -2258,10 +2258,10 @@ case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s-cli@^2.200.94:
-  version "2.200.94"
-  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.200.94.tgz#69c1481b008b66e5b3babadee7945df5cb75d197"
-  integrity sha512-9H4pM9GGna624d5scdkTPztSUnqTev++SiReTuDEk4uOXerMGr1Bb2MrZaUFBiHSHnRuZPzR5D7qjf1pPa45Eg==
+cdk8s-cli@^2.200.95:
+  version "2.200.95"
+  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.200.95.tgz#a4f3ed5dd6f21bc910df4a53de2c1ffb0e794dcf"
+  integrity sha512-1EZ6YZrJwf+YgCqVlZ7/8XTCtbL+yhS7dYHo4WPhsPBo/3oQFqinzc+NkSC6raATWyOIE91GXM3PZChnWRg7DQ==
   dependencies:
     "@types/node" "^16"
     ajv "^8.17.1"
@@ -5235,9 +5235,9 @@ jsii@~5.5.3:
     yargs "^17.7.2"
 
 jsii@~5.8.0:
-  version "5.8.11"
-  resolved "https://registry.yarnpkg.com/jsii/-/jsii-5.8.11.tgz#3c3feab45190d3490de9e56e098f757a0bea328b"
-  integrity sha512-ga00MSW4ZTk5kuPAilxw0l4/g52XM5Dw+THDMXHKnYcgxtNsFnj9ffVjnIBpcD+Ufridjxobnqf9t0WuOSvrww==
+  version "5.8.12"
+  resolved "https://registry.yarnpkg.com/jsii/-/jsii-5.8.12.tgz#5565a4fc0d7e95400007c0a53bda62b6fe62c3d5"
+  integrity sha512-4EDpRiVDJ7iXSksebwi1/k5QXKG0ZiLyXcQNBFomD57Gb0Ph7VpKHhIt53GQ2cUwigZUJ09pO4LTf3DJUivDCg==
   dependencies:
     "@jsii/check-node" "1.112.0"
     "@jsii/spec" "^1.112.0"
@@ -7962,9 +7962,9 @@ typescript@^4.9.5:
   integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
 
 typescript@next:
-  version "5.9.0-dev.20250608"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.9.0-dev.20250608.tgz#7ede51ea5f99d94e67f95700e69e501696123c39"
-  integrity sha512-bHhoHdKqMJ84XQiG+qLt1zhQHVGjtonvT+xQjE2ItGF53gPn+Gu+oJNPIkcs722DrIgOmiOoe1HpQ2SsuwyXPQ==
+  version "5.9.0-dev.20250609"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.9.0-dev.20250609.tgz#0fc8eeb36f640c2d5aae3245dbdd926c0cb52cf0"
+  integrity sha512-uRfj5CPGwjzIvCROyYrAUVkkbR3roTbDBx+jDRaaHsJ95ugiCKNrMVr2LwOqAemF5UnYJS8pRFRUVnPOX+xISA==
 
 typescript@~5.5:
   version "5.5.4"
