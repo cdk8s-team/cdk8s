@@ -266,10 +266,10 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@cdk8s/projen-common@^0.0.607":
-  version "0.0.607"
-  resolved "https://registry.yarnpkg.com/@cdk8s/projen-common/-/projen-common-0.0.607.tgz#51ff6c1333296bf48807bc10f62b31b818688fb8"
-  integrity sha512-rzXq8c3gdryNFgJcuSlSaeXqzy1sb2T7m7RUdKzbTQgP9wj9WsuXZsZGPsUDGWAU/Qxt4ZJ3zte+oQ1rCmIINQ==
+"@cdk8s/projen-common@^0.0.608":
+  version "0.0.608"
+  resolved "https://registry.yarnpkg.com/@cdk8s/projen-common/-/projen-common-0.0.608.tgz#ab6cb3b8698d67a67ce07a8516ee5a73ec8c107e"
+  integrity sha512-bZx4ZoAOKxIRMW3hOFJpSQjHdOkMy3YPlo+UrhW+gINJDAvc8LTZ+FNWhCNE58Nz/mjv4dnoUE5SdiMVyjivGA==
   dependencies:
     codemaker "^1.112.0"
     deepmerge "^4.3.1"
@@ -6677,10 +6677,10 @@ proggy@^2.0.0:
   resolved "https://registry.yarnpkg.com/proggy/-/proggy-2.0.0.tgz#154bb0e41d3125b518ef6c79782455c2c47d94e1"
   integrity sha512-69agxLtnI8xBs9gUGqEnK26UfiexpHy+KUpBQWabiytQjnn5wFY8rklAi7GRfABIuPNnQ/ik48+LGLkYYJcy4A==
 
-projen@^0.92.9:
-  version "0.92.9"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.92.9.tgz#36c5640b651e519dddc0b6522f682f4444e903bc"
-  integrity sha512-bagWBR8FSaQqBAVQdJufDo2y2tNfOdWRLNOacGV9Ow1PtxCQdtNWEnv3du3Vjp61x7c9iN/zd/XO7QJXRtA3xw==
+projen@^0.92.10:
+  version "0.92.10"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.92.10.tgz#88fff4d31725d972d5873270d55abc631f9dea37"
+  integrity sha512-c60xtQbkPt1tseUhMdCCUURdzcYaV5/Z5OxLJlNQzONwh/0VmpHKEW/creY8X7tw8hk4WgtMKhwisajJHkcf0Q==
   dependencies:
     "@iarna/toml" "^2.2.5"
     case "^1.6.3"
