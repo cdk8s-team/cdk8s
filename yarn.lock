@@ -3040,7 +3040,14 @@ encoding@^0.1.13:
   dependencies:
     iconv-lite "^0.6.2"
 
-end-of-stream@^1.1.0, end-of-stream@^1.4.1:
+end-of-stream@^1.1.0:
+  version "1.4.5"
+  resolved "https://registry.yarnpkg.com/end-of-stream/-/end-of-stream-1.4.5.tgz#7344d711dea40e0b74abc2ed49778743ccedb08c"
+  integrity sha512-ooEGc6HP26xXq/N+GCGOT0JKCLDGrq2bQUZrQ7gyrJiZANJ/8YDTxTpQBXGMn+WbIQXNVpyWymm7KYVICQnyOg==
+  dependencies:
+    once "^1.4.0"
+
+end-of-stream@^1.4.1:
   version "1.4.4"
   resolved "https://registry.yarnpkg.com/end-of-stream/-/end-of-stream-1.4.4.tgz#5ae64a5f45057baf3626ec14da0ca5e4b2431eb0"
   integrity sha512-+uw1inIHVPQoaVuHzRyXd21icM+cnt4CzD5rW+NC1wjOUSTOs+Te7FOv7AhN7vS9x/oIyhLP5PR1H+phQAHu5Q==
@@ -3886,17 +3893,6 @@ glob@^7.0.0, glob@^7.1.1, glob@^7.1.2, glob@^7.1.3, glob@^7.1.4:
     minimatch "^3.1.1"
     once "^1.3.0"
     path-is-absolute "^1.0.0"
-
-glob@^8:
-  version "8.1.0"
-  resolved "https://registry.yarnpkg.com/glob/-/glob-8.1.0.tgz#d388f656593ef708ee3e34640fdfb99a9fd1c33e"
-  integrity sha512-r8hpEjiQEYlF2QU0df3dS+nxxSIreXQS1qRhMJM0Q5NDdR386C7jb7Hwwod8Fgiuex+k0GFjgft18yvxm5XoCQ==
-  dependencies:
-    fs.realpath "^1.0.0"
-    inflight "^1.0.4"
-    inherits "2"
-    minimatch "^5.0.1"
-    once "^1.3.0"
 
 glob@^9.2.0:
   version "9.3.5"
@@ -6694,10 +6690,10 @@ proggy@^2.0.0:
   resolved "https://registry.yarnpkg.com/proggy/-/proggy-2.0.0.tgz#154bb0e41d3125b518ef6c79782455c2c47d94e1"
   integrity sha512-69agxLtnI8xBs9gUGqEnK26UfiexpHy+KUpBQWabiytQjnn5wFY8rklAi7GRfABIuPNnQ/ik48+LGLkYYJcy4A==
 
-projen@^0.92.10:
-  version "0.92.10"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.92.10.tgz#88fff4d31725d972d5873270d55abc631f9dea37"
-  integrity sha512-c60xtQbkPt1tseUhMdCCUURdzcYaV5/Z5OxLJlNQzONwh/0VmpHKEW/creY8X7tw8hk4WgtMKhwisajJHkcf0Q==
+projen@^0.92.11:
+  version "0.92.11"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.92.11.tgz#ff2e2eadae90eb9b6f3a79798c0570d8c72206e8"
+  integrity sha512-/dOAVN265luYqyJgTYyYUMsnoO+D0CxMqzTki5W7NoNlGaXz2fmKhUzzm5lijhSIBXUdOYP8OAqVU9vnNV3+rw==
   dependencies:
     "@iarna/toml" "^2.2.5"
     case "^1.6.3"
@@ -6705,8 +6701,8 @@ projen@^0.92.10:
     comment-json "4.2.2"
     constructs "^10.0.0"
     conventional-changelog-config-spec "^2.1.0"
+    fast-glob "^3.3.3"
     fast-json-patch "^3.1.1"
-    glob "^8"
     ini "^2.0.0"
     parse-conflict-json "^4.0.0"
     semver "^7.7.2"
@@ -6771,9 +6767,9 @@ psl@^1.1.33:
     punycode "^2.3.1"
 
 pump@^3.0.0:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/pump/-/pump-3.0.2.tgz#836f3edd6bc2ee599256c924ffe0d88573ddcbf8"
-  integrity sha512-tUPXtzlGM8FE3P0ZL6DVs/3P58k9nk8/jZeQCurTJylQA8qFYzHFfhBJkuqyE0FifOsQ0uKWekiZ5g8wtr28cw==
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/pump/-/pump-3.0.3.tgz#151d979f1a29668dc0025ec589a455b53282268d"
+  integrity sha512-todwxLMY7/heScKmntwQG8CXVkWUOdYxIvY2s0VWAAMh/nd8SoYiRaKjlr7+iCs984f2P8zvrfWcDDYVb73NfA==
   dependencies:
     end-of-stream "^1.1.0"
     once "^1.3.1"
