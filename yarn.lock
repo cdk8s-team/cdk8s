@@ -2266,19 +2266,19 @@ camelcase@^6.2.0, camelcase@^6.3.0:
   integrity sha512-Gmy6FhYlCY7uOElZUSbxo2UCDH8owEk996gkbrpsgGtrJLM3J7jGxl9Ic7Qwwj4ivOE5AWZWRMecDdF7hqGjFA==
 
 caniuse-lite@^1.0.30001718:
-  version "1.0.30001723"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001723.tgz#c4f3174f02089720736e1887eab345e09bb10944"
-  integrity sha512-1R/elMjtehrFejxwmexeXAtae5UO9iSyFn6G/I806CYC/BLyyBk1EPhrKBkWhy6wM6Xnm47dSJQec+tLJ39WHw==
+  version "1.0.30001724"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001724.tgz#312e163553dd70d2c0fb603d74810c85d8ed94a0"
+  integrity sha512-WqJo7p0TbHDOythNTqYujmaJTvtYRZrjpP8TCvH6Vb9CYJerJNKamKzIWOM4BkQatWj9H2lYulpdAQNBe7QhNA==
 
 case@^1.6.3:
   version "1.6.3"
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s-cli@^2.200.105:
-  version "2.200.105"
-  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.200.105.tgz#693185b27cb3738ccac2a3dff3c1086063b85a1e"
-  integrity sha512-2GGHuKKlZiuIV2C/qtZlHyEFvC5NIp4nz6KlG/o160WE7bgTyMpdy+s38tiBC7CTFoFBJTh/+c+rwmI8a/0vpA==
+cdk8s-cli@^2.200.106:
+  version "2.200.106"
+  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.200.106.tgz#a132adc0e35ca43f3c602faa61d1f92360bd93e2"
+  integrity sha512-UeE65I0PKITS7LFeKzoaAES2lPWZfJnUB6S8zrav3OCqVoS65fecoe8iwORYn6/1SLgngu3zJKWYq/NXvsD4Sg==
   dependencies:
     "@types/node" "^16"
     ajv "^8.17.1"
@@ -3014,9 +3014,9 @@ ejs@^3.1.7:
     jake "^10.8.5"
 
 electron-to-chromium@^1.5.160:
-  version "1.5.170"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.170.tgz#9f6697de4339e24da8b234e4492a9ecb91f5989c"
-  integrity sha512-GP+M7aeluQo9uAyiTCxgIj/j+PrWhMlY7LFVj8prlsPljd0Fdg9AprlfUi+OCSFWy9Y5/2D/Jrj9HS8Z4rpKWA==
+  version "1.5.171"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.171.tgz#e552b4fd73d4dd941ee4c70ae288a8a39f818726"
+  integrity sha512-scWpzXEJEMrGJa4Y6m/tVotb0WuvNmasv3wWVzUAeCgKU0ToFOhUW6Z+xWnRQANMYGxN4ngJXIThgBJOqzVPCQ==
 
 emittery@^0.8.1:
   version "0.8.1"
@@ -3238,9 +3238,9 @@ eslint-import-resolver-typescript@^3.10.1:
     unrs-resolver "^1.6.2"
 
 eslint-module-utils@^2.12.0:
-  version "2.12.0"
-  resolved "https://registry.yarnpkg.com/eslint-module-utils/-/eslint-module-utils-2.12.0.tgz#fe4cfb948d61f49203d7b08871982b65b9af0b0b"
-  integrity sha512-wALZ0HFoytlyh/1+4wuZ9FJCD/leWHQzzrxJ8+rebyReSLk7LApMyd3WJaLVoN+D5+WIdJyDK1c6JnE65V4Zyg==
+  version "2.12.1"
+  resolved "https://registry.yarnpkg.com/eslint-module-utils/-/eslint-module-utils-2.12.1.tgz#f76d3220bfb83c057651359295ab5854eaad75ff"
+  integrity sha512-L8jSWTze7K2mTg0vos/RuLRS5soomksDPoJLXIslC7c8Wmut3bx7CPpJijDcBZtxQ5lrbUdM+s0OlNbz0DCDNw==
   dependencies:
     debug "^3.2.7"
 
@@ -7968,9 +7968,9 @@ typescript@^4.9.5:
   integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
 
 typescript@next:
-  version "5.9.0-dev.20250619"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.9.0-dev.20250619.tgz#8a25d3acca5b24d8e1ac1e338b411a04009f9732"
-  integrity sha512-asBVu6JAhSwskw0GI7kzAKOVs7Z+IBWwRjo3M0JjW9C9FWdZanhlsMwWEYS6GX9uova00Sa8hk153DDqnYsZJg==
+  version "5.9.0-dev.20250620"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.9.0-dev.20250620.tgz#d52c173864aee4837c47b3ef272ce236addc7b91"
+  integrity sha512-vygbmVLyKVVxt2WSESYWm7q90Yw8QnVDng975KCIhvtLUssife6EHslvLchNPiCxGLNDs5XmBJPzcXx/qFbNiw==
 
 typescript@~5.5:
   version "5.5.4"
