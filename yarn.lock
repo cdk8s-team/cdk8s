@@ -2275,10 +2275,10 @@ case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s-cli@^2.200.114:
-  version "2.200.114"
-  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.200.114.tgz#c48ad2ed262bb8548ec8ea8e3c439e8d49c9dbfd"
-  integrity sha512-/ZoLTCrVVAaDqFmUoFMhVfxn8G6JSMKfB8Nfe0wxIs96Q5imXzYW4OQOfPL65eVgPuoQ3TqhvJZjOTlbqDuqAg==
+cdk8s-cli@^2.200.115:
+  version "2.200.115"
+  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.200.115.tgz#34c118af144ec4d0ff482e5bc25f530bb1482b6c"
+  integrity sha512-aUA4uoPl29128IPc4iwthVM6ehCG94MFp5sHeQidej9OvCxZXoe9bE/2k0hPZmvvJe2co6sn4gC8/KnHBtyylg==
   dependencies:
     "@types/node" "^16"
     ajv "^8.17.1"
@@ -5934,9 +5934,9 @@ mute-stream@^1.0.0:
   integrity sha512-avsJQhyd+680gKXyG/sQc0nXaC6rBkPOfyHYcFb9+hdkqQkR9bdnkJ0AMZhke0oesPqIO+mFFJ+IdBc7mst4IA==
 
 napi-postinstall@^0.2.4:
-  version "0.2.4"
-  resolved "https://registry.yarnpkg.com/napi-postinstall/-/napi-postinstall-0.2.4.tgz#419697d0288cb524623e422f919624f22a5e4028"
-  integrity sha512-ZEzHJwBhZ8qQSbknHqYcdtQVr8zUgGyM/q6h6qAyhtyVMNrSgDhrC4disf03dYW0e+czXyLnZINnCTEkWy0eJg==
+  version "0.2.5"
+  resolved "https://registry.yarnpkg.com/napi-postinstall/-/napi-postinstall-0.2.5.tgz#57d8a142f854e5a510c7b71ca101e89c11eddf35"
+  integrity sha512-kmsgUvCRIJohHjbZ3V8avP0I1Pekw329MVAMDzVxsrkjgdnqiwvMX5XwR+hWV66vsAtZ+iM+fVnq8RTQawUmCQ==
 
 natural-compare@^1.4.0:
   version "1.4.0"
@@ -7968,9 +7968,9 @@ typescript@^4.9.5:
   integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
 
 typescript@next:
-  version "5.9.0-dev.20250628"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.9.0-dev.20250628.tgz#0721245cfcb3fb84719e1653d2e503a4eec06cde"
-  integrity sha512-1lCHR/ZaUfMZJFxqvAy1/1EPenh8DIFPai5+PDLh3NVmq6xdvf+yBtQ/mCP7TMA5k+kmowXHY4UA5aJkpzPD2g==
+  version "5.9.0-dev.20250629"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.9.0-dev.20250629.tgz#408579dabec8c3beda4b26be20d4248b7ca14115"
+  integrity sha512-GJKLIHDZbZsJe5DxHrrnwNRGDOMYopm5emOF+RbqYfjKDW/IBcITQF5mypVAxROYJ04Oh4DbcM4kiCH5qMfJYA==
 
 typescript@~5.5:
   version "5.5.4"
