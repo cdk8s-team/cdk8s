@@ -2275,10 +2275,10 @@ case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s-cli@^2.200.131:
-  version "2.200.131"
-  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.200.131.tgz#90de99de6ef48740a0b00d2822607ea9fdb6b160"
-  integrity sha512-KMDnVD7+FmKuxRBNkf7aDH7MqzfCx/2S9AOKbAYylKlpu+7DPPMqFT/ea7NCArWFvA42HmnLAa/z0Kkyr/sEqg==
+cdk8s-cli@^2.200.132:
+  version "2.200.132"
+  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.200.132.tgz#453a1989796cae41783b760706e6a0cbe23629d2"
+  integrity sha512-lM744snFEV+i2NGMPbgypKSGJJBrndlmEKmlDcv13CDx6mWqoXz0QQjtv9dejECuufvVQalHUHNtcXbBE1N1tA==
   dependencies:
     "@types/node" "^16"
     ajv "^8.17.1"
@@ -3002,9 +3002,9 @@ ejs@^3.1.7:
     jake "^10.8.5"
 
 electron-to-chromium@^1.5.173:
-  version "1.5.183"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.183.tgz#38c2e16910569b6c595bd16d1d39d1218bf0ffb6"
-  integrity sha512-vCrDBYjQCAEefWGjlK3EpoSKfKbT10pR4XXPdn65q7snuNOZnthoVpBfZPykmDapOKfoD+MMIPG8ZjKyyc9oHA==
+  version "1.5.185"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.185.tgz#b4f9189c4ef652ddf9f1bb37529e2b79f865e912"
+  integrity sha512-dYOZfUk57hSMPePoIQ1fZWl1Fkj+OshhEVuPacNKWzC1efe56OsHY3l/jCfiAgIICOU3VgOIdoq7ahg7r7n6MQ==
 
 emittery@^0.8.1:
   version "0.8.1"
@@ -6552,9 +6552,9 @@ picomatch@^2.0.4, picomatch@^2.2.3, picomatch@^2.3.1:
   integrity sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==
 
 picomatch@^4.0.2:
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-4.0.2.tgz#77c742931e8f3b8820946c76cd0c1f13730d1dab"
-  integrity sha512-M7BAV6Rlcy5u+m6oPhAPFgJTzAioX/6B0DxyvDlo9l8+T3nLKbrczg2WLUyzd45L8RqfUMyGPzekbMvX2Ldkwg==
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-4.0.3.tgz#796c76136d1eead715db1e7bad785dedd695a042"
+  integrity sha512-5gTmgEY/sqK6gFXLIsQNH19lWb4ebPDLA4SdLP7dsWkIXHWlG66oPuVvXSGFPppYZz8ZDZq0dYYrbHfBCVUb1Q==
 
 pify@5.0.0:
   version "5.0.0"
@@ -7933,9 +7933,9 @@ typescript@^4.9.5:
   integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
 
 typescript@next:
-  version "5.9.0-dev.20250715"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.9.0-dev.20250715.tgz#66b8bc700813684de61e59df2ab511131b90cef8"
-  integrity sha512-/u7uTrwwct3cXY7lf/nGBFEMcp1ljUVt9PLDrFsuAgdkonzwYf++jthzXTilVOmcai1SIZ90SxqGWB1Feea9vQ==
+  version "5.9.0-dev.20250716"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.9.0-dev.20250716.tgz#7bfe9d924cef110d7a32ae89cd89fb2f36c1028e"
+  integrity sha512-wBOPAX99Y5n6c4JF9ZIPy4xrnUDfFmrzOaFoVWGeDAu8cfV3773xfvNMColH3EnaWf8JytB3rgbcLYDE2nhCQw==
 
 typescript@~5.5:
   version "5.5.4"
