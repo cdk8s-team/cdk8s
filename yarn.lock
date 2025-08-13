@@ -2290,10 +2290,10 @@ case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s-cli@^2.200.152:
-  version "2.200.152"
-  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.200.152.tgz#c709b8993c3e7681f714a6347d78326fdd21855f"
-  integrity sha512-oG4nUnjjJrPDM4uZLh3lQFNn+wMPLiGVVQv2k878qhRdM31Nh9HIUszw/8UpBOscjI/K9wjSpkMoivjgQvqa4w==
+cdk8s-cli@^2.200.153:
+  version "2.200.153"
+  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.200.153.tgz#ae785013e9d49e245b63663612f48b22007d0f41"
+  integrity sha512-uzfoI3WvGC62Az+di1ec65Lu0GYO4dlnzkR2H699qwD0gTDrW+PEf2+vIjYztcI/+n2Wg5LfbvaBSasWnG2FNg==
   dependencies:
     "@types/node" "^16"
     ajv "^8.17.1"
@@ -5316,9 +5316,9 @@ jsonfile@^4.0.0:
     graceful-fs "^4.1.6"
 
 jsonfile@^6.0.1:
-  version "6.1.0"
-  resolved "https://registry.yarnpkg.com/jsonfile/-/jsonfile-6.1.0.tgz#bc55b2634793c679ec6403094eb13698a6ec0aae"
-  integrity sha512-5dgndWOriYSm5cnYaJNhalLNDKOqFwyDB/rr1E9ZsGciGvKPs8R2xYGCacuf3z6K1YKDz182fd+fY3cn3pMqXQ==
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/jsonfile/-/jsonfile-6.2.0.tgz#7c265bd1b65de6977478300087c99f1c84383f62"
+  integrity sha512-FGuPw30AdOIUTRMC2OMRtQV+jkVj2cfPqSeWXv1NEAJ1qZ5zb1X6z1mFhbfOB/iy3ssJCD+3KuZ8r8C3uVFlAg==
   dependencies:
     universalify "^2.0.0"
   optionalDependencies:
@@ -7913,9 +7913,9 @@ typescript@^4.9.5:
   integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
 
 typescript@next:
-  version "6.0.0-dev.20250812"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-6.0.0-dev.20250812.tgz#7438a21f1acb6bf3f4da497bb2eb8bf70cf88e5b"
-  integrity sha512-6N5LK+q1e6oEBNW5DvmVv6rgRMxaUpIsLW1fexQXk/iw3DtN3wUXFgq91nGQ7ZtlfeSQf4ZAWve79qih8eY5Sg==
+  version "6.0.0-dev.20250813"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-6.0.0-dev.20250813.tgz#f109d6274315bef992e0390d998e649c2a205136"
+  integrity sha512-ScXXFJdplTd9/nmfGW7Srh0TC+9j0sihny3/vfDSrDoH/qVJCGAQbpECo6Q+muRRGNQ6sHD0U/xkUj7lIFlOSA==
 
 typescript@~5.5:
   version "5.5.4"
