@@ -2320,13 +2320,6 @@ cdk8s-plus-28@^2.5.6:
   dependencies:
     minimatch "^3.1.2"
 
-cdk8s-plus-30@^2.4.10:
-  version "2.4.10"
-  resolved "https://registry.yarnpkg.com/cdk8s-plus-30/-/cdk8s-plus-30-2.4.10.tgz#50176c63b106fe480f37b7faa4b9f89a7b3db924"
-  integrity sha512-CUNarh4vzNYcyDDMhfPHbp0TSgIWo2krupm279B9ZLZSGQAt3Om6xT6ubTykhQMFKJ7nxc7qGWgTqGsd8D8b2g==
-  dependencies:
-    minimatch "^9.0.5"
-
 cdk8s-plus-31@^2.2.8:
   version "2.2.8"
   resolved "https://registry.yarnpkg.com/cdk8s-plus-31/-/cdk8s-plus-31-2.2.8.tgz#17acade893894ac42e9ead88a4da69aa08313c62"
@@ -2338,6 +2331,13 @@ cdk8s-plus-32@^2.1.8:
   version "2.1.8"
   resolved "https://registry.yarnpkg.com/cdk8s-plus-32/-/cdk8s-plus-32-2.1.8.tgz#4eeec60dd466c978538f92d9335b9e2ab09c3193"
   integrity sha512-BAO/Vg4XsYTl3XgqNYSQH3wAy9Qdkoe0M/joBsCgqRDSwwuulwckFp1zNwiM6ayEZHxJgiAsKFP3hfpFsJOJuA==
+  dependencies:
+    minimatch "^9.0.5"
+
+cdk8s-plus-33@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/cdk8s-plus-33/-/cdk8s-plus-33-2.1.0.tgz#751a65b50deaf63d819da0ad711e86681187b874"
+  integrity sha512-Z1/6C2EMnGCRJ35ycfITXFgCSq7S09lzjVkMdCw2/blWAav/j4slYwDDidW8eUgQbTf/gLofJT19qK7hvkQLSQ==
   dependencies:
     minimatch "^9.0.5"
 
