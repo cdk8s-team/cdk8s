@@ -140,7 +140,7 @@
       "name": "rotate-cdk8s-plus",
       "steps": [
         {
-          "exec": "ts-node src/rotate-cdk8s-plus.ts 32"
+          "exec": "ts-node src/rotate-cdk8s-plus.ts 33"
         }
       ]
     },
@@ -209,13 +209,13 @@
       },
       "steps": [
         {
-          "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --no-deprecated --dep=dev --filter=@types/jest,cdk8s,cdk8s-cli,cdk8s-plus-30,cdk8s-plus-31,cdk8s-plus-32,eslint-import-resolver-typescript,eslint-plugin-import,jest,lerna,semver,ts-jest,ts-node"
+          "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --no-deprecated --dep=dev --filter=@types/jest,cdk8s,cdk8s-cli,cdk8s-plus-31,cdk8s-plus-32,cdk8s-plus-33,eslint-import-resolver-typescript,eslint-plugin-import,jest,lerna,semver,ts-jest,ts-node"
         },
         {
           "exec": "yarn install --check-files"
         },
         {
-          "exec": "yarn upgrade @stylistic/eslint-plugin @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser cdk8s cdk8s-cli cdk8s-plus-30 cdk8s-plus-31 cdk8s-plus-32 constructs eslint-import-resolver-typescript eslint-plugin-import eslint jest jest-junit lerna semver ts-jest ts-node"
+          "exec": "yarn upgrade @stylistic/eslint-plugin @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser cdk8s cdk8s-cli cdk8s-plus-31 cdk8s-plus-32 cdk8s-plus-33 constructs eslint-import-resolver-typescript eslint-plugin-import eslint jest jest-junit lerna semver ts-jest ts-node"
         },
         {
           "exec": "npx projen"
