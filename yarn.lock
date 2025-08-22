@@ -2281,30 +2281,30 @@ camelcase@^6.2.0, camelcase@^6.3.0:
   integrity sha512-Gmy6FhYlCY7uOElZUSbxo2UCDH8owEk996gkbrpsgGtrJLM3J7jGxl9Ic7Qwwj4ivOE5AWZWRMecDdF7hqGjFA==
 
 caniuse-lite@^1.0.30001735:
-  version "1.0.30001736"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001736.tgz#3710a99cf154b653590fb6a57f81ee34173c3b47"
-  integrity sha512-ImpN5gLEY8gWeqfLUyEF4b7mYWcYoR2Si1VhnrbM4JizRFmfGaAQ12PhNykq6nvI4XvKLrsp8Xde74D5phJOSw==
+  version "1.0.30001737"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001737.tgz#8292bb7591932ff09e9a765f12fdf5629a241ccc"
+  integrity sha512-BiloLiXtQNrY5UyF0+1nSJLXUENuhka2pzy2Fx5pGxqavdrxSCW4U6Pn/PoG3Efspi2frRbHpBV2XsrPE6EDlw==
 
 case@^1.6.3:
   version "1.6.3"
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s-cli@^2.201.0:
-  version "2.201.0"
-  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.201.0.tgz#edbf91ed6dd627cf981c4c05f29dd71a6dc52712"
-  integrity sha512-W6gF/cF2zKOYNNq2dIr3UH8YWhbys2qd00do0MfKi/wKxWZeZH4hXh8/RrKDbCjo1IjJPwAQFukvzpQm0kX2uQ==
+cdk8s-cli@^2.201.2:
+  version "2.201.2"
+  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.201.2.tgz#615a9aa7b5fef5e4e8506a4e85491cbdbcde906a"
+  integrity sha512-OTH5M6UxYvU6h10pxvO10hS6VRrbV8+/Pjj9D/sfgpqZ+++8EK5cA/c0SEVmcAqs/KecrT83rHSwylA/Qx3pWQ==
   dependencies:
     "@types/node" "^16"
     ajv "^8.17.1"
-    cdk8s "^2.70.7"
+    cdk8s "^2.70.9"
     cdk8s-plus-28 "^2.5.6"
     codemaker "^1.113.0"
     colors "1.4.0"
     constructs "^10.4.2"
     fs-extra "^8"
     jsii-pacmak "^1.113.0"
-    jsii-rosetta "^5.9.2"
+    jsii-rosetta "^5.9.3"
     jsii-srcmak "0.1.1236"
     json2jsii "0.5.3"
     semver "^7.7.2"
@@ -2341,7 +2341,7 @@ cdk8s-plus-33@^2.3.0:
   dependencies:
     minimatch "^9.0.5"
 
-cdk8s@^2.70.7, cdk8s@^2.70.9:
+cdk8s@^2.70.9:
   version "2.70.9"
   resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-2.70.9.tgz#cce2187308733720d0fa8a99607018b39df9cae2"
   integrity sha512-N9zv2P0RDsi2PlRiZ8baqNE/1IVeedf2baeTt0lqJfC3dMCjgn2rrtoA2DHFWMR8fGVkH18ewrRlxIcXR1dqKQ==
@@ -3017,9 +3017,9 @@ ejs@^3.1.7:
     jake "^10.8.5"
 
 electron-to-chromium@^1.5.204:
-  version "1.5.207"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.207.tgz#0fedde3eec615065ee95531c09a10578644c5552"
-  integrity sha512-mryFrrL/GXDTmAtIVMVf+eIXM09BBPlO5IQ7lUyKmK8d+A4VpRGG+M3ofoVef6qyF8s60rJei8ymlJxjUA8Faw==
+  version "1.5.208"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.208.tgz#609c29502fd7257b4d721e3446f3ae391a0ca1b3"
+  integrity sha512-ozZyibehoe7tOhNaf16lKmljVf+3npZcJIEbJRVftVsmAg5TeA1mGS9dVCZzOwr2xT7xK15V0p7+GZqSPgkuPg==
 
 emittery@^0.8.1:
   version "0.8.1"
@@ -5159,7 +5159,7 @@ jsii-reflect@^1.113.0:
     oo-ascii-tree "^1.113.0"
     yargs "^16.2.0"
 
-jsii-rosetta@^5.5.4, jsii-rosetta@^5.9.2:
+jsii-rosetta@^5.5.4, jsii-rosetta@^5.9.3:
   version "5.9.3"
   resolved "https://registry.yarnpkg.com/jsii-rosetta/-/jsii-rosetta-5.9.3.tgz#b4a2cdec90e532cf9598b1189fdc4ef51dee4bd4"
   integrity sha512-pAbN71TDhnIUNHDRDfdulOt5vbWeFrpDsNnfGUWVF926sJSSu4Elc2SIphtdFBM0lqvG6miBP/UpaAJTm/23cg==
@@ -7913,9 +7913,9 @@ typescript@^4.9.5:
   integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
 
 typescript@next:
-  version "6.0.0-dev.20250821"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-6.0.0-dev.20250821.tgz#b07054abc1b347fb8d821bcfeb44fd3fc9a31978"
-  integrity sha512-4B2H967bp4c82zijkiceubORkNKERib0P/IsqUS9INWgP8BlxiMpP0FlQK7jFjHZxAprAl0HMMTNAnKga1s3Yg==
+  version "6.0.0-dev.20250822"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-6.0.0-dev.20250822.tgz#6d82ad88ce5dab48f75a1275ddf4ba6a9a5040e8"
+  integrity sha512-omHezTVn6vg+B/eFHkIzUGFvlbbkJdsdmdBohcsw8NMLyKOhKRMinE9aLu8f0EALT4R2YS41xak2KinK74/6Xg==
 
 typescript@~5.5:
   version "5.5.4"
