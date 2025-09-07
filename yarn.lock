@@ -2293,10 +2293,10 @@ case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s-cli@^2.201.17:
-  version "2.201.17"
-  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.201.17.tgz#f66d650cafcfa5e95c7ed1ed074444c9485642f3"
-  integrity sha512-N/wCtKKVQtT2wUrST8Tvn7OG2rcSd2WoEmGC0jEv1jqcxGOYymvpcYaE15fnf/ZBBqPaGqgXZk9V6ZTfS3aLCw==
+cdk8s-cli@^2.201.18:
+  version "2.201.18"
+  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.201.18.tgz#e9cb09717ce4ed2887afe5440188bc6f16fba1ba"
+  integrity sha512-jKGJCbOQKaI2TWDLy40hY1gWQqU+VfHyISSYOjDH9WZaGnCFv+dUY6d0j7ikyYMu4DWQlVFxJO1WJzWwmC+QfA==
   dependencies:
     "@types/node" "^16"
     ajv "^8.17.1"
@@ -3490,7 +3490,7 @@ fb-watchman@^2.0.0:
   dependencies:
     bser "2.1.1"
 
-fdir@^6.4.3, fdir@^6.4.4:
+fdir@^6.4.3, fdir@^6.5.0:
   version "6.5.0"
   resolved "https://registry.yarnpkg.com/fdir/-/fdir-6.5.0.tgz#ed2ab967a331ade62f18d077dae192684d50d350"
   integrity sha512-tIbYtZbucOs0BRGqPJkshJUYdL+SDH7dVM8gjy+ERp3WAUjLEFJE+02kanyHtwjWOnwrKYBiwAmM0p4kLJAnXg==
@@ -6546,7 +6546,7 @@ picomatch@^2.0.4, picomatch@^2.2.3, picomatch@^2.3.1:
   resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-2.3.1.tgz#3ba3833733646d9d3e4995946c1365a67fb07a42"
   integrity sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==
 
-picomatch@^4.0.2:
+picomatch@^4.0.2, picomatch@^4.0.3:
   version "4.0.3"
   resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-4.0.3.tgz#796c76136d1eead715db1e7bad785dedd695a042"
   integrity sha512-5gTmgEY/sqK6gFXLIsQNH19lWb4ebPDLA4SdLP7dsWkIXHWlG66oPuVvXSGFPppYZz8ZDZq0dYYrbHfBCVUb1Q==
@@ -7684,12 +7684,12 @@ tinyglobby@0.2.12:
     picomatch "^4.0.2"
 
 tinyglobby@^0.2.13:
-  version "0.2.14"
-  resolved "https://registry.yarnpkg.com/tinyglobby/-/tinyglobby-0.2.14.tgz#5280b0cf3f972b050e74ae88406c0a6a58f4079d"
-  integrity sha512-tX5e7OM1HnYr2+a2C/4V0htOcSQcoSTH9KgJnVvNm5zm/cyEWKJ7j7YutsH9CxMdtOkkLFy2AHrMci9IM8IPZQ==
+  version "0.2.15"
+  resolved "https://registry.yarnpkg.com/tinyglobby/-/tinyglobby-0.2.15.tgz#e228dd1e638cea993d2fdb4fcd2d4602a79951c2"
+  integrity sha512-j2Zq4NyQYG5XMST4cbs02Ak8iJUdxRM0XI5QyxXuZOzKOINmWurp3smXu3y5wDcJrptwpSjgXHzIQxR0omXljQ==
   dependencies:
-    fdir "^6.4.4"
-    picomatch "^4.0.2"
+    fdir "^6.5.0"
+    picomatch "^4.0.3"
 
 tmp@~0.2.1:
   version "0.2.5"
@@ -7916,9 +7916,9 @@ typescript@^4.9.5:
   integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
 
 typescript@next:
-  version "6.0.0-dev.20250906"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-6.0.0-dev.20250906.tgz#e9669636359dc27fe6556efca83775a03ff5b329"
-  integrity sha512-vPHRYB1fuCVcOHCPTUnLXINdCzR31o4V+mXr08apT8bCRswAXgK39Fd2Q6POPHTSiOqGlAn8onB8IfQO8gbKig==
+  version "6.0.0-dev.20250907"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-6.0.0-dev.20250907.tgz#458e958234632ad674afadd38dce88114d1dd58a"
+  integrity sha512-Am2ssIJYT4/ne+lsX6eRSrNNObTK6rq1FR4sf5q4qcRByegk0Gmoweo8W+pxb5QOlGsQisnHnT5sHuE0LczB9w==
 
 typescript@~5.5:
   version "5.5.4"
