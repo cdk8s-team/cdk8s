@@ -301,9 +301,9 @@
     tslib "^2.4.0"
 
 "@eslint-community/eslint-utils@^4.7.0", "@eslint-community/eslint-utils@^4.8.0":
-  version "4.8.0"
-  resolved "https://registry.yarnpkg.com/@eslint-community/eslint-utils/-/eslint-utils-4.8.0.tgz#0e3b5e45566d1bce1ec47d8aae2fc2ad77ad0894"
-  integrity sha512-MJQFqrZgcW0UNYLGOuQpey/oTN59vyWwplvCGZztn1cKz9agZPPYpJB7h2OMmuu7VLqkvEjN8feFZJmxNF9D+Q==
+  version "4.9.0"
+  resolved "https://registry.yarnpkg.com/@eslint-community/eslint-utils/-/eslint-utils-4.9.0.tgz#7308df158e064f0dd8b8fdb58aa14fa2a7f913b3"
+  integrity sha512-ayVFHdtZ+hsq1t2Dy24wCmGXGe4q9Gu3smhLYALJrr473ZH27MsnSL+LKUlimp4BWJqMDMLmPpx/Q9R3OAlL4g==
   dependencies:
     eslint-visitor-keys "^3.4.3"
 
@@ -2293,10 +2293,10 @@ case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s-cli@^2.201.18:
-  version "2.201.18"
-  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.201.18.tgz#e9cb09717ce4ed2887afe5440188bc6f16fba1ba"
-  integrity sha512-jKGJCbOQKaI2TWDLy40hY1gWQqU+VfHyISSYOjDH9WZaGnCFv+dUY6d0j7ikyYMu4DWQlVFxJO1WJzWwmC+QfA==
+cdk8s-cli@^2.201.19:
+  version "2.201.19"
+  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.201.19.tgz#df43aff2f7097adcaa94413c3041945d890b8c61"
+  integrity sha512-CIIruFwfWHlAO6w4jJHsr0kmTdwwgqD20ndu7i635tbS5yOw+0jqe1nyjX+lozVNQG3V3ceL3fMXZpRmEN7u2Q==
   dependencies:
     "@types/node" "^16"
     ajv "^8.17.1"
@@ -7916,9 +7916,9 @@ typescript@^4.9.5:
   integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
 
 typescript@next:
-  version "6.0.0-dev.20250907"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-6.0.0-dev.20250907.tgz#458e958234632ad674afadd38dce88114d1dd58a"
-  integrity sha512-Am2ssIJYT4/ne+lsX6eRSrNNObTK6rq1FR4sf5q4qcRByegk0Gmoweo8W+pxb5QOlGsQisnHnT5sHuE0LczB9w==
+  version "6.0.0-dev.20250908"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-6.0.0-dev.20250908.tgz#3ce4940404ce9bd71d0cc1ad43999d50f53a758a"
+  integrity sha512-EFmaX6IAZOrXsu6ivN9CSY7CrvDRGJ/ilTAhtjNeht4V0UkTbKNiG4PIu//GGWwy6KO8G5nEGB1V9dYcINKhvQ==
 
 typescript@~5.5:
   version "5.5.4"
