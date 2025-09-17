@@ -41,7 +41,7 @@ The `name` option can be used to specify the chart's [release name](https://helm
 If not specified, a valid and unique release name will be allocated
 based on the construct path.
 
-The `Helm` construct extends `Include` and inherits it's API. For example, you
+The `Helm` construct extends `Include` and inherits its API. For example, you
 can use the `apiObjects` property to find and interact with included API
 objects.
 
