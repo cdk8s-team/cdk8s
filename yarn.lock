@@ -2097,9 +2097,9 @@ base64-js@^1.3.1:
   integrity sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==
 
 baseline-browser-mapping@^2.8.3:
-  version "2.8.7"
-  resolved "https://registry.yarnpkg.com/baseline-browser-mapping/-/baseline-browser-mapping-2.8.7.tgz#4d3606fdb1738fd902da40c5fcc0595e87cec044"
-  integrity sha512-bxxN2M3a4d1CRoQC//IqsR5XrLh0IJ8TCv2x6Y9N0nckNz/rTjZB3//GGscZziZOxmjP55rzxg/ze7usFI9FqQ==
+  version "2.8.8"
+  resolved "https://registry.yarnpkg.com/baseline-browser-mapping/-/baseline-browser-mapping-2.8.8.tgz#ca0de7b23bf9c49d72e21dcbfba26f2bb223ea2e"
+  integrity sha512-be0PUaPsQX/gPWWgFsdD+GFzaoig5PXaUC1xLkQiYdDnANU8sMnHoQd8JhbJQuvTWrWLyeFN9Imb5Qtfvr4RrQ==
 
 before-after-hook@^2.2.0:
   version "2.2.3"
@@ -3018,9 +3018,9 @@ ejs@^3.1.7:
     jake "^10.8.5"
 
 electron-to-chromium@^1.5.218:
-  version "1.5.224"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.224.tgz#dbc6827cb3d41d7293811d6d8af53114804e0ed1"
-  integrity sha512-kWAoUu/bwzvnhpdZSIc6KUyvkI1rbRXMT0Eq8pKReyOyaPZcctMli+EgvcN1PAvwVc7Tdo4Fxi2PsLNDU05mdg==
+  version "1.5.227"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.227.tgz#c81b6af045b0d6098faed261f0bd611dc282d3a7"
+  integrity sha512-ITxuoPfJu3lsNWUi2lBM2PaBPYgH3uqmxut5vmBxgYvyI4AlJ6P3Cai1O76mOrkJCBzq0IxWg/NtqOrpu/0gKA==
 
 emittery@^0.8.1:
   version "0.8.1"
@@ -7921,9 +7921,9 @@ typescript@^4.9.5:
   integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
 
 typescript@next:
-  version "6.0.0-dev.20250927"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-6.0.0-dev.20250927.tgz#9825c55a9eccaecc4f7e0a985a7d41977be9e29e"
-  integrity sha512-MXAH+asdJBBe8/lw6EN+0/CRSmvVDzgL/kbQwjK82Nr2TZrb6p5I6VvaSpDrMybBAja5PIV6Jo1CTo+KlQyGMg==
+  version "6.0.0-dev.20250928"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-6.0.0-dev.20250928.tgz#587f437c12acdd4ba5ae5a4f2439e8f2cf9cd5fa"
+  integrity sha512-5SpHL020ug/Rk45lNEfvC7DeRqEe8m58qk17jUT/BrI5yk63qJ7JMQkxpIkjiyKkJmD7muVcUsaSEqxOMxH0qw==
 
 typescript@~5.5:
   version "5.5.4"
