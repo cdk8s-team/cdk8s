@@ -29,6 +29,7 @@ If you are open to others contacting you about your use of cdk8s, add your Slack
 | Datamole | Relying on seamless CDK - CDK8s interoperability to manage AWS EKS workloads | `@datamole-ai` | [Datamole](https://www.datamole.ai/) |
 | Finimize | Using both CDK and cdk8s to create a consistent experience when describing our IaC | `@pykita` | [Finimize](https://finimize.com/) |
 | Griffin | Using CDK, CDK8s, and CDK8s+ to manage our AWS infra and EKS workloads | `@dancmeyers` | [Griffin](https://griffin.com/) |
-| PreciseTarget | We use cdk8s to manage all applications running in kubernetes across mulitple clusters. | `@steven-esser` | [PreciseTarget](https://www.precisetarget.com) |
+| Lighthouse | Using CDK8S to manage multi-tenant, multi-cluster application deployments and creating a flexible but standardized platform-tooling baseline for all k8s clusters | `@leevs` | [Lighthouse](https://mylighthouse.com/) |
+| PreciseTarget | We use cdk8s to manage all applications running in kubernetes across multiple clusters. | `@steven-esser` | [PreciseTarget](https://www.precisetarget.com) |
 | The Home Depot | Using cdk8s to manage large, multi-tenant Kubernetes clusters with strong consistency across teams. | `@shinebayar-g` | [TheHomeDepot](https://www.homedepot.com/) |
 
