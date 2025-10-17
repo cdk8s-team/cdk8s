@@ -1456,9 +1456,9 @@
   integrity sha512-hov8bUuiLiyFPGyFPE1lwWhmzYbirOXQNNo40+y3zow8aFVTeyn3VWL0VFFfdNddA8S4Vf0Tc062rzyNr7Paag==
 
 "@types/node@*":
-  version "24.7.2"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-24.7.2.tgz#5adf66b6e2ac5cab1d10a2ad3682e359cb652f4a"
-  integrity sha512-/NbVmcGTP+lj5oa4yiYxxeBjRivKQ5Ns1eSZeB99ExsEQ6rX5XYU1Zy/gGxY/ilqtD4Etx9mKyrPxZRetiahhA==
+  version "24.8.1"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-24.8.1.tgz#74c8ae00b045a0a351f2837ec00f25dfed0053be"
+  integrity sha512-alv65KGRadQVfVcG69MuB4IzdYVpRwMG/mq8KWOaoOdyY617P5ivaDiMCGOFDWD2sAn5Q0mR3mRtUOgm99hL9Q==
   dependencies:
     undici-types "~7.14.0"
 
@@ -2114,9 +2114,9 @@ base64-js@^1.3.1:
   integrity sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==
 
 baseline-browser-mapping@^2.8.9:
-  version "2.8.16"
-  resolved "https://registry.yarnpkg.com/baseline-browser-mapping/-/baseline-browser-mapping-2.8.16.tgz#e17789673e7f4b7654f81ab2ef25e96ab6a895f9"
-  integrity sha512-OMu3BGQ4E7P1ErFsIPpbJh0qvDudM/UuJeHgkAvfWe+0HFJCXh+t/l8L6fVLR55RI/UbKrVLnAXZSVwd9ysWYw==
+  version "2.8.17"
+  resolved "https://registry.yarnpkg.com/baseline-browser-mapping/-/baseline-browser-mapping-2.8.17.tgz#85aff3f7dd6326ea25b77ce834b96bb698545dc6"
+  integrity sha512-j5zJcx6golJYTG6c05LUZ3Z8Gi+M62zRT/ycz4Xq4iCOdpcxwg7ngEYD4KA0eWZC7U17qh/Smq8bYbACJ0ipBA==
 
 before-after-hook@^2.2.0:
   version "2.2.3"
@@ -2308,10 +2308,10 @@ case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s-cli@^2.202.2:
-  version "2.202.2"
-  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.202.2.tgz#410a5fa77e8c50c98b3aee6c17e4348fb5ead4de"
-  integrity sha512-lxanM8fhLKjDk6dRaSTl6+cCA56cAbpU5g33rQxeq/ckp4Z0FK0cZLE/lLtNFwiwWbQWn04INshmP1JyI28ymw==
+cdk8s-cli@^2.202.3:
+  version "2.202.3"
+  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.202.3.tgz#9afd4e4171bf534bdf68edeed5ef97c0473b5ea4"
+  integrity sha512-WeQfPrBdkkzE+xwaPc9UMpx98oVg8IuHd2E98BIaWao2rj54KOjiXUZV1nYgCCcFGvvfIlkL1FECGMu/b7c5XQ==
   dependencies:
     "@types/node" "^16"
     ajv "^8.17.1"
@@ -2338,24 +2338,24 @@ cdk8s-plus-28@^2.5.6:
   dependencies:
     minimatch "^3.1.2"
 
-cdk8s-plus-31@^2.5.12:
-  version "2.5.12"
-  resolved "https://registry.yarnpkg.com/cdk8s-plus-31/-/cdk8s-plus-31-2.5.12.tgz#8244b1c725ea20ceb04594572d8ea1148044c30a"
-  integrity sha512-f71Oll7xSfUKRJ2BV7GWQrqN8Y5XLtZXgxM64+eCjvuv/TbyFwkupSHFWdYLbG8bRT5TXy8HaX0UHM44uFD8tA==
+cdk8s-plus-31@^2.5.13:
+  version "2.5.13"
+  resolved "https://registry.yarnpkg.com/cdk8s-plus-31/-/cdk8s-plus-31-2.5.13.tgz#de5d709529df481eba6050eb868ac05256a8b200"
+  integrity sha512-DinPfn0DjsF3yoX0tIoV72RYwnwAmPUhbtWngt3lRFpXP7Vh9a4Rgg9wW4o75h9sWzxW/RSAWH9bGBUGDPYcDg==
   dependencies:
     minimatch "^9.0.5"
 
-cdk8s-plus-32@^2.4.12:
-  version "2.4.12"
-  resolved "https://registry.yarnpkg.com/cdk8s-plus-32/-/cdk8s-plus-32-2.4.12.tgz#cb5a849edfaf77b3038147ff8ec2c6dc0c547462"
-  integrity sha512-Bpxi47C0Hu++FgOjjgsB+QC56OxS6xYBDd9/GvjyVO7KGc4+5BnJiIwuYTQV+Jg2EeUwdjLiurq01F+HcD8DWQ==
+cdk8s-plus-32@^2.4.13:
+  version "2.4.13"
+  resolved "https://registry.yarnpkg.com/cdk8s-plus-32/-/cdk8s-plus-32-2.4.13.tgz#8cdf4119c5af5340f7c881679256c88e1a3c9b52"
+  integrity sha512-5J1SJnWDFpWYyC2xLzU9b/ky6k3N6IXBjWx3cLnaBPyWR1ZCTKqXYNIsF4c7CYxR0E+cMd3T2S4md/pkyFAsyg==
   dependencies:
     minimatch "^9.0.5"
 
-cdk8s-plus-33@^2.3.13:
-  version "2.3.13"
-  resolved "https://registry.yarnpkg.com/cdk8s-plus-33/-/cdk8s-plus-33-2.3.13.tgz#e35f1abb259067d2fbc77ce6abfe2c9da648226c"
-  integrity sha512-c5h1vQF5Bj2s9tEjp/eA+AdUbOIgiCYsFDMpdxo+BqiRAmbid+y7aoFWy7+sDy32kT6KTLat+YRYFxCTI2Txcg==
+cdk8s-plus-33@^2.3.14:
+  version "2.3.14"
+  resolved "https://registry.yarnpkg.com/cdk8s-plus-33/-/cdk8s-plus-33-2.3.14.tgz#8e1e8783bdfa251e20ddf2e14a3c662157e35674"
+  integrity sha512-qt6dEfAyYVl4cD/tM+91qsB63MlT9/fFHyJ/jNhRlxSUpM4B+fkzq5isd0oiuRErSJKOThQZIynBUWyDvGMDiw==
   dependencies:
     minimatch "^9.0.5"
 
