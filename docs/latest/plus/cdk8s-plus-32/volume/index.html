@@ -1742,6 +1742,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#using-persistentvolumeclaim-templates-with-statefulsets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using PersistentVolumeClaim Templates with StatefulSets
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3464,6 +3473,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#using-persistentvolumeclaim-templates-with-statefulsets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using PersistentVolumeClaim Templates with StatefulSets
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3512,6 +3530,47 @@ The data in the volume is preserved throughout the lifecycle of the pod, but is 
 <span class="c1">// mount to the redis container.</span>
 <span class="nx">redis</span><span class="p">.</span><span class="nx">mount</span><span class="p">(</span><span class="s1">&#39;/var/lib/redis&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">);</span>
 </code></pre></div>
+<h2 id="using-persistentvolumeclaim-templates-with-statefulsets">Using PersistentVolumeClaim Templates with StatefulSets<a class="headerlink" href="#using-persistentvolumeclaim-templates-with-statefulsets" title="Permanent link">&para;</a></h2>
+<p>When working with StatefulSets, you can use PersistentVolumeClaim templates to create stable storage for each pod in the StatefulSet. This allows each pod to have its own storage that persists even if the pod is rescheduled to a different node.</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-32&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Size</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">dataVolume</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Volume</span><span class="p">.</span><span class="nx">fromName</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;pvc-template-data&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;data-volume&quot;</span><span class="p">)</span>
+
+<span class="c1">// Create a StatefulSet with a PVC template</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">statefulSet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">StatefulSet</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;StatefulSet&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">containers</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span>
+<span class="w">    </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;nginx&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">volumeMounts</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span>
+<span class="w">      </span><span class="nx">volume</span><span class="o">:</span><span class="w"> </span><span class="kt">dataVolume</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">path</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;/data&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">volume</span><span class="o">:</span><span class="w"> </span><span class="kt">Volume.fromName</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;pvc-template-temp&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;temp-volume&quot;</span><span class="p">),</span>
+<span class="w">      </span><span class="nx">path</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;/data&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="p">}],</span>
+<span class="w">  </span><span class="p">}],</span>
+<span class="w">  </span><span class="c1">// Define PVC templates during initialization</span>
+<span class="w">  </span><span class="nx">volumeClaimTemplates</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span>
+<span class="w">    </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="kt">dataVolume.name</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">storage</span><span class="o">:</span><span class="w"> </span><span class="kt">Size.gibibytes</span><span class="p">(</span><span class="mf">10</span><span class="p">),</span>
+<span class="w">    </span><span class="nx">accessModes</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="nx">kplus</span><span class="p">.</span><span class="nx">PersistentVolumeAccessMode</span><span class="p">.</span><span class="nx">READ_WRITE_ONCE</span><span class="p">],</span>
+<span class="w">    </span><span class="nx">storageClassName</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;standard&#39;</span><span class="p">,</span><span class="w">  </span><span class="c1">// Optional: Specify the storage class</span>
+<span class="w">  </span><span class="p">},</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;temp-volume&#39;</span><span class="p">,</span><span class="w">  </span><span class="c1">// Must match a volume mount name in a container</span>
+<span class="w">    </span><span class="nx">storage</span><span class="o">:</span><span class="w"> </span><span class="kt">Size.gibibytes</span><span class="p">(</span><span class="mf">10</span><span class="p">),</span>
+<span class="w">    </span><span class="nx">accessModes</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="nx">kplus</span><span class="p">.</span><span class="nx">PersistentVolumeAccessMode</span><span class="p">.</span><span class="nx">READ_WRITE_ONCE</span><span class="p">],</span>
+<span class="w">    </span><span class="nx">storageClassName</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;standard&#39;</span><span class="p">,</span><span class="w">  </span><span class="c1">// Optional: Specify the storage class</span>
+<span class="w">  </span><span class="p">}],</span>
+<span class="p">});</span>
+
+<span class="c1">// Or add PVC templates after creation</span>
+<span class="nx">statefulSet</span><span class="p">.</span><span class="nx">addVolumeClaimTemplate</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;logs-volume&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">storage</span><span class="o">:</span><span class="w"> </span><span class="kt">Size.gibibytes</span><span class="p">(</span><span class="mf">5</span><span class="p">),</span>
+<span class="w">  </span><span class="nx">accessModes</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="nx">kplus</span><span class="p">.</span><span class="nx">PersistentVolumeAccessMode</span><span class="p">.</span><span class="nx">READ_WRITE_ONCE</span><span class="p">],</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Each pod in the StatefulSet will get its own PVC instance based on these templates, with names like <code>data-volume-my-statefulset-0</code>, <code>data-volume-my-statefulset-1</code>, etc.</p>
 
 
 
