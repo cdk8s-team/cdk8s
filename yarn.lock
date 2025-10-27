@@ -679,7 +679,7 @@
     chalk "^4.1.2"
     semver "^7.7.2"
 
-"@jsii/check-node@1.117.0", "@jsii/check-node@^1.116.0":
+"@jsii/check-node@1.117.0", "@jsii/check-node@^1.117.0":
   version "1.117.0"
   resolved "https://registry.yarnpkg.com/@jsii/check-node/-/check-node-1.117.0.tgz#44110172f6b4df86c3f0172599c64d2f08ce362c"
   integrity sha512-OtCwbCGGV41O4zuv11aioMFOSUHKm3cVBFmmwsls0ilcgzAKQ5Dk4/gqbzhpissiiDfFZuW+WjXO1lgTm8oRfw==
@@ -694,7 +694,7 @@
   dependencies:
     ajv "^8.17.1"
 
-"@jsii/spec@1.117.0", "@jsii/spec@^1.116.0":
+"@jsii/spec@1.117.0", "@jsii/spec@^1.117.0":
   version "1.117.0"
   resolved "https://registry.yarnpkg.com/@jsii/spec/-/spec-1.117.0.tgz#c2e73ceac03d48504d2f0d0a2fc6b0860ea38656"
   integrity sha512-Uru/sg3RN9Rr0smN3MS5gueeGdQdPHQ9fTVSxEOuzpxr5z1gej51rs73luj1cYPncMryHo+YkygpucCdLiQItg==
@@ -5173,12 +5173,12 @@ jsii-reflect@^1.117.0:
     yargs "^17.7.2"
 
 jsii-rosetta@^5.9.11, jsii-rosetta@^5.9.3:
-  version "5.9.11"
-  resolved "https://registry.yarnpkg.com/jsii-rosetta/-/jsii-rosetta-5.9.11.tgz#999a3fa0309db50de3464dca96ee75b0286f93c7"
-  integrity sha512-J0WXTYm6XEq+yyifSA5Wu9H8w3forNU1Efn4kOb8P5FZLDdZHGy5IpX0nWaYejlNMPVwy1ZoLjaJSHADVoul5Q==
+  version "5.9.12"
+  resolved "https://registry.yarnpkg.com/jsii-rosetta/-/jsii-rosetta-5.9.12.tgz#511233f17f96dd9ef4984daa3c2794b157bab650"
+  integrity sha512-unbIDr/AANCb4Apv+hrjrEBoWRLh0sAFhwWIYleT26MJUJVbq5EVb1U7ZPUb0uSoVhKF9KJmOicYSzROPb64Gg==
   dependencies:
-    "@jsii/check-node" "^1.116.0"
-    "@jsii/spec" "^1.116.0"
+    "@jsii/check-node" "^1.117.0"
+    "@jsii/spec" "^1.117.0"
     "@xmldom/xmldom" "^0.9.8"
     chalk "^4"
     commonmark "^0.31.2"
