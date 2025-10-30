@@ -4402,12 +4402,24 @@
 </tbody>
 </table>
 <hr />
-<h5 id="isconstruct">~~<code>isConstruct</code>~~ <a name="isConstruct" id="cdk8s.ApiObject.isConstruct"></a><a class="headerlink" href="#isconstruct" title="Permanent link">&para;</a></h5>
+<h5 id="isconstruct"><code>isConstruct</code> <a name="isConstruct" id="cdk8s.ApiObject.isConstruct"></a><a class="headerlink" href="#isconstruct" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ApiObject</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span>
 
 <span class="nx">ApiObject</span><span class="p">.</span><span class="nx">isConstruct</span><span class="p">(</span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="kt">any</span><span class="p">)</span>
 </code></pre></div>
 <p>Checks if <code>x</code> is a construct.</p>
+<p>Use this method instead of <code>instanceof</code> to properly detect <code>Construct</code>
+instances, even when the construct library is symlinked.</p>
+<p>Explanation: in JavaScript, multiple copies of the <code>constructs</code> library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class <code>Construct</code> in each copy of the <code>constructs</code> library
+is seen as a different class, and an instance of one class will not test as
+<code>instanceof</code> the other class. <code>npm install</code> will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the <code>constructs</code>
+library can be accidentally installed, and <code>instanceof</code> will behave
+unpredictably. It is safest to avoid using <code>instanceof</code>, and using
+this type-testing method instead.</p>
 <h6 id="xrequired"><code>x</code><sup>Required</sup> <a name="x" id="cdk8s.ApiObject.isConstruct.parameter.x"></a><a class="headerlink" href="#xrequired" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> any</li>
@@ -4636,12 +4648,24 @@ construct path to generate a DNS-compatible name for the resource.</p>
 </tbody>
 </table>
 <hr />
-<h5 id="isconstruct_1">~~<code>isConstruct</code>~~ <a name="isConstruct" id="cdk8s.App.isConstruct"></a><a class="headerlink" href="#isconstruct_1" title="Permanent link">&para;</a></h5>
+<h5 id="isconstruct_1"><code>isConstruct</code> <a name="isConstruct" id="cdk8s.App.isConstruct"></a><a class="headerlink" href="#isconstruct_1" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">App</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span>
 
 <span class="nx">App</span><span class="p">.</span><span class="nx">isConstruct</span><span class="p">(</span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="kt">any</span><span class="p">)</span>
 </code></pre></div>
 <p>Checks if <code>x</code> is a construct.</p>
+<p>Use this method instead of <code>instanceof</code> to properly detect <code>Construct</code>
+instances, even when the construct library is symlinked.</p>
+<p>Explanation: in JavaScript, multiple copies of the <code>constructs</code> library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class <code>Construct</code> in each copy of the <code>constructs</code> library
+is seen as a different class, and an instance of one class will not test as
+<code>instanceof</code> the other class. <code>npm install</code> will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the <code>constructs</code>
+library can be accidentally installed, and <code>instanceof</code> will behave
+unpredictably. It is safest to avoid using <code>instanceof</code>, and using
+this type-testing method instead.</p>
 <h6 id="xrequired_1"><code>x</code><sup>Required</sup> <a name="x" id="cdk8s.App.isConstruct.parameter.x"></a><a class="headerlink" href="#xrequired_1" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> any</li>
@@ -4893,12 +4917,24 @@ chart level.</p>
 </tbody>
 </table>
 <hr />
-<h5 id="isconstruct_2">~~<code>isConstruct</code>~~ <a name="isConstruct" id="cdk8s.Chart.isConstruct"></a><a class="headerlink" href="#isconstruct_2" title="Permanent link">&para;</a></h5>
+<h5 id="isconstruct_2"><code>isConstruct</code> <a name="isConstruct" id="cdk8s.Chart.isConstruct"></a><a class="headerlink" href="#isconstruct_2" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Chart</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span>
 
 <span class="nx">Chart</span><span class="p">.</span><span class="nx">isConstruct</span><span class="p">(</span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="kt">any</span><span class="p">)</span>
 </code></pre></div>
 <p>Checks if <code>x</code> is a construct.</p>
+<p>Use this method instead of <code>instanceof</code> to properly detect <code>Construct</code>
+instances, even when the construct library is symlinked.</p>
+<p>Explanation: in JavaScript, multiple copies of the <code>constructs</code> library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class <code>Construct</code> in each copy of the <code>constructs</code> library
+is seen as a different class, and an instance of one class will not test as
+<code>instanceof</code> the other class. <code>npm install</code> will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the <code>constructs</code>
+library can be accidentally installed, and <code>instanceof</code> will behave
+unpredictably. It is safest to avoid using <code>instanceof</code>, and using
+this type-testing method instead.</p>
 <h6 id="xrequired_2"><code>x</code><sup>Required</sup> <a name="x" id="cdk8s.Chart.isConstruct.parameter.x"></a><a class="headerlink" href="#xrequired_2" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> any</li>
@@ -5081,12 +5117,24 @@ chart level.</p>
 </tbody>
 </table>
 <hr />
-<h5 id="isconstruct_3">~~<code>isConstruct</code>~~ <a name="isConstruct" id="cdk8s.Helm.isConstruct"></a><a class="headerlink" href="#isconstruct_3" title="Permanent link">&para;</a></h5>
+<h5 id="isconstruct_3"><code>isConstruct</code> <a name="isConstruct" id="cdk8s.Helm.isConstruct"></a><a class="headerlink" href="#isconstruct_3" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Helm</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span>
 
 <span class="nx">Helm</span><span class="p">.</span><span class="nx">isConstruct</span><span class="p">(</span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="kt">any</span><span class="p">)</span>
 </code></pre></div>
 <p>Checks if <code>x</code> is a construct.</p>
+<p>Use this method instead of <code>instanceof</code> to properly detect <code>Construct</code>
+instances, even when the construct library is symlinked.</p>
+<p>Explanation: in JavaScript, multiple copies of the <code>constructs</code> library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class <code>Construct</code> in each copy of the <code>constructs</code> library
+is seen as a different class, and an instance of one class will not test as
+<code>instanceof</code> the other class. <code>npm install</code> will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the <code>constructs</code>
+library can be accidentally installed, and <code>instanceof</code> will behave
+unpredictably. It is safest to avoid using <code>instanceof</code>, and using
+this type-testing method instead.</p>
 <h6 id="xrequired_4"><code>x</code><sup>Required</sup> <a name="x" id="cdk8s.Helm.isConstruct.parameter.x"></a><a class="headerlink" href="#xrequired_4" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> any</li>
@@ -5232,12 +5280,24 @@ from the manifest.</p>
 </tbody>
 </table>
 <hr />
-<h5 id="isconstruct_4">~~<code>isConstruct</code>~~ <a name="isConstruct" id="cdk8s.Include.isConstruct"></a><a class="headerlink" href="#isconstruct_4" title="Permanent link">&para;</a></h5>
+<h5 id="isconstruct_4"><code>isConstruct</code> <a name="isConstruct" id="cdk8s.Include.isConstruct"></a><a class="headerlink" href="#isconstruct_4" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Include</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span>
 
 <span class="nx">Include</span><span class="p">.</span><span class="nx">isConstruct</span><span class="p">(</span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="kt">any</span><span class="p">)</span>
 </code></pre></div>
 <p>Checks if <code>x</code> is a construct.</p>
+<p>Use this method instead of <code>instanceof</code> to properly detect <code>Construct</code>
+instances, even when the construct library is symlinked.</p>
+<p>Explanation: in JavaScript, multiple copies of the <code>constructs</code> library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class <code>Construct</code> in each copy of the <code>constructs</code> library
+is seen as a different class, and an instance of one class will not test as
+<code>instanceof</code> the other class. <code>npm install</code> will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the <code>constructs</code>
+library can be accidentally installed, and <code>instanceof</code> will behave
+unpredictably. It is safest to avoid using <code>instanceof</code>, and using
+this type-testing method instead.</p>
 <h6 id="xrequired_5"><code>x</code><sup>Required</sup> <a name="x" id="cdk8s.Include.isConstruct.parameter.x"></a><a class="headerlink" href="#xrequired_5" title="Permanent link">&para;</a></h6>
 <ul>
 <li><em>Type:</em> any</li>
