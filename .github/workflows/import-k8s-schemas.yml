@@ -1,0 +1,63 @@
+---
+name: import-k8s-schemas
+
+on:
+  schedule:
+    - cron: '0 10 * * 1'  # Weekly on Monday
+  workflow_dispatch: {}      # Allow manual trigger
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Check for new K8s version that are not imported yet
+        id: check
+        run: |
+          # Get latest stable release with .0 patch version (v1.xx.0 only)
+          # no prereleases - done with select(.prerelease == false)
+          # only major.minor.0 versions - done with select(endswith(".0"))
+          # only the first one (latest) - done with [0]
+          LATEST=$(curl -s \
+            https://api.github.com/repos/kubernetes/kubernetes/releases | \
+            jq -r '[.[] | select(.prerelease == false) | .tag_name | select(endswith(".0"))][0]' | \
+            sed 's/^v//')
+
+          echo "latest=$LATEST" >> $GITHUB_OUTPUT
+
+          # Check if we already have it
+          if [ -d "kubernetes-schemas/v${LATEST}" ]; then
+            echo "exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Import schema
+        if: steps.check.outputs.exists == 'false'
+        run: |
+          VERSION=${{ steps.check.outputs.latest }}
+          bash tools/import-spec.sh "$VERSION"
+
+      - name: Create PR
+        if: steps.check.outputs.exists == 'false'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          commit-message: >-
+            chore: import Kubernetes
+            v${{ steps.check.outputs.latest }} schema
+          branch: >-
+            automation/k8s-schema-v${{ steps.check.outputs.latest }}
+          title: >-
+            chore: import Kubernetes
+            v${{ steps.check.outputs.latest }} schema
+          body: |
+            Automatically imported Kubernetes
+            v${{ steps.check.outputs.latest }} schema.
+            Previously this was done doing `./tools/import-spec.sh <version>`.
+
+            Used by `cdk8s import k8s` command.
+          labels: automation
