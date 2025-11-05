@@ -50,14 +50,16 @@ jobs:
             chore: import Kubernetes
             v${{ steps.check.outputs.latest }} schema
           branch: >-
-            automation/k8s-schema-v${{ steps.check.outputs.latest }}
+            github-actions/k8s-schema-v${{ steps.check.outputs.latest }}
           title: >-
             chore: import Kubernetes
             v${{ steps.check.outputs.latest }} schema
           body: |
-            Automatically imported Kubernetes
-            v${{ steps.check.outputs.latest }} schema.
-            Previously this was done doing `./tools/import-spec.sh <version>`.
+            Import kubernetes schema for v${{ steps.check.outputs.latest }}. See details in [workflow run].
 
-            Used by `cdk8s import k8s` command.
-          labels: automation
+            [Workflow Run]: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+            ------
+
+            *Automatically created via the "import-k8s-schemas" workflow*
+          labels: auto-approve
