@@ -42,10 +42,17 @@ jobs:
           VERSION=${{ steps.check.outputs.latest }}
           bash tools/import-spec.sh "$VERSION"
 
+      - name: Set git identity
+        if: steps.check.outputs.exists == 'false'
+        run: |-
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
       - name: Create PR
         if: steps.check.outputs.exists == 'false'
         uses: peter-evans/create-pull-request@v7
         with:
+          token: ${{ secrets.PROJEN_GITHUB_TOKEN }}
           commit-message: >-
             chore: import Kubernetes
             v${{ steps.check.outputs.latest }} schema
@@ -63,3 +70,6 @@ jobs:
 
             *Automatically created via the "import-k8s-schemas" workflow*
           labels: auto-approve
+          author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+          committer: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+          signoff: true
