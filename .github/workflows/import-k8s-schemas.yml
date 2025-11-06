@@ -59,7 +59,7 @@ jobs:
           branch: >-
             github-actions/k8s-schema-v${{ steps.check.outputs.latest }}
           title: >-
-            chore(deps): import Kubernetes
+            chore: import Kubernetes
             v${{ steps.check.outputs.latest }} schema
           body: |
             Import kubernetes schema for v${{ steps.check.outputs.latest }}. See details in [workflow run].
