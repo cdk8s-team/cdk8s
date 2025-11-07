@@ -2285,10 +2285,10 @@ case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s-cli@^2.202.13:
-  version "2.202.13"
-  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.202.13.tgz#d57d4b5f3ce5f270c451b64f599b987ff5885348"
-  integrity sha512-1LlwOPaSvFLEgvQj/Ik5Zm2yQCtSz3nW0XDF5GwoPN54lA4tkKephN/p+pH+QjNq5TiMToUiWnC3cCrHhHEPEg==
+cdk8s-cli@^2.203.1:
+  version "2.203.1"
+  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.203.1.tgz#66047c235b9570c12a88eb8f04c214ad7bca5a80"
+  integrity sha512-Xu8HHYRtjHixSwYcGcy7KW3WXCYpNQmu7wLz0+Z06109/pJ4wB5vZjFOYD1m0XpLtISSzfi9DmiNmZMglkyHkw==
   dependencies:
     "@types/node" "^16"
     ajv "^8.17.1"
@@ -2296,7 +2296,7 @@ cdk8s-cli@^2.202.13:
     cdk8s-plus-28 "^2.5.6"
     codemaker "^1.118.0"
     colors "1.4.0"
-    constructs "^10.4.2"
+    constructs "^10.4.3"
     fs-extra "^8"
     jsii-pacmak "^1.118.0"
     jsii-rosetta "^5.9.13"
@@ -2585,10 +2585,10 @@ console-control-strings@^1.1.0:
   resolved "https://registry.yarnpkg.com/console-control-strings/-/console-control-strings-1.1.0.tgz#3d7cf4464db6446ea644bf4b39507f9851008e8e"
   integrity sha512-ty/fTekppD2fIwRvnZAVdeOiGd1c7YXEixbgJTNzqcxJWKQnjJ/V1bNEEE6hygpM3WjwHFUVK6HTjWSzV4a8sQ==
 
-constructs@^10.0.0, constructs@^10.4.2:
-  version "10.4.2"
-  resolved "https://registry.yarnpkg.com/constructs/-/constructs-10.4.2.tgz#e875a78bef932cca12ea63965969873a25c1c132"
-  integrity sha512-wsNxBlAott2qg8Zv87q3eYZYgheb9lchtBfjHzzLHtXbttwSrHPs1NNQbBrmbb1YZvYg2+Vh0Dor76w4mFxJkA==
+constructs@^10.0.0, constructs@^10.4.3:
+  version "10.4.3"
+  resolved "https://registry.yarnpkg.com/constructs/-/constructs-10.4.3.tgz#605f418f8cf8b4d18e06de05c9be7fb79e82d802"
+  integrity sha512-3+ZB67qWGM1vEstNpj6pGaLNN1qz4gxC1CBhEUhZDZk0PqzQWY65IzC1Doq17MGPa9xa2wJ1G/DJ3swU8kWAHQ==
 
 conventional-changelog-angular@7.0.0:
   version "7.0.0"
@@ -3003,9 +3003,9 @@ ejs@^3.1.7:
     jake "^10.8.5"
 
 electron-to-chromium@^1.5.238:
-  version "1.5.245"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.245.tgz#81aea81adf1e06b6f703b4b35ac6d543421d0fd9"
-  integrity sha512-rdmGfW47ZhL/oWEJAY4qxRtdly2B98ooTJ0pdEI4jhVLZ6tNf8fPtov2wS1IRKwFJT92le3x4Knxiwzl7cPPpQ==
+  version "1.5.248"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.248.tgz#e69941494efbc69ebf2803517f4e85d016013d4b"
+  integrity sha512-zsur2yunphlyAO4gIubdJEXCK6KOVvtpiuDfCIqbM9FjcnMYiyn0ICa3hWfPr0nc41zcLWobgy1iL7VvoOyA2Q==
 
 emittery@^0.8.1:
   version "0.8.1"
