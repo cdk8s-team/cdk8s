@@ -6620,10 +6620,10 @@ proggy@^2.0.0:
   resolved "https://registry.yarnpkg.com/proggy/-/proggy-2.0.0.tgz#154bb0e41d3125b518ef6c79782455c2c47d94e1"
   integrity sha512-69agxLtnI8xBs9gUGqEnK26UfiexpHy+KUpBQWabiytQjnn5wFY8rklAi7GRfABIuPNnQ/ik48+LGLkYYJcy4A==
 
-projen@^0.98.7:
-  version "0.98.7"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.98.7.tgz#88ec8cc566cc7aa1b182afce094b72b0e7f6ea35"
-  integrity sha512-Zp2uc7hOzqRwAtXEDSLZ1FV/GHr9xtkYbHqMymSzXuSWeTtWKG5MuC9jJS5RegeIpTkEqVUYO5R+FcXe0fA9tQ==
+projen@^0.98.9:
+  version "0.98.9"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.98.9.tgz#8e2687cbba8abfe1392f5d430c7272e66224e2b2"
+  integrity sha512-zi7tMb66he3K0jfaY7P1EojPyfu1xgM4YbWqEWVopM9ywCHXjmnQ11QxxaFMs8lDSPcZ6Rb6W3NLhIciLzDRUw==
   dependencies:
     "@iarna/toml" "^2.2.5"
     case "^1.6.3"
