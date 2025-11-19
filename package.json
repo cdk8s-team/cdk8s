@@ -38,7 +38,7 @@
     "cdk8s": "^2.70.28",
     "cdk8s-cli": "^2.203.3",
     "cdk8s-plus-31": "^2.6.6",
-    "cdk8s-plus-32": "^2.5.6",
+    "cdk8s-plus-32": "^2.5.7",
     "cdk8s-plus-33": "^2.4.6",
     "constructs": "^10.0.0",
     "eslint": "^9",
