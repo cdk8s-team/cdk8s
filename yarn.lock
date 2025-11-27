@@ -2343,10 +2343,10 @@ cdk8s-plus-32@^2.5.8:
   dependencies:
     minimatch "^9.0.5"
 
-cdk8s-plus-33@^2.4.6:
-  version "2.4.6"
-  resolved "https://registry.yarnpkg.com/cdk8s-plus-33/-/cdk8s-plus-33-2.4.6.tgz#84a0ac94f5cf2b28628940097df30ba9041a3cbb"
-  integrity sha512-xH9BCzXllX3Z/HcsNV3PyQIRRpFbIkgMgkvY2QsohJPtv1coNpG80H7dFj8nn/2CRwvwp5Cdhw34G4tCZXiNcg==
+cdk8s-plus-33@^2.4.7:
+  version "2.4.7"
+  resolved "https://registry.yarnpkg.com/cdk8s-plus-33/-/cdk8s-plus-33-2.4.7.tgz#a99d1eee0db2bd89f513ec3d387107f789127de1"
+  integrity sha512-2cxcetvbwuc21xrH682yBvqf//fZV7WqngDlLxpvPIY0WFqL/jMMHc5S2s9Aw78OXRRzKGne6b2DHrgZkuS7EA==
   dependencies:
     minimatch "^9.0.5"
 
@@ -3017,9 +3017,9 @@ ejs@^3.1.7:
     jake "^10.8.5"
 
 electron-to-chromium@^1.5.249:
-  version "1.5.260"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.260.tgz#73f555d3e9b9fd16ff48fc406bbad84efa9b86c7"
-  integrity sha512-ov8rBoOBhVawpzdre+Cmz4FB+y66Eqrk6Gwqd8NGxuhv99GQ8XqMAr351KEkOt7gukXWDg6gJWEMKgL2RLMPtA==
+  version "1.5.262"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.262.tgz#c31eed591c6628908451c9ca0f0758ed514aa003"
+  integrity sha512-NlAsMteRHek05jRUxUR0a5jpjYq9ykk6+kO0yRaMi5moe7u0fVIOeQ3Y30A8dIiWFBNUoQGi1ljb1i5VtS9WQQ==
 
 emittery@^0.8.1:
   version "0.8.1"
