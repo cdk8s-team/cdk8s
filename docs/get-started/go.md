@@ -3,7 +3,7 @@ In this guide, we'll walk you through the process of building a basic Kubernetes
 
 ## Prerequisites
 1. To install the cdk8s CLI, you need the [Node Package Manager (npm)](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) installed on your local machine. 
-2. cdk8s for Go supports Go versions 1.16+. Check your Go version:
+2. cdk8s for Go supports Go versions 1.24+. Check your Go version:
 ```bash
 go version
 ```
