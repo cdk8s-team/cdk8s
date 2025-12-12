@@ -28,6 +28,6 @@ schema_dir=v${version}
 mkdir -p ${schema_dir}
 cd ${schema_dir}
 
-
-docker run --rm -v "${schemas_dir}/${schema_dir}:/output" garethr/openapi2jsonschema --kubernetes https://raw.githubusercontent.com/kubernetes/kubernetes/v${version}/api/openapi-spec/swagger.json -o /output
+# Using chatwork/openapi2jsonschema docker image which includes ordering fix
+docker run --rm -v "${schemas_dir}/${schema_dir}:/output" chatwork/openapi2jsonschema --kubernetes https://raw.githubusercontent.com/kubernetes/kubernetes/v${version}/api/openapi-spec/swagger.json -o /output
 ls | grep -v _definitions.json | xargs rm || true
