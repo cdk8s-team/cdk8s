@@ -2,7 +2,7 @@
 
 * text=auto eol=lf
 *.snap linguist-generated
-/.eslintrc.json linguist-generated
+/.eslintrc.json linguist-generated linguist-language=JSON-with-Comments
 /.gitattributes linguist-generated
 /.github/ISSUE_TEMPLATE/bug.md linguist-generated
 /.github/ISSUE_TEMPLATE/config.yml linguist-generated
@@ -33,6 +33,6 @@
 /LICENSE linguist-generated
 /package.json linguist-generated
 /SECURITY.md linguist-generated
-/tsconfig.dev.json linguist-generated
-/tsconfig.json linguist-generated
+/tsconfig.dev.json linguist-generated linguist-language=JSON-with-Comments
+/tsconfig.json linguist-generated linguist-language=JSON-with-Comments
 /yarn.lock linguist-generated
