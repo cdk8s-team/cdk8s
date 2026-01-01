@@ -301,9 +301,9 @@
     tslib "^2.4.0"
 
 "@eslint-community/eslint-utils@^4.7.0", "@eslint-community/eslint-utils@^4.8.0":
-  version "4.9.0"
-  resolved "https://registry.yarnpkg.com/@eslint-community/eslint-utils/-/eslint-utils-4.9.0.tgz#7308df158e064f0dd8b8fdb58aa14fa2a7f913b3"
-  integrity sha512-ayVFHdtZ+hsq1t2Dy24wCmGXGe4q9Gu3smhLYALJrr473ZH27MsnSL+LKUlimp4BWJqMDMLmPpx/Q9R3OAlL4g==
+  version "4.9.1"
+  resolved "https://registry.yarnpkg.com/@eslint-community/eslint-utils/-/eslint-utils-4.9.1.tgz#4e90af67bc51ddee6cdef5284edf572ec376b595"
+  integrity sha512-phrYmNiYppR7znFEdqgfWHXR6NCkZEK7hwWDHZUjit/2/U0r6XvkDl0SYnoM51Hq7FhCGdLDT6zxCCOY1hexsQ==
   dependencies:
     eslint-visitor-keys "^3.4.3"
 
@@ -2328,17 +2328,17 @@ cdk8s-plus-28@^2.5.6:
   dependencies:
     minimatch "^3.1.2"
 
-cdk8s-plus-31@^2.6.16:
-  version "2.6.16"
-  resolved "https://registry.yarnpkg.com/cdk8s-plus-31/-/cdk8s-plus-31-2.6.16.tgz#13679afe8411c0d7f69fb7c1bacf92d4ecf8cb1e"
-  integrity sha512-ECx3EskKb5rEWKc5beqK0SiWkVNgLge82diG3zgWaYwii9HNDoINDhiT8uK3LCYM8k4pv5cPvSt9Sw5d/VDPQg==
+cdk8s-plus-31@^2.6.17:
+  version "2.6.17"
+  resolved "https://registry.yarnpkg.com/cdk8s-plus-31/-/cdk8s-plus-31-2.6.17.tgz#3dc8cbeab4117aef97ed425871113800b6a177d5"
+  integrity sha512-xKaMdYU7YOiiGVNqhqTUt3IjdHTs8rNGi1fXApzwIDFmu0QDDksxWUi2c2V7GwoVo8fQrQJddlEtkWBSG66NjA==
   dependencies:
     minimatch "^9.0.5"
 
-cdk8s-plus-32@^2.5.17:
-  version "2.5.17"
-  resolved "https://registry.yarnpkg.com/cdk8s-plus-32/-/cdk8s-plus-32-2.5.17.tgz#7bd5515b7043ed4c992f965eab1a297e966df57a"
-  integrity sha512-d4xlFrr3HgtiKschIhZl6lwBCDQM+SN7P81T3rPBVAdtfOLwWBzF0gYDQtQG89y4JW8xtZ3l0CWJ4k9Q+mrGJg==
+cdk8s-plus-32@^2.5.18:
+  version "2.5.18"
+  resolved "https://registry.yarnpkg.com/cdk8s-plus-32/-/cdk8s-plus-32-2.5.18.tgz#700501f3302ed6042a89cee68c901146b46c6355"
+  integrity sha512-eSlkD/tAGTJ3vdA0zgl9OfbxoPYc4dzurdJuBonCEPhz5xOlCGYWJTPsTG8jdNuu53GbcJpju43+i0dLkoFLiQ==
   dependencies:
     minimatch "^9.0.5"
 
@@ -2349,10 +2349,10 @@ cdk8s-plus-33@^2.4.16:
   dependencies:
     minimatch "^9.0.5"
 
-cdk8s@^2.70.36, cdk8s@^2.70.39:
-  version "2.70.39"
-  resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-2.70.39.tgz#5b9815d48491d69e02dacfa403ef418e6e379fb7"
-  integrity sha512-yQMuTx0Y4LTMUbu/SuScTVMqIIlr768PsGFDNNrovexlOx+yfV7DyHdN8FWYgDS50KD6TcwCzxQ0DIGjyU+8RQ==
+cdk8s@^2.70.36, cdk8s@^2.70.40:
+  version "2.70.40"
+  resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-2.70.40.tgz#f6c85346fe1163a1f4781da08d7a244dade9f71e"
+  integrity sha512-nnprUuGzA/tveWbpWSpzJpRoZuNpvzbsOMFmkOZnF3Pu1c3nfPUDcIFKRDHigCXHUXtQcAIY3Lv+HusfPvrtgQ==
   dependencies:
     fast-json-patch "^3.1.1"
     follow-redirects "^1.15.11"
@@ -3344,9 +3344,9 @@ esprima@^4.0.0, esprima@^4.0.1:
   integrity sha512-eGuFFw7Upda+g4p+QHvnW0RyTX/SVeJBDM/gCtMARO0cLuT2HcEKnTPvhjV6aGeqrCB/sbNop0Kszm0jsaWU4A==
 
 esquery@^1.5.0:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/esquery/-/esquery-1.6.0.tgz#91419234f804d852a82dceec3e16cdc22cf9dae7"
-  integrity sha512-ca9pw9fomFcKPvFLXhBKUK90ZvGibiGOvRJNbjljY7s7uq/5YO4BOzcYtJqExdx99rF6aAcnRxHmcUHcz6sQsg==
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/esquery/-/esquery-1.7.0.tgz#08d048f261f0ddedb5bae95f46809463d9c9496d"
+  integrity sha512-Ap6G0WQwcU/LHsvLwON1fAQX9Zp0A2Y6Y/cJBl9r/JbW90Zyg4/zbG6zzKa2OTALELarYHmKu0GhpM5EO+7T0g==
   dependencies:
     estraverse "^5.1.0"
 
