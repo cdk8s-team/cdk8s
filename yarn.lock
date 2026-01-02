@@ -2342,10 +2342,10 @@ cdk8s-plus-32@^2.5.18:
   dependencies:
     minimatch "^9.0.5"
 
-cdk8s-plus-33@^2.4.16:
-  version "2.4.16"
-  resolved "https://registry.yarnpkg.com/cdk8s-plus-33/-/cdk8s-plus-33-2.4.16.tgz#52ef3c6fdd2e2137ae9ad17b8ff9bae81e93c4d8"
-  integrity sha512-ct6ZdXy3XfnudacEOFRAXj8uheGUi5N2svorJAeqd/67eWzUAYTJlP22/8mhbyi2TpU7Ys0jCYL6RLa/Qe8rMA==
+cdk8s-plus-33@^2.4.17:
+  version "2.4.17"
+  resolved "https://registry.yarnpkg.com/cdk8s-plus-33/-/cdk8s-plus-33-2.4.17.tgz#a9cce0d02006b9db4a2b35d14b538dcdaec22a1e"
+  integrity sha512-+eMl3UZI5mgDyTCzTcu9WwcEi1lXC37AhS/5AdGiz7/gyHfM55ICw9jZHqFa7K1PSN6jGuwoBcgz7NrkY7lCeQ==
   dependencies:
     minimatch "^9.0.5"
 
