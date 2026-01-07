@@ -1154,34 +1154,34 @@
   dependencies:
     "@octokit/openapi-types" "^24.2.0"
 
-"@oozcitak/dom@1.15.10":
-  version "1.15.10"
-  resolved "https://registry.yarnpkg.com/@oozcitak/dom/-/dom-1.15.10.tgz#dca7289f2b292cff2a901ea4fbbcc0a1ab0b05c2"
-  integrity sha512-0JT29/LaxVgRcGKvHmSrUTEvZ8BXvZhGl2LASRUgHqDTC1M5g1pLmVv56IYNyt3bG2CUjDkc67wnyZC14pbQrQ==
+"@oozcitak/dom@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@oozcitak/dom/-/dom-2.0.2.tgz#0f447f0b736aa6f36c5556ba811a44e56c71c26c"
+  integrity sha512-GjpKhkSYC3Mj4+lfwEyI1dqnsKTgwGy48ytZEhm4A/xnH/8z9M3ZVXKr/YGQi3uCLs1AEBS+x5T2JPiueEDW8w==
   dependencies:
-    "@oozcitak/infra" "1.0.8"
-    "@oozcitak/url" "1.0.4"
-    "@oozcitak/util" "8.3.8"
+    "@oozcitak/infra" "^2.0.2"
+    "@oozcitak/url" "^3.0.0"
+    "@oozcitak/util" "^10.0.0"
 
-"@oozcitak/infra@1.0.8":
-  version "1.0.8"
-  resolved "https://registry.yarnpkg.com/@oozcitak/infra/-/infra-1.0.8.tgz#b0b089421f7d0f6878687608301fbaba837a7d17"
-  integrity sha512-JRAUc9VR6IGHOL7OGF+yrvs0LO8SlqGnPAMqyzOuFZPSZSXI7Xf2O9+awQPSMXgIWGtgUf/dA6Hs6X6ySEaWTg==
+"@oozcitak/infra@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@oozcitak/infra/-/infra-2.0.2.tgz#e2f1cc0eeca3ac5cd551f0326a5f66f00cf1138b"
+  integrity sha512-2g+E7hoE2dgCz/APPOEK5s3rMhJvNxSMBrP+U+j1OWsIbtSpWxxlUjq1lU8RIsFJNYv7NMlnVsCuHcUzJW+8vA==
   dependencies:
-    "@oozcitak/util" "8.3.8"
+    "@oozcitak/util" "^10.0.0"
 
-"@oozcitak/url@1.0.4":
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/@oozcitak/url/-/url-1.0.4.tgz#ca8b1c876319cf5a648dfa1123600a6aa5cda6ba"
-  integrity sha512-kDcD8y+y3FCSOvnBI6HJgl00viO/nGbQoCINmQ0h98OhnGITrWR3bOGfwYCthgcrV8AnTJz8MzslTQbC3SOAmw==
+"@oozcitak/url@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@oozcitak/url/-/url-3.0.0.tgz#a03c959c67e28aba9e29b2d35cd50d26cb5f2cc4"
+  integrity sha512-ZKfET8Ak1wsLAiLWNfFkZc/BraDccuTJKR6svTYc7sVjbR+Iu0vtXdiDMY4o6jaFl5TW2TlS7jbLl4VovtAJWQ==
   dependencies:
-    "@oozcitak/infra" "1.0.8"
-    "@oozcitak/util" "8.3.8"
+    "@oozcitak/infra" "^2.0.2"
+    "@oozcitak/util" "^10.0.0"
 
-"@oozcitak/util@8.3.8":
-  version "8.3.8"
-  resolved "https://registry.yarnpkg.com/@oozcitak/util/-/util-8.3.8.tgz#10f65fe1891fd8cde4957360835e78fd1936bfdd"
-  integrity sha512-T8TbSnGsxo6TDBJx/Sgv/BlVJL3tshxZP7Aq5R1mSnM5OcHY2dQaxLMu2+E8u3gN0MLOzdjurqN4ZRVuzQycOQ==
+"@oozcitak/util@^10.0.0":
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/@oozcitak/util/-/util-10.0.0.tgz#f6b40472d96c210094a556ee5ccb8e77f1bd30af"
+  integrity sha512-hAX0pT/73190NLqBPPWSdBVGtbY6VOhWYK3qqHqtXQ1gK7kS2yz4+ivsN07hpJ6I3aeMtKP6J6npsEKOAzuTLA==
 
 "@pkgjs/parseargs@^0.11.0":
   version "0.11.0"
@@ -5082,14 +5082,6 @@ js-tokens@^4.0.0:
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
   integrity sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==
 
-js-yaml@3.14.1:
-  version "3.14.1"
-  resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.14.1.tgz#dae812fdb3825fa306609a8717383c50c36a0537"
-  integrity sha512-okMH7OXXJ7YrN9Ok3/SXrnu4iX9yOk+25nqX4imS2npuvTYDmo/QEZoqwZkYaIDk3jVvBOTOIEgEhaLOynBS9g==
-  dependencies:
-    argparse "^1.0.7"
-    esprima "^4.0.0"
-
 js-yaml@4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-4.1.0.tgz#c1fb65f8f5017901cdd2c951864ba18458a10602"
@@ -6643,10 +6635,10 @@ proggy@^2.0.0:
   resolved "https://registry.yarnpkg.com/proggy/-/proggy-2.0.0.tgz#154bb0e41d3125b518ef6c79782455c2c47d94e1"
   integrity sha512-69agxLtnI8xBs9gUGqEnK26UfiexpHy+KUpBQWabiytQjnn5wFY8rklAi7GRfABIuPNnQ/ik48+LGLkYYJcy4A==
 
-projen@^0.98.32:
-  version "0.98.32"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.98.32.tgz#d89ef5b271952f31c86ca84586cfd5e21e69a007"
-  integrity sha512-5YvQLD6P8BDwhpWZ296fODhDslsnJud39rDrVtpBEuEPrXU3pQd/tsGIgAZa0tpeL3JzBeCqMZc4mJ9wE8hQ/Q==
+projen@^0.98.33:
+  version "0.98.33"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.98.33.tgz#fbd37274d057e87b010011fb5c1d56a70ed8c616"
+  integrity sha512-+qVyjSVZLneJHL/FWGjKMe94Yf1IMlZaZsP5AdorybxIv4nT70+m1FqjTaY3k2yjH6RXMa1OZBh4JcBK065wOA==
   dependencies:
     "@iarna/toml" "^2.2.5"
     case "^1.6.3"
@@ -6660,7 +6652,7 @@ projen@^0.98.32:
     parse-conflict-json "^4.0.0"
     semver "^7.7.3"
     shx "^0.4.0"
-    xmlbuilder2 "^3.1.1"
+    xmlbuilder2 "^4.0.3"
     yaml "^2.2.2"
     yargs "^17.7.2"
 
@@ -8338,15 +8330,15 @@ xml@^1.0.1:
   resolved "https://registry.yarnpkg.com/xml/-/xml-1.0.1.tgz#78ba72020029c5bc87b8a81a3cfcd74b4a2fc1e5"
   integrity sha512-huCv9IH9Tcf95zuYCsQraZtWnJvBtLVE0QHMOs8bWyZAFZNDcYjsPq1nEx8jKA9y+Beo9v+7OBPRisQTjinQMw==
 
-xmlbuilder2@^3.1.1:
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/xmlbuilder2/-/xmlbuilder2-3.1.1.tgz#b977ef8a6fb27a1ea7ffa7d850d2c007ff343bc0"
-  integrity sha512-WCSfbfZnQDdLQLiMdGUQpMxxckeQ4oZNMNhLVkcekTu7xhD4tuUDyAPoY8CwXvBYE6LwBHd6QW2WZXlOWr1vCw==
+xmlbuilder2@^4.0.3:
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/xmlbuilder2/-/xmlbuilder2-4.0.3.tgz#91660fa6d30f19d716f8b1194c567686d4402c63"
+  integrity sha512-bx8Q1STctnNaaDymWnkfQLKofs0mGNN7rLLapJlGuV3VlvegD7Ls4ggMjE3aUSWItCCzU0PEv45lI87iSigiCA==
   dependencies:
-    "@oozcitak/dom" "1.15.10"
-    "@oozcitak/infra" "1.0.8"
-    "@oozcitak/util" "8.3.8"
-    js-yaml "3.14.1"
+    "@oozcitak/dom" "^2.0.2"
+    "@oozcitak/infra" "^2.0.2"
+    "@oozcitak/util" "^10.0.0"
+    js-yaml "^4.1.1"
 
 xmlbuilder@^15.1.1:
   version "15.1.1"
