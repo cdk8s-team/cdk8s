@@ -2104,9 +2104,9 @@ base64-js@^1.3.1:
   integrity sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==
 
 baseline-browser-mapping@^2.9.0:
-  version "2.9.14"
-  resolved "https://registry.yarnpkg.com/baseline-browser-mapping/-/baseline-browser-mapping-2.9.14.tgz#3b6af0bc032445bca04de58caa9a87cfe921cbb3"
-  integrity sha512-B0xUquLkiGLgHhpPBqvl7GWegWBUNuujQ6kXd/r1U38ElPT6Ok8KZ8e+FpUGEc2ZoRQUzq/aUnaKFc/svWUGSg==
+  version "2.9.15"
+  resolved "https://registry.yarnpkg.com/baseline-browser-mapping/-/baseline-browser-mapping-2.9.15.tgz#6baaa0069883f50a99cdb31b56646491f47c05d7"
+  integrity sha512-kX8h7K2srmDyYnXRIppo4AH/wYgzWVCs+eKr3RusRSQ5PvRYoEFmR/I0PbdTjKFAoKqp5+kbxnNTFO9jOfSVJg==
 
 before-after-hook@^2.2.0:
   version "2.2.3"
@@ -2298,10 +2298,10 @@ case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s-cli@^2.203.17:
-  version "2.203.17"
-  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.203.17.tgz#1c5235c9e5fcec95c24a57c74d35397d21024350"
-  integrity sha512-DbYR8R9CGptYzmEdG9ZnIDA3oIvQw/meABdJwCo2QYMIUo14Pp73GPTxwbKD89JhyhyhFO/xx5tDMGcGmaZptQ==
+cdk8s-cli@^2.203.18:
+  version "2.203.18"
+  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.203.18.tgz#beeebf2da3cb3bd68045b31fd7a544a2eeaf84bf"
+  integrity sha512-/x5xA2I1+9lu4MfMnbfyz+kpNFVVLE6AQhfjmE5pTYnGCAvvH64Em3esjLXY4Ean/8gFIm0vTe8nLOkpwFo/lA==
   dependencies:
     "@types/node" "^16"
     ajv "^8.17.1"
@@ -2309,7 +2309,7 @@ cdk8s-cli@^2.203.17:
     cdk8s-plus-28 "^2.5.6"
     codemaker "^1.125.0"
     colors "1.4.0"
-    constructs "^10.4.4"
+    constructs "^10.4.5"
     fs-extra "^8"
     jsii-pacmak "^1.125.0"
     jsii-rosetta "^5.9.26"
@@ -2598,10 +2598,10 @@ console-control-strings@^1.1.0:
   resolved "https://registry.yarnpkg.com/console-control-strings/-/console-control-strings-1.1.0.tgz#3d7cf4464db6446ea644bf4b39507f9851008e8e"
   integrity sha512-ty/fTekppD2fIwRvnZAVdeOiGd1c7YXEixbgJTNzqcxJWKQnjJ/V1bNEEE6hygpM3WjwHFUVK6HTjWSzV4a8sQ==
 
-constructs@^10.0.0, constructs@^10.4.4:
-  version "10.4.4"
-  resolved "https://registry.yarnpkg.com/constructs/-/constructs-10.4.4.tgz#e128541bca10d00f284728e8869138fc7d1d76bf"
-  integrity sha512-lP0qC1oViYf1cutHo9/KQ8QL637f/W29tDmv/6sy35F5zs+MD9f66nbAAIjicwc7fwyuF3rkg6PhZh4sfvWIpA==
+constructs@^10.0.0, constructs@^10.4.5:
+  version "10.4.5"
+  resolved "https://registry.yarnpkg.com/constructs/-/constructs-10.4.5.tgz#d06c9b33f8d1668ed36036c62e2e98dadfa1ed31"
+  integrity sha512-fOoP70YLevMZr5avJHx2DU3LNYmC6wM8OwdrNewMZou1kZnPGOeVzBrRjZNgFDHUlulYUjkpFRSpTE3D+n+ZSg==
 
 conventional-changelog-angular@7.0.0:
   version "7.0.0"
