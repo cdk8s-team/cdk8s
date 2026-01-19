@@ -671,14 +671,6 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
-"@jsii/check-node@1.124.0":
-  version "1.124.0"
-  resolved "https://registry.yarnpkg.com/@jsii/check-node/-/check-node-1.124.0.tgz#ce29857ebcdac8281189dbf77f5a73defe9ae16a"
-  integrity sha512-Po3BMOyYOB4H8SM/x3Uuvr/inmQCJp58NgC/iYZoDaDz46ukRdTjn6SrdorFrChLrykqf9DMnLOOoFnrPaod7g==
-  dependencies:
-    chalk "^4.1.2"
-    semver "^7.7.2"
-
 "@jsii/check-node@1.125.0", "@jsii/check-node@^1.125.0":
   version "1.125.0"
   resolved "https://registry.yarnpkg.com/@jsii/check-node/-/check-node-1.125.0.tgz#15c58df5871a6da40bc45f84aed8c76556e5fb1b"
@@ -686,13 +678,6 @@
   dependencies:
     chalk "^4.1.2"
     semver "^7.7.2"
-
-"@jsii/spec@1.124.0":
-  version "1.124.0"
-  resolved "https://registry.yarnpkg.com/@jsii/spec/-/spec-1.124.0.tgz#0abed01f2f8d3d3fcf21d832b79a643628c06eff"
-  integrity sha512-Mw5uS6490EVZk275zYl1jCt6RH8AWAd9zIsebmeE+Y15GR4Ps6sqKxSAidzoH6Fnem+3TtWJTERpcrBT2iDHiQ==
-  dependencies:
-    ajv "^8.17.1"
 
 "@jsii/spec@1.125.0", "@jsii/spec@^1.125.0":
   version "1.125.0"
@@ -2289,9 +2274,9 @@ camelcase@^6.2.0, camelcase@^6.3.0:
   integrity sha512-Gmy6FhYlCY7uOElZUSbxo2UCDH8owEk996gkbrpsgGtrJLM3J7jGxl9Ic7Qwwj4ivOE5AWZWRMecDdF7hqGjFA==
 
 caniuse-lite@^1.0.30001759:
-  version "1.0.30001764"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001764.tgz#03206c56469f236103b90f9ae10bcb8b9e1f6005"
-  integrity sha512-9JGuzl2M+vPL+pz70gtMF9sHdMFbY9FJaQBi186cHKH3pSzDvzoUJUPV6fqiKIMyXbud9ZLg4F3Yza1vJ1+93g==
+  version "1.0.30001765"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001765.tgz#4a78d8a797fd4124ebaab2043df942eb091648ee"
+  integrity sha512-LWcNtSyZrakjECqmpP4qdg0MMGdN368D7X8XvvAqOcqMv0RxnlqVKZl2V6/mBR68oYMxOZPLw/gO7DuisMHUvQ==
 
 case@^1.6.3:
   version "1.6.3"
@@ -5173,9 +5158,9 @@ jsii-reflect@^1.125.0:
     yargs "^17.7.2"
 
 jsii-rosetta@^5.9.26, jsii-rosetta@^5.9.3:
-  version "5.9.26"
-  resolved "https://registry.yarnpkg.com/jsii-rosetta/-/jsii-rosetta-5.9.26.tgz#7c9fc9ef3d86e8a0d8c16ccde085859c62e5571a"
-  integrity sha512-FAuLpoQ4zoKnJ2jc82XAiByUCuSBNNppamdQD2zClrJwwJ/LQSrmJ+Un9n6LOIQdsj86SX5LwzgQ4ZnmP2kntg==
+  version "5.9.27"
+  resolved "https://registry.yarnpkg.com/jsii-rosetta/-/jsii-rosetta-5.9.27.tgz#84f47d64baecd720c96bdba579bd386fde7bd398"
+  integrity sha512-2cVSrWN8R7A2TIqQiO5BbM2dT57DNDAJ6Y5/BEnxo4lpUOumnvjeTSxaDifqjd1pS9bIqswuf2np/zkaOWAndQ==
   dependencies:
     "@jsii/check-node" "^1.125.0"
     "@jsii/spec" "^1.125.0"
@@ -5204,12 +5189,12 @@ jsii-srcmak@0.1.1319:
     yargs "^17.7.2"
 
 jsii@~5.9.1, jsii@~5.9.3:
-  version "5.9.22"
-  resolved "https://registry.yarnpkg.com/jsii/-/jsii-5.9.22.tgz#9685a90e067614386c52fa26907755dc8a8ddeab"
-  integrity sha512-9+7/488zJPsKiwxG5Z28M977Ey7DXxhAuoplt4danGCNaGW0EXTlnRxvLWlnofoOc1reWTPf0CFRuumevnT4Cg==
+  version "5.9.23"
+  resolved "https://registry.yarnpkg.com/jsii/-/jsii-5.9.23.tgz#0a5eac3d1fdfbd7dbdc03de66259114d9b1f4845"
+  integrity sha512-bIPRjOVyBRFl3cmx0kcnTqt3abMazlQvpq67Oix9Ku0jpICaXQv0OJoL/qaUkSl8QXgalUzNOUuxMBjZi680Yw==
   dependencies:
-    "@jsii/check-node" "1.124.0"
-    "@jsii/spec" "1.124.0"
+    "@jsii/check-node" "1.125.0"
+    "@jsii/spec" "1.125.0"
     case "^1.6.3"
     chalk "^4"
     fast-deep-equal "^3.1.3"
@@ -5217,7 +5202,7 @@ jsii@~5.9.1, jsii@~5.9.3:
     semver "^7.7.3"
     semver-intersect "^1.5.0"
     sort-json "^2.0.1"
-    spdx-license-list "^6.10.0"
+    spdx-license-list "^6.11.0"
     typescript "~5.9"
     yargs "^17.7.2"
 
@@ -7335,7 +7320,7 @@ spdx-license-ids@^3.0.0:
   resolved "https://registry.yarnpkg.com/spdx-license-ids/-/spdx-license-ids-3.0.22.tgz#abf5a08a6f5d7279559b669f47f0a43e8f3464ef"
   integrity sha512-4PRT4nh1EImPbt2jASOKHX7PB7I+e4IWNLvkKFDxNhJlfjbYlleYQh285Z/3mPTHSAK/AvdMmw5BNNuYH8ShgQ==
 
-spdx-license-list@^6.10.0:
+spdx-license-list@^6.10.0, spdx-license-list@^6.11.0:
   version "6.11.0"
   resolved "https://registry.yarnpkg.com/spdx-license-list/-/spdx-license-list-6.11.0.tgz#d040b19967de5ddbdef1b14ec96a218e6c7b80d1"
   integrity sha512-p5ICd51dSnh7zIMtPgbB9ShBg3HMT77OeI6WVhrFFvxa5KIFYNcqxD4joAE+n1zZ7wlJdEkrOMwC75JUMMmsJA==
