@@ -2021,9 +2021,9 @@ available-typed-arrays@^1.0.7:
     possible-typed-array-names "^1.0.0"
 
 axios@^1.8.3:
-  version "1.13.3"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-1.13.3.tgz#f123e77356630a22b0163920662556944f2be1a1"
-  integrity sha512-ERT8kdX7DZjtUm7IitEyV7InTHAF42iJuMArIiDIV5YtPanJkgw4hw5Dyg9fh0mihdWNn1GKaeIWErfe56UQ1g==
+  version "1.13.4"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-1.13.4.tgz#15d109a4817fb82f73aea910d41a2c85606076bc"
+  integrity sha512-1wVkUaAO6WyaYtCkcYCOx12ZgpGf9Zif+qXa4n+oYzK558YryKqiL6UWwd5DqiH3VRW0GYhTZQ/vlgJrCoNQlg==
   dependencies:
     follow-redirects "^1.15.6"
     form-data "^4.0.4"
@@ -2298,14 +2298,14 @@ case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s-cli@^2.204.2:
-  version "2.204.2"
-  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.204.2.tgz#9a286da7a48b98183c666f2b8c90365335cd067b"
-  integrity sha512-Mtz3xkKs+RuVZbrB/jSFDBRE9ijmkHtemwwClg9Z9+kwoaNP40o0op6wEBtzKXvEwOWm4B5H4GT48oXgyxQuLA==
+cdk8s-cli@^2.204.3:
+  version "2.204.3"
+  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.204.3.tgz#8d353b0686ddb3b791f483c303e357b9801ebc51"
+  integrity sha512-R3+GV8OvKhmddxrlJYMhXKuhoaHcky1425BuLRgeal9DeNHCrnrENUnUAXAMTU80vI+Rfu8s8AyfXXXxRMf0Fw==
   dependencies:
     "@types/node" "^16"
     ajv "^8.17.1"
-    cdk8s "^2.70.44"
+    cdk8s "^2.70.45"
     cdk8s-plus-28 "^2.5.6"
     codemaker "^1.126.0"
     colors "1.4.0"
@@ -2328,31 +2328,31 @@ cdk8s-plus-28@^2.5.6:
   dependencies:
     minimatch "^3.1.2"
 
-cdk8s-plus-31@^2.6.21:
-  version "2.6.21"
-  resolved "https://registry.yarnpkg.com/cdk8s-plus-31/-/cdk8s-plus-31-2.6.21.tgz#e2115fdd7f4aa72f73800839c31b7294d957e67e"
-  integrity sha512-keImHdDFPjcFLqIczTmbAVtPCcuWo1W6hFclkzmuDR1UUR1z/mBX+XgrPErno9iMzXpSm1Z2JSDLqkDjbCAUeA==
+cdk8s-plus-31@^2.6.22:
+  version "2.6.22"
+  resolved "https://registry.yarnpkg.com/cdk8s-plus-31/-/cdk8s-plus-31-2.6.22.tgz#f9f2476ba7839d052ed51a9dfc5e8a13807258ff"
+  integrity sha512-id/Tro+/WAlUcWClNCuuEkyL08a4j8bczlBbCPoE5QW8FYhBJV5iuW3Oa5JsgooeSnvH/qXz9KwMx9VpQuGsjQ==
   dependencies:
     minimatch "^9.0.5"
 
-cdk8s-plus-32@^2.5.22:
-  version "2.5.22"
-  resolved "https://registry.yarnpkg.com/cdk8s-plus-32/-/cdk8s-plus-32-2.5.22.tgz#44798a59ac643b264e2993de86767be59962ac3d"
-  integrity sha512-B14+rxKfcaBBCr8JDWncXMuN0T27m+IfRxghbLZOjuJMg/ETzyIVLUkYZzLoggVEEncv0waidA9rul3KqJT93g==
+cdk8s-plus-32@^2.5.23:
+  version "2.5.23"
+  resolved "https://registry.yarnpkg.com/cdk8s-plus-32/-/cdk8s-plus-32-2.5.23.tgz#21ffb49c5d1db6df1d5fe1bcd1f6018475f0be1d"
+  integrity sha512-lvTANEEVPW85sTb/zBu64oetKpwLUZ1ITicxy8gBjG20uGSkjxFplj1kUBAD+dQ0JD18+l4eiIWeyeO7MDlKeg==
   dependencies:
     minimatch "^9.0.5"
 
-cdk8s-plus-33@^2.4.21:
-  version "2.4.21"
-  resolved "https://registry.yarnpkg.com/cdk8s-plus-33/-/cdk8s-plus-33-2.4.21.tgz#0c94bd600a90676ea62d3e5ac129f1b82050f8c5"
-  integrity sha512-eJdiPYiWxYrnZMn92firHSMy6OSHJ05pizZ0Q57I+ACHOmX7w2BounA3sStbp0XSlM/3t4XvVZReLlPohaum7Q==
+cdk8s-plus-33@^2.4.22:
+  version "2.4.22"
+  resolved "https://registry.yarnpkg.com/cdk8s-plus-33/-/cdk8s-plus-33-2.4.22.tgz#0f02b8f8843dce42ca79e67c3e90a4b06aa361a4"
+  integrity sha512-i3gYvKAtQDbN/+vLjV3x/YequE2owqZbfo9iW5jQVhDuNL067ARzPettIJTZd+tKtlrL0GLeDT9tgppUTKtadA==
   dependencies:
     minimatch "^9.0.5"
 
-cdk8s@^2.70.44:
-  version "2.70.44"
-  resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-2.70.44.tgz#f8204ee274146db0dfb4d766c053f7f5e1075fd7"
-  integrity sha512-TGzpDivf/9ucI+TV7rywuYJFoRAHzVghCGzLijene4OhbTTfp+cKUV/ujQ4R04mnjwUW1i58ELThnYsKuJDT7g==
+cdk8s@^2.70.45:
+  version "2.70.45"
+  resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-2.70.45.tgz#380adfe84f041544fb3d5e12e52fe23500b0199c"
+  integrity sha512-d0/MzLtvSj0srzAMc0Zm5gmLDlxQKLM57MlKagjg2rtVkRhFk3isORK6EWph5YynTdz7gdTbqbLFnoNwfV+tXA==
   dependencies:
     fast-json-patch "^3.1.1"
     follow-redirects "^1.15.11"
