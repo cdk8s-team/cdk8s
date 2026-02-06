@@ -1433,9 +1433,9 @@
   integrity sha512-hov8bUuiLiyFPGyFPE1lwWhmzYbirOXQNNo40+y3zow8aFVTeyn3VWL0VFFfdNddA8S4Vf0Tc062rzyNr7Paag==
 
 "@types/node@*":
-  version "25.2.0"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-25.2.0.tgz#015b7d228470c1dcbfc17fe9c63039d216b4d782"
-  integrity sha512-DZ8VwRFUNzuqJ5khrvwMXHmvPe+zGayJhr2CDNiKB1WBE1ST8Djl00D0IC4vvNmHMdj6DlbYRIaFE7WHjlDl5w==
+  version "25.2.1"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-25.2.1.tgz#378021f9e765bb65ba36de16f3c3a8622c1fa03d"
+  integrity sha512-CPrnr8voK8vC6eEtyRzvMpgp3VyVRhgclonE7qYi6P9sXwYb59ucfrnmFBTaP0yUi8Gk4yZg/LlTJULGxvTNsg==
   dependencies:
     undici-types "~7.16.0"
 
@@ -2274,19 +2274,19 @@ camelcase@^6.2.0, camelcase@^6.3.0:
   integrity sha512-Gmy6FhYlCY7uOElZUSbxo2UCDH8owEk996gkbrpsgGtrJLM3J7jGxl9Ic7Qwwj4ivOE5AWZWRMecDdF7hqGjFA==
 
 caniuse-lite@^1.0.30001759:
-  version "1.0.30001768"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001768.tgz#546bfaf4ec33305096e842906df911bcf3ac0d1f"
-  integrity sha512-qY3aDRZC5nWPgHUgIB84WL+nySuo19wk0VJpp/XI9T34lrvkyhRvNVOFJOp2kxClQhiFBu+TaUSudf6oa3vkSA==
+  version "1.0.30001769"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001769.tgz#1ad91594fad7dc233777c2781879ab5409f7d9c2"
+  integrity sha512-BCfFL1sHijQlBGWBMuJyhZUhzo7wer5sVj9hqekB/7xn0Ypy+pER/edCYQm4exbXj4WiySGp40P8UuTh6w1srg==
 
 case@^1.6.3:
   version "1.6.3"
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s-cli@^2.204.5:
-  version "2.204.5"
-  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.204.5.tgz#c58a3a40b95dd47671370b9bf0fa0b059d913a40"
-  integrity sha512-OqIgLQ46TwvN9GXGA6J0+XsRpANS3omO4benZBfkz49g8C598tNnhHeP8hSVr71cgST8PVhBvydKAzAJlDp/+g==
+cdk8s-cli@^2.204.6:
+  version "2.204.6"
+  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.204.6.tgz#497cd4835679b04200be29e9cc87de81258b6d61"
+  integrity sha512-+mcbFmaPdrxDOZAZ46S0bsg2/72XnkuckweA4vxR/iDGAzSVNld+GWudqa9IHX9Zic5/Ju0jruJe2BOoSfI7aw==
   dependencies:
     "@types/node" "^16"
     ajv "^8.17.1"
@@ -2300,7 +2300,7 @@ cdk8s-cli@^2.204.5:
     jsii-rosetta "^5.9.28"
     jsii-srcmak "0.1.1319"
     json2jsii "0.5.12"
-    semver "^7.7.3"
+    semver "^7.7.4"
     sscaff "^1.2.274"
     table "^6.9.0"
     yaml "2.8.2"
@@ -3779,9 +3779,9 @@ get-symbol-description@^1.1.0:
     get-intrinsic "^1.2.6"
 
 get-tsconfig@^4.10.0:
-  version "4.13.1"
-  resolved "https://registry.yarnpkg.com/get-tsconfig/-/get-tsconfig-4.13.1.tgz#ff96c0d98967df211c1ebad41f375ccf516c43fa"
-  integrity sha512-EoY1N2xCn44xU6750Sx7OjOIT59FkmstNc3X6y5xpz7D5cBtZRe/3pSlTkDJgqsOk3WwZPkWfonhhUJfttQo3w==
+  version "4.13.5"
+  resolved "https://registry.yarnpkg.com/get-tsconfig/-/get-tsconfig-4.13.5.tgz#d7d3224cac4396bf59f9de9b85201f968ebbc24f"
+  integrity sha512-v4/4xAEpBRp6SvCkWhnGCaLkJf9IwWzrsygJPxD/+p2/xPE3C5m2fA9FD0Ry9tG+Rqqq3gBzHSl6y1/T9V/tMQ==
   dependencies:
     resolve-pkg-maps "^1.0.0"
 
@@ -4548,9 +4548,9 @@ isexe@^2.0.0:
   integrity sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==
 
 isexe@^3.1.1:
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/isexe/-/isexe-3.1.1.tgz#4a407e2bd78ddfb14bea0c27c6f7072dde775f0d"
-  integrity sha512-LpB/54B+/2J5hqQ7imZHfdU31OlgQqx7ZicVlkm9kzg9/w8GKLEcFfJl/t7DCEDueOyBAD6zCCwTO6Fzs0NoEQ==
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/isexe/-/isexe-3.1.2.tgz#08e5349db03ff0654f3b3efe798f94aa4bda4f8f"
+  integrity sha512-mIcis6w+JiQf3P7t7mg/35GKB4T1FQsBOtMIvuKw4YErj5RjtbhcTd5/I30fmkmGMwvI0WlzSNN+27K0QCMkAw==
 
 isobject@^3.0.1:
   version "3.0.1"
@@ -7054,10 +7054,10 @@ semver-intersect@^1.5.0:
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.7.2.tgz#48d55db737c3287cd4835e17fa13feace1c41ef8"
   integrity sha512-cBznnQ9KjJqU67B52RMC65CMarK2600WFnbkcaiwWq3xy/5haFJlshgnpjovMVJ+Hff49d8GEn0b87C5pDQ10g==
 
-semver@7.x, semver@^7.0.0, semver@^7.1.1, semver@^7.3.2, semver@^7.3.4, semver@^7.3.5, semver@^7.3.7, semver@^7.3.8, semver@^7.5.3, semver@^7.7.1, semver@^7.7.2, semver@^7.7.3:
-  version "7.7.3"
-  resolved "https://registry.yarnpkg.com/semver/-/semver-7.7.3.tgz#4b5f4143d007633a8dc671cd0a6ef9147b8bb946"
-  integrity sha512-SdsKMrI9TdgjdweUSR9MweHA4EJ8YxHn8DFaDisvhVlUOe4BF1tLD7GAj0lIqWVl+dPb/rExr0Btby5loQm20Q==
+semver@7.x, semver@^7.0.0, semver@^7.1.1, semver@^7.3.2, semver@^7.3.4, semver@^7.3.5, semver@^7.3.7, semver@^7.3.8, semver@^7.5.3, semver@^7.7.1, semver@^7.7.2, semver@^7.7.3, semver@^7.7.4:
+  version "7.7.4"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-7.7.4.tgz#28464e36060e991fa7a11d0279d2d3f3b57a7e8a"
+  integrity sha512-vFKC2IEtQnVhpT78h1Yp8wzwrf8CM+MzKMHGJZfBtzhZNycRFnXsHk6E5TxIkkMsgNS7mdX3AGB7x2QM2di4lA==
 
 semver@^6.3.0, semver@^6.3.1:
   version "6.3.1"
