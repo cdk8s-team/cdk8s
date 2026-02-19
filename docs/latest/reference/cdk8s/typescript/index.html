@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
     
     
       
@@ -5112,6 +5112,10 @@
 <td>Returns a string representation of this construct.</td>
 </tr>
 <tr>
+<td><code><a href="#cdk8s.ApiObject.with">with</a></code></td>
+<td>Applies one or more mixins to this construct.</td>
+</tr>
+<tr>
 <td><code><a href="#cdk8s.ApiObject.addDependency">addDependency</a></code></td>
 <td>Create a dependency between this ApiObject and other constructs.</td>
 </tr>
@@ -5130,6 +5134,20 @@
 <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="nx">toString</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
 </code></pre></div>
 <p>Returns a string representation of this construct.</p>
+<h5 id="with"><code>with</code> <a name="with" id="cdk8s.ApiObject.with"></a><a class="headerlink" href="#with" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="kd">with</span><span class="p">(</span><span class="nx">mixins</span><span class="o">:</span><span class="w"> </span><span class="kt">...IMixin</span><span class="p">[])</span><span class="o">:</span><span class="w"> </span><span class="nx">IConstruct</span>
+</code></pre></div>
+<p>Applies one or more mixins to this construct.</p>
+<p>Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple <code>with()</code> calls if subsequent mixins should apply to added
+constructs.</p>
+<h6 id="mixinsrequired"><code>mixins</code><sup>Required</sup> <a name="mixins" id="cdk8s.ApiObject.with.parameter.mixins"></a><a class="headerlink" href="#mixinsrequired" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> &hellip;constructs.IMixin[]</li>
+</ul>
+<p>The mixins to apply.</p>
+<hr />
 <h5 id="adddependency"><code>addDependency</code> <a name="addDependency" id="cdk8s.ApiObject.addDependency"></a><a class="headerlink" href="#adddependency" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">dependencies</span><span class="o">:</span><span class="w"> </span><span class="kt">...IConstruct</span><span class="p">[])</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span>
 </code></pre></div>
@@ -5388,6 +5406,10 @@ construct path to generate a DNS-compatible name for the resource.</p>
 <td>Returns a string representation of this construct.</td>
 </tr>
 <tr>
+<td><code><a href="#cdk8s.App.with">with</a></code></td>
+<td>Applies one or more mixins to this construct.</td>
+</tr>
+<tr>
 <td><code><a href="#cdk8s.App.synth">synth</a></code></td>
 <td>Synthesizes all manifests to the output directory.</td>
 </tr>
@@ -5402,6 +5424,20 @@ construct path to generate a DNS-compatible name for the resource.</p>
 <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="nx">toString</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
 </code></pre></div>
 <p>Returns a string representation of this construct.</p>
+<h5 id="with_1"><code>with</code> <a name="with" id="cdk8s.App.with"></a><a class="headerlink" href="#with_1" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="kd">with</span><span class="p">(</span><span class="nx">mixins</span><span class="o">:</span><span class="w"> </span><span class="kt">...IMixin</span><span class="p">[])</span><span class="o">:</span><span class="w"> </span><span class="nx">IConstruct</span>
+</code></pre></div>
+<p>Applies one or more mixins to this construct.</p>
+<p>Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple <code>with()</code> calls if subsequent mixins should apply to added
+constructs.</p>
+<h6 id="mixinsrequired_1"><code>mixins</code><sup>Required</sup> <a name="mixins" id="cdk8s.App.with.parameter.mixins"></a><a class="headerlink" href="#mixinsrequired_1" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> &hellip;constructs.IMixin[]</li>
+</ul>
+<p>The mixins to apply.</p>
+<hr />
 <h5 id="synth"><code>synth</code> <a name="synth" id="cdk8s.App.synth"></a><a class="headerlink" href="#synth" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="nx">synth</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span>
 </code></pre></div>
@@ -5621,6 +5657,10 @@ passed by the <code>resolvers</code> property, as well as built-in resolvers.</p
 <td>Returns a string representation of this construct.</td>
 </tr>
 <tr>
+<td><code><a href="#cdk8s.Chart.with">with</a></code></td>
+<td>Applies one or more mixins to this construct.</td>
+</tr>
+<tr>
 <td><code><a href="#cdk8s.Chart.addDependency">addDependency</a></code></td>
 <td>Create a dependency between this Chart and other constructs.</td>
 </tr>
@@ -5639,6 +5679,20 @@ passed by the <code>resolvers</code> property, as well as built-in resolvers.</p
 <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="nx">toString</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
 </code></pre></div>
 <p>Returns a string representation of this construct.</p>
+<h5 id="with_2"><code>with</code> <a name="with" id="cdk8s.Chart.with"></a><a class="headerlink" href="#with_2" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="kd">with</span><span class="p">(</span><span class="nx">mixins</span><span class="o">:</span><span class="w"> </span><span class="kt">...IMixin</span><span class="p">[])</span><span class="o">:</span><span class="w"> </span><span class="nx">IConstruct</span>
+</code></pre></div>
+<p>Applies one or more mixins to this construct.</p>
+<p>Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple <code>with()</code> calls if subsequent mixins should apply to added
+constructs.</p>
+<h6 id="mixinsrequired_2"><code>mixins</code><sup>Required</sup> <a name="mixins" id="cdk8s.Chart.with.parameter.mixins"></a><a class="headerlink" href="#mixinsrequired_2" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> &hellip;constructs.IMixin[]</li>
+</ul>
+<p>The mixins to apply.</p>
+<hr />
 <h5 id="adddependency_1"><code>addDependency</code> <a name="addDependency" id="cdk8s.Chart.addDependency"></a><a class="headerlink" href="#adddependency_1" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">dependencies</span><span class="o">:</span><span class="w"> </span><span class="kt">...IConstruct</span><span class="p">[])</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span>
 </code></pre></div>
@@ -5876,6 +5930,10 @@ this type-testing method instead.</p>
 <td><code><a href="#cdk8s.Helm.toString">toString</a></code></td>
 <td>Returns a string representation of this construct.</td>
 </tr>
+<tr>
+<td><code><a href="#cdk8s.Helm.with">with</a></code></td>
+<td>Applies one or more mixins to this construct.</td>
+</tr>
 </tbody>
 </table>
 <hr />
@@ -5883,6 +5941,20 @@ this type-testing method instead.</p>
 <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="nx">toString</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
 </code></pre></div>
 <p>Returns a string representation of this construct.</p>
+<h5 id="with_3"><code>with</code> <a name="with" id="cdk8s.Helm.with"></a><a class="headerlink" href="#with_3" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="kd">with</span><span class="p">(</span><span class="nx">mixins</span><span class="o">:</span><span class="w"> </span><span class="kt">...IMixin</span><span class="p">[])</span><span class="o">:</span><span class="w"> </span><span class="nx">IConstruct</span>
+</code></pre></div>
+<p>Applies one or more mixins to this construct.</p>
+<p>Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple <code>with()</code> calls if subsequent mixins should apply to added
+constructs.</p>
+<h6 id="mixinsrequired_3"><code>mixins</code><sup>Required</sup> <a name="mixins" id="cdk8s.Helm.with.parameter.mixins"></a><a class="headerlink" href="#mixinsrequired_3" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> &hellip;constructs.IMixin[]</li>
+</ul>
+<p>The mixins to apply.</p>
+<hr />
 <h4 id="static-functions_3">Static Functions <a name="Static Functions" id="Static Functions"></a><a class="headerlink" href="#static-functions_3" title="Permanent link">&para;</a></h4>
 <table>
 <thead>
@@ -6039,6 +6111,10 @@ from the manifest.</p>
 <td><code><a href="#cdk8s.Include.toString">toString</a></code></td>
 <td>Returns a string representation of this construct.</td>
 </tr>
+<tr>
+<td><code><a href="#cdk8s.Include.with">with</a></code></td>
+<td>Applies one or more mixins to this construct.</td>
+</tr>
 </tbody>
 </table>
 <hr />
@@ -6046,6 +6122,20 @@ from the manifest.</p>
 <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="nx">toString</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
 </code></pre></div>
 <p>Returns a string representation of this construct.</p>
+<h5 id="with_4"><code>with</code> <a name="with" id="cdk8s.Include.with"></a><a class="headerlink" href="#with_4" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="kd">with</span><span class="p">(</span><span class="nx">mixins</span><span class="o">:</span><span class="w"> </span><span class="kt">...IMixin</span><span class="p">[])</span><span class="o">:</span><span class="w"> </span><span class="nx">IConstruct</span>
+</code></pre></div>
+<p>Applies one or more mixins to this construct.</p>
+<p>Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple <code>with()</code> calls if subsequent mixins should apply to added
+constructs.</p>
+<h6 id="mixinsrequired_4"><code>mixins</code><sup>Required</sup> <a name="mixins" id="cdk8s.Include.with.parameter.mixins"></a><a class="headerlink" href="#mixinsrequired_4" title="Permanent link">&para;</a></h6>
+<ul>
+<li><em>Type:</em> &hellip;constructs.IMixin[]</li>
+</ul>
+<p>The mixins to apply.</p>
+<hr />
 <h4 id="static-functions_4">Static Functions <a name="Static Functions" id="Static Functions"></a><a class="headerlink" href="#static-functions_4" title="Permanent link">&para;</a></h4>
 <table>
 <thead>
