@@ -2092,9 +2092,9 @@ base64-js@^1.3.1:
   integrity sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==
 
 baseline-browser-mapping@^2.9.0:
-  version "2.10.7"
-  resolved "https://registry.yarnpkg.com/baseline-browser-mapping/-/baseline-browser-mapping-2.10.7.tgz#2c017adffe4f7bbe93c2e55526cc1869d36f588c"
-  integrity sha512-1ghYO3HnxGec0TCGBXiDLVns4eCSx4zJpxnHrlqFQajmhfKMQBzUGDdkMK7fUW7PTHTeLf+j87aTuKuuwWzMGw==
+  version "2.10.8"
+  resolved "https://registry.yarnpkg.com/baseline-browser-mapping/-/baseline-browser-mapping-2.10.8.tgz#23d1cea1a85b181c2b8660b6cfe626dc2fb15630"
+  integrity sha512-PCLz/LXGBsNTErbtB6i5u4eLpHeMfi93aUv5duMmj6caNu6IphS4q6UevDnL36sZQv9lrP11dbPKGMaXPwMKfQ==
 
 before-after-hook@^2.2.0:
   version "2.2.3"
@@ -2284,9 +2284,9 @@ camelcase@^6.2.0, camelcase@^6.3.0:
   integrity sha512-Gmy6FhYlCY7uOElZUSbxo2UCDH8owEk996gkbrpsgGtrJLM3J7jGxl9Ic7Qwwj4ivOE5AWZWRMecDdF7hqGjFA==
 
 caniuse-lite@^1.0.30001759:
-  version "1.0.30001778"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001778.tgz#79a8a124e3473a20b70616497b987c30d06570a0"
-  integrity sha512-PN7uxFL+ExFJO61aVmP1aIEG4i9whQd4eoSCebav62UwDyp5OHh06zN4jqKSMePVgxHifCw1QJxdRkA1Pisekg==
+  version "1.0.30001779"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001779.tgz#75e4941d406928ba00c8d7a3ddda0b2cb90d7474"
+  integrity sha512-U5og2PN7V4DMgF50YPNtnZJGWVLFjjsN3zb6uMT5VGYIewieDj1upwfuVNXf4Kor+89c3iCRJnSzMD5LmTvsfA==
 
 case@^1.6.3:
   version "1.6.3"
