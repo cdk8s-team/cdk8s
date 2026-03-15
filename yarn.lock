@@ -263,12 +263,12 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@cdk8s/projen-common@^0.0.666":
-  version "0.0.666"
-  resolved "https://registry.yarnpkg.com/@cdk8s/projen-common/-/projen-common-0.0.666.tgz#0f0bff9a528ef78712cfc2e4c23f41dcc81fd749"
-  integrity sha512-XPr098SoaW7VnkVIuLI/1KsmeVbl4Od1fJDNLoYw6gVx5BmXAwGZicf2SGA5WlkQPvI2J10MObiuiT46a/8TXQ==
+"@cdk8s/projen-common@^0.0.675":
+  version "0.0.675"
+  resolved "https://registry.yarnpkg.com/@cdk8s/projen-common/-/projen-common-0.0.675.tgz#7d0f6731c1b5d94d647f29cac8953d81a133ae56"
+  integrity sha512-7cjZB/hSR/0Sy0i5+lLr3uN7saebedROvqFldDd2PcJdb5p2A84uMPbg9Av+eIObWErZsg1jcTyaYvwB9rAsNw==
   dependencies:
-    codemaker "^1.126.0"
+    codemaker "^1.127.0"
     deepmerge "^4.3.1"
 
 "@cspotcode/source-map-support@^0.8.0":
@@ -6642,10 +6642,10 @@ proggy@^2.0.0:
   resolved "https://registry.yarnpkg.com/proggy/-/proggy-2.0.0.tgz#154bb0e41d3125b518ef6c79782455c2c47d94e1"
   integrity sha512-69agxLtnI8xBs9gUGqEnK26UfiexpHy+KUpBQWabiytQjnn5wFY8rklAi7GRfABIuPNnQ/ik48+LGLkYYJcy4A==
 
-projen@^0.99.12:
-  version "0.99.12"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.99.12.tgz#7cfecfc0c93f23ca72fd4254c2260df07fba93d5"
-  integrity sha512-wfOKE8tJ46wKz4SgBoJ5sK+4OcX+BscfZdXoTw7dVEKh7MpnJXqD6/GgRs0iT78e6Z0pkwGaYQK6m1OuhCHVpw==
+projen@^0.99.20:
+  version "0.99.20"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.99.20.tgz#80fece27076b3d00b49b46e27f08539f96951b82"
+  integrity sha512-mK3s7G3JgeUdy2+7d3p3h/05AigbgKXvFpz8ud7Fj4XpZ2UTiKJQ+fDl29nAxIW0AnVQUQN6UfvqZGibWxni/g==
   dependencies:
     "@iarna/toml" "^2.2.5"
     case "^1.6.3"
@@ -6719,9 +6719,9 @@ psl@^1.1.33:
     punycode "^2.3.1"
 
 pump@^3.0.0:
-  version "3.0.3"
-  resolved "https://registry.yarnpkg.com/pump/-/pump-3.0.3.tgz#151d979f1a29668dc0025ec589a455b53282268d"
-  integrity sha512-todwxLMY7/heScKmntwQG8CXVkWUOdYxIvY2s0VWAAMh/nd8SoYiRaKjlr7+iCs984f2P8zvrfWcDDYVb73NfA==
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/pump/-/pump-3.0.4.tgz#1f313430527fa8b905622ebd22fe1444e757ab3c"
+  integrity sha512-VS7sjc6KR7e1ukRFhQSY5LM2uBWAUPiOPa/A3mkKmiMwSmRFUITt0xuj+/lesgnCv+dPIEYlkzrcyXgquIHMcA==
   dependencies:
     end-of-stream "^1.1.0"
     once "^1.3.1"
@@ -7898,11 +7898,6 @@ typedarray@^0.0.6:
   version "5.9.3"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.9.3.tgz#5b4f59e15310ab17a216f5d6cf53ee476ede670f"
   integrity sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==
-
-typescript@^4.9.5:
-  version "4.9.5"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.9.5.tgz#095979f9bcc0d09da324d58d03ce8f8374cbe65a"
-  integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
 
 uglify-js@^3.1.4:
   version "3.19.3"
