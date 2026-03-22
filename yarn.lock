@@ -2092,9 +2092,9 @@ base64-js@^1.3.1:
   integrity sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==
 
 baseline-browser-mapping@^2.9.0:
-  version "2.10.9"
-  resolved "https://registry.yarnpkg.com/baseline-browser-mapping/-/baseline-browser-mapping-2.10.9.tgz#8614229add633061c001a0b7c7c85d4b7c44e6ca"
-  integrity sha512-OZd0e2mU11ClX8+IdXe3r0dbqMEznRiT4TfbhYIbcRPZkqJ7Qwer8ij3GZAmLsRKa+II9V1v5czCkvmHH3XZBg==
+  version "2.10.10"
+  resolved "https://registry.yarnpkg.com/baseline-browser-mapping/-/baseline-browser-mapping-2.10.10.tgz#e74bd066724c1d8d7d8ea75fc3be25389a7a5c56"
+  integrity sha512-sUoJ3IMxx4AyRqO4MLeHlnGDkyXRoUG0/AI9fjK+vS72ekpV0yWVY7O0BVjmBcRtkNcsAO2QDZ4tdKKGoI6YaQ==
 
 before-after-hook@^2.2.0:
   version "2.2.3"
@@ -2337,14 +2337,14 @@ cdk8s-plus-33@^2.4.38:
   dependencies:
     minimatch "^9.0.9"
 
-cdk8s@^2.70.51:
-  version "2.70.51"
-  resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-2.70.51.tgz#ed1ff8f422da519836888c93cbdf7cde3dd84d88"
-  integrity sha512-mmt/zwgCDLJWnLnmNMg4N8lLJdvDPdz7aVDAPdn16xLGWxAZY4jXa7wnkNOpPi0Vo27IR9vcSwsKJg8ikn+WZg==
+cdk8s@^2.70.51, cdk8s@^2.70.52:
+  version "2.70.52"
+  resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-2.70.52.tgz#51ea6cedb7fa5a99ff646327d27e56ae183d3679"
+  integrity sha512-ciEs1nflNLzU+zNs4rt6iFczr6pShTJQZEoSINZL1EzOx7iztcO+Y4CL0aZEJ5qafKU9p3tdGyTJsbHr9RWRmw==
   dependencies:
     fast-json-patch "^3.1.1"
     follow-redirects "^1.15.11"
-    yaml "2.8.2"
+    yaml "2.8.3"
 
 chalk@4.1.0:
   version "4.1.0"
@@ -8375,10 +8375,15 @@ yallist@^4.0.0:
   resolved "https://registry.yarnpkg.com/yallist/-/yallist-4.0.0.tgz#9bb92790d9c0effec63be73519e11a35019a3a72"
   integrity sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==
 
-yaml@2.8.2, yaml@^2.2.2, yaml@^2.6.0:
+yaml@2.8.2, yaml@^2.2.2:
   version "2.8.2"
   resolved "https://registry.yarnpkg.com/yaml/-/yaml-2.8.2.tgz#5694f25eca0ce9c3e7a9d9e00ce0ddabbd9e35c5"
   integrity sha512-mplynKqc1C2hTVYxd0PU2xQAc22TI1vShAYGksCCfxbn/dFwnHTNi1bvYsBTkhdUNtGIf5xNOg938rrSSYvS9A==
+
+yaml@2.8.3, yaml@^2.6.0:
+  version "2.8.3"
+  resolved "https://registry.yarnpkg.com/yaml/-/yaml-2.8.3.tgz#a0d6bd2efb3dd03c59370223701834e60409bd7d"
+  integrity sha512-AvbaCLOO2Otw/lW5bmh9d/WEdcDFdQp2Z2ZUH3pX9U2ihyUY0nvLv7J6TrWowklRGPYbB/IuIMfYgxaCPg5Bpg==
 
 yargs-parser@20.x, yargs-parser@^20.2.2, yargs-parser@^20.2.3:
   version "20.2.9"
