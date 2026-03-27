@@ -32,7 +32,7 @@
     "@cdk8s/projen-common": "^0.0.678",
     "@stylistic/eslint-plugin": "^2",
     "@types/jest": "^26.0.24",
-    "@types/node": "16.18.78",
+    "@types/node": "22.19.15",
     "@typescript-eslint/eslint-plugin": "^8",
     "@typescript-eslint/parser": "^8",
     "cdk8s": "^2.70.52",
