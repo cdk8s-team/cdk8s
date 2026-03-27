@@ -15,7 +15,7 @@
     },
     {
       "name": "@types/node",
-      "version": "16.18.78",
+      "version": "22.19.15",
       "type": "build"
     },
     {
@@ -97,6 +97,7 @@
     },
     {
       "name": "typescript",
+      "version": "~5.9",
       "type": "build"
     },
     {

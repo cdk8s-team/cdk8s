@@ -1,5 +1,6 @@
 import * as fs from 'fs';
 import { Cdk8sTeamTypeScriptProject } from '@cdk8s/projen-common';
+import { DependencyType } from 'projen';
 import { JobPermission } from 'projen/lib/github/workflows-model';
 
 const SPEC_VERSION = fs.readFileSync('src/latest-k8s-version.txt', 'utf-8');
@@ -38,6 +39,10 @@ const project = new Cdk8sTeamTypeScriptProject({
 for (let i = 0; i < 3; i++) {
   project.addDevDeps(`cdk8s-plus-${LATEST_SUPPORTED_K8S_VERSION - i}`);
 }
+
+// Override the @types/node pin from projen-common (16.18.78 is incompatible with TypeScript 5.9)
+project.deps.removeDependency('@types/node');
+project.deps.addDependency('@types/node@22.19.15', DependencyType.BUILD);
 
 project.gitignore.exclude('.vscode/');
 project.gitignore.addPatterns('*.js');
