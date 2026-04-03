@@ -279,24 +279,24 @@
     "@jridgewell/trace-mapping" "0.3.9"
 
 "@emnapi/core@^1.1.0", "@emnapi/core@^1.4.3":
-  version "1.9.1"
-  resolved "https://registry.yarnpkg.com/@emnapi/core/-/core-1.9.1.tgz#2143069c744ca2442074f8078462e51edd63c7bd"
-  integrity sha512-mukuNALVsoix/w1BJwFzwXBN/dHeejQtuVzcDsfOEsdpCumXb/E9j8w11h5S54tT1xhifGfbbSm/ICrObRb3KA==
+  version "1.9.2"
+  resolved "https://registry.yarnpkg.com/@emnapi/core/-/core-1.9.2.tgz#3870265ecffc7352d01ead62d8d83d8358a2d034"
+  integrity sha512-UC+ZhH3XtczQYfOlu3lNEkdW/p4dsJ1r/bP7H8+rhao3TTTMO1ATq/4DdIi23XuGoFY+Cz0JmCbdVl0hz9jZcA==
   dependencies:
-    "@emnapi/wasi-threads" "1.2.0"
+    "@emnapi/wasi-threads" "1.2.1"
     tslib "^2.4.0"
 
 "@emnapi/runtime@^1.1.0", "@emnapi/runtime@^1.4.3":
-  version "1.9.1"
-  resolved "https://registry.yarnpkg.com/@emnapi/runtime/-/runtime-1.9.1.tgz#115ff2a0d589865be6bd8e9d701e499c473f2a8d"
-  integrity sha512-VYi5+ZVLhpgK4hQ0TAjiQiZ6ol0oe4mBx7mVv7IflsiEp0OWoVsp/+f9Vc1hOhE0TtkORVrI1GvzyreqpgWtkA==
+  version "1.9.2"
+  resolved "https://registry.yarnpkg.com/@emnapi/runtime/-/runtime-1.9.2.tgz#8b469a3db160817cadb1de9050211a9d1ea84fa2"
+  integrity sha512-3U4+MIWHImeyu1wnmVygh5WlgfYDtyf0k8AbLhMFxOipihf6nrWC4syIm/SwEeec0mNSafiiNnMJwbza/Is6Lw==
   dependencies:
     tslib "^2.4.0"
 
-"@emnapi/wasi-threads@1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@emnapi/wasi-threads/-/wasi-threads-1.2.0.tgz#a19d9772cc3d195370bf6e2a805eec40aa75e18e"
-  integrity sha512-N10dEJNSsUx41Z6pZsXU8FjPjpBEplgH24sfkmITrBED1/U2Esum9F3lfLrMjKHHjmi557zQn7kR9R+XWXu5Rg==
+"@emnapi/wasi-threads@1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@emnapi/wasi-threads/-/wasi-threads-1.2.1.tgz#28fed21a1ba1ce797c44a070abc94d42f3ae8548"
+  integrity sha512-uTII7OYF+/Mes/MrcIOYp5yOtSMLBWSIoLPpcgwipoiKbli6k322tcoFsxoIIxPDqW01SQGAgko4EzZi2BNv2w==
   dependencies:
     tslib "^2.4.0"
 
@@ -2318,24 +2318,24 @@ cdk8s-cli@^2.206.0:
     yaml "2.8.3"
     yargs "^15"
 
-cdk8s-plus-31@^2.6.41:
-  version "2.6.41"
-  resolved "https://registry.yarnpkg.com/cdk8s-plus-31/-/cdk8s-plus-31-2.6.41.tgz#41c9359b2594276d93c2bc1869530fbf6d642a53"
-  integrity sha512-KUVIFSNsTZEpoF7YAELOc5ylr2rDsvC/B/QPlN6OCyeUJ2EoHNuR2AqXz9A4zPR/4dZss5wXhQ09yzDXvkanyA==
+cdk8s-plus-31@^2.6.42:
+  version "2.6.42"
+  resolved "https://registry.yarnpkg.com/cdk8s-plus-31/-/cdk8s-plus-31-2.6.42.tgz#54ba1dfaea22d9c5a694bb4f188e93ce477022fd"
+  integrity sha512-wZHiIV6SyM7PYH795DXiu77stqoxuatCLxXC+qUOnIyFNgBskm2lmOxvAYeLBGnm9qOXXDuqX8XiXa7OIs6iaQ==
   dependencies:
     minimatch "^9.0.9"
 
-cdk8s-plus-32@^2.5.42:
-  version "2.5.42"
-  resolved "https://registry.yarnpkg.com/cdk8s-plus-32/-/cdk8s-plus-32-2.5.42.tgz#4cf24f67c898f5c4040fc30424f89ec0dfe0fde4"
-  integrity sha512-88wM8c9S9JIwDPJzQCJUCR4itKZdlH2gVmDBlVRBfroys8TF3CzD8m3oBRxqOksj1FphvmjVzRNTN/vb3dqpXw==
+cdk8s-plus-32@^2.5.43:
+  version "2.5.43"
+  resolved "https://registry.yarnpkg.com/cdk8s-plus-32/-/cdk8s-plus-32-2.5.43.tgz#b353e80bf6f6a9995ed50856bd9ee0c881d3e0a3"
+  integrity sha512-4FfF5J8VH+E46djMmhpXWn3PyoLkRjrdYlXM7U+L7ACuc+odMICsA7X9KBLqPe4QIaXpT2c8TPEY+0z9OSpN4Q==
   dependencies:
     minimatch "^9.0.9"
 
-cdk8s-plus-33@^2.4.41:
-  version "2.4.41"
-  resolved "https://registry.yarnpkg.com/cdk8s-plus-33/-/cdk8s-plus-33-2.4.41.tgz#2f71ca167652b292c7359870969c263982aefe76"
-  integrity sha512-s8lkntGlGe3m+yo+QntJJfD9coFjfH2ImiTfOF6GANhJreqk1thtcU9E3KRX8MXDgqevyUbdqIs91Snz2/dvAA==
+cdk8s-plus-33@^2.4.41, cdk8s-plus-33@^2.4.42:
+  version "2.4.42"
+  resolved "https://registry.yarnpkg.com/cdk8s-plus-33/-/cdk8s-plus-33-2.4.42.tgz#1b61f46af87ec0262bd1d58faac39f231907aefe"
+  integrity sha512-ozOhNNyIkSqJSj5Lq7KqrqLDUpB9Xeh/ZPjHJFoVmx2LRx4m4dNYSTu/93oEBSVVRb6bV5NpUgptV+XF/Pat1w==
   dependencies:
     minimatch "^9.0.9"
 
@@ -5199,9 +5199,9 @@ jsii-srcmak@0.1.1319:
     yargs "^17.7.2"
 
 jsii@~5.9.1, jsii@~5.9.3:
-  version "5.9.35"
-  resolved "https://registry.yarnpkg.com/jsii/-/jsii-5.9.35.tgz#477e90e5731673939e5c13493314523d18adb907"
-  integrity sha512-HPf3YMmq4CpCTXVGI8np6AuHBFRmMZrkxQRksDPV/5a6xECAIWioEWJu4pZ8p88ethw9Tw/TGpkzFRIBSHpLdw==
+  version "5.9.36"
+  resolved "https://registry.yarnpkg.com/jsii/-/jsii-5.9.36.tgz#7ee2b201d252c2f9edd1b08cae041331de920fbf"
+  integrity sha512-/av6ZLlTCH+S0MiVHN9dTlqCFZ2HFncCDzAWYZVYnSIFgzKyEPZRT08k8eqhuhbX0senedyMHRkWY/o5KxQA9Q==
   dependencies:
     "@jsii/check-node" "1.127.0"
     "@jsii/spec" "1.127.0"
