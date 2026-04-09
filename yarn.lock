@@ -2318,13 +2318,6 @@ cdk8s-cli@^2.206.2:
     yaml "2.8.3"
     yargs "^15"
 
-cdk8s-plus-31@^2.6.42:
-  version "2.6.42"
-  resolved "https://registry.yarnpkg.com/cdk8s-plus-31/-/cdk8s-plus-31-2.6.42.tgz#54ba1dfaea22d9c5a694bb4f188e93ce477022fd"
-  integrity sha512-wZHiIV6SyM7PYH795DXiu77stqoxuatCLxXC+qUOnIyFNgBskm2lmOxvAYeLBGnm9qOXXDuqX8XiXa7OIs6iaQ==
-  dependencies:
-    minimatch "^9.0.9"
-
 cdk8s-plus-32@^2.5.43:
   version "2.5.43"
   resolved "https://registry.yarnpkg.com/cdk8s-plus-32/-/cdk8s-plus-32-2.5.43.tgz#b353e80bf6f6a9995ed50856bd9ee0c881d3e0a3"
@@ -2336,6 +2329,13 @@ cdk8s-plus-33@^2.4.42:
   version "2.4.42"
   resolved "https://registry.yarnpkg.com/cdk8s-plus-33/-/cdk8s-plus-33-2.4.42.tgz#1b61f46af87ec0262bd1d58faac39f231907aefe"
   integrity sha512-ozOhNNyIkSqJSj5Lq7KqrqLDUpB9Xeh/ZPjHJFoVmx2LRx4m4dNYSTu/93oEBSVVRb6bV5NpUgptV+XF/Pat1w==
+  dependencies:
+    minimatch "^9.0.9"
+
+cdk8s-plus-34@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/cdk8s-plus-34/-/cdk8s-plus-34-2.0.0.tgz#1b7a552ec2bf8b6d87a7c8bed55d028cf5634cfe"
+  integrity sha512-o9slB6t/CnUl4dcHC0ODhZXDP5cbLm4htRK3xrRjUzotBMnB5t+AmSFPaQvOphx3/3g3rPjOT5i8oW6G5Z8iBQ==
   dependencies:
     minimatch "^9.0.9"
 
