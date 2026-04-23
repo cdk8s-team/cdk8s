@@ -2115,9 +2115,9 @@ base64-js@^1.3.1:
   integrity sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==
 
 baseline-browser-mapping@^2.10.12:
-  version "2.10.20"
-  resolved "https://registry.yarnpkg.com/baseline-browser-mapping/-/baseline-browser-mapping-2.10.20.tgz#7c99b86d43ae9be3810cac515f4675802e1f6b87"
-  integrity sha512-1AaXxEPfXT+GvTBJFuy4yXVHWJBXa4OdbIebGN/wX5DlsIkU0+wzGnd2lOzokSk51d5LUmqjgBLRLlypLUqInQ==
+  version "2.10.21"
+  resolved "https://registry.yarnpkg.com/baseline-browser-mapping/-/baseline-browser-mapping-2.10.21.tgz#136f9f181ee0d7ca6e3edbf42d9559763d2c1141"
+  integrity sha512-Q+rUQ7Uz8AHM7DEaNdwvfFCTq7a43lNTzuS94eiWqwyxfV/wJv+oUivef51T91mmRY4d4A1u9rcSvkeufCVXlA==
 
 before-after-hook@^2.2.0:
   version "2.2.3"
@@ -2316,10 +2316,10 @@ case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s-cli@^2.206.3:
-  version "2.206.3"
-  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.206.3.tgz#bc37596c474067d1f5e68b03eabf5db91e9c9df4"
-  integrity sha512-q8NASIaPHhi6txKa0WEN99mIyPAmWwa46L/9GS0TM1RJTgtwOQyxYTxp3J0/i+90u7l6vNUaVOCx8NV8gqFTug==
+cdk8s-cli@^2.206.4:
+  version "2.206.4"
+  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.206.4.tgz#1f1206d3ddaf2b4d0639c7fc7b80bd76d6724952"
+  integrity sha512-y5fVls2VO2//k521+0hwSlIcfFneslyfjGX7G0Gv/4fsCro2nat5MC1nmIbgkRAO7txtGCgGACQBNq8x/dvJZg==
   dependencies:
     "@types/node" "^16"
     ajv "^8.18.0"
@@ -2332,7 +2332,7 @@ cdk8s-cli@^2.206.3:
     jsii-pacmak "^1.127.0"
     jsii-rosetta "^5.9.39"
     jsii-srcmak "0.1.1319"
-    json2jsii "0.5.12"
+    json2jsii "0.5.19"
     semver "^7.7.4"
     sscaff "^1.2.274"
     table "^6.9.0"
@@ -3027,9 +3027,9 @@ ejs@^3.1.7:
     jake "^10.8.5"
 
 electron-to-chromium@^1.5.328:
-  version "1.5.343"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.343.tgz#8e5fb55a61fb1053d888f964f29b65814afed847"
-  integrity sha512-YHnQ3MXI08icvL9ZKnEBy05F2EQ8ob01UaMOuMbM8l+4UcAq6MPPbBTJBbsBUg3H8JeZNt+O4fjsoWth3p6IFg==
+  version "1.5.344"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.344.tgz#6437cc08a7d9b914a98120e182f37793c9eaffd4"
+  integrity sha512-4MxfbmNDm+KPh066EZy+eUnkcDPcZ35wNmOWzFuh/ijvHsve6kbLTLURy88uCNK5FbpN+yk2nQY6BYh1GEt+wg==
 
 emittery@^0.8.1:
   version "0.8.1"
@@ -5292,10 +5292,10 @@ json-stringify-safe@^5.0.1:
   resolved "https://registry.yarnpkg.com/json-stringify-safe/-/json-stringify-safe-5.0.1.tgz#1296a2d58fd45f19a0f6ce01d65701e2c735b6eb"
   integrity sha512-ZClg6AaYvamvYEE82d3Iyd3vSSIjQ+odgjaTzRuO3s7toCdFKczob2i0zCh7JE8kWn17yvAWhUVxvqGwUalsRA==
 
-json2jsii@0.5.12:
-  version "0.5.12"
-  resolved "https://registry.yarnpkg.com/json2jsii/-/json2jsii-0.5.12.tgz#ff8c11174882a0eb19bb353b0f758ae88e8d2484"
-  integrity sha512-i1XBS6iqUZ8C/4VuIj47q6g+nfDtRlZw9LEAq2pIY6VnOXthuCZD9uuADU/M9ef37JMAPhUjWEpiHoAU6G1T0A==
+json2jsii@0.5.19:
+  version "0.5.19"
+  resolved "https://registry.yarnpkg.com/json2jsii/-/json2jsii-0.5.19.tgz#94e48dc80f64c4f14869bb7958b4b7997f721f19"
+  integrity sha512-MmLACPSLsINCoQETUt7/cX/jPI3jiY7waum2I+bbv9vNxR440q66FfCMlWN/8+71InA5gjzOttx+uJEef9ispg==
   dependencies:
     camelcase "^6.3.0"
     json-schema "^0.4.0"
