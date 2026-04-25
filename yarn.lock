@@ -1817,10 +1817,10 @@ ajv@^6.14.0:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
-ajv@^8.0.1, ajv@^8.18.0:
-  version "8.18.0"
-  resolved "https://registry.yarnpkg.com/ajv/-/ajv-8.18.0.tgz#8864186b6738d003eb3a933172bb3833e10cefbc"
-  integrity sha512-PlXPeEWMXMZ7sPYOHqmDyCJzcfNrUr3fGNKtezX14ykXOEIvyK81d+qydx89KY5O71FKMPaQ2vBfBFI5NHR63A==
+ajv@^8.0.1, ajv@^8.20.0:
+  version "8.20.0"
+  resolved "https://registry.yarnpkg.com/ajv/-/ajv-8.20.0.tgz#304b3636add88ba7d936760dd50ece006dea95f9"
+  integrity sha512-Thbli+OlOj+iMPYFBVBfJ3OmCAnaSyNn4M1vz9T6Gka5Jt9ba/HIR56joy65tY6kx/FCF5VXNB819Y7/GUrBGA==
   dependencies:
     fast-deep-equal "^3.1.3"
     fast-uri "^3.0.1"
@@ -2316,13 +2316,13 @@ case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s-cli@^2.206.6:
-  version "2.206.6"
-  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.206.6.tgz#3fbc95fc17dde8d9bbb7fa45374a8546e28fb6d0"
-  integrity sha512-OVKCX3wXlkTGbqsz7W+5SbZ0UOEAUCRg5ghnJw5cCYa8xYkCsza98Vske6ocqwc08iauM3z3P4yBdwoxMM0b5g==
+cdk8s-cli@^2.206.7:
+  version "2.206.7"
+  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.206.7.tgz#3bedc9721b2f7271294f302a610057d7b59f168c"
+  integrity sha512-XCgFqw+GrV8UrIROAgYWeqaTqZG0GDgP75Ws3cLmr0hUPxwpzfTLo0TdpGsZhf/hZ0MuJ/pgZN9UW56Pf4n+pQ==
   dependencies:
     "@types/node" "^16"
-    ajv "^8.18.0"
+    ajv "^8.20.0"
     cdk8s "^2.70.58"
     cdk8s-plus-33 "^2.5.7"
     codemaker "^1.128.0"
