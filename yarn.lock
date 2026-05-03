@@ -2027,11 +2027,11 @@ available-typed-arrays@^1.0.7:
     possible-typed-array-names "^1.0.0"
 
 axios@^1.8.3:
-  version "1.15.2"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-1.15.2.tgz#eb8fb6d30349abace6ade5b4cb4d9e8a0dc23e5b"
-  integrity sha512-wLrXxPtcrPTsNlJmKjkPnNPK2Ihe0hn0wGSaTEiHRPxwjvJwT3hKmXF4dpqxmPO9SoNb2FsYXj/xEo0gHN+D5A==
+  version "1.16.0"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-1.16.0.tgz#f8e5dd931cef2a5f8c32216d5784eda2f8750eb7"
+  integrity sha512-6hp5CwvTPlN2A31g5dxnwAX0orzM7pmCRDLnZSX772mv8WDqICwFjowHuPs04Mc8deIld1+ejhtaMn5vp6b+1w==
   dependencies:
-    follow-redirects "^1.15.11"
+    follow-redirects "^1.16.0"
     form-data "^4.0.5"
     proxy-from-env "^2.1.0"
 
@@ -2360,14 +2360,14 @@ cdk8s-plus-34@^2.0.9:
   dependencies:
     minimatch "^9.0.9"
 
-cdk8s@^2.70.58, cdk8s@^2.70.59:
-  version "2.70.59"
-  resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-2.70.59.tgz#9daeeef7894ec2d21da1a842990da37139209be2"
-  integrity sha512-IoTuRtz9aDg0By/rTt07Ia1g1lp1piG73pccC2fRYRgpn8rmlo3xnnCpZ7NRwL4X48qgvttPvvI7x8/v82rt6g==
+cdk8s@^2.70.58, cdk8s@^2.70.60:
+  version "2.70.60"
+  resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-2.70.60.tgz#0e1e7b133f2f459ad583d7ca726274bb3a27beef"
+  integrity sha512-xc1lEGwbjljLsOolrLPPsNtZED1rr/nZla1QCMY/MX1g2vyRdE5RIHetU51CL87jzKc7qaXr6w2/C+wxG5Xj6g==
   dependencies:
     fast-json-patch "^3.1.1"
     follow-redirects "^1.16.0"
-    yaml "2.8.3"
+    yaml "2.8.4"
 
 chalk@4.1.0:
   version "4.1.0"
@@ -3575,7 +3575,7 @@ flatted@^3.2.7, flatted@^3.2.9:
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-3.4.2.tgz#f5c23c107f0f37de8dbdf24f13722b3b98d52726"
   integrity sha512-PjDse7RzhcPkIJwy5t7KPWQSZ9cAbzQXcafsetQoD7sOJRQlGikNbx7yZp2OotDnJyrDcbyRq3Ttb18iYOqkxA==
 
-follow-redirects@^1.15.11, follow-redirects@^1.16.0:
+follow-redirects@^1.16.0:
   version "1.16.0"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.16.0.tgz#28474a159d3b9d11ef62050a14ed60e4df6d61bc"
   integrity sha512-y5rN/uOsadFT/JfYwhxRS5R7Qce+g3zG97+JrtFZlC9klX/W5hD7iiLzScI4nZqUS7DNUdhPgw4xI8W2LuXlUw==
@@ -8436,7 +8436,7 @@ yaml@2.8.3:
   resolved "https://registry.yarnpkg.com/yaml/-/yaml-2.8.3.tgz#a0d6bd2efb3dd03c59370223701834e60409bd7d"
   integrity sha512-AvbaCLOO2Otw/lW5bmh9d/WEdcDFdQp2Z2ZUH3pX9U2ihyUY0nvLv7J6TrWowklRGPYbB/IuIMfYgxaCPg5Bpg==
 
-yaml@^2.2.2, yaml@^2.6.0:
+yaml@2.8.4, yaml@^2.2.2, yaml@^2.6.0:
   version "2.8.4"
   resolved "https://registry.yarnpkg.com/yaml/-/yaml-2.8.4.tgz#4b5f411dd25f9544914d8673d4da7f29248e5e2e"
   integrity sha512-ml/JPOj9fOQK8RNnWojA67GbZ0ApXAUlN2UQclwv2eVgTgn7O9gg9o7paZWKMp4g0H3nTLtS9LVzhkpOFIKzog==
