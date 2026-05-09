@@ -36,7 +36,7 @@
     "@typescript-eslint/eslint-plugin": "^8",
     "@typescript-eslint/parser": "^8",
     "cdk8s": "^2.70.61",
-    "cdk8s-cli": "^2.207.0",
+    "cdk8s-cli": "^2.207.1",
     "cdk8s-plus-32": "^2.5.55",
     "cdk8s-plus-33": "^2.5.11",
     "cdk8s-plus-34": "^2.0.11",
@@ -48,7 +48,7 @@
     "jest-junit": "^17",
     "lerna": "^8.2.4",
     "projen": "^0.99.57",
-    "semver": "^7.7.4",
+    "semver": "^7.8.0",
     "ts-jest": "^27.1.5",
     "ts-node": "^10.9.2",
     "typescript": "~5.9"
