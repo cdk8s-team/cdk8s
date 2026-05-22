@@ -263,10 +263,10 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@cdk8s/projen-common@^0.0.697":
-  version "0.0.697"
-  resolved "https://registry.yarnpkg.com/@cdk8s/projen-common/-/projen-common-0.0.697.tgz#3b7882eb96b9304b79f0eb2a26562d77ef660504"
-  integrity sha512-k5TQlRtP6uo9fxl2qUcHDbjzxNviQf9vtpzTvi8woY4aJ4UY3polQhkmtdJG1KQ6BsmEiWV6gH907qMF3XdTdQ==
+"@cdk8s/projen-common@^0.0.698":
+  version "0.0.698"
+  resolved "https://registry.yarnpkg.com/@cdk8s/projen-common/-/projen-common-0.0.698.tgz#d5dd95447b83d46a5411d439616ddd82e449a458"
+  integrity sha512-tGJ1+Xxb5OnoKaHnzff+r71bUYy4501yQyv41ODLqFFOC7YiUOj2RIpNe3xHpOEsCGKnPlGrfg7NgQlmkqdnQw==
   dependencies:
     codemaker "^1.131.0"
     deepmerge "^4.3.1"
@@ -2522,9 +2522,9 @@ co@^4.6.0:
   integrity sha512-QVb0dM5HvG+uaxitm8wONl7jltx8dqhfU33DcqtOZcLSVIKSDDLDi7+0LbAKiyI8hD9u42m2YxXSkMGWThaecQ==
 
 codemaker@^1.131.0:
-  version "1.131.0"
-  resolved "https://registry.yarnpkg.com/codemaker/-/codemaker-1.131.0.tgz#f5627a4da686b2cc1830840d2ce4b0f135a87c66"
-  integrity sha512-C2anrL4nO7zTY2VH3ZfTzJiiHJjqSVLDlShuzssDohdcpAatEvlxhhmw2QFnOJmqfdna1fQ5Khp6dbZrP+mdRA==
+  version "1.132.0"
+  resolved "https://registry.yarnpkg.com/codemaker/-/codemaker-1.132.0.tgz#81f94b812b374c547fecdf24af66fc5dc8e59b52"
+  integrity sha512-YClvZlj95oAovTr64MtsmxBN5FicfnrDkcxdZI4PvaDO7VbPIh3ka9lHIyqZfTGzJokFX0H95LAIF1UKG271dQ==
   dependencies:
     camelcase "^6.3.0"
     decamelize "^5.0.1"
