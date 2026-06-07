@@ -6694,10 +6694,10 @@ proggy@^2.0.0:
   resolved "https://registry.yarnpkg.com/proggy/-/proggy-2.0.0.tgz#154bb0e41d3125b518ef6c79782455c2c47d94e1"
   integrity sha512-69agxLtnI8xBs9gUGqEnK26UfiexpHy+KUpBQWabiytQjnn5wFY8rklAi7GRfABIuPNnQ/ik48+LGLkYYJcy4A==
 
-projen@^0.99.70:
-  version "0.99.70"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.99.70.tgz#aa6f2f94964eac969bba5b380b6298f77e251c92"
-  integrity sha512-eh8JAthIfzKuF0jF+SZmED4NMfegPYcP6q0ohPObib3GIDgI/wojiA4wyv014JKfRGCJWjGIbyf0SYn5s+9Zjw==
+projen@^0.99.71:
+  version "0.99.71"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.99.71.tgz#21fc1f2bc30b0b55637b7855afd3d3490b58024e"
+  integrity sha512-KElGAWrBKZNxF96M26B4G8ah1h+uklz7q6aR58R1yhisVed8JDwbU8wfw+CVFHzD0c+sCF2rX3xWkKXP3p3IfA==
   dependencies:
     "@iarna/toml" "^2.2.5"
     case "^1.6.3"
@@ -6709,7 +6709,7 @@ projen@^0.99.70:
     fast-json-patch "^3.1.1"
     ini "^2.0.0"
     parse-conflict-json "^4.0.0"
-    semver "^7.8.1"
+    semver "^7.8.2"
     shx "^0.4.0"
     xmlbuilder2 "^4.0.3"
     yaml "^2.2.2"
