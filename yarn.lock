@@ -2332,15 +2332,15 @@ case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s-cli@^2.207.17:
-  version "2.207.17"
-  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.207.17.tgz#62c940be37249271869951f00fa9cbb6175ffa23"
-  integrity sha512-rEBznUMN+xBh0jSP438ey+DUVNBoD2A4mwHS2bAeueQgG6ghCmjUzy2MY7r4p5trmlFhL810zo6ubt6tImcnFw==
+cdk8s-cli@^2.207.18:
+  version "2.207.18"
+  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.207.18.tgz#5784f763416da2ca5b8cc59ad271e8f3b1c07895"
+  integrity sha512-p7PCzzz1ZAOUHR2YSpOk37UkNvlAibMm7LGOTA9TNSi4AEshT2v3gvt0NFTy9yhxWwoDAMTHcWfgkU3Qslcp5Q==
   dependencies:
     "@types/node" "^16"
     ajv "^8.20.0"
-    cdk8s "^2.70.71"
-    cdk8s-plus-33 "^2.5.23"
+    cdk8s "^2.70.72"
+    cdk8s-plus-33 "^2.5.24"
     codemaker "^1.134.0"
     colors "1.4.0"
     constructs "^10.6.0"
@@ -2355,31 +2355,31 @@ cdk8s-cli@^2.207.17:
     yaml "2.9.0"
     yargs "^15"
 
-cdk8s-plus-32@^2.5.67:
-  version "2.5.67"
-  resolved "https://registry.yarnpkg.com/cdk8s-plus-32/-/cdk8s-plus-32-2.5.67.tgz#4fa88c17d05ee8b03e3d62e553f9ed80a1c8a250"
-  integrity sha512-QHblpjU6xIYnmSCFOha3UsjxEwGV/NsifTH3p5qAmTCpB6vkZSZY3enYyrjVo2D7IxC/6tZGd4LKa/NU849LPw==
+cdk8s-plus-32@^2.5.68:
+  version "2.5.68"
+  resolved "https://registry.yarnpkg.com/cdk8s-plus-32/-/cdk8s-plus-32-2.5.68.tgz#b279bc4b053e11587ad96f2a3876b611b298abdd"
+  integrity sha512-/m5nZ0fYhBJ9nUpkqO/Op/nilH9HbLGmSdl6Z7q1AqEMqWKUeTq+IplmrPmc8k1b8LTydEe92GodhRfo5opsbg==
   dependencies:
     minimatch "^9.0.9"
 
-cdk8s-plus-33@^2.5.23:
-  version "2.5.23"
-  resolved "https://registry.yarnpkg.com/cdk8s-plus-33/-/cdk8s-plus-33-2.5.23.tgz#279b8da218f965aaf7188ccb26e8d1471fc87d37"
-  integrity sha512-i8f54E0aCGzCtygHfycX1khKfWD+RdQKn6GA6ZW7Imqg1Ze44XKcvBOJT5caktAHPY4ECuV6Xwl89rt6B+FWqw==
+cdk8s-plus-33@^2.5.24:
+  version "2.5.24"
+  resolved "https://registry.yarnpkg.com/cdk8s-plus-33/-/cdk8s-plus-33-2.5.24.tgz#6a05704bb281a711d206a7f74b806ea807488703"
+  integrity sha512-Az/KZgierGl6xu7XNRhMAetFlfn3h7Z4ppEjuqfk7s5UeW7NoXqw5h0MptVX+xQTsLW11CyWoiZc7L78bmPgNQ==
   dependencies:
     minimatch "^9.0.9"
 
-cdk8s-plus-34@^2.0.23:
-  version "2.0.23"
-  resolved "https://registry.yarnpkg.com/cdk8s-plus-34/-/cdk8s-plus-34-2.0.23.tgz#9b6c2ac1677b99abb4db0f2bcfd760899dcc33e4"
-  integrity sha512-gQ4qHp7AZfp3B9UlikSGzaNHuQTX5IUQaJW7GcYpbqsbtfn2+5SYMzGmltaxsrRElCKx1I9mkuT9eQUVzN5xWg==
+cdk8s-plus-34@^2.0.24:
+  version "2.0.24"
+  resolved "https://registry.yarnpkg.com/cdk8s-plus-34/-/cdk8s-plus-34-2.0.24.tgz#574119171848ba2d0a9b0be79ad4844c0a8a553f"
+  integrity sha512-8hOJGVjecvLBhwe4+TTTgm64/hbzyoWBP4k9EiUyyfbCfaPWkHbozpA/SZ1+abwilkZyW3mnrBXtLs3dQ37iUg==
   dependencies:
     minimatch "^9.0.9"
 
-cdk8s@^2.70.71:
-  version "2.70.71"
-  resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-2.70.71.tgz#1a184d7e8eaa84af6d283456fd6c12fae91b46db"
-  integrity sha512-Lysc3LksKinGUXrgZG3UyMYcf0rVrBP8GOU5aY6gLNVQVIlpjCS3kIpw6y96DgrgRBGhgCGcOy8CHXSyrSuUMg==
+cdk8s@^2.70.72:
+  version "2.70.72"
+  resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-2.70.72.tgz#3ba51d12fd08f0b711d788c8ed2ff8111232a618"
+  integrity sha512-2cdur+fZPxyzIlA4tARyp5AsxOGPryQfK0VgvBuzPI8lmj25dh4wbaOyuNBOO2dDl3NywbYTyrlqF0ZhPjzyxA==
   dependencies:
     fast-json-patch "^3.1.1"
     follow-redirects "^1.16.0"
@@ -6151,9 +6151,9 @@ npm-run-path@^4.0.1:
     path-key "^3.0.0"
 
 nwsapi@^2.2.0:
-  version "2.2.23"
-  resolved "https://registry.yarnpkg.com/nwsapi/-/nwsapi-2.2.23.tgz#59712c3a88e6de2bb0b6ccc1070397267019cf6c"
-  integrity sha512-7wfH4sLbt4M0gCDzGE6vzQBo0bfTKjU7Sfpqy/7gs1qBfYz2vEJH6vXcBKpO3+6Yu1telwd0t9HpyOoLEQQbIQ==
+  version "2.2.24"
+  resolved "https://registry.yarnpkg.com/nwsapi/-/nwsapi-2.2.24.tgz#f8927043d4c9b516abdebe804a32c8d1f9484d1f"
+  integrity sha512-7YRhZ3jS45LwmSCT4b2sVFHt/WuovaktDU07QrtOBY2PXskss5a9jfmR9jptyumwXST+rFjrmppMY1KT/yn35A==
 
 "nx@>=17.1.2 < 21":
   version "20.8.4"
