@@ -263,10 +263,10 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@cdk8s/projen-common@^0.0.717":
-  version "0.0.717"
-  resolved "https://registry.yarnpkg.com/@cdk8s/projen-common/-/projen-common-0.0.717.tgz#224e10efe548149ed65e6cdf0594dc8f5947d564"
-  integrity sha512-m8M0Gg9ySFm/EqTsn1L4egJWzialT2SLOfql7UoYSzaWftx10FsJftVw2YcfyJpK6JmE2yINMv2wmVba8CMCmg==
+"@cdk8s/projen-common@^0.0.718":
+  version "0.0.718"
+  resolved "https://registry.yarnpkg.com/@cdk8s/projen-common/-/projen-common-0.0.718.tgz#9b18bdbec6ec94da767b258367019c59122bb133"
+  integrity sha512-ShIqYDSjKX9e0PT1tfIBcznBS1Ys546ocqfDX8s1+6eO9JNpSRYWFdiNipV+ykfQv81EI4DCOpo1vk/DVzLCeQ==
   dependencies:
     codemaker "^1.136.0"
     deepmerge "^4.3.1"
@@ -6687,10 +6687,10 @@ proggy@^2.0.0:
   resolved "https://registry.yarnpkg.com/proggy/-/proggy-2.0.0.tgz#154bb0e41d3125b518ef6c79782455c2c47d94e1"
   integrity sha512-69agxLtnI8xBs9gUGqEnK26UfiexpHy+KUpBQWabiytQjnn5wFY8rklAi7GRfABIuPNnQ/ik48+LGLkYYJcy4A==
 
-projen@^0.100.0:
-  version "0.100.0"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.100.0.tgz#a73858a0cef9dc70d106d530b27f96c021d743c2"
-  integrity sha512-eNdnyVm4bvrQKP0/PrWPOPPTDIADKnHnvNzztODcwLihLXKnL/+hMk+jdjxIET1z1sXzzpT/8OMlGXgrEgG/bw==
+projen@^0.100.2:
+  version "0.100.2"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.100.2.tgz#06d9fcb59411085fd6e3b04ac7ecabdb58b46e63"
+  integrity sha512-SLKKgRAxp9k8gUS3UYqo2xH6YSdD43aY3iiQ0WG0Q2XRL1T22h1JStyvOZ3xFZgllgbD2oQssI/VRBLXjcYwNg==
   dependencies:
     "@iarna/toml" "^2.2.5"
     case "^1.6.3"
@@ -6706,7 +6706,7 @@ projen@^0.100.0:
     semver "^7.8.4"
     xmlbuilder2 "^4.0.3"
     yaml "^2.2.2"
-    yargs "^17.7.2"
+    yargs "^17.7.3"
 
 promise-all-reject-late@^1.0.0:
   version "1.0.1"
@@ -8466,7 +8466,7 @@ yargs@^16.2.0:
     y18n "^5.0.5"
     yargs-parser "^20.2.2"
 
-yargs@^17.6.2, yargs@^17.7.2:
+yargs@^17.6.2, yargs@^17.7.2, yargs@^17.7.3:
   version "17.7.3"
   resolved "https://registry.yarnpkg.com/yargs/-/yargs-17.7.3.tgz#779dffe6bcafec596a7172e983289a588647faaa"
   integrity sha512-GZtjxm/J/4TSxuL3FNYjCmLktBTnIw/rVmKSIyKeYAZpmJB2ig9VauCC5xsa82GNKVKDAqpOn3KVzNt0zmrU0g==
