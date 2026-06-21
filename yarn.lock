@@ -2354,14 +2354,14 @@ case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s-cli@^2.207.25:
-  version "2.207.25"
-  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.207.25.tgz#641452df8556402c53adfdefa68d2211648383f3"
-  integrity sha512-T3saQ2MzT/GpP4lgPrMNUXKTc+MhqXOaUN7QUgBGNEvZdZmjkYQk1vHQbk3Q75rX8ehJWq/U8y/t2xtzCqv5cQ==
+cdk8s-cli@^2.207.26:
+  version "2.207.26"
+  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.207.26.tgz#50d6d2770144e7ac4888eb83dd3446b40d2c9523"
+  integrity sha512-WZ8eWfUop7V4UkAtvmfBDaW/a4Aw9/kvjHWMpLI+blGWUk8knggx1N4PqDHq5BNiPye9/EA28VRUj97VEFYNmw==
   dependencies:
     "@types/node" "^16"
     ajv "^8.20.0"
-    cdk8s "^2.70.77"
+    cdk8s "^2.70.78"
     cdk8s-plus-33 "^2.5.29"
     codemaker "^1.136.0"
     colors "1.4.0"
@@ -2398,10 +2398,10 @@ cdk8s-plus-34@^2.0.29:
   dependencies:
     minimatch "^9.0.9"
 
-cdk8s@^2.70.77:
-  version "2.70.77"
-  resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-2.70.77.tgz#5b69be353503d36b7407a90916413aa1bac18122"
-  integrity sha512-r2kJ70MS/WFIqpWfXKK+0GGYD/2kxRdtWzrqauYkWpm7CuLtZ9YXwNflJfPoCMfH6O60vuqKfQiKNE5k+yWdcA==
+cdk8s@^2.70.78:
+  version "2.70.78"
+  resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-2.70.78.tgz#3e044e6cb644519277d37bc6aee33ea7edf04a22"
+  integrity sha512-xrWw5neGkOqbaAOHKy3qflBTaODtrWo8EylhtF9yIMj25QLhphc+r7Ib+1aaWm8GbLRHRw/RjtbBQQwMvBxfFw==
   dependencies:
     fast-json-patch "^3.1.1"
     follow-redirects "^1.16.0"
@@ -8049,9 +8049,9 @@ uuid@^10.0.0:
   integrity sha512-8XkAphELsDnEGrDxUOHB3RGvXz6TeuYSGEZBOjtTtPm2lwhGBjLgOzLHB63IUWfBpNucQjND6d3AOudO+H3RWQ==
 
 uuid@^14.0.0:
-  version "14.0.0"
-  resolved "https://registry.yarnpkg.com/uuid/-/uuid-14.0.0.tgz#0af883220163d264ffe0c084f6b8a89b9666966d"
-  integrity sha512-Qo+uWgilfSmAhXCMav1uYFynlQO7fMFiMVZsQqZRMIXp0O7rR7qjkj+cPvBHLgBqi960QCoo/PH2/6ZtVqKvrg==
+  version "14.0.1"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-14.0.1.tgz#8a5975b3e038902bfd169a10b5202f5ec0cf3faf"
+  integrity sha512-6ZxzVpzDXDa3bJWaHilVayA+BH/1zmxCJoVgvmqJnid/gPoKHxUrS/aC/T6LGQtNHT+XHG9fXPJB4d+IrU30Ew==
 
 v8-compile-cache-lib@^3.0.1:
   version "3.0.1"
