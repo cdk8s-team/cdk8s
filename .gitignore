@@ -39,11 +39,12 @@ junit.xml
 !/.github/workflows/upgrade-runtime-dependencies.yml
 !/test/
 !/tsconfig.json
-!/tsconfig.dev.json
+!/test/tsconfig.json
 !/src/
 /lib
 /dist/
 !/.eslintrc.json
+!/projenrc/tsconfig.json
 !/CODE_OF_CONDUCT.md
 !/DCO
 !/git-hooks/prepare-commit-msg
