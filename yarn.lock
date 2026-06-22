@@ -2544,9 +2544,9 @@ co@^4.6.0:
   integrity sha512-QVb0dM5HvG+uaxitm8wONl7jltx8dqhfU33DcqtOZcLSVIKSDDLDi7+0LbAKiyI8hD9u42m2YxXSkMGWThaecQ==
 
 codemaker@^1.136.0:
-  version "1.136.0"
-  resolved "https://registry.yarnpkg.com/codemaker/-/codemaker-1.136.0.tgz#376235b203fcc1a5cfc68c8d985ee3775fcfa134"
-  integrity sha512-orbjiVT8Lzih9wshCfGGAMQYBhIPCbnDOKBlgvmynnpNYNZMv6MAaDgCU+G+jESB/tjjwVwOHbpU8irxkfvmNQ==
+  version "1.137.0"
+  resolved "https://registry.yarnpkg.com/codemaker/-/codemaker-1.137.0.tgz#fbca41ffc5ad0cca1543afb87502c8dda6ca3d40"
+  integrity sha512-6srL+vpFVexkkREmvpXr0RsZPtFA05Ee00IUGt0Q+O1IITN2Kkl13SHzzx5ntrxcxriUkK/FQ3Qhs6KT+MZgUw==
   dependencies:
     camelcase "^6.3.0"
     decamelize "^5.0.1"
@@ -6687,10 +6687,10 @@ proggy@^2.0.0:
   resolved "https://registry.yarnpkg.com/proggy/-/proggy-2.0.0.tgz#154bb0e41d3125b518ef6c79782455c2c47d94e1"
   integrity sha512-69agxLtnI8xBs9gUGqEnK26UfiexpHy+KUpBQWabiytQjnn5wFY8rklAi7GRfABIuPNnQ/ik48+LGLkYYJcy4A==
 
-projen@^0.100.2:
-  version "0.100.2"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.100.2.tgz#06d9fcb59411085fd6e3b04ac7ecabdb58b46e63"
-  integrity sha512-SLKKgRAxp9k8gUS3UYqo2xH6YSdD43aY3iiQ0WG0Q2XRL1T22h1JStyvOZ3xFZgllgbD2oQssI/VRBLXjcYwNg==
+projen@^0.100.4:
+  version "0.100.4"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.100.4.tgz#4dc76f1f76bbbc294d1886bd1fd5f01ae71d273d"
+  integrity sha512-OqWO+Ty7cEud5mTBcERd8Jl1GNNTrmeSTDPBe69VzyyT91Y9Czjs2EWR/jYbLSnedLlcm1CMqHKpsqmB3v2WYA==
   dependencies:
     "@iarna/toml" "^2.2.5"
     case "^1.6.3"
@@ -6703,7 +6703,7 @@ projen@^0.100.2:
     fast-json-patch "^3.1.1"
     ini "^2.0.0"
     parse-conflict-json "^4.0.0"
-    semver "^7.8.4"
+    semver "^7.8.5"
     xmlbuilder2 "^4.0.3"
     yaml "^2.2.2"
     yargs "^17.7.3"

@@ -47,7 +47,7 @@
     "jest": "^27",
     "jest-junit": "^17",
     "lerna": "^8.2.4",
-    "projen": "^0.100.2",
+    "projen": "^0.100.4",
     "semver": "^7.8.5",
     "ts-jest": "^27.1.5",
     "ts-node": "^10.9.2",
@@ -105,7 +105,7 @@
     "preset": "ts-jest",
     "globals": {
       "ts-jest": {
-        "tsconfig": "tsconfig.dev.json"
+        "tsconfig": "test/tsconfig.json"
       }
     }
   },
