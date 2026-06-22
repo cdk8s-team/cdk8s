@@ -2152,7 +2152,7 @@ base64-js@^1.3.1:
   resolved "https://registry.yarnpkg.com/base64-js/-/base64-js-1.5.1.tgz#1b1b440160a5bf7ad40b650f095963481903930a"
   integrity sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==
 
-baseline-browser-mapping@^2.10.12:
+baseline-browser-mapping@^2.10.38:
   version "2.10.38"
   resolved "https://registry.yarnpkg.com/baseline-browser-mapping/-/baseline-browser-mapping-2.10.38.tgz#c84d093c4bf7325c5053c279d90f153c66526042"
   integrity sha512-31/02mVB4yuQU6adKk5SlY6m+mxDwUq5KZkyYgnLrrKl7TEm1+3PyDtDBz2kOv/wxZz41GHsvV1A/u6RmiyBvw==
@@ -2216,14 +2216,14 @@ browser-process-hrtime@^1.0.0:
   integrity sha512-9o5UecI3GhkpM6DrXr69PblIuWxPKk9Y0jHBRhdocZ2y7YECBFCsHm79Pr3OyR2AvjhDkabFJaDJMYRazHgsow==
 
 browserslist@^4.24.0:
-  version "4.28.2"
-  resolved "https://registry.yarnpkg.com/browserslist/-/browserslist-4.28.2.tgz#f50b65362ef48974ca9f50b3680566d786b811d2"
-  integrity sha512-48xSriZYYg+8qXna9kwqjIVzuQxi+KYWp2+5nCYnYKPTr0LvD89Jqk2Or5ogxz0NUMfIjhh2lIUX/LyX9B4oIg==
+  version "4.28.4"
+  resolved "https://registry.yarnpkg.com/browserslist/-/browserslist-4.28.4.tgz#dd8b8167a32845ff5f8cd6ce13f5abba16cd04c9"
+  integrity sha512-MTc8i/x9jBQd1iMw2CFGS+rwMa07eYjLR0CCTLDACl9xhxy+nIs3KeML/biicXtk9JrZ6dnnTatmc7ErPXIxqw==
   dependencies:
-    baseline-browser-mapping "^2.10.12"
-    caniuse-lite "^1.0.30001782"
-    electron-to-chromium "^1.5.328"
-    node-releases "^2.0.36"
+    baseline-browser-mapping "^2.10.38"
+    caniuse-lite "^1.0.30001799"
+    electron-to-chromium "^1.5.376"
+    node-releases "^2.0.48"
     update-browserslist-db "^1.2.3"
 
 bs-logger@0.x:
@@ -2344,7 +2344,7 @@ camelcase@^6.2.0, camelcase@^6.3.0:
   resolved "https://registry.yarnpkg.com/camelcase/-/camelcase-6.3.0.tgz#5685b95eb209ac9c0c177467778c9c84df58ba9a"
   integrity sha512-Gmy6FhYlCY7uOElZUSbxo2UCDH8owEk996gkbrpsgGtrJLM3J7jGxl9Ic7Qwwj4ivOE5AWZWRMecDdF7hqGjFA==
 
-caniuse-lite@^1.0.30001782:
+caniuse-lite@^1.0.30001799:
   version "1.0.30001799"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001799.tgz#5c909138c27f1a61219d3e092071c1cc7d32dc55"
   integrity sha512-hG1bReV+OUU+MOqK4t/ZWI0tZOyz3rqS9XuhOUz1cIcbwBKjOyJEJuw9ER5JuNyqxNk8u/JUVbGibBOL1yrjFw==
@@ -2354,14 +2354,14 @@ case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s-cli@^2.207.26:
-  version "2.207.26"
-  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.207.26.tgz#50d6d2770144e7ac4888eb83dd3446b40d2c9523"
-  integrity sha512-WZ8eWfUop7V4UkAtvmfBDaW/a4Aw9/kvjHWMpLI+blGWUk8knggx1N4PqDHq5BNiPye9/EA28VRUj97VEFYNmw==
+cdk8s-cli@^2.207.27:
+  version "2.207.27"
+  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.207.27.tgz#90f926bf4b6b8157b882ff7bee759dca79a08c91"
+  integrity sha512-sI0VSPKXgwyUcpojZFUs2Eheuk9UOaFlrvHiFzg0KfSEPT+AZdbNoSAFTLvv6h4LTy8v844790hgRPKZJBG2sA==
   dependencies:
     "@types/node" "^16"
     ajv "^8.20.0"
-    cdk8s "^2.70.78"
+    cdk8s "^2.70.79"
     cdk8s-plus-33 "^2.5.29"
     codemaker "^1.136.0"
     colors "1.4.0"
@@ -2377,10 +2377,10 @@ cdk8s-cli@^2.207.26:
     yaml "2.9.0"
     yargs "^15"
 
-cdk8s-plus-32@^2.5.73:
-  version "2.5.73"
-  resolved "https://registry.yarnpkg.com/cdk8s-plus-32/-/cdk8s-plus-32-2.5.73.tgz#b16f9fa9338650039fb83ba982e6f48d72843431"
-  integrity sha512-gdr9MCRoK9jLmbEem0lpYE+hy4lHNVDIT6hLX7iFc7vlfl8WjnPkRPdBp7QU0JEL+LvTfnFSY6v5A4ymyfUj8Q==
+cdk8s-plus-32@^2.5.74:
+  version "2.5.74"
+  resolved "https://registry.yarnpkg.com/cdk8s-plus-32/-/cdk8s-plus-32-2.5.74.tgz#7e09e2df7522ee59aeceb8a824644d53982bceee"
+  integrity sha512-3nbsEs3CuSMD5RKTudl89g1CxYA+bI89eDmD0QcReq5FDUN9yKcHEOrT392AJ2hXiMS71iKL+Bg5PvGLRFzgUw==
   dependencies:
     minimatch "^9.0.9"
 
@@ -2391,17 +2391,17 @@ cdk8s-plus-33@^2.5.29:
   dependencies:
     minimatch "^9.0.9"
 
-cdk8s-plus-34@^2.0.29:
-  version "2.0.29"
-  resolved "https://registry.yarnpkg.com/cdk8s-plus-34/-/cdk8s-plus-34-2.0.29.tgz#39eedc3a826d1be387fe136d0ad6d00e280040ac"
-  integrity sha512-SLK4uC5BGhl1WzM2kO3kK6cXHM7oBhX0QlAyrKdCl4GRfBoANGrJrh60MQiDQOiLT5pBAldkf3IgXxjXU/0sYQ==
+cdk8s-plus-34@^2.0.30:
+  version "2.0.30"
+  resolved "https://registry.yarnpkg.com/cdk8s-plus-34/-/cdk8s-plus-34-2.0.30.tgz#24288ece935d965c444d7bc316da809c224f2c40"
+  integrity sha512-gf5pZ2b0tifKYMNcS0csTZx7o/jaqAFSkw/VMvzb3P6FX0E6YiusVA+hVGohq/GIapriXZr2k5nefCHH6aUBvQ==
   dependencies:
     minimatch "^9.0.9"
 
-cdk8s@^2.70.78:
-  version "2.70.78"
-  resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-2.70.78.tgz#3e044e6cb644519277d37bc6aee33ea7edf04a22"
-  integrity sha512-xrWw5neGkOqbaAOHKy3qflBTaODtrWo8EylhtF9yIMj25QLhphc+r7Ib+1aaWm8GbLRHRw/RjtbBQQwMvBxfFw==
+cdk8s@^2.70.79:
+  version "2.70.79"
+  resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-2.70.79.tgz#35a4a5a7a343eceab7a1cb45d1138c7cafe2f20f"
+  integrity sha512-6iUlnCfPRhs8LSis6eHzhOWZXSk8s61j0r6j+q0Q+yeGixwKMpxnWufpAjGB4AWKETZtiaoT3RwaVYzlfxipzA==
   dependencies:
     fast-json-patch "^3.1.1"
     follow-redirects "^1.16.0"
@@ -3060,7 +3060,7 @@ ejs@^3.1.7:
   dependencies:
     jake "^10.8.5"
 
-electron-to-chromium@^1.5.328:
+electron-to-chromium@^1.5.376:
   version "1.5.376"
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.376.tgz#16a9d4b72cb16c416aa73a879d92b047b96797ac"
   integrity sha512-cUVA7/RvbFTEuw/i3obUwDTRIXojaxkResf+ibByPFxjc6XK3VNtcQXV0NSbAlJ0FMjcJGgftVVB4Qo184EXvA==
@@ -6020,7 +6020,7 @@ node-machine-id@1.1.12:
   resolved "https://registry.yarnpkg.com/node-machine-id/-/node-machine-id-1.1.12.tgz#37904eee1e59b320bb9c5d6c0a59f3b469cb6267"
   integrity sha512-QNABxbrPa3qEIfrE6GOJ7BYIuignnJw7iQ2YPbc3Nla1HzRJjXzZOiikfF8m7eAMfichLt3M4VgLOetqgDmgGQ==
 
-node-releases@^2.0.36:
+node-releases@^2.0.48:
   version "2.0.48"
   resolved "https://registry.yarnpkg.com/node-releases/-/node-releases-2.0.48.tgz#4da73d040ada751fc9959d993f27de48792e3b7d"
   integrity sha512-1uz8041X6LoI6ZSdZacM9lVY28vuzDlSKitnpbSNK0RfKoIJkX29NBPVEFXhnuSuEOA9Ww0xnPJ+ILWbGAv8DA==
