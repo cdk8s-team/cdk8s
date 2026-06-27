@@ -2354,15 +2354,15 @@ case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s-cli@^2.207.30:
-  version "2.207.30"
-  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.207.30.tgz#6d70109db00cccb153f49560766aadc1330b5e02"
-  integrity sha512-3iFFNzcVGHXKDdr7CDEs4EPm1DyNhNpiP6H/+hr5HFhWRLgJ8cgFOeWJQvwTT6Dgv6SEogNroaN20bQg3RCBLg==
+cdk8s-cli@^2.207.31:
+  version "2.207.31"
+  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.207.31.tgz#a9b119daace2179a74ff85c979e8d0a2fe8c12d2"
+  integrity sha512-hTk4Mk8dQc4sQRp9q27xtFI8XQbtc6IA6ZunDLOZ4zK4K5hLHXNmQThDhOxWyRp2zhmJL9wlSypwwKxMicxGaw==
   dependencies:
     "@types/node" "^16"
     ajv "^8.20.0"
     cdk8s "^2.70.80"
-    cdk8s-plus-33 "^2.5.31"
+    cdk8s-plus-33 "^2.5.32"
     codemaker "^1.137.0"
     colors "1.4.0"
     constructs "^10.6.0"
@@ -2377,24 +2377,24 @@ cdk8s-cli@^2.207.30:
     yaml "2.9.0"
     yargs "^15"
 
-cdk8s-plus-32@^2.5.75:
-  version "2.5.75"
-  resolved "https://registry.yarnpkg.com/cdk8s-plus-32/-/cdk8s-plus-32-2.5.75.tgz#c007a9b45b83be870f6373bda1041a3add7ac370"
-  integrity sha512-jdFQpdBT+VsDqOzJfhMxWdEvLWsmeUT9Sw9CrPw1O5YmV8F65ocsciyrtSOOe5u8hdNGoGX9nVUn3bURpyt56A==
+cdk8s-plus-32@^2.5.76:
+  version "2.5.76"
+  resolved "https://registry.yarnpkg.com/cdk8s-plus-32/-/cdk8s-plus-32-2.5.76.tgz#3ffbd81987d6e17799fbc6f635fb1150fe2fc475"
+  integrity sha512-z7uJtAtDorEWu3eURWHsPmLT46QVmJ7z4s0zTI6Lj83dK+OpB5gMs7SHNbiHzeA9+pCZ25tk2kEMoGo2AcjYCg==
   dependencies:
     minimatch "^9.0.9"
 
-cdk8s-plus-33@^2.5.31:
-  version "2.5.31"
-  resolved "https://registry.yarnpkg.com/cdk8s-plus-33/-/cdk8s-plus-33-2.5.31.tgz#4dcc24050007000f325a89fa6cc9af1b2d7f052b"
-  integrity sha512-+SZvqmw6FRCtA0V1onML+IqerxSle+sWLztAjG933lK8H9i+O1nIbv6IacZVY4U/c1W3+hdk5733gmam5s60og==
+cdk8s-plus-33@^2.5.32:
+  version "2.5.32"
+  resolved "https://registry.yarnpkg.com/cdk8s-plus-33/-/cdk8s-plus-33-2.5.32.tgz#d20e7a2c637a5d02deebfd949bf03217f71cef31"
+  integrity sha512-8uedQmW1N5bUDwN3D0vo1IH15eCGumyzPiZw61tP550kJLmTg+TwO4x1mH2FC82I8iT7OmOP3PDPc8jswQoRmg==
   dependencies:
     minimatch "^9.0.9"
 
-cdk8s-plus-34@^2.0.31:
-  version "2.0.31"
-  resolved "https://registry.yarnpkg.com/cdk8s-plus-34/-/cdk8s-plus-34-2.0.31.tgz#6400ba2338fc1df2bbfebf4bb9c98871e37352c0"
-  integrity sha512-u+BUljwC3QNWd6oKkTHBE87woq5bdrTNUsoBXZHXFeaazu00sNn9/TEJUfG+Yn9UZ+L4fEhAqgg8///0CNm42A==
+cdk8s-plus-34@^2.0.32:
+  version "2.0.32"
+  resolved "https://registry.yarnpkg.com/cdk8s-plus-34/-/cdk8s-plus-34-2.0.32.tgz#6cf33564af85654fc8ee1e3facc4af41d52e1677"
+  integrity sha512-jBLgLZGYgISs0qAzW78JdOi3BGJN6X/uiv9ceqNPYH9hvCFpM7Bl5jihr2YhjqsV4QyKB6SeKTxntn6e9/zQsQ==
   dependencies:
     minimatch "^9.0.9"
 
@@ -3061,9 +3061,9 @@ ejs@^3.1.7:
     jake "^10.8.5"
 
 electron-to-chromium@^1.5.376:
-  version "1.5.379"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.379.tgz#ccece5fdc4a19880b570a3903881701df848b763"
-  integrity sha512-v/qV5aV5EUA2pGilzUCq5/eyOloZAqDZBu9UMBIzgPpLlprjSR6zswsWBTv0KpqxLGUAZEwhO95ZCt7srymNVA==
+  version "1.5.380"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.380.tgz#6dbe112f22b35ccdf627f894ad7515cdd35f6388"
+  integrity sha512-W6d5AbuEoRayO447cqrg6lKJIlscgRnnxOZl/08kfV71BQDoEBC7Wwis68z87LjyK6f4kWyTaubuDbhHKrZkbA==
 
 emittery@^0.8.1:
   version "0.8.1"
@@ -5133,17 +5133,17 @@ js-yaml@4.1.0:
     argparse "^2.0.1"
 
 js-yaml@^3.10.0, js-yaml@^3.13.1:
-  version "3.14.2"
-  resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.14.2.tgz#77485ce1dd7f33c061fd1b16ecea23b55fcb04b0"
-  integrity sha512-PMSmkqxr106Xa156c2M265Z+FTrPl+oxd/rgOQy2tijQeK5TxQ43psO1ZCwhVOSdnn+RzkzlRz/eY4BgJBYVpg==
+  version "3.15.0"
+  resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.15.0.tgz#586e5214eafe3e893756a41e979b50d89d3e4a67"
+  integrity sha512-ttBQIIQPDeLjpPOohtUdXuXUVoA2uIB6fEH9HyJ7234s5mBJ5wTx20njxplLZQgLaOfpmPQA7X2t5AX6tIPbog==
   dependencies:
     argparse "^1.0.7"
     esprima "^4.0.0"
 
 js-yaml@^4.1.0, js-yaml@^4.1.1:
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-4.2.0.tgz#2bd9e85682dd91bd469afb809d816043b3d49524"
-  integrity sha512-ePWsvanv0DWuDRsW8dnt+R4jQ31SCRCQ7hhNcPXZPsoBZiemuZNYGf7adZdqX2D86j6rvKp3RpCxVTSb8WQlOw==
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-4.3.0.tgz#d1900572a7f7cf0b5f540c83673e60bad3436592"
+  integrity sha512-1td788aAnnZ5qs7V2QIRl1owjtYpbKt749Y3xauqQgwIIGF/xXWz1wMTEBx5O3LK3lXLVuqXPdPxj2BoFHaW9Q==
   dependencies:
     argparse "^2.0.1"
 
