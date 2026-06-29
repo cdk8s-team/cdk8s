@@ -709,7 +709,7 @@
     chalk "^4.1.2"
     semver "^7.8.0"
 
-"@jsii/check-node@1.137.0", "@jsii/check-node@^1.136.0":
+"@jsii/check-node@1.137.0", "@jsii/check-node@^1.137.0":
   version "1.137.0"
   resolved "https://registry.yarnpkg.com/@jsii/check-node/-/check-node-1.137.0.tgz#60abe5fe3dc443a24cdb84bd48ff787af3df5663"
   integrity sha512-odDJyZPrxepPB5EkwVDU/M2FhodIS+BDcffmQ5qCGhcX3Z9WtuYiCvlCcuYGG9I7y+T6YnWmUcnWr1hKDQ24Tw==
@@ -722,7 +722,7 @@
   resolved "https://registry.yarnpkg.com/@jsii/spec/-/spec-1.132.0.tgz#b6465fcd6a4ffeab2706fa2daed1fa937baf60e7"
   integrity sha512-70rcZ8tx2ISWf5HqFHNQe56VOKcAtTn0XFlLgZByWKHGZYpitf5T/Qe+ayvmTK8++luufb0h455l1JDpQDp0nQ==
 
-"@jsii/spec@1.137.0", "@jsii/spec@^1.136.0":
+"@jsii/spec@1.137.0", "@jsii/spec@^1.137.0":
   version "1.137.0"
   resolved "https://registry.yarnpkg.com/@jsii/spec/-/spec-1.137.0.tgz#8c36539ec8f53dc2dde9594804766db56a3b2fad"
   integrity sha512-2rBIEsXG/sG56Wo6LmVRCByJOy0jL2fH1bQ/nMlNtUdL3lkAkld8YTTRzSMoEwtF/N6cNmK5WtMBqobos3u0ug==
@@ -2197,9 +2197,9 @@ brace-expansion@^2.0.1, brace-expansion@^2.0.2:
     balanced-match "^1.0.0"
 
 brace-expansion@^5.0.5:
-  version "5.0.6"
-  resolved "https://registry.yarnpkg.com/brace-expansion/-/brace-expansion-5.0.6.tgz#ec68fe0a641a29d8711579caf641d05bae1f2285"
-  integrity sha512-kLpxurY4Z4r9sgMsyG0Z9uzsBlgiU/EFKhj/h91/8yHu0edo7XuixOIH3VcJ8kkxs6/jPzoI6U9Vj3WqbMQ94g==
+  version "5.0.7"
+  resolved "https://registry.yarnpkg.com/brace-expansion/-/brace-expansion-5.0.7.tgz#1b0e46965b479dad65af737b4a02790a05498337"
+  integrity sha512-7oFy703dxfY3/NLxC1fh2SUCQ0H9rmAY+5EpDVfXjUTTs+HEwR2nYaqLv+GWcTsumwxPfiz6CzCNkwXwBUwqCA==
   dependencies:
     balanced-match "^4.0.2"
 
@@ -2354,10 +2354,10 @@ case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s-cli@^2.207.31:
-  version "2.207.31"
-  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.207.31.tgz#a9b119daace2179a74ff85c979e8d0a2fe8c12d2"
-  integrity sha512-hTk4Mk8dQc4sQRp9q27xtFI8XQbtc6IA6ZunDLOZ4zK4K5hLHXNmQThDhOxWyRp2zhmJL9wlSypwwKxMicxGaw==
+cdk8s-cli@^2.207.32:
+  version "2.207.32"
+  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.207.32.tgz#44e2d5fc96c145976a18c4c7d43cac7a5b4a929a"
+  integrity sha512-vqf70tLPa0EXelCSelBAAi+7lneIL+4mf+piULXrHxMBunnR3e4YzPN8XI4qaleQzD+5kNe4MmyT1A5Ch5CsRQ==
   dependencies:
     "@types/node" "^16"
     ajv "^8.20.0"
@@ -2368,7 +2368,7 @@ cdk8s-cli@^2.207.31:
     constructs "^10.6.0"
     fs-extra "^8"
     jsii-pacmak "^1.137.0"
-    jsii-rosetta "^5.9.53"
+    jsii-rosetta "^5.9.54"
     jsii-srcmak "0.1.1319"
     json2jsii "0.5.19"
     semver "^7.8.5"
@@ -3061,9 +3061,9 @@ ejs@^3.1.7:
     jake "^10.8.5"
 
 electron-to-chromium@^1.5.376:
-  version "1.5.380"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.380.tgz#6dbe112f22b35ccdf627f894ad7515cdd35f6388"
-  integrity sha512-W6d5AbuEoRayO447cqrg6lKJIlscgRnnxOZl/08kfV71BQDoEBC7Wwis68z87LjyK6f4kWyTaubuDbhHKrZkbA==
+  version "1.5.381"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.381.tgz#037549001adc80e04834ede96dc52a1fbf6c9fde"
+  integrity sha512-n9Wa6yB+vDsGuA8AKbl/0z7HbvWqt5jxIdvr1IUicd0ryPrk7/xzwqLv8D9AbbvZ6avVNtXYLTfmgFHkwkyelg==
 
 emittery@^0.8.1:
   version "0.8.1"
@@ -5215,13 +5215,13 @@ jsii-reflect@^1.137.0:
     oo-ascii-tree "^1.137.0"
     yargs "^17.7.2"
 
-jsii-rosetta@^5.9.3, jsii-rosetta@^5.9.53:
-  version "5.9.53"
-  resolved "https://registry.yarnpkg.com/jsii-rosetta/-/jsii-rosetta-5.9.53.tgz#d70359754047002b3cdc6ef623e0b05fadb26abe"
-  integrity sha512-LWr1dlFhtecLtUfDunuqxtUoIl3m+sAepbJk77eodqKmnz6kdZO7K21KM8TCpFvw0iEphtgudbNOm5DtJqNv2A==
+jsii-rosetta@^5.9.3, jsii-rosetta@^5.9.54:
+  version "5.9.54"
+  resolved "https://registry.yarnpkg.com/jsii-rosetta/-/jsii-rosetta-5.9.54.tgz#b21115c735ddf42d18b58e71e0b7142eb5592518"
+  integrity sha512-Y3GPSAv9r1OiKyOcPO0L4zWwwar2Sant3Nhiyxv5eBA+fXmMXj+K5t4vusCNZB/EAGKl0Kv4DwpNT0cApeXrJQ==
   dependencies:
-    "@jsii/check-node" "^1.136.0"
-    "@jsii/spec" "^1.136.0"
+    "@jsii/check-node" "^1.137.0"
+    "@jsii/spec" "^1.137.0"
     "@xmldom/xmldom" "^0.9.10"
     chalk "^4"
     commonmark "^0.31.2"
