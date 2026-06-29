@@ -1,5 +1,5 @@
 {
-  "manifestVersion": 2,
+  "manifestVersion": 3,
   "env": {
     "PATH": "$(npx -c \"node --print process.env.PATH\")"
   },
