@@ -2843,9 +2843,9 @@ dateformat@^3.0.3:
   integrity sha512-jyCETtSl3VMZMWeRo7iY1FL19ges1t55hMo5yaam4Jrsm5EPL89UQkoQRyiI+Yf4k8r2ZpdngkV8hr1lIdjb3Q==
 
 dax@^0.48.3:
-  version "0.48.3"
-  resolved "https://registry.yarnpkg.com/dax/-/dax-0.48.3.tgz#da5b909d834182870b2c756a84b748b69b605e6c"
-  integrity sha512-gBtQ9+3UXMv/qk6cl0n/q5S6dZ7jX62XuCuF2tBemglP2mihO7nwaQRZFdc/qT5QCiU2MjWXhTzEMtwtOimVBg==
+  version "0.48.4"
+  resolved "https://registry.yarnpkg.com/dax/-/dax-0.48.4.tgz#f1836c37f7ead3d4ae0cc519aedc5f0799745660"
+  integrity sha512-uInizIBXGL7RogZnhDUIuBD5OJqqF4czEf54wbuOyU5w4NKmx+i2cmDtzLAiXbmhTkXX6k4LfN3dRmvY1uLZmA==
   dependencies:
     undici-types "^5.26"
 
@@ -6688,10 +6688,10 @@ proggy@^2.0.0:
   resolved "https://registry.yarnpkg.com/proggy/-/proggy-2.0.0.tgz#154bb0e41d3125b518ef6c79782455c2c47d94e1"
   integrity sha512-69agxLtnI8xBs9gUGqEnK26UfiexpHy+KUpBQWabiytQjnn5wFY8rklAi7GRfABIuPNnQ/ik48+LGLkYYJcy4A==
 
-projen@^0.101.0:
-  version "0.101.0"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.101.0.tgz#ed08447984e2c3b60021dada563df37e20def3fe"
-  integrity sha512-EtWSvKzThxck7w8tVfayzocK6HelbBEE1GCN1AiO2gl7dJGg6RSB10bB048mqWKb3kry6Gjun2Cks8q0Swrvbw==
+projen@^0.101.3:
+  version "0.101.3"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.101.3.tgz#3b385825eab2b3cd7e16f6b25ddda9a4c3596eb7"
+  integrity sha512-swKiWRh+5GqxIc/RznlXQ5hnTaBb9DSUVhbxpmA7e+5icf8moHySNqADE5TduIGh/e25EPt49yTpLwNpwcg6xQ==
   dependencies:
     "@iarna/toml" "^2.2.5"
     case "^1.6.3"
