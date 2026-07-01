@@ -80,7 +80,12 @@
       "description": "Synthesize project files",
       "steps": [
         {
-          "exec": "ts-node --project test/tsconfig.json .projenrc.ts"
+          "execArgs": [
+            "ts-node",
+            "--project",
+            "projenrc/tsconfig.json",
+            ".projenrc.ts"
+          ]
         }
       ]
     },
