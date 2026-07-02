@@ -11,12 +11,11 @@ function replaceRefsInFile(filePath: string, toReplace: string, substitution: st
   let curFileData = fs.readFileSync(filePath, 'utf-8');
   referencePrefixes.forEach(function (referencePrefix: string) {
     curFileData = curFileData.replace(new RegExp(referencePrefix + toReplace, 'g'), referencePrefix + substitution);
-    fs.writeFileSync(filePath, curFileData);
   });
+  fs.writeFileSync(filePath, curFileData);
 }
 
 export function replaceOldVersionReferences(latestVersion: string) {
-
   const latestVersionNumber = Number(latestVersion);
 
   const filesToBeUpdated = ['website/layouts/index.html', 'docs/plus/.pages', 'docs/reference/.pages', 'docs/reference/index.md'];
@@ -29,12 +28,14 @@ export function replaceOldVersionReferences(latestVersion: string) {
 
   // make new docs/reference/cdk8s-plus-XX/ directory and add .pages and go.md files
   const newDocsReferenceDir = `docs/reference/cdk8s-plus-${latestVersionNumber}/`;
-  fs.mkdirSync(newDocsReferenceDir);
-  const pagesFileData = fs.readFileSync(`docs/reference/cdk8s-plus-${latestVersionNumber-1}/.pages`, 'utf-8');
-  fs.writeFileSync(path.join(newDocsReferenceDir, '.pages'), pagesFileData);
-  let goFileData = fs.readFileSync(`docs/reference/cdk8s-plus-${latestVersionNumber-1}/go.md`, 'utf-8');
-  fs.writeFileSync(path.join(newDocsReferenceDir, 'go.md'), goFileData);
-  replaceRefsInFile(path.join(newDocsReferenceDir, 'go.md'), `${latestVersionNumber - 1}`, latestVersion);
+  if (!fs.existsSync(newDocsReferenceDir)) {
+    fs.mkdirSync(newDocsReferenceDir);
+    const pagesFileData = fs.readFileSync(`docs/reference/cdk8s-plus-${latestVersionNumber-1}/.pages`, 'utf-8');
+    fs.writeFileSync(path.join(newDocsReferenceDir, '.pages'), pagesFileData);
+    let goFileData = fs.readFileSync(`docs/reference/cdk8s-plus-${latestVersionNumber-1}/go.md`, 'utf-8');
+    fs.writeFileSync(path.join(newDocsReferenceDir, 'go.md'), goFileData);
+    replaceRefsInFile(path.join(newDocsReferenceDir, 'go.md'), `${latestVersionNumber - 1}`, latestVersion);
+  }
 
   // update reference in docs/plus/index.md
   replaceRefsInFile('docs/plus/index.md', `${latestVersionNumber - 1}`, latestVersion);
@@ -54,4 +55,6 @@ function recursiveReplaceRefsInDir(dir: string, toReplace: string, substitution:
   });
 }
 
-replaceOldVersionReferences(process.argv.slice(2)[0]);
+if (process.argv.length > 2) {
+  replaceOldVersionReferences(process.argv[2]);
+}
