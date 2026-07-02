@@ -2544,9 +2544,9 @@ co@^4.6.0:
   integrity sha512-QVb0dM5HvG+uaxitm8wONl7jltx8dqhfU33DcqtOZcLSVIKSDDLDi7+0LbAKiyI8hD9u42m2YxXSkMGWThaecQ==
 
 codemaker@^1.137.0:
-  version "1.137.0"
-  resolved "https://registry.yarnpkg.com/codemaker/-/codemaker-1.137.0.tgz#fbca41ffc5ad0cca1543afb87502c8dda6ca3d40"
-  integrity sha512-6srL+vpFVexkkREmvpXr0RsZPtFA05Ee00IUGt0Q+O1IITN2Kkl13SHzzx5ntrxcxriUkK/FQ3Qhs6KT+MZgUw==
+  version "1.138.0"
+  resolved "https://registry.yarnpkg.com/codemaker/-/codemaker-1.138.0.tgz#f9054350412ee6225dc40ec48db1de4ffa40e7fa"
+  integrity sha512-IxvNszAvXb9abX7OQj1cupWMehsTcTCTU/5r9DiaalNyd3u/YIdaMJyfqwLK42kdQ7CqxVcCHr8tqBI0J5ZVjg==
   dependencies:
     camelcase "^6.3.0"
     decamelize "^5.0.1"
@@ -2843,9 +2843,9 @@ dateformat@^3.0.3:
   integrity sha512-jyCETtSl3VMZMWeRo7iY1FL19ges1t55hMo5yaam4Jrsm5EPL89UQkoQRyiI+Yf4k8r2ZpdngkV8hr1lIdjb3Q==
 
 dax@^0.48.3:
-  version "0.48.4"
-  resolved "https://registry.yarnpkg.com/dax/-/dax-0.48.4.tgz#f1836c37f7ead3d4ae0cc519aedc5f0799745660"
-  integrity sha512-uInizIBXGL7RogZnhDUIuBD5OJqqF4czEf54wbuOyU5w4NKmx+i2cmDtzLAiXbmhTkXX6k4LfN3dRmvY1uLZmA==
+  version "0.48.5"
+  resolved "https://registry.yarnpkg.com/dax/-/dax-0.48.5.tgz#9cbd58ca242e2ee0cb51d454a71844f4c6eacb04"
+  integrity sha512-VD8Psce/GBQpicDAIe9/rSEt884FImPBZkaW+uq0oAowXN6TsUbfzN6gGQgF4S/6lfgU/p+ty4JAi2WLZgGKaA==
   dependencies:
     undici-types "^5.26"
 
