@@ -2842,10 +2842,10 @@ dateformat@^3.0.3:
   resolved "https://registry.yarnpkg.com/dateformat/-/dateformat-3.0.3.tgz#a6e37499a4d9a9cf85ef5872044d62901c9889ae"
   integrity sha512-jyCETtSl3VMZMWeRo7iY1FL19ges1t55hMo5yaam4Jrsm5EPL89UQkoQRyiI+Yf4k8r2ZpdngkV8hr1lIdjb3Q==
 
-dax@^0.48.3:
-  version "0.48.5"
-  resolved "https://registry.yarnpkg.com/dax/-/dax-0.48.5.tgz#9cbd58ca242e2ee0cb51d454a71844f4c6eacb04"
-  integrity sha512-VD8Psce/GBQpicDAIe9/rSEt884FImPBZkaW+uq0oAowXN6TsUbfzN6gGQgF4S/6lfgU/p+ty4JAi2WLZgGKaA==
+dax@^0.48.6:
+  version "0.48.6"
+  resolved "https://registry.yarnpkg.com/dax/-/dax-0.48.6.tgz#6971912040edc8e4e6525b769d374893576bcf86"
+  integrity sha512-f4NDrcwptOwIDq71FaA5RpjBUBj+i/AQSvx2Wbt5U1biAg/HldwAqEayxO7ODyvN0Tmpb64S4tPv/V7zej0Rzg==
   dependencies:
     undici-types "^5.26"
 
@@ -6688,10 +6688,10 @@ proggy@^2.0.0:
   resolved "https://registry.yarnpkg.com/proggy/-/proggy-2.0.0.tgz#154bb0e41d3125b518ef6c79782455c2c47d94e1"
   integrity sha512-69agxLtnI8xBs9gUGqEnK26UfiexpHy+KUpBQWabiytQjnn5wFY8rklAi7GRfABIuPNnQ/ik48+LGLkYYJcy4A==
 
-projen@^0.101.4:
-  version "0.101.4"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.101.4.tgz#abce3b31d4a658124677998efaa3ae3aa2cd27d4"
-  integrity sha512-85HQncbGc18c+Fc0dLtWag0GGUS5Vt37tf6xBb7tR6lUJHCFWNrQHvKD+7PuyzwryGDcezl60JhErH+Wpf06xg==
+projen@^0.101.6:
+  version "0.101.6"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.101.6.tgz#9cf8a3a1e08736282ea123197bfef2c914853b6c"
+  integrity sha512-tPC2X8fiQz0Z8ILxvjXHfMspbcR6yAwRJmJd8sWuv/KieGggoGJifN+wYsflYAxHTWxr1LXZXTGs+FFe3k6gJQ==
   dependencies:
     "@iarna/toml" "^2.2.5"
     case "^1.6.3"
@@ -6699,7 +6699,7 @@ projen@^0.101.4:
     comment-json "4.2.2"
     constructs "^10.5.0"
     conventional-changelog-config-spec "^2.1.0"
-    dax "^0.48.3"
+    dax "^0.48.6"
     fast-glob "^3.3.3"
     fast-json-patch "^3.1.1"
     ini "^2.0.0"
