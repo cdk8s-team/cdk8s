@@ -2377,10 +2377,10 @@ cdk8s-cli@^2.207.39:
     yaml "2.9.0"
     yargs "^15"
 
-cdk8s-plus-32@^2.5.80:
-  version "2.5.80"
-  resolved "https://registry.yarnpkg.com/cdk8s-plus-32/-/cdk8s-plus-32-2.5.80.tgz#f06a325a3179b69ce1c01b24e25203546dac9bce"
-  integrity sha512-n4Y68e/UVpLJroikwgR+LKP+hdXFKawwXWq1fJNJx+bggdL0idSpL9zV2i3gQiSJuJmDD9H9dFmghK8ul5p/8Q==
+cdk8s-plus-32@^2.5.81:
+  version "2.5.81"
+  resolved "https://registry.yarnpkg.com/cdk8s-plus-32/-/cdk8s-plus-32-2.5.81.tgz#9d92b0854588e8a37c4f97663abbd9d8256469e1"
+  integrity sha512-iLrSLC1HOwT2kd4BFOSuC+ymPGnPHBVXHqyWi3uPJbHZTLwniYaB88sMTcOnxbLIjAE0rNo+VhjHPhT3F2CbxA==
   dependencies:
     minimatch "^9.0.9"
 
@@ -2391,10 +2391,10 @@ cdk8s-plus-33@^2.5.37:
   dependencies:
     minimatch "^9.0.9"
 
-cdk8s-plus-34@^2.0.37:
-  version "2.0.37"
-  resolved "https://registry.yarnpkg.com/cdk8s-plus-34/-/cdk8s-plus-34-2.0.37.tgz#47ff1c9d902b25dc4d01c532a3100629460d282e"
-  integrity sha512-iE/E5afUAkHy8BTBB6REqvfknrgOQuyMT+OsVWLV3a5f1J40mN4qUukZ73UMt0pQpYXLFFV4hPUXr/5cNtquBQ==
+cdk8s-plus-34@^2.0.38:
+  version "2.0.38"
+  resolved "https://registry.yarnpkg.com/cdk8s-plus-34/-/cdk8s-plus-34-2.0.38.tgz#bd9634fe89d0eec8552e53dbd0b512a5f206f2e9"
+  integrity sha512-icSBgOIg34Dscz0sOUCtJvQ/KfYN1st5pbDZv59VvEKyiKnS4OhGL0snyeOvWDmfdwhgT1naE3f9sGKbrnuC7w==
   dependencies:
     minimatch "^9.0.9"
 
@@ -6022,9 +6022,9 @@ node-machine-id@1.1.12:
   integrity sha512-QNABxbrPa3qEIfrE6GOJ7BYIuignnJw7iQ2YPbc3Nla1HzRJjXzZOiikfF8m7eAMfichLt3M4VgLOetqgDmgGQ==
 
 node-releases@^2.0.50:
-  version "2.0.50"
-  resolved "https://registry.yarnpkg.com/node-releases/-/node-releases-2.0.50.tgz#597197a852071ce42fc2550e58e223242bcba969"
-  integrity sha512-J6l92tKHX6w8Jy5nO1Vuc01NoIiRGi/d6qBKVxh+IQ8Cr3b6HbVNfKiF8ZpFKufTwpwxMmce2W3iQZ861ZRyTg==
+  version "2.0.51"
+  resolved "https://registry.yarnpkg.com/node-releases/-/node-releases-2.0.51.tgz#cdc08433577f5b32ad01694481726e22eeb54aef"
+  integrity sha512-wRNIrw4DmVLKQlbgOMdkMx27Wrpzes2hh5Jtbi2bjPd+4wJstWIqP5A+lscnqbm0xxmT5Bpg8Lec5ItEBwx6BQ==
 
 nopt@^7.0.0, nopt@^7.2.1:
   version "7.2.1"
