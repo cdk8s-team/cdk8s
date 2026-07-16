@@ -1264,9 +1264,9 @@
     "@sigstore/protobuf-specs" "^0.3.2"
 
 "@sinclair/typebox@^0.27.8":
-  version "0.27.10"
-  resolved "https://registry.yarnpkg.com/@sinclair/typebox/-/typebox-0.27.10.tgz#beefe675f1853f73676aecc915b2bd2ac98c4fc6"
-  integrity sha512-MTBk/3jGLNB2tVxv6uLlFh1iu64iYOQ2PbdOSK3NW8JZsmlaOh2q6sdtKowBhfw8QFLmYNzTW4/oK4uATIi6ZA==
+  version "0.27.11"
+  resolved "https://registry.yarnpkg.com/@sinclair/typebox/-/typebox-0.27.11.tgz#bdf39c8eeb013984c794a7b684801af7b7a6cfd4"
+  integrity sha512-GgN3Wv9cLxewwHewWzTjbXR6hEP4cLG/RfEfpNrOtzSAxjqhbaHFkb1PEFu7nb79j2ddHH+jNWH2vtbFHHi2xQ==
 
 "@sindresorhus/is@^5.2.0":
   version "5.6.0"
@@ -2345,9 +2345,9 @@ camelcase@^6.2.0, camelcase@^6.3.0:
   integrity sha512-Gmy6FhYlCY7uOElZUSbxo2UCDH8owEk996gkbrpsgGtrJLM3J7jGxl9Ic7Qwwj4ivOE5AWZWRMecDdF7hqGjFA==
 
 caniuse-lite@^1.0.30001803:
-  version "1.0.30001805"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001805.tgz#78d5d5968a69b7ff81af87a96d7ddc7ea6670b1e"
-  integrity sha512-52noaS3DubycKSXaU30TwPGIp+POyQSUVa5jBEq3vkRkY0kjyb3LQgvhU6WGyCcyXqVLWO0Cw0Q6BSdD0kUfVA==
+  version "1.0.30001806"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001806.tgz#1bc8e502b723fa393455dfbedd5ccec0c29bb74e"
+  integrity sha512-72Cuvd95zbSYPKq6Fhg8eDJRlzgWDf7/mtoZv6Qe/DYNCEBdNxoA3+rZAU2ZhGCpZlns3EssFavaZomckT5Uuw==
 
 case@^1.6.3:
   version "1.6.3"
@@ -2647,7 +2647,12 @@ console-control-strings@^1.1.0:
   resolved "https://registry.yarnpkg.com/console-control-strings/-/console-control-strings-1.1.0.tgz#3d7cf4464db6446ea644bf4b39507f9851008e8e"
   integrity sha512-ty/fTekppD2fIwRvnZAVdeOiGd1c7YXEixbgJTNzqcxJWKQnjJ/V1bNEEE6hygpM3WjwHFUVK6HTjWSzV4a8sQ==
 
-constructs@^10.0.0, constructs@^10.5.0, constructs@^10.6.0:
+constructs@^10.0.0, constructs@^10.6.0:
+  version "10.7.0"
+  resolved "https://registry.yarnpkg.com/constructs/-/constructs-10.7.0.tgz#bbfefab1af92931ba5325654276af272cf0c33c7"
+  integrity sha512-Vzwc30bMywc7DCzX8XOyuZbsBmfXTCrn6HHmhhELZK1J5dnUWwJ5uL7hBXGGq7xFPVOOO6cs9FwaxOshAxgcWQ==
+
+constructs@^10.5.0:
   version "10.6.0"
   resolved "https://registry.yarnpkg.com/constructs/-/constructs-10.6.0.tgz#9ec889c48567182ed9e2a56d4335d582ba0bcb6b"
   integrity sha512-TxHOnBO5zMo/G76ykzGF/wMpEHu257TbWiIxP9K0Yv/+t70UzgBQiTqjkAsWOPC6jW91DzJI0+ehQV6xDRNBuQ==
