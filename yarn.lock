@@ -2647,15 +2647,10 @@ console-control-strings@^1.1.0:
   resolved "https://registry.yarnpkg.com/console-control-strings/-/console-control-strings-1.1.0.tgz#3d7cf4464db6446ea644bf4b39507f9851008e8e"
   integrity sha512-ty/fTekppD2fIwRvnZAVdeOiGd1c7YXEixbgJTNzqcxJWKQnjJ/V1bNEEE6hygpM3WjwHFUVK6HTjWSzV4a8sQ==
 
-constructs@^10.0.0, constructs@^10.6.0:
+constructs@^10.0.0, constructs@^10.5.0, constructs@^10.6.0:
   version "10.7.0"
   resolved "https://registry.yarnpkg.com/constructs/-/constructs-10.7.0.tgz#bbfefab1af92931ba5325654276af272cf0c33c7"
   integrity sha512-Vzwc30bMywc7DCzX8XOyuZbsBmfXTCrn6HHmhhELZK1J5dnUWwJ5uL7hBXGGq7xFPVOOO6cs9FwaxOshAxgcWQ==
-
-constructs@^10.5.0:
-  version "10.6.0"
-  resolved "https://registry.yarnpkg.com/constructs/-/constructs-10.6.0.tgz#9ec889c48567182ed9e2a56d4335d582ba0bcb6b"
-  integrity sha512-TxHOnBO5zMo/G76ykzGF/wMpEHu257TbWiIxP9K0Yv/+t70UzgBQiTqjkAsWOPC6jW91DzJI0+ehQV6xDRNBuQ==
 
 conventional-changelog-angular@7.0.0:
   version "7.0.0"
@@ -6693,10 +6688,10 @@ proggy@^2.0.0:
   resolved "https://registry.yarnpkg.com/proggy/-/proggy-2.0.0.tgz#154bb0e41d3125b518ef6c79782455c2c47d94e1"
   integrity sha512-69agxLtnI8xBs9gUGqEnK26UfiexpHy+KUpBQWabiytQjnn5wFY8rklAi7GRfABIuPNnQ/ik48+LGLkYYJcy4A==
 
-projen@^0.101.15:
-  version "0.101.15"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.101.15.tgz#ee3d01a246a478f32fe818a05e298bd49ed71906"
-  integrity sha512-EsPU9BO8RrRuU1mEnRZwvcsAs6ok4pZ8tSTXWXaFTYYghBAL7RJLlOfvBpQbeRc0QsCM9V8NPpCvfl918MZ5dQ==
+projen@^0.101.16:
+  version "0.101.16"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.101.16.tgz#dd25753ec51a38c7e9185159ed508c2d1fa44ce2"
+  integrity sha512-vUyYtMthrcnQW4O48KgYaMfFCwi5yklkw3u3kdGQxmWKkPxfXIEhlpEfYWsGbUSp3qEuZBYsFfaj/N/e5mWbEw==
   dependencies:
     "@iarna/toml" "^2.2.5"
     case "^1.6.3"
