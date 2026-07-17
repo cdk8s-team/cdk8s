@@ -263,12 +263,12 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@cdk8s/projen-common@^0.1.5":
-  version "0.1.5"
-  resolved "https://registry.yarnpkg.com/@cdk8s/projen-common/-/projen-common-0.1.5.tgz#70e11ee67de2131ad280590526ce4bf2535db945"
-  integrity sha512-7pYFhfGsDjcvMSXNPvDPE9HzSSO/Cdi92xPBoD2NHxWqCNQSONUgKX9csl3IzxAXURixUyYsTuba5+pRkLXxiw==
+"@cdk8s/projen-common@^0.1.7":
+  version "0.1.7"
+  resolved "https://registry.yarnpkg.com/@cdk8s/projen-common/-/projen-common-0.1.7.tgz#5a52420eca822f4d8db1c85d65588bb927899c8d"
+  integrity sha512-CByo3HLqjV4Fmdc5lb/ru9anwUt6A99wIduj+9BHE2qXtqYhv3Fm8/QVy9ZCOsm5kEtmTEbM39IuF11mols1IA==
   dependencies:
-    codemaker "^1.138.0"
+    codemaker "^1.139.0"
     deepmerge "^4.3.1"
 
 "@cspotcode/source-map-support@^0.8.0":
