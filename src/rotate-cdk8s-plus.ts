@@ -1,6 +1,10 @@
 import * as fs from 'fs';
 import * as path from 'path';
 
+function escapeRegExp(string: string): string {
+  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
 function replaceRefsInFile(filePath: string, toReplace: string, substitution: string) {
   // references in the docs files for version XX appear in the following ways:
   // cdk8s-plus-XX, cdk8s.plusXX, cdk8splusXX, CDK8s_PLUSXX_VERSION, cdk8s_plusXX_version
@@ -10,7 +14,7 @@ function replaceRefsInFile(filePath: string, toReplace: string, substitution: st
 
   let curFileData = fs.readFileSync(filePath, 'utf-8');
   referencePrefixes.forEach(function (referencePrefix: string) {
-    curFileData = curFileData.replace(new RegExp(referencePrefix + toReplace, 'g'), referencePrefix + substitution);
+    curFileData = curFileData.replace(new RegExp(referencePrefix + escapeRegExp(toReplace), 'g'), referencePrefix + substitution);
     fs.writeFileSync(filePath, curFileData);
   });
 }
