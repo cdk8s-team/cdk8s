@@ -2140,9 +2140,9 @@ base64-js@^1.3.1:
   integrity sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==
 
 baseline-browser-mapping@^2.10.44:
-  version "2.11.1"
-  resolved "https://registry.yarnpkg.com/baseline-browser-mapping/-/baseline-browser-mapping-2.11.1.tgz#390b4714558634093df77add4acca0c5c0c1605e"
-  integrity sha512-HYXq73DDpCtNzOmrFsm9eSwCvWCql0RzqjpDzXN9EadiLJ4DNat0nsZ/Bzmy+Ud12mb4/zKDY0cQ805ZzN+i0A==
+  version "2.11.3"
+  resolved "https://registry.yarnpkg.com/baseline-browser-mapping/-/baseline-browser-mapping-2.11.3.tgz#3ab75c7ebb6a72fb8ca2cd5e1eea82e2b9b05bce"
+  integrity sha512-sbT0Ui/CZwyAyy7icT1Gw5P1LKRlFaHwaF6tDCW5YHq2X5SeeZFphBuIagopSfwSSZq3sQcbmEL072yphxm7ew==
 
 before-after-hook@^2.2.0:
   version "2.2.3"
@@ -2385,10 +2385,10 @@ cdk8s-plus-34@^2.0.41:
   dependencies:
     minimatch "^9.0.9"
 
-cdk8s@^2.70.83, cdk8s@^2.70.84:
-  version "2.70.84"
-  resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-2.70.84.tgz#c96d9726755fb7af3fe51a2c6515c93eac1b2a0c"
-  integrity sha512-1BrD1lYCUu3jdX9a1iNkMoe2055C1Zjlh1rMrc6+HRD811ITndPpXniWGIcKZ8xJBSP1zs1h7L/+Q9wVAJ5q0Q==
+cdk8s@^2.70.83, cdk8s@^2.70.85:
+  version "2.70.85"
+  resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-2.70.85.tgz#f81b023303356f5efe1f3d323753b8bb6a1f54d6"
+  integrity sha512-ppXtiV1S5kgFoE4VlBGZNrFqCnJXfirMXGk2aG8uZ4rcwDraM2UeIhsK2zdrtPI7bbfOfrBMYjAYoY5NjJlF8g==
   dependencies:
     fast-json-patch "^3.1.1"
     follow-redirects "^1.16.0"
