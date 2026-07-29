@@ -13,6 +13,7 @@ jobs:
       issues: write
     steps:
       - name: scan
+        id: scan
         uses: cdk8s-team/cdk8s-dependabot-security-alerts@main
         env:
           GITHUB_TOKEN: ${{ secrets.PROJEN_GITHUB_TOKEN }}

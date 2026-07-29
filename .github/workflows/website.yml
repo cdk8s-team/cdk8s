@@ -12,28 +12,36 @@ jobs:
       contents: write
     steps:
       - name: Checkout sources
+        id: checkout_sources
         uses: actions/checkout@v2
       - name: Setup Node.js
+        id: setup_node_js
         uses: actions/setup-node@v2
       - name: Setup Hugo
+        id: setup_hugo
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: 0.68.3
           extended: true
       - name: Setup Python
+        id: setup_python
         uses: actions/setup-python@v2
         with:
           python-version: 3.x
           architecture: x64
       - name: Install dependencies
+        id: install_dependencies
         run: yarn install --frozen-lockfile
       - name: Build Website
+        id: build_website
         run: |-
           cd website
           ./build.sh
       - name: Build Docs Site
+        id: build_docs_site
         run: ./docs/build.sh website/public/docs
       - name: Deploy
+        id: deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
