@@ -13,7 +13,8 @@ jobs:
       pull-requests: write
       contents: read
     steps:
-      - uses: aws-actions/stale-issue-cleanup@v6
+      - id: auto_25639be8
+        uses: aws-actions/stale-issue-cleanup@v6
         with:
           ancient-issue-message: This issue has not received any attention in 1 year and will be closed soon. If you want to keep it open, please leave a comment below @mentioning a maintainer.
           stale-issue-message: This issue has not received a response in a while and will be closed soon. If you want to keep it open, please leave a comment below @mentioning a maintainer.
