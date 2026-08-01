@@ -5132,10 +5132,17 @@ js-yaml@^3.10.0, js-yaml@^3.13.1:
     argparse "^1.0.7"
     esprima "^4.0.0"
 
-js-yaml@^4.1.0, js-yaml@^4.1.1, js-yaml@^4.3.0:
+js-yaml@^4.1.0, js-yaml@^4.3.0:
   version "4.3.0"
   resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-4.3.0.tgz#d1900572a7f7cf0b5f540c83673e60bad3436592"
   integrity sha512-1td788aAnnZ5qs7V2QIRl1owjtYpbKt749Y3xauqQgwIIGF/xXWz1wMTEBx5O3LK3lXLVuqXPdPxj2BoFHaW9Q==
+  dependencies:
+    argparse "^2.0.1"
+
+js-yaml@^4.1.1:
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-4.3.1.tgz#01216c001d67f48e2cd560d708c7af21090a3848"
+  integrity sha512-CY6crGq313MX8GkwvB7tzgp99vjQxY1++5y10/BKN/GUfHqWaOGQMNZkBvqSzsZKWk/ijwHlWzzkLulsGHhjWQ==
   dependencies:
     argparse "^2.0.1"
 
@@ -6681,10 +6688,10 @@ proggy@^2.0.0:
   resolved "https://registry.yarnpkg.com/proggy/-/proggy-2.0.0.tgz#154bb0e41d3125b518ef6c79782455c2c47d94e1"
   integrity sha512-69agxLtnI8xBs9gUGqEnK26UfiexpHy+KUpBQWabiytQjnn5wFY8rklAi7GRfABIuPNnQ/ik48+LGLkYYJcy4A==
 
-projen@^0.101.22:
-  version "0.101.22"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.101.22.tgz#3e9ed24de9f7e15d3065decc5500ec2a556bb69d"
-  integrity sha512-vkwwotCmEBUdkAj6hwnBD5qZ6mEZZaaUXS2pIu6TCvgASHkEte9gkWAk8/Pd8lVJUvfCgyjsP31f4PSuu280Vg==
+projen@^0.101.23:
+  version "0.101.23"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.101.23.tgz#289bf35c4a2ce96dac7f39736bd0074a42be7a90"
+  integrity sha512-gI1vvX7NdhtnRVT2GqMwymq9Z25YNGw7xtp89gXPtomn+GfmBEnLo80GDyEM8qTYxqTZXG5axMb137PCT2uzwQ==
   dependencies:
     "@iarna/toml" "^2.2.5"
     case "^1.6.3"
