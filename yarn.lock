@@ -263,10 +263,10 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@cdk8s/projen-common@^0.1.14":
-  version "0.1.14"
-  resolved "https://registry.yarnpkg.com/@cdk8s/projen-common/-/projen-common-0.1.14.tgz#d63f2314504ad556139500a9cb7263e6232b30a8"
-  integrity sha512-GpRW53YSboB3gIT58SkrPZAZ8wQPZJDOZUKArKvLwkwpZkMjFUJCup4nZPFKxQab5muQoL1a7cymOhmmrJ9nYA==
+"@cdk8s/projen-common@^0.1.15":
+  version "0.1.15"
+  resolved "https://registry.yarnpkg.com/@cdk8s/projen-common/-/projen-common-0.1.15.tgz#3c7f5e08fd018e361b7dddb3539eb9abde8d9f59"
+  integrity sha512-Mwy9uIQ28FU3dZlTk1z9ikYDFuRL4MkzQitTT+PgxwPu519Fq4093u/pYVpwuBp/l3HJlAhpOCLOnSKHPTYZog==
   dependencies:
     codemaker "^1.139.0"
     deepmerge "^4.3.1"
@@ -2634,10 +2634,15 @@ console-control-strings@^1.1.0:
   resolved "https://registry.yarnpkg.com/console-control-strings/-/console-control-strings-1.1.0.tgz#3d7cf4464db6446ea644bf4b39507f9851008e8e"
   integrity sha512-ty/fTekppD2fIwRvnZAVdeOiGd1c7YXEixbgJTNzqcxJWKQnjJ/V1bNEEE6hygpM3WjwHFUVK6HTjWSzV4a8sQ==
 
-constructs@^10.0.0, constructs@^10.5.0, constructs@^10.8.0:
+constructs@^10.0.0, constructs@^10.8.0:
   version "10.8.0"
   resolved "https://registry.yarnpkg.com/constructs/-/constructs-10.8.0.tgz#6a4717ea70a3a2bd4c40428cc8a8990c1bdc34ac"
   integrity sha512-pJHp2CxvTG0ttp52rZvQfkbspPLZzttWPooIRLBwlZK8rV7ZhkjIkyZWJhIfBDC4YdcwIDmXyUFr1ieJaqjBbg==
+
+constructs@^10.5.0:
+  version "10.8.1"
+  resolved "https://registry.yarnpkg.com/constructs/-/constructs-10.8.1.tgz#83877700caa85fdfee9eacd16fd4be16393a7aa6"
+  integrity sha512-98yGXYyhePqPYh3cYu8nzBERmAhC0DONe3UD03okK0nehZ7hYP4wgZuf02a04+uOWxnTJ5Rpp5m0GRNpwyLGGA==
 
 conventional-changelog-angular@7.0.0:
   version "7.0.0"
