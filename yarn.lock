@@ -1729,9 +1729,9 @@
   integrity sha512-nAB74NfSNKknqQ1RrYj6uz8FcXEomu/MATJZxh/x+BArzN2U3JbOYC0APYzUIGhVY3m5hRxA8VPNdPBoG8txlA==
 
 "@xmldom/xmldom@^0.9.10":
-  version "0.9.10"
-  resolved "https://registry.yarnpkg.com/@xmldom/xmldom/-/xmldom-0.9.10.tgz#a0ad5a26fe8aa996310870726e1704977f769dee"
-  integrity sha512-A9gOqLdi6cV4ibazAjcQufGj0B1y/vDqYrcuP6d/6x8P27gRS8643Dj9o1dEKtB6O7fwxb2FgBmJS2mX7gpvdw==
+  version "0.9.11"
+  resolved "https://registry.yarnpkg.com/@xmldom/xmldom/-/xmldom-0.9.11.tgz#2ed75a186886383624cf16400930ed6b9adaa656"
+  integrity sha512-tW8bcK3hsG0/uqSnNz6TK4BkcuZSezoU7DlnYssILmZDktPnSHHuDJJFM0AJv+13gz2r0iGdrj6qqKeUnxXEDg==
 
 "@yarnpkg/lockfile@^1.1.0":
   version "1.1.0"
@@ -1869,9 +1869,9 @@ ansi-regex@^5.0.0, ansi-regex@^5.0.1:
   integrity sha512-quJQXlTSUGL2LH9SUXo8VwsY4soanhgo6LNSm84E1LBcE8s3O0wpdiRzyR9z/ZZJMlMWv37qOOb9pdJlMUEKFQ==
 
 ansi-regex@^6.2.2:
-  version "6.2.2"
-  resolved "https://registry.yarnpkg.com/ansi-regex/-/ansi-regex-6.2.2.tgz#60216eea464d864597ce2832000738a0589650c1"
-  integrity sha512-Bq3SmSpyFHaWjPk8If9yc6svM8c56dB5BAtW4Qbw5jHTwwXXcTLoRMkpDJp6VL0XzlWaCHTXrkFURMYmD0sLqg==
+  version "6.3.0"
+  resolved "https://registry.yarnpkg.com/ansi-regex/-/ansi-regex-6.3.0.tgz#247c8e7b70a1a43b10ce14c0226fcbf58e8815d5"
+  integrity sha512-WpDfL7NO6j7tH88IDBNVdUJxDh9nmCteAVW9dsep846XdwF4naCBK+/tGLX3KJgcpgMRXCFlTM2hKGoK9FsdrQ==
 
 ansi-styles@^4.0.0, ansi-styles@^4.1.0:
   version "4.3.0"
@@ -2341,10 +2341,10 @@ case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s-cli@^2.207.49:
-  version "2.207.49"
-  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.207.49.tgz#bccfbca240b43d827e9560667eb236bad0c356c3"
-  integrity sha512-f93TllQasEzIB5nzs/ipdjmad9L5Ugo8iXfcMsTO7jKaNr4b4G7w7Af+VoTeVQLX+cJc4bWS8FiNpeaEtEX4yw==
+cdk8s-cli@^2.207.50:
+  version "2.207.50"
+  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.207.50.tgz#5bca82249d1df1461bafc688634e3597c8285c04"
+  integrity sha512-KtPwPat9QZiEX/sbQzJrHtx6iIZuVTEm4RwHpG8vJJDEa66Ova8B0BYf0iMIvtmJCBccaIj9bk94jRd2f0++rw==
   dependencies:
     "@types/node" "^16"
     ajv "^8.20.0"
@@ -3827,9 +3827,9 @@ get-symbol-description@^1.1.0:
     get-intrinsic "^1.2.6"
 
 get-tsconfig@^4.10.0:
-  version "4.14.1"
-  resolved "https://registry.yarnpkg.com/get-tsconfig/-/get-tsconfig-4.14.1.tgz#18173aee7c81897dd4b9eb98bdde499c8649e512"
-  integrity sha512-Dz/6HxkrxgNehhxLVeyv8sad9UzF2xBVeaKBQNDfJ5XiSXmp2gTR0eO0RWiT2NCKS5aGP9jjkOMggTN90qU50A==
+  version "4.14.2"
+  resolved "https://registry.yarnpkg.com/get-tsconfig/-/get-tsconfig-4.14.2.tgz#233fa627fed9ca399996bc895982b3ffe7015352"
+  integrity sha512-XpwZALwwl/BaKTAyC6+c5T8y6kCg2jk+XGqOVrKIQmW49pNypYLMRjCUXqa28tQgJlhS2RlzP7sc+Rx7W6qsfw==
   dependencies:
     resolve-pkg-maps "^1.0.0"
 
