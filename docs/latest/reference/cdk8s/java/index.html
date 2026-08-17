@@ -5193,7 +5193,7 @@ constructs.</p>
 <p>Applies a set of RFC-6902 JSON-Patch operations to the manifest synthesized for this API object.</p>
 <p><em>Example</em></p>
 <div class="highlight"><pre><span></span><code><span class="c1">// Example automatically generated from non-compiling source. May contain errors.</span>
-<span class="n">kubePod</span><span class="p">.</span><span class="na">addJsonPatch</span><span class="p">(</span><span class="n">JsonPatch</span><span class="p">.</span><span class="na">replace</span><span class="p">(</span><span class="s">&quot;/spec/enableServiceLinks&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">));</span>
+<span class="n">kubePod</span><span class="p">.</span><span class="na">addJsonPatch</span><span class="p">(</span><span class="n">JsonPatch</span><span class="p">.</span><span class="na">replace</span><span class="p">(</span><span class="s">"/spec/enableServiceLinks"</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">));</span>
 </code></pre></div>
 <h6 id="opsrequired"><code>ops</code><sup>Required</sup> <a name="ops" id="cdk8s.ApiObject.addJsonPatch.parameter.ops"></a><a class="headerlink" href="#opsrequired" title="Permanent link">&para;</a></h6>
 <ul>
@@ -6093,7 +6093,7 @@ this type-testing method instead.</p>
 <p>This name is passed to <code>helm template</code> and has all the relevant semantics.</p>
 <hr />
 <p><em>Example</em></p>
-<div class="highlight"><pre><span></span><code><span class="s">&quot;bitnami/redis&quot;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="s">"bitnami/redis"</span><span class="p">;</span>
 </code></pre></div>
 <h5 id="helmexecutableoptional"><code>helmExecutable</code><sup>Optional</sup> <a name="helmExecutable" id="cdk8s.Helm.Initializer.parameter.helmExecutable"></a><a class="headerlink" href="#helmexecutableoptional" title="Permanent link">&para;</a></h5>
 <ul>
@@ -6149,7 +6149,7 @@ If this is not specified, the latest version is used</p>
 <p>This name is passed to <code>helm template --version</code> and has all the relevant semantics.</p>
 <hr />
 <p><em>Example</em></p>
-<div class="highlight"><pre><span></span><code><span class="s">&quot;^2.0.0&quot;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="s">"^2.0.0"</span><span class="p">;</span>
 </code></pre></div>
 <h4 id="methods_3">Methods <a name="Methods" id="Methods"></a><a class="headerlink" href="#methods_3" title="Permanent link">&para;</a></h4>
 <table>
@@ -7260,7 +7260,7 @@ a field implies &lsquo;*&rsquo;</p>
 <p>This name is passed to <code>helm template</code> and has all the relevant semantics.</p>
 <hr />
 <p><em>Example</em></p>
-<div class="highlight"><pre><span></span><code><span class="s">&quot;bitnami/redis&quot;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="s">"bitnami/redis"</span><span class="p">;</span>
 </code></pre></div>
 <h5 id="helmexecutableoptional_1"><code>helmExecutable</code><sup>Optional</sup> <a name="helmExecutable" id="cdk8s.HelmProps.property.helmExecutable"></a><a class="headerlink" href="#helmexecutableoptional_1" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="w"> </span><span class="nf">getHelmExecutable</span><span class="p">();</span>
@@ -7330,7 +7330,7 @@ If this is not specified, the latest version is used</p>
 <p>This name is passed to <code>helm template --version</code> and has all the relevant semantics.</p>
 <hr />
 <p><em>Example</em></p>
-<div class="highlight"><pre><span></span><code><span class="s">&quot;^2.0.0&quot;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="s">"^2.0.0"</span><span class="p">;</span>
 </code></pre></div>
 <h3 id="includeprops">IncludeProps <a name="IncludeProps" id="cdk8s.IncludeProps"></a><a class="headerlink" href="#includeprops" title="Permanent link">&para;</a></h3>
 <h4 id="initializer_8">Initializer <a name="Initializer" id="cdk8s.IncludeProps.Initializer"></a><a class="headerlink" href="#initializer_8" title="Permanent link">&para;</a></h4>
@@ -8656,7 +8656,7 @@ operations to a JSON document and return the result.</p>
 <code>JsonPatch.remove()</code>, etc.</p>
 <p><em>Example</em></p>
 <div class="highlight"><pre><span></span><code><span class="c1">// Example automatically generated from non-compiling source. May contain errors.</span>
-<span class="n">Object</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JsonPatch</span><span class="p">.</span><span class="na">apply</span><span class="p">(</span><span class="n">input</span><span class="p">,</span><span class="w"> </span><span class="n">JsonPatch</span><span class="p">.</span><span class="na">replace</span><span class="p">(</span><span class="s">&quot;/world/hi/there&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;goodbye&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">JsonPatch</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;/world/foo/&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;boom&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">JsonPatch</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="s">&quot;/hello&quot;</span><span class="p">));</span>
+<span class="n">Object</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JsonPatch</span><span class="p">.</span><span class="na">apply</span><span class="p">(</span><span class="n">input</span><span class="p">,</span><span class="w"> </span><span class="n">JsonPatch</span><span class="p">.</span><span class="na">replace</span><span class="p">(</span><span class="s">"/world/hi/there"</span><span class="p">,</span><span class="w"> </span><span class="s">"goodbye"</span><span class="p">),</span><span class="w"> </span><span class="n">JsonPatch</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"/world/foo/"</span><span class="p">,</span><span class="w"> </span><span class="s">"boom"</span><span class="p">),</span><span class="w"> </span><span class="n">JsonPatch</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="s">"/hello"</span><span class="p">));</span>
 </code></pre></div>
 <h4 id="static-functions_7">Static Functions <a name="Static Functions" id="Static Functions"></a><a class="headerlink" href="#static-functions_7" title="Permanent link">&para;</a></h4>
 <table>
@@ -8709,7 +8709,7 @@ array, the value is inserted before the given index. The - character can be
 used instead of an index to insert at the end of an array.</p>
 <p><em>Example</em></p>
 <div class="highlight"><pre><span></span><code><span class="c1">// Example automatically generated from non-compiling source. May contain errors.</span>
-<span class="n">JsonPatch</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;/biscuits/1&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Map</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Ginger Nut&quot;</span><span class="p">));</span>
+<span class="n">JsonPatch</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"/biscuits/1"</span><span class="p">,</span><span class="w"> </span><span class="n">Map</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">"name"</span><span class="p">,</span><span class="w"> </span><span class="s">"Ginger Nut"</span><span class="p">));</span>
 </code></pre></div>
 <h6 id="pathrequired"><code>path</code><sup>Required</sup> <a name="path" id="cdk8s.JsonPatch.add.parameter.path"></a><a class="headerlink" href="#pathrequired" title="Permanent link">&para;</a></h6>
 <ul>
@@ -8749,7 +8749,7 @@ used instead of an index to insert at the end of an array.</p>
 from and path are JSON Pointers.</p>
 <p><em>Example</em></p>
 <div class="highlight"><pre><span></span><code><span class="c1">// Example automatically generated from non-compiling source. May contain errors.</span>
-<span class="n">JsonPatch</span><span class="p">.</span><span class="na">copy</span><span class="p">(</span><span class="s">&quot;/biscuits/0&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/best_biscuit&quot;</span><span class="p">);</span>
+<span class="n">JsonPatch</span><span class="p">.</span><span class="na">copy</span><span class="p">(</span><span class="s">"/biscuits/0"</span><span class="p">,</span><span class="w"> </span><span class="s">"/best_biscuit"</span><span class="p">);</span>
 </code></pre></div>
 <h6 id="fromrequired"><code>from</code><sup>Required</sup> <a name="from" id="cdk8s.JsonPatch.copy.parameter.from"></a><a class="headerlink" href="#fromrequired" title="Permanent link">&para;</a></h6>
 <ul>
@@ -8770,7 +8770,7 @@ from and path are JSON Pointers.</p>
 <p>Both from and path are JSON Pointers.</p>
 <p><em>Example</em></p>
 <div class="highlight"><pre><span></span><code><span class="c1">// Example automatically generated from non-compiling source. May contain errors.</span>
-<span class="n">JsonPatch</span><span class="p">.</span><span class="na">move</span><span class="p">(</span><span class="s">&quot;/biscuits&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/cookies&quot;</span><span class="p">);</span>
+<span class="n">JsonPatch</span><span class="p">.</span><span class="na">move</span><span class="p">(</span><span class="s">"/biscuits"</span><span class="p">,</span><span class="w"> </span><span class="s">"/cookies"</span><span class="p">);</span>
 </code></pre></div>
 <h6 id="fromrequired_1"><code>from</code><sup>Required</sup> <a name="from" id="cdk8s.JsonPatch.move.parameter.from"></a><a class="headerlink" href="#fromrequired_1" title="Permanent link">&para;</a></h6>
 <ul>
@@ -8790,7 +8790,7 @@ from and path are JSON Pointers.</p>
 <p>Removes a value from an object or array.</p>
 <p><em>Example</em></p>
 <div class="highlight"><pre><span></span><code><span class="c1">// Example automatically generated from non-compiling source. May contain errors.</span>
-<span class="n">JsonPatch</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="s">&quot;/biscuits/0&quot;</span><span class="p">);</span>
+<span class="n">JsonPatch</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="s">"/biscuits/0"</span><span class="p">);</span>
 </code></pre></div>
 <h6 id="pathrequired_3"><code>path</code><sup>Required</sup> <a name="path" id="cdk8s.JsonPatch.remove.parameter.path"></a><a class="headerlink" href="#pathrequired_3" title="Permanent link">&para;</a></h6>
 <ul>
@@ -8806,7 +8806,7 @@ from and path are JSON Pointers.</p>
 <p>Equivalent to a “remove” followed by an “add”.</p>
 <p><em>Example</em></p>
 <div class="highlight"><pre><span></span><code><span class="c1">// Example automatically generated from non-compiling source. May contain errors.</span>
-<span class="n">JsonPatch</span><span class="p">.</span><span class="na">replace</span><span class="p">(</span><span class="s">&quot;/biscuits/0/name&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Chocolate Digestive&quot;</span><span class="p">);</span>
+<span class="n">JsonPatch</span><span class="p">.</span><span class="na">replace</span><span class="p">(</span><span class="s">"/biscuits/0/name"</span><span class="p">,</span><span class="w"> </span><span class="s">"Chocolate Digestive"</span><span class="p">);</span>
 </code></pre></div>
 <h6 id="pathrequired_4"><code>path</code><sup>Required</sup> <a name="path" id="cdk8s.JsonPatch.replace.parameter.path"></a><a class="headerlink" href="#pathrequired_4" title="Permanent link">&para;</a></h6>
 <ul>
@@ -8828,7 +8828,7 @@ from and path are JSON Pointers.</p>
 then the patch as a whole should not apply.</p>
 <p><em>Example</em></p>
 <div class="highlight"><pre><span></span><code><span class="c1">// Example automatically generated from non-compiling source. May contain errors.</span>
-<span class="n">JsonPatch</span><span class="p">.</span><span class="na">test</span><span class="p">(</span><span class="s">&quot;/best_biscuit/name&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Choco Leibniz&quot;</span><span class="p">);</span>
+<span class="n">JsonPatch</span><span class="p">.</span><span class="na">test</span><span class="p">(</span><span class="s">"/best_biscuit/name"</span><span class="p">,</span><span class="w"> </span><span class="s">"Choco Leibniz"</span><span class="p">);</span>
 </code></pre></div>
 <h6 id="pathrequired_5"><code>path</code><sup>Required</sup> <a name="path" id="cdk8s.JsonPatch.test.parameter.path"></a><a class="headerlink" href="#pathrequired_5" title="Permanent link">&para;</a></h6>
 <ul>

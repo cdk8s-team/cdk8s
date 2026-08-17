@@ -4238,10 +4238,10 @@ Things like file extensions, how API objects are distributed between files, and 
 be configured in your <a href="https://github.com/cdk8s-team/cdk8s-core/blob/2.x/docs/typescript.md#appprops-"><code>AppProps</code></a></p>
 <p>For example:</p>
 <div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">App</span><span class="p">({</span>
-<span class="w">  </span><span class="c1">// Instead of the default &quot;dist&quot;</span>
-<span class="w">  </span><span class="nx">outdir</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;output&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="c1">// Instead of &quot;.k8s.yaml&quot;</span>
-<span class="w">  </span><span class="nx">outputFileExtension</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;.generated.yaml&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="c1">// Instead of the default "dist"</span>
+<span class="w">  </span><span class="nx">outdir</span><span class="o">:</span><span class="w"> </span><span class="s2">"output"</span><span class="p">,</span>
+<span class="w">  </span><span class="c1">// Instead of ".k8s.yaml"</span>
+<span class="w">  </span><span class="nx">outputFileExtension</span><span class="o">:</span><span class="w"> </span><span class="s2">".generated.yaml"</span><span class="p">,</span>
 <span class="w">  </span><span class="c1">// Divide every resource into its own file, instead of grouping by Chart</span>
 <span class="w">  </span><span class="nx">yamlOutputType</span><span class="o">:</span><span class="w"> </span><span class="kt">YamlOutputType.FILE_PER_RESOURCE</span><span class="p">,</span>
 <span class="p">});</span>
@@ -4252,7 +4252,7 @@ plugins. To do so, use the <code>validations</code> property in the <code>cdk8s.
 <div class="highlight"><pre><span></span><code><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">typescript</span>
 <span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ts-node main.ts</span>
 <span class="nt">validations</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">package</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;@datreeio/datree-cdk8s&#39;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">package</span><span class="p">:</span><span class="w"> </span><span class="s">'@datreeio/datree-cdk8s'</span>
 <span class="w">    </span><span class="nt">class</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DatreeValidation</span>
 <span class="w">    </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.3.4</span>
 </code></pre></div>
@@ -4293,7 +4293,7 @@ synthesis, and produce a violation report. For example:</p>
 <span class="go">    - Locations:</span>
 <span class="go">      &gt; spec/template/spec/containers/0/image (line: 112:18)</span>
 
-<span class="go">  Recommendation: Incorrect value for key `image` - specify an image version to avoid unpleasant &quot;version surprises&quot; in the future</span>
+<span class="go">  Recommendation: Incorrect value for key `image` - specify an image version to avoid unpleasant "version surprises" in the future</span>
 <span class="go">  How to fix: https://hub.datree.io/ensure-image-pinned-version</span>
 
 <span class="go">Validation failed. See above reports for details</span>

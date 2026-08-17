@@ -4372,9 +4372,9 @@
 <div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="p">(</span>
-<span class="w">    </span><span class="s">&quot;github.com/aws/constructs-go/constructs/v10&quot;</span>
-<span class="w">    </span><span class="s">&quot;github.com/aws/jsii-runtime-go&quot;</span>
-<span class="w">    </span><span class="s">&quot;github.com/cdk8s-team/cdk8s-core-go/cdk8s/v2&quot;</span>
+<span class="w">    </span><span class="s">"github.com/aws/constructs-go/constructs/v10"</span>
+<span class="w">    </span><span class="s">"github.com/aws/jsii-runtime-go"</span>
+<span class="w">    </span><span class="s">"github.com/cdk8s-team/cdk8s-core-go/cdk8s/v2"</span>
 <span class="p">)</span>
 
 <span class="kd">type</span><span class="w"> </span><span class="nx">MyChartProps</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
@@ -4384,7 +4384,7 @@
 <span class="kd">func</span><span class="w"> </span><span class="nx">NewMyChart</span><span class="p">(</span><span class="nx">scope</span><span class="w"> </span><span class="nx">constructs</span><span class="p">.</span><span class="nx">Construct</span><span class="p">,</span><span class="w"> </span><span class="nx">id</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">props</span><span class="w"> </span><span class="o">*</span><span class="nx">MyChartProps</span><span class="p">)</span><span class="w"> </span><span class="nx">cdk8s</span><span class="p">.</span><span class="nx">Chart</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">cprops</span><span class="w"> </span><span class="nx">cdk8s</span><span class="p">.</span><span class="nx">ChartProps</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">props</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nx">cprops</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">props</span><span class="p">.</span><span class="nx">ChartProps</span>
+<span class="w">        </span><span class="nx">cprops</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">props</span><span class="p">.</span><span class="nx">ChartProps</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="nx">chart</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">cdk8s</span><span class="p">.</span><span class="nx">NewChart</span><span class="p">(</span><span class="nx">scope</span><span class="p">,</span><span class="w"> </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="nx">id</span><span class="p">),</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">cprops</span><span class="p">)</span>
 
@@ -4395,7 +4395,7 @@
 
 <span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nx">app</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">cdk8s</span><span class="p">.</span><span class="nx">NewApp</span><span class="p">(</span><span class="kc">nil</span><span class="p">)</span>
-<span class="w">    </span><span class="nx">NewMyChart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;cdk8s-golang&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">nil</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">NewMyChart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="s">"cdk8s-golang"</span><span class="p">,</span><span class="w"> </span><span class="kc">nil</span><span class="p">)</span>
 <span class="w">    </span><span class="nx">app</span><span class="p">.</span><span class="nx">Synth</span><span class="p">()</span>
 <span class="p">}</span>
 </code></pre></div></p>
@@ -4417,10 +4417,10 @@
 <div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="p">(</span>
-<span class="w">    </span><span class="s">&quot;example.com/cdk8s-golang/imports/k8s&quot;</span>
-<span class="w">    </span><span class="s">&quot;github.com/aws/constructs-go/constructs/v10&quot;</span>
-<span class="w">    </span><span class="s">&quot;github.com/aws/jsii-runtime-go&quot;</span>
-<span class="w">    </span><span class="s">&quot;github.com/cdk8s-team/cdk8s-core-go/cdk8s/v2&quot;</span>
+<span class="w">    </span><span class="s">"example.com/cdk8s-golang/imports/k8s"</span>
+<span class="w">    </span><span class="s">"github.com/aws/constructs-go/constructs/v10"</span>
+<span class="w">    </span><span class="s">"github.com/aws/jsii-runtime-go"</span>
+<span class="w">    </span><span class="s">"github.com/cdk8s-team/cdk8s-core-go/cdk8s/v2"</span>
 <span class="p">)</span>
 
 <span class="kd">func</span><span class="w"> </span><span class="nx">NewChart</span><span class="p">(</span><span class="nx">scope</span><span class="w"> </span><span class="nx">constructs</span><span class="p">.</span><span class="nx">Construct</span><span class="p">,</span><span class="w"> </span><span class="nx">id</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">ns</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">appLabel</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="nx">cdk8s</span><span class="p">.</span><span class="nx">Chart</span><span class="w"> </span><span class="p">{</span>
@@ -4429,11 +4429,11 @@
 <span class="w">        </span><span class="nx">Namespace</span><span class="p">:</span><span class="w"> </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="nx">ns</span><span class="p">),</span>
 <span class="w">    </span><span class="p">})</span>
 
-<span class="w">    </span><span class="nx">labels</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="o">*</span><span class="kt">string</span><span class="p">{</span>
-<span class="w">        </span><span class="s">&quot;app&quot;</span><span class="p">:</span><span class="w"> </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="nx">appLabel</span><span class="p">),</span>
+<span class="w">    </span><span class="nx">labels</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="kt">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="o">*</span><span class="kt">string</span><span class="p">{</span>
+<span class="w">        </span><span class="s">"app"</span><span class="p">:</span><span class="w"> </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="nx">appLabel</span><span class="p">),</span>
 <span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="nx">k8s</span><span class="p">.</span><span class="nx">NewKubeDeployment</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;deployment&quot;</span><span class="p">),</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">k8s</span><span class="p">.</span><span class="nx">KubeDeploymentProps</span><span class="p">{</span>
+<span class="w">    </span><span class="nx">k8s</span><span class="p">.</span><span class="nx">NewKubeDeployment</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">"deployment"</span><span class="p">),</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">k8s</span><span class="p">.</span><span class="nx">KubeDeploymentProps</span><span class="p">{</span>
 <span class="w">        </span><span class="nx">Spec</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">k8s</span><span class="p">.</span><span class="nx">DeploymentSpec</span><span class="p">{</span>
 <span class="w">            </span><span class="nx">Replicas</span><span class="p">:</span><span class="w"> </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">Number</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>
 <span class="w">            </span><span class="nx">Selector</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">k8s</span><span class="p">.</span><span class="nx">LabelSelector</span><span class="p">{</span>
@@ -4445,8 +4445,8 @@
 <span class="w">                </span><span class="p">},</span>
 <span class="w">                </span><span class="nx">Spec</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">k8s</span><span class="p">.</span><span class="nx">PodSpec</span><span class="p">{</span>
 <span class="w">                    </span><span class="nx">Containers</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="p">[]</span><span class="o">*</span><span class="nx">k8s</span><span class="p">.</span><span class="nx">Container</span><span class="p">{{</span>
-<span class="w">                        </span><span class="nx">Name</span><span class="p">:</span><span class="w">  </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;app-container&quot;</span><span class="p">),</span>
-<span class="w">                        </span><span class="nx">Image</span><span class="p">:</span><span class="w"> </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;nginx:1.19.10&quot;</span><span class="p">),</span>
+<span class="w">                        </span><span class="nx">Name</span><span class="p">:</span><span class="w">  </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">"app-container"</span><span class="p">),</span>
+<span class="w">                        </span><span class="nx">Image</span><span class="p">:</span><span class="w"> </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">"nginx:1.19.10"</span><span class="p">),</span>
 <span class="w">                        </span><span class="nx">Ports</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="p">[]</span><span class="o">*</span><span class="nx">k8s</span><span class="p">.</span><span class="nx">ContainerPort</span><span class="p">{{</span>
 <span class="w">                            </span><span class="nx">ContainerPort</span><span class="p">:</span><span class="w"> </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">Number</span><span class="p">(</span><span class="mi">80</span><span class="p">),</span>
 <span class="w">                        </span><span class="p">}},</span>
@@ -4462,7 +4462,7 @@
 <span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nx">app</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">cdk8s</span><span class="p">.</span><span class="nx">NewApp</span><span class="p">(</span><span class="kc">nil</span><span class="p">)</span>
 
-<span class="w">    </span><span class="nx">NewChart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;getting-started&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;default&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;my-app&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">NewChart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="s">"getting-started"</span><span class="p">,</span><span class="w"> </span><span class="s">"default"</span><span class="p">,</span><span class="w"> </span><span class="s">"my-app"</span><span class="p">)</span>
 
 <span class="w">    </span><span class="nx">app</span><span class="p">.</span><span class="nx">Synth</span><span class="p">()</span>
 <span class="p">}</span>

@@ -4177,34 +4177,34 @@ possible they have been removed.</p>
 Kubernetes, but you might encounter some unsupported spec properties or invalid
 manifests.</p>
 <h2 id="at-a-glance">At a glance<a class="headerlink" href="#at-a-glance" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-34&#39;</span><span class="p">;</span>
-<span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">cdk8s</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span>
-<span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">path</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;path&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'cdk8s-plus-34'</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">cdk8s</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'cdk8s'</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">path</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'path'</span><span class="p">;</span>
 
 <span class="c1">// our cdk app</span>
 <span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">cdk8s</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span>
 
 <span class="c1">// our kubernetes chart</span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">chart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">cdk8s</span><span class="p">.</span><span class="nx">Chart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;my-chart&#39;</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">chart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">cdk8s</span><span class="p">.</span><span class="nx">Chart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="s1">'my-chart'</span><span class="p">);</span>
 
 <span class="c1">// lets create a volume that contains our app.</span>
 <span class="c1">// we use a trick with a config map!</span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">appData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">ConfigMap</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;AppData&#39;</span><span class="p">);</span>
-<span class="nx">appData</span><span class="p">.</span><span class="nx">addDirectory</span><span class="p">(</span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;app&#39;</span><span class="p">));</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">appData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">ConfigMap</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">'AppData'</span><span class="p">);</span>
+<span class="nx">appData</span><span class="p">.</span><span class="nx">addDirectory</span><span class="p">(</span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span><span class="w"> </span><span class="s1">'app'</span><span class="p">));</span>
 
 <span class="kd">const</span><span class="w"> </span><span class="nx">appVolume</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Volume</span><span class="p">.</span><span class="nx">fromConfigMap</span><span class="p">(</span><span class="nx">appData</span><span class="p">);</span>
 
 <span class="c1">// lets create a deployment to run a few instances of a pod</span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">deployment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Deployment</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Deployment&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">deployment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Deployment</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">'Deployment'</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="nx">replicas</span><span class="o">:</span><span class="w"> </span><span class="kt">3</span><span class="p">,</span>
 <span class="p">});</span>
 
 <span class="c1">// now we create a container that runs our app</span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">appPath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;/var/lib/app&#39;</span><span class="p">;</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">appPath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'/var/lib/app'</span><span class="p">;</span>
 <span class="kd">const</span><span class="w"> </span><span class="nx">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">80</span><span class="p">;</span>
 <span class="kd">const</span><span class="w"> </span><span class="nx">container</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">deployment</span><span class="p">.</span><span class="nx">addContainer</span><span class="p">({</span>
-<span class="w">  </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;node:14.4.0-alpine3.12&#39;</span><span class="p">,</span>
-<span class="w">  </span><span class="nx">command</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;node&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;index.js&#39;</span><span class="p">,</span><span class="w"> </span><span class="sb">`</span><span class="si">${</span><span class="nx">port</span><span class="si">}</span><span class="sb">`</span><span class="p">],</span>
+<span class="w">  </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="s1">'node:14.4.0-alpine3.12'</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">command</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">'node'</span><span class="p">,</span><span class="w"> </span><span class="s1">'index.js'</span><span class="p">,</span><span class="w"> </span><span class="sb">`</span><span class="si">${</span><span class="nx">port</span><span class="si">}</span><span class="sb">`</span><span class="p">],</span>
 <span class="w">  </span><span class="nx">port</span><span class="o">:</span><span class="w"> </span><span class="kt">port</span><span class="p">,</span>
 <span class="w">  </span><span class="nx">workingDir</span><span class="o">:</span><span class="w"> </span><span class="kt">appPath</span><span class="p">,</span>
 <span class="p">});</span>
@@ -4223,13 +4223,13 @@ manifests.</p>
 <div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
 <span class="nt">data</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">index.js</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|-</span>
-<span class="w">    </span><span class="no">var http = require(&#39;http&#39;);</span>
+<span class="w">    </span><span class="no">var http = require('http');</span>
 
 <span class="w">    </span><span class="no">var port = process.argv[2];</span>
 
 <span class="w">    </span><span class="no">//create a server object:</span>
 <span class="w">    </span><span class="no">http.createServer(function (req, res) {</span>
-<span class="w">      </span><span class="no">res.write(&#39;Hello World!&#39;); //write a response to the client</span>
+<span class="w">      </span><span class="no">res.write('Hello World!'); //write a response to the client</span>
 <span class="w">      </span><span class="no">res.end(); //end the response</span>
 <span class="w">    </span><span class="no">}).listen(port); //the server object listens on port 80</span>
 <span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ConfigMap</span>
@@ -4259,7 +4259,7 @@ manifests.</p>
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">command</span><span class="p">:</span>
 <span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node</span>
 <span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">index.js</span>
-<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;80&quot;</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"80"</span>
 <span class="w">          </span><span class="nt">env</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span>
 <span class="w">          </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node:14.4.0-alpine3.12</span>
 <span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span>
@@ -4295,16 +4295,16 @@ manifests.</p>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><code>❯ npm install cdk8s-plus-34 cdk8s constructs</code></p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-34&#39;</span><span class="p">;</span>
-<span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">cdk8s</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'cdk8s-plus-34'</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">cdk8s</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'cdk8s'</span><span class="p">;</span>
 
 <span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">cdk8s</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">chart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">cdk8s</span><span class="p">.</span><span class="nx">Chart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Chart&#39;</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">chart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">cdk8s</span><span class="p">.</span><span class="nx">Chart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="s1">'Chart'</span><span class="p">);</span>
 
-<span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Deployment</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Deployment&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Deployment</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">'Deployment'</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="nx">replicas</span><span class="o">:</span><span class="w"> </span><span class="kt">3</span><span class="p">,</span>
 <span class="w">  </span><span class="nx">containers</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span>
-<span class="w">    </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;ubuntu&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="s1">'ubuntu'</span><span class="p">,</span>
 <span class="w">  </span><span class="p">}],</span>
 <span class="p">});</span>
 
@@ -4313,16 +4313,16 @@ manifests.</p>
 </div>
 <div class="tabbed-block">
 <p><code>❯ npm install cdk8s-plus-34 cdk8s constructs</code></p>
-<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;cdk8s-plus-34&#39;</span><span class="p">);</span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">cdk8s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;cdk8s&#39;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">'cdk8s-plus-34'</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">cdk8s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">'cdk8s'</span><span class="p">);</span>
 
 <span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">cdk8s</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">chart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">cdk8s</span><span class="p">.</span><span class="nx">Chart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Chart&#39;</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">chart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">cdk8s</span><span class="p">.</span><span class="nx">Chart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="s1">'Chart'</span><span class="p">);</span>
 
-<span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Deployment</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Deployment&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Deployment</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">'Deployment'</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="nx">replicas</span><span class="o">:</span><span class="w"> </span><span class="kt">3</span><span class="p">,</span>
 <span class="w">  </span><span class="nx">containers</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span>
-<span class="w">    </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;ubuntu&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="s1">'ubuntu'</span><span class="p">,</span>
 <span class="w">  </span><span class="p">}],</span>
 <span class="p">});</span>
 
@@ -4335,11 +4335,11 @@ manifests.</p>
 <span class="kn">import</span><span class="w"> </span><span class="nn">cdk8s</span>
 
 <span class="n">app</span> <span class="o">=</span> <span class="n">cdk8s</span><span class="o">.</span><span class="n">App</span><span class="p">()</span>
-<span class="n">chart</span> <span class="o">=</span> <span class="n">cdk8s</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="s1">&#39;Chart&#39;</span><span class="p">)</span>
+<span class="n">chart</span> <span class="o">=</span> <span class="n">cdk8s</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="s1">'Chart'</span><span class="p">)</span>
 
-<span class="n">kplus</span><span class="o">.</span><span class="n">Deployment</span><span class="p">(</span><span class="n">chart</span><span class="p">,</span> <span class="s1">&#39;Deployment&#39;</span><span class="p">,</span>
+<span class="n">kplus</span><span class="o">.</span><span class="n">Deployment</span><span class="p">(</span><span class="n">chart</span><span class="p">,</span> <span class="s1">'Deployment'</span><span class="p">,</span>
   <span class="n">replicas</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-  <span class="n">containers</span><span class="o">=</span><span class="p">[</span><span class="n">kplus</span><span class="o">.</span><span class="n">ContainerProps</span><span class="p">(</span><span class="n">image</span><span class="o">=</span><span class="s1">&#39;ubuntu&#39;</span><span class="p">)]</span>
+  <span class="n">containers</span><span class="o">=</span><span class="p">[</span><span class="n">kplus</span><span class="o">.</span><span class="n">ContainerProps</span><span class="p">(</span><span class="n">image</span><span class="o">=</span><span class="s1">'ubuntu'</span><span class="p">)]</span>
 <span class="p">)</span>
 
 <span class="n">app</span><span class="o">.</span><span class="n">synth</span><span class="p">()</span>
@@ -4379,17 +4379,17 @@ manifests.</p>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Main</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">Construct</span><span class="w"> </span><span class="n">scope</span><span class="p">,</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">ChartProps</span><span class="w"> </span><span class="n">options</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="kd">super</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">options</span><span class="p">);</span>
 
-<span class="w">        </span><span class="n">Deployment</span><span class="p">.</span><span class="na">Builder</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Deployment&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Deployment</span><span class="p">.</span><span class="na">Builder</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s">"Deployment"</span><span class="p">)</span>
 <span class="w">          </span><span class="p">.</span><span class="na">replicas</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <span class="w">          </span><span class="p">.</span><span class="na">containers</span><span class="p">(</span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="n">ContainerProps</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
-<span class="w">            </span><span class="p">.</span><span class="na">image</span><span class="p">(</span><span class="s">&quot;ubuntu&quot;</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">image</span><span class="p">(</span><span class="s">"ubuntu"</span><span class="p">)</span>
 <span class="w">            </span><span class="p">.</span><span class="na">build</span><span class="p">()))</span>
 <span class="w">          </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">App</span><span class="w"> </span><span class="n">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">App</span><span class="p">();</span>
-<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">Chart</span><span class="w"> </span><span class="n">chart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Main</span><span class="p">(</span><span class="n">app</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Chart&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">Chart</span><span class="w"> </span><span class="n">chart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Main</span><span class="p">(</span><span class="n">app</span><span class="p">,</span><span class="w"> </span><span class="s">"Chart"</span><span class="p">);</span>
 <span class="w">        </span><span class="n">app</span><span class="p">.</span><span class="na">synth</span><span class="p">();</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
@@ -4397,19 +4397,19 @@ manifests.</p>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="p">(</span>
-<span class="w">  </span><span class="s">&quot;github.com/aws/constructs-go/constructs/v10&quot;</span>
-<span class="w">  </span><span class="s">&quot;github.com/aws/jsii-runtime-go&quot;</span>
-<span class="w">  </span><span class="s">&quot;github.com/cdk8s-team/cdk8s-core-go/cdk8s/v2&quot;</span>
-<span class="w">  </span><span class="s">&quot;github.com/cdk8s-team/cdk8s-plus-go/cdk8splus34&quot;</span>
+<span class="w">  </span><span class="s">"github.com/aws/constructs-go/constructs/v10"</span>
+<span class="w">  </span><span class="s">"github.com/aws/jsii-runtime-go"</span>
+<span class="w">  </span><span class="s">"github.com/cdk8s-team/cdk8s-core-go/cdk8s/v2"</span>
+<span class="w">  </span><span class="s">"github.com/cdk8s-team/cdk8s-plus-go/cdk8splus34"</span>
 <span class="p">)</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="nx">app</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">cdk8s</span><span class="p">.</span><span class="nx">NewApp</span><span class="p">(</span><span class="kc">nil</span><span class="p">)</span>
-<span class="nx">chart</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">cdk8s</span><span class="p">.</span><span class="nx">NewChart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;ubuntu&quot;</span><span class="p">),</span><span class="w"> </span><span class="kc">nil</span><span class="p">)</span>
+<span class="nx">chart</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">cdk8s</span><span class="p">.</span><span class="nx">NewChart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">"ubuntu"</span><span class="p">),</span><span class="w"> </span><span class="kc">nil</span><span class="p">)</span>
 
-<span class="nx">cdk8splus34</span><span class="p">.</span><span class="nx">NewDeployment</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;Deployment&quot;</span><span class="p">),</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">cdk8splus34</span><span class="p">.</span><span class="nx">DeploymentProps</span><span class="p">{</span>
+<span class="nx">cdk8splus34</span><span class="p">.</span><span class="nx">NewDeployment</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">"Deployment"</span><span class="p">),</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">cdk8splus34</span><span class="p">.</span><span class="nx">DeploymentProps</span><span class="p">{</span>
 <span class="w">  </span><span class="nx">Replicas</span><span class="p">:</span><span class="w"> </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">Number</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>
 <span class="w">  </span><span class="nx">Containers</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="p">[]</span><span class="o">*</span><span class="nx">cdk8splus34</span><span class="p">.</span><span class="nx">ContainerProps</span><span class="p">{{</span>
-<span class="w">    </span><span class="nx">Image</span><span class="p">:</span><span class="w"> </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;ubuntu&quot;</span><span class="p">),</span>
+<span class="w">    </span><span class="nx">Image</span><span class="p">:</span><span class="w"> </span><span class="nx">jsii</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">"ubuntu"</span><span class="p">),</span>
 <span class="w">  </span><span class="p">}},</span>
 <span class="p">})</span>
 
@@ -4426,25 +4426,25 @@ something but the API doesn&rsquo;t expose it. There are two kinds of gaps:</p>
 <p>When an entire resource is missing, you can supplement it by dropping to the L1 layer of constructs,
 which are available from within <strong>cdk8s+</strong>, so you don&rsquo;t need to install an additional library,
 or <a href="https://cdk8s.io/docs/latest/cli/import/">import</a> any resources. For example:</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s-plus-34&#39;</span><span class="p">;</span>
-<span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">cdk8s</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cdk8s&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">kplus</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'cdk8s-plus-34'</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">cdk8s</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'cdk8s'</span><span class="p">;</span>
 
 <span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">cdk8s</span><span class="p">.</span><span class="nx">App</span><span class="p">();</span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">chart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">cdk8s</span><span class="p">.</span><span class="nx">Chart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Chart&#39;</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">chart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">cdk8s</span><span class="p">.</span><span class="nx">Chart</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="s1">'Chart'</span><span class="p">);</span>
 
 <span class="c1">// a Deployment exists as a higher level objects,</span>
 <span class="c1">// so we use it.</span>
-<span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Deployment</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Deployment&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">Deployment</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">'Deployment'</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="nx">replicas</span><span class="o">:</span><span class="w"> </span><span class="kt">3</span><span class="p">,</span>
 <span class="w">  </span><span class="nx">containers</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span>
-<span class="w">    </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;ubuntu&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="s1">'ubuntu'</span><span class="p">,</span>
 <span class="w">  </span><span class="p">}],</span>
 <span class="p">});</span>
 
-<span class="c1">// a StorageClass doesn&#39;t, so we use the low level objects.</span>
-<span class="c1">// notice the &#39;.k8s.&#39; addition.</span>
-<span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">k8s</span><span class="p">.</span><span class="nx">KubeStorageClass</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;StorageClass&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">provisioner</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;kubernetes.io/aws-ebs&#39;</span>
+<span class="c1">// a StorageClass doesn't, so we use the low level objects.</span>
+<span class="c1">// notice the '.k8s.' addition.</span>
+<span class="ow">new</span><span class="w"> </span><span class="nx">kplus</span><span class="p">.</span><span class="nx">k8s</span><span class="p">.</span><span class="nx">KubeStorageClass</span><span class="p">(</span><span class="nx">chart</span><span class="p">,</span><span class="w"> </span><span class="s1">'StorageClass'</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">provisioner</span><span class="o">:</span><span class="w"> </span><span class="s1">'kubernetes.io/aws-ebs'</span>
 <span class="p">});</span>
 
 <span class="nx">app</span><span class="p">.</span><span class="nx">synth</span><span class="p">();</span>
