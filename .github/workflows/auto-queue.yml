@@ -15,9 +15,9 @@ jobs:
       pull-requests: write
       contents: write
     steps:
-      - id: auto_edce8315
-        uses: peter-evans/enable-pull-request-automerge@v3
-        with:
-          token: ${{ secrets.PROJEN_GITHUB_TOKEN }}
-          pull-request-number: ${{ github.event.number }}
-          merge-method: squash
+      - id: auto-queue-pr
+        env:
+          GH_TOKEN: ${{ secrets.PROJEN_GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.number }}
+        run: gh pr merge --auto --squash "$PR_NUMBER" --repo "$GH_REPO"
