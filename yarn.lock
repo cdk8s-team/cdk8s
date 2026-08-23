@@ -2140,9 +2140,9 @@ base64-js@^1.3.1:
   integrity sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==
 
 baseline-browser-mapping@^2.11.12:
-  version "2.11.17"
-  resolved "https://registry.yarnpkg.com/baseline-browser-mapping/-/baseline-browser-mapping-2.11.17.tgz#a168205490077c5d7c542f1610016af4ade8f875"
-  integrity sha512-KAUDn1OSS0fmPlGO+NOUMRcOQ/b/shUBH3OgkG73mPgdf+JD/BQ6fHboGxNOxnUmlwcq+lLq3dTkayRPuSfXwg==
+  version "2.11.18"
+  resolved "https://registry.yarnpkg.com/baseline-browser-mapping/-/baseline-browser-mapping-2.11.18.tgz#49701f6ab6c58ccafb6d8e1ab2767574d9f0ba73"
+  integrity sha512-1iEmLEYSiE1SeBoAfPo/Mnx3PzfzHUkDK61ASkCpuk3YXugYLH5DYK1SzqV55F8FMI6s0F+/tCP7Polz1QRjxw==
 
 before-after-hook@^2.2.0:
   version "2.2.3"
@@ -2341,14 +2341,14 @@ case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s-cli@^2.207.54:
-  version "2.207.54"
-  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.207.54.tgz#ba063fbc7d3c087c2852d008f184c46b10cafe3c"
-  integrity sha512-/30U5M90v7jR0e3zGyuehZTf0O3ZRHsmlYbmfWC1QD996WYPfaz3R+JWp2PlBaiLpXVorC8lShJzQBxmJlcsQg==
+cdk8s-cli@^2.207.55:
+  version "2.207.55"
+  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.207.55.tgz#274929fb03557d0216864bee2653b4b31bd966b3"
+  integrity sha512-m3k8raGWRan7ZxYKt02+FZU1KzOGaGQ5pMIOY7gkPSg9E25LJH8QJKYpeEwfyWI3M6S17m6rvfyVrynghlZXWA==
   dependencies:
     "@types/node" "^16"
     ajv "^8.20.0"
-    cdk8s "^2.70.93"
+    cdk8s "^2.70.94"
     cdk8s-plus-33 "^2.5.49"
     codemaker "^1.139.0"
     colors "1.4.0"
@@ -2385,10 +2385,10 @@ cdk8s-plus-34@^2.0.50:
   dependencies:
     minimatch "^9.0.9"
 
-cdk8s@^2.70.93:
-  version "2.70.93"
-  resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-2.70.93.tgz#cfab62e132428418a1406772d90c92b91db6069b"
-  integrity sha512-MKla1n0DkrvxANYizpsC7FoylpGv2W5dn2SMsfKFkCVBm3QTQd9QyWnRS5ldsv+C6fj5mbeID/i/D/aYzeRJpA==
+cdk8s@^2.70.94:
+  version "2.70.94"
+  resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-2.70.94.tgz#fb65cc9dee84914c5129d82b1afd70e4ceb5a4d7"
+  integrity sha512-KIA0Lkn013nh2k+NmXQ7D1cVGpqMNGroPMC1R7cyTMKlVjD0OsATRJ9MXBdm48qjjKz+rM2Yv2vWCrlbrzNMdQ==
   dependencies:
     fast-json-patch "^3.1.1"
     follow-redirects "^1.16.0"
@@ -3504,9 +3504,9 @@ fast-levenshtein@^2.0.6:
   integrity sha512-DCXu6Ifhqcks7TZKY3Hxp3y6qphY5SJZmrWMDrKcERSOXWQdMhU9Ig/PYrzyw/ul9jOIyh0N4M0tbC5hodg8dw==
 
 fast-uri@^3.0.1:
-  version "3.1.5"
-  resolved "https://registry.yarnpkg.com/fast-uri/-/fast-uri-3.1.5.tgz#610f37419a030270430cecd68d74e3d4d96725d0"
-  integrity sha512-gHwA1O9LDIcKunMKhObS/HimwtehO1nPUECKAu5TpKgaO19fcWEl4bliWe1jWxVFvIXztJjjQ4L8XQ1EU9f7Jw==
+  version "3.1.6"
+  resolved "https://registry.yarnpkg.com/fast-uri/-/fast-uri-3.1.6.tgz#bfdd308ef763f835fed059f3c6c925f708e33e3a"
+  integrity sha512-7Ical1vFEMr0onbVzEDIreM22I4khW+fzyQPwvAFWBp1iwdshSZRsL4jjRvPG9JP1uiqMHRto+YU6R2/CzDz5Q==
 
 fastq@^1.6.0:
   version "1.20.1"
