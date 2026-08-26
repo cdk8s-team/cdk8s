@@ -2064,9 +2064,9 @@ available-typed-arrays@^1.0.7:
     possible-typed-array-names "^1.0.0"
 
 axios@^1.8.3:
-  version "1.19.0"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-1.19.0.tgz#ddf864d4c8233c0e6873746ab59361537d05ad39"
-  integrity sha512-ht/iuYZXEjFxLH/Hkezgd7m6JKlHHXEUSneaDz8uZe1Gj5QZtCnpyDsckvAiEnT89OEbCLmnte4R4sn7P0EKFw==
+  version "1.20.0"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-1.20.0.tgz#515513445aa60e71d04b6521ca6210829ccb4786"
+  integrity sha512-r8aOh8j9cGKpgQAqpzrUHnSIc6a59Y3Xf/cv8sy1DrHCkZHzQGEuoq1tARk6qSyDdtQGSDgpb9kFlruzPvrgwg==
   dependencies:
     follow-redirects "^1.16.0"
     form-data "^4.0.6"
@@ -2377,31 +2377,31 @@ cdk8s-cli@^2.207.57:
     yaml "2.9.0"
     yargs "^15"
 
-cdk8s-plus-32@^2.5.94:
-  version "2.5.94"
-  resolved "https://registry.yarnpkg.com/cdk8s-plus-32/-/cdk8s-plus-32-2.5.94.tgz#3f2ae1c19c6542addea1415cbc58104fd5ab40eb"
-  integrity sha512-rYXB79IKN8bUjDaliJPLZKmf8DjmDM6vG2Lyv/24wDtXhzn92DJQtzaoYsiun6sIZsd8Ns45DAH+iQ+uVA10Mg==
+cdk8s-plus-32@^2.5.95:
+  version "2.5.95"
+  resolved "https://registry.yarnpkg.com/cdk8s-plus-32/-/cdk8s-plus-32-2.5.95.tgz#b39006c1101aa3a5072eb4d0cfda3d0ce4b8d183"
+  integrity sha512-bwDz9lIx4oKFRtWxlAtWgs3N/3/WVaN/r+u0jsjX2QPto+gpAUeLet83eWMoveZjwHXMp/JPUeRIZy1lSVGnfw==
   dependencies:
     minimatch "^9.0.9"
 
-cdk8s-plus-33@^2.5.50:
-  version "2.5.50"
-  resolved "https://registry.yarnpkg.com/cdk8s-plus-33/-/cdk8s-plus-33-2.5.50.tgz#384516477cf7b46a94fc0e7aa7ac6baa63f4cf32"
-  integrity sha512-EmuTceIUS3aXJC6nG009+lulmuL3FUk+dMH/wleFIUZeC2zmwkVyvXNbDg6ufnedWpb43PrJQUCbJLYQ7vNruQ==
+cdk8s-plus-33@^2.5.50, cdk8s-plus-33@^2.5.51:
+  version "2.5.51"
+  resolved "https://registry.yarnpkg.com/cdk8s-plus-33/-/cdk8s-plus-33-2.5.51.tgz#89d12e609f8ed6dd28bb9bee1870eb154889636b"
+  integrity sha512-LBdMIVIb8T9L1tMdDWgMl0bI3a8hNWVbObJta5E5RyPhwvvrTD5u7RbLLNrpaZMzZm7ZqWfklct2skMzz7PTRw==
   dependencies:
     minimatch "^9.0.9"
 
-cdk8s-plus-34@^2.0.51:
-  version "2.0.51"
-  resolved "https://registry.yarnpkg.com/cdk8s-plus-34/-/cdk8s-plus-34-2.0.51.tgz#343330621b12e0a70f93f6a4fcc2060248bbb050"
-  integrity sha512-VHuhxR3uvWMNzxXIqp3MwKHUBJSMxdFGrIfXT04Gj0C08VaUrAJKGybJgleh8ebgJUZfueBOeyELFCKQIT34UA==
+cdk8s-plus-34@^2.0.52:
+  version "2.0.52"
+  resolved "https://registry.yarnpkg.com/cdk8s-plus-34/-/cdk8s-plus-34-2.0.52.tgz#10bed8624da8b3b9811ecdf903bd6830d337e0f4"
+  integrity sha512-EAsSlcEef+qqGRgIcqbB5MOr0gtwWiRFExecrNVAnCAej48YfojAf+VfbGwcPwdeJRWLzc7XBmUObNNEsMdlCA==
   dependencies:
     minimatch "^9.0.9"
 
-cdk8s@^2.70.95:
-  version "2.70.95"
-  resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-2.70.95.tgz#9a4a6ae01fcf1a120ac559695333925ee4bcc4f3"
-  integrity sha512-jirVbHSO5+lRNeXrmtiRiKwRT799ehtcFXy7V+7a6oFypNf88c0WCUsVdN3ahIakNFo/IhKRHKugG/Sn4D+2Pw==
+cdk8s@^2.70.95, cdk8s@^2.70.96:
+  version "2.70.96"
+  resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-2.70.96.tgz#7165fa8c1446454462a6b2202d7a5e79c3fb6e81"
+  integrity sha512-LkzyCTEKSmirdBk+7IoFUEWZhJY3GrKTkpmz+tugyQjNFaZLUBBqlBMRUrC/JVpWv5v50wFajlk2x3VDQh1fmQ==
   dependencies:
     fast-json-patch "^3.1.1"
     follow-redirects "^1.16.0"
@@ -3061,9 +3061,9 @@ ejs@^3.1.7:
     jake "^10.8.5"
 
 electron-to-chromium@^1.5.402:
-  version "1.5.414"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.414.tgz#4d38036562ddd192214aaade4124bdbbf2297291"
-  integrity sha512-aYlviXiaXBbzvKgyALpcMmqa3Np3sDr0XnZbEG62n2UpZFbEcjQ4EEMOLGzVPhwVnwTz0lvKY+GcARbunuHekw==
+  version "1.5.415"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.415.tgz#edd7356bfb4752a12c8293f8e38a00778b13bbb4"
+  integrity sha512-958V+Kbhtgz+SxXeEVKBjrlKRBIDAYvUJfwhjxMZ5S6ut9jAl7l9ZKBkBrvjyjZE36PabLUo2L8kEeV5O4vgJg==
 
 emittery@^0.8.1:
   version "0.8.1"
