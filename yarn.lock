@@ -2398,10 +2398,10 @@ cdk8s-plus-34@^2.0.52:
   dependencies:
     minimatch "^9.0.9"
 
-cdk8s@^2.70.95, cdk8s@^2.70.96:
-  version "2.70.96"
-  resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-2.70.96.tgz#7165fa8c1446454462a6b2202d7a5e79c3fb6e81"
-  integrity sha512-LkzyCTEKSmirdBk+7IoFUEWZhJY3GrKTkpmz+tugyQjNFaZLUBBqlBMRUrC/JVpWv5v50wFajlk2x3VDQh1fmQ==
+cdk8s@^2.70.95, cdk8s@^2.70.97:
+  version "2.70.97"
+  resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-2.70.97.tgz#838aa0926ea30e10d48c234265322a2c109da43e"
+  integrity sha512-RaXceaNbqsSQL7LSvBKbrz1zd0xMcKc8injhoQsoF7d7Vz4kax56JQU/qZNMEyazS6rI5d4Ee5sNhJIlkhh0aQ==
   dependencies:
     fast-json-patch "^3.1.1"
     follow-redirects "^1.16.0"
@@ -3522,9 +3522,9 @@ fast-uri@^3.0.1:
   integrity sha512-7Ical1vFEMr0onbVzEDIreM22I4khW+fzyQPwvAFWBp1iwdshSZRsL4jjRvPG9JP1uiqMHRto+YU6R2/CzDz5Q==
 
 fastq@^1.6.0:
-  version "1.20.2"
-  resolved "https://registry.yarnpkg.com/fastq/-/fastq-1.20.2.tgz#b762f46b4fa9c563adba6dd213a8984d8a5cd59f"
-  integrity sha512-UpGiiODyCGprM8EPP6JodP6jC9Rws6TCuiDOD+nn0CJhR8guI3g/ozo4ugL0vJ+Yz1UtJuuRPqvQuybVOF1VQA==
+  version "1.20.3"
+  resolved "https://registry.yarnpkg.com/fastq/-/fastq-1.20.3.tgz#7ab8731e647b56abcfeee997dae333ca3ee1d04d"
+  integrity sha512-XKv5nnLs6nLF71NgiKJLIZFLkPyIEuOselLG7ujZnGrRfQK8HpvY+WqKhAJUAdLomwVHErVS4LfxFlPq0/FTAw==
   dependencies:
     reusify "^1.0.4"
 
@@ -4289,9 +4289,9 @@ internal-slot@^1.1.0:
     side-channel "^1.1.0"
 
 ip-address@^10.1.1:
-  version "10.5.0"
-  resolved "https://registry.yarnpkg.com/ip-address/-/ip-address-10.5.0.tgz#fcd6d7dfe9e68416b7cb71afe9bc960b3e38c13b"
-  integrity sha512-R5SnVLJmgYYvf2F2ZgwSBnelz5G4q5AxIC277GDfUaNbrZKNANcBC7RHqYYePlszf4kBolVkJauG0ZjHHFh55g==
+  version "10.7.0"
+  resolved "https://registry.yarnpkg.com/ip-address/-/ip-address-10.7.0.tgz#9713429f16787ede8f642f6255b41fb515c825d9"
+  integrity sha512-BGFsyJd5mpXp3rK6jIdADLNgpJUK1jnjzvYF8lK+VyDab9JAmqN0YOKDdP17HlgKb2+ehPgDc8EtnRLbGCAMhA==
 
 is-array-buffer@^3.0.4, is-array-buffer@^3.0.5:
   version "3.0.5"
@@ -6150,9 +6150,9 @@ npm-run-path@^4.0.1:
     path-key "^3.0.0"
 
 nwsapi@^2.2.0:
-  version "2.2.25"
-  resolved "https://registry.yarnpkg.com/nwsapi/-/nwsapi-2.2.25.tgz#7ac2eb1e3679f159a6180010b055c3515eb3bb53"
-  integrity sha512-kktSgNDIbyEIs/LrE6dtEMnfzxSDpXViFl6c4gFjz/CgtnL4GDCR3wyZXzjvAXsNB8dXU4dAfvIOgLMH2/vwLg==
+  version "2.2.26"
+  resolved "https://registry.yarnpkg.com/nwsapi/-/nwsapi-2.2.26.tgz#5719120ab427a0e4d3638d9911f6bd3842573653"
+  integrity sha512-LPmrA6J31t9ac9294T/WZV6AK5CUcFZ+VXQ7pNNc1+JAjeKthW7vqekOBu6pXzsxD7slwJ7M4XMhamojG3T4oA==
 
 "nx@>=17.1.2 < 21":
   version "20.8.4"
