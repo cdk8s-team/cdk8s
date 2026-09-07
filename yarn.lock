@@ -263,10 +263,10 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@cdk8s/projen-common@^0.1.27":
-  version "0.1.27"
-  resolved "https://registry.yarnpkg.com/@cdk8s/projen-common/-/projen-common-0.1.27.tgz#af4d5a5197e1f5cbdcc5c738e2f2f905e7e62271"
-  integrity sha512-ZMTVEX88m1wLOUr2IWzk15QWm5TpCw3JC1foVPR9y9SQQ6x5OHcSEkTm1cs97/aV4OUFBNnTxOxTWrMEyC44XQ==
+"@cdk8s/projen-common@^0.1.28":
+  version "0.1.28"
+  resolved "https://registry.yarnpkg.com/@cdk8s/projen-common/-/projen-common-0.1.28.tgz#047abc80eba928e5e4f22782494e7847daf3b636"
+  integrity sha512-Ybe7CqdVL5EEX388RtM2YpxHj4HQJm1SLbIJBsksUGL8u5LEXrKsyciZ1v5Gb195tZ+LMLvRDcSkKa2+V7nFVQ==
   dependencies:
     codemaker "^1.140.0"
     deepmerge "^4.3.1"
@@ -6689,10 +6689,10 @@ proggy@^2.0.0:
   resolved "https://registry.yarnpkg.com/proggy/-/proggy-2.0.0.tgz#154bb0e41d3125b518ef6c79782455c2c47d94e1"
   integrity sha512-69agxLtnI8xBs9gUGqEnK26UfiexpHy+KUpBQWabiytQjnn5wFY8rklAi7GRfABIuPNnQ/ik48+LGLkYYJcy4A==
 
-projen@^0.103.12:
-  version "0.103.12"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.103.12.tgz#bd47be1b3396380513037c16fa16167f898ae4cb"
-  integrity sha512-fPbwEtJV/c275ImzY4XJ+9IcV/ak1GtTmu85ye8TRYizFYXnr7KFqFZ0aXlFbq9evBi9KBUFaELMP4AMHhHFXQ==
+projen@^0.103.20:
+  version "0.103.20"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.103.20.tgz#164eab1e607d4576a309c9d9dcec8a5d7a96b0c9"
+  integrity sha512-0VXSaZiSv+UMvaK1lwqksUc3ou0cDpXJH+dwhHLKX/L2d5kN3tUcx2VoE5+uYBLe+9bn163zPh2wFhuDUZUN5Q==
   dependencies:
     "@iarna/toml" "^2.2.5"
     case "^1.6.3"
@@ -6750,9 +6750,9 @@ promzard@^1.0.0:
     read "^3.0.1"
 
 properties-file@^5.0.6:
-  version "5.0.6"
-  resolved "https://registry.yarnpkg.com/properties-file/-/properties-file-5.0.6.tgz#a3dfcf181fe7b24cfdccd59d7d64d23ee8c4dcd6"
-  integrity sha512-vFWlFjA9mL18QZy2IafIL6P63XnR+/EfYDcPNz9qVkAehV1pGLaa+hOkv4EyXCvuMaQZgbKbziJBmFe39VCHdg==
+  version "5.0.7"
+  resolved "https://registry.yarnpkg.com/properties-file/-/properties-file-5.0.7.tgz#9e3ea91e9acc013120a477de76e92f9a948f7f28"
+  integrity sha512-Hoae9SnNTJebHujv5gdOtb7stArj27GcKzWxerrQgjuHasE+VT7G10Q6rR2wRWTjaACkT4zRigAtqnkMOz9BIA==
 
 protocols@^2.0.0, protocols@^2.0.1:
   version "2.0.2"
