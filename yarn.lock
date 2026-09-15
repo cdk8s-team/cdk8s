@@ -2169,24 +2169,24 @@ bl@^4.0.3, bl@^4.1.0:
     readable-stream "^3.4.0"
 
 brace-expansion@^1.1.7:
-  version "1.1.18"
-  resolved "https://registry.yarnpkg.com/brace-expansion/-/brace-expansion-1.1.18.tgz#3ce74d89885136be1535341f8c3d4425c29a5cab"
-  integrity sha512-Edep/X9fGqVNmzKBVsDYIOtD+z1tuezV70LBjdCst9Tqu76lsnvRiZ6oTic1n+/BIwX6QDGAO94PN4N2SADvtw==
+  version "1.1.21"
+  resolved "https://registry.yarnpkg.com/brace-expansion/-/brace-expansion-1.1.21.tgz#edf4fab5c64d051aea5a8def49aba1c7522279f3"
+  integrity sha512-9zeA+KLZNNzglF2TPKRQEDyx6Yby7daAkuy8MiPzpXPsYDWi/DRM8jmwUDxokQjYqBpv5DgPiwD4h4ZZSy1Ujw==
   dependencies:
     balanced-match "^1.0.0"
     concat-map "0.0.1"
 
 brace-expansion@^2.0.1, brace-expansion@^2.0.2:
-  version "2.1.4"
-  resolved "https://registry.yarnpkg.com/brace-expansion/-/brace-expansion-2.1.4.tgz#589dab11c0018d0366be64cd8bf12c8dbecc8326"
-  integrity sha512-hGfVzPxthbf3+2yjg/RBs60cB0FhqBS/zvdV/4wn4/BmN0bNMMHPc4V/BbFieqf1TKAGGAHnY4eSjajCl0f2Xg==
+  version "2.1.7"
+  resolved "https://registry.yarnpkg.com/brace-expansion/-/brace-expansion-2.1.7.tgz#14ea3836731823bb24740225ea43b941b436f9d1"
+  integrity sha512-uZbew1NqdmPDTMJ8ah1y+b+9QEJrfkXFk3RcTQw3X0jW/xRUvFKsg1CfQdSYGdTbXZWExtU3J3ccxtnfw1Fi0g==
   dependencies:
     balanced-match "^1.0.0"
 
 brace-expansion@^5.0.8:
-  version "5.0.9"
-  resolved "https://registry.yarnpkg.com/brace-expansion/-/brace-expansion-5.0.9.tgz#7c72438809b5fa5babf54199a1f1c281a6984fcf"
-  integrity sha512-ScQ4IuvIEF1TMlP7Zt+vjJ//9zlPb2SDcxWxM3bk8s6t6GGdJ7KO1dCcTidOPJKePW30LE/2cT7wCyPho9/Wxg==
+  version "5.0.12"
+  resolved "https://registry.yarnpkg.com/brace-expansion/-/brace-expansion-5.0.12.tgz#995fbb4750a77c4d16a7dc942ff2ca6ef8e675ec"
+  integrity sha512-YovQ3rzhaLMIrDjNDMkNS01tea93qhEhG5xy8f6+R0l+dw3Ki+5sCoIoI942iuLZTHWogWktgwVDhU09iNEimQ==
   dependencies:
     balanced-match "^4.0.2"
 
@@ -2364,31 +2364,31 @@ cdk8s-cli@^2.207.58:
     yaml "2.9.0"
     yargs "^15"
 
-cdk8s-plus-32@^2.5.98:
-  version "2.5.98"
-  resolved "https://registry.yarnpkg.com/cdk8s-plus-32/-/cdk8s-plus-32-2.5.98.tgz#c4d8efd875be04edbb2dcc294806b2a259b45c97"
-  integrity sha512-i/Lf6z4lAoX/GiSuYLChhd6MTplT4WBchcfZ9Fd635Jo/bUV948vhqSAac5gdhkuCEi2KA6km69IKdosMh8gzA==
+cdk8s-plus-32@^2.5.100:
+  version "2.5.100"
+  resolved "https://registry.yarnpkg.com/cdk8s-plus-32/-/cdk8s-plus-32-2.5.100.tgz#a0f41a73ff6b63ccabf0ebd227d61254bd022711"
+  integrity sha512-UeoxvVW0wbfgnIVnXN/GIae+/SJ/Ps8O3A5HXwM8aCKe5KFa8GmrvglyZlXJeR8PQF4pTLOUDcs8RCJOb7jBYA==
   dependencies:
     minimatch "^9.0.9"
 
-cdk8s-plus-33@^2.5.54:
-  version "2.5.54"
-  resolved "https://registry.yarnpkg.com/cdk8s-plus-33/-/cdk8s-plus-33-2.5.54.tgz#f9ed64d141903eb3f6d91eca120a0735a234dbda"
-  integrity sha512-OOLjev/D4taIVhxDq5dylX+4zqhEQPMQNiJH30sY0k98fyuu49BOoRzbiZkeNrtgBMn3Uu1NIt3PjhEqIVZ7Ag==
+cdk8s-plus-33@^2.5.54, cdk8s-plus-33@^2.5.56:
+  version "2.5.56"
+  resolved "https://registry.yarnpkg.com/cdk8s-plus-33/-/cdk8s-plus-33-2.5.56.tgz#d74be00c56dbbaeab2c2632b1febf7969a290863"
+  integrity sha512-WxCiRX8PSsZQvdkEBQaY7fEia+L8P74aa3RrPutEJAwHwRl86mvtMxzyR6zjMBkRRuUPUz4KxO6iFRl5Atlq3g==
   dependencies:
     minimatch "^9.0.9"
 
-cdk8s-plus-34@^2.0.55:
-  version "2.0.55"
-  resolved "https://registry.yarnpkg.com/cdk8s-plus-34/-/cdk8s-plus-34-2.0.55.tgz#6598184f48d5f106d8e1ea224a9e5948367afcfc"
-  integrity sha512-2D7ksQesPel9e9mVE2OPTpcu8Is0ETda8pwcuw4be2K0Nb3R/1p/J0SmAi8Sv3j9KDXQuGsV6i9VmbgAfsMyqA==
+cdk8s-plus-34@^2.0.57:
+  version "2.0.57"
+  resolved "https://registry.yarnpkg.com/cdk8s-plus-34/-/cdk8s-plus-34-2.0.57.tgz#aee5d03b316130b734dc2ae37265b304ce1b462c"
+  integrity sha512-aJpy/03ZS9EkkQZcRVPE02kBvWYLCa0/9dAmj9MTXs2d5mwpzipMJyfi2vEIr1asFNdiik1domRqWJ8iCG+EMg==
   dependencies:
     minimatch "^9.0.9"
 
-cdk8s@^2.70.101, cdk8s@^2.70.102:
-  version "2.70.102"
-  resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-2.70.102.tgz#ae7217ace9a8f1fddffe4caeb9cbf0961699384c"
-  integrity sha512-Sg+33O+jJMBK9Tiuu44ejkSlLr+1zlE4kVAW5D5U/FnXYYAL+lEeEfAPf5fEaH/Kt84yq+Bi6BDjxVX7RQ4qDg==
+cdk8s@^2.70.101, cdk8s@^2.70.103:
+  version "2.70.103"
+  resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-2.70.103.tgz#adbdc0fa34196ecc7f7e79fd75c969cd5da8f76a"
+  integrity sha512-qO1kaY7Z9ReXNnkGZlKXwO78wMCVssk3tDOY2occXNPygizzA78dzG2GFwvEJvaRLOFKn9KfBLwNS3TV+ruluA==
   dependencies:
     fast-json-patch "^3.1.1"
     follow-redirects "^1.16.0"
@@ -3048,9 +3048,9 @@ ejs@^3.1.7:
     jake "^10.8.5"
 
 electron-to-chromium@^1.5.420:
-  version "1.5.427"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.427.tgz#f8693d109cf116d4a6efa98bc620b9fc7f265f67"
-  integrity sha512-n14zb3FdsChZ2BNobqNHAJMcP3ifFv4paox2LvCrfVAQcqGiSURgbJl+PfMpHVCNFkStnNc+RRVtPBTVW5PDgw==
+  version "1.5.428"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.428.tgz#36bdb39055d71ab08a54855508ef33940bc467e6"
+  integrity sha512-1JxbaFJj1bRKurj1uY3l4xxpU9kOUAUjcIgApj0qu1Pao5GhoIWI8iL0BeMYJ2njig1hBx0A7eKD9VGjH9wlHw==
 
 emittery@^0.8.1:
   version "0.8.1"
@@ -3504,9 +3504,9 @@ fast-levenshtein@^2.0.6:
   integrity sha512-DCXu6Ifhqcks7TZKY3Hxp3y6qphY5SJZmrWMDrKcERSOXWQdMhU9Ig/PYrzyw/ul9jOIyh0N4M0tbC5hodg8dw==
 
 fast-uri@^3.0.1:
-  version "3.1.7"
-  resolved "https://registry.yarnpkg.com/fast-uri/-/fast-uri-3.1.7.tgz#743157d957f3cbb4c65310e033dc2ad4ad7dc60a"
-  integrity sha512-dOvZVzjdZdz7phd9v6jCbwxrBW3fK6n8Rc0CtdmM4bumzMnxywBYhuph6J819RRw/ku+rLbelwfMunktuzVVHg==
+  version "3.1.8"
+  resolved "https://registry.yarnpkg.com/fast-uri/-/fast-uri-3.1.8.tgz#f7db8d942e20eead3cfe93b0beeb4eb0169e938b"
+  integrity sha512-GZMtZUTNRpOVIECoXwLNZS5xUGE+mVNbTB8h/7Rwh2TFWcBQiPzTgyZi05BF9UMZKkLJv8XBRJTlU7zg8+ZfMg==
 
 fastq@^1.6.0:
   version "1.20.3"
@@ -4276,9 +4276,9 @@ internal-slot@^1.1.0:
     side-channel "^1.1.0"
 
 ip-address@^10.1.1:
-  version "10.7.0"
-  resolved "https://registry.yarnpkg.com/ip-address/-/ip-address-10.7.0.tgz#9713429f16787ede8f642f6255b41fb515c825d9"
-  integrity sha512-BGFsyJd5mpXp3rK6jIdADLNgpJUK1jnjzvYF8lK+VyDab9JAmqN0YOKDdP17HlgKb2+ehPgDc8EtnRLbGCAMhA==
+  version "10.7.1"
+  resolved "https://registry.yarnpkg.com/ip-address/-/ip-address-10.7.1.tgz#df8031c20df6b7f1dcc9f68c4f4fa5ee71c45d39"
+  integrity sha512-4OUAqU9Z1i3vCnS05hzGiFnEMDpQ+62pAD/MVQOp83fYyNC8GleCqaS0QikQBmcWCrKFiUs/B8ztRRiYOAXuCA==
 
 is-array-buffer@^3.0.4, is-array-buffer@^3.0.5:
   version "3.0.5"
