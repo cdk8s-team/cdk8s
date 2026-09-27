@@ -115219,7 +115219,7 @@ device.capacity[&ldquo;dra.example.com&rdquo;].modules</p>
 </tr>
 <tr>
 <td><code><a href="#cdk8s-plus-34.k8s.CertificateSigningRequestSpec.property.extra">extra</a></code></td>
-<td><code>java.util.Map<java.lang.String, java.util.List\<java.lang.String>></code></td>
+<td><code>java.util.Map&lt;java.lang.String, java.util.List<java.lang.String>&gt;</code></td>
 <td>extra contains extra attributes of the user that created the CertificateSigningRequest.</td>
 </tr>
 <tr>
@@ -115304,7 +115304,7 @@ device.capacity[&ldquo;dra.example.com&rdquo;].modules</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nf">getExtra</span><span class="p">();</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, java.util.List\<java.lang.String>></li>
+<li><em>Type:</em> java.util.Map&lt;java.lang.String, java.util.List<java.lang.String>&gt;</li>
 </ul>
 <p>extra contains extra attributes of the user that created the CertificateSigningRequest.</p>
 <p>Populated by the API server on creation and immutable.</p>
@@ -116552,7 +116552,7 @@ is enforced during validation process.</p>
 </tr>
 <tr>
 <td><code><a href="#cdk8s-plus-34.ConfigMapVolumeOptions.property.items">items</a></code></td>
-<td><code>java.util.Map<java.lang.String, \<a href="#cdk8s-plus-34.PathMapping">PathMapping\</a>></code></td>
+<td><code>java.util.Map&lt;java.lang.String, <a href="#cdk8s-plus-34.PathMapping">PathMapping</a>&gt;</code></td>
 <td>If unspecified, each key-value pair in the Data field of the referenced ConfigMap will be projected into the volume as a file whose name is the key and content is the value.</td>
 </tr>
 <tr>
@@ -116585,7 +116585,7 @@ file mode, like fsGroup, and the result can be other mode bits set.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">PathMapping</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getItems</span><span class="p">();</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, \<a href="#cdk8s-plus-34.PathMapping">PathMapping\</a>></li>
+<li><em>Type:</em> java.util.Map&lt;java.lang.String, <a href="#cdk8s-plus-34.PathMapping">PathMapping</a>&gt;</li>
 <li><em>Default:</em> no mapping</li>
 </ul>
 <p>If unspecified, each key-value pair in the Data field of the referenced ConfigMap will be projected into the volume as a file whose name is the key and content is the value.</p>
@@ -117209,7 +117209,7 @@ within the Pod&rsquo;s termination grace period. No parameters are passed to the
 </tr>
 <tr>
 <td><code><a href="#cdk8s-plus-34.ContainerOpts.property.envVariables">envVariables</a></code></td>
-<td><code>java.util.Map<java.lang.String, \<a href="#cdk8s-plus-34.EnvValue">EnvValue\</a>></code></td>
+<td><code>java.util.Map&lt;java.lang.String, <a href="#cdk8s-plus-34.EnvValue">EnvValue</a>&gt;</code></td>
 <td>Environment variables to set in the container.</td>
 </tr>
 <tr>
@@ -117332,7 +117332,7 @@ with a duplicate key will take precedence.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">EnvValue</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getEnvVariables</span><span class="p">();</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, \<a href="#cdk8s-plus-34.EnvValue">EnvValue\</a>></li>
+<li><em>Type:</em> java.util.Map&lt;java.lang.String, <a href="#cdk8s-plus-34.EnvValue">EnvValue</a>&gt;</li>
 <li><em>Default:</em> No environment variables.</li>
 </ul>
 <p>Environment variables to set in the container.</p>
@@ -117732,7 +117732,7 @@ Name for the port that can be referred to by services.</p>
 </tr>
 <tr>
 <td><code><a href="#cdk8s-plus-34.ContainerProps.property.envVariables">envVariables</a></code></td>
-<td><code>java.util.Map<java.lang.String, \<a href="#cdk8s-plus-34.EnvValue">EnvValue\</a>></code></td>
+<td><code>java.util.Map&lt;java.lang.String, <a href="#cdk8s-plus-34.EnvValue">EnvValue</a>&gt;</code></td>
 <td>Environment variables to set in the container.</td>
 </tr>
 <tr>
@@ -117860,7 +117860,7 @@ with a duplicate key will take precedence.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">EnvValue</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getEnvVariables</span><span class="p">();</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, \<a href="#cdk8s-plus-34.EnvValue">EnvValue\</a>></li>
+<li><em>Type:</em> java.util.Map&lt;java.lang.String, <a href="#cdk8s-plus-34.EnvValue">EnvValue</a>&gt;</li>
 <li><em>Default:</em> No environment variables.</li>
 </ul>
 <p>Environment variables to set in the container.</p>
@@ -159152,7 +159152,7 @@ handling of secret data by various controllers.</p>
 </tr>
 <tr>
 <td><code><a href="#cdk8s-plus-34.SecretVolumeOptions.property.items">items</a></code></td>
-<td><code>java.util.Map<java.lang.String, \<a href="#cdk8s-plus-34.PathMapping">PathMapping\</a>></code></td>
+<td><code>java.util.Map&lt;java.lang.String, <a href="#cdk8s-plus-34.PathMapping">PathMapping</a>&gt;</code></td>
 <td>If unspecified, each key-value pair in the Data field of the referenced secret will be projected into the volume as a file whose name is the key and content is the value.</td>
 </tr>
 <tr>
@@ -159185,7 +159185,7 @@ file mode, like fsGroup, and the result can be other mode bits set.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">PathMapping</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getItems</span><span class="p">();</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, \<a href="#cdk8s-plus-34.PathMapping">PathMapping\</a>></li>
+<li><em>Type:</em> java.util.Map&lt;java.lang.String, <a href="#cdk8s-plus-34.PathMapping">PathMapping</a>&gt;</li>
 <li><em>Default:</em> no mapping</li>
 </ul>
 <p>If unspecified, each key-value pair in the Data field of the referenced secret will be projected into the volume as a file whose name is the key and content is the value.</p>
@@ -162460,7 +162460,7 @@ update, roll out a canary, or perform a phased roll out.</p>
 <tbody>
 <tr>
 <td><code><a href="#cdk8s-plus-34.k8s.SubjectAccessReviewSpec.property.extra">extra</a></code></td>
-<td><code>java.util.Map<java.lang.String, java.util.List\<java.lang.String>></code></td>
+<td><code>java.util.Map&lt;java.lang.String, java.util.List<java.lang.String>&gt;</code></td>
 <td>Extra corresponds to the user.Info.GetExtra() method from the authenticator.  Since that is input to the authorizer it needs a reflection here.</td>
 </tr>
 <tr>
@@ -162495,7 +162495,7 @@ update, roll out a canary, or perform a phased roll out.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nf">getExtra</span><span class="p">();</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, java.util.List\<java.lang.String>></li>
+<li><em>Type:</em> java.util.Map&lt;java.lang.String, java.util.List<java.lang.String>&gt;</li>
 </ul>
 <p>Extra corresponds to the user.Info.GetExtra() method from the authenticator.  Since that is input to the authorizer it needs a reflection here.</p>
 <hr />
@@ -167425,7 +167425,7 @@ its pod template.</p>
 </tr>
 <tr>
 <td><code><a href="#cdk8s-plus-34.Container.Initializer.parameter.envVariables">envVariables</a></code></td>
-<td><code>java.util.Map<java.lang.String, \<a href="#cdk8s-plus-34.EnvValue">EnvValue\</a>></code></td>
+<td><code>java.util.Map&lt;java.lang.String, <a href="#cdk8s-plus-34.EnvValue">EnvValue</a>&gt;</code></td>
 <td>Environment variables to set in the container.</td>
 </tr>
 <tr>
@@ -167545,7 +167545,7 @@ with a duplicate key will take precedence.</p>
 <hr />
 <h5 id="envvariablesoptional_2"><code>envVariables</code><sup>Optional</sup> <a name="envVariables" id="cdk8s-plus-34.Container.Initializer.parameter.envVariables"></a><a class="headerlink" href="#envvariablesoptional_2" title="Permanent link">&para;</a></h5>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, \<a href="#cdk8s-plus-34.EnvValue">EnvValue\</a>></li>
+<li><em>Type:</em> java.util.Map&lt;java.lang.String, <a href="#cdk8s-plus-34.EnvValue">EnvValue</a>&gt;</li>
 <li><em>Default:</em> No environment variables.</li>
 </ul>
 <p>Environment variables to set in the container.</p>
@@ -168298,7 +168298,7 @@ not run as UID 0 (root) and fail to start the container if it does.</p>
 </tr>
 <tr>
 <td><code><a href="#cdk8s-plus-34.Env.Initializer.parameter.variables">variables</a></code></td>
-<td><code>java.util.Map<java.lang.String, \<a href="#cdk8s-plus-34.EnvValue">EnvValue\</a>></code></td>
+<td><code>java.util.Map&lt;java.lang.String, <a href="#cdk8s-plus-34.EnvValue">EnvValue</a>&gt;</code></td>
 <td><em>No description.</em></td>
 </tr>
 </tbody>
@@ -168311,7 +168311,7 @@ not run as UID 0 (root) and fail to start the container if it does.</p>
 <hr />
 <h5 id="variablesrequired"><code>variables</code><sup>Required</sup> <a name="variables" id="cdk8s-plus-34.Env.Initializer.parameter.variables"></a><a class="headerlink" href="#variablesrequired" title="Permanent link">&para;</a></h5>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, \<a href="#cdk8s-plus-34.EnvValue">EnvValue\</a>></li>
+<li><em>Type:</em> java.util.Map&lt;java.lang.String, <a href="#cdk8s-plus-34.EnvValue">EnvValue</a>&gt;</li>
 </ul>
 <hr />
 <h4 id="methods_214">Methods <a name="Methods" id="Methods"></a><a class="headerlink" href="#methods_214" title="Permanent link">&para;</a></h4>
@@ -168428,7 +168428,7 @@ the key-value pairs as environment variables.</p>
 </tr>
 <tr>
 <td><code><a href="#cdk8s-plus-34.Env.property.variables">variables</a></code></td>
-<td><code>java.util.Map<java.lang.String, \<a href="#cdk8s-plus-34.EnvValue">EnvValue\</a>></code></td>
+<td><code>java.util.Map&lt;java.lang.String, <a href="#cdk8s-plus-34.EnvValue">EnvValue</a>&gt;</code></td>
 <td>The environment variables for this container.</td>
 </tr>
 </tbody>
@@ -168447,7 +168447,7 @@ the key-value pairs as environment variables.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">String</span><span class="p">,</span><span class="w"> </span><span class="n">EnvValue</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getVariables</span><span class="p">();</span>
 </code></pre></div>
 <ul>
-<li><em>Type:</em> java.util.Map<java.lang.String, \<a href="#cdk8s-plus-34.EnvValue">EnvValue\</a>></li>
+<li><em>Type:</em> java.util.Map&lt;java.lang.String, <a href="#cdk8s-plus-34.EnvValue">EnvValue</a>&gt;</li>
 </ul>
 <p>The environment variables for this container.</p>
 <p>Returns a copy. To add environment variables use <code>container.env.addVariable()</code>.</p>
