@@ -39,7 +39,7 @@
     "cdk8s-cli": "^2.207.63",
     "cdk8s-plus-32": "^2.5.102",
     "cdk8s-plus-33": "^2.5.58",
-    "cdk8s-plus-34": "^2.0.60",
+    "cdk8s-plus-34": "^2.0.61",
     "constructs": "^10.0.0",
     "eslint": "^9",
     "eslint-import-resolver-typescript": "^3.10.1",

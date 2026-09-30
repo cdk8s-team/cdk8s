@@ -2203,12 +2203,12 @@ browser-process-hrtime@^1.0.0:
   integrity sha512-9o5UecI3GhkpM6DrXr69PblIuWxPKk9Y0jHBRhdocZ2y7YECBFCsHm79Pr3OyR2AvjhDkabFJaDJMYRazHgsow==
 
 browserslist@^4.24.0:
-  version "4.29.2"
-  resolved "https://registry.yarnpkg.com/browserslist/-/browserslist-4.29.2.tgz#652374dd6ad03dfcc66d63dad56aaaba9705b075"
-  integrity sha512-/u9r8k8ue4ZhHCw9ovDtltpWdXeXzjhdxCGj6vm1RGLPXb8lu33EMdoCHF5Sx8oYBS+Q/FYYNmAqlHncxR3RmA==
+  version "4.29.3"
+  resolved "https://registry.yarnpkg.com/browserslist/-/browserslist-4.29.3.tgz#9c8dafe96ab1c8e40e21c1274bdfa05aaee46476"
+  integrity sha512-1R4kiYKXGViqEN0CnoDrXc1StD9niAwu+j2dukWzrD4bJgsD4lDmEp0CRbc6E/vYJIfTHwPmwyaKtVSudICdPA==
   dependencies:
     baseline-browser-mapping "^2.11.26"
-    caniuse-lite "^1.0.30001812"
+    caniuse-lite "^1.0.30001813"
     electron-to-chromium "^1.5.439"
     node-releases "^2.0.57"
     update-browserslist-db "^1.3.3"
@@ -2331,10 +2331,10 @@ camelcase@^6.2.0, camelcase@^6.3.0:
   resolved "https://registry.yarnpkg.com/camelcase/-/camelcase-6.3.0.tgz#5685b95eb209ac9c0c177467778c9c84df58ba9a"
   integrity sha512-Gmy6FhYlCY7uOElZUSbxo2UCDH8owEk996gkbrpsgGtrJLM3J7jGxl9Ic7Qwwj4ivOE5AWZWRMecDdF7hqGjFA==
 
-caniuse-lite@^1.0.30001812:
-  version "1.0.30001813"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001813.tgz#acc16d52a011b87873b14e3c62040bb273c270eb"
-  integrity sha512-zfjJo4rM0+fUomGDBW/xcDjhIwz/210DGvip2MAMDZ8KHcRPnOHmEgHPZP0UHlZoxr8fYKVJOqcORhYQcG4FKQ==
+caniuse-lite@^1.0.30001813:
+  version "1.0.30001814"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001814.tgz#7a9e1d107dd60f6ad3dacc74df6f6d53a9dbcf9b"
+  integrity sha512-/Uaf1lAzr59XcMpW0o96WoEfr+VXK2OX4U9AgFoiSHsVJ4HppnIFUjtYzsyDH2+tgANaQb2/oxYGwCPapN1FpA==
 
 case@^1.6.3:
   version "1.6.3"
@@ -2378,10 +2378,10 @@ cdk8s-plus-33@^2.5.58:
   dependencies:
     minimatch "^9.0.9"
 
-cdk8s-plus-34@^2.0.60:
-  version "2.0.60"
-  resolved "https://registry.yarnpkg.com/cdk8s-plus-34/-/cdk8s-plus-34-2.0.60.tgz#017951408b4c4f89af2a556c49ed11d4a36d5ee2"
-  integrity sha512-2eLwFhi+XyRA44zWLcWRXV6zGxCcDRFVhGaaTScEtQaHhtif2ZLH7pvqMYu+1R1zaz7gxD/EhgsRTNxWFDktWw==
+cdk8s-plus-34@^2.0.61:
+  version "2.0.61"
+  resolved "https://registry.yarnpkg.com/cdk8s-plus-34/-/cdk8s-plus-34-2.0.61.tgz#3b354e7aaba712853399f833462f5c63683a04b9"
+  integrity sha512-jOLckZ7fRsfShb9unjOKuNcQaDYKCarKm0LBfHu7wuLyiZ7sR9OGIZCmrj2pmtVy6iqdg+mJWsqFCF5N5CINhg==
   dependencies:
     minimatch "^9.0.9"
 
@@ -3048,9 +3048,9 @@ ejs@^3.1.7:
     jake "^10.8.5"
 
 electron-to-chromium@^1.5.439:
-  version "1.5.440"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.440.tgz#c669c8a6ac7416de937632a895f4a9feca7b8c97"
-  integrity sha512-SghDzqdJokdz8zP8YNlvS74+CwLRoUPDGvP/gFA+HrKVw+pOshUAgx8pXR37xl/u16zGae746rFNWvZ/22kU2Q==
+  version "1.5.442"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.442.tgz#ae3003054501a2bd478de19da7cdf2139b4d57cd"
+  integrity sha512-najZYZ3+ZpjN1z3VOsrBiv5ej18vQgfV2lvEmxWzfmKrk4bdm3Owseyud4yGU6DfFn9pyunoAHDDyM4KmP78Ew==
 
 emittery@^0.8.1:
   version "0.8.1"
