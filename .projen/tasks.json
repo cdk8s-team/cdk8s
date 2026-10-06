@@ -178,7 +178,7 @@
       "name": "rotate-cdk8s-plus",
       "steps": [
         {
-          "exec": "ts-node src/rotate-cdk8s-plus.ts 34"
+          "exec": "ts-node src/rotate-cdk8s-plus.ts 35"
         }
       ]
     },
@@ -282,7 +282,7 @@
             "--peer",
             "--no-deprecated",
             "--dep=dev,prod",
-            "--filter=@types/jest,cdk8s,cdk8s-cli,cdk8s-plus-32,cdk8s-plus-33,cdk8s-plus-34,eslint-import-resolver-typescript,eslint-plugin-import,jest,lerna,semver,ts-jest,ts-node"
+            "--filter=@types/jest,cdk8s,cdk8s-cli,cdk8s-plus-33,cdk8s-plus-34,cdk8s-plus-35,eslint-import-resolver-typescript,eslint-plugin-import,jest,lerna,semver,ts-jest,ts-node"
           ]
         },
         {
@@ -299,9 +299,9 @@
             "@typescript-eslint/parser",
             "cdk8s",
             "cdk8s-cli",
-            "cdk8s-plus-32",
             "cdk8s-plus-33",
             "cdk8s-plus-34",
+            "cdk8s-plus-35",
             "constructs",
             "eslint-import-resolver-typescript",
             "eslint-plugin-import",
