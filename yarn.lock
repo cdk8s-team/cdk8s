@@ -3048,9 +3048,9 @@ ejs@^3.1.7:
     jake "^10.8.5"
 
 electron-to-chromium@^1.5.439:
-  version "1.5.445"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.445.tgz#616516dc50eb37c1649cd26019521b8960efd0e8"
-  integrity sha512-iX7o1nF+qNb3Bv5mLYgqfgF9Znh9e/8MKXdmbb8Gv2Q47OKIzTwEPD1oda1HrgEwYatTLJj0wQjHvIFt8Db53Q==
+  version "1.5.449"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.449.tgz#94cc7307abf5ec39d1afa619e53072c26a8ef8d1"
+  integrity sha512-dKeYk/3SFQz+nXi5whp3OuJzeWABEG4zCtkWJ9+Vby1E1iFM2y0gElRtQvNXRPJTsj8WAF4HMP7hvP790QtJ9g==
 
 emittery@^0.8.1:
   version "0.8.1"
@@ -4339,7 +4339,7 @@ is-ci@3.0.1:
   dependencies:
     ci-info "^3.2.0"
 
-is-core-module@^2.16.1, is-core-module@^2.16.2, is-core-module@^2.5.0:
+is-core-module@^2.16.1, is-core-module@^2.16.2, is-core-module@^2.17.0, is-core-module@^2.5.0:
   version "2.17.0"
   resolved "https://registry.yarnpkg.com/is-core-module/-/is-core-module-2.17.0.tgz#75c1c76236c9f7e38ddbfff292e127dc13b21027"
   integrity sha512-J/vG0zBCbIKOQFfufSwyXdMrsohyJIUNkrnmo6WZGzoM7tr/lsbfW5b2BvisL6zsyMzK9UxV9L6c7AoFbyXHOA==
@@ -6976,12 +6976,12 @@ resolve.exports@^1.1.0:
   integrity sha512-/NtpHNDN7jWhAaQ9BvBUYZ6YTXsRBgfqWFWP7BZBaoMJO/I3G5OFzvTuWNlZC3aPjins1F+TNrLKsGbH4rfsRQ==
 
 resolve@^1.10.0, resolve@^1.20.0:
-  version "1.22.12"
-  resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.22.12.tgz#f5b2a680897c69c238a13cd16b15671f8b73549f"
-  integrity sha512-TyeJ1zif53BPfHootBGwPRYT1RUt6oGWsaQr8UyZW/eAm9bKoijtvruSDEmZHm92CwS9nj7/fWttqPCgzep8CA==
+  version "1.22.13"
+  resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.22.13.tgz#d542f97758d768f36091251a6b07540b4343f7b5"
+  integrity sha512-Dj/cW9zBV2aRj6XzCxuGIs3ESZKv02jixne3q6jFZYZ3/Tg09gHHviSMDL4kObh9pqSahdRHEnDoaP2gn8YLhA==
   dependencies:
     es-errors "^1.3.0"
-    is-core-module "^2.16.1"
+    is-core-module "^2.17.0"
     path-parse "^1.0.7"
     supports-preserve-symlinks-flag "^1.0.0"
 
