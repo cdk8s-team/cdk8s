@@ -139294,11 +139294,11 @@ In this case, the rules for each are combined additively.</p>
 <p><code>nonResourceURLs</code> is a set of url prefixes that a user should have access to and may not be empty.</p>
 <p>For example:
 - &ldquo;/healthz&rdquo; is legal
-- &ldquo;/hea<em>&rdquo; is illegal
+- &ldquo;/hea*&rdquo; is illegal
 - &ldquo;/hea&rdquo; is legal but matches nothing
-- &ldquo;/hea/</em>&rdquo; also matches nothing
-- &ldquo;/healthz/<em>&rdquo; matches all per-component health checks.
-&ldquo;</em>&rdquo; matches all non-resource urls. if it is present, it must be the only entry. Required.</p>
+- &ldquo;/hea/<em>&rdquo; also matches nothing
+- &ldquo;/healthz/</em>&rdquo; matches all per-component health checks.
+&ldquo;*&rdquo; matches all non-resource urls. if it is present, it must be the only entry. Required.</p>
 <hr />
 <h5 id="verbsrequired_3"><code>verbs</code><sup>Required</sup> <a name="verbs" id="cdk8s-plus-34.k8s.NonResourcePolicyRule.property.verbs"></a><a class="headerlink" href="#verbsrequired_3" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">verbs</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">[];</span>
@@ -153882,7 +153882,7 @@ See https://pkg.go.dev/k8s.io/apiserver/pkg/cel/library#Authz</li>
 request resource.</li>
 </ul>
 <p>The <code>apiVersion</code>, <code>kind</code>, <code>metadata.name</code> and <code>metadata.generateName</code> are always accessible from the root of the object. No other metadata properties are accessible.</p>
-<p>Only property names of the form <code>[a-zA-Z_.-/][a-zA-Z0-9_.-/]*</code> are accessible. Accessible property names are escaped according to the following rules when accessed in the expression: - &lsquo;<strong>&rsquo; escapes to &lsquo;__underscores</strong>&rsquo; - &lsquo;.&rsquo; escapes to &lsquo;<strong>dot</strong>&rsquo; - &lsquo;-&rsquo; escapes to &lsquo;<strong>dash</strong>&rsquo; - &lsquo;/&rsquo; escapes to &lsquo;<strong>slash</strong>&rsquo; - Property names that exactly match a CEL RESERVED keyword escape to &lsquo;<strong>{keyword}</strong>&rsquo;. The keywords are:
+<p>Only property names of the form <code>[a-zA-Z_.-/][a-zA-Z0-9_.-/]*</code> are accessible. Accessible property names are escaped according to the following rules when accessed in the expression: - &lsquo;<strong>&rsquo; escapes to &lsquo;<strong>underscores</strong>&rsquo; - &lsquo;.&rsquo; escapes to &lsquo;<strong>dot</strong>&rsquo; - &lsquo;-&rsquo; escapes to &lsquo;<strong>dash</strong>&rsquo; - &lsquo;/&rsquo; escapes to &lsquo;<strong>slash</strong>&rsquo; - Property names that exactly match a CEL RESERVED keyword escape to &lsquo;</strong>{keyword}__&rsquo;. The keywords are:
 &ldquo;true&rdquo;, &ldquo;false&rdquo;, &ldquo;null&rdquo;, &ldquo;in&rdquo;, &ldquo;as&rdquo;, &ldquo;break&rdquo;, &ldquo;const&rdquo;, &ldquo;continue&rdquo;, &ldquo;else&rdquo;, &ldquo;for&rdquo;, &ldquo;function&rdquo;, &ldquo;if&rdquo;,
 &ldquo;import&rdquo;, &ldquo;let&rdquo;, &ldquo;loop&rdquo;, &ldquo;package&rdquo;, &ldquo;namespace&rdquo;, &ldquo;return&rdquo;.
 Examples:
@@ -153988,7 +153988,7 @@ Required.</p>
 - A schema with no type and x-kubernetes-preserve-unknown-fields set to true
 - An array where the items schema is of an &ldquo;unknown type&rdquo;
 - An object where the additionalProperties schema is of an &ldquo;unknown type&rdquo;</p>
-<p>Only property names of the form <code>[a-zA-Z_.-/][a-zA-Z0-9_.-/]*</code> are accessible. Accessible property names are escaped according to the following rules when accessed in the expression: - &lsquo;<strong>&rsquo; escapes to &lsquo;__underscores</strong>&rsquo; - &lsquo;.&rsquo; escapes to &lsquo;<strong>dot</strong>&rsquo; - &lsquo;-&rsquo; escapes to &lsquo;<strong>dash</strong>&rsquo; - &lsquo;/&rsquo; escapes to &lsquo;<strong>slash</strong>&rsquo; - Property names that exactly match a CEL RESERVED keyword escape to &lsquo;<strong>{keyword}</strong>&rsquo;. The keywords are:
+<p>Only property names of the form <code>[a-zA-Z_.-/][a-zA-Z0-9_.-/]*</code> are accessible. Accessible property names are escaped according to the following rules when accessed in the expression: - &lsquo;<strong>&rsquo; escapes to &lsquo;<strong>underscores</strong>&rsquo; - &lsquo;.&rsquo; escapes to &lsquo;<strong>dot</strong>&rsquo; - &lsquo;-&rsquo; escapes to &lsquo;<strong>dash</strong>&rsquo; - &lsquo;/&rsquo; escapes to &lsquo;<strong>slash</strong>&rsquo; - Property names that exactly match a CEL RESERVED keyword escape to &lsquo;</strong>{keyword}__&rsquo;. The keywords are:
 &ldquo;true&rdquo;, &ldquo;false&rdquo;, &ldquo;null&rdquo;, &ldquo;in&rdquo;, &ldquo;as&rdquo;, &ldquo;break&rdquo;, &ldquo;const&rdquo;, &ldquo;continue&rdquo;, &ldquo;else&rdquo;, &ldquo;for&rdquo;, &ldquo;function&rdquo;, &ldquo;if&rdquo;,
 &ldquo;import&rdquo;, &ldquo;let&rdquo;, &ldquo;loop&rdquo;, &ldquo;package&rdquo;, &ldquo;namespace&rdquo;, &ldquo;return&rdquo;.
 Examples:
