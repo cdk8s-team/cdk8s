@@ -7,6 +7,7 @@ on:
       - opened
       - reopened
       - ready_for_review
+      - synchronize
 jobs:
   enableAutoQueue:
     name: "Set AutoQueue on PR #${{ github.event.number }}"
@@ -14,6 +15,7 @@ jobs:
     permissions:
       pull-requests: write
       contents: write
+    if: github.event.action != 'synchronize' || (!github.event.pull_request.draft && contains(github.event.pull_request.labels.*.name, 'auto-approve') && github.event.pull_request.user.login == 'cdk8s-automation')
     steps:
       - id: auto-queue-pr
         env:

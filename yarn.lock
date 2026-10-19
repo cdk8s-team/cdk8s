@@ -263,10 +263,10 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@cdk8s/projen-common@^0.1.37":
-  version "0.1.37"
-  resolved "https://registry.yarnpkg.com/@cdk8s/projen-common/-/projen-common-0.1.37.tgz#ab76c6e3d669a361045996c60c092997d9e124fe"
-  integrity sha512-KdwxPNzNWWzjp8Lv8kt7BJ9Ynd13xbs6c5xx/X2ugHYOK4DwqwnbaZo0mMHabSJMgd3o+u++OGJl0y8zzDwBuA==
+"@cdk8s/projen-common@^0.1.39":
+  version "0.1.39"
+  resolved "https://registry.yarnpkg.com/@cdk8s/projen-common/-/projen-common-0.1.39.tgz#6ba6bc162ae7bf0709f1bfa9c2ffd845f7a07db2"
+  integrity sha512-RrUiS+bPpm/kBXC6IXI2l/F9b3tcpSxnQwqYvVYmxV2fwpWJFfoBs8rHLIMACrrqZ5cHU+tBiCGBF+N+yM1CVA==
   dependencies:
     codemaker "^1.141.0"
     deepmerge "^4.3.1"
@@ -2341,10 +2341,10 @@ case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s-cli@^2.207.67:
-  version "2.207.67"
-  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.207.67.tgz#84888a3e16044e0f09dc2f481a906a3b0b47b3f2"
-  integrity sha512-upVe/Pd39lDWRf8+lmz8gexOjwp+QIDBN2M7ICNmp/Ia96e0D5O7MQUEzaaOIYGt7vtOjKc57eJEjL5PzVJFdg==
+cdk8s-cli@^2.207.68:
+  version "2.207.68"
+  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.207.68.tgz#39f1a451c8a76f37d581cf1d322ff6c13c449395"
+  integrity sha512-fiOTlW4BTcG3ePOc8C2pNP8wUQXqcXlc4eTC1m+5cCxUEhB/zeUyVyc5FVHBwAFh5aHzEpIAYo6Egdf/bueUmQ==
   dependencies:
     "@types/node" "^16"
     ajv "^8.20.0"
@@ -2355,7 +2355,7 @@ cdk8s-cli@^2.207.67:
     constructs "^10.8.1"
     fs-extra "^8"
     jsii-pacmak "^1.141.0"
-    jsii-rosetta "^5.9.70"
+    jsii-rosetta "^5.9.71"
     jsii-srcmak "0.1.1319"
     json2jsii "0.5.19"
     semver "^7.8.5"
@@ -5209,10 +5209,10 @@ jsii-reflect@^1.141.0:
     oo-ascii-tree "^1.141.0"
     yargs "^17.7.3"
 
-jsii-rosetta@^5.9.3, jsii-rosetta@^5.9.70:
-  version "5.9.70"
-  resolved "https://registry.yarnpkg.com/jsii-rosetta/-/jsii-rosetta-5.9.70.tgz#e3367815889a2965a6021274b0a0dc4ae7b64d18"
-  integrity sha512-nMEBWdw9KZur6ia0CcM04UVdBVjgXwojTkCRIzxJtGvdWcExB3u73LAUxCaAKLkG20jemvXl+nmeFjbTlp2sbw==
+jsii-rosetta@^5.9.3, jsii-rosetta@^5.9.71:
+  version "5.9.71"
+  resolved "https://registry.yarnpkg.com/jsii-rosetta/-/jsii-rosetta-5.9.71.tgz#693debabcd0b1f6cefa0854d191d95682dba77b7"
+  integrity sha512-cPpjZZpAsF3FMc5iGrI1WUVxJBA0ELXqTJZHaEl/CQkB6QXRfi4U7tIw+TtBG78vcLwmDNFR7XPA+VaNyNwK/Q==
   dependencies:
     "@jsii/check-node" "^1.141.0"
     "@jsii/spec" "^1.141.0"
