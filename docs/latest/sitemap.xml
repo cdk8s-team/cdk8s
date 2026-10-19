@@ -117,74 +117,6 @@
          <lastmod>2026-10-19</lastmod>
     </url>
     <url>
-         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-34/config-map/</loc>
-         <lastmod>2026-10-19</lastmod>
-    </url>
-    <url>
-         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-34/container/</loc>
-         <lastmod>2026-10-19</lastmod>
-    </url>
-    <url>
-         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-34/cronjob/</loc>
-         <lastmod>2026-10-19</lastmod>
-    </url>
-    <url>
-         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-34/deployment/</loc>
-         <lastmod>2026-10-19</lastmod>
-    </url>
-    <url>
-         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-34/horizontal-pod-autoscaler/</loc>
-         <lastmod>2026-10-19</lastmod>
-    </url>
-    <url>
-         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-34/ingress/</loc>
-         <lastmod>2026-10-19</lastmod>
-    </url>
-    <url>
-         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-34/job/</loc>
-         <lastmod>2026-10-19</lastmod>
-    </url>
-    <url>
-         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-34/namespace/</loc>
-         <lastmod>2026-10-19</lastmod>
-    </url>
-    <url>
-         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-34/network-policy/</loc>
-         <lastmod>2026-10-19</lastmod>
-    </url>
-    <url>
-         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-34/pod/</loc>
-         <lastmod>2026-10-19</lastmod>
-    </url>
-    <url>
-         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-34/pv/</loc>
-         <lastmod>2026-10-19</lastmod>
-    </url>
-    <url>
-         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-34/pvc/</loc>
-         <lastmod>2026-10-19</lastmod>
-    </url>
-    <url>
-         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-34/rbac/</loc>
-         <lastmod>2026-10-19</lastmod>
-    </url>
-    <url>
-         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-34/secret/</loc>
-         <lastmod>2026-10-19</lastmod>
-    </url>
-    <url>
-         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-34/service-account/</loc>
-         <lastmod>2026-10-19</lastmod>
-    </url>
-    <url>
-         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-34/service/</loc>
-         <lastmod>2026-10-19</lastmod>
-    </url>
-    <url>
-         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-34/volume/</loc>
-         <lastmod>2026-10-19</lastmod>
-    </url>
-    <url>
          <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-35/config-map/</loc>
          <lastmod>2026-10-19</lastmod>
     </url>
@@ -321,6 +253,74 @@
          <lastmod>2026-10-19</lastmod>
     </url>
     <url>
+         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-37/config-map/</loc>
+         <lastmod>2026-10-19</lastmod>
+    </url>
+    <url>
+         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-37/container/</loc>
+         <lastmod>2026-10-19</lastmod>
+    </url>
+    <url>
+         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-37/cronjob/</loc>
+         <lastmod>2026-10-19</lastmod>
+    </url>
+    <url>
+         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-37/deployment/</loc>
+         <lastmod>2026-10-19</lastmod>
+    </url>
+    <url>
+         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-37/horizontal-pod-autoscaler/</loc>
+         <lastmod>2026-10-19</lastmod>
+    </url>
+    <url>
+         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-37/ingress/</loc>
+         <lastmod>2026-10-19</lastmod>
+    </url>
+    <url>
+         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-37/job/</loc>
+         <lastmod>2026-10-19</lastmod>
+    </url>
+    <url>
+         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-37/namespace/</loc>
+         <lastmod>2026-10-19</lastmod>
+    </url>
+    <url>
+         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-37/network-policy/</loc>
+         <lastmod>2026-10-19</lastmod>
+    </url>
+    <url>
+         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-37/pod/</loc>
+         <lastmod>2026-10-19</lastmod>
+    </url>
+    <url>
+         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-37/pv/</loc>
+         <lastmod>2026-10-19</lastmod>
+    </url>
+    <url>
+         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-37/pvc/</loc>
+         <lastmod>2026-10-19</lastmod>
+    </url>
+    <url>
+         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-37/rbac/</loc>
+         <lastmod>2026-10-19</lastmod>
+    </url>
+    <url>
+         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-37/secret/</loc>
+         <lastmod>2026-10-19</lastmod>
+    </url>
+    <url>
+         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-37/service-account/</loc>
+         <lastmod>2026-10-19</lastmod>
+    </url>
+    <url>
+         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-37/service/</loc>
+         <lastmod>2026-10-19</lastmod>
+    </url>
+    <url>
+         <loc>https://cdk8s.io/docs/latest/plus/cdk8s-plus-37/volume/</loc>
+         <lastmod>2026-10-19</lastmod>
+    </url>
+    <url>
          <loc>https://cdk8s.io/docs/latest/reference/</loc>
          <lastmod>2026-10-19</lastmod>
     </url>
@@ -385,18 +385,6 @@
          <lastmod>2026-10-19</lastmod>
     </url>
     <url>
-         <loc>https://cdk8s.io/docs/latest/reference/cdk8s-plus-34/java/</loc>
-         <lastmod>2026-10-19</lastmod>
-    </url>
-    <url>
-         <loc>https://cdk8s.io/docs/latest/reference/cdk8s-plus-34/python/</loc>
-         <lastmod>2026-10-19</lastmod>
-    </url>
-    <url>
-         <loc>https://cdk8s.io/docs/latest/reference/cdk8s-plus-34/typescript/</loc>
-         <lastmod>2026-10-19</lastmod>
-    </url>
-    <url>
          <loc>https://cdk8s.io/docs/latest/reference/cdk8s-plus-35/go/</loc>
          <lastmod>2026-10-19</lastmod>
     </url>
@@ -426,6 +414,22 @@
     </url>
     <url>
          <loc>https://cdk8s.io/docs/latest/reference/cdk8s-plus-36/typescript/</loc>
+         <lastmod>2026-10-19</lastmod>
+    </url>
+    <url>
+         <loc>https://cdk8s.io/docs/latest/reference/cdk8s-plus-37/go/</loc>
+         <lastmod>2026-10-19</lastmod>
+    </url>
+    <url>
+         <loc>https://cdk8s.io/docs/latest/reference/cdk8s-plus-37/java/</loc>
+         <lastmod>2026-10-19</lastmod>
+    </url>
+    <url>
+         <loc>https://cdk8s.io/docs/latest/reference/cdk8s-plus-37/python/</loc>
+         <lastmod>2026-10-19</lastmod>
+    </url>
+    <url>
+         <loc>https://cdk8s.io/docs/latest/reference/cdk8s-plus-37/typescript/</loc>
          <lastmod>2026-10-19</lastmod>
     </url>
 </urlset>
