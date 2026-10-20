@@ -152759,11 +152759,11 @@ In this case, the rules for each are combined additively.</p>
 <p><code>nonResourceURLs</code> is a set of url prefixes that a user should have access to and may not be empty.</p>
 <p>For example:
 - &ldquo;/healthz&rdquo; is legal
-- &ldquo;/hea*&rdquo; is illegal
+- &ldquo;/hea<em>&rdquo; is illegal
 - &ldquo;/hea&rdquo; is legal but matches nothing
-- &ldquo;/hea/<em>&rdquo; also matches nothing
-- &ldquo;/healthz/</em>&rdquo; matches all per-component health checks.
-&ldquo;*&rdquo; matches all non-resource urls. if it is present, it must be the only entry. Required.</p>
+- &ldquo;/hea/</em>&rdquo; also matches nothing
+- &ldquo;/healthz/<em>&rdquo; matches all per-component health checks.
+&ldquo;</em>&rdquo; matches all non-resource urls. if it is present, it must be the only entry. Required.</p>
 <hr />
 <h5 id="verbsrequired_3"><code>verbs</code><sup>Required</sup> <a name="verbs" id="cdk8s-plus-37.k8s.NonResourcePolicyRule.property.verbs"></a><a class="headerlink" href="#verbsrequired_3" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">verbs</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">[];</span>
