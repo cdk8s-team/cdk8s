@@ -701,15 +701,7 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
-"@jsii/check-node@1.141.0":
-  version "1.141.0"
-  resolved "https://registry.yarnpkg.com/@jsii/check-node/-/check-node-1.141.0.tgz#5f996a007c88100dec64c76f96ed61059b75fe9e"
-  integrity sha512-dGAUZmacdWhZtmPuTNOf9avAsh0IHwZ5m6mNzOrJ0aVTgDu3L9PWw4dq99emn6Xx0pYCrSs+W4xcbp71bH3MLQ==
-  dependencies:
-    chalk "^4.1.2"
-    semver "^7.8.5"
-
-"@jsii/check-node@1.142.0", "@jsii/check-node@^1.141.0":
+"@jsii/check-node@1.142.0", "@jsii/check-node@^1.142.0":
   version "1.142.0"
   resolved "https://registry.yarnpkg.com/@jsii/check-node/-/check-node-1.142.0.tgz#29b507b9e9d806799ba9a12b0d4cb179aa855d17"
   integrity sha512-viMnVpg4vfa22vYawtQqjkuOsLa5eYRpKfs1aTxBE7/WsXLCfvqCX0XNgi27NmIHUtUzXUpzzS+gmY1731h1tQ==
@@ -717,12 +709,7 @@
     chalk "^4.1.2"
     semver "^7.8.5"
 
-"@jsii/spec@1.141.0":
-  version "1.141.0"
-  resolved "https://registry.yarnpkg.com/@jsii/spec/-/spec-1.141.0.tgz#77b18c711f17c741a215a9b9bee8ca36ac148cfb"
-  integrity sha512-NL/2TJnpfs332uuEWUV8Rx2wrV/gLoxdw7pmv457BoUwpOL6ZqOYgM6W54Niqn4RCjdxGddVL2l4CJBRMW0NgQ==
-
-"@jsii/spec@1.142.0", "@jsii/spec@^1.141.0":
+"@jsii/spec@1.142.0", "@jsii/spec@^1.142.0":
   version "1.142.0"
   resolved "https://registry.yarnpkg.com/@jsii/spec/-/spec-1.142.0.tgz#ef802291a26229d34855de1d404681cfb709e9f4"
   integrity sha512-6AX6EpAMn7YNWwKr0c19LShxFnSXokhMaOZedkHxAEkoY12Rs1XkZLFgHoag7HdFQ3k8EPsQ4b2iyX24LEXtZg==
@@ -2153,9 +2140,9 @@ base64-js@^1.3.1:
   integrity sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==
 
 baseline-browser-mapping@^2.11.29:
-  version "2.11.32"
-  resolved "https://registry.yarnpkg.com/baseline-browser-mapping/-/baseline-browser-mapping-2.11.32.tgz#39db30e6afecf5eeec4433c6a2fe0a39982b0997"
-  integrity sha512-UvuxFU9P3hM29LrQdwu0cD6w6/+SFr+UlB9s/knI7+O2rK9xFxKUwSDWxGdbbqQ9/V7BJ5s0NI5nQAE4uJp3gQ==
+  version "2.11.33"
+  resolved "https://registry.yarnpkg.com/baseline-browser-mapping/-/baseline-browser-mapping-2.11.33.tgz#117253b1d92cc6e1dd9a8aa5a53d9da916b984ad"
+  integrity sha512-yiVKDX+qCMRKBE084lXvq9EcwFUhKZ2nU8TK1EQQuOgPNR/lmbGxXOeDdlGUqC2Zz11Cs9rk1d/8NfgBmlkt0w==
 
 before-after-hook@^2.2.0:
   version "2.2.3"
@@ -2405,13 +2392,13 @@ cdk8s-plus-37@^2.0.2:
   dependencies:
     minimatch "^9.0.9"
 
-cdk8s@^2.70.113:
-  version "2.70.113"
-  resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-2.70.113.tgz#1c3ed32c2543975e47e311510d06123980208e1a"
-  integrity sha512-cjaGkyduag9zmGcbdJGT8ZZ+YsYWMuWF6mgA09roim/ndWUDII2UJFmNDaNFBbrqfXiuLD9G/hnp6KPadnj9Aw==
+cdk8s@^2.70.113, cdk8s@^2.70.114:
+  version "2.70.114"
+  resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-2.70.114.tgz#88f5e0b192989b5a6176fedcc5fa09b12a69002d"
+  integrity sha512-+M9uuZrGs/gauaSSUZdDQ+k0Xr3CMfDi+oix9wQ1vGReUoSOZ4+ZMFGDrjKOzpSe2DEFAeVF0qQj4fEGert++Q==
   dependencies:
     fast-json-patch "^3.1.1"
-    follow-redirects "^1.16.1"
+    follow-redirects "^1.16.2"
     yaml "2.9.1"
 
 chalk@4.1.0:
@@ -3616,10 +3603,10 @@ flatted@^3.2.7, flatted@^3.2.9:
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-3.4.4.tgz#aeeca2a506303f0cee61c59e6c9f2a88d2f29fc6"
   integrity sha512-5+ybhBZANEJxaH3X5evAFatUxLfEHSr7n6kYJ+1Qd0mUqr4eu9gIf6GDbWHf8RJijHrjjO8G+la14SlL2SeS1Q==
 
-follow-redirects@^1.16.0, follow-redirects@^1.16.1:
-  version "1.16.1"
-  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.16.1.tgz#6e0efa40a727fb369b98dab15883ec34787d675e"
-  integrity sha512-FNvFGzoMLWmE6Yj9spb/zjd7yiNCHiAW9/Tg9CXrQ8wuu32HtlJOwWO11OJafl5FfY3DxTdQ0vj42zU1kvv5jg==
+follow-redirects@^1.16.0, follow-redirects@^1.16.2:
+  version "1.16.2"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.16.2.tgz#a233160dd1bc9b16cbbab43709e6adc7cc941c8c"
+  integrity sha512-/kVP2U8z596Ia0gwFrwyIeo74ta5aVmSeU1FfAUMAmcEP5EP7zydmag3SLiN64NaRKef3lxsq7i/g7ltJQDGow==
 
 for-each@^0.3.3, for-each@^0.3.5:
   version "0.3.5"
@@ -5216,12 +5203,12 @@ jsii-reflect@^1.142.0:
     yargs "^17.7.3"
 
 jsii-rosetta@^5.9.3, jsii-rosetta@^5.9.71:
-  version "5.9.71"
-  resolved "https://registry.yarnpkg.com/jsii-rosetta/-/jsii-rosetta-5.9.71.tgz#693debabcd0b1f6cefa0854d191d95682dba77b7"
-  integrity sha512-cPpjZZpAsF3FMc5iGrI1WUVxJBA0ELXqTJZHaEl/CQkB6QXRfi4U7tIw+TtBG78vcLwmDNFR7XPA+VaNyNwK/Q==
+  version "5.9.72"
+  resolved "https://registry.yarnpkg.com/jsii-rosetta/-/jsii-rosetta-5.9.72.tgz#e63edb386ea3642d51388efd10a30daf085875dc"
+  integrity sha512-PHSzqRm8IiEtHli4xX7BEGRi6wz+f7scLpN7KVW7U4+NaDk36KkTQvzmDO3yHLMqn7uixk9de5N6UMCp+g8f2w==
   dependencies:
-    "@jsii/check-node" "^1.141.0"
-    "@jsii/spec" "^1.141.0"
+    "@jsii/check-node" "^1.142.0"
+    "@jsii/spec" "^1.142.0"
     "@xmldom/xmldom" "^0.9.12"
     chalk "^4"
     commonmark "^0.31.2"
@@ -5247,12 +5234,12 @@ jsii-srcmak@0.1.1319:
     yargs "^17.7.2"
 
 jsii@~5.9.1, jsii@~5.9.3:
-  version "5.9.56"
-  resolved "https://registry.yarnpkg.com/jsii/-/jsii-5.9.56.tgz#4d099940ad1dd935704d6b429643bb7a0e975f5c"
-  integrity sha512-RxV9cmp1qsI03GzTvDbsevWiQakW4/APWO/8uh9kEIZsZ/vaO/HMJ4HcMB/ZbzuSjQdQ6H0vtfWW7Xoe73MtEA==
+  version "5.9.57"
+  resolved "https://registry.yarnpkg.com/jsii/-/jsii-5.9.57.tgz#22bdcfeed9ac07b9d75cd4aca3b073eeefe06915"
+  integrity sha512-+6t5k7zCn7kndIBHj2vhEHGG37aVIZxq2JVcG8md15vyQ67sLu3rqRkXTo4Y56yzcD/Pd9gcHEq99gpRHjpUIw==
   dependencies:
-    "@jsii/check-node" "1.141.0"
-    "@jsii/spec" "1.141.0"
+    "@jsii/check-node" "1.142.0"
+    "@jsii/spec" "1.142.0"
     case "^1.6.3"
     chalk "^4"
     fast-deep-equal "^3.1.3"
