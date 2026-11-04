@@ -30,3 +30,16 @@ jobs:
             chore
             docs
           requireScope: false
+  pull-request-lint:
+    needs: validate
+    runs-on: ubuntu-latest
+    permissions: {}
+    if: always()
+    steps:
+      - name: validate result
+        id: validate_result
+        run: echo ${{ needs.validate.result }}
+      - name: Set status based on pull request checks
+        id: set_status_based_on_pull_request_checks
+        if: ${{ (needs.validate.result != 'success' && needs.validate.result != 'skipped') }}
+        run: exit 1
