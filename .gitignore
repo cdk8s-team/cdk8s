@@ -36,6 +36,7 @@ jspm_packages/
 junit.xml
 /coverage/
 !/.github/workflows/build.yml
+!/.github/workflows/self-mutation.yml
 !/.github/workflows/upgrade-runtime-dependencies.yml
 !/test/
 !/tsconfig.json

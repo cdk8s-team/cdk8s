@@ -49,39 +49,3 @@ jobs:
           echo "::error::Files were changed during build (see build log). If this was triggered from a fork, you will need to update your branch."
           cat repo.patch
           exit 1
-  self-mutation:
-    needs: build
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    if: always() && needs.build.outputs.self_mutation_happened && !(github.event.pull_request.head.repo.full_name != github.repository)
-    steps:
-      - name: Checkout
-        id: checkout
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
-        with:
-          token: ${{ secrets.PROJEN_GITHUB_TOKEN }}
-          ref: ${{ github.event.pull_request.head.ref }}
-          repository: ${{ github.event.pull_request.head.repo.full_name }}
-      - name: Download patch
-        id: download_patch
-        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
-        with:
-          name: repo.patch
-          path: ${{ runner.temp }}
-      - name: Apply patch
-        id: apply_patch
-        run: '[ -s ${{ runner.temp }}/repo.patch ] && git apply ${{ runner.temp }}/repo.patch || echo "Empty patch. Skipping."'
-      - name: Set git identity
-        id: set_git_identity
-        run: |-
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-      - name: Push changes
-        id: push_changes
-        env:
-          PULL_REQUEST_REF: ${{ github.event.pull_request.head.ref }}
-        run: |-
-          git add .
-          git commit -s -m "chore: self mutation"
-          git push origin "HEAD:$PULL_REQUEST_REF"

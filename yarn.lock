@@ -263,10 +263,10 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@cdk8s/projen-common@^0.1.46":
-  version "0.1.46"
-  resolved "https://registry.yarnpkg.com/@cdk8s/projen-common/-/projen-common-0.1.46.tgz#a87eaf74600096320e101bda5655bfea9fe937b0"
-  integrity sha512-SLVVVk1U/rG7WSTjejKMjjCLceBYiZvZjRsOidl3HSvUP/YNX3m95Ue8VK2QlCAq9S154SVKED7OxRJPLpD5FQ==
+"@cdk8s/projen-common@^0.1.47":
+  version "0.1.47"
+  resolved "https://registry.yarnpkg.com/@cdk8s/projen-common/-/projen-common-0.1.47.tgz#95676f8cdc7363de88593fd3a16c85adb1a76413"
+  integrity sha512-WqCC/n1sWMgYp8NMSSRgUdYGhqnFKZHkoUeEtRAfC4O8Esg3dMYJSiTkVifC8sYaj4NjiVEA1qknMlMzny8HAw==
   dependencies:
     codemaker "^1.142.0"
     deepmerge "^4.3.1"
@@ -3922,10 +3922,15 @@ got@12.3.1:
     p-cancelable "^3.0.0"
     responselike "^2.0.0"
 
-graceful-fs@4.2.11, graceful-fs@^4.1.11, graceful-fs@^4.1.15, graceful-fs@^4.1.2, graceful-fs@^4.1.6, graceful-fs@^4.2.0, graceful-fs@^4.2.6, graceful-fs@^4.2.9:
+graceful-fs@4.2.11, graceful-fs@^4.1.11, graceful-fs@^4.1.15, graceful-fs@^4.1.2, graceful-fs@^4.2.6, graceful-fs@^4.2.9:
   version "4.2.11"
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.11.tgz#4183e4e8bf08bb6e05bbb2f7d2e0c8f712ca40e3"
   integrity sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==
+
+graceful-fs@^4.1.6, graceful-fs@^4.2.0:
+  version "4.2.12"
+  resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.12.tgz#7f6162dee07bc600281cea1b038e5f7cf215a6c2"
+  integrity sha512-iuyGF2E4oafQfPsRrG2wtY2ILupMhvtdrhzrxB+0VcjsPpSPttpfYdjnGFGsTi5MaJFjI1jOKHPQ6UTbTj9TAw==
 
 handlebars@^4.7.7:
   version "4.7.10"
@@ -6620,10 +6625,10 @@ proggy@^2.0.0:
   resolved "https://registry.yarnpkg.com/proggy/-/proggy-2.0.0.tgz#154bb0e41d3125b518ef6c79782455c2c47d94e1"
   integrity sha512-69agxLtnI8xBs9gUGqEnK26UfiexpHy+KUpBQWabiytQjnn5wFY8rklAi7GRfABIuPNnQ/ik48+LGLkYYJcy4A==
 
-projen@^0.104.27:
-  version "0.104.27"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.104.27.tgz#70b1d0b1421258e73af77df8ce765d8f23cdb415"
-  integrity sha512-L02IpJLrgNUTs06ssI256E+E0uaFQ5QZG3VaPntMqXVlvnuDaCVJHPx6JGt6pM/fxgvy0ZAKaLYxY3sSGXEOgg==
+projen@^0.104.29:
+  version "0.104.29"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.104.29.tgz#4cd3a728f10b72fd532884c9ae4ed09cff848b02"
+  integrity sha512-73rLoHtMUqu+2ShVghkPyYKt9iwrAAZnGj05cl3ejHIfNrXZbEKSBDyLp45/vrUzKrOadBwSRDpJwK8ZMwmQHA==
   dependencies:
     "@iarna/toml" "^2.2.5"
     case "^1.6.3"
