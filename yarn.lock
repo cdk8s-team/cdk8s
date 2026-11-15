@@ -2296,14 +2296,14 @@ case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s-cli@^2.207.83:
-  version "2.207.83"
-  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.207.83.tgz#a7caccfb103efc9b199982b8cc717f96b40d850d"
-  integrity sha512-V7ZNHL6BaW7R2Ewp0cn9S9NR7eO+lGIhVyv7AOCq84PXilYgZE8czswHXQmDFdt0p5R2p8xdiEGe5gcnwxlxPQ==
+cdk8s-cli@^2.207.84:
+  version "2.207.84"
+  resolved "https://registry.yarnpkg.com/cdk8s-cli/-/cdk8s-cli-2.207.84.tgz#0b6aa9d24cfc1ad7e1852ee62eda9eb400adddd9"
+  integrity sha512-nMnwveb1kQvbeTdY2tSJy2YOCnRbq6G824kFJsdODiYKOscYgiBmWQzEM0QFatJqvKFk3tdSiEYiyDg7d96bWA==
   dependencies:
     "@types/node" "^16"
     ajv "^8.20.0"
-    cdk8s "^2.70.123"
+    cdk8s "^2.70.124"
     cdk8s-plus-33 "^2.5.63"
     codemaker "^1.142.0"
     colors "1.4.0"
@@ -2326,31 +2326,31 @@ cdk8s-plus-33@^2.5.63:
   dependencies:
     minimatch "^9.0.9"
 
-cdk8s-plus-35@^2.0.10:
-  version "2.0.10"
-  resolved "https://registry.yarnpkg.com/cdk8s-plus-35/-/cdk8s-plus-35-2.0.10.tgz#3a9fb38d77ed93f3e3170d025dab8df9516772cf"
-  integrity sha512-Xle2KMJ4d6og2t1jBLKLCCXByCZwiCjfYeF8b/HbUlVjUQt1GmALyRjPgHwXoIRo8JbnJPPApXr15JDSeFWCng==
+cdk8s-plus-35@^2.0.11:
+  version "2.0.11"
+  resolved "https://registry.yarnpkg.com/cdk8s-plus-35/-/cdk8s-plus-35-2.0.11.tgz#13aa0af96ea65978dc9c08024cb7c9a812d122f7"
+  integrity sha512-bACu5PHaTR87XLImqnd0XrzEBFTUlIFR74uZcJeZBYT2BL00gVnesJhMXalIH++pc+PeHXBmpF0qY2Hd8fmsPg==
   dependencies:
     minimatch "^9.0.9"
 
-cdk8s-plus-36@^2.0.7:
-  version "2.0.7"
-  resolved "https://registry.yarnpkg.com/cdk8s-plus-36/-/cdk8s-plus-36-2.0.7.tgz#546297869b3d533448675483446fcf08c51264af"
-  integrity sha512-gIKGHQ4VoBAf5vHhsF24+ShfePPl7rS0aPKYZe9JfcZ/XX5MnK7Pt7qPogLPZaWqPMEBhk2KpWuxqe31qN0rTQ==
-  dependencies:
-    minimatch "^9.0.9"
-
-cdk8s-plus-37@^2.0.8:
+cdk8s-plus-36@^2.0.8:
   version "2.0.8"
-  resolved "https://registry.yarnpkg.com/cdk8s-plus-37/-/cdk8s-plus-37-2.0.8.tgz#ddbbc90604a48f9528eb1a265f630ecd2a9cac5e"
-  integrity sha512-wEaDF6FZQrvXfUr3dXREVT+BKJVknwz6vbnIbOc+T4QRIw5hEZ2uGHja4l7D5N0ykDi97AvYhnZDKiH4fe62Pw==
+  resolved "https://registry.yarnpkg.com/cdk8s-plus-36/-/cdk8s-plus-36-2.0.8.tgz#6e6dd40826d99e720d122339734a4964612364a2"
+  integrity sha512-rtIy0zGdiyFVu74KN2l4Nfh7ToqGzEulDttbLHPdmZmZZHvAQBtQ2YYhT4TOWCfYS+iZH+vgAMN0A95PqS8VLg==
   dependencies:
     minimatch "^9.0.9"
 
-cdk8s@^2.70.123:
-  version "2.70.123"
-  resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-2.70.123.tgz#cfd994c3fcbc93c38e78842bf5e26ca71fd31735"
-  integrity sha512-2abVScvwlSLpqWsDFIVTKrgnVX9cqKAQ/gkJzooyjvrkYDtkFxAERi6NZeZZQ1WHsHJuFYoyvFCoRTwZ00vboQ==
+cdk8s-plus-37@^2.0.9:
+  version "2.0.9"
+  resolved "https://registry.yarnpkg.com/cdk8s-plus-37/-/cdk8s-plus-37-2.0.9.tgz#bc66bb1a475c26f55b608e0a58dbd3f0d678d75b"
+  integrity sha512-UY5M2H++MARgFL+zKXcdoNeoPppa6ZiFKrSU9bHtEGEk7+csE4iIBoe/5O/qg61YqHVdXAz7DnIW/uaYyEwtAg==
+  dependencies:
+    minimatch "^9.0.9"
+
+cdk8s@^2.70.124:
+  version "2.70.124"
+  resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-2.70.124.tgz#c9a65d47ab9d896e644ae60096fb548c002c1e9e"
+  integrity sha512-rxIUb7U2C8uZBl45iU/mKSPBwnMNNns3ySblDsEx+OCBPHVh+cyRrn2pL+jpQDdAuKBcu48OvB6OHyCffcsvpA==
   dependencies:
     fast-json-patch "^3.1.1"
     follow-redirects "^1.16.3"
@@ -3005,9 +3005,9 @@ ejs@^3.1.7:
     jake "^10.8.5"
 
 electron-to-chromium@^1.5.464:
-  version "1.5.485"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.485.tgz#c679751783f7d6c1415aefd5b3471f833569fbaf"
-  integrity sha512-m3uadzR0Z+sR19HGWgfxoZcKv9hE/edVM9OZ+FJ4wNRyfuFtkwZJIDoehEty5sisYVwmge8lKV1tenWOyClVgw==
+  version "1.5.486"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.486.tgz#8d46dcbd2ec08d98ffd67af164f38f58ff1238da"
+  integrity sha512-rpybw4Ac4ak/An6G1Me2+61xzwobowDGyuJe71QHHOVpkZv4fPVobsLl7WH6zHSKusAMpaHxGKTpOvpy7+r3dQ==
 
 emittery@^0.8.1:
   version "0.8.1"
