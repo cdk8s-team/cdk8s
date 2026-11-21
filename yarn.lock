@@ -263,10 +263,10 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@cdk8s/projen-common@^0.1.51":
-  version "0.1.51"
-  resolved "https://registry.yarnpkg.com/@cdk8s/projen-common/-/projen-common-0.1.51.tgz#0621ee14f2fd30e4caaaa470d1971546b555a129"
-  integrity sha512-8UjoIvZbZcBmuBM4oaA9RGWle6arAZmZjWji7CrhgTl3iZ5AQo7m87awXNqwMAypetEvCxNNMOvM27ZyEnrs8A==
+"@cdk8s/projen-common@^0.1.53":
+  version "0.1.53"
+  resolved "https://registry.yarnpkg.com/@cdk8s/projen-common/-/projen-common-0.1.53.tgz#3e34fe114f17e620fe0450fa251dfbff2e29b6ae"
+  integrity sha512-LWYJHlZmcffsN6BRD1wk/Dyf+zOBl6SEy3zpcNNsy0NNjgygdyCcAnDZy6mD3gQUraW8Q+mBqcsWllTKnKbnOw==
   dependencies:
     codemaker "^1.143.0"
     deepmerge "^4.3.1"
@@ -3485,9 +3485,9 @@ fast-glob@^3.3.3:
     micromatch "^4.0.8"
 
 fast-json-patch@^3.1.1:
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/fast-json-patch/-/fast-json-patch-3.1.1.tgz#85064ea1b1ebf97a3f7ad01e23f9337e72c66947"
-  integrity sha512-vf6IHUX2SBcA+5/+4883dsIjpBTqmfBjmYiWK1savxQmFk4JfBMLa7ynTYOs1Rolp/T1betJxHiGD3g1Mn8lUQ==
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/fast-json-patch/-/fast-json-patch-3.1.2.tgz#e6f745258f970186cc016f0212319d6794e8fa72"
+  integrity sha512-Dhr5mVii8hIvjkp0Xdrun9B3GlXe3j+L4Ymv8J0h3Di996xoBi8qSDQ/sqSNKZd1NEqx55ZfcseG1MphW7MkHg==
 
 fast-json-stable-stringify@2.x, fast-json-stable-stringify@^2.0.0:
   version "2.1.0"
@@ -6665,10 +6665,10 @@ proggy@^2.0.0:
   resolved "https://registry.yarnpkg.com/proggy/-/proggy-2.0.0.tgz#154bb0e41d3125b518ef6c79782455c2c47d94e1"
   integrity sha512-69agxLtnI8xBs9gUGqEnK26UfiexpHy+KUpBQWabiytQjnn5wFY8rklAi7GRfABIuPNnQ/ik48+LGLkYYJcy4A==
 
-projen@^0.105.6:
-  version "0.105.6"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.105.6.tgz#456ef6146f21b239411282f121a455ea829848ce"
-  integrity sha512-GChhH8h8xxNNfPKXlKJMhRiPpsJ9AyW4KYvQ21Z9R7VIKkvSU7SjaOz4X/qjq449sgwuXHWZoDAEQf0TgA9HNA==
+projen@^0.105.7:
+  version "0.105.7"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.105.7.tgz#314ee8f5c992d69f0795c9cf54f97ff08049d764"
+  integrity sha512-+c5gggJq7lbv613359vMJhAJyoLNBkwTfVhrx82O6uUvCTaaj8k3SGzpfDeqXoSzSGayOkPqE088F4TBzHIi/w==
   dependencies:
     "@iarna/toml" "^2.2.5"
     case "^1.6.3"
