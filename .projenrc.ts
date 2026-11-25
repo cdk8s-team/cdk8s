@@ -33,6 +33,11 @@ const project = new Cdk8sTeamTypeScriptProject({
   projenrcTs: true,
   githubOptions: {
     mergify: false,
+    mergeQueueOptions: {
+      autoQueueOptions: {
+        targetBranches: [mainBranch],
+      },
+    },
   },
 });
 
