@@ -263,10 +263,10 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@cdk8s/projen-common@^0.1.53":
-  version "0.1.53"
-  resolved "https://registry.yarnpkg.com/@cdk8s/projen-common/-/projen-common-0.1.53.tgz#3e34fe114f17e620fe0450fa251dfbff2e29b6ae"
-  integrity sha512-LWYJHlZmcffsN6BRD1wk/Dyf+zOBl6SEy3zpcNNsy0NNjgygdyCcAnDZy6mD3gQUraW8Q+mBqcsWllTKnKbnOw==
+"@cdk8s/projen-common@^0.1.55":
+  version "0.1.55"
+  resolved "https://registry.yarnpkg.com/@cdk8s/projen-common/-/projen-common-0.1.55.tgz#d529253f9647940e1c1c4e5c52e7e2492374a67a"
+  integrity sha512-Urmu0gYDrjfbSSwUo4vvkbfEGHPtX1I45Krc/M4Im2NIeBqxhIDi0o1jeQCZutauMWuT+EW21UlKJX6GoJxSQg==
   dependencies:
     codemaker "^1.143.0"
     deepmerge "^4.3.1"
@@ -3476,7 +3476,7 @@ fast-glob@^3.3.3:
     merge2 "^1.3.0"
     micromatch "^4.0.8"
 
-fast-json-patch@^3.1.1:
+fast-json-patch@^3.1.1, fast-json-patch@^3.1.2:
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/fast-json-patch/-/fast-json-patch-3.1.2.tgz#e6f745258f970186cc016f0212319d6794e8fa72"
   integrity sha512-Dhr5mVii8hIvjkp0Xdrun9B3GlXe3j+L4Ymv8J0h3Di996xoBi8qSDQ/sqSNKZd1NEqx55ZfcseG1MphW7MkHg==
@@ -6657,10 +6657,10 @@ proggy@^2.0.0:
   resolved "https://registry.yarnpkg.com/proggy/-/proggy-2.0.0.tgz#154bb0e41d3125b518ef6c79782455c2c47d94e1"
   integrity sha512-69agxLtnI8xBs9gUGqEnK26UfiexpHy+KUpBQWabiytQjnn5wFY8rklAi7GRfABIuPNnQ/ik48+LGLkYYJcy4A==
 
-projen@^0.105.7:
-  version "0.105.7"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.105.7.tgz#314ee8f5c992d69f0795c9cf54f97ff08049d764"
-  integrity sha512-+c5gggJq7lbv613359vMJhAJyoLNBkwTfVhrx82O6uUvCTaaj8k3SGzpfDeqXoSzSGayOkPqE088F4TBzHIi/w==
+projen@^0.105.10:
+  version "0.105.10"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.105.10.tgz#96d8d276fc6086442c479717a8e748cdb8f77592"
+  integrity sha512-72bnEcqM5zj6XklN7ldqn/7PwZ3vjYgnAhlvbGwRvIbM0BIl50kIkP62MjF26Rycr3gfn5e5Pa2FbYSCsRN6QQ==
   dependencies:
     "@iarna/toml" "^2.2.5"
     case "^1.6.3"
@@ -6670,7 +6670,7 @@ projen@^0.105.7:
     conventional-changelog-config-spec "^2.1.0"
     dax "^0.50.2"
     fast-glob "^3.3.3"
-    fast-json-patch "^3.1.1"
+    fast-json-patch "^3.1.2"
     ini "^2.0.0"
     parse-conflict-json "^4.0.0"
     properties-file "^5.0.7"
