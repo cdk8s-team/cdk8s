@@ -12,7 +12,6 @@
     ".github/workflows/security.yml",
     ".github/workflows/self-mutation.yml",
     ".github/workflows/stale.yml",
-    ".github/workflows/triage.yml",
     ".github/workflows/upgrade-compiler-dependencies.yml",
     ".github/workflows/upgrade-configuration.yml",
     ".github/workflows/upgrade-dev-dependencies.yml",
