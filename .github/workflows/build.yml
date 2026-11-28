@@ -25,6 +25,8 @@ jobs:
         with:
           node-version: lts/*
           package-manager-cache: false
+      - name: Setup yarn
+        run: command -v yarn >/dev/null 2>&1 || npm install -g yarn@1.22.22
       - name: Install dependencies
         run: yarn install --check-files
       - name: build
